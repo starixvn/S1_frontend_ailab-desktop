@@ -223,8 +223,8 @@ header .header > div.menu > button {
   font-family: "Segoe UI", sans-serif;
   position: relative;
 }
-header .header > div.menu > a::before :not(.cryptobtn),
-header .header > div.menu > button::before :not(.cryptobtn) {
+header .header > div.menu > a::before,
+header .header > div.menu > button::before {
   position: absolute;
   top: -10px;
   left: 20px;
@@ -303,8 +303,8 @@ header .header > div.menu > a.event img,
 header .header > div.menu > button.event img {
   height: 34px;
 }
-header .header > div.menu > a.cryptobtn::before,
-header .header > div.menu > button.cryptobtn::before {
+header .header > div.menu > a.cryptobtn::after,
+header .header > div.menu > button.cryptobtn::after {
   display: block;
   content: "";
   background: url(https://banner.bw88.io/desktop/img/cryptosports.png) no-repeat center top/cover;
@@ -313,8 +313,8 @@ header .header > div.menu > button.cryptobtn::before {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
-header .header > div.menu > a.cryptobtn:hover::before,
-header .header > div.menu > button.cryptobtn:hover::before {
+header .header > div.menu > a.cryptobtn:hover::after,
+header .header > div.menu > button.cryptobtn:hover::after {
   background: url(https://banner.bw88.io/desktop/img/cryptosportsa.png) no-repeat center top/cover;
 }
 header .header > div.menu .nweSubMenu-Wrapper {
@@ -356,7 +356,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList,
 header .header > div.menu .nweSubMenu-Wrapper .gameList,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList,
-header .header > div.menu .nweSubMenu-Wrapper .fishList {
+header .header > div.menu .nweSubMenu-Wrapper .fishList,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList {
   width: 100%;
   max-width: inherit;
   display: none;
@@ -396,7 +397,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList div,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList.active,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList div,
 header .header > div.menu .nweSubMenu-Wrapper .fishList.active,
-header .header > div.menu .nweSubMenu-Wrapper .fishList div {
+header .header > div.menu .nweSubMenu-Wrapper .fishList div,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList.active,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -415,7 +418,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -446,7 +451,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button .img,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a .img,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button .img {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button .img,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a .img,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button .img {
   position: relative;
   width: 160px;
   height: 170px;
@@ -462,7 +469,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a .img .light,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .light {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .light,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a .img .light,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button .img .light {
   display: none;
   position: absolute;
   bottom: 10px;
@@ -483,7 +492,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img .light.lig
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .light.light-slot,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button .img .light.light-slot,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a .img .light.light-slot,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .light.light-slot {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .light.light-slot,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a .img .light.light-slot,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button .img .light.light-slot {
   background: url(https://banner.bw88.io/desktop/img/slot/light.png) no-repeat center/auto 100%;
   width: 100px;
   bottom: 25px;
@@ -513,7 +524,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a .img .dice,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .dice {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .dice,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a .img .dice,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button .img .dice {
   position: absolute;
   bottom: 60px;
   left: 30px;
@@ -532,7 +545,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img .dice.dice
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a .img .dice.dice2,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .dice.dice2 {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .dice.dice2,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a .img .dice.dice2,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button .img .dice.dice2 {
   width: 20px;
   height: 20px;
   bottom: 80px;
@@ -548,7 +563,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a .img .ballR1,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .ballR1 {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .ballR1,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a .img .ballR1,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button .img .ballR1 {
   position: absolute;
   bottom: 70px;
   left: 30px;
@@ -567,7 +584,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img .ballR1.ba
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a .img .ballR1.ballG1,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .ballR1.ballG1 {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .ballR1.ballG1,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a .img .ballR1.ballG1,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button .img .ballR1.ballG1 {
   background: url(https://banner.bw88.io/desktop/img/lottery/ball-g1.png) no-repeat center/auto 100%;
   width: 20px;
   height: 20px;
@@ -583,7 +602,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button .logo,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .logo,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button .logo,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a .logo,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button .logo {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button .logo,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a .logo,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button .logo {
   width: 50px;
   height: 30px;
 }
@@ -596,7 +617,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button span,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a span,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button span,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a span,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button span {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button span,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a span,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button span {
   width: 120px;
   white-space: pre-line;
   text-align: center;
@@ -610,7 +633,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button:hover,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a:hover,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a:hover,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(75, 196, 255, 0.2)), color-stop(80%, rgba(130, 228, 255, 0)));
   background: linear-gradient(to bottom, rgba(75, 196, 255, 0.2) 0%, rgba(130, 228, 255, 0) 80%);
   -webkit-transition: 0.7s;
@@ -625,7 +650,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover .img,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover .img,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button:hover .img,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a:hover .img,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover .img {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover .img,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a:hover .img,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button:hover .img {
   -webkit-transform: translateY(-5%);
           transform: translateY(-5%);
 }
@@ -638,7 +665,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover .img .lig
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button:hover .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a:hover .img .light,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover .img .light {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover .img .light,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a:hover .img .light,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button:hover .img .light {
   display: block;
 }
 header .header > div.menu .nweSubMenu-Wrapper .sportsList a:hover .img .dice,
@@ -650,7 +679,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover .img .dic
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button:hover .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a:hover .img .dice,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover .img .dice {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover .img .dice,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a:hover .img .dice,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button:hover .img .dice {
   left: 20px;
   bottom: 80px;
 }
@@ -663,7 +694,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover .img .dic
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button:hover .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a:hover .img .dice.dice2,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover .img .dice.dice2 {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover .img .dice.dice2,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a:hover .img .dice.dice2,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button:hover .img .dice.dice2 {
   left: 105px;
   bottom: 110px;
 }
@@ -676,7 +709,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover .img .bal
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button:hover .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a:hover .img .ballR1,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover .img .ballR1 {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover .img .ballR1,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a:hover .img .ballR1,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button:hover .img .ballR1 {
   left: 20px;
   bottom: 90px;
 }
@@ -689,7 +724,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover .img .bal
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button:hover .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a:hover .img .ballR1.ballG1,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover .img .ballR1.ballG1 {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover .img .ballR1.ballG1,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a:hover .img .ballR1.ballG1,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button:hover .img .ballR1.ballG1 {
   left: 105px;
   bottom: 110px;
 }
@@ -702,7 +739,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover span,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover span,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button:hover span,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a:hover span,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover span {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button:hover span,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a:hover span,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button:hover span {
   color: #56ceff;
 }
 header .header > div.menu .nweSubMenu-Wrapper .sportsList a.under,
@@ -714,7 +753,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button.under,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a.under,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button.under,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a.under,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button.under {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button.under,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a.under,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button.under {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
 }
@@ -727,7 +768,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button.under .underBtn
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a.under .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button.under .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a.under .underBtn,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button.under .underBtn {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button.under .underBtn,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a.under .underBtn,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button.under .underBtn {
   display: block;
 }
 header .header > div.menu .nweSubMenu-Wrapper .sportsList a .underBtn,
@@ -739,7 +782,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList button .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a .underBtn,
-header .header > div.menu .nweSubMenu-Wrapper .fishList button .underBtn {
+header .header > div.menu .nweSubMenu-Wrapper .fishList button .underBtn,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList a .underBtn,
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList button .underBtn {
   display: none;
   background-color: #a59f9f;
   color: #fff;
@@ -791,41 +836,23 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList .virtual .img {
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .sbobet .img {
   background: url(https://banner.bw88.io/desktop/img/sports/sbobet.png) no-repeat center/auto 100%;
 }
-header .header > div.menu .nweSubMenu-Wrapper .gameList .sabaclub .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-saba.png) no-repeat center/auto 100%;
-}
-header .header > div.menu .nweSubMenu-Wrapper .gameList .keno .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-keno.png) no-repeat center/auto 100%;
-}
-header .header > div.menu .nweSubMenu-Wrapper .gameList .lottery .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-lottery.png) no-repeat center/auto 100%;
-}
-header .header > div.menu .nweSubMenu-Wrapper .gameList .one789 .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-789.png) no-repeat center/auto 100%;
-}
-header .header > div.menu .nweSubMenu-Wrapper .gameList .traditional .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-tl.png) no-repeat center/auto 100%;
-}
-header .header > div.menu .nweSubMenu-Wrapper .gameList .v8 .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-v8poker.png) no-repeat center/auto 100%;
-}
-header .header > div.menu .nweSubMenu-Wrapper .gameList .keno .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-keno.png) no-repeat center/auto 100%;
-}
 header .header > div.menu .nweSubMenu-Wrapper .gameList .kingmaker .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-kingmaker.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/new-game/king.png) no-repeat center/auto 100%;
 }
-header .header > div.menu .nweSubMenu-Wrapper .gameList .tcg .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-tcg.png) no-repeat center/auto 100%;
-}
-header .header > div.menu .nweSubMenu-Wrapper .gameList .tablegame .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-table.png) no-repeat center/auto 100%;
-}
-header .header > div.menu .nweSubMenu-Wrapper .gameList .virtual .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/virtual.png) no-repeat center/auto 100%;
+header .header > div.menu .nweSubMenu-Wrapper .gameList .vgaming .img {
+  background: url(https://banner.bw88.io/desktop/img/new-game/vgaming.png) no-repeat center/auto 100%;
 }
 header .header > div.menu .nweSubMenu-Wrapper .gameList .maxgame .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-max.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/new-game/max.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .gameList .v8 .img {
+  background: url(https://banner.bw88.io/desktop/img/new-game/v8.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .gameList .tablegame .img {
+  background: url(https://banner.bw88.io/desktop/img/new-game/table.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .gameList .virtual .img {
+  background: url(https://banner.bw88.io/desktop/img/new-game/virtual.png) no-repeat center/auto 100%;
 }
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .AMB .img {
   background: url(https://banner.bw88.io/desktop/img/slot/amb.png) no-repeat center/auto 100%;
@@ -976,6 +1003,21 @@ header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-or .img {
 }
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-casdaha .img {
   background: url(https://banner.bw88.io/desktop/img/fishing/fish-cai.png) no-repeat center 10px/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList .vn .img {
+  background: url(https://banner.bw88.io/desktop/img/new-lottery/lottery-vn.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList .tcg .img {
+  background: url(https://banner.bw88.io/desktop/img/new-lottery/lottery-tcg.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList .traditional .img {
+  background: url(https://banner.bw88.io/desktop/img/new-lottery/lottery-tl.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList .keno .img {
+  background: url(https://banner.bw88.io/desktop/img/new-lottery/lottery-keno.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .lotteryList .lottery .img {
+  background: url(https://banner.bw88.io/desktop/img/new-lottery/lottery-lottery.png) no-repeat center/auto 100%;
 }
 header .header > div.function {
   display: -webkit-box;
@@ -7397,13 +7439,8 @@ main > .swiper-container .swiper-slide {
 }
 
 .gamelobby {
-  height: auto;
   padding-bottom: 10%;
-  background-size: 100%;
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/gamesbg.png) no-repeat bottom;
-}
-.gamelobby section {
-  max-width: auto;
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/gamelobby-bg03.jpg) no-repeat bottom;
 }
 .gamelobby section .rightModule {
   margin-top: 0;
@@ -7417,24 +7454,77 @@ main > .swiper-container .swiper-slide {
 }
 .gamelobby section .rightModule .lobbybanner .ball1 {
   position: absolute;
+  top: 15%;
+  left: 52%;
+  width: 5.5%;
+  -webkit-animation: ball1 1s ease-in-out;
+          animation: ball1 1s ease-in-out;
+}
+.gamelobby section .rightModule .lobbybanner .ball1.ball2 {
+  top: 2%;
+  left: 90%;
+  width: 4%;
+  -webkit-animation: ball2 1s ease-in-out;
+          animation: ball2 1s ease-in-out;
+}
+.gamelobby section .rightModule .lobbybanner .ball1.ball2 .ballImg {
+  -webkit-animation: moveA 3s linear infinite alternate;
+          animation: moveA 3s linear infinite alternate;
+}
+.gamelobby section .rightModule .lobbybanner .ball1 .ballImg {
+  -webkit-animation: moveB 3s linear infinite alternate;
+          animation: moveB 3s linear infinite alternate;
+}
+.gamelobby section .rightModule .lobbybanner .ball3 {
+  position: absolute;
+  bottom: 50px;
+  right: 30px;
+  width: 8%;
+}
+.gamelobby section .rightModule .lobbybanner .ball3 .ballImg {
+  -webkit-animation: moveC 3s linear infinite alternate;
+          animation: moveC 3s linear infinite alternate;
+}
+
+.lotterylobby {
+  height: auto;
+  padding-bottom: 10%;
+  background-size: 100%;
+  background: url(https://banner.bw88.io/desktop/img/lotterylobby/lotterybg2.png) no-repeat bottom;
+}
+.lotterylobby section {
+  max-width: auto;
+}
+.lotterylobby section .rightModule {
+  margin-top: 0;
+}
+.lotterylobby section .rightModule .lobbybanner {
+  position: relative;
+  overflow: hidden;
+}
+.lotterylobby section .rightModule .lobbybanner img {
+  max-width: inherit;
+}
+.lotterylobby section .rightModule .lobbybanner .ball1 {
+  position: absolute;
   top: 14%;
   left: 45%;
   -webkit-animation: ball1 1s ease-in-out;
           animation: ball1 1s ease-in-out;
 }
-.gamelobby section .rightModule .lobbybanner .ball1.ball2 {
+.lotterylobby section .rightModule .lobbybanner .ball1.ball2 {
   top: 40%;
   left: 70%;
   -webkit-animation: ball2 1s ease-in-out;
           animation: ball2 1s ease-in-out;
 }
-.gamelobby section .rightModule .lobbybanner .ball1.ball2 .ballImg {
-  -webkit-animation: lobbyball 3s 2s linear infinite alternate;
-          animation: lobbyball 3s 2s linear infinite alternate;
+.lotterylobby section .rightModule .lobbybanner .ball1.ball2 .ballImg {
+  -webkit-animation: moveA 3s linear infinite alternate;
+          animation: moveA 3s linear infinite alternate;
 }
-.gamelobby section .rightModule .lobbybanner .ball1 .ballImg {
-  -webkit-animation: lobbyball 3s 1s linear infinite alternate;
-          animation: lobbyball 3s 1s linear infinite alternate;
+.lotterylobby section .rightModule .lobbybanner .ball1 .ballImg {
+  -webkit-animation: moveB 3s linear infinite alternate;
+          animation: moveB 3s linear infinite alternate;
 }
 
 @-webkit-keyframes ball1 {
@@ -7480,55 +7570,158 @@ main > .swiper-container .swiper-slide {
 }
 @-webkit-keyframes lobbyball {
   0% {
-    -webkit-transform: translateY(0%) scale(1);
-            transform: translateY(0%) scale(1);
+    -webkit-transform: translateY(10%) scale(1);
+            transform: translateY(10%) scale(1);
   }
   100% {
-    -webkit-transform: translateY(20%) scale(1.1);
-            transform: translateY(20%) scale(1.1);
+    -webkit-transform: translateY(0%) scale(1.1);
+            transform: translateY(0%) scale(1.1);
   }
 }
 @keyframes lobbyball {
   0% {
-    -webkit-transform: translateY(0%) scale(1);
-            transform: translateY(0%) scale(1);
+    -webkit-transform: translateY(10%) scale(1);
+            transform: translateY(10%) scale(1);
   }
   100% {
-    -webkit-transform: translateY(20%) scale(1.1);
-            transform: translateY(20%) scale(1.1);
+    -webkit-transform: translateY(0%) scale(1.1);
+            transform: translateY(0%) scale(1.1);
+  }
+}
+@-webkit-keyframes moveA {
+  from {
+    -webkit-transform: translate(0, 30PX);
+            transform: translate(0, 30PX);
+  }
+  to {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@keyframes moveA {
+  from {
+    -webkit-transform: translate(0, 30PX);
+            transform: translate(0, 30PX);
+  }
+  to {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes moveB {
+  from {
+    -webkit-transform: translate(0, 20px);
+            transform: translate(0, 20px);
+  }
+  to {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@keyframes moveB {
+  from {
+    -webkit-transform: translate(0, 20px);
+            transform: translate(0, 20px);
+  }
+  to {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes moveC {
+  from {
+    -webkit-transform: translate(0, 50px);
+            transform: translate(0, 50px);
+  }
+  to {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@keyframes moveC {
+  from {
+    -webkit-transform: translate(0, 50px);
+            transform: translate(0, 50px);
+  }
+  to {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
 }
 .gameslobbyList {
+  margin-top: 120px;
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+}
+.gameslobbyList .gameslobbyitem {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  position: relative;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  max-width: 1600px;
+  width: 1400px;
   margin: auto;
-  padding-top: 20px;
 }
-.gameslobbyList::before {
-  content: "";
-  position: absolute;
-  top: -150px;
-  width: 100%;
-  height: 150px;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(7, 15, 35, 0)), to(#070f23));
-  background: linear-gradient(to bottom, rgba(7, 15, 35, 0) 0%, #070f23 100%);
-  z-index: 1;
-}
-.gameslobbyList > div {
-  min-width: 310px;
-  height: 310px;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  cursor: pointer;
+.gameslobbyList .gameslobbyitem > div {
+  height: 380px;
+  width: 350px;
+  margin-bottom: 30px;
   position: relative;
+}
+.gameslobbyList .gameslobbyitem > div .game-txt {
+  position: absolute;
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  bottom: 39px;
+  width: 230px;
+  left: calc(50% - 115px);
+  text-align: center;
+}
+.gameslobbyList .gameslobbyitem > div:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-filter: brightness(1.05);
+          filter: brightness(1.05);
+}
+.gameslobbyList .gameslobbyitem > div:hover .btnGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.gameslobbyList .gameslobbyitem > div:hover.kingmaker {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/king-hover.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div:hover.vgaming {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/vgaming-hover.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div:hover.maxgame {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/max-hover.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div:hover.v8pork {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/v8-hover.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div:hover.tablegame {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/table-hover.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div:hover.virtualgames {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/virtual-hover.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.kingmaker {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/king.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.vgaming {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/vgaming.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.maxgame {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/max.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.v8pork {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/v8.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.tablegame {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/table.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.virtualgames {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/virtual.png) no-repeat center/cover;
 }
 .gameslobbyList > div .underBtn {
   display: none;
@@ -7600,47 +7793,132 @@ main > .swiper-container .swiper-slide {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
-.gameslobbyList > div:hover {
+
+.lotterylobbyList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 1600px;
+  margin: auto;
+  padding-top: 20px;
+}
+.lotterylobbyList::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  width: 100%;
+  height: 150px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(7, 15, 35, 0)), to(#070f23));
+  background: linear-gradient(to bottom, rgba(7, 15, 35, 0) 0, #070f23 100%);
+  z-index: 1;
+}
+.lotterylobbyList > div {
+  min-width: 310px;
+  height: 310px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+.lotterylobbyList > div .underBtn {
+  display: none;
+  background-color: #a59f9f;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding: 10px;
+  border-radius: 3px;
+  width: 70%;
+  text-align: center;
+}
+.lotterylobbyList > div.under {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+.lotterylobbyList > div.under .underBtn {
+  display: block;
+}
+.lotterylobbyList > div.under:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.lotterylobbyList > div.under:hover .btnGroup {
+  display: none;
+}
+.lotterylobbyList > div .icon {
+  position: absolute;
+  top: 5%;
+  left: 20px;
+  font-size: 20px;
+  color: #56ceff;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
+}
+.lotterylobbyList > div p {
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  text-transform: uppercase;
+  bottom: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/textbg.png) no-repeat center;
+  padding: 0px 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.lotterylobbyList > div .btnGroup {
+  display: none;
+  position: absolute;
+  width: 80%;
+  bottom: 28%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.lotterylobbyList > div:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
-.gameslobbyList > div:hover .btnGroup {
+.lotterylobbyList > div:hover .btnGroup {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-.gameslobbyList > div.tcg {
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/lotterytcg.png) no-repeat center;
+.lotterylobbyList > div.vn {
+  background: url(https://banner.bw88.io/desktop/img/lotterylobby/vnlottery.png) no-repeat center;
 }
-.gameslobbyList > div.lottery789 {
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/lottery789.png) no-repeat center;
+.lotterylobbyList > div.tcg {
+  background: url(https://banner.bw88.io/desktop/img/lotterylobby/lotterytcg.png) no-repeat center;
 }
-.gameslobbyList > div.keno {
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/keno.png) no-repeat center;
+.lotterylobbyList > div.keno {
+  background: url(https://banner.bw88.io/desktop/img/lotterylobby/keno.png) no-repeat center;
 }
-.gameslobbyList > div.lottery {
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/lottery.png) no-repeat center;
+.lotterylobbyList > div.lottery {
+  background: url(https://banner.bw88.io/desktop/img/lotterylobby/lottery.png) no-repeat center;
 }
-.gameslobbyList > div.sabaClub {
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/sabaclub.png) no-repeat center;
-}
-.gameslobbyList > div.traditional {
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/traditional.png) no-repeat center;
-}
-.gameslobbyList > div.v8pork {
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/v8poker.png) no-repeat center;
-}
-.gameslobbyList > div.kingmaker {
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/kingmaker.png) no-repeat center;
-}
-.gameslobbyList > div.tablegame {
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/tablegame.png) no-repeat center;
-}
-.gameslobbyList > div.maxgame {
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/maxgame.png) no-repeat center;
-}
-.gameslobbyList > div.virtualgames {
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/virtualgames.png) no-repeat center;
+.lotterylobbyList > div.traditional {
+  background: url(https://banner.bw88.io/desktop/img/lotterylobby/traditional.png) no-repeat center;
 }
 
 form {
@@ -12317,83 +12595,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 80px;
           flex: 0 0 80px;
-}
-
-.worldcupTime {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-transform: scale(0.9);
-          transform: scale(0.9);
-  -webkit-transform-origin: left;
-          transform-origin: left;
-  width: 270px;
-  height: 73px;
-  padding-right: 10px;
-  background: url(https://banner.bw88.io/desktop/img/worldcup/date.png) no-repeat center/contain;
-}
-.worldcupTime > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #fff;
-  margin: 0 2px;
-}
-.worldcupTime > div.title {
-  margin: 0 14px 0 5px;
-}
-.worldcupTime > div.title img {
-  width: 100px;
-  height: 35px;
-}
-.worldcupTime > div.time {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  line-height: 16px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 0 8px;
-}
-.worldcupTime > div.time p {
-  font-size: 12px;
-}
-.worldcupTime > div.time p:nth-child(1) {
-  font-size: 18px;
-  font-weight: bold;
-  -webkit-animation: flash4 linear infinite alternate 0.5s;
-          animation: flash4 linear infinite alternate 0.5s;
-}
-.worldcupTime > div img {
-  height: auto;
-}
-@-webkit-keyframes flash4 {
-  0% {
-    -webkit-filter: brightness(0.9);
-            filter: brightness(0.9);
-  }
-  100% {
-    -webkit-filter: brightness(1.2);
-            filter: brightness(1.2);
-  }
-}
-@keyframes flash4 {
-  0% {
-    -webkit-filter: brightness(0.9);
-            filter: brightness(0.9);
-  }
-  100% {
-    -webkit-filter: brightness(1.2);
-            filter: brightness(1.2);
-  }
 }
 
 .partnerSelect {
