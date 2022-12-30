@@ -5283,6 +5283,7 @@ input[type="file"] {
       flex-flow: wrap;
   position: relative;
   border: 1px solid #1E85EC;
+  color: #5574a7;
 }
 
 .platformName .icon-library {
