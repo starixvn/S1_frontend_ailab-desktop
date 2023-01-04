@@ -325,6 +325,22 @@ header .header > div.menu > button.event img {
   height: 34px;
 }
 
+header .header > div.menu > a.cryptobtn::after,
+header .header > div.menu > button.cryptobtn::after {
+  display: block;
+  content: "";
+  background: url(https://banner.bw88.io/desktop/img/cryptosports.png) no-repeat center top/cover;
+  width: 30px;
+  height: 32px;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+header .header > div.menu > a.cryptobtn:hover::after,
+header .header > div.menu > button.cryptobtn:hover::after {
+  background: url(https://banner.bw88.io/desktop/img/cryptosportsa.png) no-repeat center top/cover;
+}
+
 header .header > div.menu .nweSubMenu-Wrapper {
   position: absolute;
   width: 100%;
@@ -789,6 +805,10 @@ header .header > div.menu .nweSubMenu-Wrapper .fishList button .underBtn {
   padding: 5px;
   border-radius: 3px;
   font-size: 12px;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .sportsList .cryptosport .img {
+  background: url(https://banner.bw88.io/desktop/img/sports/cryptosports.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .sabaSport .img {

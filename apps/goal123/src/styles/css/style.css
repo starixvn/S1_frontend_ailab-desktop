@@ -285,6 +285,25 @@ html.Newtheme header .header > div.menu > button .icon-keyboard_arrow_right {
           transform: rotate(90deg);
 }
 
+html.Newtheme header .header > div.menu > a.cryptobtn::before,
+html.Newtheme header .header > div.menu > button.cryptobtn::before {
+  display: block;
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/cryptosports.png);
+  width: 48px;
+  height: 28px;
+}
+
+html.Newtheme header .header > div.menu > a.cryptobtn:hover::before,
+html.Newtheme header .header > div.menu > button.cryptobtn:hover::before {
+  background: url(https://banner.goal123.org/desktop/img/cryptosportsa.png);
+}
+
+html.Newtheme header .header > div.menu > a .icon-home::before,
+html.Newtheme header .header > div.menu > button .icon-home::before {
+  padding: 0 10px;
+}
+
 html.Newtheme header .header > div.menu .subMenu-Wrapper {
   position: fixed;
   width: 100%;
@@ -4094,7 +4113,7 @@ html.Newtheme #popup .pop .loackAmount {
 
 html.Newtheme #popup .pop .loackAmount .inputBox, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event {
   margin: 20px 0 10px;
-  width: calc(100%-22px);
+  width: calc(100% - 22px);
   z-index: 2;
 }
 
