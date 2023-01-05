@@ -82,7 +82,8 @@ const AppDownload = () => {
 									className="download"
 									href={andriodDownLoadUrl}
 									target="_blank"
-									rel="noreferrer">
+									rel="noreferrer"
+								>
 									{t("lbl_Download")} (Android)
 								</a>
 							)}
@@ -92,7 +93,8 @@ const AppDownload = () => {
 									className="download"
 									href={IOSDownloadUrl}
 									target="_blank"
-									rel="noreferrer">
+									rel="noreferrer"
+								>
 									{t("lbl_Download")} (iOS)
 								</a>
 							)}
@@ -103,12 +105,7 @@ const AppDownload = () => {
 					<div className="title">
 						{t("lbl_Installation_tutorial")}
 					</div>
-					<div className="subtitle">
-						<div>{t("lbl_iOS_App_Trust_Authentication")}</div>
-						{t("lbl_Appdownload_Subtitle", {
-							site: "Goal123"
-						})}
-					</div>
+
 					<div className="container">
 						<div className="item">
 							<img
