@@ -233,7 +233,6 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 					? null
 					: `/${b.urlRouter}${parameter}`;
 		}
-
 		if (redirectLink) {
 			return (
 				<Link
@@ -241,7 +240,7 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 					replace={redirectLink === "/rewards"}
 					to={
 						redirectLink === "/rewards"
-							? `${config.openURL}${redirectLink}`
+							? `${window.location.origin}${config.openURL}${redirectLink}`
 							: `/${userInfo.langId}${redirectLink}`
 					}
 				>
