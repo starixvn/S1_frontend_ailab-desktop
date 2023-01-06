@@ -50,8 +50,9 @@ export default () => {
 	const { loading, setLoading } = useContext(loadingContext);
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { throttle } = useDelayFunc();
+	const urlTpId = getUrlParameter("tpId");
 	const urlProvider = getUrlParameter("provider");
-	const urlTpId = Object.values(defSlotTpGameType).find(
+	const urlProviderTpId = Object.values(defSlotTpGameType).find(
 		el => el.name === urlProvider
 	)?.tpId;
 
@@ -210,7 +211,8 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}>
+											onClick={clickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -230,7 +232,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}>
+										onClick={clickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -312,19 +315,21 @@ export default () => {
 							}
 						} else if (item[0] === "providerList") {
 							const tempPList = item[1];
-							if (urlTpId) {
+							if (urlProviderTpId || urlTpId) {
+								const activeTpId = urlProviderTpId ?? urlTpId;
 								const _activeProvider = tempPList.find(
-									obj => obj.tpId === Number(urlTpId)
+									obj => obj.tpId === Number(activeTpId)
 								);
 								if (_activeProvider) {
 									const filterPList = tempPList.filter(
-										obj => obj.tpId !== Number(urlTpId)
+										obj => obj.tpId !== Number(activeTpId)
 									);
 									filterPList.splice(11, 0, _activeProvider);
 									setProviderList(filterPList);
 									const _tempList =
 										filterPList.find(
-											obj => obj.tpId === Number(urlTpId)
+											obj =>
+												obj.tpId === Number(activeTpId)
 										) ?? {};
 									setActiveProvider(_tempList);
 								} else {
@@ -378,7 +383,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -397,7 +403,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
