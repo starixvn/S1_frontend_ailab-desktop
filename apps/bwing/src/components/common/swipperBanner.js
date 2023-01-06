@@ -15,7 +15,7 @@ import {
 import { userInfoContext, popBoxContext } from "./context";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
-import productList, { defCasinoProviders } from "../../datas/productList";
+import productList from "../../datas/productList";
 import { defPopBoxType } from "./defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 import { useGotoGame } from "../hook/useGotoGame";
@@ -63,15 +63,24 @@ export const ClickLink = ({
 	}
 };
 
-export const SetPathParameter = ({ urlRouter, tpId, gameId = 1, matchId }) => {
+export const SetPathParameter = ({
+	urlRouter,
+	tpId,
+	gameId = 1,
+	matchId,
+	tpGameType
+}) => {
 	let result = "";
+	const isNumber = val => {
+		const rex = /[0-9]/;
+		return rex.test(val);
+	};
 	if (urlRouter === path.casino.root) {
-		const providerName = Object.values(defCasinoProviders).find(
-			// eslint-disable-next-line eqeqeq
-			x => x.tpId == tpId
-		)?.name;
-
-		result = providerName ? `?provider=${providerName}` : "";
+		result = `?tpId=${tpId}${
+			isNumber(tpGameType)
+				? `&tpGameType=${tpGameType}`
+				: "&tpGameType=undefined"
+		}`;
 	} else if (urlRouter === path.sports.root) {
 		const gameName =
 			Object.values(productList).find(

@@ -9,6 +9,7 @@ import SwiperCore, {
 	Autoplay as SwiperCoreAutoPlay
 } from "swiper";
 import { Link } from "gatsby";
+import config from "../../config";
 import {
 	api_site_GetBannerV3,
 	defBannerActionMode
@@ -63,10 +64,24 @@ export const ClickLink = ({
 	}
 };
 
-export const SetPathParameter = ({ urlRouter, tpId, gameId, matchId }) => {
+export const SetPathParameter = ({
+	urlRouter,
+	tpId,
+	gameId,
+	matchId,
+	tpGameType
+}) => {
 	let result = "";
+	const isNumber = val => {
+		const rex = /[0-9]/;
+		return rex.test(val);
+	};
 	if (urlRouter === path.casino.root) {
-		result = `?tpId=${tpId}${gameId ? `&gameId=${gameId}` : ""}`;
+		result = `?tpId=${tpId}${
+			isNumber(tpGameType)
+				? `&tpGameType=${tpGameType}`
+				: "&tpGameType=undefined"
+		}`;
 	} else if (urlRouter === path.sports.root) {
 		result = `?tpId=${tpId}${gameId ? `&gameId=${gameId}` : ""}${
 			matchId ? `&matchId=${matchId}` : ""
@@ -223,7 +238,12 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 			return (
 				<Link
 					key={`${userInfo.langId}-${bIdx}`}
-					to={`/${userInfo.langId}${redirectLink}`}
+					replace={redirectLink === "/rewards"}
+					to={
+						redirectLink === "/rewards"
+							? `${config.openURL}${redirectLink}`
+							: `/${userInfo.langId}${redirectLink}`
+					}
 				>
 					<img
 						src={b.bannerMobileUrl}

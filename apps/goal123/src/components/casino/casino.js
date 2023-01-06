@@ -54,8 +54,9 @@ export default () => {
 	const { loading, setLoading } = useContext(loadingContext);
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { throttle } = useDelayFunc();
+	const urlTpId = getUrlParameter("tpId");
 	const urlProvider = getUrlParameter("provider");
-	const urlTpId = Object.values(defCasinoProviders).find(
+	const urlProviderTpId = Object.values(defCasinoProviders).find(
 		el => el.name.toUpperCase() === urlProvider.toUpperCase()
 	)?.tpId;
 
@@ -67,14 +68,15 @@ export default () => {
 	});
 
 	useEffect(() => {
-		if (urlProvider) {
+		if (urlProviderTpId || urlTpId) {
+			const activeTpId = urlProviderTpId ?? urlTpId;
 			const targetProvider = providerList.find(
-				provider => provider.tpId === urlTpId
+				provider => provider.tpId === activeTpId
 			);
 
 			if (targetProvider) {
 				const filterPList = providerList.filter(
-					obj => obj.tpId !== Number(urlTpId)
+					obj => obj.tpId !== Number(activeTpId)
 				);
 				filterPList.splice(11, 0, targetProvider);
 				setProviderList(filterPList);
@@ -85,7 +87,7 @@ export default () => {
 				);
 			}
 		}
-	}, [urlTpId]);
+	}, [urlProviderTpId, urlTpId]);
 
 	useEffect(() => {
 		if (Object.keys(activeProvider).length > 0) {
@@ -339,19 +341,21 @@ export default () => {
 							}
 						} else if (item[0] === "providerList") {
 							const tempPList = item[1];
-							if (urlTpId) {
+							if (urlProviderTpId || urlTpId) {
+								const activeTpId = urlProviderTpId ?? urlTpId;
 								const _activeProvider = tempPList.find(
-									obj => obj.tpId === Number(urlTpId)
+									obj => obj.tpId === Number(activeTpId)
 								);
 								if (_activeProvider) {
 									const filterPList = tempPList.filter(
-										obj => obj.tpId !== Number(urlTpId)
+										obj => obj.tpId !== Number(activeTpId)
 									);
 									filterPList.splice(11, 0, _activeProvider);
 									setProviderList(filterPList);
 									const _tempList =
 										filterPList.find(
-											obj => obj.tpId === Number(urlTpId)
+											obj =>
+												obj.tpId === Number(activeTpId)
 										) ?? {};
 									setActiveProvider(_tempList);
 								} else {
