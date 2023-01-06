@@ -240,7 +240,11 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 					replace={redirectLink === "/rewards"}
 					to={
 						redirectLink === "/rewards"
-							? `${window.location.origin}${config.openURL}${redirectLink}`
+							? `${
+									process.env.NODE_ENV === "production"
+										? window.location.origin
+										: config.openURL
+							  }${redirectLink}`
 							: `/${userInfo.langId}${redirectLink}`
 					}
 				>
