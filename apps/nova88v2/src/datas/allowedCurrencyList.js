@@ -17,7 +17,21 @@ const allowedCurrencyList = {
 	],
 	rewards: [defCurrencyList.MYR, defCurrencyList.THB, defCurrencyList.IDR],
 
-	// ====products====
+	// ==== withdrawal method ====
+	bankCard: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.INR
+	],
+	eWallet: [
+		defCurrencyList.IDR,
+		defCurrencyList.BDT,
+		defCurrencyList.MYR,
+		defCurrencyList.THB
+	],
+
+	// ==== products ====
 
 	// slot
 	slotAMB: [defCurrencyList.THB, defCurrencyList.USD, defCurrencyList.CNY],
