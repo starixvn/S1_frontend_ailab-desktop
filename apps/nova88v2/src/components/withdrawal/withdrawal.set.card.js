@@ -17,14 +17,7 @@ import BankCard from "./withdrawal.set.card.bank";
 import CryptoCard from "./withdrawal.set.card.crypto";
 import path from "../../router";
 import ECard from "./withdrawal.set.card.E";
-import { defCurrencyList } from "../common/common";
-
-const allowBankInfoCurrency = [
-	defCurrencyList.MYR,
-	defCurrencyList.THB,
-	defCurrencyList.IDR,
-	defCurrencyList.INR
-];
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 const CardPanel = ({
 	dispatch,
@@ -154,7 +147,8 @@ const CardPanel = ({
 					<div className="btnGroup">
 						<Link
 							className="btn-check"
-							to={`/${userInfo.langId}/${path.profile.root}`}>
+							to={`/${userInfo.langId}/${path.profile.root}`}
+						>
 							{t("lbl_UpdatePersonalDetail")}
 						</Link>
 					</div>
@@ -291,7 +285,7 @@ const CardPanel = ({
 	};
 	return (
 		<>
-			{allowBankInfoCurrency.includes(userInfo.currencyId) && (
+			{allowedCurrencyList.bankCard.includes(userInfo.currencyId) && (
 				<BankCard
 					t={t}
 					state={state}
@@ -303,9 +297,7 @@ const CardPanel = ({
 					isIfscRequired={isIfscRequired}
 				/>
 			)}
-			{(userInfo.currencyId === defCurrencyList.IDR ||
-				userInfo.currencyId === defCurrencyList.BDT ||
-				userInfo.currencyId === defCurrencyList.MYR) &&
+			{allowedCurrencyList.eWallet.includes(userInfo.currencyId) &&
 				state.eWalletStatus && (
 					<ECard
 						t={t}
