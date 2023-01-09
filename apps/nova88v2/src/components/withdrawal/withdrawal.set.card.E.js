@@ -19,7 +19,7 @@ const ECard = ({
 		};
 	});
 	const bankArr = custEWalletInfo?.map(item => {
-		const _key = `withdrawal-eWallet-${item.accountNo}`;
+		const _key = `withdrawal-eWallet-${item.accountNo}-${item.sysId}`;
 		const _checked =
 			item.accountNo === state.selectedAccount?.accountNo &&
 			item.eWalletName === state.selectedAccount?.bankName;
@@ -38,7 +38,6 @@ const ECard = ({
 			/>
 		);
 	});
-
 	return (
 		<div className="walletModule">
 			<div className="addBank">
@@ -46,7 +45,8 @@ const ECard = ({
 				{(!bankArr || bankArr.length < 3) && (
 					<div
 						className="addBankName noBank"
-						onClick={() => addEAccount()}>
+						onClick={() => addEAccount()}
+					>
 						<div className="icon icon-plus" />
 						<div>{t("lbl_AddEAccount")}</div>
 					</div>

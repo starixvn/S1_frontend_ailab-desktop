@@ -24,7 +24,7 @@ const BankCard = ({
 	const _custBankInfo = custBankInfo?.bankInfoDetail;
 
 	const bankArr = _custBankInfo?.map(item => {
-		const _key = `withdrawal-bankCard-${item.accountNo}`;
+		const _key = `withdrawal-bankCard-${item.accountNo}-${item.sysId}`;
 		const _checked =
 			item.accountNo === state.selectedAccount?.accountNo &&
 			item.bankName === state.selectedAccount?.bankName;
@@ -50,7 +50,8 @@ const BankCard = ({
 				{(!bankArr || bankArr.length < 3) && (
 					<div
 						className="addBankName noBank"
-						onClick={addBankAccount}>
+						onClick={addBankAccount}
+					>
 						<div className="icon icon-plus" />
 						<div>{t("lbl_AddBankAccount")}</div>
 					</div>
