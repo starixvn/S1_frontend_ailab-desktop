@@ -1,7 +1,10 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-nested-ternary */
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { Link } from "gatsby";
+import { INPUT_PATTERN } from "@ailab-desktop/format-pattern";
 import Loading from "../common/loading";
 import handleError from "../common/handleError";
 import { defPrevPage, initStatus } from "./profile.def";
@@ -118,28 +121,31 @@ export default () => {
 	};
 
 	const checkName = () => {
-		let checkResult = false;
-		let checkTip = "";
+		let checked = true;
+		let tip = "";
 
-		if (userInfo.accountName) {
-			checkResult = true;
-		} else if (!userInfo.accountName && nameValue === "") {
-			checkResult = false;
-			checkTip = t("lbl_NameRequired");
-		} else if (!userInfo.accountName && nameValue !== "") {
-			checkResult = true;
-			checkTip = "";
+		if (!nameValue) {
+			tip = t("lbl_NameRequired");
+			checked = !!nameValue;
+		} else if (
+			// * 如果使用者有填入特殊字元則顯示錯誤訊息
+			String(nameValue).match(
+				INPUT_PATTERN.userNameSpecialCharactersPattern
+			)
+		) {
+			tip = t("lbl_EnterRealName");
+			checked = false;
 		}
 
 		setStatus(prev => ({
 			...prev,
 			accountName: {
-				tip: checkTip,
-				checked: checkResult
+				tip,
+				checked
 			}
 		}));
 
-		return checkResult;
+		return checked;
 	};
 
 	const checkBirth = () => {
@@ -353,12 +359,14 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_ReModify")}
 								</button>
 								<button
 									className="btn-check"
-									onClick={submitProfile}>
+									onClick={submitProfile}
+								>
 									{t("lbl_Confirm")}
 								</button>
 							</div>
@@ -462,12 +470,14 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Later")}
 										</button>
 										<button
 											className="yellow"
-											onClick={sendOTPSMS}>
+											onClick={sendOTPSMS}
+										>
 											{t("lbl_VertifyNow")}
 										</button>
 									</div>
@@ -485,12 +495,14 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Later")}
 										</button>
 										<Link
 											className="btn-check"
-											to={`/${userInfo.langId}/${defPrevPage[_prevPage].path}`}>
+											to={`/${userInfo.langId}/${defPrevPage[_prevPage].path}`}
+										>
 											{t(defPrevPage[_prevPage].label)}
 										</Link>
 									</div>
@@ -576,7 +588,8 @@ export default () => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}>
+									}}
+								>
 									OK
 								</button>
 							</div>

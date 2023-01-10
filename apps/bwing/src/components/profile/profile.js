@@ -1,7 +1,10 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable consistent-return */
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { Link } from "gatsby";
+import { INPUT_PATTERN } from "@ailab-desktop/format-pattern";
 import { api_site_ExistsEmail } from "../../service/api/site";
 import { api_account_ExistsPhone } from "../../service/api/account";
 import {
@@ -118,30 +121,31 @@ export default () => {
 	};
 
 	const checkName = () => {
-		const pattern_punct = new RegExp(
-			"[`~!@#$^&*()=|{}':;',ˇˋ˙ˊ\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]"
-		);
+		let checked = true;
+		let tip = "";
 
-		const checkResult =
-			(Boolean(userInfo.accountName) || Boolean(nameValue)) &&
-			!pattern_punct.test(nameValue);
-
-		const checkTip =
-			nameValue === ""
-				? t("lbl_NameRequired")
-				: pattern_punct.test(nameValue)
-				? t("msg_Regex_Punct_Invalid")
-				: "";
+		if (!nameValue) {
+			tip = t("lbl_NameRequired");
+			checked = !!nameValue;
+		} else if (
+			// * 如果使用者有填入特殊字元則顯示錯誤訊息
+			String(nameValue).match(
+				INPUT_PATTERN.userNameSpecialCharactersPattern
+			)
+		) {
+			tip = t("lbl_EnterRealName");
+			checked = false;
+		}
 
 		setStatus(prev => ({
 			...prev,
 			accountName: {
-				tip: checkTip,
-				checked: checkResult
+				tip,
+				checked
 			}
 		}));
 
-		return checkResult;
+		return checked;
 	};
 
 	const checkBirth = () => {
@@ -355,12 +359,14 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_ReModify")}
 								</button>
 								<button
 									className="btn-check"
-									onClick={submitProfile}>
+									onClick={submitProfile}
+								>
 									{t("lbl_Confirm")}
 								</button>
 							</div>
@@ -463,12 +469,14 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Later")}
 										</button>
 										<button
 											className="btn-check"
-											onClick={sendOTPSMS}>
+											onClick={sendOTPSMS}
+										>
 											{t("lbl_VertifyNow")}
 										</button>
 									</div>
@@ -486,12 +494,14 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Later")}
 										</button>
 										<Link
 											className="btn-check"
-											to={`/${userInfo.langId}/${defPrevPage[_prevPage].path}`}>
+											to={`/${userInfo.langId}/${defPrevPage[_prevPage].path}`}
+										>
 											{t(defPrevPage[_prevPage].label)}
 										</Link>
 									</div>
@@ -580,7 +590,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									OK
 								</button>
 							</div>
