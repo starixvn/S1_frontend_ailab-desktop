@@ -166,7 +166,7 @@ const CryptoCardLayout = props => {
 			<div className="cryptoInfo">
 				<div className="title">{props.nickName}</div>
 				<div className="title">{_network}</div>
-				<i className="icon icon-BTC" />
+				<i className="icon icon-USDT" />
 				<div>{props.usdtAddress}</div>
 				<div className="checkbox">
 					<input
