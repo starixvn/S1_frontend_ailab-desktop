@@ -123,6 +123,31 @@
 			"tags": [],
 			"implicitDependencies": ["bwing"]
 		},
+		"format-pattern": {
+			"root": "libs/format-pattern",
+			"sourceRoot": "libs/format-pattern/src",
+			"projectType": "library",
+			"architect": {
+				"build": {
+					"builder": "@nrwl/js:tsc",
+					"outputs": ["{options.outputPath}"],
+					"options": {
+						"outputPath": "dist/libs/format-pattern",
+						"main": "libs/format-pattern/src/index.ts",
+						"tsConfig": "libs/format-pattern/tsconfig.lib.json",
+						"assets": ["libs/format-pattern/*.md"]
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"outputs": ["{options.outputFile}"],
+					"options": {
+						"lintFilePatterns": ["libs/format-pattern/**/*.ts"]
+					}
+				}
+			},
+			"tags": []
+		},
 		"goal123": {
 			"root": "apps/goal123",
 			"sourceRoot": "apps/goal123/src",
