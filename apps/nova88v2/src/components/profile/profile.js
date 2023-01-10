@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { Link } from "gatsby";
+import { INPUT_PATTERN } from "@ailab-desktop/format-pattern";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { InfoList, initValue, initStatus } from "./profile.data";
 import areaCode from "../../datas/areaCode";
@@ -242,9 +243,10 @@ export default () => {
 		if (col === "birth") {
 			val = moment(e).format("YYYY-MM-DD");
 		} else if (col === "accountName") {
-			val = e.target.value;
-			const pattern = new RegExp(/["'`_^+-@#!<>%;)(&$.]/);
-			val = val.replace(pattern, "");
+			val = String(e.target.value).replace(
+				INPUT_PATTERN.userNameSpecialCharactersPattern,
+				""
+			);
 		} else if (addrInputList.includes(col)) {
 			val = e.target.value;
 		} else {
@@ -329,9 +331,20 @@ export default () => {
 			"addressState",
 			"addressCountry"
 		];
+
 		if (col === "accountName") {
-			tip = !val ? t("lbl_NameRequired") : "";
-			checked = !!val;
+			if (!val) {
+				tip = t("lbl_NameRequired");
+				checked = !!val;
+			} else if (
+				// * 如果使用者有填入特殊字元則顯示錯誤訊息
+				String(val).match(
+					INPUT_PATTERN.userNameSpecialCharactersPattern
+				)
+			) {
+				tip = t("lbl_EnterRealName");
+				checked = false;
+			}
 		} else if (col === "birth") {
 			tip = !val ? t("lbl_BirthRequired") : "";
 			checked = !!val;
@@ -482,12 +495,14 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={closePopBox}>
+											onClick={closePopBox}
+										>
 											{t("lbl_Later")}
 										</button>
 										<button
 											className="blue"
-											onClick={sendOTPSMS}>
+											onClick={sendOTPSMS}
+										>
 											{t("lbl_VertifyNow")}
 										</button>
 									</div>
@@ -503,12 +518,14 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={closePopBox}>
+											onClick={closePopBox}
+										>
 											{t("lbl_Later")}
 										</button>
 										<Link
 											className="btn-check"
-											to={`/${userInfo.langId}/${defPrevPage[prevPage].path}`}>
+											to={`/${userInfo.langId}/${defPrevPage[prevPage].path}`}
+										>
 											{t(defPrevPage[prevPage].label)}
 										</Link>
 									</div>
@@ -523,7 +540,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={closePopBox}>
+										onClick={closePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -545,7 +563,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={closePopBox}>
+									onClick={closePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -588,7 +607,8 @@ export default () => {
 						</button>
 						<button
 							className="btn-check"
-							onClick={SetProfileOrAddr}>
+							onClick={SetProfileOrAddr}
+						>
 							{t("lbl_Confirm")}
 						</button>
 					</div>
@@ -658,7 +678,8 @@ export default () => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}>
+									}}
+								>
 									OK
 								</button>
 							</div>
@@ -738,7 +759,8 @@ export default () => {
 								? "btn-cancel"
 								: "btn-check"
 						}
-						onClick={e => clickSubmit(e, "profile")}>
+						onClick={e => clickSubmit(e, "profile")}
+					>
 						{t("lbl_Submit")}
 					</button>
 				</div>
