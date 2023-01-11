@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../config";
 
 const BANNER_LIST = {
-	en: `${bannerImgUrl}/desktop/img/gameslobby/lotterybanner-en.jpg`,
-	vn: `${bannerImgUrl}/desktop/img/gameslobby/lotterybanner-vn.jpg`
+	en: `${bannerImgUrl}/desktop/img/new-gameslobby/new-banner-en.png`,
+	vn: `${bannerImgUrl}/desktop/img/new-gameslobby/new-banner-vn.png`
 };
 
 const GamesBanner = ({ langId }) => {
@@ -18,7 +18,7 @@ const GamesBanner = ({ langId }) => {
 				<img
 					className="ballImg"
 					alt="ballImg1"
-					src={`${bannerImgUrl}/desktop/img/gameslobby/ball1.png`}
+					src={`${bannerImgUrl}/desktop/img/new-gameslobby/newchip-1.png`}
 				/>
 			</div>
 
@@ -26,7 +26,15 @@ const GamesBanner = ({ langId }) => {
 				<img
 					className="ballImg"
 					alt="ballImg2"
-					src={`${bannerImgUrl}/desktop/img/gameslobby/ball2.png`}
+					src={`${bannerImgUrl}/desktop/img/new-gameslobby/newchip-2.png`}
+				/>
+			</div>
+
+			<div className="ball3">
+				<img
+					className="ballImg"
+					src={`${bannerImgUrl}/desktop/img/new-gameslobby/newdice.png`}
+					alt="ballImg3"
 				/>
 			</div>
 		</div>

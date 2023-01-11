@@ -172,5 +172,8 @@ export default {
 	},
 	worldCup: {
 		root: "worldCup"
+	},
+	lottery: {
+		root: "lottery"
 	}
 };

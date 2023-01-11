@@ -346,6 +346,11 @@ export default {
 		tpId: 33,
 		tpGameType: 55
 	},
+	GPI_VNLottery: {
+		tpId: 6,
+		gameId: "sode",
+		tpGameType: 89
+	},
 
 	/* === 7. virtual Sports === */
 
