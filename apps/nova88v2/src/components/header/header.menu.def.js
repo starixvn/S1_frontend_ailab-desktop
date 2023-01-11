@@ -1291,6 +1291,61 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		subMenu: [
 			{
+				...productList.GPI_Keno,
+				displayKey: "GPI_Keno",
+				listNpcImgUrl: "lo-gpikeno.png",
+				listBgImgUrl: "gameListHover.png",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.GPI_Keno },
+				lobbyPage: {
+					bgImg: "lotterygpikeno.png",
+					hoverBgImg: "lotterygpikenoa.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.GPI_Lottery
+					})
+				]
+			},
+			{
+				...productList.GPI_ThaiLottery,
+				displayKey: "GPI_ThaiLottery",
+				listNpcImgUrl: "lo-gpithai.png",
+				listBgImgUrl: "gameListHover.png",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.GPI_ThaiLottery },
+				lobbyPage: {
+					bgImg: "lotterygpithai.png",
+					hoverBgImg: "lotterygpithaia.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.GPI_Lottery
+					})
+				],
+				allowCurrencies: allowedCurrencyList.thaiLottery
+			},
+			{
+				...productList.GPI_Fast3,
+				displayKey: "GPI_Fast3",
+				listNpcImgUrl: "lo-gpifast3.png",
+				listBgImgUrl: "gameListHover.png",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.GPI_Fast3 },
+				lobbyPage: {
+					bgImg: "lotterygpifast3.png",
+					hoverBgImg: "lotterygpifast3a.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.GPI_Lottery
+					})
+				]
+			},
+			{
 				...productList.tcg,
 				className: "indo",
 				displayKey: "lbl_TcGame",
@@ -1301,13 +1356,7 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgImg: "lotterytc.png",
 					hoverBgImg: "lotterytca.png"
-				},
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.lottery_tcg
-					})
-				]
+				}
 			},
 			{
 				...productList.keno,

@@ -40,7 +40,7 @@ const GameListItem = ({ subMenuItem, clickItem, isInMaintain, t }) => {
 		displayKey,
 		tpId,
 		gameId,
-		lobbyPage: { bgImg },
+		lobbyPage: { bgImg, hoverImg },
 		tpGameType
 	} = subMenuItem;
 
@@ -56,8 +56,10 @@ const GameListItem = ({ subMenuItem, clickItem, isInMaintain, t }) => {
 					isInMaintain,
 					tpGameType
 				})
-			}>
-			<img src={bgImg} alt="game-item-img" />
+			}
+		>
+			<img className="gamesitem" src={bgImg} alt="game-item-img" />
+			<img className="gameshover" src={hoverImg} alt="game-hover-img" />
 
 			<div className="txt-darkBlue">{_displayText}</div>
 

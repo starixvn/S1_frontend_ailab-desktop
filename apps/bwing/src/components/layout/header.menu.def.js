@@ -84,19 +84,6 @@ export const defMenuLinks = {
 		subDivClass2: "ballR1 ballG1",
 		subMenu: [
 			{
-				...productList.tcg,
-				className: "tcg",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.lottery_tcg
-					})
-				],
-				displayKey: "lbl_TcGame",
-				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "tcg" }
-			},
-			{
 				...productList.KingMaker,
 				className: "kingmaker",
 				displayKey: "lbl_King_Maker",
@@ -104,31 +91,13 @@ export const defMenuLinks = {
 				lobbyPage: { bgClass: "kingmaker" }
 			},
 			{
-				...productList.One789_lottery,
-				path: path.sports.root,
-				className: "traditional",
-				displayKey: "lbl_TraditionalLottery",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.One789_lottery },
-				lobbyPage: { bgClass: "traditional" }
-			},
-			// {
-			// 	...productList.One789_lottery_789,
-			// 	path: path.sports.root,
-			// 	className: "one789",
-			// 	displayKey: "lbl_789Lottery",
-			// 	menuType: defMenuType.LinkOrBtn,
-			// 	parameter: { ...productList.One789_lottery_789 },
-			// 	lobbyPage: { bgClass: "lottery789" }
-			// },
-			{
 				...productList.sabaClub,
 				path: path.sports.root,
-				className: "sabaclub",
+				className: "vgaming",
 				displayKey: "lbl_Vgaming",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.sabaClub },
-				lobbyPage: { bgClass: "sabaClub" }
+				lobbyPage: { bgClass: "vgaming" }
 			},
 			{
 				...productList.MaxGame,
@@ -149,24 +118,6 @@ export const defMenuLinks = {
 				displayKey: "lbl_V8Poker",
 				menuType: defMenuType.entPage,
 				lobbyPage: { bgClass: "v8pork" }
-			},
-			{
-				...productList.keno,
-				path: path.sports.root,
-				className: "keno",
-				displayKey: "lbl_Keno",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.keno },
-				lobbyPage: { bgClass: "keno" }
-			},
-			{
-				...productList.lottery,
-				path: path.sports.root,
-				className: "lottery",
-				displayKey: "lbl_Lottery",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.lottery },
-				lobbyPage: { bgClass: "lottery" }
 			},
 			{
 				...productList.tableGame,
@@ -771,6 +722,68 @@ export const defMenuLinks = {
 			// },
 		]
 	},
+	lottery: {
+		displayKey: "lbl_Lottery",
+		path: path.lottery.root,
+		subMenu: [
+			{
+				...productList.GPI_VNLottery,
+				className: "vn",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.GPI_Lottery
+					})
+				],
+				displayKey: "GPI_VNLottery",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "vn" }
+			},
+			{
+				...productList.tcg,
+				className: "tcg",
+				displayKey: "lbl_TcGame",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "tcg" }
+			},
+			{
+				...productList.One789_lottery,
+				path: path.sports.root,
+				className: "traditional",
+				displayKey: "lbl_TraditionalLottery",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.One789_lottery },
+				lobbyPage: { bgClass: "traditional" }
+			},
+			// {
+			// 	...productList.One789_lottery_789,
+			// 	path: path.sports.root,
+			// 	className: "one789",
+			// 	displayKey: "lbl_789Lottery",
+			// 	menuType: defMenuType.LinkOrBtn,
+			// 	parameter: { ...productList.One789_lottery_789 },
+			// 	lobbyPage: { bgClass: "lottery789" }
+			// },
+			{
+				...productList.keno,
+				path: path.sports.root,
+				className: "keno",
+				displayKey: "lbl_Keno",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.keno },
+				lobbyPage: { bgClass: "keno" }
+			},
+			{
+				...productList.lottery,
+				path: path.sports.root,
+				className: "lottery",
+				displayKey: "lbl_Lottery",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.lottery },
+				lobbyPage: { bgClass: "lottery" }
+			}
+		]
+	},
 	vip: {
 		path: path.vip.root,
 		displayKey: "lbl_Vip"
@@ -812,5 +825,6 @@ export const defSubListClassName = {
 	casino: "casinoList",
 	liveCasino: "livecasinoList",
 	games: "gameList",
-	fishing: "fishList"
+	fishing: "fishList",
+	lottery: "lotteryList"
 };

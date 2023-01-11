@@ -191,11 +191,11 @@ header input:focus-within {
 }
 
 .header > div a.rewardsLogo {
-  margin: 0 0 20px 10px;
+  margin: 0 0 0 10px;
 }
 
 .header > div a.rewardsLogo img {
-  width: 65px;
+  width: 48px;
   -webkit-filter: drop-shadow(1px 1px 0 #868686);
           filter: drop-shadow(1px 1px 0 #868686);
 }
@@ -1789,35 +1789,7 @@ header input:focus-within {
 }
 
 .header > div.menu .subMenu-Wrapper-new .promoList {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-en.jpg) no-repeat center/auto;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList.en {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-en.jpg) no-repeat center/auto;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList.cs {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-cs.jpg) no-repeat center/auto;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList.my {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-my.jpg) no-repeat center/auto;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList.th {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-th.jpg) no-repeat center/auto;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList.id {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-id.jpg) no-repeat center/auto;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList.hi {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-hi.jpg) no-repeat center/auto;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList.bd {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-bd.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/pomobanner.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
@@ -1970,27 +1942,7 @@ header input:focus-within {
 }
 
 .header > div.menu .subMenu-Wrapper-new .rankingList {
-  background: url(https://image.0814media.net/SiteSkin/img/leaderboardbanner-en.jpg) no-repeat center/auto;
-}
-
-.header > div.menu .subMenu-Wrapper-new .rankingList.en {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-en.jpg) no-repeat center/auto;
-}
-
-.header > div.menu .subMenu-Wrapper-new .rankingList.my {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-my.jpg) no-repeat center/auto;
-}
-
-.header > div.menu .subMenu-Wrapper-new .rankingList.cs {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-cs.jpg) no-repeat center/auto;
-}
-
-.header > div.menu .subMenu-Wrapper-new .rankingList.th {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-th.jpg) no-repeat center/auto;
-}
-
-.header > div.menu .subMenu-Wrapper-new .rankingList.id {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-id.jpg) no-repeat center/auto;
+  background: url(https://image.0814media.net/SiteSkin/img/rankingbg.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
@@ -8618,7 +8570,7 @@ input[type="file"] {
 }
 
 .livecasinoinside {
-  background: #1e1c17 url(https://banner.0814media.net/desktop/img/livecasino/livecasino-bg01.jpg) no-repeat bottom center/100%;
+  background: #020612 url(https://banner.0814media.net/desktop/img/livecasino/casinobg.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
 }
@@ -17086,28 +17038,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           animation: card 1s, img_dice 3s 1s infinite;
 }
 
-.mainBanner .bannerInfo .dice4 {
-  position: absolute;
-  width: 114px;
-  height: 127px;
-  left: 63%;
-  top: 70px;
-  z-index: 3;
-  -webkit-animation: dicerotate 1s, img_dice 3s 1.5s infinite;
-          animation: dicerotate 1s, img_dice 3s 1.5s infinite;
-}
-
-.mainBanner .bannerInfo .dice3 {
-  position: absolute;
-  width: 74px;
-  height: 77px;
-  left: 20%;
-  bottom: 140px;
-  z-index: 3;
-  -webkit-animation: dicerotate 0.8s, img_dice 2s 1.5s infinite;
-          animation: dicerotate 0.8s, img_dice 2s 1.5s infinite;
-}
-
 .mainBanner .bannerInfo .dice2 {
   position: absolute;
   width: 214px;
@@ -17383,7 +17313,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .rankingNew {
-  background: url(https://banner.0814media.net/desktop/img/ranking_new_sportsbg.jpg) no-repeat top center;
+  background: url(https://banner.0814media.net/desktop/img/ranking_page_bg.jpg) no-repeat top center;
   background-position: top center;
   background-size: auto 100%;
   min-height: 1025px;
