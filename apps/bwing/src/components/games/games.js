@@ -58,12 +58,14 @@ const Games = () => {
 					<GamesBanner langId={userInfo.langId} />
 
 					<div className="gameslobbyList">
-						<GameList
-							t={t}
-							subMenu={subMenu}
-							allMaintainList={allMaintainList}
-							clickItem={clickItem}
-						/>
+						<div className="gameslobbyitem">
+							<GameList
+								t={t}
+								subMenu={subMenu}
+								allMaintainList={allMaintainList}
+								clickItem={clickItem}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

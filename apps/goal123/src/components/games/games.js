@@ -57,7 +57,7 @@ const Games = () => {
 			<section className="inside">
 				<div className="rightModule">
 					<div className="infoModule">
-						<div className="lotterylobbyList">
+						<div className="gamelobbyList">
 							<GameList
 								t={t}
 								subMenu={subMenu}

@@ -96,32 +96,16 @@ export const defMenuLinks = langId => ({
 		className: "game",
 		subMenu: [
 			{
-				...productList.tcg,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.lottery_tcg
-					})
-				],
-				displayKey: "lbl_TcGame",
-				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/tcg.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/tcg-item.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/games/tcg.png`
-				},
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/tcg-icon.png`
-			},
-			{
 				...productList.KingMaker,
 				displayKey: "lbl_King_Maker",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/kingmaker.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/kingmaker-item.png`,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/king.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/king-item.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/games/kingmaker.png`
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/king.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/king-hover.png`
 				},
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/kingmaker-icon.png`
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/kingmaker-icon.png`
 			},
 			{
 				...productList.sabaClub,
@@ -129,22 +113,24 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_Vgaming",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.sabaClub },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/vg.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/vg-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/vg-icon.png`,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/vga.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/vga-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/vg-icon.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/games/vg.png`
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/vga.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/vga-hover.png`
 				}
 			},
 			{
 				...productList.MaxGame,
 				displayText: "Max Game",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/maxgame.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/maxgame-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/maxgame-icon.png`,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/max.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/max-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/maxgame-icon.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/games/max.png`
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/max.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/max-hover.png`
 				},
 				eventIcons: [
 					showEventIcon({
@@ -158,37 +144,12 @@ export const defMenuLinks = langId => ({
 				className: "v8",
 				displayKey: "lbl_V8Poker",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/v8poker.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/v8poker-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/v8poker-icon.png`,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/v8.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/v8-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/v8poker-icon.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/games/v8.png`
-				}
-			},
-			{
-				...productList.keno,
-				className: "keno",
-				displayKey: "lbl_Keno",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.keno },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/keno.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/keno-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/keno-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/games/keno.png`
-				}
-			},
-			{
-				...productList.lottery,
-				className: "lottery",
-				displayKey: "lbl_Lottery",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.lottery },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/lottery.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/lottery-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/lottery-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/games/lottery.png`
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/v8.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/v8-hover.png`
 				}
 			},
 			{
@@ -197,11 +158,12 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_tableGame",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.tableGame },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/tablegame.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/tablegame-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/tablegame-icon.png`,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/table.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/table-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/tablegame-icon.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/games/tablegame.png`
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/table.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/table-hover.png`
 				}
 			},
 			{
@@ -209,25 +171,16 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_Virtual_Games",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.virtualGame },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/virtualgames.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/virtualgames-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/virtualgames-icon.png`,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/vir.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/vir-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/virtualgames-icon.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/games/virtualgames.png`
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/vir.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/vir-hover.png`
 				}
 			}
 		]
 	},
-	// numberGame: {
-	// 	productInfo: productList.numberGame,
-	// 	path: path.sports.root,
-	// 	displayKey: "lbl_NumberGame"
-	// },
-	// virtualSport: {
-	// 	productInfo: productList.virtualSports,
-	// 	path: path.sports.root,
-	// 	displayKey: "lbl_VirtualSport"
-	// },
 	eSport: {
 		path: path.eSport.root,
 		displayKey: "lbl_eSports",
@@ -904,6 +857,67 @@ export const defMenuLinks = langId => ({
 			}
 		]
 	},
+	lottery: {
+		displayKey: "lbl_Lottery",
+		path: path.lottery.root,
+		className: "lottery",
+		subMenu: [
+			{
+				...productList.GPI_VNLottery,
+				displayKey: "GPI_VNLottery",
+				menuType: defMenuType.entPage,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/lottery/vn.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/lottery/vn-item.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/lottery/vnlottery.png`
+				},
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/lottery/newicon/vn-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.GPI_Lottery
+					})
+				]
+			},
+			{
+				...productList.tcg,
+				displayKey: "lbl_TcGame",
+				menuType: defMenuType.entPage,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/tcg.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/tcg-item.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/games/tcg.png`
+				},
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/tcg-icon.png`
+			},
+			{
+				...productList.keno,
+				className: "keno",
+				displayKey: "lbl_Keno",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.keno },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/keno.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/keno-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/keno-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/games/keno.png`
+				}
+			},
+			{
+				...productList.lottery,
+				className: "lottery",
+				displayKey: "lbl_Lottery",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.lottery },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/lottery.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/lottery-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/lottery-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/games/lottery.png`
+				}
+			}
+		]
+	},
 	vip: {
 		path: path.vip.root,
 		displayKey: "lbl_Vip"
@@ -946,5 +960,6 @@ export const defSubListClassName = {
 	casino: "casinoList",
 	liveCasino: "livecasinoList",
 	games: "gameList",
-	fishing: "fishList"
+	fishing: "fishList",
+	lottery: "lotteryList"
 };

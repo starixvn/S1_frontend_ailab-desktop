@@ -3,14 +3,12 @@ import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Games from "../components/games/games";
 
-export default () => {
-	return (
-		<Wrapper>
-			<Layout showFooter={true}>
-				<main className="gamelobby">
-					<Games />
-				</main>
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper>
+		<Layout showFooter={true}>
+			<main className="gamelobby">
+				<Games />
+			</main>
+		</Layout>
+	</Wrapper>
+);

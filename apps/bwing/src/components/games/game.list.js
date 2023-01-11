@@ -70,7 +70,7 @@ const GameListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
 				<div className={`icon ${subMenuItem.eventIcons[0]}`} />
 			)}
 
-			<p>{_displayText}</p>
+			<div className="game-txt">{_displayText}</div>
 		</div>
 	);
 };

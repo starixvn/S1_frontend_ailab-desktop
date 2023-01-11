@@ -449,6 +449,21 @@ export default {
 		tpId: 33,
 		tpGameType: 54
 	},
+	GPI_Keno: {
+		tpId: 6,
+		gameId: "keno",
+		tpGameType: 88
+	},
+	GPI_ThaiLottery: {
+		tpId: 6,
+		gameId: "thailottery",
+		tpGameType: 90
+	},
+	GPI_Fast3: {
+		tpId: 6,
+		gameId: "fast3",
+		tpGameType: 91
+	},
 
 	/* === 7. virtual sports === */
 

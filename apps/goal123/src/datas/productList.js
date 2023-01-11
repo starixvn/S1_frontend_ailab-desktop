@@ -311,6 +311,11 @@ export default {
 		name: "numberGame",
 		tpGameType: 2
 	},
+	GPI_VNLottery: {
+		tpId: 6,
+		gameId: "sode",
+		tpGameType: 89
+	},
 
 	/* === 7. virtual Sports === */
 
