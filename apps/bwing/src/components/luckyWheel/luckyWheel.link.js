@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { string } from "prop-types";
 import { Link } from "gatsby";
 import { isDateRange } from "../common/common";
 import { eventPeriod } from "./luckyWheel.def";
@@ -9,12 +9,25 @@ import { bannerImgUrl } from "../../config";
 const { startDate, endDate } = eventPeriod;
 const isInPeriod = isDateRange(startDate, endDate);
 
-const LuckyWheelLink = ({ langId }) => {
+const LuckyWheelLink = ({ langId, type }) => {
 	const [display, setDisplay] = useState(true);
 	const [homeImgOnLoad, setHomeImgOnLoad] = useState(false);
 	const [homeImgWOnLoad, sethomeImgWOnLoad] = useState(false);
 
 	if (!isInPeriod || !display) return null;
+
+	if (type === "header")
+		return (
+			<Link
+				to={`/${langId}/${path.luckyWheel.root}`}
+				className="eventLink--top"
+			>
+				<img
+					alt="angpao-header-link"
+					src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/event/wheel/eventlink-top.png`}
+				/>
+			</Link>
+		);
 
 	return (
 		<div className="mywheel">
@@ -22,7 +35,8 @@ const LuckyWheelLink = ({ langId }) => {
 				<div
 					style={{ zIndex: 50 }}
 					className="mywheelClose"
-					onClick={() => setDisplay(false)}>
+					onClick={() => setDisplay(false)}
+				>
 					X
 				</div>
 			)}
@@ -44,8 +58,14 @@ const LuckyWheelLink = ({ langId }) => {
 	);
 };
 
+LuckyWheelLink.defaultProps = {
+	langId: "",
+	type: ""
+};
+
 LuckyWheelLink.propTypes = {
-	langId: PropTypes.string.isRequired
+	langId: string,
+	type: string
 };
 
 export default LuckyWheelLink;

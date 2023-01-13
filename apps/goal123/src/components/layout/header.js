@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
+import { isDateRange } from "@ailab-desktop/common";
 import {
 	userInfoContext,
 	productTpIdsContext,
@@ -12,8 +13,9 @@ import config, { bannerImgUrl } from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import path from "../../router";
-import { isDateRange } from "../common/common";
-import { defEventPeriod } from "../common/eventIcon";
+
+import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
+import { angPaoEventPeriod } from "../../pages/angpao";
 
 export default () => {
 	const { t } = useTranslation();
@@ -21,10 +23,6 @@ export default () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { isRoot } = useContext(isRootContext);
 	const { allMaintainList } = useContext(maintainListContext);
-	const isEvent = isDateRange(
-		defEventPeriod.newYear.start,
-		defEventPeriod.newYear.end
-	);
 
 	const reload = () => {
 		if (isRoot) {
@@ -33,7 +31,7 @@ export default () => {
 	};
 
 	return (
-		<header className={isEvent ? "newyear" : ""}>
+		<header>
 			<div className="header">
 				<div className="logo">
 					<Link
@@ -46,6 +44,14 @@ export default () => {
 							alt={config.siteName}
 						/>
 					</Link>
+
+					{/* 僅限過年期間顯示 */}
+					{isDateRange(angPaoEventPeriod) && (
+						<LuckyWheelLink
+							langId={userInfo.langId}
+							type="header"
+						/>
+					)}
 				</div>
 				<Menu
 					productTpIds={productTpIds}

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
-
+import { isDateRange } from "@ailab-desktop/common";
 import {
 	userInfoContext,
 	popBoxContext,
@@ -18,6 +18,8 @@ import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
 import { langAndCurrMapping } from "../common/common";
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
+import { angPaoEventPeriod } from "../../pages/angpao";
+import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 
 export default () => {
 	const { t } = useTranslation();
@@ -85,8 +87,7 @@ export default () => {
 					<Link
 						className="logo"
 						to={`/${userInfo.langId}`}
-						onClick={reload}
-					>
+						onClick={reload}>
 						<img
 							src={`${bannerImgUrl}/desktop/img/${
 								userInfo.langId === "cs" ? "logo_cs" : "logo_en"
@@ -99,13 +100,21 @@ export default () => {
 							className="rewardsLogo"
 							target="_blank"
 							href={`${config.openURL}/rewards/`}
-							rel="noreferrer"
-						>
+							rel="noreferrer">
 							<img
 								src={`${bannerImgUrl}/img/88rewards.png`}
 								alt="Rewards"
 							/>
 						</a>
+					)}
+
+					{/* 僅限過年期間顯示 */}
+					{isDateRange(angPaoEventPeriod) && (
+						<LuckyWheelLink
+							langId={userInfo.langId}
+							currencyId={userInfo.currencyId}
+							type="header"
+						/>
 					)}
 				</div>
 				<div className="function">
@@ -114,8 +123,7 @@ export default () => {
 					{userInfo.isLogin ? null : (
 						<Link
 							to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-							className="forgot"
-						>
+							className="forgot">
 							{t("lbl_ForgetPassword")}
 						</Link>
 					)}

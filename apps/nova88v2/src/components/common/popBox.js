@@ -28,7 +28,6 @@ import RegisterSuccess from "./popBox.registerSuccess";
 import PromotionDepositConfirm from "./popBox.promotionDepositConfirm";
 import PromotionAmountConfirm from "./popBox.promotionAmountConfirm";
 import JoinReferral from "./popBox.joinReferral";
-import SuccessAngPow from "./popBox.successAngPow";
 import OneGamingLink from "./popBox.oneGamingLink";
 import defPopBoxType from "./defPopBoxType";
 import RankingWinner from "./popBox.rankingWinner";
@@ -260,16 +259,6 @@ export default () => {
 			content = <JoinReferral onClickClose={popBox.onClickClose} />;
 			break;
 
-		case defPopBoxType.SuccessAngPow:
-			content = (
-				<SuccessAngPow
-					closePopBox={popBox.closePopBox}
-					t={popBox.t}
-					drawPrizeDatas={popBox.drawPrizeDatas}
-				/>
-			);
-			break;
-
 		case defPopBoxType.SuccessMySteryBox:
 			content = (
 				<SuccessMySteryBox
@@ -352,6 +341,7 @@ export default () => {
 				/>
 			);
 
+		// eslint-disable-next-line no-fallthrough
 		default:
 			break;
 	}
@@ -368,7 +358,6 @@ export default () => {
 
 	const customLayout =
 		popBox.popBoxType === defPopBoxType.Modal ||
-		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
 		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
 		popBox.popBoxType === defPopBoxType.Photo ||
 		popBox.popBoxType === defPopBoxType.LinePay;

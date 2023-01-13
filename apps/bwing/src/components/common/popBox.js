@@ -272,19 +272,6 @@ export default () => {
 			break;
 		}
 
-		case defPopBoxType.SuccessAngPow: {
-			const SuccessAngPow = lazy(() => import("./popBox.successAngPow"));
-
-			content = (
-				<SuccessAngPow
-					closePopBox={popBox.closePopBox}
-					t={popBox.t}
-					drawPrizeDatas={popBox.drawPrizeDatas}
-				/>
-			);
-			break;
-		}
-
 		case defPopBoxType.SuccessMySteryBox: {
 			const SuccessMySteryBox = lazy(() =>
 				import("./popBox.successMySteryBox")
@@ -382,7 +369,6 @@ export default () => {
 	if (popBox.loading) return <Loading />;
 
 	const customLayout =
-		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
 		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
 		popBox.popBoxType === defPopBoxType.DepositGuide ||
 		popBox.popBoxType === defPopBoxType.Modal;

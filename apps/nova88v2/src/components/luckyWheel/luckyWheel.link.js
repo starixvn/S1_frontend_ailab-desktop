@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import PropTypes from "prop-types";
-import { navigate } from "gatsby";
+import { Link, navigate } from "gatsby";
 import { isDateRange, getCurrencyCode } from "../common/common";
 import { eventPeriod, CURRENCY_PERMISSION } from "./luckyWheel.def";
 import path from "../../router";
@@ -9,7 +9,7 @@ import { bannerImgUrl } from "../../config";
 const { startDate, endDate } = eventPeriod;
 const isInPeriod = isDateRange(startDate, endDate);
 
-const LuckyWheelLink = ({ langId, currencyId }) => {
+const LuckyWheelLink = ({ langId, currencyId, type }) => {
 	const [display, setDisplay] = useState(true);
 	const [bgImgOnLoad, setBgImgOnLoad] = useState(false);
 	const [imgOnLoad, setImgOnLoad] = useState(false);
@@ -23,6 +23,18 @@ const LuckyWheelLink = ({ langId, currencyId }) => {
 
 	if (!isPassCurrencyIdPermission || !isInPeriod || !display) return null;
 
+	if (type === "header")
+		return (
+			<Link
+				to={`/${langId}/${path.luckyWheel.root}`}
+				className="eventLink--top">
+				<img
+					alt="angpao-header-link"
+					src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/event/wheel/eventlink-top.png`}
+				/>
+			</Link>
+		);
+
 	return (
 		<div className="eventLink">
 			{bgImgOnLoad && imgOnLoad && winImgOnLoad && (
@@ -34,8 +46,7 @@ const LuckyWheelLink = ({ langId, currencyId }) => {
 
 			<div
 				onClick={() => navigate(`/${langId}/${path.luckyWheel.root}`)}
-				className="wheelModule"
-			>
+				className="wheelModule">
 				<img
 					src={`${bannerImgUrl}/desktop/img/event/wheel/eventlinkbg.png`}
 					alt="luckywheel-img-eventlinkbg"
@@ -59,12 +70,14 @@ const LuckyWheelLink = ({ langId, currencyId }) => {
 };
 
 LuckyWheelLink.defaultProps = {
-	currencyId: null
+	currencyId: null,
+	type: ""
 };
 
 LuckyWheelLink.propTypes = {
 	langId: PropTypes.string.isRequired,
-	currencyId: PropTypes.number
+	currencyId: PropTypes.number,
+	type: PropTypes.string
 };
 
 export default LuckyWheelLink;
