@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { GetCurrencyName } from "../common/common";
+import { defCurrencyList, GetCurrencyName } from "../common/common";
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 const FooterProduct = ({
@@ -9,7 +9,6 @@ const FooterProduct = ({
 	currencyId,
 	defFooterProductList,
 	path,
-	SiteInfo,
 	linkToReferral,
 	openLiveChat,
 	isFullFooter
@@ -35,14 +34,19 @@ const FooterProduct = ({
 					</div>
 					<div>{t("lbl_Affiliate_Program_desc")}</div>
 					<a
-						href={`${SiteInfo.affiliateLink}/?lang=${langId}`}
+						href={
+							currencyId === defCurrencyList.MYR
+								? ` https://aff.nova88mas102.com/?lang=${langId}`
+								: `https://aff.nova88bkk.com/?lang=${langId}`
+						}
 						style={
 							allowedCurrencyList.affiliate.includes(currencyId)
 								? {}
 								: { pointerEvents: "none" }
 						}
 						target="_blank"
-						rel="noreferrer">
+						rel="noreferrer"
+					>
 						{t("lbl_Apply_Now")}
 						{" >"}
 					</a>
@@ -58,7 +62,8 @@ const FooterProduct = ({
 							allowedCurrencyList.VIP.includes(currencyId)
 								? {}
 								: { pointerEvents: "none" }
-						}>
+						}
+					>
 						{t("lbl_More_Info")}
 						{" >"}
 					</a>
@@ -158,7 +163,6 @@ FooterProduct.propTypes = {
 	currencyId: PropTypes.number,
 	defFooterProductList: PropTypes.objectOf(PropTypes.any).isRequired,
 	path: PropTypes.objectOf(PropTypes.any).isRequired,
-	SiteInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	linkToReferral: PropTypes.func.isRequired,
 	openLiveChat: PropTypes.func.isRequired,
 	isFullFooter: PropTypes.bool.isRequired

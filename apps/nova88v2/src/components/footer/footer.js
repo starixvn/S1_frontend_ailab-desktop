@@ -5,7 +5,7 @@ import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import TandC from "../../service/t_and_c";
 import { userInfoContext, popBoxContext } from "../common/context";
-import { SiteInfo, bannerImgUrl } from "../../config";
+import { bannerImgUrl } from "../../config";
 import PlatformSection from "./footer.platform";
 import ProductSection from "./footer.product";
 import FollowUsSection from "./footer.followUs";
@@ -93,7 +93,6 @@ const Footer = ({ isFullFooter = false }) => {
 				currencyCode={currencyCode}
 				defFooterProductList={defFooterProductList}
 				path={path}
-				SiteInfo={SiteInfo}
 				linkToReferral={linkToReferral}
 				openLiveChat={openLiveChat}
 				isFullFooter={isFullFooter}
