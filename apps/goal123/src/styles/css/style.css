@@ -4,6 +4,7 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Poppins:wght@200;300;400;500;600;800&family=Pridi:wght@300;500&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -4274,6 +4275,70 @@ html.Newtheme #popup .joinloginModule .title {
   color: #fab617;
 }
 
+html.Newtheme #popup .angpaoPop {
+  border-radius: 10px;
+  width: 350px;
+  border: 3px solid #ffbe40;
+  background: #b51227;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  font-family: 'Poppins','Noto Sans SC', 'Pridi', sans-serif;
+}
+
+html.Newtheme #popup .angpaoPop > div {
+  display: block;
+  min-width: auto;
+}
+
+html.Newtheme #popup .angpaoPop img {
+  width: 580px;
+}
+
+html.Newtheme #popup .angpaoPop .title {
+  font-size: 23px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
+  margin: 10px auto;
+}
+
+html.Newtheme #popup .angpaoPop .content {
+  background: #ffbe40;
+  color: #b51227;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 20px 30px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+html.Newtheme #popup .angpaoPop .info {
+  font-size: 14px;
+  font-weight: 200;
+}
+
+html.Newtheme #popup .angpaoPop .icon-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  text-align: center;
+  line-height: 1;
+  border-radius: 50%;
+  color: #fff;
+}
+
 html.Newtheme .Submit.active,
 html.Newtheme .Cancel.active,
 html.Newtheme .uploadSuccess.active,
@@ -8234,10 +8299,25 @@ html.Newtheme .eventLink {
   position: fixed;
   left: 10px;
   bottom: 0;
-  z-index: 3;
+  z-index: 4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+html.Newtheme .eventLink--top {
+  margin: 5px 0 5px 10px;
+}
+
+html.Newtheme .eventLink--top img {
+  width: 45px;
+}
+
+html.Newtheme .eventLink--top:hover {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 html.Newtheme .eventLink .icon-close {
@@ -8339,6 +8419,141 @@ html.Newtheme .eventLink.worldcup img:hover {
           transform: scale(1.15);
   -webkit-transition: .5s;
   transition: .5s;
+}
+
+html.Newtheme .eventLink .angpaoLink {
+  width: 180px;
+  height: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+html.Newtheme .eventLink .angpaoLink:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+html.Newtheme .eventLink .angpaoLink img {
+  position: absolute;
+  z-index: 1;
+}
+
+html.Newtheme .eventLink .angpaoLink img.eventlinkimg {
+  z-index: 0;
+  margin: 5px 10px 0 0;
+  width: 140px;
+  -webkit-animation: angpao-shake 1.5s ease infinite alternate;
+          animation: angpao-shake 1.5s ease infinite alternate;
+}
+
+@-webkit-keyframes angpao-shake {
+  0% {
+    -webkit-transform: rotateZ(15deg);
+            transform: rotateZ(15deg);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  10% {
+    -webkit-transform: rotateZ(-15deg);
+            transform: rotateZ(-15deg);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  20% {
+    -webkit-transform: rotateZ(20deg);
+            transform: rotateZ(20deg);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  30% {
+    -webkit-transform: rotateZ(-20deg);
+            transform: rotateZ(-20deg);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  40% {
+    -webkit-transform: rotateZ(15deg);
+            transform: rotateZ(15deg);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  50% {
+    -webkit-transform: rotateZ(-15deg);
+            transform: rotateZ(-15deg);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  60% {
+    -webkit-transform: rotateZ(0);
+            transform: rotateZ(0);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  100% {
+    -webkit-transform: rotateZ(0);
+            transform: rotateZ(0);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+}
+
+@keyframes angpao-shake {
+  0% {
+    -webkit-transform: rotateZ(15deg);
+            transform: rotateZ(15deg);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  10% {
+    -webkit-transform: rotateZ(-15deg);
+            transform: rotateZ(-15deg);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  20% {
+    -webkit-transform: rotateZ(20deg);
+            transform: rotateZ(20deg);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  30% {
+    -webkit-transform: rotateZ(-20deg);
+            transform: rotateZ(-20deg);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  40% {
+    -webkit-transform: rotateZ(15deg);
+            transform: rotateZ(15deg);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  50% {
+    -webkit-transform: rotateZ(-15deg);
+            transform: rotateZ(-15deg);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  60% {
+    -webkit-transform: rotateZ(0);
+            transform: rotateZ(0);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
+  100% {
+    -webkit-transform: rotateZ(0);
+            transform: rotateZ(0);
+    -webkit-transform-origin: 50% 70%;
+            transform-origin: 50% 70%;
+  }
 }
 
 html.Newtheme .time {
@@ -8443,23 +8658,6 @@ html.Newtheme #popup .wheel_pop .am {
   color: #ffffff;
   line-height: 55px;
   width: 60%;
-}
-
-html.Newtheme #popup.angpao_pop .pop {
-  background: transparent;
-}
-
-html.Newtheme #popup.angpao_pop .pop img {
-  width: 580px;
-}
-
-html.Newtheme #popup.angpao_pop .pop .icon-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #c53131;
-  padding: 10px;
-  border-radius: 50%;
 }
 
 @-webkit-keyframes shakebox {
@@ -13113,7 +13311,10 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   top: 16%;
   left: calc(50% - 9.6%);
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont,
+ "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+ "Fira Sans", "Droid Sans", "Helvetica Neue",
+ sans-serif;
   font-weight: 600;
 }
 
@@ -13300,7 +13501,10 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   letter-spacing: 1px;
   white-space: nowrap;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont,
+ "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+ "Fira Sans", "Droid Sans", "Helvetica Neue",
+ sans-serif;
   font-weight: 600;
 }
 
@@ -14098,7 +14302,10 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   color: #FFBF00;
   font-weight: bold;
   position: relative;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont,
+ "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+ "Fira Sans", "Droid Sans", "Helvetica Neue",
+ sans-serif;
   font-weight: bold;
 }
 
@@ -14151,7 +14358,10 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   background: rgba(65, 10, 27, 0.4);
   text-align: center;
   color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont,
+ "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+ "Fira Sans", "Droid Sans", "Helvetica Neue",
+ sans-serif;
 }
 
 .worldcupEvent .rules__title {
@@ -14304,5 +14514,375 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 
 .resetPassWordpop .btnGroup {
   margin: 10px auto 0 !important;
+}
+
+.angpaoEvent {
+  min-width: auto;
+}
+
+.angpaoEvent .eventPage {
+  min-width: 1400px;
+}
+
+.angpaoEvent .eventPage--top {
+  min-width: 100%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  background: url(https://banner.goal123.org/desktop/img/event/angpao/bg-top.jpg) no-repeat top center, #990100;
+}
+
+.angpaoEvent .eventPage--bottom {
+  min-width: 100%;
+  background: url(https://banner.goal123.org/desktop/img/event/angpao/bg-bottom.jpg) no-repeat top center, #990100;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.angpaoEvent .eventPage .eventTitle {
+  margin: 30px auto 40px;
+  width: 700px;
+}
+
+.angpaoEvent .eventPage .angpaoModule {
+  position: relative;
+  margin: 105px auto 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Poppins','Noto Sans SC', 'Pridi', sans-serif;
+}
+
+.angpaoEvent .eventPage .angpaoModule .angpao {
+  width: 350px;
+  height: 350px;
+  position: relative;
+  text-align: center;
+  -webkit-animation: bounce2 1.5s .9s ease-in-out infinite;
+          animation: bounce2 1.5s .9s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.angpaoEvent .eventPage .angpaoModule .angpao.active {
+  -webkit-animation: hithere 1s ease 3;
+          animation: hithere 1s ease 3;
+}
+
+.angpaoEvent .eventPage .angpaoModule .angpao--front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.angpaoEvent .eventPage .angpaoModule .angpao--back {
+  position: absolute;
+  top: -100px;
+  left: 6px;
+  width: 348px;
+  z-index: 0;
+}
+
+.angpaoEvent .eventPage .angpaoModule .angpao .coin--right {
+  position: absolute;
+  top: -95px;
+  right: 50px;
+  width: 100px;
+  -webkit-animation: flip 1.5s .2s ease infinite;
+          animation: flip 1.5s .2s ease infinite;
+}
+
+.angpaoEvent .eventPage .angpaoModule .angpao .coin--left {
+  position: absolute;
+  top: -120px;
+  left: 100px;
+  width: 80px;
+  -webkit-animation: flip 1.5s .5s ease infinite;
+          animation: flip 1.5s .5s ease infinite;
+}
+
+.angpaoEvent .eventPage .angpaoModule .angpao .btn {
+  font-weight: 600;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #fff;
+  background: url(https://banner.goal123.org/desktop/img/event/angpao/btn.png) no-repeat top center/contain;
+  width: 230px;
+  height: 70px;
+  line-height: 1;
+  position: absolute;
+  bottom: 35px;
+  left: calc(50% - 107px);
+  z-index: 3;
+  padding: 14px 17px;
+}
+
+.angpaoEvent .eventPage .angpaoModule .angpao .btn:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.angpaoEvent .eventPage .angpaoModule .angpao .message {
+  position: absolute;
+  z-index: 3;
+  bottom: 5px;
+  left: calc(50% - 127px);
+  width: 270px;
+  height: 35px;
+  line-height: 1.1;
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.angpaoEvent .eventPage .info .title {
+  font-size: 36px;
+  color: white;
+  text-align: center;
+  font-family: 'Poppins','Noto Sans SC', 'Pridi', sans-serif;
+  font-weight: 680;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+
+.angpaoEvent .eventPage .info ul {
+  margin: 20px auto 60px;
+  width: 700px;
+  text-align: center;
+  color: #fff;
+}
+
+.angpaoEvent .eventPage .info li {
+  font-family: 'Poppins','Noto Sans SC', 'Pridi', sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.angpaoEvent .eventPage .info li a {
+  color: #ffce6e;
+}
+
+.angpaoEvent .eventPage .info li a:hover {
+  color: #492a0c;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.angpaoEvent .eventPage .info .eventList {
+  width: 700px;
+  margin: 30px auto 0;
+  padding-bottom: 70px;
+}
+
+.angpaoEvent .eventPage .info .eventList > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.angpaoEvent .eventPage .info .eventList > div > div {
+  margin: 1.5px;
+  padding: 10px 5px;
+  color: #1e1e1e;
+  font-weight: bold;
+  text-align: center;
+}
+
+.angpaoEvent .eventPage .info .eventList > div > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.angpaoEvent .eventPage .info .eventList > div:nth-child(even) > div {
+  background: #ff9e95;
+}
+
+.angpaoEvent .eventPage .info .eventList > div:nth-child(odd) > div {
+  background: #ff5f4f;
+}
+
+.angpaoEvent .eventPage .info .eventList > div:first-child > div {
+  background: #f83637;
+  color: #fff;
+}
+
+.angpaoEvent .eventPage .info .nodata {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+}
+
+.angpaoEvent .eventPage .info .nodata > div {
+  color: #fff;
+  background: transparent;
+}
+
+@-webkit-keyframes bounce2 {
+  0%, 30%, 70%, 90%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-10px) scale(1.05, 1);
+            transform: translateY(-10px) scale(1.05, 1);
+  }
+  60% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+}
+
+@keyframes bounce2 {
+  0%, 30%, 70%, 90%, 100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-10px) scale(1.05, 1);
+            transform: translateY(-10px) scale(1.05, 1);
+  }
+  60% {
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+}
+
+@-webkit-keyframes flip {
+  0% {
+    -webkit-transform: perspective(400px) rotateY(0);
+            transform: perspective(400px) rotateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  40% {
+    -webkit-transform: perspective(400px) translateY(180px) rotateY(170deg);
+            transform: perspective(400px) translateY(180px) rotateY(170deg);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  50% {
+    -webkit-transform: perspective(400px) translateY(180px) rotateY(190deg);
+            transform: perspective(400px) translateY(180px) rotateY(190deg);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  80% {
+    -webkit-transform: perspective(400px) rotateY(360deg);
+            transform: perspective(400px) rotateY(360deg);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: perspective(400px);
+            transform: perspective(400px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+
+@keyframes flip {
+  0% {
+    -webkit-transform: perspective(400px) rotateY(0);
+            transform: perspective(400px) rotateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  40% {
+    -webkit-transform: perspective(400px) translateY(180px) rotateY(170deg);
+            transform: perspective(400px) translateY(180px) rotateY(170deg);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  50% {
+    -webkit-transform: perspective(400px) translateY(180px) rotateY(190deg);
+            transform: perspective(400px) translateY(180px) rotateY(190deg);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  80% {
+    -webkit-transform: perspective(400px) rotateY(360deg);
+            transform: perspective(400px) rotateY(360deg);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: perspective(400px);
+            transform: perspective(400px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+}
+
+@-webkit-keyframes hithere {
+  30% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  40%, 60% {
+    -webkit-transform: rotate(-10deg) scale(1.05);
+            transform: rotate(-10deg) scale(1.05);
+  }
+  50% {
+    -webkit-transform: rotate(10deg) scale(1.05);
+            transform: rotate(10deg) scale(1.05);
+  }
+  65% {
+    -webkit-transform: rotate(0deg) scale(1.05);
+            transform: rotate(0deg) scale(1.05);
+  }
+  70% {
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes hithere {
+  30% {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  40%, 60% {
+    -webkit-transform: rotate(-10deg) scale(1.05);
+            transform: rotate(-10deg) scale(1.05);
+  }
+  50% {
+    -webkit-transform: rotate(10deg) scale(1.05);
+            transform: rotate(10deg) scale(1.05);
+  }
+  65% {
+    -webkit-transform: rotate(0deg) scale(1.05);
+            transform: rotate(0deg) scale(1.05);
+  }
+  70% {
+    -webkit-transform: rotate(0deg) scale(1);
+            transform: rotate(0deg) scale(1);
+  }
 }
 /*# sourceMappingURL=style.css.map */

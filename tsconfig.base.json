@@ -16,13 +16,16 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"paths": {
-			"@ailab-desktop/api": ["libs/api/src/index.ts"],
 			"@ailab-desktop/common": ["libs/common/src/index.ts"],
 			"@ailab-desktop/format-pattern": [
 				"libs/format-pattern/src/index.ts"
 			],
-			"@ailab-desktop/promotion": ["libs/promotion/src/index.ts"],
-			"@ailab-desktop/service": ["libs/service/src/index.ts"]
+			"@ailab-desktop/components": ["libs/components/src/index.ts"],
+			"@ailab-desktop/service": ["libs/common/src/lib/service/index.ts"],
+			"@ailab-desktop/store": ["libs/common/src/lib/store/index.ts"],
+			"@ailab-desktop/wrapper": ["libs/wrapper/src/index.ts"]
+
+			
 		}
 	},
 	"exclude": ["node_modules", "tmp"]

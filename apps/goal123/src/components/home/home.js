@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+import { AngpaoFloatLink } from "@ailab-desktop/components";
+import { isDateRange } from "@ailab-desktop/common";
 import {
 	userInfoContext,
 	popBoxContext,
@@ -15,7 +18,6 @@ import {
 	setCookie,
 	readCookie,
 	deleteCookie,
-	isDateRange,
 	number_format
 } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
@@ -31,7 +33,7 @@ import Jackpot from "./components/jackpot";
 import HotGameList from "./components/hotGameList";
 import News from "./components/news";
 import WinnerBoard from "./winnerBoard";
-import AngpowLink from "./angpowLink";
+
 import MysteryBoxLink from "./mysteryBoxLink";
 import SideBarQuickLink from "./sideBarQuickLink";
 import QuickdownloadLink from "./quickdownloadLink";
@@ -40,6 +42,7 @@ import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { defEventPeriod } from "../common/eventIcon";
 import Fireworks from "../specialEffects/fireworks";
 import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
+import { angPaoEventPeriod } from "../../pages/angpao";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -322,12 +325,14 @@ const Home = ({ productTpIds }) => {
 				/> */}
 			</section>
 
-			<LuckyWheelLink langId={userInfo.langId} />
+			{/* 僅限過年期間不顯示 */}
+			{!isDateRange(angPaoEventPeriod) && (
+				<LuckyWheelLink langId={userInfo.langId} />
+			)}
 
-			<AngpowLink
-				to={`/${userInfo.langId}/${path.angpow.root}`}
-				langId={userInfo.langId}
-			/>
+			{/* 僅限過年期間顯示且只支援部分語系 */}
+			{isDateRange(angPaoEventPeriod) &&
+				["en", "vn"].includes(i18next.language) && <AngpaoFloatLink />}
 
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
@@ -362,21 +367,24 @@ const InfoCenter = ({ t, langId }) => (
 				<a
 					href={`${config.t_and_cURL}/Static/${config.siteName}/Static/${langId}/HowToDeposit.html`}
 					rel="noreferrer"
-					target="_blank">
+					target="_blank"
+				>
 					<i className="icon icon-deposit2" />
 					{t("lbl_HowToDepoist")}
 				</a>
 				<a
 					href={`${config.t_and_cURL}/Static/${config.siteName}/Static/${langId}/HowToWithdrawal.html`}
 					rel="noreferrer"
-					target="_blank">
+					target="_blank"
+				>
 					<i className="icon icon-withdrawal2" />
 					{t("lbl_HowToWithdraw")}
 				</a>
 				<a
 					href={`${config.t_and_cURL}/Static/${config.siteName}/Static/${langId}/FAQ.html`}
 					rel="noreferrer"
-					target="_blank">
+					target="_blank"
+				>
 					<i className="icon icon-support" />
 					{t("lbl_FAQ")}
 				</a>

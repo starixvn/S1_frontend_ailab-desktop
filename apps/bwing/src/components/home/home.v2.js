@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
+import i18next from "i18next";
+import { isDateRange } from "@ailab-desktop/common";
+import { AngpaoFloatLink } from "@ailab-desktop/components";
 import { api_events_GetLeaderboardListV2 } from "../../service/api/events";
 import path from "../../router";
 import {
@@ -12,14 +15,12 @@ import {
 	number_format,
 	readCookie,
 	setCookie,
-	deleteCookie,
-	isDateRange
+	deleteCookie
 } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import { defPopBoxType } from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 import MysteryBoxLink from "./mysteryBoxLink";
-import AngpowLink from "./angpowLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import SwipperBanner from "../common/swipperBanner";
 import Marquee from "./marquee";
@@ -38,6 +39,7 @@ import { bannerImgUrl } from "../../config";
 import { defEventPeriod } from "../common/eventIcon";
 import Fireworks from "../specialEffects/fireworks";
 import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
+import { angPaoEventPeriod } from "../../pages/angpao";
 
 function Home() {
 	const { t } = useTranslation();
@@ -235,14 +237,6 @@ function Home() {
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 				langId={userInfo.langId}
 			/>
-			<div className="newyear">
-				<AngpowLink
-					to={`/${userInfo.langId}/${path.angpow.root}`}
-					langId={userInfo.langId}
-				/>
-			</div>
-
-			<LuckyWheelLink langId={userInfo.langId} />
 
 			<main className="home">
 				<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
@@ -301,21 +295,24 @@ function Home() {
 												onClickClose: () =>
 													setPopBox({ isOpen: false })
 											})
-										}>
+										}
+									>
 										{t("lbl_HowToDepoist")}
 									</a>
 								</li>
 								<li>
 									<div className="icon withdrawal" />
 									<Link
-										to={`/${userInfo.langId}/${path.howToWithdraw.root}`}>
+										to={`/${userInfo.langId}/${path.howToWithdraw.root}`}
+									>
 										{t("lbl_HowToWithdraw")}
 									</Link>
 								</li>
 								<li>
 									<div className="icon play" />
 									<Link
-										to={`/${userInfo.langId}/${path.howToPlay.root}`}>
+										to={`/${userInfo.langId}/${path.howToPlay.root}`}
+									>
 										{t("lbl_HowToPlay")}
 									</Link>
 								</li>
@@ -385,6 +382,15 @@ function Home() {
 					</div>
 				</section>
 			</main>
+
+			{/* 僅限過年期間不顯示 */}
+			{!isDateRange(angPaoEventPeriod) && (
+				<LuckyWheelLink langId={userInfo.langId} />
+			)}
+
+			{/* 僅限過年期間顯示且只支援部分語系 */}
+			{isDateRange(angPaoEventPeriod) &&
+				["en", "vn"].includes(i18next.language) && <AngpaoFloatLink />}
 
 			<SideBarQuickLink />
 
