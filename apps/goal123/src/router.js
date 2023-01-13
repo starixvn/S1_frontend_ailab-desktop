@@ -130,9 +130,6 @@ export default {
 	leaderBoard: {
 		root: "leaderBoard"
 	},
-	angpow: {
-		root: "angPow"
-	},
 	referral: {
 		root: "referral"
 	},

@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
+import { Provider } from "react-redux";
+import { store } from "@ailab-desktop/store";
 import PropTypes from "prop-types";
 import Header from "../layout/header";
 import Footer from "../footer/footer";
@@ -19,14 +21,14 @@ const Layout = ({ children, showFooter = false, goTopBtn }) => {
 	});
 
 	return (
-		<>
+		<Provider store={store}>
 			<Header />
 			{children}
 			{showFooter ? <Footer /> : null}
 			<PopBox />
 			{loading ? <Loading /> : null}
 			{goTopBtn ? <GoTopBtn /> : null}
-		</>
+		</Provider>
 	);
 };
 

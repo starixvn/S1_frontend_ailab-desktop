@@ -140,9 +140,6 @@ export default {
 	vip: {
 		root: "vip"
 	},
-	angpow: {
-		root: "angPow"
-	},
 	oneGame: {
 		root: "poker"
 	},
@@ -159,7 +156,7 @@ export default {
 		root: "eSport"
 	},
 	luckyWheel: {
-		root: "lucky-wheel"
+		root: "luckyWheel"
 	},
 	mega888: {
 		root: "mega888"

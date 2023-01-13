@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
+import { isDateRange } from "@ailab-desktop/common";
+import { AngpaoFloatLink } from "@ailab-desktop/components";
 import {
 	userInfoContext,
 	popBoxContext,
@@ -12,7 +14,6 @@ import {
 	setCookie,
 	deleteCookie,
 	getUrlParameter,
-	isDateRange,
 	defCurrencyList
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
@@ -29,12 +30,11 @@ import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import IndexCenterBanner from "./indexCenterBanner";
 import { HomeNews } from "./homeNews";
-// import Streaming from "./streaming";
 import LatestVideo from "./latestVideo";
 import QuickdownloadLink from "./quickdownloadLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import usePopBox from "../hook/usePopBox";
-import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
+import { angpaoAllowedCurrencies, angPaoEventPeriod } from "../../pages/angpao";
 import LiveCasino from "./liveCasino";
 import { bannerImgUrl } from "../../config";
 
@@ -148,41 +148,13 @@ const IndexPage = () => {
 		}
 	}, []);
 
-	useEffect(() => {
-		if (
-			isDateRange(
-				NewYearEventPeriod.startDate,
-				NewYearEventPeriod.endDate
-			)
-		) {
-			if (userInfo.defaultLang !== undefined) {
-				const langId = userInfo.defaultLang ?? userInfo.langId;
-
-				if (
-					!langId.includes("hi") &&
-					!readCookie(`NewYear-${window.location.hostname}`)
-				) {
-					setPopBox({
-						isOpen: true,
-						customLayout: true,
-						popBoxType: defPopBoxType.NewYear,
-						clickClose: setPopBox,
-						langId
-					});
-				}
-			}
-		}
-	}, [userInfo.langId, userInfo.defaultLang]);
-
 	return (
 		<main>
 			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 			<Marquee />
-
 			<div className="projpot">
 				<PromoList t={t} userInfo={userInfo} />
 			</div>
-
 			<div className="liveVideo">
 				<LatestVideo />
 				<div>
@@ -198,7 +170,8 @@ const IndexPage = () => {
 							<div className="moduleTitle">{t("lbl_Slots")}</div>
 							<Link
 								className="slotsbox"
-								to={`/${userInfo.langId}/${path.casino.root}`}>
+								to={`/${userInfo.langId}/${path.casino.root}`}
+							>
 								<img
 									src={`${bannerImgUrl}/img/indexslots_bg_${userInfo.langId}.jpg`}
 									alt="slot-bg"
@@ -214,29 +187,33 @@ const IndexPage = () => {
 					)}
 				</div>
 			</div>
-
 			<HotGameList
 				t={t}
 				userInfo={userInfo}
 				maintainList={allMaintainList}
 			/>
-
 			<div className="newsVideo">
 				<HomeNews t={t} userInfo={userInfo} />
 
 				<LiveCasino />
 			</div>
-
 			<IndexCenterBanner langId={userInfo.langId} />
-
 			<SideBarQuickLink />
-
 			<QuickdownloadLink t={t} />
 
-			<LuckyWheelLink
-				langId={userInfo.langId}
-				currencyId={userInfo.currencyId}
-			/>
+			{/* 僅限過年期間不顯示 */}
+			{!isDateRange(angPaoEventPeriod) && (
+				<LuckyWheelLink
+					langId={userInfo.langId}
+					currencyId={userInfo.currencyId}
+				/>
+			)}
+
+			{/* 僅限過年期間顯示且只支援部分語系 */}
+			{isDateRange(angPaoEventPeriod) &&
+				angpaoAllowedCurrencies.includes(userInfo?.currencyId) && (
+					<AngpaoFloatLink />
+				)}
 
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
