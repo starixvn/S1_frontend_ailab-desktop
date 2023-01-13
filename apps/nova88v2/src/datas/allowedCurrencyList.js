@@ -6,7 +6,9 @@ const allowedCurrencyList = {
 		defCurrencyList.MYR,
 		defCurrencyList.THB,
 		defCurrencyList.IDR,
-		defCurrencyList.CNY
+		defCurrencyList.CNY,
+		defCurrencyList.BDT,
+		defCurrencyList.USD
 	],
 	exchange: [defCurrencyList.INR, defCurrencyList.BDT],
 	worldCup: [
