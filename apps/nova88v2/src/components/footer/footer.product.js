@@ -15,6 +15,16 @@ const FooterProduct = ({
 }) => {
 	const currencyName = GetCurrencyName({ langId, currencyId, t });
 
+	const getCurrencyLink = targetCurrencyId => {
+		if (targetCurrencyId === defCurrencyList.MYR) {
+			return ` https://aff.nova88mas102.com/?lang=${langId}`;
+		}
+		if (targetCurrencyId === defCurrencyList.INR) {
+			return `https://aff.nova88india.com/?lang=${langId}`;
+		}
+		return `https://aff.nova88bkk.com/?lang=${langId}`;
+	};
+
 	return (
 		<div className="footerList">
 			<div className="item-wrapper">
@@ -34,11 +44,7 @@ const FooterProduct = ({
 					</div>
 					<div>{t("lbl_Affiliate_Program_desc")}</div>
 					<a
-						href={
-							currencyId === defCurrencyList.MYR
-								? ` https://aff.nova88mas102.com/?lang=${langId}`
-								: `https://aff.nova88bkk.com/?lang=${langId}`
-						}
+						href={getCurrencyLink(currencyId)}
 						style={
 							allowedCurrencyList.affiliate.includes(currencyId)
 								? {}
