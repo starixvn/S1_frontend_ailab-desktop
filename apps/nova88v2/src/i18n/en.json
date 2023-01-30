@@ -424,6 +424,7 @@
 	"lbl_ReceiveUSDT": "Receive {{currencyName}} Amount",
 	"lbl_WithdrawalCryptoNote": "Conversion rate serves as reference purposes only, exact amount shall refer the latest rate.",
 	"lbl_Times": "Times",
+	"lbl_EWalletAccountNumber": "E-wallet Account Number",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Funds",

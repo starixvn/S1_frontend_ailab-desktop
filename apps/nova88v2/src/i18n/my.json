@@ -414,6 +414,7 @@
 	"lbl_Insufficientbalance": "Baki anda tidak mencukupi",
 	"lbl_ReceiveUSDT": "Terima Amaun {{currencyName}}",
 	"lbl_WithdrawalCryptoNote": "Kadar penukaran untuk tujuan rujukan sahaja, amaun yang tepat perlu merujuk kadar terkini.",
+	"lbl_EWalletAccountNumber": "Nombor akaun E-wallet",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Pemindahan Dana",
