@@ -415,6 +415,7 @@
 	"lbl_ReceiveUSDT": "Terima jumlah {{currencyName}}",
 	"lbl_Times": "Kali",
 	"lbl_WithdrawalCryptoNote": "Nilai konversi berfungsi sebagai tujuan referensi saja, jumlah yang tepat akan mengacu pada nilai terbaru.",
+	"lbl_EWalletAccountNumber": "Nomer Akun E-wallet",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Dana",

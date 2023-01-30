@@ -151,7 +151,8 @@ const PopBox = ({ EInfoSysList = [], custEWalletInfo, getCustEWalletInfo }) => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}>
+											onClick={clickClose}
+										>
 											OK
 										</button>
 									</div>
@@ -201,14 +202,16 @@ const PopBox = ({ EInfoSysList = [], custEWalletInfo, getCustEWalletInfo }) => {
 						</div>
 						<div
 							className="iconModule"
-							onClick={clickInfo.bind(this, "realName_after")}>
+							onClick={clickInfo.bind(this, "realName_after")}
+						>
 							<i className="icon icon-information-solid" />
 						</div>
 					</div>
 					<div
 						className={`tip${
 							status.realName_after.tip ? " active" : ""
-						}`}>
+						}`}
+					>
 						{status.realName_after.tip}
 					</div>
 				</>
@@ -233,7 +236,7 @@ const PopBox = ({ EInfoSysList = [], custEWalletInfo, getCustEWalletInfo }) => {
 				value={userValue.accountNo}
 				onChange={editField.bind(this, "accountNo")}
 				onBlur={checkAll.bind(this, userValue.accountNo, "accountNo")}
-				title={t("lbl_BankNumber")}
+				title={t("lbl_EWalletAccountNumber")}
 				clickInfo={clickInfo.bind(this, "accountNo")}
 				checked={status.accountNo.checked}
 				tip={status.accountNo.tip}
