@@ -115,7 +115,8 @@ const ConfirmPanel = ({
 							AccountNo: selectedAccount.accountNo,
 							amount: real_amount,
 							sysId: selectedAccount.sysId,
-							memo: ""
+							memo: "",
+							blackbox
 					  }).then(res => {
 							data = res;
 					  })
