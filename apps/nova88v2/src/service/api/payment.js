@@ -124,13 +124,15 @@ export const api_payment_WithdrawalEWalletReq = ({
 	AccountNo,
 	amount,
 	sysId,
-	memo
+	memo,
+	blackbox
 }) =>
 	paymentRequest.post("/WithdrawalEWalletReq", {
 		AccountNo,
 		amount,
 		sysId,
-		memo
+		memo,
+		blackbox
 	});
 export const api_payment_WithdrawalCryptoReq = ({
 	AccountNo,
