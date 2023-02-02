@@ -124,9 +124,9 @@ export default () => {
 		let checked = true;
 		let tip = "";
 
-		if (!nameValue) {
+		if (!nameValue && !userInfo.accountName) {
 			tip = t("lbl_NameRequired");
-			checked = !!nameValue;
+			checked = false;
 		} else if (
 			// * 如果使用者有填入特殊字元則顯示錯誤訊息
 			String(nameValue).match(
