@@ -6,7 +6,7 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import { defTpGameType, defCategory } from "../../datas/productList";
-import { api_site_GetHotGames } from "../../service/api/site";
+import { api_HotGame_GetDataList } from "../../service/api/hotGame";
 import usePopBox from "../hook/usePopBox";
 
 const Main = ({ setPopBox, t, userInfo, allMaintainList }) => {
@@ -14,10 +14,10 @@ const Main = ({ setPopBox, t, userInfo, allMaintainList }) => {
 	const [gameList, setGameList] = useState([]);
 
 	useEffect(() => {
-		api_site_GetHotGames({ langId: userInfo.langId })
+		api_HotGame_GetDataList()
 			.then(res => {
 				if (res.data.errorCode === 0) {
-					setGameList(res.data.data);
+					setGameList(res.data.data?.HotGame);
 				} else {
 					errorPopBox(
 						res.data.message || "error",
@@ -122,7 +122,8 @@ const HotGameList = ({ t, gameList, allMaintainList, onNavigate }) => {
 				}
 				style={{
 					margin: "0 10px"
-				}}>
+				}}
+			>
 				<img className="gameimg" src={g.gameLogo} alt="" />
 				<div className="title">
 					<p>{g.gameName}</p>
@@ -142,11 +143,13 @@ const HotGameList = ({ t, gameList, allMaintainList, onNavigate }) => {
 				<ReactMarquee
 					speed={85}
 					pauseOnHover={true}
-					gradientColor={false}>
+					gradientColor={false}
+				>
 					<div className="swiper-container">
 						<div
 							className="swiper-wrapper"
-							style={{ display: "flex" }}>
+							style={{ display: "flex" }}
+						>
 							{rows}
 						</div>
 					</div>
