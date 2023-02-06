@@ -10,7 +10,7 @@ import {
 	defCategory,
 	defSlotTpGameType
 } from "../../datas/productList";
-import { api_site_GetHotGames } from "../../service/api/site";
+import { api_HotGame_GetDataList } from "../../service/api/hotGame";
 import usePopBox from "../hook/usePopBox";
 
 // const defGameType = {
@@ -29,13 +29,12 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 		autoGetData: false
 	});
 	useEffect(() => {
-		api_site_GetHotGames({
-			langId: userInfo.langId,
+		api_HotGame_GetDataList({
 			currencyId: userInfo.currencyId
 		})
 			.then(res => {
 				if (res.data.errorCode === 0) {
-					setGameList(res.data.data);
+					setGameList(res.data.data?.HotGame);
 				} else {
 					errorPopBox(
 						res.data.message || "error",
@@ -120,7 +119,8 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 						isInMaintain,
 						g.tpGameType
 					)
-				}>
+				}
+			>
 				<img src={g.gameLogo} alt={g.gameName} />
 				<div>
 					<div className="title">{g.gameName}</div>
@@ -140,11 +140,13 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 					<ReactMarquee
 						speed={145}
 						pauseOnHover={true}
-						gradientColor={false}>
+						gradientColor={false}
+					>
 						<div className="swiper-container">
 							<div
 								className="swiper-wrapper"
-								style={{ display: "flex" }}>
+								style={{ display: "flex" }}
+							>
 								{rows}
 							</div>
 						</div>
