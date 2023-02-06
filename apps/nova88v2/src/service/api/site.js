@@ -82,11 +82,12 @@ export const api_site_seo = () => siteRequest.post(`/seo`);
 export const api_site_GetMenuOfGames = () =>
 	siteRequest.post(`/GetMenuOfGames`);
 
-export const api_site_GetHotGames = ({ langId, currencyId }) =>
-	siteRequest.post(`/GetHotGames/${langId}`, {
-		DeviceType: defDeviceType.Desktop,
-		CurrencyId: currencyId
-	});
+// using new api - api/HotGame/GetDataList
+// export const api_site_GetHotGames = ({ langId, currencyId }) =>
+// 	siteRequest.post(`/GetHotGames/${langId}`, {
+// 		DeviceType: defDeviceType.Desktop,
+// 		CurrencyId: currencyId
+// 	});
 
 export const api_site_GetSocialChannel = ({
 	currencyId,
