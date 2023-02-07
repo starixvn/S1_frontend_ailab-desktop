@@ -6,13 +6,13 @@ import AddBankAccount from "./addBankAccount";
 import Available from "./withdrawal.set.available";
 import Calculation from "./withdrawal.set.calculation";
 // import CashBar from "./withdrawal.set.cashBar";
-
 import InputModuleRow from "./withdrawal.set.inputModuleRow";
 import BankInfoCard from "./withdrawal.set.bankInfoCard";
 import { Crypto, useUSDTFetcher } from "./withdrawal.set.crypto";
 import KycUpload from "./withdrawal.set.kycUpload";
 import KycPending from "./withdrawal.set.kycPending";
-import WithdrawalConfirm, {
+import {
+	WithdrawalConfirm,
 	WithdrawalUSDTConFirm
 } from "./withdrawal.set.confirm";
 import { api_payment_WithdrawalReq } from "../../service/api/payment";
@@ -23,7 +23,6 @@ import { isConvert, checkAmount, getAmountTip } from "../common/common";
 import StepBar from "../common/stepBar";
 import defStep from "./defStep";
 import usePopBox from "../hook/usePopBox";
-
 import path from "../../router";
 
 const INIT_BANK_INFO_DETAIL = { accountNo: "", bankName: "", sysId: null };
@@ -59,22 +58,25 @@ const Main = ({
 }) => {
 	const { t } = useTranslation();
 	const { setPopBox, errorPopBox } = usePopBox();
-	const isMountedRef = useRef(null);
+	const { userInfo } = useContext(userInfoContext);
+	const _isConvert = isConvert(userInfo.currencyId);
 
+	const isMountedRef = useRef(null);
 	const [amountValue, setAmountValue] = useState("");
 	const [showConfirmPage, setShowConfirmPage] = useState(false);
-	const { userInfo } = useContext(userInfoContext);
-
-	const _isConvert = isConvert(userInfo.currencyId);
+	const step = showConfirmPage ? 3 : 1;
 
 	const [status, setStatus] = useState({
 		checked: null,
 		tip: ""
 	});
 
-	const step = showConfirmPage ? 3 : 1;
-
 	const [withdrawalType, setWithdrawalType] = useState(null);
+	// Crypto Withdrawal 需另外帶入的參數
+	const [exchangeInfo, setExchangeInfo] = useState({
+		exchangeRate: 0,
+		exchangeAmount: 0
+	});
 
 	const {
 		confirmDeleteCryptoWallet,
@@ -117,13 +119,6 @@ const Main = ({
 
 	const { withdrawalMin, withdrawalMax, unlimited } =
 		getWithdrawalMinMaxLimit();
-
-	useEffect(() => {
-		isMountedRef.current = true;
-		return () => {
-			isMountedRef.current = false;
-		};
-	});
 
 	const deleteCryptoHandler = async item => {
 		const confirm = await confirmDeleteCryptoWallet();
@@ -189,6 +184,13 @@ const Main = ({
 	};
 
 	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
 		getCustBankInfo();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [balanceData]);
@@ -208,7 +210,8 @@ const Main = ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}
+							>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>
@@ -226,6 +229,10 @@ const Main = ({
 
 	const refreshAvailableBalance = () => {
 		getWithdrawalAvailableBalance();
+	};
+
+	const onChangeExchangeInfo = ({ exchangeRate, exchangeAmount }) => {
+		setExchangeInfo({ exchangeRate, exchangeAmount });
 	};
 
 	const onChangeUSDTInfo = item => {
@@ -357,11 +364,14 @@ const Main = ({
 		const amount = _isConvert
 			? amountValue * 1000
 			: parseInt(amountValue, 10);
+		const { exchangeRate, exchangeAmount } = exchangeInfo;
 
 		const success = await withdrawalUSDTReq({
 			accountNo: currentUSDTDetail.usdtAddress,
 			amount,
-			currencyId: currentUSDTDetail.currencyId
+			currencyId: currentUSDTDetail.currencyId,
+			exchangeRate,
+			exchangeAmount
 		});
 
 		if (success) {
@@ -403,7 +413,8 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickDone}>
+										onClick={ClickDone}
+									>
 										OK
 									</button>
 								</div>
@@ -423,7 +434,8 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -440,7 +452,8 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -458,7 +471,8 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -473,7 +487,8 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -492,7 +507,8 @@ const Main = ({
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -534,10 +550,12 @@ const Main = ({
 				<WithdrawalUSDTConFirm
 					t={t}
 					currentUSDTDetail={currentUSDTDetail}
+					usdtExchangeAmount={exchangeInfo.exchangeAmount}
 					amountValue={_isConvert ? amountValue * 1000 : amountValue}
 					cancelSubmit={cancelSubmit}
 					confirmSubmit={withdrawalUSDTSubmit}
 					getExchangeInfo={getExchangeInfo}
+					onChangeExchangeInfo={onChangeExchangeInfo}
 					_isConvert={_isConvert}
 				/>
 			)

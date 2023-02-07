@@ -96,7 +96,8 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 							onClick={() => {
 								resolve(true);
 								closePopBox();
-							}}>
+							}}
+						>
 							{t("lbl_Yes")}
 						</button>
 						<button
@@ -104,7 +105,8 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 							onClick={() => {
 								resolve(false);
 								closePopBox();
-							}}>
+							}}
+						>
 							{t("lbl_No")}
 						</button>
 					</div>
@@ -147,7 +149,7 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						return res.data.data.rate;
+						return res.data.data ?? {};
 					}
 
 					errorPopBox(
@@ -163,13 +165,21 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 			}
 		);
 
-	const withdrawalUSDTReq = async ({ accountNo, amount, currencyId }) => {
+	const withdrawalUSDTReq = async ({
+		accountNo,
+		amount,
+		currencyId,
+		exchangeRate,
+		exchangeAmount
+	}) => {
 		let success = false;
 
 		await api_payment_WithdrawalCryptoReq({
 			accountNo,
 			amount,
-			currencyId
+			currencyId,
+			exchangeRate,
+			exchangeAmount
 		}).then(
 			// eslint-disable-next-line consistent-return
 			res => {
@@ -184,7 +194,8 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={closePopBox}>
+										onClick={closePopBox}
+									>
 										OK
 									</button>
 								</div>

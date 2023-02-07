@@ -27,40 +27,15 @@ const ConfirmPanel = ({
 	isIfscRequired
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
-	const [receiveUSDT, setReceiveUSDT] = useState();
+	const [exchangeInfo, setExchangeInfo] = useState({
+		exchangeRate: 0,
+		exchangeAmount: 0
+	});
 	const isMountedRef = useRef(null);
 	const { errorPopBox } = usePopBox();
 	const _accountNo = selectedAccount.accountNo;
 	const real_amount = _isConvert ? Number(amount) * 1000 : Number(amount);
 	const { currencyName, network } = selectedAccount;
-	useEffect(() => {
-		isMountedRef.current = true;
-		return () => {
-			isMountedRef.current = false;
-		};
-	});
-
-	useEffect(() => {
-		if (currencyName || network) {
-			api_payment_GetExchangeInfo({
-				Amount: real_amount,
-				CurrencyName: currencyName,
-				Network: network
-			}).then(
-				res => {
-					const { errorCode, message, data } = res.data;
-					if (errorCode === 0) {
-						setReceiveUSDT(Number(data.to_Amount).toString());
-					} else {
-						errorPopBox(message || "error", errorCode);
-					}
-				},
-				() => {
-					errorPopBox();
-				}
-			);
-		}
-	}, [real_amount, currencyName, network, errorPopBox]);
 
 	const toAmountPanel = () => {
 		dispatch({
@@ -68,28 +43,6 @@ const ConfirmPanel = ({
 			panel: defPanel.amount
 		});
 	};
-
-	useEffect(() => {
-		if (currencyName) {
-			api_payment_GetExchangeInfo({
-				Amount: real_amount,
-				CurrencyName: currencyName,
-				Network: network
-			}).then(
-				res => {
-					const { errorCode, message, data } = res.data;
-					if (errorCode === 0) {
-						setReceiveUSDT(Number(data.to_Amount).toString());
-					} else {
-						errorPopBox(message || "error", errorCode);
-					}
-				},
-				() => {
-					errorPopBox();
-				}
-			);
-		}
-	}, [real_amount, currencyName, network, errorPopBox]);
 
 	const clickSubmit = async () => {
 		const setInitState = () => {
@@ -132,15 +85,20 @@ const ConfirmPanel = ({
 							data = res;
 					  });
 			} else {
+				const { exchangeRate, exchangeAmount } = exchangeInfo;
+
 				await api_payment_WithdrawalCryptoReq({
 					AccountNo: selectedAccount.usdtAddress,
 					amount: real_amount,
 					blackbox,
-					CurrencyId: selectedAccount.currencyId
+					CurrencyId: selectedAccount.currencyId,
+					exchangeRate,
+					exchangeAmount
 				}).then(res => {
 					data = res;
 				});
 			}
+
 			return data;
 		};
 
@@ -248,6 +206,44 @@ const ConfirmPanel = ({
 			}
 		}
 	};
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
+		if (currencyName || network) {
+			api_payment_GetExchangeInfo({
+				Amount: real_amount,
+				CurrencyName: currencyName,
+				Network: network
+			}).then(
+				res => {
+					const {
+						errorCode,
+						message,
+						data: { rate = 0, to_Amount = 0 }
+					} = res.data;
+
+					if (errorCode === 0) {
+						setExchangeInfo({
+							exchangeRate: Number(rate),
+							exchangeAmount: Number(to_Amount)
+						});
+					} else {
+						errorPopBox(message || "error", errorCode);
+					}
+				},
+				() => {
+					errorPopBox();
+				}
+			);
+		}
+	}, [real_amount, currencyName, network]);
+
 	return (
 		<div className="subModule">
 			<div className="subModuleBody column align-items-center">
@@ -271,7 +267,7 @@ const ConfirmPanel = ({
 						selectedAccount={selectedAccount}
 						_isConvert={_isConvert}
 						amount={amount}
-						receiveUSDT={receiveUSDT}
+						receiveUSDT={exchangeInfo.exchangeAmount}
 					/>
 				)}
 				<div className="btnGroup">
@@ -403,7 +399,7 @@ CryptoDetailInfo.propTypes = {
 	_isConvert: PropTypes.bool.isRequired,
 	selectedAccount: PropTypes.objectOf(PropTypes.any).isRequired,
 	amount: PropTypes.string.isRequired,
-	receiveUSDT: PropTypes.string
+	receiveUSDT: PropTypes.number
 };
 
 export default ConfirmPanel;
