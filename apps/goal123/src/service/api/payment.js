@@ -188,13 +188,22 @@ export const api_payment_GetExchangeInfo = ({
 		Network: network
 	});
 
+/**
+ * * 提款建單 Crypto 提款時需要多傳入 ExchangeRate、ExchangeAmount
+ * * ExchangeRate => 填入 GetExchangeInfo 的 rate
+ * * ExchangeAmount => 填入 GetExchangeInfo 的 to_Amount
+ */
 export const api_payment_WithdrawalCryptoReq = ({
 	accountNo,
 	amount,
-	currencyId
+	currencyId,
+	exchangeRate,
+	exchangeAmount
 }) =>
 	paymentRequest.post("/WithdrawalCryptoReq", {
 		AccountNo: accountNo,
 		amount,
-		CurrencyId: currencyId
+		CurrencyId: currencyId,
+		exchangeRate,
+		exchangeAmount
 	});

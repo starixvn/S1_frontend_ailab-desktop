@@ -1,13 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import PropTypes from "prop-types";
-
+import PropTypes, { bool, func, number, string } from "prop-types";
 import { userInfoContext } from "../common/context";
 import { number_format } from "../common/common";
-
 import { IconSpinner } from "../common/loading";
 
-export default props => {
+const WithdrawalSetConfirm = props => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 
@@ -56,30 +54,45 @@ export default props => {
 	);
 };
 
+export default WithdrawalSetConfirm;
+
+WithdrawalSetConfirm.propTypes = {
+	bankNameValue: string.isRequired,
+	accountNoValue: string.isRequired,
+	amountValue: number.isRequired,
+	_isConvert: bool.isRequired,
+	cancelSubmit: func.isRequired,
+	confirmSubmit: func.isRequired
+};
+
 export const WithdrawalUSDTConFirm = ({
 	t,
 	currentUSDTDetail,
+	usdtExchangeAmount,
 	amountValue,
 	cancelSubmit,
 	confirmSubmit,
 	getExchangeInfo,
+	onChangeExchangeInfo,
 	_isConvert
 }) => {
 	const { nickName, usdtAddress, currencyName, network } = currentUSDTDetail;
-	const [uSDTAmount, setUSDTAmount] = useState(0);
 	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		const getUSDTAmount = async () => {
 			setLoading(true);
 
-			const _uSDTAmount = await getExchangeInfo({
+			const { rate, to_Amount } = await getExchangeInfo({
 				amount: amountValue,
 				currencyName,
 				network
 			});
 
-			setUSDTAmount(_uSDTAmount || 0);
+			onChangeExchangeInfo({
+				exchangeRate: Number(rate),
+				exchangeAmount: Number(to_Amount) || 0
+			});
 
 			setLoading(false);
 		};
@@ -119,7 +132,7 @@ export const WithdrawalUSDTConFirm = ({
 					<li>
 						<IconSpinner active={loading} />
 
-						{!loading && uSDTAmount}
+						{!loading && usdtExchangeAmount}
 					</li>
 				</ul>
 			</div>
@@ -141,9 +154,11 @@ export const WithdrawalUSDTConFirm = ({
 WithdrawalUSDTConFirm.propTypes = {
 	t: PropTypes.func.isRequired,
 	currentUSDTDetail: PropTypes.objectOf(PropTypes.any).isRequired,
+	usdtExchangeAmount: PropTypes.number.isRequired,
 	amountValue: PropTypes.number.isRequired,
 	cancelSubmit: PropTypes.func.isRequired,
 	confirmSubmit: PropTypes.func.isRequired,
 	getExchangeInfo: PropTypes.func.isRequired,
+	onChangeExchangeInfo: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired
 };
