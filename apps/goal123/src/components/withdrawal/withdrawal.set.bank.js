@@ -72,6 +72,11 @@ const Main = ({
 
 	const [withdrawalType, setWithdrawalType] = useState(null);
 
+	const [exchangeInfo, setExchangeInfo] = useState({
+		exchangeRate: 0,
+		exchangeAmount: 0
+	});
+
 	const {
 		confirmDeleteCryptoWallet,
 		delCustUSDTInfo,
@@ -89,6 +94,10 @@ const Main = ({
 
 	const [currentUSDTDetail, setCurrentUSDTDetail] =
 		useState(INIT_USED_DETAIL);
+
+	const onChangeExchangeInfo = ({ exchangeRate, exchangeAmount }) => {
+		setExchangeInfo({ exchangeRate, exchangeAmount });
+	};
 
 	const getWithdrawalMinMaxLimit = () => {
 		let limit = withdrawalLimit;
@@ -204,7 +213,8 @@ const Main = ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}
+							>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>
@@ -354,10 +364,13 @@ const Main = ({
 		const amount = _isConvert
 			? amountValue * 1000
 			: parseInt(amountValue, 10);
+		const { exchangeRate, exchangeAmount } = exchangeInfo;
 		const success = await withdrawalUSDTReq({
 			accountNo: currentUSDTDetail.usdtAddress,
 			amount,
-			currencyId: currentUSDTDetail.currencyId
+			currencyId: currentUSDTDetail.currencyId,
+			exchangeRate,
+			exchangeAmount
 		});
 
 		if (success) {
@@ -398,7 +411,8 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickDone}>
+										onClick={ClickDone}
+									>
 										OK
 									</button>
 								</div>
@@ -418,7 +432,8 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -435,7 +450,8 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -453,7 +469,8 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -468,7 +485,8 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -487,7 +505,8 @@ const Main = ({
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -529,10 +548,12 @@ const Main = ({
 				<WithdrawalUSDTConFirm
 					t={t}
 					currentUSDTDetail={currentUSDTDetail}
+					usdtExchangeAmount={exchangeInfo.exchangeAmount}
 					amountValue={_isConvert ? amountValue * 1000 : amountValue}
 					cancelSubmit={cancelSubmit}
 					confirmSubmit={withdrawalUSDTSubmit}
 					getExchangeInfo={getExchangeInfo}
+					onChangeExchangeInfo={onChangeExchangeInfo}
 					_isConvert={_isConvert}
 				/>
 			)

@@ -134,17 +134,27 @@ export const api_payment_WithdrawalEWalletReq = ({
 		memo,
 		blackbox
 	});
+
+/**
+ * * 提款建單 Crypto 提款時需要多傳入 ExchangeRate、ExchangeAmount
+ * * ExchangeRate => 填入 GetExchangeInfo 的 rate
+ * * ExchangeAmount => 填入 GetExchangeInfo 的 to_Amount
+ */
 export const api_payment_WithdrawalCryptoReq = ({
 	AccountNo,
 	amount,
 	blackbox,
-	CurrencyId
+	CurrencyId,
+	exchangeRate,
+	exchangeAmount
 }) =>
 	paymentRequest.post("/WithdrawalCryptoReq", {
 		AccountNo,
 		amount,
 		blackbox,
-		CurrencyId
+		CurrencyId,
+		exchangeRate,
+		exchangeAmount
 	});
 
 export const api_payment_GetWithdrawalInfoRecent = () =>
