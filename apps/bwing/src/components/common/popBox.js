@@ -359,6 +359,16 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.DepositMsg: {
+			const DepositMsg = lazy(() => import("./popBox.depositMsg"));
+			content = (
+				<Suspense fallback={<>Loading...</>}>
+					<DepositMsg {...popBox} />
+				</Suspense>
+			);
+			break;
+		}
+
 		case defPopBoxType.default:
 			break;
 
