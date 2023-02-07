@@ -302,6 +302,7 @@ const Content = () => {
 				item.transId,
 				item.picFileName
 			)}
+			depositMessageDetail={item.depositMessageDetail}
 		/>
 	));
 

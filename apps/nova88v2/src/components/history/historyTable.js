@@ -1,5 +1,8 @@
-import React, { Children } from "react";
+import React, { Children, useContext } from "react";
 import PropTypes from "prop-types";
+import defPopBoxType from "../common/defPopBoxType";
+import { defDepositStatusClassName } from "./def";
+import { popBoxContext } from "../common/context";
 
 const createUuid = () => {
 	let dt = new Date().getTime();
@@ -14,6 +17,7 @@ const createUuid = () => {
 };
 
 const HistoryTable = ({ t, dataSource, columns, children }) => {
+	const { setPopBox } = useContext(popBoxContext);
 	const header = columns?.map(colItem => {
 		if (!colItem.dataIndex) return null;
 
@@ -23,21 +27,50 @@ const HistoryTable = ({ t, dataSource, columns, children }) => {
 	const body = dataSource?.map((item, index) => (
 		<div key={`history-table-${createUuid()}`}>
 			{columns?.map(colItem => {
+				const handleClickInfoBtn = () => {
+					setPopBox({
+						isOpen: true,
+						transId: item.transId,
+						depositMessageDetail: item.depositMessageDetail,
+						popBoxType: defPopBoxType.DepositMsg
+					});
+				};
 				if (
 					colItem.dataIndex &&
 					(Object.keys(item).includes(colItem.dataIndex) ||
 						Object.keys(colItem).includes("render"))
-				)
-					return typeof colItem.render === "function" ? (
+				) {
+					if (colItem.dataIndex === "status") {
+						return (
+							<div
+								className={
+									defDepositStatusClassName[item.status]
+								}
+							>
+								{t(`lbl_DepositStatus${item.status}`)}
+								{item.depositMessageDetail &&
+								item.depositMessageDetail.length > 0 ? (
+									<button
+										className="infobtn"
+										onClick={handleClickInfoBtn}
+									/>
+								) : null}
+							</div>
+						);
+					}
+					if (typeof colItem.render === "function") {
+						return (
+							<div key={`key-${colItem.key}`}>
+								{colItem.render(item, index)}
+							</div>
+						);
+					}
+					return (
 						<div key={`key-${colItem.key}`}>
-							{colItem.render(item, index)}
-						</div>
-					) : (
-						<div key={`key-${colItem.key}`}>
-							{item[colItem.dataIndex]}
+							{item[colItem.dataIndex] ?? null}
 						</div>
 					);
-
+				}
 				return null;
 			})}
 		</div>

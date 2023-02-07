@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
@@ -7,6 +7,8 @@ import {
 	currencyIdToTimeZone,
 	defCurrencyList
 } from "../common/common";
+import defPopBoxType from "../common/defPopBoxType";
+import { popBoxContext } from "../common/context";
 
 const statusClassName = {
 	1: "pending",
@@ -18,13 +20,15 @@ const statusClassName = {
 
 export const TransactionHistory = props => {
 	const { t } = useTranslation();
+	const { setPopBox } = useContext(popBoxContext);
 	let actionContent = null;
 	if (props.depositType === 3 && (props.status === 1 || props.status === 7)) {
 		actionContent = (
 			<>
 				<button
 					className="orange icon icon-pencil"
-					onClick={props.SubmitProof}>
+					onClick={props.SubmitProof}
+				>
 					{t("lbl_SubmitProof")}
 				</button>
 				<button className="gray" onClick={props.ClickCancel}>
@@ -33,6 +37,15 @@ export const TransactionHistory = props => {
 			</>
 		);
 	}
+
+	const handleClickInfoBtn = () => {
+		setPopBox({
+			isOpen: true,
+			transId: props.transId,
+			depositMessageDetail: props.depositMessageDetail,
+			popBoxType: defPopBoxType.DepositMsg
+		});
+	};
 
 	return (
 		props.currencyId && (
@@ -61,6 +74,12 @@ export const TransactionHistory = props => {
 				<div>{number_format(props.amount, props._isConvert)}</div>
 				<div className={statusClassName[props.status]}>
 					{t(`lbl_DepositStatus${props.status}`)}
+					{props.depositMessageDetail.length > 0 && (
+						<button
+							className="infobtn"
+							onClick={handleClickInfoBtn}
+						/>
+					)}
 				</div>
 				<div className="btnGroup">
 					{actionContent}
@@ -73,7 +92,8 @@ export const TransactionHistory = props => {
 
 TransactionHistory.defaultProps = {
 	thirdId: null,
-	currencyId: null
+	currencyId: null,
+	depositMessageDetail: []
 };
 
 TransactionHistory.propTypes = {
@@ -87,5 +107,6 @@ TransactionHistory.propTypes = {
 	amount: PropTypes.number.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	status: PropTypes.number.isRequired,
-	currencyId: PropTypes.number
+	currencyId: PropTypes.number,
+	depositMessageDetail: PropTypes.arrayOf(PropTypes.any)
 };

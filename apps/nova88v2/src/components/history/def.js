@@ -4,7 +4,7 @@ import { number_format } from "../common/common";
 import ReloadSpin from "../common/reloadSpin";
 import { withdrawalStatus } from "../withdrawal/withdrawal.historyResult";
 
-const defDepositStatusClassName = {
+export const defDepositStatusClassName = {
 	1: "pending",
 	2: "paid",
 	3: "approved",
@@ -232,7 +232,8 @@ export const defColumns = ({
 										...item,
 										keepData
 									})
-								}>
+								}
+							>
 								{t("lbl_SubmitProof")}
 							</button>
 							<button
@@ -242,7 +243,8 @@ export const defColumns = ({
 										keepData,
 										transId: item.transId
 									})
-								}>
+								}
+							>
 								{t("lbl_Cancel")}
 							</button>
 						</>
@@ -337,7 +339,8 @@ export const defColumns = ({
 									activateWithdrawalCancelConfirmModal(
 										item.transId
 									)
-								}>
+								}
+							>
 								{t("lbl_Cancel")}
 							</button>
 						</div>

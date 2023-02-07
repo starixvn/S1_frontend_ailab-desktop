@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
+import { defPopBoxType } from "../common/defPopBoxType";
 import { userInfoContext, popBoxContext } from "../common/context";
+import { isConvert } from "../common/common";
 import { TransactionHistory } from "./deposit.historyResult";
 import { api_payment_SetDepositCancel } from "../../service/api/payment";
-import { isConvert } from "../common/common";
-import { defPopBoxType } from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
 import usePopBox from "../hook/usePopBox";
@@ -175,6 +175,7 @@ const DepositRecentHistory = ({
 				item.refId,
 				item.depositTime
 			)}
+			depositMessageDetail={item.depositMessageDetail}
 		/>
 	));
 

@@ -337,6 +337,7 @@ const Content = () => {
 				item.refId,
 				item.depositTime
 			)}
+			depositMessageDetail={item.depositMessageDetail}
 		/>
 	));
 
