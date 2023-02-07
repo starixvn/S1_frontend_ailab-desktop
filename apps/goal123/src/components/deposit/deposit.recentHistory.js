@@ -139,6 +139,7 @@ const DepositRecentHistory = ({
 				item.transId,
 				item.picFileName
 			)}
+			depositMessageDetail={item.depositMessageDetail}
 		/>
 	));
 

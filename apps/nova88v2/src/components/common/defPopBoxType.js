@@ -38,5 +38,6 @@ export default {
 	Modal: "Modal",
 	NewYear: "NewYear",
 	LinePay: "LinePay",
-	BankQR: "BankQR"
+	BankQR: "BankQR",
+	DepositMsg: "DepositMsg"
 };

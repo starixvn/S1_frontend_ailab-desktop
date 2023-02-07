@@ -362,6 +362,7 @@
 	"lbl_QRCode": "QRCode",
 	"lbl_DuitNowQRNote1": "Please contact CSD if payment did not reflect in your wallet after the transfer.",
 	"lbl_DuitNowQRNote2": "Close the tab after the transfer.",
+	"lbl_OK": "OK",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Payment Details",

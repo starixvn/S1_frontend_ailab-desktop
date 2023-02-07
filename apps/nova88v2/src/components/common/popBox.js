@@ -40,6 +40,7 @@ import Modal from "./popBox.modal";
 import NewYear from "./popbox.newYear";
 import LinePay from "./popBox.linePayLink";
 import BankQR from "./popBox.bankQR";
+import DepositMsg from "./popBox.depositMsg";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -340,6 +341,16 @@ export default () => {
 					transId={popBox.transId}
 				/>
 			);
+			break;
+
+		case defPopBoxType.DepositMsg:
+			content = (
+				<DepositMsg
+					transId={popBox.transId}
+					depositMessageDetail={popBox.depositMessageDetail}
+				/>
+			);
+			break;
 
 		// eslint-disable-next-line no-fallthrough
 		default:
@@ -360,7 +371,8 @@ export default () => {
 		popBox.popBoxType === defPopBoxType.Modal ||
 		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
 		popBox.popBoxType === defPopBoxType.Photo ||
-		popBox.popBoxType === defPopBoxType.LinePay;
+		popBox.popBoxType === defPopBoxType.LinePay ||
+		popBox.popBoxType === defPopBoxType.DepositMsg;
 
 	if (!popBox.isOpen) return null;
 
@@ -372,7 +384,8 @@ export default () => {
 		<div
 			id="popup"
 			className="active"
-			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}>
+			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}
+		>
 			<div className="pop">{content}</div>
 		</div>
 	);

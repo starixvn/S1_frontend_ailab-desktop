@@ -35,7 +35,8 @@ export const defPopBoxType = {
 	BackupDomain: "BackupDomain",
 	UnderMaintain: "UnderMaintain",
 	PaymentQR: "PaymentQR",
-	NewYear: "NewYear"
+	NewYear: "NewYear",
+	DepositMsg: "DepositMsg"
 };
 
 export default () => {
@@ -364,6 +365,16 @@ export default () => {
 			);
 			break;
 
+		case defPopBoxType.DepositMsg: {
+			const DepositMsg = lazy(() => import("./popBox.depositMsg"));
+			content = (
+				<Suspense fallback={<>Loading...</>}>
+					<DepositMsg {...popBox} />
+				</Suspense>
+			);
+			break;
+		}
+
 		case defPopBoxType.default:
 			break;
 
@@ -375,7 +386,8 @@ export default () => {
 
 	const customLayout =
 		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
-		popBox.popBoxType === defPopBoxType.Modal;
+		popBox.popBoxType === defPopBoxType.Modal ||
+		popBox.popBoxType === defPopBoxType.DepositMsg;
 
 	if (!popBox.isOpen) return null;
 
