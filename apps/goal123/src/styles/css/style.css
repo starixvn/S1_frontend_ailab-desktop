@@ -4685,6 +4685,9 @@ html.Newtheme .walletModule .walletBalanceModule .icon-error {
       -ms-flex-align: center;
           align-items: center;
 }
+html.Newtheme .walletModule .walletBalanceModule .icon-spinner11 {
+  margin: 2px 5px 0;
+}
 html.Newtheme .walletModule .walletBalanceModule .icon-error {
   font-size: 16px;
 }
@@ -4848,25 +4851,27 @@ html.Newtheme .addBank .addBankName .addBankInfo:last-child, html.Newtheme .addB
 html.Newtheme .addBank .addBankName .addBankInfo:last-child span, html.Newtheme .addBank .addBankName .cryptoInfo:last-child span {
   margin-right: 5px;
 }
-html.Newtheme .addBank .addBankName .addBankInfo .bankName,
-html.Newtheme .addBank .addBankName .addBankInfo .icon-bin, html.Newtheme .addBank .addBankName .cryptoInfo .bankName,
-html.Newtheme .addBank .addBankName .cryptoInfo .icon-bin {
-  margin: 0;
+html.Newtheme .addBank .addBankName .addBankInfo .bankName, html.Newtheme .addBank .addBankName .cryptoInfo .bankName {
+  margin: 0 0 5px 0;
 }
 html.Newtheme .addBank .addBankName .addBankInfo .checkbox, html.Newtheme .addBank .addBankName .cryptoInfo .checkbox {
   -webkit-transform: translateY(0);
           transform: translateY(0);
+  margin-right: 0;
 }
 html.Newtheme .addBank .addBankName .addBankInfo .checkbox label, html.Newtheme .addBank .addBankName .cryptoInfo .checkbox label {
   border-radius: 0;
-  width: 15px;
-  height: 15px;
+  width: 12px;
+  height: 12px;
   margin-right: 0;
 }
+html.Newtheme .addBank .addBankName .addBankInfo .checkbox label::before, html.Newtheme .addBank .addBankName .cryptoInfo .checkbox label::before {
+  font-size: 13px;
+}
 html.Newtheme .addBank .addBankName .addBankInfo .icon-bin, html.Newtheme .addBank .addBankName .cryptoInfo .icon-bin {
-  font-size: 24px;
+  font-size: 18px;
   color: #b2b2b2;
-  margin-top: -4px;
+  margin: -7px -2px 0 0;
   position: static;
 }
 html.Newtheme .addBank .addBankName .addBankInfo .title, html.Newtheme .addBank .addBankName .cryptoInfo .title {
@@ -4886,9 +4891,10 @@ html.Newtheme .addBank .addBankName .cryptoInfo > .title {
   margin-left: 0;
 }
 html.Newtheme .addBank .addBankName .cryptoInfo > .checkbox {
-  -webkit-transform: translateY(-35%);
-          transform: translateY(-35%);
   margin-bottom: 10px;
+  position: absolute;
+  top: 15px;
+  right: 30px;
 }
 html.Newtheme .addBank .addBankName .cryptoInfo > .icon {
   font-size: 24px;

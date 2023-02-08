@@ -6490,8 +6490,8 @@ input[type=file] {
 }
 .addBank .addBankName .addBankInfo .checkbox,
 .addBank .addBankName .cryptoInfo .checkbox {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
   margin-right: 0;
 }
 .addBank .addBankName .addBankInfo .checkbox label,
@@ -6514,6 +6514,9 @@ input[type=file] {
 .addBank .addBankName .cryptoInfo .checkbox {
   margin-right: -2px;
   margin-left: 5px;
+  position: absolute;
+  top: 25px;
+  right: 12px;
 }
 .addBank .addBankName .cryptoInfo > .title {
   width: 100%;
@@ -6556,9 +6559,9 @@ input[type=file] {
 }
 .addBank .addBankName button.icon.icon-bin {
   position: absolute;
-  bottom: 4px;
-  right: 5px;
-  font-size: 17px;
+  bottom: 12px;
+  right: 4px;
+  font-size: 18px;
 }
 .addBank .addBankName .icon-plus {
   font-size: 40px;
