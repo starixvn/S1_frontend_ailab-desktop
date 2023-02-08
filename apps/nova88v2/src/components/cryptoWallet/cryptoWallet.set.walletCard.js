@@ -86,7 +86,9 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 					<i className="icon icon-USDT" />
 					<div>{item.usdtAddress}</div>
 				</div>
-				<button
+
+				{/* * 暫時隱藏 delete crypto wallet 按鈕，以防止有用戶重複新增刪除帳號來套利，當 risk 評估覺得可以的話有機會再打開 */}
+				{/* <button
 					className="icon icon-bin"
 					onClick={() =>
 						delUSDTwallet({
@@ -96,7 +98,7 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 							CurrencyId: item.currencyId
 						})
 					}
-				/>
+				/> */}
 				<div className="walletNickname">{item.nickName}</div>
 			</div>
 		);
