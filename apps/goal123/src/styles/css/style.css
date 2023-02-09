@@ -7621,7 +7621,8 @@ html.Newtheme #popup.angpao_pop .pop .icon-close {
 html.Newtheme #popup .statuspop {
   background: #1f3258;
   width: 500px;
-  height: auto;
+  max-height: 650px;
+  overflow-y: auto;
   border-radius: 7px;
 }
 html.Newtheme #popup .statuspop img {

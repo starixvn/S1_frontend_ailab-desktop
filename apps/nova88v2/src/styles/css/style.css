@@ -3433,7 +3433,7 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
 .inputBox.error, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event, .worldcupEvent .event .event-content .error.inputBox-event, .error.inputBox-blue, .error.inputBox-white, .error.inputBox-org {
   border-color: #cf0404;
 }
-.inputBox.error + .tip, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event + .tip, .worldcupEvent .event .event-content .error.inputBox-event + .tip, .error.inputBox-blue + .tip, .error.inputBox-white + .tip, .error.inputBox-org + .tip {
+.inputBox.error + .tip, .worldcupEvent .event .event-content .error.inputBox-event + .tip, .error.inputBox-blue + .tip, .error.inputBox-white + .tip, .error.inputBox-org + .tip {
   color: #cf0404;
 }
 .inputBox:focus-within, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event:focus-within, .worldcupEvent .event .event-content .inputBox-event:focus-within, .inputBox-blue:focus-within, .inputBox-white:focus-within, .inputBox-org:focus-within {
@@ -6922,7 +6922,7 @@ input[type=file] {
           flex: 1;
   margin-right: 5px;
 }
-.quickSelect > div.inputBox.promoType, .worldcupEvent .event .event-content .ticket-item.finished .quickSelect > div.promoType.inputBox-event, .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event, .quickSelect > div.promoType.inputBox-org, .quickSelect > div.promoType.inputBox-white, .quickSelect > div.promoType.inputBox-blue,
+.quickSelect > div.inputBox.promoType, .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event, .quickSelect > div.promoType.inputBox-org, .quickSelect > div.promoType.inputBox-white, .quickSelect > div.promoType.inputBox-blue,
 .quickSelect > div:first-child.promoType {
   max-width: none;
   display: block;
@@ -10249,7 +10249,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 #popup .statuspop {
   background: #d2e2f9;
   width: 500px;
-  height: auto;
+  max-height: 650px;
+  overflow-y: auto;
   color: #112240;
   border-radius: 7px;
 }
@@ -14841,7 +14842,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
     max-width: 40vw;
   }
   .checkspeed .wallpaper .module > div.bottom > div.left > div > div > button,
-.checkspeed .wallpaper .module > div.bottom > div.left > div > div > a {
+  .checkspeed .wallpaper .module > div.bottom > div.left > div > div > a {
     padding: 1vw 10px;
   }
   .checkspeed .wallpaper .module > div.bottom > div.right {
@@ -17936,10 +17937,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 @media (min-width: 2100px) {
   .worldcupEvent .fixture .group-four > .item,
-.worldcupEvent .fixture .group-two > .item,
-.worldcupEvent .fixture .group-one > .item,
-.worldcupEvent .fixture .group-semi > .item,
-.worldcupEvent .fixture .group-final > .item {
+  .worldcupEvent .fixture .group-two > .item,
+  .worldcupEvent .fixture .group-one > .item,
+  .worldcupEvent .fixture .group-semi > .item,
+  .worldcupEvent .fixture .group-final > .item {
     font-size: 1.5rem;
   }
 }
@@ -17980,28 +17981,28 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 @media (min-width: 1700px) {
   .worldcupEvent .fixture .group-four .group-title:before, .worldcupEvent .fixture .group-four .group-title:after,
-.worldcupEvent .fixture .group-two .group-title:before,
-.worldcupEvent .fixture .group-two .group-title:after,
-.worldcupEvent .fixture .group-one .group-title:before,
-.worldcupEvent .fixture .group-one .group-title:after,
-.worldcupEvent .fixture .group-semi .group-title:before,
-.worldcupEvent .fixture .group-semi .group-title:after,
-.worldcupEvent .fixture .group-final .group-title:before,
-.worldcupEvent .fixture .group-final .group-title:after {
+  .worldcupEvent .fixture .group-two .group-title:before,
+  .worldcupEvent .fixture .group-two .group-title:after,
+  .worldcupEvent .fixture .group-one .group-title:before,
+  .worldcupEvent .fixture .group-one .group-title:after,
+  .worldcupEvent .fixture .group-semi .group-title:before,
+  .worldcupEvent .fixture .group-semi .group-title:after,
+  .worldcupEvent .fixture .group-final .group-title:before,
+  .worldcupEvent .fixture .group-final .group-title:after {
     -webkit-transform: scale(1);
             transform: scale(1);
   }
 }
 @media (min-width: 2100px) {
   .worldcupEvent .fixture .group-four .group-title:before, .worldcupEvent .fixture .group-four .group-title:after,
-.worldcupEvent .fixture .group-two .group-title:before,
-.worldcupEvent .fixture .group-two .group-title:after,
-.worldcupEvent .fixture .group-one .group-title:before,
-.worldcupEvent .fixture .group-one .group-title:after,
-.worldcupEvent .fixture .group-semi .group-title:before,
-.worldcupEvent .fixture .group-semi .group-title:after,
-.worldcupEvent .fixture .group-final .group-title:before,
-.worldcupEvent .fixture .group-final .group-title:after {
+  .worldcupEvent .fixture .group-two .group-title:before,
+  .worldcupEvent .fixture .group-two .group-title:after,
+  .worldcupEvent .fixture .group-one .group-title:before,
+  .worldcupEvent .fixture .group-one .group-title:after,
+  .worldcupEvent .fixture .group-semi .group-title:before,
+  .worldcupEvent .fixture .group-semi .group-title:after,
+  .worldcupEvent .fixture .group-final .group-title:before,
+  .worldcupEvent .fixture .group-final .group-title:after {
     -webkit-transform: scale(1.4);
             transform: scale(1.4);
     -webkit-transform-origin: left;
@@ -18026,20 +18027,20 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 @media (min-width: 1700px) {
   .worldcupEvent .fixture .group-four .group-title:after,
-.worldcupEvent .fixture .group-two .group-title:after,
-.worldcupEvent .fixture .group-one .group-title:after,
-.worldcupEvent .fixture .group-semi .group-title:after,
-.worldcupEvent .fixture .group-final .group-title:after {
+  .worldcupEvent .fixture .group-two .group-title:after,
+  .worldcupEvent .fixture .group-one .group-title:after,
+  .worldcupEvent .fixture .group-semi .group-title:after,
+  .worldcupEvent .fixture .group-final .group-title:after {
     -webkit-transform: scale(1) rotate(180deg);
             transform: scale(1) rotate(180deg);
   }
 }
 @media (min-width: 2100px) {
   .worldcupEvent .fixture .group-four .group-title:after,
-.worldcupEvent .fixture .group-two .group-title:after,
-.worldcupEvent .fixture .group-one .group-title:after,
-.worldcupEvent .fixture .group-semi .group-title:after,
-.worldcupEvent .fixture .group-final .group-title:after {
+  .worldcupEvent .fixture .group-two .group-title:after,
+  .worldcupEvent .fixture .group-one .group-title:after,
+  .worldcupEvent .fixture .group-semi .group-title:after,
+  .worldcupEvent .fixture .group-final .group-title:after {
     -webkit-transform: scale(1.4) rotate(180deg);
             transform: scale(1.4) rotate(180deg);
     -webkit-transform-origin: right;
@@ -18049,10 +18050,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 @media (min-width: 2100px) {
   .worldcupEvent .fixture .group-four .group-title,
-.worldcupEvent .fixture .group-two .group-title,
-.worldcupEvent .fixture .group-one .group-title,
-.worldcupEvent .fixture .group-semi .group-title,
-.worldcupEvent .fixture .group-final .group-title {
+  .worldcupEvent .fixture .group-two .group-title,
+  .worldcupEvent .fixture .group-one .group-title,
+  .worldcupEvent .fixture .group-semi .group-title,
+  .worldcupEvent .fixture .group-final .group-title {
     font-size: 1.85rem;
   }
 }

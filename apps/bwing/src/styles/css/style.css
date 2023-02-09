@@ -4269,7 +4269,8 @@ main > .swiper-container .swiper-slide {
 #popup .statuspop {
   background: #070e22;
   width: 500px;
-  height: auto;
+  max-height: 650px;
+  overflow-y: auto;
   color: #112240;
   border-radius: 7px;
 }
