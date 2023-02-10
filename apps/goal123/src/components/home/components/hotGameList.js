@@ -13,7 +13,8 @@ const HotGameList = ({ t, langId, clickItem, navigate, allMaintainList }) => {
 		{
 			title: t("lbl_Sports"),
 			img: "sport",
-			path: `/${langId}/${path.sports.root}?game=${productList.soccer.name}`
+			path: `/${langId}/${path.sports.root}?game=${productList.soccer.name}`,
+			...productList.soccer
 		},
 		{
 			title: t("lbl_SabaSoccer"),

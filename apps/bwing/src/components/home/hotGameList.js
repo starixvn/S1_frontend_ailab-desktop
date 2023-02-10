@@ -100,7 +100,7 @@ Main.propTypes = {
 };
 
 const HotGameList = ({ t, gameList, allMaintainList, onNavigate }) => {
-	const rows = gameList.map(g => {
+	const rows = gameList?.map(g => {
 		const isInMaintain = allMaintainList?.some(
 			mt =>
 				mt.tpId === g.tpId &&
