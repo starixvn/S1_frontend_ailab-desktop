@@ -13,8 +13,10 @@ pipeline {
             when {
                 anyOf {
                     changeset "package.json"
+                    changeset "package-lock.json"
                     expression { node_modules_exists == 'false' }
                 }
+
             }
             steps {
                 sh 'npm i -g node-sass'
