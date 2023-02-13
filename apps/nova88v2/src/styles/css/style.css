@@ -707,6 +707,7 @@ header input:focus-within {
   background: #555;
   padding: 5px 10px;
   border-radius: 5px;
+  text-align: center;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a.active,
 .header > div.menu .subMenu-Wrapper-new .homeList button.active,
