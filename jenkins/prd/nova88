@@ -13,10 +13,8 @@ pipeline {
             when {
                 anyOf {
                     changeset "package.json"
-                    changeset "package-lock.json"
                     expression { node_modules_exists == 'false' }
                 }
-
             }
             steps {
                 sh 'npm i -g node-sass'
@@ -27,7 +25,6 @@ pipeline {
             steps {
                 sh 'npx gulp minify --gulpfile=apps/${project_name}/gulpfile.js'
                 sh '(git rev-parse --short=7 HEAD & git rev-parse --abbrev-ref HEAD) > apps/${project_name}/static/rnt.txt'
-                sh 'nx clear-cache'
                 sh 'npx nx autoBuild ${project_name} --skip-nx-cache'
             }
         }
