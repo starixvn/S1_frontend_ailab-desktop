@@ -9,14 +9,15 @@ const { DATETIME_LOCAL } = HTML5_FMT;
 export const isDateRange = ({ startDate, endDate }: IEventPeriod) => {
 	const today = moment().format(DATETIME_LOCAL);
 
-	// * 防呆，如果結束時間大於開始時間
-	if (moment(startDate).isAfter(endDate)) return false;
-
 	if (startDate && !endDate)
 		return moment(today).isSameOrBefore(startDate, "second");
 
+	// 超過結束時間 return true
 	if (!startDate && endDate)
 		return moment(today).isSameOrAfter(endDate, "second");
+
+	// * 防呆，如果開始與結束時間皆有輸入，結束時間大於開始時間
+	if (moment(startDate).isAfter(endDate)) return false;
 
 	if (startDate && endDate)
 		return (
