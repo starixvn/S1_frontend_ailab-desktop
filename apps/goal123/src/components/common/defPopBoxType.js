@@ -30,6 +30,7 @@ const defPopBoxType = {
 	UnderMaintain: "UnderMaintain",
 	PaymentQR: "PaymentQR",
 	NewYear: "NewYear",
+	WithdrawalMsg: "WithdrawalMsg",
 	DepositMsg: "DepositMsg"
 };
 

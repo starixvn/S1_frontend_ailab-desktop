@@ -502,7 +502,7 @@
 	"lbl_WithdrawalDailyReached": "Your Daily Limit Reached.",
 	"lbl_Insufficientbalance": "Insufficient balance",
 	"lbl_Times": "Times",
-
+	"lbl_OK": "OK",
 	"transaction ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NeedAccountNo": "Need Account Number",
 	"msg_AccountWrongFormat": "Account Number format is wrong.",

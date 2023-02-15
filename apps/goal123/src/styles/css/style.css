@@ -7604,20 +7604,6 @@ html.Newtheme #popup .wheel_pop .am {
   line-height: 55px;
   width: 60%;
 }
-html.Newtheme #popup.angpao_pop .pop {
-  background: transparent;
-}
-html.Newtheme #popup.angpao_pop .pop img {
-  width: 580px;
-}
-html.Newtheme #popup.angpao_pop .pop .icon-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: rgb(197, 49, 49);
-  padding: 10px;
-  border-radius: 50%;
-}
 html.Newtheme #popup .statuspop {
   background: #1f3258;
   width: 500px;
@@ -7650,12 +7636,15 @@ html.Newtheme #popup .statuspop .statuscontent > div .subtitle {
   font-size: 16px;
   color: #FFF;
 }
+
 html.Newtheme #popup .statuspop .statuscontent > div > div:nth-child(2) {
   margin: 10px 0 5px;
 }
+
 html.Newtheme #popup .statuspop .statuscontent > div:last-child {
   border-bottom: 0;
 }
+
 html.Newtheme #popup .statuspop .success {
   background: #5574A7;
   padding: 12px 50px;
@@ -7668,11 +7657,13 @@ html.Newtheme #popup .statuspop .success::before {
   content: "";
   display: block;
 }
+
 html.Newtheme #popup .statuspop .success:hover {
   background: #1e85ec;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
+
 @-webkit-keyframes shakebox {
   10%, 90% {
     -webkit-transform: translate3d(-1px, 2px, 2px);

@@ -501,7 +501,7 @@
 	"lbl_WithdrawalDailyReached": "Bạn Đã Sử Dụng Hết Hạn Mức Trong Ngày.",
 	"lbl_Insufficientbalance": "Số Dư Không Đủ",
 	"lbl_Times": "Số lần",
-
+	"lbl_OK": "OK",
 	"transaction ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NeedAccountNo": "Cần nhập số tài khoản",
 	"msg_AccountWrongFormat": "Định dạng tài khoản không đúng.",

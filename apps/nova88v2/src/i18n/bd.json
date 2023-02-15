@@ -408,6 +408,7 @@
 	"lbl_ReceiveUSDT": "ইউএসডিটি {{currencyName}} পান",
 	"lbl_WithdrawalCryptoNote": "রূপান্তর হার শুধুমাত্র রেফারেন্সের উদ্দেশ্যে কাজ করে, সঠিক পরিমাণ সর্বশেষ হার উল্লেখ করবে।",
 	"lbl_EWalletAccountNumber": "E-wallet Account Number",
+	"lbl_OK": "OK",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "তহবিল স্থানান্তর",

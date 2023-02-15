@@ -359,6 +359,16 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.WithdrawalMsg: {
+			const WithdrawalMsg = lazy(() => import("./popBox.withdrawalMsg"));
+			content = (
+				<Suspense fallback={<>Loading...</>}>
+					<WithdrawalMsg {...popBox} />
+				</Suspense>
+			);
+			break;
+		}
+
 		case defPopBoxType.DepositMsg: {
 			const DepositMsg = lazy(() => import("./popBox.depositMsg"));
 			content = (
