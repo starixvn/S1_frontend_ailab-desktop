@@ -4537,25 +4537,6 @@ input[type=file] {
   margin-left: 1px;
 }
 
-.list .listBody .approved, .list .listBody .pending, .list .listBody .reject, .list .listBody .cancel {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.list .listBody .approved .infobtn, .list .listBody .pending .infobtn, .list .listBody .reject .infobtn, .list .listBody .cancel .infobtn {
-  background: url(https://banner.0814media.net/desktop/img/notice.png) no-repeat center/cover;
-  width: 15px;
-  height: 15px;
-  margin-left: 1px;
-}
-
 .pagination {
   width: calc(100% - 68px);
   margin: 30px auto;
@@ -7015,10 +6996,6 @@ input[type=file] {
 .quickSelect .dropdown .dropdown-container .dropdown-item {
   margin: 0;
   padding: 5px 0 5px 10px;
-}
-
-.quickSelect .dropdown .btn {
-  padding: 0 10px;
 }
 
 .specialBonus {
@@ -10326,74 +10303,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: #92AED6;
   -webkit-transition: 0.2s;
   transition: 0.2s;
-}
-
-#popup .statuspop {
-  background: #d2e2f9;
-  width: 500px;
-  height: auto;
-  color: #112240;
-  border-radius: 7px;
-}
-
-#popup .statuspop img {
-  width: 40px;
-  margin: 15px auto 0;
-}
-
-#popup .statuspop .statustitle {
-  font-weight: bold;
-  font-size: 20px;
-  color: #112240;
-  border-radius: 5px 5px 0 0;
-  padding: 15px 0 15px 20px;
-  text-align: center;
-}
-
-#popup .statuspop .statuscontent {
-  padding: 0 15px;
-}
-
-#popup .statuspop .statuscontent > div {
-  border-bottom: 1px solid #c1cceb;
-  padding: 15px 15px 10px;
-}
-
-#popup .statuspop .statuscontent > div .subtitle {
-  font-size: 16px;
-  color: #112240;
-}
-
-#popup .statuspop .statuscontent > div > div {
-  color: #5574a7;
-}
-
-#popup .statuspop .statuscontent > div > div:nth-child(2) {
-  margin: 10px 0 5px;
-}
-
-#popup .statuspop .statuscontent > div:last-child {
-  border-bottom: 0;
-}
-
-#popup .statuspop .success {
-  background: #5574A7;
-  padding: 12px 50px;
-  border-radius: 30px;
-  margin: auto auto 20px;
-  color: white;
-  display: block;
-}
-
-#popup .statuspop .success::before {
-  content: "";
-  display: block;
-}
-
-#popup .statuspop .success:hover {
-  background: #92AED6;
-  -webkit-transition: .2s;
-  transition: .2s;
 }
 
 .vip {
