@@ -258,6 +258,7 @@ const History = () => {
 					t={t}
 					dataSource={historyDatas}
 					columns={columns}
+					selectedTagId={selectedTagId}
 				/>
 
 				<Pagination

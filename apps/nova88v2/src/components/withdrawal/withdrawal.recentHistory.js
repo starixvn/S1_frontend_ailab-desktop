@@ -76,7 +76,8 @@ const History = ({
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={ClosePopBox}>
+											onClick={ClosePopBox}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -96,7 +97,8 @@ const History = ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -133,6 +135,7 @@ const History = ({
 			{...item}
 			ClickCancel={ClickCancel.bind(this, item.transId)}
 			timeZone={timeZone}
+			withdrawalMessageDetail={item.withdrawalMessageDetail}
 		/>
 	));
 

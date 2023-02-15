@@ -3088,6 +3088,25 @@ main > .swiper-container .swiper-slide {
   margin-left: 1px;
 }
 
+.list .listBody .approved, .list .listBody .pending, .list .listBody .reject, .list .listBody .cancel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.list .listBody .approved .infobtn, .list .listBody .pending .infobtn, .list .listBody .reject .infobtn, .list .listBody .cancel .infobtn {
+  background: url(https://banner.bw88.io/desktop/img/notice.png) no-repeat center/cover;
+  width: 15px;
+  height: 15px;
+  margin-left: 1px;
+}
+
 .pagination {
   width: calc(100% - 68px);
   margin: 30px auto;
@@ -4322,6 +4341,75 @@ main > .swiper-container .swiper-slide {
   background: #aeb2bc;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+}
+
+#popup .statuspop {
+  background: #070e22;
+  width: 500px;
+  height: auto;
+  color: #112240;
+  border-radius: 7px;
+}
+
+#popup .statuspop img {
+  width: 40px;
+  margin: 15px auto 0;
+}
+
+#popup .statuspop .statustitle {
+  font-weight: bold;
+  font-size: 16px;
+  color: #56ceff;
+  border-radius: 5px 5px 0 0;
+  padding: 15px 15px 5px;
+  text-align: center;
+}
+
+#popup .statuspop .statuscontent {
+  padding: 0 15px 15px;
+}
+
+#popup .statuspop .statuscontent > div {
+  border-bottom: 1px solid #273454;
+  padding: 15px 15px 10px;
+}
+
+#popup .statuspop .statuscontent > div .subtitle {
+  font-size: 16px;
+  color: #aeb2bc;
+}
+
+#popup .statuspop .statuscontent > div > div {
+  color: #aeb2bc;
+}
+
+#popup .statuspop .statuscontent > div > div:nth-child(2) {
+  margin: 10px 0 5px;
+}
+
+#popup .statuspop .statuscontent > div:last-child {
+  border-bottom: 0;
+}
+
+#popup .statuspop .success {
+  background: #afafaf;
+  padding: 7px 40px;
+  border-radius: 3px;
+  margin: auto auto 20px;
+  color: #070e22;
+  display: block;
+  font-weight: bold;
+}
+
+#popup .statuspop .success::before {
+  content: "";
+  display: block;
+}
+
+#popup .statuspop .success:hover {
+  background: #aeb2bc;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .Submit,
@@ -7782,7 +7870,6 @@ main > .swiper-container .swiper-slide {
       flex-wrap: wrap;
   width: 1400px;
   margin: auto;
-  cursor: pointer;
 }
 .gameslobbyList .gameslobbyitem > div {
   height: 380px;
@@ -7798,35 +7885,6 @@ main > .swiper-container .swiper-slide {
   width: 230px;
   left: calc(50% - 115px);
   text-align: center;
-}
-.gameslobbyList .gameslobbyitem > div .underBtn {
-  display: none;
-  background-color: #a59f9f;
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  padding: 10px;
-  border-radius: 3px;
-  width: 60%;
-  text-align: center;
-  z-index: 2;
-}
-.gameslobbyList .gameslobbyitem > div.under {
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1);
-}
-.gameslobbyList .gameslobbyitem > div.under .underBtn {
-  display: block;
-}
-.gameslobbyList .gameslobbyitem > div.under:hover {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-.gameslobbyList .gameslobbyitem > div.under:hover .btnGroup {
-  display: none;
 }
 .gameslobbyList .gameslobbyitem > div:hover {
   -webkit-transform: scale(1.05);

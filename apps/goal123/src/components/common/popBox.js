@@ -36,6 +36,7 @@ export const defPopBoxType = {
 	UnderMaintain: "UnderMaintain",
 	PaymentQR: "PaymentQR",
 	NewYear: "NewYear",
+	WithdrawalMsg: "WithdrawalMsg",
 	DepositMsg: "DepositMsg"
 };
 
@@ -365,6 +366,16 @@ export default () => {
 			);
 			break;
 
+		case defPopBoxType.WithdrawalMsg: {
+			const WithdrawalMsg = lazy(() => import("./popBox.withdrawalMsg"));
+			content = (
+				<Suspense fallback={<>Loading...</>}>
+					<WithdrawalMsg {...popBox} />
+				</Suspense>
+			);
+			break;
+		}
+
 		case defPopBoxType.DepositMsg: {
 			const DepositMsg = lazy(() => import("./popBox.depositMsg"));
 			content = (
@@ -387,6 +398,7 @@ export default () => {
 	const customLayout =
 		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
 		popBox.popBoxType === defPopBoxType.Modal ||
+		popBox.popBoxType === defPopBoxType.WithdrawalMsg ||
 		popBox.popBoxType === defPopBoxType.DepositMsg;
 
 	if (!popBox.isOpen) return null;
