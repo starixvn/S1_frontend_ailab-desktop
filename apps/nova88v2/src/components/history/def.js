@@ -12,7 +12,7 @@ export const defDepositStatusClassName = {
 	5: "cancel"
 };
 
-const defWithdrawalStatusClassName = {
+export const defWithdrawalStatusClassName = {
 	1: "pending",
 	2: "pending",
 	3: "approved",

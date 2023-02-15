@@ -39,5 +39,6 @@ export default {
 	NewYear: "NewYear",
 	LinePay: "LinePay",
 	BankQR: "BankQR",
+	WithdrawalMsg: "WithdrawalMsg",
 	DepositMsg: "DepositMsg"
 };

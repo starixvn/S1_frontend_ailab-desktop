@@ -416,6 +416,7 @@
 	"lbl_ReceiveUSDT": "Terima Amaun {{currencyName}}",
 	"lbl_WithdrawalCryptoNote": "Kadar penukaran untuk tujuan rujukan sahaja, amaun yang tepat perlu merujuk kadar terkini.",
 	"lbl_EWalletAccountNumber": "Nombor akaun E-wallet",
+	"lbl_OK": "OK",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Pemindahan Dana",

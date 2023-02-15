@@ -125,6 +125,7 @@ const History = ({
 			i18n={t}
 			{...item}
 			ClickCancel={ClickCancel.bind(this, item.transId)}
+			withdrawalMessageDetail={item.withdrawalMessageDetail}
 		/>
 	));
 

@@ -40,6 +40,7 @@ import Modal from "./popBox.modal";
 import NewYear from "./popbox.newYear";
 import LinePay from "./popBox.linePayLink";
 import BankQR from "./popBox.bankQR";
+import WithdrawalMsg from "./popBox.withdrawalMsg";
 import DepositMsg from "./popBox.depositMsg";
 
 export default () => {
@@ -343,6 +344,15 @@ export default () => {
 			);
 			break;
 
+		case defPopBoxType.WithdrawalMsg:
+			content = (
+				<WithdrawalMsg
+					transId={popBox.transId}
+					withdrawalMessageDetail={popBox.withdrawalMessageDetail}
+				/>
+			);
+			break;
+
 		case defPopBoxType.DepositMsg:
 			content = (
 				<DepositMsg
@@ -372,6 +382,7 @@ export default () => {
 		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
 		popBox.popBoxType === defPopBoxType.Photo ||
 		popBox.popBoxType === defPopBoxType.LinePay ||
+		popBox.popBoxType === defPopBoxType.WithdrawalMsg ||
 		popBox.popBoxType === defPopBoxType.DepositMsg;
 
 	if (!popBox.isOpen) return null;
@@ -384,8 +395,7 @@ export default () => {
 		<div
 			id="popup"
 			className="active"
-			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}
-		>
+			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}>
 			<div className="pop">{content}</div>
 		</div>
 	);

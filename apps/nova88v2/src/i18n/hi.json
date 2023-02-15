@@ -415,6 +415,7 @@
 	"lbl_ReceiveUSDT": "Receive {{currencyName}} Amount",
 	"lbl_Times": "बारी",
 	"lbl_WithdrawalCryptoNote": "Conversion rate serves as reference purposes only, exact amount shall refer the latest rate.",
+	"lbl_OK": "OK",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "धनराशि का ट्रांसफर",

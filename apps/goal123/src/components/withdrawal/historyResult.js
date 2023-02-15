@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { number_format } from "../common/common";
+import { popBoxContext } from "../common/context";
+import { defPopBoxType } from "../common/popBox";
 
 const statusClassName = {
 	1: "pending",
@@ -25,6 +27,7 @@ export const withdrawalStatus = {
 
 export const TransactionHistory = props => {
 	const { t } = useTranslation();
+	const { setPopBox } = useContext(popBoxContext);
 
 	let btnGroup = null;
 	if (
@@ -38,6 +41,16 @@ export const TransactionHistory = props => {
 			</button>
 		);
 	}
+
+	const handleClickInfoBtn = () => {
+		setPopBox({
+			isOpen: true,
+			transId: props.transId,
+			withdrawalMessageDetail: props.withdrawalMessageDetail,
+			popBoxType: defPopBoxType.WithdrawalMsg
+		});
+	};
+
 	return (
 		<div>
 			<div>{props.idx}</div>
@@ -57,6 +70,13 @@ export const TransactionHistory = props => {
 				{props.status === 8
 					? ""
 					: t(`lbl_WithdrawalStatus${props.status}`)}
+				{props.withdrawalMessageDetail &&
+					props.withdrawalMessageDetail.length > 0 && (
+						<button
+							className="infobtn"
+							onClick={handleClickInfoBtn}
+						/>
+					)}
 			</div>
 			<div className="btnGroup">{btnGroup}</div>
 		</div>
@@ -70,5 +90,6 @@ TransactionHistory.propTypes = {
 	transId: PropTypes.string.isRequired,
 	amount: PropTypes.number.isRequired,
 	status: PropTypes.number.isRequired,
-	canCancel: PropTypes.bool.isRequired
+	canCancel: PropTypes.bool.isRequired,
+	withdrawalMessageDetail: PropTypes.arrayOf(PropTypes.any).isRequired
 };
