@@ -20,25 +20,18 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 	const getLocalBankGroupList = async () => {
 		const queryType = 1;
 
-		await api_payment_GetBankInfoOffListStatus(queryType).then(
-			res => {
-				if (!isMountedRef.current) return;
+		await api_payment_GetBankInfoOffListStatus(queryType).then(res => {
+			if (!isMountedRef.current) return;
 
-				const { data, message, errorCode } = res.data;
-				const success = errorCode === 0;
+			const { data, message, errorCode } = res.data;
+			const success = errorCode === 0;
 
-				if (success && data.length > 0) {
-					setLocalBankGroupList(data);
-				} else if (!success) {
-					errorPopBox(message || `error`, errorCode);
-				}
-			},
-			() => {
-				if (!isMountedRef.current) return;
-
-				errorPopBox();
+			if (success && data.length > 0) {
+				setLocalBankGroupList(data);
+			} else if (!success) {
+				errorPopBox(message || `error`, errorCode);
 			}
-		);
+		});
 	};
 
 	const getLocalBankInfo = async ({ sysId }) => {
@@ -86,6 +79,7 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 				const success = errorCode === 0;
 
 				if (success) {
+					// eslint-disable-next-line consistent-return
 					return data.transId;
 				}
 

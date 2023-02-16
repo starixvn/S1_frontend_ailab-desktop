@@ -8,26 +8,19 @@ const useAutoDeposit = ({ isMountedRef }) => {
 	const [autoDepositGroupList, setAutoDepositGroupList] = useState([]);
 
 	const getAutoDepositGroupList = async () => {
-		await api_payment_GetAutoChannelBankGroupList().then(
-			res => {
-				if (!isMountedRef.current) return;
+		await api_payment_GetAutoChannelBankGroupList().then(res => {
+			if (!isMountedRef.current) return;
 
-				const { data = [], message, errorCode } = res.data;
+			const { data = [], message, errorCode } = res.data;
 
-				const success = errorCode === 0;
+			const success = errorCode === 0;
 
-				if (success) {
-					setAutoDepositGroupList(data);
-				} else if (!success) {
-					errorPopBox(message || `error`, errorCode);
-				}
-			},
-			() => {
-				if (!isMountedRef.current) return;
-
-				errorPopBox();
+			if (success) {
+				setAutoDepositGroupList(data);
+			} else if (!success) {
+				errorPopBox(message || `error`, errorCode);
 			}
-		);
+		});
 	};
 
 	return { autoDepositGroupList, getAutoDepositGroupList };
