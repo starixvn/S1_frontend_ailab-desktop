@@ -8,23 +8,17 @@ const useDepositCryptoPay = ({ isMountedRef }) => {
 	const { errorPopBox } = usePopBox();
 
 	const getCryptoPayGroupList = async () => {
-		await api_payment_GetCryptoPayInfoList().then(
-			res => {
-				if (!isMountedRef.current) return;
-				const { data, message, errorCode } = res.data;
-				const success = errorCode === 0;
+		await api_payment_GetCryptoPayInfoList().then(res => {
+			if (!isMountedRef.current) return;
+			const { data, message, errorCode } = res.data;
+			const success = errorCode === 0;
 
-				if (success && data.length > 0) {
-					setCryptoPayGroupList(data);
-				} else if (!success) {
-					errorPopBox(message || `error`, errorCode);
-				}
-			},
-			() => {
-				if (!isMountedRef.current) return;
-				errorPopBox();
+			if (success && data.length > 0) {
+				setCryptoPayGroupList(data);
+			} else if (!success) {
+				errorPopBox(message || `error`, errorCode);
 			}
-		);
+		});
 	};
 
 	return {
