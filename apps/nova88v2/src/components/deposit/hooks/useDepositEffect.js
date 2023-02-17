@@ -44,7 +44,7 @@ const useDepositEffect = ({
 }) => {
 	const location = useLocation();
 	const parameterType = getUrlParameter("type");
-	const { setPopBox, errorPopBox } = usePopBox();
+	const { setPopBox } = usePopBox();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -57,6 +57,7 @@ const useDepositEffect = ({
 		const getData = async () => {
 			setLoading(true);
 			try {
+				// * 當嘗試 call 所有 payment 來確認是否有權限或資料時，沒有權限的 payment api status 將 return 500
 				await Promise.all([
 					getMobilePayGroupList(),
 					getLocalBankGroupList(),
@@ -64,11 +65,10 @@ const useDepositEffect = ({
 					getCryptoPayGroupList(),
 					getAutoDepositGroupList()
 				]);
-				setIsInitDataDone(true);
 			} catch (e) {
-				errorPopBox();
+				// * 當 return 500 時不需要做特別的錯誤處理，其他的錯誤(errorCode不等於0)會在各個function處理掉
 			}
-
+			setIsInitDataDone(true);
 			setLoading(false);
 		};
 
@@ -237,7 +237,8 @@ const useDepositEffect = ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}
+							>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>

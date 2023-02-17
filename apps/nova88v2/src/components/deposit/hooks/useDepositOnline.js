@@ -13,25 +13,18 @@ const useDepositOnline = ({ isMountedRef }) => {
 	const { errorPopBox } = usePopBox();
 
 	const getOnlineBankGroupList = async () => {
-		await api_payment_GetOnlinePaymentList().then(
-			res => {
-				if (!isMountedRef.current) return;
+		await api_payment_GetOnlinePaymentList().then(res => {
+			if (!isMountedRef.current) return;
 
-				const { data, message, errorCode } = res.data;
-				const success = errorCode === 0;
+			const { data, message, errorCode } = res.data;
+			const success = errorCode === 0;
 
-				if (success && data.length > 0) {
-					setOnlineBankGroupList(data);
-				} else if (!success) {
-					errorPopBox(message || `error`, errorCode);
-				}
-			},
-			() => {
-				if (!isMountedRef.current) return;
-
-				errorPopBox();
+			if (success && data.length > 0) {
+				setOnlineBankGroupList(data);
+			} else if (!success) {
+				errorPopBox(message || `error`, errorCode);
 			}
-		);
+		});
 	};
 
 	const getOnlineBankInfoList = async pId => {
@@ -46,6 +39,7 @@ const useDepositOnline = ({ isMountedRef }) => {
 
 				if (success && data.length > 0) {
 					setOnlineBankInfoList(data);
+					// eslint-disable-next-line consistent-return
 					return data;
 				}
 
