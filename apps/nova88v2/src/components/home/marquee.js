@@ -89,16 +89,18 @@ class Marquee extends Component {
 							datas: res.data.data
 						});
 					} else {
-						this.props.errorPopBox(
-							res.data.message || "error",
-							res.data.errorCode
-						);
+						// 首頁一直出現未如預期的錯誤錯誤，故先隱藏此錯誤處理再看是否還會發生相同情況
+						// this.props.errorPopBox(
+						// 	res.data.message || "error",
+						// 	res.data.errorCode
+						// );
 					}
 				}
 			},
 			() => {
 				if (this.isMountedRef) {
-					this.props.errorPopBox();
+					// 首頁一直出現未如預期的錯誤錯誤，故先隱藏此錯誤處理再看是否還會發生相同情況
+					// this.props.errorPopBox();
 				}
 			}
 		);
@@ -170,7 +172,8 @@ class Marquee extends Component {
 				onMouseOver={this.MarqueeOnMouseOver}
 				onMouseOut={this.MarqueeOnMouseOut}
 				onFocus={() => 0}
-				onBlur={() => 0}>
+				onBlur={() => 0}
+			>
 				{item.subject}
 			</button>
 		));
@@ -180,11 +183,13 @@ class Marquee extends Component {
 			<div id="Marquee">
 				<div
 					className="marquee-box icon icon-marquee"
-					ref={this.marquee}>
+					ref={this.marquee}
+				>
 					<div
 						className="marquee-run"
 						ref={this.content}
-						style={style}>
+						style={style}
+					>
 						{arr}
 					</div>
 					<div className="mq-btn">
@@ -200,7 +205,7 @@ class Marquee extends Component {
 
 Marquee.defaultProps = {
 	langId: null,
-	errorPopBox: () => null,
+	// errorPopBox: () => null,
 	isLogin: null,
 	navigate: () => null,
 	handleLogin: () => null
@@ -208,7 +213,7 @@ Marquee.defaultProps = {
 
 Marquee.propTypes = {
 	langId: PropTypes.string,
-	errorPopBox: PropTypes.func,
+	// errorPopBox: PropTypes.func,
 	isLogin: PropTypes.bool,
 	navigate: PropTypes.func,
 	handleLogin: PropTypes.func
