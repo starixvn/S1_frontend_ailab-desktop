@@ -91,40 +91,42 @@ class Marquee extends Component {
 							datas: res.data.data
 						});
 					} else {
-						this.props.setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: `[${res.data.errorCode}] ${res.data.message}`,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={this.props.ClickClose}>
-										{this.props.i18n("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						// 首頁一直出現未如預期的錯誤錯誤，故先隱藏此錯誤處理再看是否還會發生相同情況
+						// this.props.setPopBox({
+						// 	isOpen: true,
+						// 	popBoxType: defPopBoxType.ErrorMsg,
+						// 	message: `[${res.data.errorCode}] ${res.data.message}`,
+						// 	btnBar: (
+						// 		<div className="btnGroup">
+						// 			<button
+						// 				className="btn-cancel"
+						// 				onClick={this.props.ClickClose}>
+						// 				{this.props.i18n("lbl_Close")}
+						// 			</button>
+						// 		</div>
+						// 	)
+						// });
 					}
 				}
 			},
 			() => {
-				if (isMountedRef.current) {
-					this.props.setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: this.props.i18n("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={this.props.ClickClose}>
-									{this.props.i18n("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
-				}
+				// * 首頁一直出現未如預期的錯誤錯誤，故先隱藏此錯誤處理再看是否還會發生相同情況
+				// if (isMountedRef.current) {
+				// 	this.props.setPopBox({
+				// 		isOpen: true,
+				// 		popBoxType: defPopBoxType.ErrorMsg,
+				// 		message: this.props.i18n("msg_ApiServerError"),
+				// 		btnBar: (
+				// 			<div className="btnGroup">
+				// 				<button
+				// 					className="btn-cancel"
+				// 					onClick={this.props.ClickClose}>
+				// 					{this.props.i18n("lbl_Close")}
+				// 				</button>
+				// 			</div>
+				// 		)
+				// 	});
+				// }
 			}
 		);
 	};
@@ -197,7 +199,8 @@ class Marquee extends Component {
 				onMouseOver={this.MarqueeOnMouseOver}
 				onMouseOut={this.MarqueeOnMouseOut}
 				onFocus={() => 0}
-				onBlur={() => 0}>
+				onBlur={() => 0}
+			>
 				{item.subject}
 			</button>
 		));
@@ -215,7 +218,8 @@ class Marquee extends Component {
 						<div
 							className="marquee-run"
 							ref={this.content}
-							style={style}>
+							style={style}
+						>
 							{arr}
 						</div>
 					</div>
@@ -230,15 +234,15 @@ class Marquee extends Component {
 Marquee.defaultProps = {
 	langId: null,
 	setPopBox: () => null,
-	isLogin: null,
-	ClickClose: () => null,
-	i18n: null
+	isLogin: null
+	// ClickClose: () => null,
+	// i18n: null
 };
 
 Marquee.propTypes = {
 	langId: PropTypes.string,
 	setPopBox: PropTypes.func,
-	isLogin: PropTypes.bool,
-	ClickClose: PropTypes.func,
-	i18n: PropTypes.objectOf(PropTypes.any)
+	isLogin: PropTypes.bool
+	// ClickClose: PropTypes.func,
+	// i18n: PropTypes.objectOf(PropTypes.any)
 };
