@@ -3,7 +3,7 @@
 
 # 配置到當前路徑，組員在這邊需更改為自己專案的路徑
 DESIGN_PROJECT=/Users/lukelin/Project/Design
-DESKTOP_PROJECT=/Users/lukelin/Project/ailab-desktop
+PROJECT=/Users/lukelin/Project/ailab-desktop
 
 # 目前既有品牌
 SITE_LIST=(NOVA88 GOAL123 BWING)
@@ -23,10 +23,10 @@ siteList=($(echo "$site" | tr ' ' '\n'))
 for site in ${siteList[@]}
 do
 designPath="${DESIGN_PROJECT}/$site/Desktop/public/css"
-projectPath="${DESKTOP_PROJECT}/apps/$site/src/styles/css"
+projectPath="${PROJECT}/apps/$site/src/styles/css"
 if [ $site = "NOVA88" ] || [ $site = "nova88" ]
 then
-    projectPath="${DESKTOP_PROJECT}/apps/nova88v2/src/styles/css"
+    projectPath="${PROJECT}/apps/nova88v2/src/styles/css"
 fi
     cp -R ${designPath} ${projectPath}        
 done
