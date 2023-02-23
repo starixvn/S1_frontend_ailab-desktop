@@ -236,6 +236,7 @@
 	"lbl_Weak": "Lemah",
 	"lbl_EmailOTPHint1": "Kod Pengesahan E-mel telah dihantar ke peti mel berdaftar anda.",
 	"lbl_EmailVerifiedMsg": "Bagus! E-mel anda telah disahkan!",
+	"lbl_PhoneNumberErrorTip": "Nombor telefon yang anda masukkan tidak betul, antara {{digitalArea}} digit",
 
 	"shipping ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Shipping_Address": "Alamat Penghantaran",

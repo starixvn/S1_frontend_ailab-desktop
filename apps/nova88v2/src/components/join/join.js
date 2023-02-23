@@ -32,6 +32,7 @@ import JoinForm from "./join.form";
 import path from "../../router";
 import JoinPromoInfo from "./join.promoInfo";
 import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
+import { limitCountryNum } from "./join.def";
 
 export const areaCodeList = Object.values(areaCode).map(el => ({
 	id: `${el.AreaCode} ${el.Name}`,
@@ -363,10 +364,20 @@ export default () => {
 	const phoneCheck = val => {
 		let checked = true;
 		let msg = "";
-
+		const phoneLengthRegx =
+			/^\+60[0-9]{9,10}$|\+62[0-9]{10,13}$|\+86[0-9]{10,11}$|\+91[0-9]{10}$|\+66[0-9]{9}$|\+880[0-9]{9}$/;
 		if (val === "" || !_areaCode) {
 			checked = false;
 			msg = "lbl_PhoneRequired";
+		} else if (Object.keys(limitCountryNum).includes(_areaCode)) {
+			const limitRange =
+				limitCountryNum[areaCodeList[userValue.areaCodeIdx].areaCode];
+			if (!phoneLengthRegx.test(_areaCode + val)) {
+				checked = false;
+				msg = t("lbl_PhoneNumberErrorTip", {
+					digitalArea: limitRange
+				});
+			}
 		}
 
 		// if (checked) {
