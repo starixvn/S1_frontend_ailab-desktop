@@ -240,6 +240,7 @@
 	"lbl_Weak": "Lemah",
 	"lbl_EmailOTPHint1": "Kode Verifikasi Email telah dikirim ke kotak surat terdaftar Anda.",
 	"lbl_EmailVerifiedMsg": "Luar biasa! Email Anda telah diverifikasi!",
+	"lbl_PhoneNumberErrorTip": "Nomor telepon yang Anda masukkan salah, antara {{digitalArea}} digit",
 
 	"shipping ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Shipping_Address": "Alamat Pengiriman",

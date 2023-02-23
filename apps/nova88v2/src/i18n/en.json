@@ -241,6 +241,7 @@
 	"lbl_Weak": "Weak",
 	"lbl_EmailOTPHint1": "Email Verification Code has been sent to your registered mail box.",
 	"lbl_EmailVerifiedMsg": "Awesome! Your Email has been verified!",
+	"lbl_PhoneNumberErrorTip": "Phone number you entered is incorrect, should be between {{digitalArea}} digits",
 
 	"shipping ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Shipping_Address": "Shipping Address",
