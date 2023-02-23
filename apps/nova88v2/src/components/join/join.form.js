@@ -171,12 +171,7 @@ const JoinForm = ({
 						clickInfo={clickInfo.bind(this, "phone")}
 						onChange={EditField.bind(null, "phone")}
 						// * 清空錯誤訊息， phone 改為按下 submit 之後才打 api 驗證
-						onBlur={() =>
-							setTip(prev => ({
-								...prev,
-								phone: { checked: null, msg: "" }
-							}))
-						}
+						onBlur={checkValue.bind(null, "phone")}
 						inputType="phone"
 					/>
 				</div>
