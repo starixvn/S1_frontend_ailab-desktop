@@ -11,7 +11,7 @@ import { getLeaderBoardSupportCurrencyId } from "../leaderBoard/leaderBoard.def"
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 // PP 移除時間
-const ppDestroyDate = "2023-02-28 23:59:59";
+const ppDestroyDate = "2023-02-28 23:00:00";
 
 export const getPPAllowCurrencies = () => {
 	return isDateRange({ endDate: ppDestroyDate })
