@@ -139,7 +139,7 @@
 	"msg_UsernameNotAvailable": "Username is no longer available.",
 	"msg_PasswordLength": "Password must between 6 and 15 characters long.",
 	"msg_PasswordVaildate": "Password must be 6-15 characters, contain alphanumeric.",
-	"msg_MailWrongFormat": "Mail Format is wrong.",
+	"msg_MailWrongFormat": "Email address format incorrect",
 	"msg_MailExisted": "Mail already exists.",
 	"msg_EnterRealName": "Please enter your real name.",
 	"msg_ForceLogedout": "You have logged out!! Please login and try again!!",

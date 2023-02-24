@@ -134,7 +134,7 @@
 	"msg_UsernameNotAvailable": "Nama pengguna sudah diguna.",
 	"msg_PasswordLength": "Kata laluan mesti mempunyai antara 6 dan 18 aksara.",
 	"msg_PasswordVaildate": "Kata laluan mestilah 6-15 aksara yang mengandungi alfanumerik.",
-	"msg_MailWrongFormat": "Format Mel adalah salah.",
+	"msg_MailWrongFormat": "Format alamat e-mel salah",
 	"msg_MailExisted": "Mel sudah wujud.",
 	"msg_EnterRealName": "Sila masukkan nama benar anda.",
 	"msg_ForceLogedout": "Anda telah di log keluar!! Sila log masuk dan cuba lagi!!",

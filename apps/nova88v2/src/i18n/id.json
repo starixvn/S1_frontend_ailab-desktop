@@ -138,7 +138,7 @@
 	"msg_UsernameNotAvailable": "Username is no longer available.",
 	"msg_PasswordLength": "Panjang karakter kata sandi harus antara 6 hingga 15 karakter.",
 	"msg_PasswordVaildate": "Kata sandi harus 6-15 karakter, mengandung alfanumerik.",
-	"msg_MailWrongFormat": "Format Email salah",
+	"msg_MailWrongFormat": "Format alamat email salah",
 	"msg_MailExisted": "Email ini sudah digunakan.",
 	"msg_EnterRealName": "Silakan masukkan nama asli anda",
 	"msg_ForceLogedout": "Anda telah Logout !! Silakan masuk dan coba lagi !!",
