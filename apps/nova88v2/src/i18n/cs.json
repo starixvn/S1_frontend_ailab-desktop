@@ -138,7 +138,7 @@
 	"msg_UsernameNotAvailable": "用户名已有人使用。",
 	"msg_PasswordLength": "密码长度必须介于 6 和 15 个字符之间。",
 	"msg_PasswordVaildate": "密码长度必须 6 至 15 个字符，包含字母数字。",
-	"msg_MailWrongFormat": "电子邮箱格式错误",
+	"msg_MailWrongFormat": "输入的邮箱地址格式有误",
 	"msg_MailExisted": "此电子邮件地址已有人使用。",
 	"msg_EnterRealName": "请输入您的真实姓名",
 	"msg_ForceLogedout": "已登出！请重新登录后再试！",
