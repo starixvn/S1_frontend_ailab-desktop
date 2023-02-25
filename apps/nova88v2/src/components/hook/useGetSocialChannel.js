@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import usePopBox from "./usePopBox";
 import { api_site_GetSocialChannel } from "../../service/api/site";
+import { langAndCurrMapping } from "../common/common";
 
 export const defDisplayPage = {
 	Home: 1,
@@ -46,6 +47,9 @@ const useGetSocialChannel = ({ langId, currencyId, displayPage }) => {
 	const isMountedRef = useRef(null);
 	const { errorPopBox } = usePopBox();
 
+	// 試圖修復 Oops 報錯，強制 api 不能給 null
+	const defaultLangId = langId ?? "en";
+	const defaultCurrencyId = currencyId ?? langAndCurrMapping.en;
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -55,8 +59,8 @@ const useGetSocialChannel = ({ langId, currencyId, displayPage }) => {
 
 	const getChannel = async () => {
 		await api_site_GetSocialChannel({
-			langId,
-			currencyId,
+			langId: defaultLangId,
+			currencyId: defaultCurrencyId,
 			displayPage
 		}).then(
 			res => {
