@@ -1,3 +1,4 @@
+import { isDateRange } from "@ailab-desktop/common";
 import productList from "../../datas/productList";
 import path from "../../router";
 import {
@@ -8,6 +9,17 @@ import {
 import { defCurrencyList } from "../common/common";
 import { getLeaderBoardSupportCurrencyId } from "../leaderBoard/leaderBoard.def";
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
+
+// PP 移除時間
+const ppDestroyDate = "2023-02-28 23:00:00";
+
+export const getPPAllowCurrencies = () => {
+	return isDateRange({ endDate: ppDestroyDate })
+		? Object.values(defCurrencyList).filter(
+				currency => currency !== defCurrencyList.INR
+		  )
+		: Object.values(defCurrencyList);
+};
 
 const defSortSports = {
 	[defCurrencyList.INR]: {
@@ -529,6 +541,7 @@ export const defMenuLinks = {
 		className: "livecasinobtn",
 		path: path.liveCasino.root,
 		filterByAuth: true,
+		checkBeforeLogin: true,
 		customSort: defSortCasino,
 		subMenu: [
 			{
@@ -540,7 +553,8 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-PP.png",
 				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				lobbyPage: { npcImg: "casino_pp" }
+				lobbyPage: { npcImg: "casino_pp" },
+				allowCurrencies: getPPAllowCurrencies()
 			},
 			{
 				...productList.liveCasino_Skywind,
@@ -717,7 +731,8 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_PP },
 				parameter: { provider: "pragmatic-play" },
-				...productList.casino_PP
+				...productList.casino_PP,
+				allowCurrencies: getPPAllowCurrencies()
 			},
 			{
 				keyName: "slot_Skywind",

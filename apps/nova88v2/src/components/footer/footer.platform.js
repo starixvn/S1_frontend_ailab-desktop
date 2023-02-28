@@ -7,8 +7,9 @@ import { popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { cloudImgUrl } from "../../config";
-import { defCurrencyList } from "../common/common";
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
+import { defCurrencyList } from "../common/common";
+import { getPPAllowCurrencies } from "../header/header.menu.def";
 
 const useHandleLogoList = () => {
 	const [onMouseOverImg, setOnMouseOverImg] = useState({});
@@ -59,7 +60,8 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			path: path.casino.root,
 			parameter: { ...productList.casino_PP },
 			imgName: "casino_pp",
-			hoverImgName: "casino_ppa"
+			hoverImgName: "casino_ppa",
+			allowCurrencies: getPPAllowCurrencies()
 		},
 		{
 			...productList.casino_MGPSW,
