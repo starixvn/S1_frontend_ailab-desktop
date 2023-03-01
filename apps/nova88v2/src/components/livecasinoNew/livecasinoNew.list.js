@@ -67,12 +67,12 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 
 			<div className="animationImg">
 				<img
-					src={`${bannerImgUrl}/img/livecasino/animation_img.png`}
+					src={`${bannerImgUrl}/desktop/img/livecasino/animation_img.png`}
 					alt="animation-img"
 				/>
 			</div>
 			<img
-				src={`${bannerImgUrl}/img/livecasino/${npcImg}.png`}
+				src={`${bannerImgUrl}/desktop/img/livecasino/${npcImg}.png`}
 				alt="casino-img"
 			/>
 

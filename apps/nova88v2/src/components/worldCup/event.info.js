@@ -20,8 +20,7 @@ const Info = ({
 		return (
 			<div
 				className={`progressItem${active ? " active" : ""}`}
-				key={`amount-${el}`}
-			>
+				key={`amount-${el}`}>
 				<div className="value">{number_format(el, false, 0)}</div>
 			</div>
 		);
@@ -35,7 +34,7 @@ const Info = ({
 			<div className="info">
 				<div className="userInfo">
 					<img
-						src={`${bannerImgUrl}/img/worldcup/user.svg`}
+						src={`${bannerImgUrl}/desktop/img/event/worldcup/user.svg`}
 						alt="user name"
 					/>
 					{userName}

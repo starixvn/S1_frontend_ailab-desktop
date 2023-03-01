@@ -6,7 +6,7 @@ const GameBanner = ({ t }) => {
 	return (
 		<div className="mainBanner">
 			<img
-				src={`${bannerImgUrl}/img/game/games_mainbanner_bg.jpg`}
+				src={`${bannerImgUrl}/desktop/img/game/games_mainbanner_bg.jpg`}
 				alt="games-mainbanner-bg"
 			/>
 			<div className="bannerInfo">
@@ -19,17 +19,17 @@ const GameBanner = ({ t }) => {
 				<div className="animation">
 					<img
 						className="card"
-						src={`${bannerImgUrl}/img/game/animation_img/card.png`}
+						src={`${bannerImgUrl}/desktop/img/game/animation_img/card.png`}
 						alt="banner-card"
 					/>
 					<img
 						className="dice2"
-						src={`${bannerImgUrl}/img/game/animation_img/dice2.png`}
+						src={`${bannerImgUrl}/desktop/img/game/animation_img/dice2.png`}
 						alt="banner-dice2"
 					/>
 					<img
 						className="dice1"
-						src={`${bannerImgUrl}/img/game/animation_img/dice1.png`}
+						src={`${bannerImgUrl}/desktop/img/game/animation_img/dice1.png`}
 						alt="banner-dice1"
 					/>
 				</div>

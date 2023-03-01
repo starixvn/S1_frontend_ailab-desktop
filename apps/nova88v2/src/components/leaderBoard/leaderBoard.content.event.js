@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { defTabId } from "./leaderBoard.def";
-import { cloudImgUrl, bannerImgUrl } from "../../config";
+import { bannerImgUrl } from "../../config";
 
 const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 	const rows2 = rewardList?.section2?.map((item, idx) => (
@@ -9,12 +9,14 @@ const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 			<div>
 				{idx + 1 < 4 ? (
 					<img
-						src={`${cloudImgUrl}/SiteSkin/img/no${idx + 1}.png`}
+						src={`${bannerImgUrl}/desktop/img/ranking/no${
+							idx + 1
+						}.png`}
 						alt="top_ranking"
 					/>
 				) : (
 					<img
-						src={`${cloudImgUrl}/SiteSkin/img/gold.png`}
+						src={`${bannerImgUrl}/desktop/img/ranking/gold.png`}
 						alt="top_ranking"
 					/>
 				)}

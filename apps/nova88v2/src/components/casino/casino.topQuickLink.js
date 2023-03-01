@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
-import { cloudImgUrl } from "../../config";
+import { bannerImgUrl } from "../../config";
 import { userInfoContext } from "../common/context";
 import { defSlotTpGameType } from "../../datas/productList";
 
@@ -39,7 +39,7 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
 						  }`
 				}>
 				<img
-					src={`${cloudImgUrl}/SiteSkin/img/logo/${_srcImg}.png`}
+					src={`${bannerImgUrl}/desktop/img/venderlogo/${_srcImg}.png`}
 					alt={_item.tpName}
 				/>
 				<div>{_item.displayText}</div>

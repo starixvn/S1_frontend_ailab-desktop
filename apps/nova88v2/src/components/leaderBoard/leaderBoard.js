@@ -369,7 +369,7 @@ export default () => {
 			}
 		}
 		window.open(
-			`${cloudImgUrl}/NovaPromotion/ranking_new_tnc/${_langId}.html`
+			`${bannerImgUrl}/NovaPromotion/ranking_new_tnc/${_langId}.html`
 		);
 	};
 
@@ -395,8 +395,7 @@ export default () => {
 			className="rankingNew"
 			style={{
 				backgroundImage: `url(${showBackground()})`
-			}}
-		>
+			}}>
 			<section>
 				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 				{tab === defTabId.first ? (

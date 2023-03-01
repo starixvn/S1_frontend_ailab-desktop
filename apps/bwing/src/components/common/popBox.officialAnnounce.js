@@ -16,7 +16,7 @@ export default ({ onClickClose }) => {
 					rel="noopener noreferrer"
 					href={`/${userInfo.langId}/${path.appDownload.root}`}>
 					<img
-						src={`${config.bannerImgUrl}/img/nonlogin/750x350_bwing_${userInfo.langId}.jpg`}
+						src={`${config.bannerImgUrl}/desktop/img/nonlogin/750x350_bwing_${userInfo.langId}.jpg`}
 						alt="Official Announce"
 						onClick={() => setPopBox({ isOpen: false })}
 					/>

@@ -3,7 +3,7 @@ import PropTypes, { bool, func } from "prop-types";
 import Inputbox from "../../common/inputbox";
 import { defCurrencyList, getUrlParameter } from "../../common/common";
 import ShortcutAmountList from "./shortcutAmountList";
-import config from "../../../config";
+import { paymentImgUrl } from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
 
 import PromotionSelect from "./promotionSelect";
@@ -134,9 +134,7 @@ const CryptoPayForm = ({
 							}>
 							<div>
 								<img
-									src={`${
-										config.cloudImgUrl
-									}/SiteSkin/img/Payment/${item?.groupName?.toLowerCase()}.png`}
+									src={`${paymentImgUrl}/${item?.groupName?.toLowerCase()}.png`}
 									alt={item.groupName}
 								/>
 								<i className="icon icon-icon32px_check" />
@@ -178,9 +176,7 @@ const CryptoPayForm = ({
 							}>
 							<div>
 								<img
-									src={`${
-										config.cloudImgUrl
-									}/SiteSkin/img/CryptoPay/${item.channelName.toLowerCase()}.png`}
+									src={`${paymentImgUrl}/${item.channelName.toLowerCase()}.png`}
 									alt={item.channelName}
 								/>
 								<i className="icon icon-icon32px_check" />

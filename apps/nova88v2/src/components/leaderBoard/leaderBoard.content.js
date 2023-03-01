@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { defTabId } from "./leaderBoard.def";
 import { number_format } from "../common/common";
 import ContentTopNav from "./leaderBoard.content.topNav";
-import { cloudImgUrl } from "../../config";
+import { bannerImgUrl } from "../../config";
 
 const leaderBoardContent = ({
 	t,
@@ -48,14 +48,14 @@ const leaderBoardContent = ({
 					<div>
 						{idx < 3 ? (
 							<img
-								src={`${cloudImgUrl}/SiteSkin/img/no${
+								src={`${bannerImgUrl}/desktop/img/ranking/no${
 									idx + 1
 								}.png`}
 								alt="ranking_top_three"
 							/>
 						) : (
 							<img
-								src={`${cloudImgUrl}/SiteSkin/img/gold.png`}
+								src={`${bannerImgUrl}/desktop/img/ranking/gold.png`}
 								alt="ranking_gold"
 							/>
 						)}

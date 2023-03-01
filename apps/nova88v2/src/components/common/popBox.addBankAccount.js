@@ -5,7 +5,7 @@ import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStri
 import { popBoxContext, userInfoContext } from "./context";
 import defPopBoxType from "./defPopBoxType";
 import usePopBox from "../hook/usePopBox";
-import { cloudImgUrl } from "../../config";
+import { paymentImgUrl } from "../../config";
 import Dropdown from "./dropdown";
 import Inputbox from "./inputbox";
 import { currencyCode } from "../../datas/countryCode";
@@ -174,8 +174,7 @@ const PopBox = ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}
-										>
+											onClick={clickClose}>
 											OK
 										</button>
 									</div>
@@ -225,16 +224,14 @@ const PopBox = ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 						</div>
 						<div
 							className="iconModule"
-							onClick={clickInfo.bind(this, "realName_after")}
-						>
+							onClick={clickInfo.bind(this, "realName_after")}>
 							<i className="icon icon-information-solid" />
 						</div>
 					</div>
 					<div
 						className={`tip${
 							status.realName_after.tip ? " active" : ""
-						}`}
-					>
+						}`}>
 						{status.realName_after.tip}
 					</div>
 				</>
@@ -245,7 +242,7 @@ const PopBox = ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 					options={bankInfoSysList}
 					onSelectItem={onSelectItem}
 					selectedIdx={userValue.bankId}
-					imgUrl={`${cloudImgUrl}/SiteSkin/img/BankLogo/`}
+					imgUrl={`${paymentImgUrl}/square/`}
 					className="bankLogo"
 					i18n={t}
 				/>

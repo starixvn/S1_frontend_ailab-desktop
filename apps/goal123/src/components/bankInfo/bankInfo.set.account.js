@@ -143,8 +143,7 @@ const AccountPanel = ({
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}
-										>
+											onClick={ClickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -164,8 +163,7 @@ const AccountPanel = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -199,15 +197,14 @@ const AccountPanel = ({
 				<div className="subModule">
 					<form
 						className="subModuleBody column"
-						onSubmit={clickSubmit}
-					>
+						onSubmit={clickSubmit}>
 						<div>
 							<div className="bankName">
 								<img
 									alt="BankLogo"
 									src={`${
-										config.imgUrl
-									}/common/images/BankLogo/${bankInfo.bankLogo?.toLowerCase()}`}
+										config.cloudImgUrl
+									}/${bankInfo.bankLogo?.toLowerCase()}`}
 								/>
 							</div>
 						</div>

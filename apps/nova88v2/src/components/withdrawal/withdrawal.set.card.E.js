@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { cloudImgUrl } from "../../config";
+import { paymentImgUrl } from "../../config";
 
 const ECard = ({
 	t,
@@ -79,10 +79,7 @@ const BankCardLayout = ({
 		<div className="addBankName">
 			<div className="addBankInfo">
 				<div className="bankName">
-					<img
-						src={`${cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
-						alt=""
-					/>
+					<img src={`${paymentImgUrl}/square/${bankLogo}`} alt="" />
 
 					<div>
 						{bankInfo.eWalletName}

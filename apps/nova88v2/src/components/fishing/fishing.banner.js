@@ -7,7 +7,7 @@ const FishingBanner = () => {
 	return (
 		<div className="mainBanner">
 			<img
-				src={`${bannerImgUrl}/img/fishing/fishmainbanner.jpg`}
+				src={`${bannerImgUrl}/desktop/img/fishing/fishmainbanner.jpg`}
 				alt="fishmainbanner"
 			/>
 

@@ -113,14 +113,13 @@ const MobileForm = ({
 								item.groupId === groupIdForRecord
 									? "active"
 									: ""
-							}
-						>
+							}>
 							<div>
 								<img
 									alt={item.groupName}
 									src={`${
-										config.imgUrl
-									}/common/images/MobilePay/${item.groupName?.toLowerCase()}.png`}
+										config.cloudImgUrl
+									}/${item.groupName?.toLowerCase()}.png`}
 								/>
 								<i className="icon icon-checkmark" />
 							</div>
@@ -170,14 +169,13 @@ const MobileForm = ({
 										infoChannelIdForRecord
 											? "active"
 											: ""
-									}
-								>
+									}>
 									<div>
 										<img
 											alt={item.groupName}
 											src={`${
-												config.imgUrl
-											}/common/images/MobilePay/${item.groupName?.toLowerCase()}.png`}
+												config.cloudImgUrl
+											}/${item.groupName?.toLowerCase()}.png`}
 										/>
 										<i className="icon icon-checkmark" />
 									</div>

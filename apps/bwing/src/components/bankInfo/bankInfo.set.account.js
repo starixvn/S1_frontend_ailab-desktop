@@ -151,8 +151,7 @@ const AccountPanel = ({
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}
-										>
+											onClick={ClickClose}>
 											OK
 										</button>
 									</div>
@@ -167,8 +166,7 @@ const AccountPanel = ({
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}
-										>
+											onClick={ClickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -188,8 +186,7 @@ const AccountPanel = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -211,15 +208,14 @@ const AccountPanel = ({
 					<img
 						alt="BankLogo"
 						src={`${
-							config.imgUrl
-						}/common/images/BankLogo/${bankInfo.bankLogo?.toLowerCase()}`}
+							config.cloudImgUrl
+						}/${bankInfo.bankLogo?.toLowerCase()}`}
 					/>
 				</div>
 				<button
 					aria-label="toLastStep"
 					className="icon icon-arrow-left2"
-					onClick={toLastStep}
-				>
+					onClick={toLastStep}>
 					{t("lbl_back")}
 				</button>
 			</div>
@@ -227,8 +223,7 @@ const AccountPanel = ({
 				<div className="subModule">
 					<form
 						className="subModuleBody column"
-						onSubmit={clickSubmit}
-					>
+						onSubmit={clickSubmit}>
 						{!alreadyHasAccountName ? (
 							<>
 								<div className="txt-lightgray">

@@ -57,12 +57,12 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 
 			{isHover ? (
 				<img
-					src={`${bannerImgUrl}/img/fishing/${hoverBgImg}`}
+					src={`${bannerImgUrl}/desktop/img/fishing/${hoverBgImg}`}
 					alt={hoverBgImg}
 				/>
 			) : (
 				<img
-					src={`${bannerImgUrl}/img/fishing/${bgImg}`}
+					src={`${bannerImgUrl}/desktop/img/fishing/${bgImg}`}
 					alt={hoverBgImg}
 				/>
 			)}

@@ -12,7 +12,7 @@ import PromotionSelect from "./promotionSelect";
 
 import ClipboardJS from "../../../lib/clipboard.min";
 import path from "../../../router";
-import { cloudImgUrl } from "../../../config";
+import { paymentImgUrl } from "../../../config";
 import { currencyCode } from "../../../datas/countryCode";
 import { useSyncRouteQuery } from "../hooks";
 
@@ -308,7 +308,7 @@ const LocalBankForm = ({
 								onClick={() => onChangeBankInfo(item)}>
 								<div>
 									<img
-										src={`${cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
+										src={`${paymentImgUrl}/square/${bankLogo}`}
 										alt={item.bankName}
 									/>
 									<i className="icon icon-icon32px_check" />

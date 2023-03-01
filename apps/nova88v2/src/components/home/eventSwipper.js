@@ -39,7 +39,6 @@ const EventSwipper = memo(({ langId }) => {
 
 		navigate(`/${langId}/${path.sports.root}${parameters}`);
 	};
-
 	const rows = banner?.map((b, bIdx) => {
 		const {
 			battleTime,

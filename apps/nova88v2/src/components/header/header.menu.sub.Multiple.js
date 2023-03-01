@@ -32,9 +32,9 @@ const SubMenuMultiple = ({
 
 	let params = null;
 
-	const SubMenuListBGLeftImg = `${bannerImgUrl}/img/subMenu-Wrapper-ListBG-left.png`;
-	const SubMenuListBGRightImg = `${bannerImgUrl}/img/subMenu-Wrapper-ListBG-right.png`;
-	const SubMenuListBGCenterImg = `${bannerImgUrl}/img/subMenu-Wrapper-ListBG-center.png`;
+	const SubMenuListBGLeftImg = `${bannerImgUrl}/desktop/img/subMenu-Wrapper-ListBG-left.png`;
+	const SubMenuListBGRightImg = `${bannerImgUrl}/desktop/img/subMenu-Wrapper-ListBG-right.png`;
+	const SubMenuListBGCenterImg = `${bannerImgUrl}/desktop/img/subMenu-Wrapper-ListBG-center.png`;
 
 	if (subMenuItem.parameter) {
 		params = Object.keys(subMenuItem.parameter).map(
@@ -188,7 +188,7 @@ const ImgsNpcRender = ({ listImgUrl, className }) => {
 			<img
 				className={className}
 				alt="listImgUrl"
-				src={`${bannerImgUrl}/img/${listImgUrl}`}
+				src={`${bannerImgUrl}/desktop/img/${listImgUrl}`}
 			/>
 		);
 
@@ -201,7 +201,7 @@ const ImgsBgRender = ({ listImgUrl, className }) => {
 			<img
 				className={className}
 				alt="listImgUrl"
-				src={`${bannerImgUrl}/img/${listImgUrl}`}
+				src={`${bannerImgUrl}/desktop/img/${listImgUrl}`}
 			/>
 		);
 
@@ -211,7 +211,7 @@ const ImgsBgRender = ({ listImgUrl, className }) => {
 				key={`imgs-key-${imgUrl}`}
 				alt="listImgUrl"
 				className={className}
-				src={`${bannerImgUrl}/img/${imgUrl}`}
+				src={`${bannerImgUrl}/desktop/img/${imgUrl}`}
 			/>
 		));
 

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { bannerImgUrl } from "../../config";
+import { bannerImgUrl, sportImgUrl } from "../../config";
 
 const Final = ({ final, thirdPlace }) => {
 	const { t } = useTranslation();
@@ -19,7 +19,7 @@ const Final = ({ final, thirdPlace }) => {
 			teams = sortedTeams?.map(team => (
 				<div className="item" key={`${event}-${team.countryName}`}>
 					<img
-						src={`${bannerImgUrl}/img/flag/${team.imageName}`}
+						src={`${sportImgUrl}/Country Flag/${team.imageName}`}
 						alt={`${event}-${team.countryName}`}
 					/>
 					{team.countryName}
@@ -30,7 +30,7 @@ const Final = ({ final, thirdPlace }) => {
 				teams.push(
 					<div className="item" key={`${event}-${i}`}>
 						<img
-							src={`${bannerImgUrl}/img/flag/na.jpg`}
+							src={`${sportImgUrl}/img/Country Flag/na.jpg`}
 							alt={`${event}-${i}`}
 						/>
 					</div>
