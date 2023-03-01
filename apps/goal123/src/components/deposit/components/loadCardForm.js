@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import FixedAmountList from "./fixedAmountList";
 import { getUrlParameter, number_format } from "../../common/common";
-import config, { bannerImgUrl } from "../../../config";
+import config from "../../../config";
 
 import PromotionSelect from "./PromotionSelect";
 
@@ -102,8 +102,8 @@ export default function LoadCardForm({
 								<img
 									alt={item.groupName}
 									src={`${
-										config.imgUrl
-									}/common/images/LoadCardPay/${item.groupName?.toLowerCase()}.png`}
+										config.cloudImgUrl
+									}/${item.groupName?.toLowerCase()}.png`}
 								/>
 								<i className="icon icon-checkmark" />
 							</div>
@@ -209,7 +209,7 @@ export default function LoadCardForm({
 
 							<div className={tipImgClass}>
 								<img
-									src={`${bannerImgUrl}/desktop/img/cardinfo.png`}
+									src={`${config.bannerImgUrl}/desktop/img/cardinfo.png`}
 									alt="cardinfoImg"
 								/>
 							</div>

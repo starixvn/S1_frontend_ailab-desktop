@@ -13,7 +13,10 @@ const Intro = () => {
 						6,888,000,000<span>VND</span>
 					</div>
 					<div className="txt">{t("worldCup.prizeWorth")}</div>
-					<img src={`${bannerImgUrl}/img/worldcup/logo.png`} alt="" />
+					<img
+						src={`${bannerImgUrl}/desktop/img/event/worldcup/logo.png`}
+						alt=""
+					/>
 					<div className="yellow">
 						{t("worldCup.iconForWorldCup")}™
 					</div>
@@ -28,7 +31,7 @@ const Intro = () => {
 				<div className="list">
 					<div className="item">
 						<img
-							src={`${bannerImgUrl}/img/worldcup/stadium1.jpg`}
+							src={`${bannerImgUrl}/desktop/img/worldcup/stadium1.jpg`}
 							alt=""
 						/>
 						<div className="hoverBox">
@@ -94,7 +97,7 @@ const Intro = () => {
 				<div className="list">
 					<div className="item">
 						<img
-							src={`${bannerImgUrl}/img/worldcup/player1.png`}
+							src={`${bannerImgUrl}/desktop/img/worldcup/player1.png`}
 							alt=""
 						/>
 						<div className="hoverBox">
@@ -104,7 +107,7 @@ const Intro = () => {
 								<span>Age: 24</span>
 								<span>Score: 26 Goals</span>
 								<img
-									src={`${bannerImgUrl}/img/worldcup/team1.png`}
+									src={`${bannerImgUrl}/desktop/img/worldcup/team1.png`}
 									alt=""
 								/>
 							</div>

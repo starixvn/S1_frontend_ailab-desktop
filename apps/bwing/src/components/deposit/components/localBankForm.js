@@ -201,8 +201,8 @@ const LocalBankForm = ({
 							<div>
 								<img
 									src={`${
-										config.imgUrl
-									}/common/images/BankLogo/${item.bankLogo?.toLowerCase()}`}
+										config.cloudImgUrl
+									}/${item.bankLogo?.toLowerCase()}`}
 									alt={item.bankName}
 								/>
 								<i className="icon icon-checkmark" />

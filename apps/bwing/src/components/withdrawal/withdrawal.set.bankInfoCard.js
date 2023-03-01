@@ -39,8 +39,7 @@ const BankInfoCard = props => {
 						className="btn-cancel"
 						onClick={() => {
 							deleteCard(sysId, accountNo);
-						}}
-					>
+						}}>
 						{t("lbl_Yes")}
 					</button>
 					<button className="btn-check" onClick={ClickCancel}>
@@ -95,8 +94,8 @@ const BankInfoCard = props => {
 					<div className="bankName">
 						<img
 							src={`${
-								config.imgUrl
-							}/common/images/BankLogo/${item.bankLogo?.toLowerCase()}`}
+								config.cloudImgUrl
+							}/${item.bankLogo?.toLowerCase()}`}
 							alt={item.bankName}
 						/>
 					</div>

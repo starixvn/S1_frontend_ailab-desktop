@@ -50,7 +50,6 @@ const IndexCenterBanner = ({ langId }) => {
 
 		const getImgUrl = async () => {
 			const _imgUrl = await checkImage();
-
 			setImgUrl(_imgUrl);
 		};
 

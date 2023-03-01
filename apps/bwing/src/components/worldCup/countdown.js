@@ -69,7 +69,7 @@ const Countdown = ({ t, diffTime }) => {
 			{/* // * 倒數的動畫先拿掉，故先註解 */}
 			{/* <div className="title">
 				<img
-					src={`${bannerImgUrl}/img/worldcup/xs-logo-d.png`}
+					src={`${bannerImgUrl}/desktop/desktop/img/worldcup/xs-logo-d.png`}
 					alt="countdown_img"
 				/>
 			</div>

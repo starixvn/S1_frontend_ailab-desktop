@@ -168,7 +168,7 @@ export const LicensesSection = ({ t, errorPopBox }) => {
 							<div className="title">
 								{t("lbl_Gaming_License")}
 								<img
-									src={`${bannerImgUrl}/img/license_tick.png`}
+									src={`${bannerImgUrl}/desktop/img/license_tick.png`}
 									alt="vaild gaming license"
 								/>
 							</div>

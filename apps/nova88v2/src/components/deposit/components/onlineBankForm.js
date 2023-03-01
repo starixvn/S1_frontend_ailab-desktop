@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import ShortcutAmountList from "./shortcutAmountList";
 import { defCurrencyList, getUrlParameter } from "../../common/common";
-import { cloudImgUrl } from "../../../config";
+import { paymentImgUrl } from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
 
 import PromotionSelect from "./promotionSelect";
@@ -136,7 +136,7 @@ const OnlineBankForm = ({
 								<div>
 									<img
 										alt={item.payName}
-										src={`${cloudImgUrl}/SiteSkin/img/Payment/${payName}.png`}
+										src={`${paymentImgUrl}/${payName}.png`}
 									/>
 									<i className="icon icon-icon32px_check" />
 								</div>
@@ -185,7 +185,7 @@ const OnlineBankForm = ({
 									}>
 									<div>
 										<img
-											src={`${cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
+											src={`${paymentImgUrl}/square/${bankLogo}`}
 											alt={item.bankName}
 										/>
 										<i className="icon icon-icon32px_check" />
@@ -254,6 +254,7 @@ OnlineBankForm.propTypes = {
 	onlineBankInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	onChangePromotion: PropTypes.func.isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	setOnlineBankInfoList: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,

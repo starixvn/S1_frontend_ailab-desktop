@@ -93,8 +93,8 @@ const OnlineBankForm = ({
 								<img
 									alt={item.bankLogo}
 									src={`${
-										config.imgUrl
-									}/common/images/BankLogo/${item.bankLogo?.toLowerCase()}`}
+										config.cloudImgUrl
+									}/${item.bankLogo?.toLowerCase()}`}
 								/>
 								<i className="icon icon-checkmark" />
 							</div>

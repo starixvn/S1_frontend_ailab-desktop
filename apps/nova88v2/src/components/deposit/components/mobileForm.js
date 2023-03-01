@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { defQrMobilePay } from "../deposit.def";
 import Inputbox from "../../common/inputbox";
 import {
 	getUrlParameter,
@@ -8,7 +7,7 @@ import {
 	defCurrencyList
 } from "../../common/common";
 import ShortcutAmountList from "./shortcutAmountList";
-import { cloudImgUrl } from "../../../config";
+import { paymentImgUrl } from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
 import PromotionSelect from "./promotionSelect";
 
@@ -141,7 +140,7 @@ const MobileForm = ({
 										<div>
 											<img
 												alt={item.groupName}
-												src={`${cloudImgUrl}/SiteSkin/img/MobilePay/${groupName}.png`}
+												src={`${paymentImgUrl}/${groupName}.png`}
 											/>
 
 											<i className="icon icon-icon32px_check" />
@@ -202,7 +201,7 @@ const MobileForm = ({
 										<div>
 											<img
 												alt={item.groupName}
-												src={`${cloudImgUrl}/SiteSkin/img/MobilePay/${imgName}.png`}
+												src={`${paymentImgUrl}/${imgName}.png`}
 											/>
 											<i className="icon icon-icon32px_check" />
 										</div>

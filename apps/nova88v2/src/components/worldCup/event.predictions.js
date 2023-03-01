@@ -124,7 +124,10 @@ const Ticket = ({ status, options, serial, countryId, GetTicketInfo, t }) => {
 		<div className={`ticket-item${className}`}>
 			<div className="ticket-title">
 				{t("worldCup.ticket")} {serial}
-				<img src={`${bannerImgUrl}/img/worldcup/ticket.png`} alt="" />
+				<img
+					src={`${bannerImgUrl}/desktop/img/event/worldcup/ticket.png`}
+					alt=""
+				/>
 			</div>
 			<Dropdown
 				options={groupOptions}
@@ -221,8 +224,7 @@ const Dropdown = ({ options, selectedIdx, onSelectItem }) => {
 		<div
 			key={`item-${item.displayText}`}
 			className="dropdown-item"
-			onClick={e => selectItem(e, { idx: i })}
-		>
+			onClick={e => selectItem(e, { idx: i })}>
 			{item.displayText}
 		</div>
 	));

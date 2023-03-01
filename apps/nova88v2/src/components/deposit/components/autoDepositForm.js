@@ -4,7 +4,7 @@ import { userInfoContext } from "../../common/context";
 import Inputbox from "../../common/inputbox";
 import ShortcutAmountList from "./shortcutAmountList";
 import { defCurrencyList, getUrlParameter } from "../../common/common";
-import { cloudImgUrl } from "../../../config";
+import { paymentImgUrl } from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
 
 import PromotionSelect from "./promotionSelect";
@@ -91,7 +91,7 @@ const AutoDepositForm = ({
 								}>
 								<div>
 									<img
-										src={`${cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
+										src={`${paymentImgUrl}/square/${bankLogo}`}
 										alt={item.bankName}
 									/>
 									<i className="icon icon-icon32px_check" />

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { defActionType } from "./bankInfo.reducer";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
 import usePopBox from "../hook/usePopBox";
-import { cloudImgUrl } from "../../config";
+import { paymentImgUrl } from "../../config";
 import Inputbox from "../common/inputbox";
 import Loading from "../common/loading";
 
@@ -195,13 +195,12 @@ const AccountPanel = ({
 				<div className="subModule">
 					<form
 						className="subModuleBody column"
-						onSubmit={clickSubmit}
-					>
+						onSubmit={clickSubmit}>
 						<div>
 							<div className="bankName">
 								<img
 									alt="BankLogo"
-									src={`${cloudImgUrl}/SiteSkin/img/BankLogo/${bankInfo.bankLogo.toLowerCase()}`}
+									src={`${paymentImgUrl}/square/${bankInfo.bankLogo.toLowerCase()}`}
 								/>
 							</div>
 						</div>

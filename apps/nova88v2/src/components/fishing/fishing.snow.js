@@ -4,10 +4,10 @@ import useInterval from "../hook/useInterval";
 
 const settings = {
 	snowImage: [
-		"https://banner.0814media.net/img/fishing/bon/bg_light0.png",
-		"https://banner.0814media.net/img/fishing/bon/bg_light1.png",
-		"https://banner.0814media.net/img/fishing/bon/bg_light2.png",
-		"https://banner.0814media.net/img/fishing/bon/bg_light3.png"
+		"https://banner.0814media.net/desktop/img/fishing/bon/bg_light0.png",
+		"https://banner.0814media.net/desktop/img/fishing/bon/bg_light1.png",
+		"https://banner.0814media.net/desktop/img/fishing/bon/bg_light2.png",
+		"https://banner.0814media.net/desktop/img/fishing/bon/bg_light3.png"
 	],
 	stage: "elin"
 };

@@ -12,7 +12,7 @@ import {
 import productList, { defTpGameType } from "../../datas/productList";
 import path from "../../router";
 import { defMenuLinks } from "./header.menu.def";
-import { cloudImgUrl, bannerImgUrl } from "../../config";
+import { bannerImgUrl } from "../../config";
 import useAppDownLoad from "../appDownload/useAppDownLoad";
 
 const SubMenuSingle = ({
@@ -213,7 +213,7 @@ const SubMenuSingle = ({
 									includeMargin={true}
 								/>
 								<img
-									src={`${cloudImgUrl}/SiteSkin/img/appdownload_ios.jpg`}
+									src={`${bannerImgUrl}/desktop/img/appdownload_ios.jpg`}
 									alt="IOS Download"
 								/>
 							</div>
@@ -227,7 +227,7 @@ const SubMenuSingle = ({
 									includeMargin={true}
 								/>
 								<img
-									src={`${cloudImgUrl}/SiteSkin/img/appdownload_and.jpg`}
+									src={`${bannerImgUrl}/desktop/img/appdownload_and.jpg`}
 									alt="Andriod Download"
 								/>
 							</div>

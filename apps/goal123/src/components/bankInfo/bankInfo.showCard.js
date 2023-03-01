@@ -20,8 +20,8 @@ const BankInfoCard = ({ custBankList, delBankAccount, loading }) => {
 					<img
 						alt="BankLogo"
 						src={`${
-							config.imgUrl
-						}/common/images/BankLogo/${item.bankLogo?.toLowerCase()}`}
+							config.cloudImgUrl
+						}/${item.bankLogo?.toLowerCase()}`}
 					/>
 				</div>
 			</div>
