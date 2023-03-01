@@ -5,7 +5,7 @@ import { api_accountStrict_SetCustEWalletInfo } from "../../service/api/accountS
 import { popBoxContext, userInfoContext } from "./context";
 import defPopBoxType from "./defPopBoxType";
 import usePopBox from "../hook/usePopBox";
-import { cloudImgUrl } from "../../config";
+import { paymentImgUrl } from "../../config";
 import Dropdown from "./dropdown";
 import Inputbox from "./inputbox";
 
@@ -222,7 +222,7 @@ const PopBox = ({ EInfoSysList = [], custEWalletInfo, getCustEWalletInfo }) => {
 					options={EInfoSysList}
 					onSelectItem={onSelectItem}
 					selectedIdx={userValue.bankId}
-					imgUrl={`${cloudImgUrl}/SiteSkin/img/BankLogo/`}
+					imgUrl={`${paymentImgUrl}/square/`}
 					className="bankLogo"
 					i18n={t}
 				/>

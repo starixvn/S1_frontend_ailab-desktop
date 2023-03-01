@@ -18,8 +18,7 @@ const Info = ({
 		return (
 			<div
 				className={`progress-bar__item${active ? " active" : ""}`}
-				key={`amount-${el}`}
-			>
+				key={`amount-${el}`}>
 				<div className="progress-bar__number">
 					{number_format({
 						number: el,
@@ -39,7 +38,7 @@ const Info = ({
 			<div className="ticket__info">
 				<div className="ticket__user">
 					<img
-						src={`${bannerImgUrl}/img/worldcup/user.svg`}
+						src={`${bannerImgUrl}/desktop/img/event/worldcup/user.svg`}
 						alt="user name"
 					/>
 					{userName}

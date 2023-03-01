@@ -6,9 +6,9 @@ import productList from "../../datas/productList";
 import { popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
-import { cloudImgUrl } from "../../config";
-import allowedCurrencyList from "../../datas/allowedCurrencyList";
+import { bannerImgUrl } from "../../config";
 import { defCurrencyList } from "../common/common";
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
 import { getPPAllowCurrencies } from "../header/header.menu.def";
 
 const useHandleLogoList = () => {
@@ -247,7 +247,7 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 					})}
 				>
 					<img
-						src={`${cloudImgUrl}/SiteSkin/img/logo/${imgName}.png`}
+						src={`${bannerImgUrl}/desktop/img/venderlogo/${imgName}.png`}
 						name={imgName}
 						alt={`logo ${imgName}`}
 						onMouseOver={handleOnMouseOverImg.bind(this, p.imgName)}

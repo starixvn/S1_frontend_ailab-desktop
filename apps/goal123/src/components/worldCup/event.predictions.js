@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { bannerImgUrl } from "../../config";
+import { bannerImgUrl, sportsImgUrl } from "../../config";
 import { api_worldCupPrediction_UserPollTickets } from "../../service/api/worldCupPrediction";
 
 const ticketStatus = {
@@ -41,10 +41,9 @@ const Pridictions = ({ userTicketResult, ticketOptions, GetTicketInfo }) => {
 					className={`ticket__tab-item${className}${
 						serial === selTicket ? " active" : ""
 					}`}
-					onClick={() => selectTicket({ serial })}
-				>
+					onClick={() => selectTicket({ serial })}>
 					<img
-						src={`${bannerImgUrl}/img/worldcup/ticket.png`}
+						src={`${bannerImgUrl}/desktop/img/event/worldcup/ticket.png`}
 						alt=""
 					/>
 					{t("worldCup.ticket")} {serial}
@@ -116,9 +115,11 @@ const Ticket = ({ status, options, serial, countryId, GetTicketInfo, t }) => {
 		teamArr = [selCountry]?.map(el => (
 			<button
 				key={`finished-team-${el?.countryId}-${el?.countryName}`}
-				className="btn-team"
-			>
-				<img src={`${bannerImgUrl}/img/flag/${el?.imageName}`} alt="" />
+				className="btn-team">
+				<img
+					src={`${sportsImgUrl}/Country Flag/${el?.imageName}`}
+					alt=""
+				/>
 				{el?.countryName}
 			</button>
 		));
@@ -131,9 +132,11 @@ const Ticket = ({ status, options, serial, countryId, GetTicketInfo, t }) => {
 						? " active"
 						: ""
 				}`}
-				onClick={() => onSelectItem({ idx: i, col: "teamIdx" })}
-			>
-				<img src={`${bannerImgUrl}/img/flag/${el.imageName}`} alt="" />
+				onClick={() => onSelectItem({ idx: i, col: "teamIdx" })}>
+				<img
+					src={`${sportsImgUrl}/Country Flag/${el.imageName}`}
+					alt=""
+				/>
 				{el.countryName}
 			</button>
 		));
@@ -272,8 +275,7 @@ const Dropdown = ({ options, selectedIdx, onSelectItem, disabled }) => {
 		<div
 			key={`item-${item.displayText}`}
 			className="dropdown-item"
-			onClick={e => selectItem(e, { idx: i })}
-		>
+			onClick={e => selectItem(e, { idx: i })}>
 			{item.displayText}
 		</div>
 	));

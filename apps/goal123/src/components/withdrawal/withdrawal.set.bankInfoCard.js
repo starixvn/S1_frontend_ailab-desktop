@@ -43,8 +43,7 @@ const BankInfoCard = ({
 						className="btn-cancel"
 						onClick={() => {
 							deleteCard(sysId, accountNo);
-						}}
-					>
+						}}>
 						{t("lbl_Yes")}
 					</button>
 					<button className="btn-check" onClick={ClickCancel}>
@@ -81,8 +80,7 @@ const BankInfoCard = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickCancel}
-									>
+										onClick={ClickCancel}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -102,8 +100,7 @@ const BankInfoCard = ({
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickCancel}
-								>
+									onClick={ClickCancel}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -125,8 +122,8 @@ const BankInfoCard = ({
 					<div className="bankName">
 						<img
 							src={`${
-								config.imgUrl
-							}/common/images/BankLogo/${item.bankLogo?.toLowerCase()}`}
+								config.cloudImgUrl
+							}/${item.bankLogo?.toLowerCase()}`}
 							alt={item.bankName}
 						/>
 					</div>

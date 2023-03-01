@@ -102,7 +102,7 @@ export default () => {
 							href={`${config.openURL}/rewards/`}
 							rel="noreferrer">
 							<img
-								src={`${bannerImgUrl}/img/88rewards.png`}
+								src={`${bannerImgUrl}/desktop/img/88rewards.png`}
 								alt="Rewards"
 							/>
 						</a>

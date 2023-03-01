@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { bannerImgUrl } from "../../config";
+import { bannerImgUrl, sportsImgUrl } from "../../config";
 import { defPreliminary, defEventClassName } from "./fixture.def";
 
 const Preliminary = ({ panel, prediction }) => {
@@ -31,7 +31,7 @@ const Preliminary = ({ panel, prediction }) => {
 			teams = sortedTeams?.map(team => (
 				<div className="item" key={`${event}-${team.countryName}`}>
 					<img
-						src={`${bannerImgUrl}/img/flag/${team.imageName}`}
+						src={`${sportsImgUrl}/Country Flag/${team.imageName}`}
 						alt={`${event}-${team.countryName}`}
 					/>
 					{team.countryName}
@@ -42,7 +42,7 @@ const Preliminary = ({ panel, prediction }) => {
 				teams.push(
 					<div className="item" key={`${event}-${group}-${i}`}>
 						<img
-							src={`${bannerImgUrl}/img/flag/na.jpg`}
+							src={`${sportsImgUrl}/Country Flag/na.jpg`}
 							alt={`${event}-${group}-${i}`}
 						/>
 					</div>

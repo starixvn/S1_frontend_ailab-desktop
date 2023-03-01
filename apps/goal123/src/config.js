@@ -13,7 +13,7 @@ const getAffiliate = ({ langId }) => {
 		: `https://aff.${arr.join(".")}/?lang=${langId}`;
 };
 export const bannerImgUrl = "https://banner.goal123.org";
-
+export const sportsImgUrl = "http://sportsimgs.goal123.org";
 export const cloudImgUrl = "https://payment.goal123.org";
 
 export const errorPageUrl = langId =>
@@ -34,8 +34,9 @@ export default process.env.NODE_ENV === "production"
 			apiURL: "",
 			openURL: "",
 			imgUrl: "",
-			t_and_cURL: "https://image.0814media.net",
+			t_and_cURL: "https://banner.goal123.org",
 			bannerImgUrl,
+			sportsImgUrl,
 			cloudImgUrl
 	  }
 	: {
@@ -47,8 +48,9 @@ export default process.env.NODE_ENV === "production"
 
 			apiURL: "",
 			imgUrl: "http://stag.goal123.com",
-			t_and_cURL: "https://image.0814media.net",
+			t_and_cURL: "https://banner.goal123.org",
 			openURL: "http://stag.goal123.com",
 			bannerImgUrl,
+			sportsImgUrl,
 			cloudImgUrl
 	  };

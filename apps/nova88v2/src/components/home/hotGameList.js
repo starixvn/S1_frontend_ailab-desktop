@@ -103,7 +103,6 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 				(mt.tpGameType === g.tpGameType ||
 					mt.tpGameType === defTpGameType.All)
 		);
-
 		return (
 			<div
 				key={`hotGame-${g.tpId}-${g.gameName}`}

@@ -250,8 +250,8 @@ export class Module extends Component {
 							<div className="bankName">
 								<img
 									src={`${
-										config.imgUrl
-									}/common/images/BankLogo/${this.props.bankLogo?.toLowerCase()}`}
+										config.cloudImgUrl
+									}/${this.props.bankLogo?.toLowerCase()}`}
 									alt={this.props.bankName}
 								/>
 							</div>

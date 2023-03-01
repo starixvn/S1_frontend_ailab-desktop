@@ -39,11 +39,11 @@ const EsportSwiper = ({ t, subMenu, clickItem }) => {
 				} = subMenu[index];
 
 				el.addEventListener("mouseover", e => {
-					e.target.src = `${bannerImgUrl}/img/esport/${hoverBgImg}`;
+					e.target.src = `${bannerImgUrl}/desktop/img/esport/${hoverBgImg}`;
 				});
 
 				el.addEventListener("mouseout", e => {
-					e.target.src = `${bannerImgUrl}/img/esport/${bgImg}`;
+					e.target.src = `${bannerImgUrl}/desktop/img/esport/${bgImg}`;
 				});
 
 				el.addEventListener("click", () =>
@@ -129,8 +129,7 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 					isInMaintain,
 					betType
 				})
-			}
-		>
+			}>
 			{subMenuItem?.eventIcons?.length > 0 && (
 				<div className={subMenuItem.eventIcons[0]} />
 			)}
@@ -139,11 +138,14 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 
 			{isHover ? (
 				<img
-					src={`${bannerImgUrl}/img/esport/${hoverBgImg}`}
+					src={`${bannerImgUrl}/desktop/img/esport/${hoverBgImg}`}
 					alt={hoverBgImg}
 				/>
 			) : (
-				<img src={`${bannerImgUrl}/img/esport/${bgImg}`} alt={bgImg} />
+				<img
+					src={`${bannerImgUrl}/desktop/img/esport/${bgImg}`}
+					alt={bgImg}
+				/>
 			)}
 
 			<div className="under">{t("lbl_underMaintenance")}</div>

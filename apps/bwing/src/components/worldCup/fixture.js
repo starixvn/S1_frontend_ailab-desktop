@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
-import { bannerImgUrl } from "../../config";
+import { bannerImgUrl, sportsImgUrl } from "../../config";
 import usePopBox from "../hook/usePopBox";
 import { api_worldCupPrediction_GetWorldCupPredictionSetting } from "../../service/api/worldCupPrediction";
 import SectionAB from "./fixture.sectionAB";
@@ -93,7 +93,7 @@ const Fixture = () => {
 					<div className="team" key={`${event}-${team?.countryName}`}>
 						{place === "left" && (
 							<img
-								src={`${bannerImgUrl}/img/flag/${
+								src={`${sportsImgUrl}/Country Flag/${
 									team?.imageName ?? "ic-paly-off.jpg"
 								}`}
 								alt={`${event}-${team?.countryName}`}
@@ -102,7 +102,7 @@ const Fixture = () => {
 						{team?.countryName}
 						{place === "right" && (
 							<img
-								src={`${bannerImgUrl}/img/flag/${
+								src={`${sportsImgUrl}/Country Flag/${
 									team?.imageName ?? "ic-paly-off.jpg"
 								}`}
 								alt={`${event}-${team?.countryName}`}
@@ -120,7 +120,7 @@ const Fixture = () => {
 					<Fragment key={`${event}-${group}-${i}`}>
 						<div className="team">
 							<img
-								src={`${bannerImgUrl}/img/flag/ic-paly-off.jpg`}
+								src={`${sportsImgUrl}/Country Flag/ic-paly-off.jpg`}
 								alt={`${event}-${group}-${i}`}
 							/>
 						</div>
@@ -140,7 +140,7 @@ const Fixture = () => {
 		<div className="fixture">
 			<img
 				className="bg"
-				src={`${bannerImgUrl}/img/worldcup/fixturebg.jpg`}
+				src={`${bannerImgUrl}/desktop/img/worldcup/fixturebg.jpg`}
 				alt="fixture list"
 			/>
 			<Prize />
@@ -171,7 +171,10 @@ const Prize = () => {
 					</div>
 				</div>
 			</div>
-			<img src={`${bannerImgUrl}/img/worldcup/logo-qat.png`} alt="" />
+			<img
+				src={`${bannerImgUrl}/desktop/img/worldcup/team1.png`}
+				alt=""
+			/>
 			<div className="winner">
 				<div className="prizeModule">
 					<div className="title">{t("worldCup.groupStage1st")}</div>

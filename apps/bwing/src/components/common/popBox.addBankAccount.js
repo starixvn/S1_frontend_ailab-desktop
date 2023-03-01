@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
 import { popBoxContext, userInfoContext } from "./context";
 import { defPopBoxType } from "./defPopBoxType";
-import config from "../../config";
+import config, { cloudImgUrl } from "../../config";
 import Dropdown from "./dropdown";
 import Inputbox from "./inputbox";
 
@@ -163,8 +163,7 @@ const PopBox = ({
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={ClickCancel}
-										>
+											onClick={ClickCancel}>
 											OK
 										</button>
 									</div>
@@ -179,8 +178,7 @@ const PopBox = ({
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}
-										>
+											onClick={ClickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -199,8 +197,7 @@ const PopBox = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -240,8 +237,7 @@ const PopBox = ({
 						</div>
 						<div
 							className="iconModule"
-							onClick={clickInfo.bind(this, "realName_after")}
-						>
+							onClick={clickInfo.bind(this, "realName_after")}>
 							<i className="icon icon-information-solid" />
 						</div>
 					</div>
@@ -255,7 +251,7 @@ const PopBox = ({
 					options={bankInfoSysList}
 					onSelectItem={onSelectItem}
 					selectedIdx={userValue.bankId}
-					imgUrl={`${config.imgUrl}/common/images/BankLogo/`}
+					imgUrl={`${config.cloudImgUrl}/`}
 					className="bankLogo"
 					showDropDownIcon={true}
 				/>

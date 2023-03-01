@@ -79,8 +79,8 @@ export default ({ t, dispatch, bankList, toLastStep, selectBank }) => {
 				<a onClick={selectBank.bind(this, i)}>
 					<img
 						src={`${
-							config.imgUrl
-						}/common/images/BankLogo/${item.bankLogo?.toLowerCase()}`}
+							config.cloudImgUrl
+						}/${item.bankLogo?.toLowerCase()}`}
 						alt={item.bankName}
 					/>
 				</a>

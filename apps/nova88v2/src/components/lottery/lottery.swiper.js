@@ -95,11 +95,14 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 
 			{isHover ? (
 				<img
-					src={`${bannerImgUrl}/img/lottery/${hoverBgImg}`}
+					src={`${bannerImgUrl}/desktop/img/lottery/${hoverBgImg}`}
 					alt={hoverBgImg}
 				/>
 			) : (
-				<img src={`${bannerImgUrl}/img/lottery/${bgImg}`} alt={bgImg} />
+				<img
+					src={`${bannerImgUrl}/desktop/img/lottery/${bgImg}`}
+					alt={bgImg}
+				/>
 			)}
 
 			<div className="under">{t("lbl_underMaintenance")}</div>

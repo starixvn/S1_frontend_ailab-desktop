@@ -134,8 +134,8 @@ const CryptoPayForm = ({
 							<div>
 								<img
 									src={`${
-										config.imgUrl
-									}/common/images/Payment/${item.groupName?.toLowerCase()}.png`}
+										config.cloudImgUrl
+									}/${item.groupName?.toLowerCase()}.png`}
 									alt={item.groupName}
 								/>
 								<i className="icon icon-checkmark" />

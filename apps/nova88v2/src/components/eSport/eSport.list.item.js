@@ -56,12 +56,12 @@ const EsportListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 
 			{isHover ? (
 				<img
-					src={`${bannerImgUrl}/img/esport/${hoverBgImg}`}
+					src={`${bannerImgUrl}/desktop/img/esport/${hoverBgImg}`}
 					alt={hoverBgImg}
 				/>
 			) : (
 				<img
-					src={`${bannerImgUrl}/img/esport/${bgImg}`}
+					src={`${bannerImgUrl}/desktop/img/esport/${bgImg}`}
 					alt={hoverBgImg}
 				/>
 			)}

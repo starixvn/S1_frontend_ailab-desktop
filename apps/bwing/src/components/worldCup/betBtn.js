@@ -17,11 +17,10 @@ const BetBtn = () => {
 			<div className="worldCup-pop">
 				<div className="close" onClick={closeBtn} />
 				<Link
-					to={`/${userInfo.langId}/${path.sports.root}?tpId=1&gameId=2002`}
-				>
+					to={`/${userInfo.langId}/${path.sports.root}?tpId=1&gameId=2002`}>
 					<img
 						className="logo"
-						src={`${bannerImgUrl}/img/worldcup/fifa-logo.png`}
+						src={`${bannerImgUrl}/desktop/img/worldcup/fifa-logo.png`}
 						alt=""
 					/>
 					<img

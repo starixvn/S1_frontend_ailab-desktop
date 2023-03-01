@@ -11,7 +11,7 @@ export default ({ onClickClose }) => {
 		<div className="friend active">
 			<button className="icon icon-close" onClick={onClickClose} />
 			<img
-				src={`${config.bannerImgUrl}/img/nonlogin/768x280_goal_${userInfo.langId}.jpg`}
+				src={`${config.bannerImgUrl}/desktop/img/nonlogin/768x280_goal_${userInfo.langId}.jpg`}
 				alt="Official Announce"
 				onClick={() =>
 					navigate(`/${userInfo.langId}/${path.appDownload.root}`)

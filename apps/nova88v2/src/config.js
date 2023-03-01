@@ -44,7 +44,9 @@ export const SiteInfo = {
 };
 
 export const cloudImgUrl = "https://image.0814media.net";
+export const paymentImgUrl = "http://payment.0814media.net";
 export const bannerImgUrl = "https://banner.0814media.net";
+export const sportImgUrl = "https://sportsimgs.0814media.net";
 
 export default process.env.NODE_ENV === "production"
 	? {
@@ -53,7 +55,7 @@ export default process.env.NODE_ENV === "production"
 			apiURL: "",
 			openURL: "",
 			imgUrl: "",
-			t_and_cURL: "https://image.0814media.net",
+			t_and_cURL: "https://banner.0814media.net",
 			cloudImgUrl,
 			bannerImgUrl
 	  }
@@ -70,6 +72,6 @@ export default process.env.NODE_ENV === "production"
 
 			apiURL: "",
 			imgUrl: "http://www.n88dev.com",
-			t_and_cURL: "https://image.0814media.net",
+			t_and_cURL: "https://banner.0814media.net",
 			openURL: "https://www.n88dev.com"
 	  };
