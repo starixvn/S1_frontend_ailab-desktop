@@ -20,6 +20,7 @@ import { initValue, initTip, currencyToAreacode } from "./join.def";
 import JoinForm from "./join.form";
 import usePopBox from "../hook/usePopBox";
 import path from "../../router";
+import useShieldCheck from "../hook/useShieldCheck";
 
 export default () => {
 	const { t } = useTranslation();
@@ -37,6 +38,8 @@ export default () => {
 	const tandCTerms = TandC(defaultLangId).terms;
 	const tandCRule = TandC(defaultLangId).rule;
 
+	const { getShieldData, saveShieldData } = useShieldCheck();
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -47,6 +50,7 @@ export default () => {
 	useEffect(() => {
 		checkAffiliate();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
+		getShieldData();
 	}, []);
 
 	const checkAffiliate = async () => {
@@ -392,6 +396,7 @@ export default () => {
 											await navigate(
 												`/${userInfo.langId}/${path.deposit.root}`
 											);
+											saveShieldData();
 										} else {
 											errorPopBox(
 												res_custInfo.data.message ||

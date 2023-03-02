@@ -20,6 +20,7 @@ const ResetPassWord = () => {
 	const [showPsw, setShowPsw] = useState(false);
 	const [status, setStatus] = useState(initStatus);
 	const isMountedRef = useRef(null);
+	const { deleteShieldData } = useShieldCheck();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -125,6 +126,7 @@ const ResetPassWord = () => {
 											kickout: true,
 											willLogout: true
 										}));
+										deleteShieldData();
 									};
 
 									setPopBox({

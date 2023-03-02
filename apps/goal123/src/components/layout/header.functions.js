@@ -162,8 +162,7 @@ const AfterLogin = () => {
 		<>
 			<Link
 				to={`/${userInfo.langId}/${path.deposit.root}`}
-				className="deposit-btn icon icon-icon32px_deposit"
-			>
+				className="deposit-btn icon icon-icon32px_deposit">
 				{t("lbl_Deposit")}
 			</Link>
 			<DropdownHeader
@@ -194,8 +193,7 @@ const AfterLogin = () => {
 			/>
 			<Link
 				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
-				to={`/${userInfo.langId}/${path.message.root}`}
-			>
+				to={`/${userInfo.langId}/${path.message.root}`}>
 				<MsgPopup userInfo={userInfo} />
 			</Link>
 		</>
