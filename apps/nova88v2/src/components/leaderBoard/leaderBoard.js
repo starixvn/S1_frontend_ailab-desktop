@@ -21,7 +21,7 @@ import {
 	defMonthKey,
 	getLeaderBoardSupportCurrencyId
 } from "./leaderBoard.def";
-import { cloudImgUrl, bannerImgUrl } from "../../config";
+import { bannerImgUrl } from "../../config";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
 import { langAndCurrMapping, defCurrencyList } from "../common/common";
@@ -92,7 +92,7 @@ export default () => {
 	};
 
 	const getPeriodList = () => {
-		const dataStartDate = new Date("2021-08-01");
+		const dataStartDate = new Date("2023-01-01");
 		const currentDate = new Date();
 		const betweenMonthNum =
 			(currentDate.getFullYear() - dataStartDate.getFullYear()) * 12 +
@@ -395,7 +395,8 @@ export default () => {
 			className="rankingNew"
 			style={{
 				backgroundImage: `url(${showBackground()})`
-			}}>
+			}}
+		>
 			<section>
 				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 				{tab === defTabId.first ? (
