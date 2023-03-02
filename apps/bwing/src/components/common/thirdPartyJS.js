@@ -1,14 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import config from "../../config";
+import { api_shield_GetEndpoint } from "../../service/api/shield";
+import useShieldCheck from "../hook/useShieldCheck";
+
+const SHIELD_SITE_ID = "b5626627447a18bbf8cab1510a2c59cda2442fa2";
 
 function ThirdPartyJS() {
 	return (
 		<>
 			<Helmet />
 			<GTM />
+			<Shield />
 		</>
 	);
 }
+
+const Shield = () => {
+	const { getShieldData } = useShieldCheck();
+	const [endpoint, setEndpoint] = useState("");
+
+	useEffect(() => {
+		// 確保只 call 一次 api 取得 endpoint
+		if (!endpoint) {
+			api_shield_GetEndpoint({ siteId: config.siteId }).then(res => {
+				const { errorCode, data } = res.data;
+				if (errorCode === 0) {
+					const _endpoint = data?.endpoint;
+					setEndpoint(_endpoint);
+				}
+			});
+		}
+	}, []);
+
+	return (
+		<Helmet>
+			<script
+				language="javascript"
+				src={`https://d1cr9zxt7u0sgu.cloudfront.net/shdfp.js?SITE_ID=${SHIELD_SITE_ID}&TYPE=JS&DE=1&AUTO=0`}
+				type="text/javascript"
+				async
+				charSet="UTF-8"
+				onLoad={getShieldData}
+			/>
+			(
+			<noscript>
+				{`<iframe
+					src="${endpoint}/shield-fp/v1/api/web/noscript?site_id=${SHIELD_SITE_ID}"
+					width="0"
+					height="0"
+					style="display:none"
+				/>`}
+			</noscript>
+			)
+		</Helmet>
+	);
+};
 
 const GTM = () => (
 	<Helmet>

@@ -97,3 +97,8 @@ export const hotGameRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/HotGame`
 });
+
+export const shieldRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/Shield`
+});

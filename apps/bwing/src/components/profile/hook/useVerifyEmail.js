@@ -7,6 +7,7 @@ import { LOGOUT } from "../../../service/auth";
 import { getUrlParameter, setCookie } from "../../common/common";
 import { defPopBoxType } from "../../common/defPopBoxType";
 import path from "../../../router";
+import useShieldCheck from "../../hook/useShieldCheck";
 
 const useVerifyEmail = ({
 	langId,
@@ -16,6 +17,7 @@ const useVerifyEmail = ({
 	openErrorMessagePopBox
 }) => {
 	const [tokenPassed, setTokenPassed] = useState(false);
+	const { deleteShieldData } = useShieldCheck();
 
 	useEffect(() => {
 		const key = getUrlParameter("key");
@@ -27,6 +29,7 @@ const useVerifyEmail = ({
 					isLogin: false,
 					langId: prevState.langId
 				}));
+				deleteShieldData();
 
 				if (popBoxMsg) {
 					setCookie("popBoxMsg", popBoxMsg);
