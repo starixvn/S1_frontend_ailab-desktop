@@ -93,6 +93,7 @@
 		"@typescript-eslint/no-empty-interface": "off",
 		"@nrwl/nx/enforce-module-boundaries": "off",
 		"@typescript-eslint/no-unused-vars": ["warn"],
+		"react/forbid-prop-types": "off",
 		"react/jsx-filename-extension": [
 			1,
 			{ "extensions": [".js", ".jsx", ".ts", ".tsx"] }

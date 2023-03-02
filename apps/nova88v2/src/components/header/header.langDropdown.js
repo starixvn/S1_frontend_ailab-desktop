@@ -66,6 +66,18 @@ export const defLangGroups = {
 			currencyId: defCurrencyList.BDT
 		}
 	],
+	kh: [
+		{
+			displayText: "English",
+			value: "en",
+			currencyId: defCurrencyList.KHM
+		},
+		{
+			displayText: "ខ្មែរ",
+			value: "kh",
+			currencyId: defCurrencyList.KHM
+		}
+	],
 	cs: [
 		{
 			displayText: "English",
@@ -105,6 +117,7 @@ const currencyToLangKey = {
 	13: "cs",
 	15: "id",
 	61: "in",
+	72: "kh",
 	74: "bd"
 };
 
@@ -115,7 +128,8 @@ const defLangGroupCountry = {
 	in: "India",
 	cs: "China",
 	gb: "Global",
-	bd: "Bangladesh"
+	bd: "Bangladesh",
+	kh: "Cambodia"
 };
 
 export default () => {
