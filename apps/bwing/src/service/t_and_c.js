@@ -10,9 +10,9 @@ export default langId => {
 		RuleRegulations: `${config.bannerImgUrl}/Static/${langId}/RulesandRegulations.html`,
 		AccountTerms: `${config.bannerImgUrl}/Static/${langId}/AccountTerms.html`,
 		FAQ: `${config.bannerImgUrl}/Static/${langId}/FAQ.html`,
-		AboutUs: `${config.t_and_cURL}/Static/${langId}/AboutUs.html`,
-		Terms: `${config.t_and_cURL}/Static/${langId}/Terms.html`,
-		ContactUs: `${config.t_and_cURL}/Static/${langId}/ContactUs.html`,
+		AboutUs: `${config.bannerImgUrl}/Static/${langId}/AboutUs.html`,
+		Terms: `${config.bannerImgUrl}/Static/${langId}/Terms.html`,
+		ContactUs: `${config.bannerImgUrl}/Static/${langId}/ContactUs.html`,
 		Deposit: `${config.bannerImgUrl}/Static/${langId}/HowToDeposit.html`,
 		Withdraw: `${config.bannerImgUrl}/Static/${langId}/HowToWithdraw.html`,
 		HowToPlay: `${config.bannerImgUrl}/Static/${langId}/HowToBet.html`

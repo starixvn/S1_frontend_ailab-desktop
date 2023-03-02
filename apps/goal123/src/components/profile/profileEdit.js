@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import moment from "moment";
 import DateTime from "../common/dateTime";
 import Inputbox from "../common/inputbox";
-import verifiedImg from "../../styles/img/protection.png";
+import { bannerImgUrl } from "../../config";
 
 const dateTimeIcon = birth => {
 	let icon;
@@ -49,7 +49,12 @@ const ProfileEdit = ({
 
 	let phoneVerificationIcon = null;
 	if (userInfo.phoneVerified) {
-		phoneVerificationIcon = <img src={verifiedImg} alt="Phone Verified" />;
+		phoneVerificationIcon = (
+			<img
+				src={`${bannerImgUrl}/desktop/img/protection.png`}
+				alt="Phone Verified"
+			/>
+		);
 	} else if (mobileVerificationLoading) {
 		phoneVerificationIcon = (
 			<div className="otpLoading">
@@ -159,7 +164,10 @@ const ProfileEdit = ({
 					<div>
 						{userInfo.email}
 						{userInfo.emailVerified ? (
-							<img src={verifiedImg} alt="" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/protection.png`}
+								alt=""
+							/>
 						) : (
 							<button onClick={sendOTPEmail}>
 								<span className="icon icon-email" />

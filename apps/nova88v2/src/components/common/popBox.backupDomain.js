@@ -60,7 +60,7 @@ export default ({ onClickClose, linkList }) => {
 		setCookie(settingCookie, "1", 1);
 	};
 
-	const imgSrc = `${bannerImgUrl}/img/backupDomain/backupDomain_${
+	const imgSrc = `${bannerImgUrl}/desktop/img/backupDomain/backupDomain_${
 		isOldLang(userInfo.langId) ? userInfo.langId : "en"
 	}.jpg`;
 
