@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { defPageClubImg } from "../vip/vip.def";
-import coin from "../../styles/img/coinimg.png";
 import { number_format } from "../common/common";
+import { bannerImgUrl } from "../../config";
 
 const VerificationPanel = ({
 	t,
@@ -45,7 +45,10 @@ const VerificationPanel = ({
 						className={`icon icon-member${
 							accountName ? " active" : ""
 						}`}>
-						<img src={coin} alt="coin" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/coinimg.png`}
+							alt="coin"
+						/>
 						<div className="hint">
 							<span>{t("lbl_ProfileVerification")}</span>
 							{t("lbl_ProfileVerificationHint")}
@@ -55,7 +58,10 @@ const VerificationPanel = ({
 						className={`icon icon-email${
 							emailVerified ? " active" : ""
 						}`}>
-						<img src={coin} alt="coin" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/coinimg.png`}
+							alt="coin"
+						/>
 						<div className="hint">
 							<span>{t("lbl_EmailVerification")}</span>
 							{t("lbl_EmailVerificationHint", {
@@ -67,7 +73,10 @@ const VerificationPanel = ({
 						className={`icon icon-mobile${
 							phoneVerified ? " active" : ""
 						}`}>
-						<img src={coin} alt="coin" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/coinimg.png`}
+							alt="coin"
+						/>
 						<div className="hint">
 							<span>{t("lbl_PhoneVerification")}</span>
 							{t("lbl_PhoneVerificationHint", {

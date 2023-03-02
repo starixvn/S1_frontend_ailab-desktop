@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { defPageClubImg } from "../vip/vip.def";
-import profileIcon from "../../styles/img/profile.svg";
-import emailIcon from "../../styles/img/email.svg";
-import phoneIcon from "../../styles/img/phone.svg";
 import { number_format } from "../common/common";
+import { bannerImgUrl } from "../../config";
 
 const safety = {
 	displayKey: "",
@@ -76,7 +74,10 @@ const VerificationPanel = ({
 				<div className="title">{t("lbl_UserVerification")}</div>
 				<div className="items">
 					<div className={accountName ? "active" : ""}>
-						<img src={profileIcon} alt="Profile Verification" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/profile.svg`}
+							alt="Profile Verification"
+						/>
 						<i className="icon icon-checkmark" />
 						<div className="info">
 							<div className="title">
@@ -86,7 +87,10 @@ const VerificationPanel = ({
 						</div>
 					</div>
 					<div className={emailVerified ? "active" : ""}>
-						<img src={emailIcon} alt="Email Verification" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/email.svg`}
+							alt="Email Verification"
+						/>
 						<i className="icon icon-checkmark" />
 						<i className="icon icon-money" />
 						<div className="info">
@@ -99,7 +103,10 @@ const VerificationPanel = ({
 						</div>
 					</div>
 					<div className={phoneVerified ? "active" : ""}>
-						<img src={phoneIcon} alt="Phone Verification" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/phone.svg`}
+							alt="Phone Verification"
+						/>
 						<i className="icon icon-checkmark" />
 						<i className="icon icon-money" />
 						<div className="info">

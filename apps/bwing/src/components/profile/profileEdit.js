@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import DateTime from "../common/dateTime";
 import Inputbox from "../common/inputbox";
-import verifiedImg from "../../styles/img/shieldimg.png";
 import { number_format } from "../common/common";
+import { bannerImgUrl } from "../../config";
 
 const dateTimeIcon = birth => {
 	let icon;
@@ -50,7 +50,10 @@ const ProfileEdit = ({
 	if (userInfo.phoneVerified) {
 		phoneVerificationIcon = (
 			<button className="shield">
-				<img src={verifiedImg} alt="Phone Verified" />
+				<img
+					src={`${bannerImgUrl}/desktop/img/shieldimg.png`}
+					alt="Phone Verified"
+				/>
 			</button>
 		);
 	} else if (mobileVerificationLoading) {
@@ -165,7 +168,10 @@ const ProfileEdit = ({
 						<div>{userInfo.email}</div>
 						{userInfo.emailVerified ? (
 							<button className="shield">
-								<img src={verifiedImg} alt="Phone Verified" />
+								<img
+									src={`${bannerImgUrl}/desktop/img/shieldimg.png`}
+									alt="Phone Verified"
+								/>
 							</button>
 						) : (
 							<button className="notVer" onClick={sendEmailOtp}>
