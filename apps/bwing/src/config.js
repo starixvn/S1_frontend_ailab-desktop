@@ -1,4 +1,5 @@
 const siteName = "Bwing";
+const siteId = 3;
 
 const getAffiliate = ({ langId }) => {
 	if (typeof window === `undefined`) return "";
@@ -31,6 +32,7 @@ export const langCookie = "bwingLangId";
 export default process.env.NODE_ENV === "production"
 	? {
 			siteName,
+			siteId,
 			apiURL: "",
 			openURL: "",
 			imgUrl: "",
@@ -41,6 +43,7 @@ export default process.env.NODE_ENV === "production"
 	  }
 	: {
 			siteName,
+			siteId,
 			appURL: "http://localhost:8000",
 			// apiURL: "http://localhost:60930",
 			// imgUrl: "http://localhost:60930",

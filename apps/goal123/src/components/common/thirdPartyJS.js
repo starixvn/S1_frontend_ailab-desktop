@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { api_shield_GetEndpoint } from "../../service/api/shield";
 import useShieldCheck from "../hook/useShieldCheck";
+import config from "../../config";
 
 function ThirdPartyJS() {
 	return (
@@ -18,7 +19,7 @@ const Shield = () => {
 	const [endpoint, setEndpoint] = useState("");
 
 	useEffect(() => {
-		api_shield_GetEndpoint().then(res => {
+		api_shield_GetEndpoint({ siteId: config.siteId }).then(res => {
 			const { errorCode, data } = res.data;
 			if (errorCode === 0) {
 				const _endpoint = data?.endpoint;

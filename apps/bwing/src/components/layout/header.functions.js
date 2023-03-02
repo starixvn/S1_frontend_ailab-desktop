@@ -18,6 +18,7 @@ import {
 } from "../common/eventIcon";
 
 import MsgPopup from "./msgPopup";
+import useShieldCheck from "../hook/useShieldCheck";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -118,6 +119,7 @@ const AfterLogin = () => {
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { t } = useTranslation();
+	const { deleteShieldData } = useShieldCheck();
 
 	const handleLogout = () => {
 		LOGOUT(() => {
@@ -137,6 +139,7 @@ const AfterLogin = () => {
 					kickout: true,
 					willLogout: true
 				}));
+				deleteShieldData();
 			};
 
 			setPopBox({

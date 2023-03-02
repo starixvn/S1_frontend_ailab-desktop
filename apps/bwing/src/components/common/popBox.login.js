@@ -10,6 +10,7 @@ import path from "../../router";
 import { isDateRange } from "./common";
 import { eventPeriodIdpd } from "../../datas/eventDef";
 import { bannerImgUrl } from "../../config";
+import useShieldCheck from "../hook/useShieldCheck";
 
 const initValue = {
 	username: "",
@@ -34,12 +35,18 @@ const LoginPanel = () => {
 		eventPeriodIdpd.endDate
 	);
 
+	const { getShieldData, saveShieldData } = useShieldCheck();
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		getShieldData();
+	}, []);
 
 	const showPswHandler = () => {
 		setShowPsw(!showPsw);
@@ -122,6 +129,7 @@ const LoginPanel = () => {
 						}));
 						setPopBox({ isOpen: false });
 						navigate(`/${userInfo.langId}/${path.deposit.root}`);
+						saveShieldData();
 					}
 				} else if (
 					res.errorCode === 1101 ||
