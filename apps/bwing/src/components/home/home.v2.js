@@ -286,19 +286,12 @@ function Home() {
 							<ul>
 								<li>
 									<div className="icon" />
-									<a
-										onClick={() =>
-											setPopBox({
-												isOpen: true,
-												popBoxType:
-													defPopBoxType.DepositGuide,
-												onClickClose: () =>
-													setPopBox({ isOpen: false })
-											})
-										}
+									<Link
+										to={`${bannerImgUrl}/Static/images/How_To_Deposit.mp4`}
+										target="_blank"
 									>
 										{t("lbl_HowToDepoist")}
-									</a>
+									</Link>
 								</li>
 								<li>
 									<div className="icon withdrawal" />
