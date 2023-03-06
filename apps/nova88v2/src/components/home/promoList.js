@@ -34,6 +34,7 @@ const PromoList = ({ t, userInfo }) => {
 		getPromotionDetail(langId, bonusCode);
 	};
 
+	const timezone = moment().format("Z");
 	return (
 		<div className="promos">
 			<div className="moduleTitle">
@@ -60,10 +61,11 @@ const PromoList = ({ t, userInfo }) => {
 										p =>
 											moment
 												.unix(p.displayFrom)
-												.utc()
+												.subtract(timezone)
 												.diff(moment()) <= 0 &&
 											moment
 												.unix(p.displayTo)
+												.subtract(timezone)
 												.diff(moment()) >= 0
 									)
 									.map(p => (

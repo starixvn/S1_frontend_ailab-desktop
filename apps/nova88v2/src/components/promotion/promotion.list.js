@@ -44,10 +44,10 @@ const PromotionList = ({
 	const rows = promoList?.map(p => {
 		const _isClaimed = isClaimed(p);
 		const _isNew = _isClaimed ? false : isNew(p);
-		// * 後端給的 timestamp 格式為 +0, 因此前端的比較時間皆轉成 utc 做判斷
+		const timezone = moment().format("Z");
 		const isDisplay =
-			moment.unix(p.displayFrom).utc().diff(moment()) <= 0 &&
-			moment.unix(p.displayTo).utc().diff(moment()) >= 0;
+			moment.unix(p.displayFrom).subtract(timezone).diff(moment()) <= 0 &&
+			moment.unix(p.displayTo).subtract(timezone).diff(moment()) >= 0;
 
 		let promoDisplayStyle = defPromoDisplayStyle.default;
 

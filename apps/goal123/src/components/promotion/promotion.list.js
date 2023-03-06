@@ -46,9 +46,10 @@ const PromotionList = ({
 		const _isNew = _isClaimed ? false : isNew(p);
 		const _isExpired =
 			(filter === defFilterType.specialBonus && !p.canJoin) || p.beenUsed;
+		const timezone = moment().format("Z");
 		const isDisplay =
-			moment.unix(p.displayFrom).utc().diff(moment()) <= 0 &&
-			moment.unix(p.displayTo).utc().diff(moment()) >= 0;
+			moment.unix(p.displayFrom).subtract(timezone).diff(moment()) <= 0 &&
+			moment.unix(p.displayTo).subtract(timezone).diff(moment()) >= 0;
 
 		let promoDisplayStyle = defPromoDisplayStyle.default;
 
