@@ -48,20 +48,23 @@ const PromoList = ({ t, userInfo }) => {
 					<ReactMarquee
 						speed={80}
 						pauseOnHover={true}
-						gradientColor={false}>
+						gradientColor={false}
+					>
 						<div className="swiper-container">
 							<div
 								className="swiper-wrapper"
-								style={{ display: "flex" }}>
+								style={{ display: "flex" }}
+							>
 								{promoList
 									.filter(
 										p =>
 											moment
 												.unix(p.displayFrom)
-												.diff(Date.now()) <= 0 &&
+												.utc.diff(moment().utc()) <=
+												0 &&
 											moment
 												.unix(p.displayTo)
-												.diff(Date.now()) >= 0
+												.diff(moment().utc()) >= 0
 									)
 									.map(p => (
 										<div
@@ -69,7 +72,8 @@ const PromoList = ({ t, userInfo }) => {
 											style={{
 												width: "300px",
 												margin: "0 15px"
-											}}>
+											}}
+										>
 											<div>
 												<img
 													src={p.banner}
@@ -86,7 +90,8 @@ const PromoList = ({ t, userInfo }) => {
 														this,
 														userInfo.langId,
 														p.bonusCode
-													)}>
+													)}
+												>
 													{t(
 														"promotion.lbl_promo_more_info"
 													)}
