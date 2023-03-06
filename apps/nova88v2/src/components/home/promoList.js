@@ -61,10 +61,10 @@ const PromoList = ({ t, userInfo }) => {
 											moment
 												.unix(p.displayFrom)
 												.utc()
-												.diff(moment().utc()) <= 0 &&
+												.diff(moment()) <= 0 &&
 											moment
 												.unix(p.displayTo)
-												.diff(moment().utc()) >= 0
+												.diff(moment()) >= 0
 									)
 									.map(p => (
 										<div

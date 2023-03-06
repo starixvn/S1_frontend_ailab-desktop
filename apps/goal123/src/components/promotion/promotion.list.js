@@ -47,8 +47,8 @@ const PromotionList = ({
 		const _isExpired =
 			(filter === defFilterType.specialBonus && !p.canJoin) || p.beenUsed;
 		const isDisplay =
-			moment.unix(p.displayFrom).utc().diff(moment().utc()) <= 0 &&
-			moment.unix(p.displayTo).utc().diff(moment().utc()) >= 0;
+			moment.unix(p.displayFrom).utc().diff(moment()) <= 0 &&
+			moment.unix(p.displayTo).utc().diff(moment()) >= 0;
 
 		let promoDisplayStyle = defPromoDisplayStyle.default;
 

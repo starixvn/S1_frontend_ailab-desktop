@@ -46,8 +46,8 @@ const PromotionList = ({
 		const _isNew = _isClaimed ? false : isNew(p);
 		// * 後端給的 timestamp 格式為 +0, 因此前端的比較時間皆轉成 utc 做判斷
 		const isDisplay =
-			moment.unix(p.displayFrom).utc().diff(moment().utc()) <= 0 &&
-			moment.unix(p.displayTo).utc().diff(moment().utc()) >= 0;
+			moment.unix(p.displayFrom).utc().diff(moment()) <= 0 &&
+			moment.unix(p.displayTo).utc().diff(moment()) >= 0;
 
 		let promoDisplayStyle = defPromoDisplayStyle.default;
 
