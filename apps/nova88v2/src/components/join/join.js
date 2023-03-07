@@ -20,7 +20,8 @@ import {
 	setCookie,
 	passwordCheck,
 	getLocalStorage,
-	defCurrencyList
+	defCurrencyList,
+	defCurrencyToClass
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
@@ -33,6 +34,7 @@ import path from "../../router";
 import JoinPromoInfo from "./join.promoInfo";
 import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
 import { limitCountryNum } from "./join.def";
+import { defLangGroups } from "../header/header.langDropdown";
 
 export const areaCodeList = Object.values(areaCode).map(el => ({
 	id: `${el.AreaCode} ${el.Name}`,
@@ -495,13 +497,24 @@ export default () => {
 		}
 
 		if (checked) {
+			const getSignupLangId = () => {
+				const langList = [];
+				defLangGroups[
+					defCurrencyToClass[siteCurrency[userValue.currencyIdx]?.id]
+				].forEach(({ value }) => {
+					langList.push(value);
+				});
+				return langList.includes(defaultLangId) ? defaultLangId : "en";
+			};
+			const signupLangId = getSignupLangId();
+
 			const regData = {
 				UserName: userValue.username,
 				Userpwd: userValue.password,
 				Email: userValue.email,
 				PhoneNo: userValue.phone,
 				CurrencyId: siteCurrency[userValue.currencyIdx]?.id,
-				UserLang: defaultLangId,
+				UserLang: signupLangId,
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
 				ReferralUrl: document.referrer,
@@ -515,7 +528,7 @@ export default () => {
 			regData.blackbox = await Iov_GetBlackBox();
 			regData.LineUserId = lineUserId;
 
-			api_site_Signup(regData, defaultLangId).then(
+			api_site_Signup(regData, signupLangId).then(
 				res => {
 					if (isMountedRef.current) {
 						const { errorCode, message } = res.data;
@@ -525,7 +538,7 @@ export default () => {
 									if (isMountedRef.current) {
 										let _user = {
 											isLogin: true,
-											langId: defaultLangId,
+											langId: signupLangId,
 											userName: userValue.username
 										};
 										if (res_custInfo.data.errorCode === 0) {
