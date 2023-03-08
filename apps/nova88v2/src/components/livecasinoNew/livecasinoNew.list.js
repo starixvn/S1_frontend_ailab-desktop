@@ -60,7 +60,8 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 					menuType,
 					tpGameType
 				})
-			}>
+			}
+		>
 			{subMenuItem?.eventIcons?.length > 0 && (
 				<div className={subMenuItem.eventIcons[0]} />
 			)}

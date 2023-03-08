@@ -35,49 +35,67 @@ const defSortSports = {
 const defSortCasino = {
 	[defCurrencyList.THB]: {
 		casino_PP: 1,
-		casino_Skywind: 2,
-		casino_EVO: 3,
-		casino_PT: 4,
-		casino_DG: 5,
-		casino_AE: 6,
-		casino_SA: 7,
-		casino_ALBET: 8,
-		casino_AG: 9,
-		casino_WM: 10,
-		casino_EBET: 11,
-		casino_N2LIVE: 12
+		casino_yb: 2,
+		casino_Skywind: 3,
+		casino_EVO: 4,
+		casino_PT: 5,
+		casino_DG: 6,
+		casino_AE: 7,
+		casino_SA: 8,
+		casino_ALBET: 9,
+		casino_AG: 10,
+		casino_WM: 11,
+		casino_EBET: 12,
+		casino_N2LIVE: 13
 	},
 	[defCurrencyList.MYR]: {
 		casino_PP: 1,
-		casino_Skywind: 2,
-		casino_EVO: 3,
-		casino_PT: 4,
-		casino_DG: 5,
-		casino_AE: 6,
-		casino_SA: 7,
-		casino_ALBET: 8,
-		casino_AG: 9,
-		casino_WM: 10,
-		casino_EBET: 11,
-		casino_N2LIVE: 12
+		casino_yb: 2,
+		casino_Skywind: 3,
+		casino_EVO: 4,
+		casino_PT: 5,
+		casino_DG: 6,
+		casino_AE: 7,
+		casino_SA: 8,
+		casino_ALBET: 9,
+		casino_AG: 10,
+		casino_WM: 11,
+		casino_EBET: 12,
+		casino_N2LIVE: 13
 	},
 	[defCurrencyList.IDR]: {
 		casino_PP: 1,
-		casino_Skywind: 2,
-		casino_EVO: 3,
-		casino_PT: 4,
-		casino_DG: 5,
-		casino_AE: 6,
-		casino_SA: 7,
-		casino_ALBET: 8,
-		casino_AG: 9,
-		casino_WM: 10,
-		casino_EBET: 11,
-		casino_N2LIVE: 12
+		casino_yb: 2,
+		casino_Skywind: 3,
+		casino_EVO: 4,
+		casino_PT: 5,
+		casino_DG: 6,
+		casino_AE: 7,
+		casino_SA: 8,
+		casino_ALBET: 9,
+		casino_AG: 10,
+		casino_WM: 11,
+		casino_EBET: 12,
+		casino_N2LIVE: 13
 	},
 	[defCurrencyList.INR]: {
 		casino_PP: 1,
-		casino_Skywind: 2,
+		casino_yb: 2,
+		casino_Skywind: 3,
+		casino_EVO: 4,
+		casino_PT: 5,
+		casino_DG: 6,
+		casino_AE: 7,
+		casino_SA: 8,
+		casino_ALBET: 9,
+		casino_AG: 10,
+		casino_WM: 11,
+		casino_EBET: 12,
+		casino_N2LIVE: 13
+	},
+	[defCurrencyList.BDT]: {
+		casino_PP: 1,
+		casino_yb: 2,
 		casino_EVO: 3,
 		casino_PT: 4,
 		casino_DG: 5,
@@ -88,19 +106,6 @@ const defSortCasino = {
 		casino_WM: 10,
 		casino_EBET: 11,
 		casino_N2LIVE: 12
-	},
-	[defCurrencyList.BDT]: {
-		casino_PP: 1,
-		casino_EVO: 2,
-		casino_PT: 3,
-		casino_DG: 4,
-		casino_AE: 5,
-		casino_SA: 6,
-		casino_ALBET: 7,
-		casino_AG: 8,
-		casino_WM: 9,
-		casino_EBET: 10,
-		casino_N2LIVE: 11
 	}
 };
 
@@ -555,6 +560,23 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: { npcImg: "casino_pp" },
 				allowCurrencies: getPPAllowCurrencies()
+			},
+			{
+				...productList.liveCasino_YeeBet,
+				keyName: "casino_yb",
+				className: "casino-yb",
+				icon: "",
+				displayText: "YeeBet",
+				listNpcImgUrl: "casino-yb.png",
+				listBgImgUrl: ["ybBG.png", "livecasinListHover.png"],
+				menuType: defMenuType.entPage,
+				lobbyPage: { npcImg: "casino_yb" },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.yee_bet
+					})
+				]
 			},
 			{
 				...productList.liveCasino_Skywind,
