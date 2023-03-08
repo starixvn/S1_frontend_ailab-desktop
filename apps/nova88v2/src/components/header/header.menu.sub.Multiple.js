@@ -98,7 +98,8 @@ const SubMenuMultiple = ({
 			<button
 				className={className}
 				style={style}
-				onClick={showLoginPopBox}>
+				onClick={showLoginPopBox}
+			>
 				{content}
 			</button>
 		);
@@ -109,7 +110,8 @@ const SubMenuMultiple = ({
 			<a
 				className={className}
 				style={style}
-				href={`/${userInfo.langId}/${pathLink}${_urlParams}`}>
+				href={`/${userInfo.langId}/${pathLink}${_urlParams}`}
+			>
 				{content}
 			</a>
 		);
@@ -128,7 +130,8 @@ const SubMenuMultiple = ({
 			<Link
 				className={className}
 				style={style}
-				to={`/${userInfo.langId}/${pathLink}`}>
+				to={`/${userInfo.langId}/${pathLink}`}
+			>
 				<div>{displayText}</div>
 				<div>{displayText2}</div>
 				<div>{displayText3}</div>
@@ -152,7 +155,8 @@ const SubMenuMultiple = ({
 				menuType: subMenuItem.menuType,
 				tpGameType: subMenuItem.tpGameType,
 				betType: subMenuItem?.betType
-			})}>
+			})}
+		>
 			<img
 				className="ListBG-left"
 				alt="ListBG-left"

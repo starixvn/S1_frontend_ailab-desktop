@@ -45,6 +45,10 @@ const defPlatform = [
 		imgName: "pp"
 	},
 	{
+		...productList.liveCasino_YeeBet,
+		imgName: "yb"
+	},
+	{
 		...defCasinoProviders.MGPSW,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.MGPSW.name },
