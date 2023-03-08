@@ -88,7 +88,8 @@ const AutoDepositForm = ({
 									item.sysId === sysIdForRecord
 										? "active"
 										: ""
-								}>
+								}
+							>
 								<div>
 									<img
 										src={`${paymentImgUrl}/square/${bankLogo}`}
@@ -99,6 +100,18 @@ const AutoDepositForm = ({
 
 								<div className="bank">
 									<div>{item.bankName}</div>
+									<div>
+										<div>
+											{`${t("lbl_Min")}: ${formatAmount(
+												item.minAmount
+											)}`}
+										</div>
+										<div>
+											{`${t("lbl_Max")}: ${formatAmount(
+												item.maxAmount
+											)}`}
+										</div>
+									</div>
 								</div>
 							</button>
 						);

@@ -89,7 +89,8 @@ const OnlineBankForm = ({
 							onClick={() => onChangeBankGroup(item)}
 							className={
 								item.sysId === sysIdForRecord ? "active" : ""
-							}>
+							}
+						>
 							<div>
 								<img
 									alt={item.bankLogo}
@@ -102,7 +103,22 @@ const OnlineBankForm = ({
 
 							<div className="bank">
 								<div>{item.bankName}</div>
-								<div className="" />
+								<div>
+									<div>
+										{`${t("lbl_Min")}: ${number_format({
+											number: item.minAmount,
+											formatRequired: _isConvert,
+											digits: 0
+										})}`}
+									</div>
+									<div>
+										{`${t("lbl_Max")}: ${number_format({
+											number: item.maxAmount,
+											formatRequired: _isConvert,
+											digits: 0
+										})}`}
+									</div>
+								</div>
 							</div>
 						</button>
 					))}
