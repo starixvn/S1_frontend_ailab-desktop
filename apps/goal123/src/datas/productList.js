@@ -176,6 +176,11 @@ export default {
 		name: "PP",
 		tpGameType: 16
 	},
+	liveCasino_YeeBet: {
+		tpId: 46,
+		gameId: 0,
+		tpGameType: 93
+	},
 	liveCasino_EVO: {
 		tpId: 36,
 		gameId: 0,

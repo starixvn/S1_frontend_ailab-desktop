@@ -206,6 +206,11 @@ export default {
 		gameId: 101,
 		tpGameType: 16
 	},
+	liveCasino_YeeBet: {
+		tpId: 46,
+		gameId: 0,
+		tpGameType: 93
+	},
 	liveCasino_MG: {
 		tpId: 34,
 		gameId: "0",

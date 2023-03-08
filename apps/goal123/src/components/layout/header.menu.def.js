@@ -488,6 +488,23 @@ export const defMenuLinks = langId => ({
 				lobbyImg: "pp"
 			},
 			{
+				...productList.liveCasino_YeeBet,
+				className: "liveYB",
+				icon: "",
+				listNpcImgUrl: "yb.png",
+				displayText: "YEEBET",
+				menuType: defMenuType.entPage,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/yb.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/yb-icon.png`,
+				lobbyImg: "yb",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.yee_bet
+					})
+				]
+			},
+			{
 				...productList.liveCasino_Skywind,
 				listNpcImgUrl: "sk.png",
 				eventIcons: [

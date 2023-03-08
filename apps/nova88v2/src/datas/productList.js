@@ -313,6 +313,11 @@ export default {
 		tpId: 43,
 		tpGameType: 84
 	},
+	liveCasino_YeeBet: {
+		gameId: 0,
+		tpId: 46,
+		tpGameType: 93
+	},
 
 	/* === 4. fishing === */
 

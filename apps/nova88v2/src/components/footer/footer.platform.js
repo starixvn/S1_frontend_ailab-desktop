@@ -64,6 +64,11 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			allowCurrencies: getPPAllowCurrencies()
 		},
 		{
+			...productList.liveCasino_YeeBet,
+			imgName: "yb",
+			hoverImgName: "yba"
+		},
+		{
 			...productList.casino_MGPSW,
 			path: path.casino.root,
 			parameter: { ...productList.casino_MGPSW },

@@ -43,8 +43,8 @@ export const defEventPeriod = {
 	skywind: { end: "2022/12/08 11:00:00" },
 	game_MaxGame: { end: "2022/10/13 11:00:00" },
 	casino_SimplePlay: { end: "2022/11/13 11:00:00" },
-	sports_cryptoSports: { end: "2023/02/04 11:00:00" },
-	GPI_Lottery: { end: "2023/02/11 11:00:00" }
+	GPI_Lottery: { end: "2023/02/11 11:00:00" },
+	yee_bet: { start: "2023/02/10 12:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {
