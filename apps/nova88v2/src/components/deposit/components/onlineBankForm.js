@@ -132,7 +132,8 @@ const OnlineBankForm = ({
 									item.payName === payNameForRecord
 										? "active"
 										: ""
-								}>
+								}
+							>
 								<div>
 									<img
 										alt={item.payName}
@@ -182,7 +183,8 @@ const OnlineBankForm = ({
 										item.sysId === sysIdForRecord
 											? "active"
 											: ""
-									}>
+									}
+								>
 									<div>
 										<img
 											src={`${paymentImgUrl}/square/${bankLogo}`}
@@ -193,6 +195,22 @@ const OnlineBankForm = ({
 
 									<div className="bank">
 										<div>{item.bankName}</div>
+										<div>
+											<div>
+												{`${t(
+													"lbl_Min"
+												)}: ${formatAmount(
+													item.minAmount
+												)}`}
+											</div>
+											<div>
+												{`${t(
+													"lbl_Max"
+												)}: ${formatAmount(
+													item.maxAmount
+												)}`}
+											</div>
+										</div>
 									</div>
 								</button>
 							);
@@ -259,7 +277,8 @@ OnlineBankForm.propTypes = {
 	setOnlineBankInfoList: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
-	isGroupListFetchDone: PropTypes.bool.isRequired
+	isGroupListFetchDone: PropTypes.bool.isRequired,
+	onChangePromotion: PropTypes.func.isRequired
 };
 
 export default OnlineBankForm;
