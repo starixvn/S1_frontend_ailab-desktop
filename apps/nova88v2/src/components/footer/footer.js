@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
-import TandC from "../../service/t_and_c";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { bannerImgUrl } from "../../config";
 import PlatformSection from "./footer.platform";
@@ -16,6 +15,7 @@ import { api_site_GetTpIds } from "../../service/api/site";
 import { currencyCode } from "../../datas/countryCode";
 import usePopBox from "../hook/usePopBox";
 import { useGetSEODatas } from "../seo/seo";
+import { getCombineLangId } from "../common/common";
 
 const Footer = ({ isFullFooter = false }) => {
 	const { t } = useTranslation();
@@ -76,7 +76,11 @@ const Footer = ({ isFullFooter = false }) => {
 
 	return (
 		<footer id="footer">
-			<CopyrightSection t={t} langId={_langId} />
+			<CopyrightSection
+				t={t}
+				langId={_langId}
+				currencyId={userInfo.currencyId}
+			/>
 			{isFullFooter && (
 				<PlatformSection
 					t={t}
@@ -115,24 +119,48 @@ Footer.propTypes = {
 	isFullFooter: PropTypes.bool
 };
 
-export const CopyrightSection = ({ t, langId }) => (
-	<div className="copyright">
-		<a href={TandC(langId).AboutUs} target="_blank" rel="noreferrer">
-			{t("lbl_AboutUs")}
-		</a>
-		<a href={TandC(langId).ContactUs} target="_blank" rel="noreferrer">
-			{t("lbl_ContactUs")}
-		</a>
-		<a href={TandC(langId).Terms} target="_blank" rel="noreferrer">
-			{t("lbl_TermsConditions")}
-		</a>
-		<span>{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved. 18+`}</span>
-	</div>
-);
+export const CopyrightSection = ({ t, langId, currencyId }) => {
+	return (
+		<div className="copyright">
+			<a
+				href={`${bannerImgUrl}/Static/${getCombineLangId(
+					langId,
+					currencyId
+				)}/AboutUs.html`}
+				target="_blank"
+				rel="noreferrer"
+			>
+				{t("lbl_AboutUs")}
+			</a>
+			<a
+				href={`${bannerImgUrl}/Static/${getCombineLangId(
+					langId,
+					currencyId
+				)}/ContactUs.html`}
+				target="_blank"
+				rel="noreferrer"
+			>
+				{t("lbl_ContactUs")}
+			</a>
+			<a
+				href={`${bannerImgUrl}/Static/${getCombineLangId(
+					langId,
+					currencyId
+				)}/Terms.html`}
+				target="_blank"
+				rel="noreferrer"
+			>
+				{t("lbl_TermsConditions")}
+			</a>
+			<span>{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved. 18+`}</span>
+		</div>
+	);
+};
 
 CopyrightSection.propTypes = {
 	t: PropTypes.func.isRequired,
-	langId: PropTypes.string.isRequired
+	langId: PropTypes.string.isRequired,
+	currencyId: PropTypes.number.isRequired
 };
 
 const defaultScript = "a7019fa5-9f9a-468b-92da-4890f6a6e4a7";
