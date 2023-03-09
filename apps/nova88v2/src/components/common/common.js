@@ -260,6 +260,16 @@ export const defCurrencyToClass = {
 	74: "bd"
 };
 
+export const defCurrencyToLangId = {
+	2: "my",
+	3: "global",
+	4: "th",
+	13: "cs",
+	15: "id",
+	61: "hi",
+	74: "bd"
+};
+
 export const GetCurrencyName = ({ langId, currencyId, t }) =>
 	t(
 		currencyId
@@ -280,4 +290,23 @@ export const validImgLang = langId => {
 		return "en";
 	}
 	return langId;
+};
+
+export const getCombineLangId = (langId, currencyId) => {
+	let combineLangId = "";
+	switch (langId) {
+		case "en":
+			combineLangId = `${defCurrencyToLangId[Number(currencyId)]}_en`;
+			break;
+		case "cs":
+			combineLangId =
+				currencyId === defCurrencyList.CNY
+					? "cs"
+					: `${defCurrencyToLangId[Number(currencyId)]}_cs`;
+			break;
+		default:
+			combineLangId = langId;
+			break;
+	}
+	return combineLangId;
 };

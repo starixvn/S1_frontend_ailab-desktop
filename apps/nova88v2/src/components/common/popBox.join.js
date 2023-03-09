@@ -14,13 +14,13 @@ import {
 	getUrlParameter,
 	readCookie,
 	setCookie,
-	passwordCheck
+	passwordCheck,
+	getCombineLangId
 } from "./common";
 import defPopBoxType from "./defPopBoxType";
 import { userInfoContext, popBoxContext } from "./context";
 import { GET_LANG_ID } from "../../service/language";
 import config, { bannerImgUrl } from "../../config";
-import TandC from "../../service/t_and_c";
 import Inputbox from "./inputbox";
 import InputboxPSW from "./inputbox.password";
 import Dropdown from "./dropdown";
@@ -860,7 +860,10 @@ export default () => {
 							<a
 								target="_blank"
 								rel="noreferrer"
-								href={TandC(defaultLangId).terms}
+								href={`${bannerImgUrl}/Static/${getCombineLangId(
+									defaultLangId,
+									userValue.currencyIdx
+								)}/TermsConditions.html`}
 							>
 								{t("lbl_TermsConditions")}
 							</a>
@@ -869,7 +872,10 @@ export default () => {
 							<a
 								target="_blank"
 								rel="noreferrer"
-								href={TandC(defaultLangId).rule}
+								href={`${bannerImgUrl}/Static/${getCombineLangId(
+									defaultLangId,
+									userValue.currencyIdx
+								)}/RulesandRegulations.html`}
 							>
 								{t("lbl_RuleRegulations")}
 							</a>
