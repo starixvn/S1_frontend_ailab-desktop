@@ -18,7 +18,8 @@ const Nav = ({ categoryList, activeCategory, onChange, t, isProcessing }) => {
 				}
 				onClick={() => {
 					!isProcessing && onChange(Object.keys(item)[0]);
-				}}>
+				}}
+			>
 				{t(_nav.displayKey)}
 			</button>
 		);
@@ -31,5 +32,6 @@ Nav.propTypes = {
 	categoryList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	activeCategory: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
-	onChange: PropTypes.func.isRequired
+	onChange: PropTypes.func.isRequired,
+	isProcessing: PropTypes.bool.isRequired
 };

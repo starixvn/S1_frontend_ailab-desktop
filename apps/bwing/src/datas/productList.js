@@ -108,7 +108,12 @@ export default {
 		name: "baseball",
 		tpGameType: 1
 	},
-	// esport
+	cryptoSports: {
+		tpId: 45,
+		tpGameType: 87
+	},
+
+	/* === 2. e sports === */
 
 	eSport_Csgo: {
 		tpId: 1,
@@ -138,6 +143,7 @@ export default {
 		tpGameType: 1,
 		betType: 2
 	},
+
 	/* === 3. live casino === */
 
 	liveCasino_Allbet: {

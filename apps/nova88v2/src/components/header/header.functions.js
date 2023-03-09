@@ -21,6 +21,7 @@ import { SiteInfo } from "../../config";
 import { HeaderLogin } from "./header.login";
 import usePopBox from "../hook/usePopBox";
 import MsgPopup from "./msgPopup";
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -172,7 +173,8 @@ const AfterLogin = ({ t, userInfo, msgCount }) => {
 		},
 		{
 			displayKey: "lbl_BankInfo",
-			href: path.bankInfo.root
+			href: path.bankInfo.root,
+			allowCurrencies: allowedCurrencyList.bankCard
 		},
 		{
 			displayKey: "lbl_CryptoWallet",
@@ -200,6 +202,12 @@ const AfterLogin = ({ t, userInfo, msgCount }) => {
 		</Link>
 	));
 
+	const filteredSettingLinks = defSettingLinks.filter(
+		el =>
+			!el?.allowCurrencies ||
+			el?.allowCurrencies.includes(userInfo.currencyId)
+	);
+
 	return (
 		<>
 			{navMenu}
@@ -213,7 +221,7 @@ const AfterLogin = ({ t, userInfo, msgCount }) => {
 				}`}
 				subClassName="submenu"
 				i18n={t}
-				options={defSettingLinks}
+				options={filteredSettingLinks}
 				placeholder={userInfo.userName}
 			/>
 			<Link

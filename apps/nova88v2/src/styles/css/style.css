@@ -707,6 +707,7 @@ header input:focus-within {
   background: #555;
   padding: 5px 10px;
   border-radius: 5px;
+  text-align: center;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a.active,
 .header > div.menu .subMenu-Wrapper-new .homeList button.active,
@@ -3433,7 +3434,7 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
 .inputBox.error, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event, .worldcupEvent .event .event-content .error.inputBox-event, .error.inputBox-blue, .error.inputBox-white, .error.inputBox-org {
   border-color: #cf0404;
 }
-.inputBox.error + .tip, .worldcupEvent .event .event-content .ticket-item.finished .error.inputBox-event + .tip, .worldcupEvent .event .event-content .error.inputBox-event + .tip, .error.inputBox-blue + .tip, .error.inputBox-white + .tip, .error.inputBox-org + .tip {
+.inputBox.error + .tip, .worldcupEvent .event .event-content .error.inputBox-event + .tip, .error.inputBox-blue + .tip, .error.inputBox-white + .tip, .error.inputBox-org + .tip {
   color: #cf0404;
 }
 .inputBox:focus-within, .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event:focus-within, .worldcupEvent .event .event-content .inputBox-event:focus-within, .inputBox-blue:focus-within, .inputBox-white:focus-within, .inputBox-org:focus-within {
@@ -4529,25 +4530,6 @@ input[type=file] {
       -ms-flex-align: center;
           align-items: center;
 }
-.list .listBody .approved .infobtn, .list .listBody .pending .infobtn, .list .listBody .reject .infobtn, .list .listBody .cancel .infobtn {
-  background: url(https://banner.0814media.net/desktop/img/notice.png) no-repeat center/cover;
-  width: 15px;
-  height: 15px;
-  margin-left: 1px;
-}
-
-.list .listBody .approved, .list .listBody .pending, .list .listBody .reject, .list .listBody .cancel {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .list .listBody .approved .infobtn, .list .listBody .pending .infobtn, .list .listBody .reject .infobtn, .list .listBody .cancel .infobtn {
   background: url(https://banner.0814media.net/desktop/img/notice.png) no-repeat center/cover;
   width: 15px;
@@ -6509,8 +6491,8 @@ input[type=file] {
 }
 .addBank .addBankName .addBankInfo .checkbox,
 .addBank .addBankName .cryptoInfo .checkbox {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
   margin-right: 0;
 }
 .addBank .addBankName .addBankInfo .checkbox label,
@@ -6533,6 +6515,9 @@ input[type=file] {
 .addBank .addBankName .cryptoInfo .checkbox {
   margin-right: -2px;
   margin-left: 5px;
+  position: absolute;
+  top: 25px;
+  right: 12px;
 }
 .addBank .addBankName .cryptoInfo > .title {
   width: 100%;
@@ -6575,9 +6560,9 @@ input[type=file] {
 }
 .addBank .addBankName button.icon.icon-bin {
   position: absolute;
-  bottom: 4px;
-  right: 5px;
-  font-size: 17px;
+  bottom: 12px;
+  right: 4px;
+  font-size: 18px;
 }
 .addBank .addBankName .icon-plus {
   font-size: 40px;
@@ -6938,7 +6923,7 @@ input[type=file] {
           flex: 1;
   margin-right: 5px;
 }
-.quickSelect > div.inputBox.promoType, .worldcupEvent .event .event-content .ticket-item.finished .quickSelect > div.promoType.inputBox-event, .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event, .quickSelect > div.promoType.inputBox-org, .quickSelect > div.promoType.inputBox-white, .quickSelect > div.promoType.inputBox-blue,
+.quickSelect > div.inputBox.promoType, .worldcupEvent .event .event-content .quickSelect > div.promoType.inputBox-event, .quickSelect > div.promoType.inputBox-org, .quickSelect > div.promoType.inputBox-white, .quickSelect > div.promoType.inputBox-blue,
 .quickSelect > div:first-child.promoType {
   max-width: none;
   display: block;
@@ -7011,10 +6996,6 @@ input[type=file] {
 .quickSelect .dropdown .dropdown-container .dropdown-item {
   margin: 0;
   padding: 5px 0 5px 10px;
-}
-
-.quickSelect .dropdown .btn {
-  padding: 0 10px;
 }
 
 .specialBonus {
@@ -10269,7 +10250,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 #popup .statuspop {
   background: #d2e2f9;
   width: 500px;
-  height: auto;
+  max-height: 650px;
+  overflow-y: auto;
   color: #112240;
   border-radius: 7px;
 }
@@ -10321,74 +10303,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: #92AED6;
   -webkit-transition: 0.2s;
   transition: 0.2s;
-}
-
-#popup .statuspop {
-  background: #d2e2f9;
-  width: 500px;
-  height: auto;
-  color: #112240;
-  border-radius: 7px;
-}
-
-#popup .statuspop img {
-  width: 40px;
-  margin: 15px auto 0;
-}
-
-#popup .statuspop .statustitle {
-  font-weight: bold;
-  font-size: 20px;
-  color: #112240;
-  border-radius: 5px 5px 0 0;
-  padding: 15px 0 15px 20px;
-  text-align: center;
-}
-
-#popup .statuspop .statuscontent {
-  padding: 0 15px;
-}
-
-#popup .statuspop .statuscontent > div {
-  border-bottom: 1px solid #c1cceb;
-  padding: 15px 15px 10px;
-}
-
-#popup .statuspop .statuscontent > div .subtitle {
-  font-size: 16px;
-  color: #112240;
-}
-
-#popup .statuspop .statuscontent > div > div {
-  color: #5574a7;
-}
-
-#popup .statuspop .statuscontent > div > div:nth-child(2) {
-  margin: 10px 0 5px;
-}
-
-#popup .statuspop .statuscontent > div:last-child {
-  border-bottom: 0;
-}
-
-#popup .statuspop .success {
-  background: #5574A7;
-  padding: 12px 50px;
-  border-radius: 30px;
-  margin: auto auto 20px;
-  color: white;
-  display: block;
-}
-
-#popup .statuspop .success::before {
-  content: "";
-  display: block;
-}
-
-#popup .statuspop .success:hover {
-  background: #92AED6;
-  -webkit-transition: .2s;
-  transition: .2s;
 }
 
 .vip {
@@ -14929,7 +14843,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
     max-width: 40vw;
   }
   .checkspeed .wallpaper .module > div.bottom > div.left > div > div > button,
-.checkspeed .wallpaper .module > div.bottom > div.left > div > div > a {
+  .checkspeed .wallpaper .module > div.bottom > div.left > div > div > a {
     padding: 1vw 10px;
   }
   .checkspeed .wallpaper .module > div.bottom > div.right {
@@ -18024,10 +17938,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 @media (min-width: 2100px) {
   .worldcupEvent .fixture .group-four > .item,
-.worldcupEvent .fixture .group-two > .item,
-.worldcupEvent .fixture .group-one > .item,
-.worldcupEvent .fixture .group-semi > .item,
-.worldcupEvent .fixture .group-final > .item {
+  .worldcupEvent .fixture .group-two > .item,
+  .worldcupEvent .fixture .group-one > .item,
+  .worldcupEvent .fixture .group-semi > .item,
+  .worldcupEvent .fixture .group-final > .item {
     font-size: 1.5rem;
   }
 }
@@ -18068,28 +17982,28 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 @media (min-width: 1700px) {
   .worldcupEvent .fixture .group-four .group-title:before, .worldcupEvent .fixture .group-four .group-title:after,
-.worldcupEvent .fixture .group-two .group-title:before,
-.worldcupEvent .fixture .group-two .group-title:after,
-.worldcupEvent .fixture .group-one .group-title:before,
-.worldcupEvent .fixture .group-one .group-title:after,
-.worldcupEvent .fixture .group-semi .group-title:before,
-.worldcupEvent .fixture .group-semi .group-title:after,
-.worldcupEvent .fixture .group-final .group-title:before,
-.worldcupEvent .fixture .group-final .group-title:after {
+  .worldcupEvent .fixture .group-two .group-title:before,
+  .worldcupEvent .fixture .group-two .group-title:after,
+  .worldcupEvent .fixture .group-one .group-title:before,
+  .worldcupEvent .fixture .group-one .group-title:after,
+  .worldcupEvent .fixture .group-semi .group-title:before,
+  .worldcupEvent .fixture .group-semi .group-title:after,
+  .worldcupEvent .fixture .group-final .group-title:before,
+  .worldcupEvent .fixture .group-final .group-title:after {
     -webkit-transform: scale(1);
             transform: scale(1);
   }
 }
 @media (min-width: 2100px) {
   .worldcupEvent .fixture .group-four .group-title:before, .worldcupEvent .fixture .group-four .group-title:after,
-.worldcupEvent .fixture .group-two .group-title:before,
-.worldcupEvent .fixture .group-two .group-title:after,
-.worldcupEvent .fixture .group-one .group-title:before,
-.worldcupEvent .fixture .group-one .group-title:after,
-.worldcupEvent .fixture .group-semi .group-title:before,
-.worldcupEvent .fixture .group-semi .group-title:after,
-.worldcupEvent .fixture .group-final .group-title:before,
-.worldcupEvent .fixture .group-final .group-title:after {
+  .worldcupEvent .fixture .group-two .group-title:before,
+  .worldcupEvent .fixture .group-two .group-title:after,
+  .worldcupEvent .fixture .group-one .group-title:before,
+  .worldcupEvent .fixture .group-one .group-title:after,
+  .worldcupEvent .fixture .group-semi .group-title:before,
+  .worldcupEvent .fixture .group-semi .group-title:after,
+  .worldcupEvent .fixture .group-final .group-title:before,
+  .worldcupEvent .fixture .group-final .group-title:after {
     -webkit-transform: scale(1.4);
             transform: scale(1.4);
     -webkit-transform-origin: left;
@@ -18114,20 +18028,20 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 @media (min-width: 1700px) {
   .worldcupEvent .fixture .group-four .group-title:after,
-.worldcupEvent .fixture .group-two .group-title:after,
-.worldcupEvent .fixture .group-one .group-title:after,
-.worldcupEvent .fixture .group-semi .group-title:after,
-.worldcupEvent .fixture .group-final .group-title:after {
+  .worldcupEvent .fixture .group-two .group-title:after,
+  .worldcupEvent .fixture .group-one .group-title:after,
+  .worldcupEvent .fixture .group-semi .group-title:after,
+  .worldcupEvent .fixture .group-final .group-title:after {
     -webkit-transform: scale(1) rotate(180deg);
             transform: scale(1) rotate(180deg);
   }
 }
 @media (min-width: 2100px) {
   .worldcupEvent .fixture .group-four .group-title:after,
-.worldcupEvent .fixture .group-two .group-title:after,
-.worldcupEvent .fixture .group-one .group-title:after,
-.worldcupEvent .fixture .group-semi .group-title:after,
-.worldcupEvent .fixture .group-final .group-title:after {
+  .worldcupEvent .fixture .group-two .group-title:after,
+  .worldcupEvent .fixture .group-one .group-title:after,
+  .worldcupEvent .fixture .group-semi .group-title:after,
+  .worldcupEvent .fixture .group-final .group-title:after {
     -webkit-transform: scale(1.4) rotate(180deg);
             transform: scale(1.4) rotate(180deg);
     -webkit-transform-origin: right;
@@ -18137,10 +18051,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 @media (min-width: 2100px) {
   .worldcupEvent .fixture .group-four .group-title,
-.worldcupEvent .fixture .group-two .group-title,
-.worldcupEvent .fixture .group-one .group-title,
-.worldcupEvent .fixture .group-semi .group-title,
-.worldcupEvent .fixture .group-final .group-title {
+  .worldcupEvent .fixture .group-two .group-title,
+  .worldcupEvent .fixture .group-one .group-title,
+  .worldcupEvent .fixture .group-semi .group-title,
+  .worldcupEvent .fixture .group-final .group-title {
     font-size: 1.85rem;
   }
 }

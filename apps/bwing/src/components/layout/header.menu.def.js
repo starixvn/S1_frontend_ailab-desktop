@@ -14,11 +14,28 @@ export const defMenuType = {
 };
 
 export const defMenuLinks = {
+	cryptoSports: {
+		className: "cryptobtn",
+		menuType: defMenuType.entPage,
+		productInfo: { ...productList.cryptoSports }
+	},
 	sports: {
 		productInfo: productList.soccer,
 		// path: path.sports.root,
 		displayKey: "lbl_Sports",
 		subMenu: [
+			{
+				...productList.cryptoSports,
+				className: "cryptosport",
+				displayKey: "lbl_cryptoSports",
+				parameter: { ...productList.cryptoSports },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sports_cryptoSports
+					})
+				]
+			},
 			{
 				...productList.sportSaba,
 				subPath: path.sports.root,

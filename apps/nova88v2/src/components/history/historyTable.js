@@ -50,7 +50,8 @@ const HistoryTable = ({ t, dataSource, columns, children, selectedTagId }) => {
 											defWithdrawalStatusClassName[
 												item.status
 											]
-										}>
+										}
+									>
 										{t(
 											`lbl_WithdrawalStatus${item.status}`
 										)}
@@ -101,7 +102,8 @@ const HistoryTable = ({ t, dataSource, columns, children, selectedTagId }) => {
 											defDepositStatusClassName[
 												item.status
 											]
-										}>
+										}
+									>
 										{t(`lbl_DepositStatus${item.status}`)}
 										{item.depositMessageDetail &&
 										item.depositMessageDetail.length > 0 ? (

@@ -229,6 +229,7 @@ const JoinForm = ({
 			>
 				{t("lbl_sign_up_terms_center")}
 			</a>
+
 			{t("lbl_sign_up_terms_end")}
 		</div>
 
