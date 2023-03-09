@@ -35,10 +35,10 @@ const PromotionList = ({
 
 	const rows = promoList?.map(p => {
 		const promoDisplayStyle = getStampStyle(filter, p);
-
+		const timezone = moment().format("Z");
 		const isDisplay =
-			moment.unix(p.displayFrom).diff(Date.now()) <= 0 &&
-			moment.unix(p.displayTo).diff(Date.now()) >= 0;
+			moment.unix(p.displayFrom).subtract(timezone).diff(moment()) <= 0 &&
+			moment.unix(p.displayTo).subtract(timezone).diff(moment()) >= 0;
 
 		return (
 			isDisplay && (
