@@ -155,7 +155,7 @@ export const handleIsHideBalance = ({ value, dispatch, errorPopBox }) => {
 	);
 };
 
-const GetBonusWallets = ({ isLogin, dispatch }) => {
+const GetBonusWallets = ({ isLogin, dispatch, errorPopBox }) => {
 	if (!isLogin) return;
 	api_account_GetCustBonusWallet().then(
 		res => {
@@ -183,7 +183,7 @@ export const GetAllWallets = ({
 }) => {
 	if (!isLogin) return;
 	GetMainWalet({ isLogin, dispatch, errorPopBox });
-	GetBonusWallets({ isLogin, dispatch });
+	GetBonusWallets({ isLogin, dispatch, errorPopBox });
 	GetTpWallets({ langId, isLogin, ListType, dispatch, errorPopBox });
 };
 
