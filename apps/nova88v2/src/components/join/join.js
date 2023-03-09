@@ -11,7 +11,6 @@ import {
 	api_site_GetRecaptchaInfo
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
-import TandC from "../../service/t_and_c";
 import { GET_LANG_ID } from "../../service/language";
 import areaCode from "../../datas/areaCode";
 import {
@@ -21,6 +20,7 @@ import {
 	passwordCheck,
 	getLocalStorage,
 	defCurrencyList,
+	getCombineLangId,
 	defCurrencyToClass
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
@@ -60,7 +60,10 @@ export default () => {
 	const [defaultOption, setDefaultOption] = useState(
 		t("lbl_PrefferedCurrency")
 	);
-	const tandCTerms = TandC(defaultLangId).terms;
+	const tandCTerms = `${bannerImgUrl}/Static/${getCombineLangId(
+		defaultLangId,
+		userInfo.currencyId
+	)}/TermsConditions.html`;
 	const { lineLogin } = useHandleLineLogin();
 	const lineUserId = getLocalStorage("lineUser");
 	const _areaCode = areaCodeList[userValue?.areaCodeIdx]?.areaCode;
