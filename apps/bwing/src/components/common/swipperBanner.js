@@ -208,7 +208,7 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 					to={`/${userInfo.langId}${redirectLink}`}
 				>
 					<img
-						src={b.bannerMobileUrl}
+						src={b.bannerPCUrl}
 						className="banner"
 						alt={b.bannerName ?? ""}
 					/>
@@ -222,7 +222,7 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 				onClick={() => handleClick(b)}
 			>
 				<img
-					src={b.bannerMobileUrl}
+					src={b.bannerPCUrl}
 					className="banner"
 					alt={b.bannerName ?? ""}
 				/>
