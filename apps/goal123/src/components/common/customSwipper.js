@@ -316,7 +316,7 @@ export const BannerSwipper = ({
 					to={`/${userInfo.langId}${redirectLink}`}
 				>
 					<img
-						src={b.bannerMobileUrl}
+						src={b.bannerPCUrl}
 						className="banner"
 						alt={b.bannerName ?? ""}
 					/>
@@ -330,7 +330,7 @@ export const BannerSwipper = ({
 				onClick={() => handleClick(b)}
 			>
 				<img
-					src={b.bannerMobileUrl}
+					src={b.bannerPCUrl}
 					className="banner"
 					alt={b.bannerName ?? ""}
 				/>

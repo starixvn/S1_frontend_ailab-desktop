@@ -249,7 +249,7 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 					}
 				>
 					<img
-						src={b.bannerMobileUrl}
+						src={b.bannerPCUrl}
 						className="banner"
 						alt={b.bannerName ?? ""}
 					/>
@@ -263,7 +263,7 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 				onClick={() => handleClick(b)}
 			>
 				<img
-					src={b.bannerMobileUrl}
+					src={b.bannerPCUrl}
 					className="banner"
 					alt={b.bannerName ?? ""}
 				/>
