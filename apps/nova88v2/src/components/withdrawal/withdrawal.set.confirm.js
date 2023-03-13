@@ -31,6 +31,7 @@ const ConfirmPanel = ({
 		exchangeRate: 0,
 		exchangeAmount: 0
 	});
+	const [processing, setProcessing] = useState(false);
 	const isMountedRef = useRef(null);
 	const { errorPopBox } = usePopBox();
 	const _accountNo = selectedAccount.accountNo;
@@ -62,43 +63,50 @@ const ConfirmPanel = ({
 
 		const judgeSubmit = async () => {
 			let data = null;
-			if (!selectedAccount.usdtAddress) {
-				selectedAccount.ifscCode === undefined
-					? await api_payment_WithdrawalEWalletReq({
-							AccountNo: selectedAccount.accountNo,
-							amount: real_amount,
-							sysId: selectedAccount.sysId,
-							memo: "",
-							blackbox
-					  }).then(res => {
-							data = res;
-					  })
-					: await api_payment_WithdrawalReq({
-							AccountNo: selectedAccount.accountNo,
-							amount: real_amount,
-							sysId: selectedAccount.sysId,
-							blackbox,
-							IFSCCode: isIfscRequired
-								? selectedAccount.ifscCode
-								: null
-					  }).then(res => {
-							data = res;
-					  });
-			} else {
-				const { exchangeRate, exchangeAmount } = exchangeInfo;
 
-				await api_payment_WithdrawalCryptoReq({
-					AccountNo: selectedAccount.usdtAddress,
-					amount: real_amount,
-					blackbox,
-					CurrencyId: selectedAccount.currencyId,
-					exchangeRate,
-					exchangeAmount
-				}).then(res => {
-					data = res;
-				});
+			if (!processing) {
+				setProcessing(true);
+
+				if (!selectedAccount.usdtAddress) {
+					selectedAccount.ifscCode === undefined
+						? await api_payment_WithdrawalEWalletReq({
+								AccountNo: selectedAccount.accountNo,
+								amount: real_amount,
+								sysId: selectedAccount.sysId,
+								memo: "",
+								blackbox
+						  }).then(res => {
+								data = res;
+								setProcessing(false);
+						  })
+						: await api_payment_WithdrawalReq({
+								AccountNo: selectedAccount.accountNo,
+								amount: real_amount,
+								sysId: selectedAccount.sysId,
+								blackbox,
+								IFSCCode: isIfscRequired
+									? selectedAccount.ifscCode
+									: null
+						  }).then(res => {
+								data = res;
+								setProcessing(false);
+						  });
+				} else {
+					const { exchangeRate, exchangeAmount } = exchangeInfo;
+
+					await api_payment_WithdrawalCryptoReq({
+						AccountNo: selectedAccount.usdtAddress,
+						amount: real_amount,
+						blackbox,
+						CurrencyId: selectedAccount.currencyId,
+						exchangeRate,
+						exchangeAmount
+					}).then(res => {
+						data = res;
+						setProcessing(false);
+					});
+				}
 			}
-
 			return data;
 		};
 

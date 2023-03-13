@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import CryptoCard from "./withdrawal.set.crypto.card";
@@ -80,6 +80,7 @@ export { Crypto };
 export const useUSDTFetcher = ({ isMountedRef }) => {
 	const { t } = useTranslation();
 	const { setPopBox, closePopBox, errorPopBox } = usePopBox();
+	const [processing, setProcessing] = useState(false);
 
 	const confirmDeleteCryptoWallet = () =>
 		new Promise(resolve => {
@@ -167,47 +168,44 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 	}) => {
 		let success = false;
 
-		await api_payment_WithdrawalCryptoReq({
-			accountNo,
-			amount,
-			currencyId,
-			exchangeRate,
-			exchangeAmount
-		}).then(
-			// eslint-disable-next-line consistent-return
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						success = true;
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.WithdrawalSuccess,
-							onClickClose: closePopBox,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={closePopBox}>
-										OK
-									</button>
-								</div>
-							)
-						});
-					} else {
-						errorPopBox(
-							res.data.message || "error",
-							res.data.errorCode
-						);
+		if (!processing) {
+			setProcessing(true);
+			await api_payment_WithdrawalCryptoReq({
+				accountNo,
+				amount,
+				currencyId,
+				exchangeRate,
+				exchangeAmount
+			}).then(
+				// eslint-disable-next-line consistent-return
+				res => {
+					if (isMountedRef.current) {
+						if (res.data.errorCode === 0) {
+							success = true;
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.WithdrawalSuccess,
+								onClickClose: closePopBox,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-check"
+											onClick={closePopBox}>
+											OK
+										</button>
+									</div>
+								)
+							});
+						} else {
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
+						}
 					}
 				}
-			},
-			() => {
-				if (isMountedRef.current) {
-					errorPopBox();
-				}
-			}
-		);
-
+			);
+		}
 		return success;
 	};
 
