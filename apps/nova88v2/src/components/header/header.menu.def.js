@@ -989,16 +989,16 @@ export const defMenuLinks = {
 				// parameter: { ...productList.casino_PG },
 				parameter: { provider: "pg" },
 				...productList.casino_PG
+			},
+			{
+				keyName: "slot_OW",
+				icon: "icon icon-OW",
+				displayText: "Saba Casino",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "slotOW.png",
+				listBgImgUrl: "slotListHover.png",
+				...productList.casino_OW
 			}
-			// {
-			// 	keyName: "slot_OW",
-			// 	icon: "icon icon-OW",
-			// 	displayText: "Saba Casino",
-			// 	menuType: defMenuType.entPage,
-			// 	listNpcImgUrl: "slotOW.png",
-			// 	listBgImgUrl: "slotListHover.png",
-			// 	...productList.casino_OW
-			// }
 		]
 	},
 	poker: {
