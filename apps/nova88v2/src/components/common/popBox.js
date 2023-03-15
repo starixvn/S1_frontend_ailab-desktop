@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useContext, Suspense, lazy } from "react";
+import React, { useContext, Suspense, lazy, useMemo } from "react";
 import { popBoxContext } from "./context";
 import Cancel from "./popBox.cancel";
 import UploadBankSlip from "./popBox.uploadBankSlip";
@@ -387,17 +387,18 @@ export default () => {
 
 	if (!popBox.isOpen) return null;
 
+	const memorizeContent = useMemo(() => content, [popBox.popBoxType]);
+
 	return customLayout || popBox.customLayout ? (
 		<div id="popup" className="active" onClick={closeHandler}>
-			{content}
+			{memorizeContent}
 		</div>
 	) : (
 		<div
 			id="popup"
 			className="active"
-			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}
-		>
-			<div className="pop">{content}</div>
+			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}>
+			<div className="pop">{memorizeContent}</div>
 		</div>
 	);
 };

@@ -134,13 +134,13 @@ const Main = ({
 		const confirm = await confirmDeleteCryptoWallet();
 
 		if (confirm) {
-			const { nickName, usdtAddress, currencyId } = item;
+			const { nickName, usdtAddress, currencyId, network } = item;
 
 			await delCustUSDTInfo({
-				accountName: custBankInfo.accountName,
-				nickName,
-				usdtAddress,
-				currencyId
+				CurrencyId: currencyId,
+				Network: network,
+				NickName: nickName,
+				Address: usdtAddress
 			});
 
 			getCustBankInfo();
@@ -213,8 +213,7 @@ const Main = ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}
-							>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>
@@ -411,8 +410,7 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickDone}
-									>
+										onClick={ClickDone}>
 										OK
 									</button>
 								</div>
@@ -432,8 +430,7 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -450,8 +447,7 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -469,8 +465,7 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -485,8 +480,7 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -505,8 +499,7 @@ const Main = ({
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}
-								>
+									onClick={ClickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
