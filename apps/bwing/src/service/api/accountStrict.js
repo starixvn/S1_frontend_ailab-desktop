@@ -93,18 +93,31 @@ export const api_accountStrict_SetCustUSDTInfoBatch = ({
 		USDTInfo
 	});
 
+export const api_accountStrict_SetCustCryptoWallet = ({
+	CurrencyId,
+	Network,
+	NickName,
+	Address
+}) =>
+	accountStrictRequest.post("/SetCustCryptoWallet", {
+		CurrencyId,
+		Network,
+		NickName,
+		Address
+	});
+
 export const api_accountStrict_getOTPVerifyInfo = () =>
 	accountStrictRequest.post("/GetOTPVerifyInfo");
 
-export const api_accountStrict_DelCustUSDTInfo = ({
-	accountName,
-	nickName,
-	usdtAddress,
-	currencyId
+export const api_accountStrict_DelCustCryptoWallet = ({
+	CurrencyId,
+	Network,
+	NickName,
+	Address
 }) =>
-	accountStrictRequest.post("/DelCustUSDTInfo", {
-		AccountName: accountName,
-		NickName: nickName,
-		USDTAddress: usdtAddress,
-		CurrencyId: currencyId
+	accountStrictRequest.post("/DelCustCryptoWallet", {
+		CurrencyId,
+		Network,
+		NickName,
+		Address
 	});

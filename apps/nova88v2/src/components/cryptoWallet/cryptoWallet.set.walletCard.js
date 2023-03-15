@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
-import { api_accountStrict_delCustUSDTInfo } from "../../service/api/accountStrict";
+import { api_accountStrict_DelCustCryptoWallet } from "../../service/api/accountStrict";
 import usePopBox from "../hook/usePopBox";
 import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
 import Loading from "../common/loading";
 
-const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
+const WalletCard = ({ walletList, loading, GetCustBankInfo }) => {
 	const isMountedRef = useRef(null);
 	const { t } = useTranslation();
 	const { errorPopBox } = usePopBox();
@@ -19,12 +19,7 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 		};
 	});
 
-	const delUSDTwallet = ({
-		USDTAddress,
-		NickName,
-		AccountName,
-		CurrencyId
-	}) => {
+	const delUSDTwallet = ({ CurrencyId, Network, Address, NickName }) => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.ConfirmDelete,
@@ -36,10 +31,10 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 						className="btn-check"
 						onClick={() =>
 							removeUSDT({
-								USDTAddress,
-								NickName,
-								AccountName,
-								CurrencyId
+								CurrencyId,
+								Network,
+								Address,
+								NickName
 							})
 						}>
 						{t("lbl_Yes")}
@@ -54,12 +49,12 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 		});
 	};
 
-	const removeUSDT = ({ USDTAddress, NickName, AccountName, CurrencyId }) => {
-		api_accountStrict_delCustUSDTInfo({
-			USDTAddress,
-			NickName,
-			AccountName,
-			CurrencyId
+	const removeUSDT = ({ CurrencyId, Network, Address, NickName }) => {
+		api_accountStrict_DelCustCryptoWallet({
+			CurrencyId,
+			Network,
+			Address,
+			NickName
 		})
 			.then(res => {
 				if (res.data.errorCode === 0) {
@@ -88,17 +83,17 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 				</div>
 
 				{/* * 暫時隱藏 delete crypto wallet 按鈕，以防止有用戶重複新增刪除帳號來套利，當 risk 評估覺得可以的話有機會再打開 */}
-				{/* <button
-					className="icon icon-bin"
-					onClick={() =>
-						delUSDTwallet({
-							USDTAddress: item.usdtAddress,
-							NickName: item.nickName,
-							AccountName: userInfo.accountName,
-							CurrencyId: item.currencyId
-						})
-					}
-				/> */}
+				{/* <button */}
+				{/* 	className="icon icon-bin" */}
+				{/* 	onClick={() => */}
+				{/* 		delUSDTwallet({ */}
+				{/* 			CurrencyId: item.currencyId, */}
+				{/* 			Network: item.network, */}
+				{/* 			Address: item.usdtAddress, */}
+				{/* 			NickName: item.nickName */}
+				{/* 		}) */}
+				{/* 	} */}
+				{/* /> */}
 				<div className="walletNickname">{item.nickName}</div>
 			</div>
 		);

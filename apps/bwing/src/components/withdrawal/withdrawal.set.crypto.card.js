@@ -26,12 +26,12 @@ const CryptoCard = ({
 				</div>
 				<div>
 					{/* * 暫時隱藏 delete crypto wallet 按鈕，以防止有用戶重複新增刪除帳號來套利，當 risk 評估覺得可以的話有機會再打開 */}
-					{/* {!hideDeleteIcon && (
-						<button
-							className="icon icon-bin"
-							onClick={handlerDelete}
-						/>
-					)} */}
+					{/* {!hideDeleteIcon && ( */}
+					{/* 	<button */}
+					{/* 		className="icon icon-bin" */}
+					{/* 		onClick={handlerDelete} */}
+					{/* 	/> */}
+					{/* )} */}
 
 					<div className="checkbox">
 						<input

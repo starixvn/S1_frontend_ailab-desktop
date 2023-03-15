@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
-import { api_accountStrict_DelCustUSDTInfo } from "../../service/api/accountStrict";
+import { api_accountStrict_DelCustCryptoWallet } from "../../service/api/accountStrict";
 import usePopBox from "../hook/usePopBox";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
@@ -25,12 +25,7 @@ const WalletCard = ({
 		};
 	});
 
-	const delUSDTwallet = ({
-		accountName,
-		nickName,
-		usdtAddress,
-		currencyId
-	}) => {
+	const delUSDTwallet = ({ CurrencyId, Network, NickName, Address }) => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.ConfirmDelete,
@@ -42,10 +37,10 @@ const WalletCard = ({
 						className="btn-check"
 						onClick={() =>
 							removeUSDT({
-								accountName,
-								nickName,
-								usdtAddress,
-								currencyId
+								CurrencyId,
+								Network,
+								NickName,
+								Address
 							})
 						}>
 						{t("lbl_Yes")}
@@ -60,12 +55,12 @@ const WalletCard = ({
 		});
 	};
 
-	const removeUSDT = ({ accountName, nickName, usdtAddress, currencyId }) => {
-		api_accountStrict_DelCustUSDTInfo({
-			accountName,
-			nickName,
-			usdtAddress,
-			currencyId
+	const removeUSDT = ({ CurrencyId, Network, NickName, Address }) => {
+		api_accountStrict_DelCustCryptoWallet({
+			CurrencyId,
+			Network,
+			NickName,
+			Address
 		})
 			.then(res => {
 				if (res.data.errorCode === 0) {
@@ -95,41 +90,43 @@ const WalletCard = ({
 			});
 	};
 
-	const arr = walletList?.map(({ usdtAddress, nickName, currencyId }) => {
-		return (
-			<div
-				className="addCryptoName"
-				key={`walletCard-${currencyId}-${usdtAddress}`}>
-				<div className="addCryptoInfo">
-					<div className="cryptoName">
-						<div className="icon icon-USDT">
-							<span>{nickName}</span>
+	const arr = walletList?.map(
+		({ usdtAddress, nickName, currencyId, network }) => {
+			return (
+				<div
+					className="addCryptoName"
+					key={`walletCard-${currencyId}-${usdtAddress}`}>
+					<div className="addCryptoInfo">
+						<div className="cryptoName">
+							<div className="icon icon-USDT">
+								<span>{nickName}</span>
+							</div>
+						</div>
+
+						{/* * 暫時隱藏 delete crypto wallet 按鈕，以防止有用戶重複新增刪除帳號來套利，當 risk 評估覺得可以的話有機會再打開 */}
+						{/* <div> */}
+						{/* 	<button */}
+						{/* 		onClick={() => */}
+						{/* 			delUSDTwallet({ */}
+						{/* 				CurrencyId: currencyId, */}
+						{/* 				Network: network, */}
+						{/* 				NickName: nickName, */}
+						{/* 				Address: usdtAddress */}
+						{/* 			}) */}
+						{/* 		} */}
+						{/* 		className="icon icon-bin" */}
+						{/* 	/> */}
+						{/* </div> */}
+					</div>
+					<div className="addCryptoInfo">
+						<div className="txt-dark">
+							<span>{usdtAddress}</span>
 						</div>
 					</div>
-
-					{/* * 暫時隱藏 delete crypto wallet 按鈕，以防止有用戶重複新增刪除帳號來套利，當 risk 評估覺得可以的話有機會再打開 */}
-					{/* <div>
-						<button
-							onClick={() =>
-								delUSDTwallet({
-									usdtAddress,
-									nickName,
-									accountName: userInfo.accountName,
-									currencyId
-								})
-							}
-							className="icon icon-bin"
-						/>
-					</div> */}
 				</div>
-				<div className="addCryptoInfo">
-					<div className="txt-dark">
-						<span>{usdtAddress}</span>
-					</div>
-				</div>
-			</div>
-		);
-	});
+			);
+		}
+	);
 
 	if (loading) return <Loading />;
 

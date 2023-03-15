@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import {
-	api_accountStrict_SetCustUSDTInfoBatch,
+	api_accountStrict_SetCustCryptoWallet,
 	api_accountStrict_SendOTPSMS,
 	api_accountStrict_getOTPVerifyInfo,
 	api_accountStrict_VerifyOTP
 } from "../../service/api/accountStrict";
 import { api_payment_getSupportCryptoInfo } from "../../service/api/payment";
-import { popBoxContext, userInfoContext } from "./context";
+import { popBoxContext } from "./context";
 import usePopBox from "../hook/usePopBox";
 import { defPopBoxType } from "./popBox";
 import Inputbox from "./inputbox";
@@ -79,7 +79,6 @@ const defStatus = {
 };
 export default ({ GetCustBankInfo }) => {
 	const { t } = useTranslation();
-	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
@@ -236,9 +235,12 @@ export default ({ GetCustBankInfo }) => {
 	const clickSubmit = e => {
 		e.preventDefault();
 
+		const { nickName, usdtAddress, network, currencyId } = walletDatas;
 		const payload = {
-			AccountName: userInfo.accountName,
-			USDTInfo: [walletDatas]
+			CurrencyId: currencyId,
+			Network: network,
+			NickName: nickName,
+			Address: usdtAddress
 		};
 
 		if (status.usdtAddress.checked) {
@@ -247,7 +249,7 @@ export default ({ GetCustBankInfo }) => {
 			})
 				.then(otp_res => {
 					if (otp_res.data.errorCode === 0 && isMountedRef.current) {
-						api_accountStrict_SetCustUSDTInfoBatch(payload).then(
+						api_accountStrict_SetCustCryptoWallet(payload).then(
 							res => {
 								if (isMountedRef.current) {
 									if (res.data.errorCode === 0) {
@@ -268,10 +270,21 @@ export default ({ GetCustBankInfo }) => {
 										});
 										GetCustBankInfo();
 									} else {
-										errorPopBox(
-											res.data.message || "error",
-											res.data.errorCode
-										);
+										setPopBox({
+											isOpen: true,
+											popBoxType: defPopBoxType.ErrorMsg,
+											message:
+												res.data.message || "error",
+											btnBar: (
+												<div className="btnGroup">
+													<button
+														className="btn-cancel"
+														onClick={clickCancel}>
+														{t("lbl_Close")}
+													</button>
+												</div>
+											)
+										});
 									}
 								}
 							},

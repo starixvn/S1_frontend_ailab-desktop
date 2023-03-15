@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
-import { api_accountStrict_delCustUSDTInfo } from "../../service/api/accountStrict";
+import { api_accountStrict_DelCustCryptoWallet } from "../../service/api/accountStrict";
 
 const CryptoCard = ({
 	t,
@@ -26,12 +26,7 @@ const CryptoCard = ({
 	});
 	const _custBankInfo = custBankInfo?.uSDTDetail || [];
 
-	const delUSDTwallet = ({
-		USDTAddress,
-		NickName,
-		AccountName,
-		CurrencyId
-	}) => {
+	const delUSDTwallet = ({ CurrencyId, Network, Address, NickName }) => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.ConfirmDelete,
@@ -43,10 +38,10 @@ const CryptoCard = ({
 						className="btn-check"
 						onClick={() =>
 							removeUSDT({
-								USDTAddress,
-								NickName,
-								AccountName,
-								CurrencyId
+								CurrencyId,
+								Network,
+								Address,
+								NickName
 							})
 						}>
 						{t("lbl_Yes")}
@@ -61,12 +56,12 @@ const CryptoCard = ({
 		});
 	};
 
-	const removeUSDT = ({ USDTAddress, NickName, AccountName, CurrencyId }) => {
-		api_accountStrict_delCustUSDTInfo({
-			USDTAddress,
-			NickName,
-			AccountName,
-			CurrencyId
+	const removeUSDT = ({ CurrencyId, Network, Address, NickName }) => {
+		api_accountStrict_DelCustCryptoWallet({
+			CurrencyId,
+			Network,
+			Address,
+			NickName
 		})
 			.then(res => {
 				if (res.data.errorCode === 0) {
@@ -181,19 +176,19 @@ const CryptoCardLayout = props => {
 			</div>
 
 			{/* * 暫時隱藏 delete crypto wallet 按鈕，以防止有用戶重複新增刪除帳號來套利，當 risk 評估覺得可以的話有機會再打開 */}
-			{/* {props.hideDelBtn ? null : (
-				<button
-					className="icon icon-bin"
-					onClick={() =>
-						props.delUSDTwallet({
-							USDTAddress: props.usdtAddress,
-							NickName: props.nickName,
-							AccountName: props.userInfo.accountName,
-							CurrencyId: props.currencyId
-						})
-					}
-				/>
-			)} */}
+			{/* {props.hideDelBtn ? null : ( */}
+			{/* 	<button */}
+			{/* 		className="icon icon-bin" */}
+			{/* 		onClick={() => */}
+			{/* 			props.delUSDTwallet({ */}
+			{/* 				CurrencyId: props.currencyId, */}
+			{/* 				Network: props.network, */}
+			{/* 				Address: props.usdtAddress, */}
+			{/* 				NickName: props.nickName */}
+			{/* 			}) */}
+			{/* 		} */}
+			{/* 	/> */}
+			{/* )} */}
 		</div>
 	);
 };
