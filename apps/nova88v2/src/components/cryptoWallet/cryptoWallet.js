@@ -76,8 +76,7 @@ export default () => {
 					<div className="btnGroup">
 						<Link
 							className="btn-check"
-							to={`/${userInfo.langId}/${path.profile.root}`}
-						>
+							to={`/${userInfo.langId}/${path.profile.root}`}>
 							{t("lbl_UpdatePersonalDetail")}
 						</Link>
 					</div>
@@ -126,7 +125,6 @@ export default () => {
 			<WalletCard
 				walletList={walletInfo}
 				loading={loading}
-				userInfo={userInfo}
 				GetCustBankInfo={GetCustBankInfo}
 			/>
 		</div>

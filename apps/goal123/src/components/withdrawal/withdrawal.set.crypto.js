@@ -5,7 +5,7 @@ import CryptoCard from "./withdrawal.set.crypto.card";
 import usePopBox from "../hook/usePopBox";
 import { defPopBoxType } from "../common/popBox";
 
-import { api_accountStrict_DelCustUSDTInfo } from "../../service/api/accountStrict";
+import { api_accountStrict_DelCustCryptoWallet } from "../../service/api/accountStrict";
 import {
 	api_payment_GetExchangeInfo,
 	api_payment_WithdrawalCryptoReq
@@ -96,8 +96,7 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 							onClick={() => {
 								resolve(true);
 								closePopBox();
-							}}
-						>
+							}}>
 							{t("lbl_Yes")}
 						</button>
 						<button
@@ -105,8 +104,7 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 							onClick={() => {
 								resolve(false);
 								closePopBox();
-							}}
-						>
+							}}>
 							{t("lbl_No")}
 						</button>
 					</div>
@@ -114,17 +112,12 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 			});
 		});
 
-	const delCustUSDTInfo = ({
-		accountName,
-		nickName,
-		usdtAddress,
-		currencyId
-	}) =>
-		api_accountStrict_DelCustUSDTInfo({
-			accountName,
-			nickName,
-			usdtAddress,
-			currencyId
+	const delCustUSDTInfo = ({ CurrencyId, Network, NickName, Address }) =>
+		api_accountStrict_DelCustCryptoWallet({
+			CurrencyId,
+			Network,
+			NickName,
+			Address
 		}).then(
 			res => {
 				if (isMountedRef.current) {
@@ -194,8 +187,7 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={closePopBox}
-									>
+										onClick={closePopBox}>
 										OK
 									</button>
 								</div>

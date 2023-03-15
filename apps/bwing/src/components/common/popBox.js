@@ -1,4 +1,4 @@
-import React, { useContext, lazy, Suspense } from "react";
+import React, { useContext, lazy, Suspense, useMemo } from "react";
 import { popBoxContext } from "./context";
 import Loading from "./loading";
 import { defPopBoxType } from "./defPopBoxType";
@@ -395,12 +395,14 @@ export default () => {
 
 	if (!popBox.isOpen) return null;
 
+	const memorizeContent = useMemo(() => content, [popBox.popBoxType]);
+
 	if (customLayout || popBox.customLayout)
-		return <Suspense fallback={<Loading />}>{content}</Suspense>;
+		return <Suspense fallback={<Loading />}>{memorizeContent}</Suspense>;
 
 	return (
 		<div id="popup" className="active">
-			<Suspense fallback={<Loading />}>{content}</Suspense>
+			<Suspense fallback={<Loading />}>{memorizeContent}</Suspense>
 		</div>
 	);
 };
