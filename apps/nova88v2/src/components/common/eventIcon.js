@@ -42,8 +42,8 @@ export const defEventPeriod = {
 	sports_cryptoSports: { end: "2022/12/10 11:00:00" },
 	casino_SimplePlay: { end: "2022/11/13 11:00:00" },
 	GPI_Lottery: { end: "2023/02/11 11:00:00" },
-	yee_bet: { start: "2023/02/10 12:00:00" },
-	ap_mini_game: { end: "2024/03/10 12:00:00" }
+	yee_bet: { end: "2023/03/10 12:00:00" },
+	ap_mini_game: { end: "2023/04/20 12:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {
