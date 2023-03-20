@@ -210,14 +210,14 @@ export const defMenuLinks = {
 		subMenu: [
 			{
 				...defCasinoProviders.AdvantPlay,
-				className: "AP",
+				className: "APnew",
 				displayText: "AdvantPlay",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.AdvantPlay.name },
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.casino_AdvantPlay
+						period: defEventPeriod.ap_mini_game
 					})
 				]
 			},

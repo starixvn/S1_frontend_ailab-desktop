@@ -17,6 +17,10 @@ export const defNav = {
 		key: "new",
 		displayKey: "lbl_New"
 	},
+	Mini: {
+		key: "mini",
+		displayKey: "lbl_Mini"
+	},
 	Featured: {
 		key: "featured",
 		displayKey: "lbl_Feature"

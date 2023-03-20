@@ -5,6 +5,10 @@ export const defNav = {
 		key: "all",
 		displayKey: "lbl_All"
 	},
+	Mini: {
+		key: "mini",
+		displayKey: "lbl_Mini"
+	},
 	Random: {
 		key: "random",
 		displayKey: "lbl_Random"

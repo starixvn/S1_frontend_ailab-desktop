@@ -1,13 +1,17 @@
 export const defRowsPerPage = 20;
 
 export const defNav = {
+	Random: {
+		key: "random",
+		displayKey: "lbl_Random"
+	},
 	All: {
 		key: "all",
 		displayKey: "lbl_All"
 	},
-	Random: {
-		key: "random",
-		displayKey: "lbl_Random"
+	Mini: {
+		key: "mini",
+		displayKey: "lbl_Mini"
 	},
 	RecentlyPlayed: {
 		key: "recentlyPlayed",
@@ -37,7 +41,6 @@ export const defNav = {
 		key: "megaways",
 		displayKey: "lbl_Megaways"
 	},
-
 	MyFavorite: {
 		key: "myFavorite",
 		displayKey: "lbl_Favourite"
