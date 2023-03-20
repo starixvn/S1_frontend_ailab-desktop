@@ -72,6 +72,20 @@ export default () => {
 						i => i.tpId === activeProvider.tpId
 					).length > 0
 			);
+			const miniItem = allCategoryList.find(
+				obj => Object.keys(obj)[0] === "mini"
+			);
+
+			if (
+				miniItem &&
+				Object.values(miniItem)[0].some(
+					({ tpId }) => tpId === activeProvider.tpId
+				)
+			) {
+				filterList.splice(2, 0, miniItem);
+				filterList.pop();
+			}
+
 			let totalData = [];
 			filterList.forEach(item => {
 				if (Object.keys(item)[0] === "all") {
@@ -80,6 +94,7 @@ export default () => {
 					);
 				}
 			});
+
 			if (totalData.length > 0) {
 				setCategoryList(filterList);
 				setActiveCategory("all");
@@ -350,21 +365,43 @@ export default () => {
 						item => item[0] !== "random"
 					);
 					tempItemList.unshift(randomItem);
+
 					const _list = [];
 					tempItemList.forEach(item =>
 						_list.push({ [item[0]]: item[1] })
 					);
 					setAllCategoryList(_list);
+
+					const activeTpId = urlProviderTpId ?? urlTpId;
+					const _activeProvider = categoryObj.providerList.find(
+						obj => obj.tpId === Number(activeTpId)
+					);
 					tempItemList = tempItemList.filter(
 						item =>
 							(item[1].length > 0 &&
-								(activeProvider.tpId
+								(_activeProvider?.tpId
 									? item[1].filter(
-											i => i.tpId === activeProvider?.tpId
+											i =>
+												i.tpId === _activeProvider?.tpId
 									  ).length > 0
 									: true)) ||
 							item[0] === "myFavorite"
 					);
+
+					const miniItem = tempItemList.find(
+						item => item[0] === "mini"
+					);
+
+					if (
+						miniItem &&
+						miniItem[1].some(
+							el => el?.tpId === _activeProvider?.tpId
+						)
+					) {
+						tempItemList.splice(2, 0, miniItem);
+						tempItemList.pop();
+					}
+
 					const resultList = [];
 					tempItemList.forEach(item =>
 						resultList.push({ [item[0]]: item[1] })

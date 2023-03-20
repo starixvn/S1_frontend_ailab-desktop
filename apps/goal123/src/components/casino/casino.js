@@ -98,6 +98,21 @@ export default () => {
 						i => i.tpId === activeProvider.tpId
 					).length > 0
 			);
+
+			const miniItem = allCategoryList.find(
+				obj => Object.keys(obj)[0] === "mini"
+			);
+
+			if (
+				miniItem &&
+				Object.values(miniItem)[0].some(
+					({ tpId }) => tpId === activeProvider.tpId
+				)
+			) {
+				filterList.splice(2, 0, miniItem);
+				filterList.pop();
+			}
+
 			let totalData = [];
 			filterList.forEach(item => {
 				if (Object.keys(item)[0] === "all") {

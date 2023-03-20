@@ -246,13 +246,13 @@ export const defMenuLinks = langId => ({
 				displayText: "AdvantPlay",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.AdvantPlay.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ap.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ap-item.png`,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/apnew.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/apnew-item.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ap-icon.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.casino_AdvantPlay
+						period: defEventPeriod.ap_mini_game
 					})
 				]
 			},
