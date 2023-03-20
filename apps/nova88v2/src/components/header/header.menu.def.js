@@ -738,11 +738,17 @@ export const defMenuLinks = {
 				keyName: "slot_AdvantPlay",
 				displayText: "AdvantPlay",
 				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotap.png",
+				listNpcImgUrl: "slotapnew.png",
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_AdvantPlay },
 				parameter: { provider: "advant-play" },
-				...productList.casino_AdvantPlay
+				...productList.casino_AdvantPlay,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.ap_mini_game
+					})
+				]
 			},
 			{
 				keyName: "slot_PP",
