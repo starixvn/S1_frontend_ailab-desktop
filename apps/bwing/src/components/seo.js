@@ -164,7 +164,7 @@ const PlayTech = () => (
 	<Helmet>
 		<script
 			async
-			src="https://login-am.cat87666.com/jswrapper/hotspin88am/integration.js"
+			src="https://login-am.htsp123.com/jswrapper/hotspin88am/integration.js"
 			type="text/javascript"
 		/>
 	</Helmet>
