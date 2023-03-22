@@ -6919,7 +6919,7 @@ input[type=file] {
 }
 
 .history {
-  width: calc(100% - 70px);
+  width: calc(100% - 50px);
   margin: 10px auto;
 }
 .history .listHeader div:nth-child(3),
@@ -14296,11 +14296,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .appPage .install > div.installWrapper {
   width: 1200px;
   margin: 20px auto;
-}
-.app + footer {
-  width: 100%;
-  min-width: auto;
-  font-size: xx-small;
 }
 
 .dragonPayPop {
