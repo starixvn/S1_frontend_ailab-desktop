@@ -1,9 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import moment from "moment";
-import DateTime from "react-datetime";
 import ClipboardJS from "../../lib/clipboard.min";
-import Inputbox from "./inputbox";
 import { number_format } from "./common";
 import config from "../../config";
 import { currencyCode } from "../../datas/countryCode";
@@ -16,6 +13,7 @@ const PopBoxDepositUploadBankSlip = ({
 	localBankInfo,
 	setPopBox,
 	formInfo,
+	receiptInfo,
 	resolve
 }) => {
 	const isMountedRef = useRef(null);
@@ -165,20 +163,13 @@ const PopBoxDepositUploadBankSlip = ({
 		`${config.apiURL}/${langId}/Cashier/DepositReceip.jpg?transId=${localBankInfo.transId}&FileName=${depositImgFiles.name}`;
 
 	const imgRenderHandlar = () => {
-		if (!depositImgFiles.checked && depositImgFiles.checked !== null)
-			return <i className="icon icon-broken_image" />;
-
-		if (!depositImgFiles.name)
-			return (
-				<>
-					<i className="icon icon-plus" />
-					<div className="icon icon-folder-upload">
-						{t("lbl_Drop_photos_or_receipt_here")}
-					</div>
-				</>
-			);
-
-		return <img alt={depositImgFiles.name} src={imgResult} />;
+		if (
+			depositImgFiles.name &&
+			!(!depositImgFiles.checked && depositImgFiles.checked !== null)
+		) {
+			return <img alt={depositImgFiles.name} src={imgResult} />;
+		}
+		return <i className="icon icon-plus" />;
 	};
 
 	useEffect(() => {
@@ -189,7 +180,7 @@ const PopBoxDepositUploadBankSlip = ({
 	});
 
 	useEffect(() => {
-		const { imgFile, refId, time } = formInfo;
+		const { imgFile } = formInfo;
 
 		if (imgFile?.type?.includes("image")) {
 			onImgFileReaderHandlar(imgFile);
@@ -256,7 +247,8 @@ const PopBoxDepositUploadBankSlip = ({
 					<li>
 						<button
 							className="icon icon-files-empty copyBtn"
-							data-clipboard-text={localBankInfo.accountName}>
+							data-clipboard-text={localBankInfo.accountName}
+						>
 							<span>{t("lbl_Copy")}</span>
 						</button>
 					</li>
@@ -267,7 +259,8 @@ const PopBoxDepositUploadBankSlip = ({
 					<li>
 						<button
 							className="icon icon-files-empty copyBtn"
-							data-clipboard-text={localBankInfo.accountNo}>
+							data-clipboard-text={localBankInfo.accountNo}
+						>
 							<span>{t("lbl_Copy")}</span>
 						</button>
 					</li>
@@ -281,7 +274,8 @@ const PopBoxDepositUploadBankSlip = ({
 						<li>
 							<button
 								className="icon icon-files-empty copyBtn"
-								data-clipboard-text={localBankInfo.amount}>
+								data-clipboard-text={localBankInfo.amount}
+							>
 								<span>{t("lbl_Copy")}</span>
 							</button>
 						</li>
@@ -291,23 +285,59 @@ const PopBoxDepositUploadBankSlip = ({
 			<div className="smallList checkBankSlip">
 				<span className="title">{t("lbl_SubmitProof")}</span>
 				<div className="txt-lightgray">{t("lbl_AttachFile")}</div>
-				<label
-					className={`upload_img${
-						depositImgFiles.checked ||
-						depositImgFiles.checked === null
-							? ""
-							: " error"
-					}`}
-					onDragOver={e => e.preventDefault()}
-					onDrop={onUploadFile}>
-					<input
-						type="file"
-						accept="image/*"
-						onChange={onUploadFile}
-					/>
+				{receiptInfo.length > 0 ? (
+					<div className="uploadModule">
+						{receiptInfo.length < 6 && (
+							<label
+								className={`upload_img${
+									depositImgFiles.checked ||
+									depositImgFiles.checked === null
+										? ""
+										: " error"
+								}`}
+								onDragOver={e => e.preventDefault()}
+								onDrop={onUploadFile}
+							>
+								<input
+									type="file"
+									accept="image/*"
+									onChange={onUploadFile}
+								/>
 
-					{imgRenderHandlar()}
-				</label>
+								{imgRenderHandlar()}
+							</label>
+						)}
+						{receiptInfo.map(({ receiptNo, depositPic }) => (
+							<label key={receiptNo} className="upload_img">
+								<input type="file" />
+								<img
+									src={`data:image/jpeg;base64,${depositPic}`}
+									alt=""
+								/>
+							</label>
+						))}
+					</div>
+				) : (
+					<label
+						className={`upload_img${
+							depositImgFiles.checked ||
+							depositImgFiles.checked === null
+								? ""
+								: " error"
+						}`}
+						onDragOver={e => e.preventDefault()}
+						onDrop={onUploadFile}
+					>
+						<input
+							type="file"
+							accept="image/*"
+							onChange={onUploadFile}
+						/>
+
+						{imgRenderHandlar()}
+					</label>
+				)}
+
 				<div
 					className="txt-red"
 					style={{
@@ -316,7 +346,8 @@ const PopBoxDepositUploadBankSlip = ({
 							depositImgFiles.checked === null
 								? "hidden"
 								: "visible"
-					}}>
+					}}
+				>
 					{depositImgFiles.tip}
 				</div>
 
@@ -401,7 +432,8 @@ const PopBoxDepositUploadBankSlip = ({
 							onClick={() => {
 								closePopBox();
 								resolve({ success: false });
-							}}>
+							}}
+						>
 							{t("lbl_Cancel")}
 						</button>
 						<button type="submit" className="btn-check">
@@ -412,6 +444,9 @@ const PopBoxDepositUploadBankSlip = ({
 			</div>
 		</div>
 	);
+};
+PopBoxDepositUploadBankSlip.defaultProps = {
+	receiptInfo: []
 };
 
 PopBoxDepositUploadBankSlip.propTypes = {
@@ -425,7 +460,7 @@ PopBoxDepositUploadBankSlip.propTypes = {
 		time: PropTypes.objectOf(PropTypes.any),
 		refId: PropTypes.string
 	}).isRequired,
-
+	receiptInfo: PropTypes.arrayOf(PropTypes.any),
 	localBankInfo: PropTypes.shape({
 		bankName: PropTypes.string,
 		bankSite: PropTypes.string,

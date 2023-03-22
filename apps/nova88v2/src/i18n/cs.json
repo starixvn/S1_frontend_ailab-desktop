@@ -261,7 +261,7 @@
 	"msg_Content_Not_Empty": "内容不能为空",
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "每个档案的最大档案大小为4 MB",
-	"BankSlipHint2": "最多档案数量：1",
+	"BankSlipHint2": "最多档案数量：6",
 	"BankSlipHint3": "可接受的档案类型：JPG，JPEG，PNG，GIF",
 	"msg_DepositHint": "立即存款以享有我司游戏盘口及服务。",
 	"lbl_DepositType1": "网络银行",

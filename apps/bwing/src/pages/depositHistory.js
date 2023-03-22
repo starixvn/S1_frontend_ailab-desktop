@@ -167,7 +167,8 @@ const Content = () => {
 		transId,
 		picFileName,
 		historyRefId,
-		historyDepositTime
+		historyDepositTime,
+		depositReceipt
 	) => {
 		const { bankName, bankSite } = bankInfo;
 		const { accountName, accountNo } = depositRep;
@@ -189,7 +190,8 @@ const Content = () => {
 				amount
 			},
 			_isConvert,
-			langId: userInfo.langId
+			langId: userInfo.langId,
+			receiptInfo: depositReceipt
 		});
 
 		if (uploadPopBoxResult.success) {
@@ -218,12 +220,18 @@ const Content = () => {
 				});
 			}
 
-			if (depositImgFiles.file || !isSameDepositTime || !isSameRefId)
-				updateHistoryList(
-					filterData?.StartDate,
-					filterData?.EndDate,
-					true
-				);
+			if (depositImgFiles.file || !isSameDepositTime || !isSameRefId) {
+				const transactionData = {
+					StartDate: filterData.StartDate,
+					EndDate: filterData.EndDate
+				};
+				setFilterData(transactionData);
+				setKeepData({
+					startDate: filterData.StartDate,
+					endDate: filterData.EndDate
+				});
+				GetDepositInfoHistory(transactionData, pagination.currentPage);
+			}
 		}
 	};
 
@@ -335,7 +343,8 @@ const Content = () => {
 				item.transId,
 				item.picFileName,
 				item.refId,
-				item.depositTime
+				item.depositTime,
+				item.depositReceipt
 			)}
 			depositMessageDetail={item.depositMessageDetail}
 		/>

@@ -62,6 +62,7 @@ export default () => {
 					setPopBox={popBox.setPopBox}
 					formInfo={popBox.formInfo}
 					localBankInfo={popBox.localBankInfo}
+					receiptInfo={popBox.receiptInfo}
 					resolve={popBox.resolve}
 				/>
 			);

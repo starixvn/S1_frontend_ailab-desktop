@@ -57,11 +57,11 @@ const DepositRecentHistory = ({
 		transId,
 		picFileName,
 		historyRefId,
-		historyDepositTime
+		historyDepositTime,
+		depositReceipt = []
 	) => {
 		const { bankName, bankSite } = bankInfo;
 		const { accountName, accountNo } = depositRep;
-
 		const uploadPopBoxResult = await asyncUploadBankPopBox({
 			formInfo: {
 				imgFile: {
@@ -80,7 +80,8 @@ const DepositRecentHistory = ({
 			},
 			_isConvert,
 			currencyId: userInfo.currencyId,
-			langId: userInfo.langId
+			langId: userInfo.langId,
+			receiptInfo: depositReceipt
 		});
 
 		if (uploadPopBoxResult.success) {
@@ -161,8 +162,7 @@ const DepositRecentHistory = ({
 						onClick={async () => {
 							await ClickConfirm();
 							submitHandle();
-						}}
-					>
+						}}>
 						{t("lbl_Yes")}
 					</button>
 					<button className="orange" onClick={ClosePopBox}>
@@ -188,7 +188,8 @@ const DepositRecentHistory = ({
 				item.transId,
 				item.picFileName,
 				item.refId,
-				item.depositTime
+				item.depositTime,
+				item.depositReceipt
 			)}
 			currencyId={userInfo.currencyId}
 			depositMessageDetail={item.depositMessageDetail}

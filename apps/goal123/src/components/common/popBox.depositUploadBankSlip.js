@@ -9,6 +9,7 @@ const PopBoxDepositUploadBankSlip = ({
 	localBankInfo,
 	setPopBox,
 	formInfo,
+	receiptInfo,
 	resolve
 }) => {
 	const isMountedRef = useRef(null);
@@ -90,12 +91,13 @@ const PopBoxDepositUploadBankSlip = ({
 		`${config.apiURL}/${langId}/Cashier/DepositReceip.jpg?transId=${localBankInfo.transId}&FileName=${depositImgFiles.name}`;
 
 	const imgRenderHandlar = () => {
-		if (!depositImgFiles.checked && depositImgFiles.checked !== null)
-			return <i className="icon icon-broken_image" />;
-
-		if (!depositImgFiles.name) return <i className="icon icon-plus" />;
-
-		return <img alt={depositImgFiles.name} src={imgResult} />;
+		if (
+			depositImgFiles.name &&
+			!(!depositImgFiles.checked && depositImgFiles.checked !== null)
+		) {
+			return <img alt={depositImgFiles.name} src={imgResult} />;
+		}
+		return <i className="icon icon-plus" />;
 	};
 
 	useEffect(() => {
@@ -138,23 +140,59 @@ const PopBoxDepositUploadBankSlip = ({
 			<div className="smallList checkBankSlip">
 				<span className="title">{t("lbl_SubmitProof")}</span>
 				<div className="txt-lightgray">{t("lbl_AttachFile")}</div>
-				<label
-					className={`upload_img${
-						depositImgFiles.checked ||
-						depositImgFiles.checked === null
-							? ""
-							: " error"
-					}`}
-					onDragOver={e => e.preventDefault()}
-					onDrop={onUploadFile}>
-					<input
-						type="file"
-						accept="image/*"
-						onChange={onUploadFile}
-					/>
+				{receiptInfo.length > 0 ? (
+					<div className="uploadModule">
+						{receiptInfo.length < 6 && (
+							<label
+								className={`upload_img${
+									depositImgFiles.checked ||
+									depositImgFiles.checked === null
+										? ""
+										: " error"
+								}`}
+								onDragOver={e => e.preventDefault()}
+								onDrop={onUploadFile}
+							>
+								<input
+									type="file"
+									accept="image/*"
+									onChange={onUploadFile}
+								/>
 
-					{imgRenderHandlar()}
-				</label>
+								{imgRenderHandlar()}
+							</label>
+						)}
+						{receiptInfo.map(({ receiptNo, depositPic }) => (
+							<label key={receiptNo} className="upload_img">
+								<input type="file" />
+								<img
+									src={`data:image/jpeg;base64,${depositPic}`}
+									alt=""
+								/>
+							</label>
+						))}
+					</div>
+				) : (
+					<label
+						className={`upload_img${
+							depositImgFiles.checked ||
+							depositImgFiles.checked === null
+								? ""
+								: " error"
+						}`}
+						onDragOver={e => e.preventDefault()}
+						onDrop={onUploadFile}
+					>
+						<input
+							type="file"
+							accept="image/*"
+							onChange={onUploadFile}
+						/>
+
+						{imgRenderHandlar()}
+					</label>
+				)}
+
 				<div
 					className="txt-red"
 					style={{
@@ -163,7 +201,8 @@ const PopBoxDepositUploadBankSlip = ({
 							depositImgFiles.checked === null
 								? "hidden"
 								: "visible"
-					}}>
+					}}
+				>
 					{depositImgFiles.tip}
 				</div>
 
@@ -181,7 +220,8 @@ const PopBoxDepositUploadBankSlip = ({
 							onClick={() => {
 								closePopBox();
 								resolve({ success: false });
-							}}>
+							}}
+						>
 							{t("lbl_Cancel")}
 						</button>
 						<button type="submit" className="btn-check">
@@ -193,6 +233,9 @@ const PopBoxDepositUploadBankSlip = ({
 		</div>
 	);
 };
+PopBoxDepositUploadBankSlip.defaultProps = {
+	receiptInfo: []
+};
 
 PopBoxDepositUploadBankSlip.propTypes = {
 	t: PropTypes.func.isRequired,
@@ -201,7 +244,7 @@ PopBoxDepositUploadBankSlip.propTypes = {
 	formInfo: PropTypes.shape({
 		imgFile: PropTypes.objectOf(PropTypes.any)
 	}).isRequired,
-
+	receiptInfo: PropTypes.arrayOf(PropTypes.any),
 	localBankInfo: PropTypes.shape({
 		bankName: PropTypes.string,
 		accountNo: PropTypes.string,
