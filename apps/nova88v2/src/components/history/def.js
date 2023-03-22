@@ -53,7 +53,8 @@ export const defColumns = ({
 	depositActivateUploadModal,
 	depositActivateCancelConfirmModal,
 	activateWithdrawalCancelConfirmModal,
-	timeZone
+	timeZone,
+	SubmitProof
 }) => ({
 	[defHistoryIdList.transferId]: [
 		{
@@ -227,12 +228,17 @@ export const defColumns = ({
 						<>
 							<button
 								className="orange icon icon-pencil"
-								onClick={() =>
-									depositActivateUploadModal({
-										...item,
-										keepData
-									})
-								}
+								onClick={SubmitProof.bind(
+									this,
+									item.bankInfo,
+									item.depositRep,
+									item.amount,
+									item.transId,
+									item.picFileName,
+									item.refId,
+									item.depositTime,
+									item.depositReceipt
+								)}
 							>
 								{t("lbl_SubmitProof")}
 							</button>

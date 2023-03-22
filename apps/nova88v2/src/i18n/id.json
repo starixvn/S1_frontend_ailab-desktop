@@ -261,7 +261,7 @@
 	"msg_Content_Not_Empty": "Konten wajib diisi",
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "Ukuran maksimal setiap file adalah 4 MB",
-	"BankSlipHint2": "Jumlah file maksimal : 1",
+	"BankSlipHint2": "Jumlah file maksimal : 6",
 	"BankSlipHint3": "Jenis file yang dapat diterima: JPG, JPEG, PNG, GIF",
 	"msg_DepositHint": "Deposit sekarang dan nikmati permainan dan pelayanan kami",
 	"lbl_DepositType1": "Online Banking",

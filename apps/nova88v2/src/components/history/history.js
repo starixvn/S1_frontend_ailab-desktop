@@ -8,7 +8,7 @@ import {
 	currencyIdToTimeZone,
 	defCurrencyList
 } from "../common/common";
-import { userInfoContext } from "../common/context";
+import { popBoxContext, userInfoContext } from "../common/context";
 
 import useDepositHistory from "./hook/useDepositHistory";
 import useTransferHistory from "./hook/useTransferHistory";
@@ -21,6 +21,7 @@ import HistoryFilter from "../common/historyFilter";
 import HistoryTable from "./historyTable";
 import { Pagination } from "../common/pagination";
 import { defHistoryIdList, defHistoryNav, defColumns } from "./def";
+import { useDeposit, useDepositLocalBank } from "../deposit/hooks";
 
 const History = () => {
 	const paramsKindId = getUrlParameter("kind");
@@ -29,7 +30,7 @@ const History = () => {
 	const location = useLocation();
 
 	const { userInfo } = useContext(userInfoContext);
-
+	const { setPopBox } = useContext(popBoxContext);
 	const _isConvert = isConvert(userInfo.currencyId);
 
 	const isMountedRef = useRef(null);
@@ -143,6 +144,88 @@ const History = () => {
 
 	const [selectedTagId, setSelectedTagId] = useState(paramsKindId);
 
+	const { asyncUploadBankPopBox } = useDeposit({ isMountedRef, userInfo });
+
+	const { uploadLocalBankReceipt } = useDepositLocalBank({ isMountedRef });
+
+	const SubmitProof = async (
+		bankInfo,
+		depositRep,
+		amount,
+		transId,
+		picFileName,
+		historyRefId,
+		historyDepositTime,
+		depositReceipt
+	) => {
+		const { bankName, bankSite } = bankInfo;
+		const { accountName, accountNo } = depositRep;
+
+		const uploadPopBoxResult = await asyncUploadBankPopBox({
+			formInfo: {
+				imgFile: {
+					name: picFileName
+				}
+				// refId: historyRefId,
+				// time: historyDepositTime
+			},
+			localBankInfo: {
+				bankName,
+				bankSite,
+				accountNo,
+				accountName,
+				transId,
+				amount
+			},
+			_isConvert,
+			langId: userInfo.langId,
+			receiptInfo: depositReceipt
+		});
+
+		if (uploadPopBoxResult.success) {
+			const {
+				datas: { depositImgFiles }
+			} = uploadPopBoxResult;
+
+			// const isSameRefId = historyRefId === depositRefNo.value;
+
+			// const isSameDepositTime = moment(depositTime.value).isSame(
+			// 	moment(historyDepositTime)
+			// );
+
+			if (depositImgFiles.file) {
+				await uploadLocalBankReceipt({
+					imgFile: depositImgFiles.file,
+					transId
+				});
+			}
+
+			// if (!isSameDepositTime || !isSameRefId) {
+			// 	await setLocalBankReceipt({
+			// 		transId,
+			// 		depositTime: depositTime.value,
+			// 		fefNo: depositRefNo.value
+			// 	});
+			// }
+
+			if (
+				depositImgFiles.file
+				// || !isSameDepositTime || !isSameRefId
+			) {
+				const transactionData = {
+					StartDate: filterData.StartDate,
+					EndDate: filterData.EndDate
+				};
+				setFilterData(transactionData);
+				setKeepData({
+					startDate: filterData.StartDate,
+					endDate: filterData.EndDate
+				});
+				getHistory(transactionData, pagination.currentPage);
+			}
+		}
+	};
+
 	const columns = defColumns({
 		t,
 		_isConvert,
@@ -155,7 +238,9 @@ const History = () => {
 		depositActivateCancelConfirmModal,
 
 		activateWithdrawalCancelConfirmModal,
-		timeZone
+		timeZone,
+		setPopBox,
+		SubmitProof
 	})[selectedTagId];
 
 	const clickPageNumber = page => {
