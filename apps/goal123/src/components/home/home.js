@@ -43,6 +43,7 @@ import { defEventPeriod } from "../common/eventIcon";
 import Fireworks from "../specialEffects/fireworks";
 import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
 import { angPaoEventPeriod } from "../../pages/angpao";
+import { defMenuLinks } from "../layout/header.menu.def";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -52,6 +53,7 @@ const Home = ({ productTpIds }) => {
 	const isMountedRef = useRef(null);
 	const { setIsRoot } = useContext(isRootContext);
 	const [winnerList, setWinnerList] = useState([]);
+	const [displayVgaming, setDisplayVgaming] = useState(true);
 	const { allMaintainList } = useContext(maintainListContext);
 	const isEvent = isDateRange(
 		defEventPeriod.newYear.start,
@@ -324,6 +326,30 @@ const Home = ({ productTpIds }) => {
 					productTpIds={productTpIds}
 				/> */}
 			</section>
+			{/* vgaming Home 點擊入口 */}
+			{displayVgaming && (
+				<div className="eventLink vgaming">
+					<button
+						className="icon icon-close"
+						onClick={() => setDisplayVgaming(false)}
+					/>
+
+					<img
+						onClick={() =>
+							clickItem(
+								// vgaming
+								defMenuLinks(
+									userInfo.langId
+								)?.games?.subMenu.find(
+									game => game.gameId === 171
+								).parameter
+							)
+						}
+						alt="vgaming-link"
+						src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/vgaming.gif`}
+					/>
+				</div>
+			)}
 
 			{/* 僅限過年期間不顯示 */}
 			{!isDateRange(angPaoEventPeriod) && (
@@ -367,21 +393,24 @@ const InfoCenter = ({ t, langId }) => (
 				<a
 					href={`${config.t_and_cURL}/Static/${langId}/HowToDeposit.html`}
 					rel="noreferrer"
-					target="_blank">
+					target="_blank"
+				>
 					<i className="icon icon-deposit2" />
 					{t("lbl_HowToDepoist")}
 				</a>
 				<a
 					href={`${config.t_and_cURL}/Static/${langId}/HowToWithdrawal.html`}
 					rel="noreferrer"
-					target="_blank">
+					target="_blank"
+				>
 					<i className="icon icon-withdrawal2" />
 					{t("lbl_HowToWithdraw")}
 				</a>
 				<a
 					href={`${config.t_and_cURL}/Static/${langId}/FAQ.html`}
 					rel="noreferrer"
-					target="_blank">
+					target="_blank"
+				>
 					<i className="icon icon-support" />
 					{t("lbl_FAQ")}
 				</a>

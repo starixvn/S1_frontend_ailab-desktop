@@ -40,6 +40,8 @@ import { defEventPeriod } from "../common/eventIcon";
 import Fireworks from "../specialEffects/fireworks";
 import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
 import { angPaoEventPeriod } from "../../pages/angpao";
+import { SET_ENTER_PAGE } from "../../service/enterPage";
+import { defMenuLinks } from "../layout/header.menu.def";
 
 function Home() {
 	const { t } = useTranslation();
@@ -57,10 +59,31 @@ function Home() {
 	});
 
 	const [winnerList, setWinnerList] = useState([]);
+	const [displayVgaming, setDisplayVgaming] = useState(true);
+
 	const isEvent = isDateRange(
 		defEventPeriod.newYear.start,
 		defEventPeriod.newYear.end
 	);
+
+	const openLoginPopBox = () => {
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.Login
+		});
+	};
+
+	const mainGameNavigate = ({ tpId, gameId, isInMaintain }) => {
+		if (isInMaintain) return;
+
+		SET_ENTER_PAGE({
+			isLogin: userInfo.isLogin,
+			langId: userInfo.langId,
+			tpId,
+			gameId,
+			loginCallback: openLoginPopBox
+		});
+	};
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -375,6 +398,28 @@ function Home() {
 					</div>
 				</section>
 			</main>
+			{/* vgaming Home 點擊入口 */}
+			{displayVgaming && (
+				<div className="eventLink vgaming">
+					<button
+						style={{ zIndex: 50 }}
+						className="icon icon-close"
+						onClick={() => setDisplayVgaming(false)}
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/vgaming.gif`}
+						alt="vgaming-link"
+						onClick={() =>
+							mainGameNavigate(
+								// vgaming
+								defMenuLinks.games.subMenu.find(
+									game => game.gameId === 171
+								).parameter
+							)
+						}
+					/>
+				</div>
+			)}
 
 			{/* 僅限過年期間不顯示 */}
 			{!isDateRange(angPaoEventPeriod) && (
