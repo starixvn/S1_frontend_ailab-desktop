@@ -9873,8 +9873,12 @@ button.icon-spinner11:before {
 nav {
   padding: 20px 34px 10px;
 }
+nav.breadcrumb {
+  padding: 20px 20px 10px;
+}
 nav.breadcrumb + .quickSelect {
   margin-bottom: 20px;
+  padding: 0 25px;
 }
 nav.breadcrumb ul {
   display: -webkit-box;
@@ -9899,7 +9903,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .statement {
-  width: calc(100% - 70px);
+  width: calc(100% - 50px);
   margin: 0 auto;
 }
 .statement > div {
@@ -14044,7 +14048,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #112240;
   font-weight: bold;
   position: absolute;
-  margin-top: 3.5vw;
+  margin-top: -1.5vw;
 }
 .appPage {
   max-width: 1400px;
@@ -14056,7 +14060,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  padding-top: 5.7vw;
+  padding-top: 9.7vw;
   position: relative;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -14071,7 +14075,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
       -ms-flex-flow: column;
           flex-flow: column;
   width: 100%;
-  margin-top: -253px;
+  margin-top: -120px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -14100,6 +14104,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .appPage .scan > div:nth-child(1) div {
   margin: 0.3vw 0;
+  font-size: 20px;
+}
+@media (min-width: 2200px) {
+  .appPage .scan > div:nth-child(1) div {
+    font-size: 30px;
+  }
 }
 .appPage .scan > div:nth-child(1) div:nth-child(2) {
   font-weight: bold;

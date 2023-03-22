@@ -7516,6 +7516,18 @@ html.Newtheme .eventLink .angpaoLink img.eventlinkimg {
             transform-origin: 50% 70%;
   }
 }
+html.Newtheme .eventLink.vgaming {
+  bottom: 200px;
+}
+html.Newtheme .eventLink.vgaming .icon-close {
+  top: 10px;
+  background: #cecece;
+  color: rgb(92, 92, 92);
+}
+html.Newtheme .eventLink.vgaming .vgimg {
+  width: 185px;
+  height: 185px;
+}
 html.Newtheme .time {
   position: absolute;
   top: calc(50% + 240px);

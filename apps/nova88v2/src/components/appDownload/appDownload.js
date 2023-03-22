@@ -28,7 +28,7 @@ const AppDownload = () => {
 			<div className="appPage">
 				<div className="appTitle">{t("lbl_APP_DOWNLOAD")}</div>
 				<img
-					src={`${bannerImgUrl}/desktop/img/app/appbanner.png`}
+					src={`${bannerImgUrl}/desktop/img/app/new-appbanner.png`}
 					alt="img_appbanner"
 				/>
 				<div className="scan">
@@ -59,7 +59,8 @@ const AppDownload = () => {
 								<a
 									href={IOSDownloadUrl}
 									target="_blank"
-									rel="noreferrer">
+									rel="noreferrer"
+								>
 									{/* <button>{t("lbl_DOWNLOAD")}</button> */}
 								</a>
 							</div>
@@ -85,7 +86,8 @@ const AppDownload = () => {
 								<a
 									href={andriodDownLoadUrl}
 									download
-									rel="noreferrer">
+									rel="noreferrer"
+								>
 									<button>{t("lbl_DOWNLOAD")}</button>
 								</a>
 							</div>
@@ -106,7 +108,7 @@ const AppDownload = () => {
 						<div className="installStep">
 							<div>
 								<img
-									src={`${bannerImgUrl}/desktop/img/app/Step1.png`}
+									src={`${bannerImgUrl}/desktop/img/app/new-step1.png`}
 									alt=""
 								/>
 								<div>
@@ -138,7 +140,7 @@ const AppDownload = () => {
 							</div>
 							<div>
 								<img
-									src={`${bannerImgUrl}/desktop/img/app/Step4.png`}
+									src={`${bannerImgUrl}/desktop/img/app/new-step4.png`}
 									alt=""
 								/>
 								<div>
