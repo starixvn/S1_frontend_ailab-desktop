@@ -938,6 +938,9 @@ header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveAG .img {
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .livePP .img {
   background: url(https://banner.bw88.io/desktop/img/live/live-pp.png) no-repeat center/auto 100%;
 }
+header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveYB .img {
+  background: url(https://banner.bw88.io/desktop/img/live/live-yb.png) no-repeat center/auto 100%;
+}
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveSK .img {
   background: url(https://banner.bw88.io/desktop/img/live/live-sk.png) no-repeat center/auto 100%;
 }
@@ -1851,6 +1854,14 @@ footer > div .platformGroup button.pp {
 footer > div .platformGroup a.pp:hover,
 footer > div .platformGroup button.pp:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/pp-a.png) no-repeat center;
+}
+footer > div .platformGroup a.yb,
+footer > div .platformGroup button.yb {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/yb.png) no-repeat center;
+}
+footer > div .platformGroup a.yb:hover,
+footer > div .platformGroup button.yb:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/yb-a.png) no-repeat center;
 }
 footer > div .platformGroup a.sk,
 footer > div .platformGroup button.sk {
@@ -7407,6 +7418,12 @@ main > .swiper-container .swiper-slide {
 }
 .livelobbyList > div.live-pp:hover {
   background: url(https://banner.bw88.io/desktop/img/livelobby/live-pp-a.png) no-repeat center;
+}
+.livelobbyList > div.live-yb {
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-yb.png) no-repeat center;
+}
+.livelobbyList > div.live-yb:hover {
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-yb-a.png) no-repeat center;
 }
 .livelobbyList > div.live-sk {
   background: url(https://banner.bw88.io/desktop/img/livelobby/live-sk.png) no-repeat center;
@@ -15171,4 +15188,16 @@ input + .iconModule i.icon.icon-checkmark:before {
     -webkit-transform-origin: 50% 70%;
             transform-origin: 50% 70%;
   }
+}
+.eventLink.vgaming {
+  bottom: 220px;
+  left: 30px;
+}
+.eventLink.vgaming .icon-close {
+  width: 30px;
+  height: 30px;
+  top: -10px;
+}
+.eventLink.vgaming .icon-close::before {
+  font-size: 5px;
 }/*# sourceMappingURL=style.css.map */
