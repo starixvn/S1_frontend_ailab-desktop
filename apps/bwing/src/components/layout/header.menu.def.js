@@ -209,6 +209,14 @@ export const defMenuLinks = {
 		subDivClass1: "light light-slot",
 		subMenu: [
 			{
+				...defCasinoProviders.PP,
+				className: "PP",
+				icon: "icon icon-PP",
+				displayText: "Pragmatic Play",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.PP.name }
+			},
+			{
 				...defCasinoProviders.AdvantPlay,
 				className: "APnew",
 				displayText: "AdvantPlay",
@@ -220,14 +228,6 @@ export const defMenuLinks = {
 						period: defEventPeriod.ap_mini_game
 					})
 				]
-			},
-			{
-				...defCasinoProviders.PP,
-				className: "PP",
-				icon: "icon icon-PP",
-				displayText: "Pragmatic Play",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PP.name }
 			},
 			{
 				...defCasinoProviders.Skywind,

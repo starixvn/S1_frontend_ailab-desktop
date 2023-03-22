@@ -153,7 +153,8 @@ const Content = () => {
 		transId,
 		picFileName,
 		historyRefId,
-		historyDepositTime
+		historyDepositTime,
+		depositReceipt
 	) => {
 		const { bankName, bankSite } = bankInfo;
 		const { accountName, accountNo } = depositRep;
@@ -175,7 +176,8 @@ const Content = () => {
 				amount
 			},
 			_isConvert,
-			langId: userInfo.langId
+			langId: userInfo.langId,
+			receiptInfo: depositReceipt
 		});
 
 		if (uploadPopBoxResult.success) {
@@ -295,7 +297,6 @@ const Content = () => {
 			getDepositHistory(transactionData, page);
 		}
 	};
-
 	const arr = history?.map((item, i) => {
 		return (
 			<TransactionHistory
@@ -316,7 +317,8 @@ const Content = () => {
 					item.transId,
 					item.picFileName,
 					item.refId,
-					item.depositTime
+					item.depositTime,
+					item.depositReceipt
 				)}
 				currencyId={userInfo.currencyId}
 			/>

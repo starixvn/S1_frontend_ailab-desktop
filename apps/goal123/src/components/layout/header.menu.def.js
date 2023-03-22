@@ -242,6 +242,17 @@ export const defMenuLinks = langId => ({
 		className: "casinobtn",
 		subMenu: [
 			{
+				...defCasinoProviders.PP,
+				className: "PP",
+				icon: "icon icon-PP",
+				displayText: "Pragmatic Play",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.PP.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pp.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pp-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pp-icon.png`
+			},
+			{
 				...defCasinoProviders.AdvantPlay,
 				displayText: "AdvantPlay",
 				menuType: defMenuType.Link,
@@ -255,17 +266,6 @@ export const defMenuLinks = langId => ({
 						period: defEventPeriod.ap_mini_game
 					})
 				]
-			},
-			{
-				...defCasinoProviders.PP,
-				className: "PP",
-				icon: "icon icon-PP",
-				displayText: "Pragmatic Play",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PP.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pp.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pp-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pp-icon.png`
 			},
 			{
 				...defCasinoProviders.Skywind,
