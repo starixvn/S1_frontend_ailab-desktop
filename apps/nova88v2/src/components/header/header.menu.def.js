@@ -111,8 +111,8 @@ const defSortCasino = {
 
 const defSortSlot = {
 	[defCurrencyList.THB]: {
-		slot_AdvantPlay: 1,
-		slot_PP: 2,
+		slot_PP: 1,
+		slot_AdvantPlay: 2,
 		slot_Skywind: 3,
 		slot_Habanero: 4,
 		slot_NetEnt: 5,
@@ -131,8 +131,8 @@ const defSortSlot = {
 		slot_OW: 18
 	},
 	[defCurrencyList.MYR]: {
-		slot_AdvantPlay: 1,
-		slot_PP: 2,
+		slot_PP: 1,
+		slot_AdvantPlay: 2,
 		slot_Skywind: 3,
 		slot_Habanero: 4,
 		slot_NetEnt: 5,
@@ -150,8 +150,8 @@ const defSortSlot = {
 		slot_OW: 17
 	},
 	[defCurrencyList.IDR]: {
-		slot_AdvantPlay: 1,
-		slot_PP: 2,
+		slot_PP: 1,
+		slot_AdvantPlay: 2,
 		slot_Skywind: 3,
 		slot_Habanero: 4,
 		slot_NetEnt: 5,
@@ -188,8 +188,8 @@ const defSortSlot = {
 		slot_OW: 17
 	},
 	[defCurrencyList.BDT]: {
-		slot_AdvantPlay: 1,
-		slot_PP: 2,
+		slot_PP: 1,
+		slot_AdvantPlay: 2,
 		slot_Habanero: 3,
 		slot_NetEnt: 4,
 		slot_MGPSW: 5,
@@ -735,22 +735,6 @@ export const defMenuLinks = {
 		checkBeforeLogin: true,
 		subMenu: [
 			{
-				keyName: "slot_AdvantPlay",
-				displayText: "AdvantPlay",
-				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotapnew.png",
-				listBgImgUrl: "slotListHover.png",
-				// parameter: { ...productList.casino_AdvantPlay },
-				parameter: { provider: "advant-play" },
-				...productList.casino_AdvantPlay,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.ap_mini_game
-					})
-				]
-			},
-			{
 				keyName: "slot_PP",
 				icon: "icon icon-PP",
 				displayText: "Pragmatic Play",
@@ -761,6 +745,16 @@ export const defMenuLinks = {
 				parameter: { provider: "pragmatic-play" },
 				...productList.casino_PP,
 				allowCurrencies: getPPAllowCurrencies()
+			},
+			{
+				keyName: "slot_AdvantPlay",
+				displayText: "AdvantPlay",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotap.png",
+				listBgImgUrl: "slotListHover.png",
+				// parameter: { ...productList.casino_AdvantPlay },
+				parameter: { provider: "advant-play" },
+				...productList.casino_AdvantPlay
 			},
 			{
 				keyName: "slot_Skywind",
