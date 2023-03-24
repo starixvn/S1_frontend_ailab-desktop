@@ -148,12 +148,12 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			imgName: "ev",
 			hoverImgName: "eva"
 		},
-		{
-			...productList.mega888,
-			path: path.mega888.root,
-			imgName: "casino_mega",
-			hoverImgName: "casino_megaa"
-		},
+		// {
+		// 	...productList.mega888,
+		// 	path: path.mega888.root,
+		// 	imgName: "casino_mega",
+		// 	hoverImgName: "casino_megaa"
+		// },
 		{
 			...productList.casino_Habanero,
 			path: path.casino.root,

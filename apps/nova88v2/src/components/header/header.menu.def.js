@@ -779,15 +779,15 @@ export const defMenuLinks = {
 					})
 				]
 			},
-			{
-				keyName: "slot_Mega888",
-				displayText: "Mega888",
-				menuType: defMenuType.Link,
-				path: path.mega888.root,
-				listNpcImgUrl: "slotMEGA888.png",
-				listBgImgUrl: "slotListHover.png",
-				...productList.mega888
-			},
+			// {
+			// 	keyName: "slot_Mega888",
+			// 	displayText: "Mega888",
+			// 	menuType: defMenuType.Link,
+			// 	path: path.mega888.root,
+			// 	listNpcImgUrl: "slotMEGA888.png",
+			// 	listBgImgUrl: "slotListHover.png",
+			// 	...productList.mega888
+			// },
 			{
 				keyName: "slot_SimplePlay",
 				displayText: "SimplePlay",
@@ -1008,11 +1008,11 @@ export const defMenuLinks = {
 			}
 		]
 	},
-	poker: {
-		displayKey: "lbl_Poker",
-		className: "pokerbtn",
-		allowCurrencies: allowedCurrencyList.oneGame
-	},
+	// poker: {
+	// 	displayKey: "lbl_Poker",
+	// 	className: "pokerbtn",
+	// 	allowCurrencies: allowedCurrencyList.oneGame
+	// },
 	games: {
 		displayKey: "lbl_Games",
 		path: path.game.root,
