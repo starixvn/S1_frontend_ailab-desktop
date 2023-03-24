@@ -113,7 +113,8 @@ const MobileForm = ({
 								item.groupId === groupIdForRecord
 									? "active"
 									: ""
-							}>
+							}
+						>
 							<div>
 								<img
 									alt={item.groupName}
@@ -125,7 +126,7 @@ const MobileForm = ({
 							</div>
 
 							<div className="bank">
-								<div>{item.channelName}</div>
+								<div>{item.groupName}</div>
 
 								<div>
 									<div>
@@ -169,7 +170,8 @@ const MobileForm = ({
 										infoChannelIdForRecord
 											? "active"
 											: ""
-									}>
+									}
+								>
 									<div>
 										<img
 											alt={item.groupName}
