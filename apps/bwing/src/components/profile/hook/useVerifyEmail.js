@@ -21,7 +21,7 @@ const useVerifyEmail = ({
 
 	useEffect(() => {
 		const key = getUrlParameter("key");
-		const code = getUrlParameter("code");
+		const code = getUrlParameter("emailcode");
 
 		const RedirectToHome = popBoxMsg => {
 			LOGOUT(() => {
@@ -72,7 +72,8 @@ const useVerifyEmail = ({
 											<div className="btnGroup">
 												<button
 													className="btn-check"
-													onClick={closePopBox}>
+													onClick={closePopBox}
+												>
 													OK
 												</button>
 											</div>
