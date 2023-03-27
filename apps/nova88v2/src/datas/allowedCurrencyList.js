@@ -1,4 +1,18 @@
+import { isDateRange } from "@ailab-desktop/common";
 import { defCurrencyList } from "../components/common/common";
+
+export const changeAllowCurrenciesByTime = ({
+	allowCurriesList,
+	currencies,
+	endTime
+}) => {
+	const oldCurrencyList = allowCurriesList ?? Object.values(defCurrencyList);
+	const allowCurrencies = isDateRange({ endDate: endTime })
+		? oldCurrencyList.filter(currency => !currencies.includes(currency))
+		: oldCurrencyList;
+
+	return allowCurrencies;
+};
 
 const allowedCurrencyList = {
 	VIP: [defCurrencyList.MYR, defCurrencyList.THB, defCurrencyList.IDR],
