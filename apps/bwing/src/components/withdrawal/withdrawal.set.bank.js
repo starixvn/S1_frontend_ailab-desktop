@@ -77,6 +77,7 @@ const Main = ({
 		exchangeRate: 0,
 		exchangeAmount: 0
 	});
+	const [processing, setProcessing] = useState(false);
 
 	const {
 		confirmDeleteCryptoWallet,
@@ -400,84 +401,113 @@ const Main = ({
 			? amountValue * 1000
 			: parseInt(amountValue, 10);
 		const { sysId } = currentBankInfoDetail;
-		api_payment_WithdrawalReq(AccountNo, amount, sysId).then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 2 || res.data.errorCode === 0) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.WithdrawalSuccess,
-							onClickClose: ClickClose,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClickDone}>
-										OK
-									</button>
-								</div>
-							)
-						});
-						getWithdrawalInfoRecent();
-						getKycStatus();
-						getWithdrawalLimit();
-					} else if (res.data.errorCode === -1) {
+
+		if (!processing) {
+			setProcessing(true);
+			api_payment_WithdrawalReq(AccountNo, amount, sysId).then(
+				res => {
+					if (isMountedRef.current) {
+						if (
+							res.data.errorCode === 2 ||
+							res.data.errorCode === 0
+						) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.WithdrawalSuccess,
+								onClickClose: ClickClose,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-check"
+											onClick={ClickDone}>
+											OK
+										</button>
+									</div>
+								)
+							});
+							getWithdrawalInfoRecent();
+							getKycStatus();
+							getWithdrawalLimit();
+						} else if (res.data.errorCode === -1) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: `${t("lbl_RolloverOver")}:${
+									res.data.message
+								}`,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-cancel"
+											onClick={ClickClose}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						} else if (res.data.errorCode === -2) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: `${t("lbl_DepositOver")}:${
+									res.data.message
+								}`,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-cancel"
+											onClick={ClickClose}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						} else if (res.data.errorCode === -3) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: `${t(
+									"lbl_WithdrawalOver"
+								)}: ${parseInt(
+									res.data.message,
+									10
+								).toString()}`,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-cancel"
+											onClick={ClickClose}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						} else {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: t("msg_ApiServerError"),
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-cancel"
+											onClick={ClickClose}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+							setProcessing(false);
+						}
+					}
+				},
+				() => {
+					if (isMountedRef.current) {
+						setProcessing(false);
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message: `${t("lbl_RolloverOver")}:${
-								res.data.message
-							}`,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					} else if (res.data.errorCode === -2) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: `${t("lbl_DepositOver")}:${
-								res.data.message
-							}`,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					} else if (res.data.errorCode === -3) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: `${t("lbl_WithdrawalOver")}: ${parseInt(
-								res.data.message,
-								10
-							).toString()}`,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: `[${res.data.errorCode}] ${res.data.message}`,
+							message: t("msg_ApiServerError"),
 							btnBar: (
 								<div className="btnGroup">
 									<button
@@ -490,26 +520,8 @@ const Main = ({
 						});
 					}
 				}
-			},
-			err => {
-				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
-				}
-			}
-		);
+			);
+		}
 	};
 
 	if (kycStatus !== "normal")
