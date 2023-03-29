@@ -122,10 +122,6 @@ export default () => {
 						alt="circlepayImg"
 					/>
 					<img
-						src={`${bannerImgUrl}/desktop/img/payment/eeziepay.png`}
-						alt="eeziepayImg"
-					/>
-					<img
 						src={`${bannerImgUrl}/desktop/img/payment/oneclickpay.png`}
 						alt="oneclickpayImg"
 					/>

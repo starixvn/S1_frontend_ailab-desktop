@@ -13,10 +13,6 @@ const paymentList = {
 			name: "help2pay",
 			img: `${bannerImgUrl}/desktop/img/footer/help2pay.png`
 		},
-		{
-			name: "eeziepay",
-			img: `${bannerImgUrl}/desktop/img/footer/eeziepay.png`
-		},
 		{ name: "fpay", img: `${bannerImgUrl}/desktop/img/footer/fpay.png` },
 		{
 			name: "truepay",
@@ -33,20 +29,12 @@ const paymentList = {
 			name: "help2pay",
 			img: `${bannerImgUrl}/desktop/img/footer/help2pay.png`
 		},
-		{
-			name: "eeziepay",
-			img: `${bannerImgUrl}/desktop/img/footer/eeziepay.png`
-		},
 		{ name: "thaiqr", img: `${bannerImgUrl}/desktop/img/footer/thaiqr.png` }
 	],
 	IDR: [
 		{
 			name: "help2pay",
 			img: `${bannerImgUrl}/desktop/img/footer/help2pay.png`
-		},
-		{
-			name: "eeziepay",
-			img: `${bannerImgUrl}/desktop/img/footer/eeziepay.png`
 		},
 		{ name: "ovo", img: `${bannerImgUrl}/desktop/img/footer/ovo.png` },
 		{
@@ -118,7 +106,8 @@ const FollowUsSection = ({ t, langId, currencyId }) => {
 			key={`channel-${el.channelName}`}
 			href={el.link}
 			target="_blank"
-			rel="noreferrer">
+			rel="noreferrer"
+		>
 			<img
 				src={`${bannerImgUrl}/desktop/img/${
 					footerImgName[el.channelName]
