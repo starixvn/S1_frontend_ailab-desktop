@@ -14508,6 +14508,40 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border-right: 0;
 }
 
+.rolloverList div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 20px;
+}
+.rolloverList div div:nth-child(1) {
+  min-height: 38px;
+}
+
+.rolloverListNew > div {
+  min-height: 25px;
+}
+.rolloverListNew > div:nth-child(1) {
+  min-height: 49px;
+}
+.rolloverListNew > div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .countdown {
   display: -webkit-box;
   display: -ms-flexbox;
