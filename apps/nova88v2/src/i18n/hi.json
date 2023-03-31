@@ -1077,5 +1077,11 @@
 		"totalPrizePool": "कुल इनाम पूल"
 	},
 
+	"rebateExclude": {
+		"lbl_RebateExclude_title": "दैनिक छूट पुरस्कारों का आनंद लेने के लिए इस सूची के खेलों को बाहर रखा जाएगा",
+		"lbl_Product": "प्रोडक्ट",
+		"lbl_GameName": "गेम का नाम"
+	},
+
 	"end-----": "end-----"
 }

@@ -220,6 +220,16 @@ export const defCurrencyList = {
 	BDT: 74
 };
 
+export const currencyIdToCurrency = {
+	2: "MYR",
+	3: "USD",
+	4: "THB",
+	13: "CNY",
+	15: "IDR",
+	61: "INR",
+	74: "BDT"
+};
+
 export const defCountryList = {
 	2: "Malaysia",
 	3: "Global",

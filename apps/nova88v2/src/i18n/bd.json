@@ -1021,5 +1021,11 @@
 		"app_for_android": "APP for Android",
 		"app_for_ios": "APP for iOS",
 		"unzip_and_run": "Unzip and Run"
+	},
+
+	"rebateExclude": {
+		"lbl_RebateExclude_title": "এই তালিকার গেমগুলি দৈনিক রিবেট পুরষ্কার বাদ দেওয়া হবে",
+		"lbl_Product": "পণ্য",
+		"lbl_GameName": "খেলার নাম"
 	}
 }
