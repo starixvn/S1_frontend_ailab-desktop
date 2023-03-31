@@ -1110,5 +1110,11 @@
 		"totalPrizePool": "TOTAL HADIAH BERSAMA"
 	},
 
+	"rebateExclude": {
+		"lbl_RebateExclude_title": "Permainan dalam daftar ini akan dikecualikan menikmati hadiah rebate harian",
+		"lbl_Product": "Produk",
+		"lbl_GameName": "Nama Permainan"
+	},
+
 	"end-----": "end-----"
 }

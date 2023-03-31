@@ -172,5 +172,8 @@ export default {
 	},
 	lottery: {
 		root: "lottery"
+	},
+	rebateExclude: {
+		root: "rebateExclude"
 	}
 };

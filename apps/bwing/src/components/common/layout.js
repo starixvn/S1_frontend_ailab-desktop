@@ -9,7 +9,12 @@ import Loading from "./loading";
 import { loadingContext } from "./context";
 import GoTopBtn from "./goTopBtn";
 
-const Layout = ({ children, showFooter = false, goTopBtn }) => {
+const Layout = ({
+	children,
+	showHeader = true,
+	showFooter = false,
+	goTopBtn
+}) => {
 	const { loading } = useContext(loadingContext);
 	const isMountedRef = useRef(null);
 
@@ -22,7 +27,7 @@ const Layout = ({ children, showFooter = false, goTopBtn }) => {
 
 	return (
 		<Provider store={store}>
-			<Header />
+			{showHeader ? <Header /> : null}
 			{children}
 			{showFooter ? <Footer /> : null}
 			<PopBox />
@@ -33,12 +38,14 @@ const Layout = ({ children, showFooter = false, goTopBtn }) => {
 };
 
 Layout.defaultProps = {
+	showHeader: true,
 	showFooter: false,
 	goTopBtn: true
 };
 
 Layout.propTypes = {
 	children: PropTypes.node.isRequired,
+	showHeader: PropTypes.bool,
 	showFooter: PropTypes.bool,
 	goTopBtn: PropTypes.bool
 };
