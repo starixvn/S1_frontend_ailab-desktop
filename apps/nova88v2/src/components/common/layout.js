@@ -8,7 +8,13 @@ import PopBox from "./popBox";
 import Loading from "./loading";
 import GoTopBtn from "./goTopBtn";
 
-const Layout = ({ children, showFooter = false, isFullFooter, goTopBtn }) => {
+const Layout = ({
+	children,
+	showHeader = true,
+	showFooter = false,
+	isFullFooter,
+	goTopBtn
+}) => {
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -20,7 +26,7 @@ const Layout = ({ children, showFooter = false, isFullFooter, goTopBtn }) => {
 
 	return (
 		<Provider store={store}>
-			<Header />
+			{showHeader ? <Header /> : null}
 			{children}
 			{showFooter ? <Footer isFullFooter={isFullFooter} /> : null}
 			<PopBox />
@@ -31,6 +37,7 @@ const Layout = ({ children, showFooter = false, isFullFooter, goTopBtn }) => {
 };
 
 Layout.defaultProps = {
+	showHeader: true,
 	showFooter: false,
 	isFullFooter: false,
 	goTopBtn: true
@@ -38,6 +45,7 @@ Layout.defaultProps = {
 
 Layout.propTypes = {
 	children: PropTypes.node.isRequired,
+	showHeader: PropTypes.bool,
 	showFooter: PropTypes.bool,
 	isFullFooter: PropTypes.bool,
 	goTopBtn: PropTypes.bool

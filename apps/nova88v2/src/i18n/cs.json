@@ -1130,5 +1130,11 @@
 		"totalPrizePool": "总彩池"
 	},
 
+	"rebateExclude": {
+		"lbl_RebateExclude_title": "游戏在此列表将排除与享有每日返水奖励",
+		"lbl_Product": "产品",
+		"lbl_GameName": "游戏名称"
+	},
+
 	"end-----": "end-----"
 }

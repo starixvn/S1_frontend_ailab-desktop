@@ -1132,5 +1132,11 @@
 		"totalPrizePool": "TOTAL PRIZE POOL"
 	},
 
+	"rebateExclude": {
+		"lbl_RebateExclude_title": "Games in this list will be excluded daily rebate rewards",
+		"lbl_Product": "Product",
+		"lbl_GameName": "Game Name"
+	},
+
 	"end-----": "end-----"
 }

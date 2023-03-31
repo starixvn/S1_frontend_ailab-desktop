@@ -862,5 +862,11 @@
 		"yourGroup/Team": "Bảng / Đội bóng bạn chọn"
 	},
 
+	"rebateExclude": {
+		"lbl_RebateExclude_title": "Những trò chơi trong danh sách này sẽ bị loại trừ để hưởng phần thưởng hoàn trả hàng ngày",
+		"lbl_Product": "Sản phẩm",
+		"lbl_GameName": "Tên trò chơi"
+	},
+
 	"end-----": "end-----"
 }

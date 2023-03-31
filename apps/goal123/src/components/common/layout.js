@@ -16,7 +16,12 @@ import Loading from "./loading";
 import { loadingContext, productTpIdsContext } from "./context";
 import GoTopBtn from "./goTopBtn";
 
-const Layout = ({ children, showFooter = false, goTopBtn }) => {
+const Layout = ({
+	children,
+	showHeader = true,
+	showFooter = false,
+	goTopBtn
+}) => {
 	const { loading } = useContext(loadingContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const isMountedRef = useRef(null);
@@ -36,7 +41,7 @@ const Layout = ({ children, showFooter = false, goTopBtn }) => {
 
 	return (
 		<Provider store={store}>
-			<Header />
+			{showHeader ? <Header /> : null}
 			{childrenWithProps}
 
 			{showFooter ? <Footer /> : null}
@@ -48,12 +53,14 @@ const Layout = ({ children, showFooter = false, goTopBtn }) => {
 };
 
 Layout.defaultProps = {
+	showHeader: true,
 	showFooter: false,
 	goTopBtn: true
 };
 
 Layout.propTypes = {
 	children: PropTypes.node.isRequired,
+	showHeader: PropTypes.bool,
 	showFooter: PropTypes.bool,
 	goTopBtn: PropTypes.bool
 };

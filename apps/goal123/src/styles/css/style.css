@@ -1447,6 +1447,13 @@ html.Newtheme main.sports {
   height: calc(100% - 115px);
   min-height: calc(100% - 115px);
 }
+html.Newtheme main.exclude {
+  padding: 20px 10px;
+  background: #152849;
+  color: #152849;
+  min-width: unset;
+  font-family: Arial, sans-serif;
+}
 html.Newtheme main section {
   padding-top: 0;
 }
@@ -13134,4 +13141,136 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
     -webkit-transform: rotate(0deg) scale(1);
             transform: rotate(0deg) scale(1);
   }
+}
+.subheader {
+  background: #030c1b;
+  padding: 0.75rem;
+}
+.subheader__container {
+  width: 100%;
+  max-width: 912px;
+  margin: 0 auto;
+}
+.subheader a::before {
+  content: "";
+  display: block;
+  width: 190px;
+  height: 35px;
+  background-image: url("https://banner.goal123.org/desktop/img/logo.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  -webkit-transition: ease 0.15s;
+  transition: ease 0.15s;
+}
+
+.subcopyright {
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  background: #0e0c2e;
+  padding: 10px;
+  text-align: center;
+  color: #c6c6c6;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+}
+
+.exclude {
+  padding: 20px 10px;
+  background: #152849;
+  color: #152849;
+  min-width: unset;
+  font-family: Arial, sans-serif;
+}
+.exclude__container {
+  width: 100%;
+  max-width: 912px;
+  margin: 0 auto;
+}
+.exclude__title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #4b95df;
+  position: relative;
+  margin-bottom: 25px;
+}
+.exclude__title::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  width: 100%;
+  background-image: -webkit-gradient(linear, left top, right top, from(#4b95df), to(rgba(247, 122, 0, 0)));
+  background-image: linear-gradient(to right, #4b95df, rgba(247, 122, 0, 0));
+}
+.exclude__table {
+  width: 100%;
+  border-left: 1px solid #284985;
+  border-right: 1px solid #284985;
+  border-radius: 3px;
+}
+.exclude__table__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.exclude__table__item:first-child div {
+  background: #284985;
+  color: #fff;
+  font-weight: bold;
+}
+.exclude__table__item div {
+  background: #eeeeee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  border-bottom: 1px solid #284985;
+}
+.exclude__table__item div:first-child {
+  border-right: 1px solid #284985;
+}
+.exclude__table__item div span {
+  display: block;
+  text-align: center;
+  width: 100%;
+  line-height: 2;
+  padding-bottom: 2px;
+  position: relative;
+}
+.exclude__table__item div span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 1px;
+  height: 1px;
+  width: 100%;
+  background: #284985;
+}
+.exclude__table__item div span:last-child {
+  padding-bottom: 0;
+}
+.exclude__table__item div span:last-child::after {
+  height: 0;
+  display: none;
 }/*# sourceMappingURL=style.css.map */
