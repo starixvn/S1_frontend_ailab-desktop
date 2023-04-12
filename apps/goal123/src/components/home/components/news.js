@@ -1,15 +1,18 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { api_news_GetNews } from "../../../service/api/news";
 import usePopBox from "../../hook/usePopBox";
 import path from "../../../router";
+import { userInfoContext } from "../../common/context";
+import { getCurrencyCode } from "../../common/common";
 
 const News = ({ t, langId }) => {
 	const [newsDatas, setNewsDatas] = useState([]);
 	const isMountedRef = useRef(null);
-
+	const { userInfo } = useContext(userInfoContext);
 	const { errorPopBox } = usePopBox();
+	const currencyId = userInfo.currencyId ?? getCurrencyCode(userInfo.langId);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -22,7 +25,8 @@ const News = ({ t, langId }) => {
 		api_news_GetNews({
 			langId,
 			PageNumber: 1,
-			PageSize: 3
+			PageSize: 3,
+			currencyId
 		}).then(
 			res => {
 				if (!isMountedRef.current) return;
@@ -46,7 +50,8 @@ const News = ({ t, langId }) => {
 		return (
 			<Link
 				key={`index-news-${item.newsId}-${langId}`}
-				to={`/${langId}/${path.news.root}/${path.news.sub.newsInfo.root}?newsId=${item.newsId}`}>
+				to={`/${langId}/${path.news.root}/${path.news.sub.newsInfo.root}?newsId=${item.newsId}`}
+			>
 				<img src={item.imageURL} alt={`news-img-${item.newsId}`} />
 				<div className="title">
 					<p>{item.title}</p>

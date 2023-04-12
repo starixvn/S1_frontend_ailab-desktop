@@ -8,6 +8,7 @@ import { GET_LANG_ID } from "../../service/language";
 import path from "../../router";
 import useHandleLogin from "../hook/useHandleLogin";
 import usePopBox from "../hook/usePopBox";
+import { getCurrencyCode } from "../common/common";
 
 export default () => {
 	const { t } = useTranslation();
@@ -15,6 +16,9 @@ export default () => {
 	const { handleLogin } = useHandleLogin();
 	const { errorPopBox } = usePopBox();
 	const langId = GET_LANG_ID(userInfo.langId);
+	const currencyId = userInfo.currencyId
+		? userInfo.currencyId
+		: getCurrencyCode(userInfo.langId);
 
 	return (
 		<Marquee
@@ -24,6 +28,7 @@ export default () => {
 			handleLogin={handleLogin}
 			navigate={navigate}
 			errorPopBox={errorPopBox}
+			currencyId={currencyId}
 		/>
 	);
 };
@@ -49,8 +54,8 @@ class Marquee extends Component {
 		}
 	};
 
-	GetAnnouncement = langId => {
-		api_message_GetAnnouncement(langId).then(
+	GetAnnouncement = (langId, currencyId) => {
+		api_message_GetAnnouncement({ langId, currencyId }).then(
 			res => {
 				if (this.isMountedRef) {
 					if (res.data.errorCode === 0) {
@@ -139,7 +144,7 @@ class Marquee extends Component {
 
 	componentDidMount = () => {
 		this.isMountedRef = true;
-		this.GetAnnouncement(this.props.langId);
+		this.GetAnnouncement(this.props.langId, this.props.currencyId);
 		this.intervalId = setInterval(
 			this.GetAnnouncement.bind(this, this.props.langId),
 			60000
@@ -208,7 +213,8 @@ Marquee.defaultProps = {
 	// errorPopBox: () => null,
 	isLogin: null,
 	navigate: () => null,
-	handleLogin: () => null
+	handleLogin: () => null,
+	currencyId: null
 };
 
 Marquee.propTypes = {
@@ -216,5 +222,6 @@ Marquee.propTypes = {
 	// errorPopBox: PropTypes.func,
 	isLogin: PropTypes.bool,
 	navigate: PropTypes.func,
-	handleLogin: PropTypes.func
+	handleLogin: PropTypes.func,
+	currencyId: PropTypes.number
 };

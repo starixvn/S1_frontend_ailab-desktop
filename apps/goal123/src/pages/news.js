@@ -10,6 +10,7 @@ import { api_news_GetNews } from "../service/api/news";
 import { Pagination } from "../components/common/pagination";
 import Loading from "../components/common/loading";
 import { defPopBoxType } from "../components/common/popBox";
+import { getCurrencyCode } from "../components/common/common";
 
 export default () => {
 	return (
@@ -40,6 +41,7 @@ const Content = () => {
 	});
 	const [loading, setLoading] = useState(true);
 	const isMountedRef = useRef(null);
+	const currencyId = userInfo.currencyId ?? getCurrencyCode(userInfo.langId);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -60,7 +62,8 @@ const Content = () => {
 		api_news_GetNews({
 			langId: userInfo.langId,
 			PageNumber: pageNumber,
-			PageSize: 15
+			PageSize: 15,
+			currencyId
 		}).then(
 			res => {
 				if (isMountedRef.current) {
@@ -79,7 +82,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -99,7 +103,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -118,7 +123,6 @@ const Content = () => {
 			GetNews(page);
 		}
 	};
-
 	const arr = getNews?.map(item => {
 		return (
 			<div key={`News-${item.newsId}`}>
@@ -128,7 +132,8 @@ const Content = () => {
 				<div className="btnGroup">
 					<Link
 						className="blue"
-						to={`/${userInfo.langId}/${path.news.root}/${path.news.sub.newsInfo.root}?newsId=${item.newsId}`}>
+						to={`/${userInfo.langId}/${path.news.root}/${path.news.sub.newsInfo.root}?newsId=${item.newsId}`}
+					>
 						{t("lbl_Details")}
 					</Link>
 				</div>

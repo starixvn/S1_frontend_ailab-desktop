@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
-import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Footer from "../components/footer/footer";
 import LeftMenu from "../components/common/leftMenu";
 import { userInfoContext, popBoxContext } from "../components/common/context";
-import { getUrlParameter } from "../components/common/common";
+import { getCurrencyCode, getUrlParameter } from "../components/common/common";
 import { api_news_GetNewsById } from "../service/api/news";
 import path from "../router";
 import Loading from "../components/common/loading";
@@ -42,6 +41,7 @@ const Content = () => {
 	});
 	const [loading, setLoading] = useState(true);
 	const isMountedRef = useRef(null);
+	const currencyId = userInfo.currencyId ?? getCurrencyCode(userInfo.langId);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -63,7 +63,8 @@ const Content = () => {
 
 		api_news_GetNewsById({
 			langId: userInfo.langId,
-			NewsId: Number(newsId)
+			NewsId: Number(newsId),
+			currencyId
 		}).then(
 			res => {
 				if (isMountedRef.current) {
@@ -83,7 +84,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -103,7 +105,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>

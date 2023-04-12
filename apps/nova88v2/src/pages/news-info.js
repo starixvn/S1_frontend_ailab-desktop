@@ -55,14 +55,14 @@ const Content = () => {
 
 	const openNews = () => {
 		const newsId = getUrlParameter("newsId");
-
 		const ClickClose = () => {
 			setPopBox({ isOpen: false });
 		};
 
 		api_news_GetNewsById({
 			langId: userInfo.langId,
-			NewsId: Number(newsId)
+			NewsId: Number(newsId),
+			currencyId: userInfo.currencyId
 		}).then(
 			res => {
 				if (isMountedRef.current) {
@@ -82,7 +82,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -102,7 +103,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -126,7 +128,8 @@ const Content = () => {
 		<div className="infoModule">
 			<button
 				className="btn-check icon icon-arrow-left2"
-				onClick={clickBack}>
+				onClick={clickBack}
+			>
 				{t("lbl_Back")}
 			</button>
 			<article>

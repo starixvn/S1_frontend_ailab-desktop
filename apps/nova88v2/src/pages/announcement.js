@@ -66,7 +66,10 @@ const Content = () => {
 	useEffect(() => {
 		async function getData() {
 			setLoading(true);
-			await api_message_GetAnnouncement(userInfo.langId).then(
+			await api_message_GetAnnouncement({
+				langId: userInfo.langId,
+				currencyId: userInfo.currencyId
+			}).then(
 				({ data: { data, message, errorCode } }) => {
 					if (!isMountedRef.current) return;
 
