@@ -6,7 +6,10 @@ import {
 	userInfoContext,
 	popBoxContext
 } from "../../components/common/context";
-import { getUrlParameter } from "../../components/common/common";
+import {
+	getCurrencyCode,
+	getUrlParameter
+} from "../../components/common/common";
 import { api_news_GetNewsById } from "../../service/api/news";
 import { defPopBoxType } from "../../components/common/defPopBoxType";
 
@@ -36,6 +39,7 @@ const Content = () => {
 		imgURL: ""
 	});
 	const isMountedRef = useRef(null);
+	const currencyId = userInfo.currencyId ?? getCurrencyCode(userInfo.langId);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -57,7 +61,8 @@ const Content = () => {
 
 		api_news_GetNewsById({
 			langId: userInfo.langId,
-			NewsId: Number(newsId)
+			NewsId: Number(newsId),
+			currencyId
 		}).then(
 			res => {
 				if (isMountedRef.current) {

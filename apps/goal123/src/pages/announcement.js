@@ -9,6 +9,7 @@ import Footer from "../components/footer/footer";
 import LeftMenu from "../components/common/leftMenu";
 import Loading from "../components/common/loading";
 import { defPopBoxType } from "../components/common/popBox";
+import { getCurrencyCode } from "../components/common/common";
 
 export default () => {
 	return (
@@ -35,7 +36,7 @@ const Content = () => {
 	const [getAnnouncement, setGetAnnouncement] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const isMountedRef = useRef(null);
-
+	const currencyId = userInfo.currencyId ?? getCurrencyCode(userInfo.langId);
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -44,7 +45,10 @@ const Content = () => {
 	});
 
 	useEffect(() => {
-		api_message_GetAnnouncement(userInfo.langId).then(
+		api_message_GetAnnouncement({
+			langId: userInfo.langId,
+			currencyId
+		}).then(
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
@@ -58,7 +62,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -78,7 +83,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>

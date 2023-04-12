@@ -25,7 +25,8 @@ export const HomeNews = ({ t, userInfo }) => {
 		api_news_GetNews({
 			langId: userInfo.langId,
 			PageNumber: 1,
-			PageSize: 2
+			PageSize: 2,
+			currencyId: userInfo.currencyId
 		}).then(
 			res => {
 				if (isMountedRef.current) {
@@ -40,7 +41,8 @@ export const HomeNews = ({ t, userInfo }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -59,7 +61,8 @@ export const HomeNews = ({ t, userInfo }) => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -85,7 +88,8 @@ export const HomeNews = ({ t, userInfo }) => {
 					<div className="btnGroup">
 						<button
 							className="lightblue"
-							onClick={clickToNews.bind(this, item.newsId)}>
+							onClick={clickToNews.bind(this, item.newsId)}
+						>
 							{t("lbl_Read_more")}
 						</button>
 					</div>

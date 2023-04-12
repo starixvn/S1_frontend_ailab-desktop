@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { navigate } from "@reach/router";
+import { navigate, useLocation } from "@reach/router";
 import PropTypes from "prop-types";
 import { popUpMsgContext } from "../common/context";
 import path from "../../router";
@@ -7,21 +7,29 @@ import useGetPopUpMsg from "../hook/useGetPopUpMsg";
 
 export default function Component({ userInfo }) {
 	const { setPopUp, popUp } = useContext(popUpMsgContext);
-	const { ReadPopupMsg } = useGetPopUpMsg({ setPopUp });
-
-	return popUp.id !== "" ? (
+	const location = useLocation();
+	useGetPopUpMsg({ setPopUp });
+	// 進入 message 頁面不顯示 popUp
+	return popUp.id !== "" &&
+		location.pathname.split("/")[2] !== path.message.root ? (
 		<div
 			className="mailtipPop"
 			onClick={e => {
 				e.preventDefault();
 				e.stopPropagation();
-			}}>
+			}}
+		>
 			<button
 				className="icon icon-close"
 				onClick={e => {
 					e.preventDefault();
 					e.stopPropagation();
-					ReadPopupMsg();
+					// 清空 id 則會隱藏提示框
+					setPopUp({
+						popupMessage: "",
+						id: "",
+						pageNumber: ""
+					});
 				}}
 			/>
 			<span
@@ -33,7 +41,8 @@ export default function Component({ userInfo }) {
 							popupShowed: false
 						}
 					});
-				}}>
+				}}
+			>
 				{popUp.popupMessage}
 			</span>
 		</div>
