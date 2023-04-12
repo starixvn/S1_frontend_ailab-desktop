@@ -7,12 +7,14 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { GET_LANG_ID } from "../../service/language";
 import { defPopBoxType } from "../common/defPopBoxType";
 import path from "../../router";
+import { getCurrencyCode } from "../common/common";
 
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const langId = GET_LANG_ID(userInfo.langId);
+	const currencyId = userInfo.currencyId ?? getCurrencyCode(userInfo.langId);
 
 	const ClickClose = () => {
 		setPopBox({ isOpen: false });
@@ -25,6 +27,7 @@ export default () => {
 			isLogin={userInfo.isLogin}
 			setPopBox={setPopBox}
 			ClickClose={ClickClose}
+			currencyId={currencyId}
 		/>
 	);
 };
@@ -50,8 +53,8 @@ class Marquee extends Component {
 		}
 	};
 
-	GetAnnouncement = langId => {
-		api_message_GetAnnouncement(langId).then(
+	GetAnnouncement = (langId, currencyId) => {
+		api_message_GetAnnouncement({ langId, currencyId }).then(
 			res => {
 				if (this.isMountedRef) {
 					if (res.data.errorCode === 0) {
@@ -166,7 +169,7 @@ class Marquee extends Component {
 
 	componentDidMount = () => {
 		this.isMountedRef = true;
-		this.GetAnnouncement(this.props.langId);
+		this.GetAnnouncement(this.props.langId, this.props.currencyId);
 		this.intervalId = setInterval(
 			this.GetAnnouncement.bind(this, this.props.langId),
 			60000
@@ -231,7 +234,8 @@ class Marquee extends Component {
 Marquee.defaultProps = {
 	langId: null,
 	setPopBox: () => null,
-	isLogin: null
+	isLogin: null,
+	currencyId: null
 	// ClickClose: () => null,
 	// i18n: null
 };
@@ -239,7 +243,8 @@ Marquee.defaultProps = {
 Marquee.propTypes = {
 	langId: PropTypes.string,
 	setPopBox: PropTypes.func,
-	isLogin: PropTypes.bool
+	isLogin: PropTypes.bool,
+	currencyId: PropTypes.number
 	// ClickClose: PropTypes.func,
 	// i18n: PropTypes.objectOf(PropTypes.any)
 };
