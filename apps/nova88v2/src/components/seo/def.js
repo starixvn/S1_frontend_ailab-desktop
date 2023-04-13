@@ -1089,7 +1089,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 | Best Online Slots | Asia's Most Trusted Platform`,
 			description: `Explore More Slot Games in Nova88. Login Everyday And Enjoy The Games. Get Appreciation Token and Weekly Free Spins From Us. Don't Miss Out, Claim Now!`,
-			keyword: `Slots, Online Slots, Casino Slot Games, Slot Machine, Free Spins, Habanero, Jili, Mega888, Pragmatic Play, NetEnt, Game Play, YGGdrasil, Joker, AdvantPlay, Spade Gaming, Red Tiger, CQ9, Astro Tech, Playtech`,
+			keyword: `Slots, Online Slots, Casino Slot Games, Slot Machine, Free Spins, Habanero, Jili, Mega888, Pragmatic Play, NetEnt, Game Play, YGGdrasil, Joker, AdvantPlay, Spade Gaming, Red Tiger, CQ9, Playtech`,
 			links: [
 				{
 					rel: "alternate",
@@ -1387,7 +1387,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 | Fishing Online | Best Fishing Games`,
 			description: `Fishing Online At Nova88, Immerse Yourself Into The Deep of Sea. Select Some Juicy Bait, Shoot Down Various Sea Creatures To Collect Points And Rewards.`,
-			keyword: `Fishing Game, Fishing Online, Casino Fishing Game, Fishing Game Real Money, Arcade Fishing Game, Fishing War, Fish Haiba, Happy Fish 5, Monster Awaken, Fishing World, Dragonball Fishing, Paradise`,
+			keyword: `Fishing Game, Fishing Online, Casino Fishing Game, Fishing Game Real Money, Arcade Fishing Game, Fishing War, Fish Haiba, Happy Fish 5, Monster Awaken, Fishing World, Paradise`,
 			links: [
 				{ rel: "canonical", href: `https://www.nova88.net/en/fishing` },
 				{
