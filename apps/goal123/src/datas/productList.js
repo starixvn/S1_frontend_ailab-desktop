@@ -398,11 +398,11 @@ export const defCasinoProviders = {
 		name: "CQ9",
 		tpGameType: 29
 	},
-	AstroTech: {
-		tpId: 24,
-		name: "AstroTech",
-		tpGameType: 39
-	},
+	// AstroTech: {
+	// 	tpId: 24,
+	// 	name: "AstroTech",
+	// 	tpGameType: 39
+	// },
 	MGPSW: {
 		tpId: 34,
 		gameId: "",
@@ -457,7 +457,7 @@ export const defSlotTpGameType = {
 	SG: { tpId: 10, tpGameType: 15, name: "spadegaming" },
 	PG: { tpId: 14, tpGameType: 17, name: "pg" },
 	CQ9: { tpId: 16, tpGameType: 29, name: "cq9" },
-	Iconic: { tpId: 24, tpGameType: 39, name: "astro-tech" },
+	// Iconic: { tpId: 24, tpGameType: 39, name: "astro-tech" },
 	PT: { tpId: 27, tpGameType: 46, name: "playtech" },
 	JILI: { tpId: 32, tpGameType: 53, name: "jili" },
 	AP: { tpId: 39, tpGameType: 67, name: "advant-play" },

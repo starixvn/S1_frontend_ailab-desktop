@@ -363,23 +363,23 @@ export const defMenuLinks = langId => ({
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playtech-item.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/playtech-icon.png`
 			},
-			{
-				...defCasinoProviders.AstroTech,
-				className: "ICG",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
-				icon: "icon icon-icg",
-				displayText: "Astro Tech",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.AstroTech.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/icg.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/icg-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/icg-icon.png`
-			},
+			// {
+			// 	...defCasinoProviders.AstroTech,
+			// 	className: "ICG",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.icg
+			// 		})
+			// 	],
+			// 	icon: "icon icon-icg",
+			// 	displayText: "Astro Tech",
+			// 	menuType: defMenuType.Link,
+			// 	parameter: { provider: defCasinoProviders.AstroTech.name },
+			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/icg.png`,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/icg-item.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/icg-icon.png`
+			// },
 			{
 				...defCasinoProviders.CQ9,
 				className: "CQ9",
@@ -785,70 +785,70 @@ export const defMenuLinks = langId => ({
 			// 	parameter: { ...productList.CQ9_Thunder_Fighter }
 			// },
 
-			{
-				...productList.ICG_DRAGONBALL_FISHING,
-				className: "fdb",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
-				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.ICG_DRAGONBALL_FISHING },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/dragonball.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/dragonball-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/icg-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/dragonball.png`,
-					providerImg: "icg"
-				}
-			},
-			{
-				...productList.ICG_FISHING_OF_SAVIORS,
-				className: "ffos",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
-				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
-				menuType: defMenuType.entPage,
-				parameter: {
-					...productList.ICG_FISHING_OF_SAVIORS
-				},
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/saviors.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/saviors-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/icg-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/saviors.png`,
-					providerImg: "icg"
-				}
-			},
-			{
-				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
-				className: "fttatp",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
-				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
-				menuType: defMenuType.entPage,
-				parameter: {
-					...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
-				},
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/thetyrant.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/thetyrant-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/icg-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/tyrant.png`,
-					providerImg: "icg"
-				}
-			},
+			// {
+			// 	...productList.ICG_DRAGONBALL_FISHING,
+			// 	className: "fdb",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.icg
+			// 		})
+			// 	],
+			// 	displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.ICG_DRAGONBALL_FISHING },
+			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/dragonball.png`,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/dragonball-item.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/icg-icon.png`,
+			// 	lobbyPage: {
+			// 		bgImg: `${bannerImgUrl}/desktop/img/fishing/dragonball.png`,
+			// 		providerImg: "icg"
+			// 	}
+			// },
+			// {
+			// 	...productList.ICG_FISHING_OF_SAVIORS,
+			// 	className: "ffos",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.icg
+			// 		})
+			// 	],
+			// 	displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: {
+			// 		...productList.ICG_FISHING_OF_SAVIORS
+			// 	},
+			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/saviors.png`,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/saviors-item.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/icg-icon.png`,
+			// 	lobbyPage: {
+			// 		bgImg: `${bannerImgUrl}/desktop/img/fishing/saviors.png`,
+			// 		providerImg: "icg"
+			// 	}
+			// },
+			// {
+			// 	...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
+			// 	className: "fttatp",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.icg
+			// 		})
+			// 	],
+			// 	displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: {
+			// 		...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
+			// 	},
+			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/thetyrant.png`,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/thetyrant-item.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/icg-icon.png`,
+			// 	lobbyPage: {
+			// 		bgImg: `${bannerImgUrl}/desktop/img/fishing/tyrant.png`,
+			// 		providerImg: "icg"
+			// 	}
+			// },
 			{
 				...productList.fishing,
 				className: "fgg",
