@@ -886,17 +886,17 @@ export const defMenuLinks = {
 				],
 				...productList.casino_PT
 			},
-			{
-				keyName: "slot_ICG",
-				icon: "icon icon-ICG",
-				displayText: "Astro Tech",
-				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotICG.png",
-				listBgImgUrl: "slotListHover.png",
-				// parameter: { ...productList.casino_ICG },
-				parameter: { provider: "astro-tech" },
-				...productList.casino_ICG
-			},
+			// {
+			// 	keyName: "slot_ICG",
+			// 	icon: "icon icon-ICG",
+			// 	displayText: "Astro Tech",
+			// 	menuType: defMenuType.Link,
+			// 	listNpcImgUrl: "slotICG.png",
+			// 	listBgImgUrl: "slotListHover.png",
+			// 	// parameter: { ...productList.casino_ICG },
+			// 	parameter: { provider: "astro-tech" },
+			// 	...productList.casino_ICG
+			// },
 			{
 				keyName: "slot_JOKER",
 				icon: "icon icon-JOKER",
@@ -1188,20 +1188,6 @@ export const defMenuLinks = {
 				}
 			},
 			{
-				keyName: "fishing_ICG_DRAGONBALL",
-				className: "fsdf",
-				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishICG-DB.png",
-				listBgImgUrl: "fishListHover.png",
-				...productList.ICG_DRAGONBALL_FISHING,
-				parameter: { ...productList.ICG_DRAGONBALL_FISHING },
-				lobbyPage: {
-					bgImg: "fishdf.png",
-					hoverBgImg: "fishdfa.png"
-				}
-			},
-			{
 				keyName: "fishing_GGYL_WORLD",
 				className: "fgg",
 				displayKey: "lbl_FishingGG",
@@ -1296,37 +1282,37 @@ export const defMenuLinks = {
 					hoverBgImg: "fishofa.png"
 				},
 				allowCurrencies: allowedCurrencyList.oneShot
-			},
-			{
-				keyName: "fishing_ICG_THE_TYRANT_AND_THE_PRINCESS",
-				className: "fsg",
-				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishICG-TTATP.png",
-				listBgImgUrl: "fishListHover.png",
-				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
-				parameter: { ...productList.ICG_THE_TYRANT_AND_THE_PRINCESS },
-				lobbyPage: {
-					bgImg: "fishtp.png",
-					hoverBgImg: "fishtpa.png"
-				},
-				allowCurrencies: allowedCurrencyList.tyrantAndProncess
-			},
-			{
-				keyName: "ICG_FISHING_OF_SAVIORS",
-				className: "fsg",
-				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishICG-FOS.png",
-				listBgImgUrl: "fishListHover.png",
-				...productList.ICG_FISHING_OF_SAVIORS,
-				parameter: { ...productList.ICG_FISHING_OF_SAVIORS },
-				lobbyPage: {
-					bgImg: "fishfs.png",
-					hoverBgImg: "fishfsa.png"
-				},
-				allowCurrencies: allowedCurrencyList.fishingOfSaviors
 			}
+			// {
+			// 	keyName: "fishing_ICG_THE_TYRANT_AND_THE_PRINCESS",
+			// 	className: "fsg",
+			// 	displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
+			// 	menuType: defMenuType.entPage,
+			// 	listNpcImgUrl: "fishICG-TTATP.png",
+			// 	listBgImgUrl: "fishListHover.png",
+			// 	...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
+			// 	parameter: { ...productList.ICG_THE_TYRANT_AND_THE_PRINCESS },
+			// 	lobbyPage: {
+			// 		bgImg: "fishtp.png",
+			// 		hoverBgImg: "fishtpa.png"
+			// 	},
+			// 	allowCurrencies: allowedCurrencyList.tyrantAndProncess
+			// },
+			// {
+			// 	keyName: "ICG_FISHING_OF_SAVIORS",
+			// 	className: "fsg",
+			// 	displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
+			// 	menuType: defMenuType.entPage,
+			// 	listNpcImgUrl: "fishICG-FOS.png",
+			// 	listBgImgUrl: "fishListHover.png",
+			// 	...productList.ICG_FISHING_OF_SAVIORS,
+			// 	parameter: { ...productList.ICG_FISHING_OF_SAVIORS },
+			// 	lobbyPage: {
+			// 		bgImg: "fishfs.png",
+			// 		hoverBgImg: "fishfsa.png"
+			// 	},
+			// 	allowCurrencies: allowedCurrencyList.fishingOfSaviors
+			// }
 		]
 	},
 	lottery: {

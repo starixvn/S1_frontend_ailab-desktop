@@ -311,20 +311,20 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.PT.name }
 			},
-			{
-				...defCasinoProviders.AstroTech,
-				className: "ICG",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
-				icon: "icon icon-ICG",
-				displayText: "Astro Tech",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.AstroTech.name }
-			},
+			// {
+			// 	...defCasinoProviders.AstroTech,
+			// 	className: "ICG",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.icg
+			// 		})
+			// 	],
+			// 	icon: "icon icon-ICG",
+			// 	displayText: "Astro Tech",
+			// 	menuType: defMenuType.Link,
+			// 	parameter: { provider: defCasinoProviders.AstroTech.name }
+			// },
 			{
 				...defCasinoProviders.CQ9,
 				className: "CQ9",
@@ -639,50 +639,50 @@ export const defMenuLinks = {
 			// 		bgClass: "fish-casdaha"
 			// 	}
 			// },
-			{
-				...productList.ICG_DRAGONBALL_FISHING,
-				className: "fs-db",
-				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.ICG_DRAGONBALL_FISHING },
-				lobbyPage: {
-					bgClass: "fish-db"
-				}
-			},
-			{
-				...productList.ICG_FISHING_OF_SAVIORS,
-				className: "fs-fos",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
-				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.ICG_FISHING_OF_SAVIORS },
-				lobbyPage: {
-					bgClass: "fish-saviors"
-				}
-			},
-			{
-				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
-				className: "fs-ttatp",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
-				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
-				menuType: defMenuType.entPage,
-				parameter: {
-					...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
-				},
-				lobbyPage: {
-					bgClass: "fish-ttsatp"
-				}
-			},
+			// {
+			// 	...productList.ICG_DRAGONBALL_FISHING,
+			// 	className: "fs-db",
+			// 	displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.ICG_DRAGONBALL_FISHING },
+			// 	lobbyPage: {
+			// 		bgClass: "fish-db"
+			// 	}
+			// },
+			// {
+			// 	...productList.ICG_FISHING_OF_SAVIORS,
+			// 	className: "fs-fos",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.icg
+			// 		})
+			// 	],
+			// 	displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.ICG_FISHING_OF_SAVIORS },
+			// 	lobbyPage: {
+			// 		bgClass: "fish-saviors"
+			// 	}
+			// },
+			// {
+			// 	...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
+			// 	className: "fs-ttatp",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.icg
+			// 		})
+			// 	],
+			// 	displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: {
+			// 		...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
+			// 	},
+			// 	lobbyPage: {
+			// 		bgClass: "fish-ttsatp"
+			// 	}
+			// },
 			{
 				...productList.fishing,
 				className: "fs-world",
