@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from "react";
+import React, { memo, useState, useEffect, useRef } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
@@ -14,8 +14,8 @@ const swiperConfig = {
 const EventSwipper = memo(({ langId }) => {
 	const { errorPopBox } = usePopBox();
 	const [banner, setBanner] = useState([]);
-
-	useEffect(() => {
+	const timeRef = useRef(null);
+	const getHotEventDataList = () => {
 		api_hotEvent_GetDataList({ langId }).then(
 			res => {
 				const { errorCode, message, data } = res.data;
@@ -29,6 +29,18 @@ const EventSwipper = memo(({ langId }) => {
 				errorPopBox();
 			}
 		);
+	};
+
+	useEffect(() => {
+		getHotEventDataList();
+		const interval = setInterval(() => {
+			getHotEventDataList();
+		}, 60000);
+		timeRef.current = interval;
+
+		return () => {
+			clearInterval(timeRef.current);
+		};
 	}, []);
 
 	const OnClickEvent = ({ tpId, gameId, matchId }) => {
