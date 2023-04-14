@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation } from "@reach/router";
 import { Link, navigate } from "gatsby";
+import moment from "moment";
 import {
 	getUrlParameter,
 	readCookie,
@@ -254,7 +255,52 @@ const useDepositEffect = ({
 				setPopBox({ isOpen: false });
 				checkUserInfo();
 			};
-			if (isShowBackupDomain) {
+			const cookiePromptDeposit = `promptDeposit${userInfo.userName}`;
+			const isShowPromptDeposit = readCookie(cookiePromptDeposit) !== "1";
+
+			const now = moment();
+			const nowInGMT8 = now.utcOffset(480);
+			const hour = nowInGMT8.hour();
+			if (
+				userInfo.currencyId === defCurrencyList.THB &&
+				hour >= 0 &&
+				hour < 3 &&
+				isShowPromptDeposit
+			) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.PromptDeposit,
+					onClickClose: () => {
+						setPopBox({ isOpen: false });
+						if (isShowBackupDomain) {
+							api_site_GetSupportDomainList({
+								langId: userInfo.langId
+							}).then(res => {
+								if (
+									res.data.errorCode === 0 &&
+									isMounted &&
+									res.data.data.length > 0
+								) {
+									!userInfo.isResetPwd &&
+										setPopBox({
+											isOpen: true,
+											popBoxType:
+												defPopBoxType.BackupDomain,
+											clickBackDropToClose: true,
+											onClickClose: () =>
+												closeBackupThenCheckInfo(),
+											linkList: res.data.data
+										});
+								} else {
+									checkUserInfo();
+								}
+							});
+						} else {
+							checkUserInfo();
+						}
+					}
+				});
+			} else if (isShowBackupDomain) {
 				api_site_GetSupportDomainList({ langId: userInfo.langId }).then(
 					res => {
 						if (

@@ -34,6 +34,7 @@ import RankingWinner from "./popBox.rankingWinner";
 import DepositUploadBankSlip from "./popBox.depositUploadBankSlip";
 import SuccessMySteryBox from "./popBox.successMySteryBox";
 import BackupDomain from "./popBox.backupDomain";
+import { PromptDeposit } from "./popBox.promptDeposit";
 import UnderMaintain from "./popBox.underMaintain";
 import Photo from "./popBox.photo";
 import Modal from "./popBox.modal";
@@ -299,6 +300,10 @@ export default () => {
 			);
 			break;
 
+		case defPopBoxType.PromptDeposit:
+			content = <PromptDeposit onClickClose={popBox.onClickClose} />;
+			break;
+
 		case defPopBoxType.PaymentQR: {
 			const PaymentQR = lazy(() => import("./popBox.paymentQR"));
 			content = (
@@ -398,7 +403,8 @@ export default () => {
 		<div
 			id="popup"
 			className="active"
-			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}>
+			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}
+		>
 			<div className="pop">{memorizeContent}</div>
 		</div>
 	);
