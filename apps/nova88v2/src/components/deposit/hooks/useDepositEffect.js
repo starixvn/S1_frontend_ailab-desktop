@@ -248,7 +248,8 @@ const useDepositEffect = ({
 			}
 		};
 
-		if (userInfo.isLogin && userInfo.userName) {
+		// * 真正的 login
+		if (userInfo.isLogin && userInfo.accountName) {
 			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
 			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
 			const closeBackupThenCheckInfo = () => {
@@ -331,7 +332,7 @@ const useDepositEffect = ({
 			isMounted = false;
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
+	}, [userInfo.isLogin, userInfo.userName]);
 
 	useEffect(() => {
 		if (formInfo.amount !== null) {
