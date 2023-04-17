@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import i18next from "i18next";
 import { isDateRange } from "@ailab-desktop/common";
 import { AngpaoFloatLink } from "@ailab-desktop/components";
-import { api_events_GetLeaderboardListV2 } from "../../service/api/events";
+import { api_events_GetLeaderboardList } from "../../service/api/events";
 import path from "../../router";
 import {
 	userInfoContext,
@@ -234,7 +234,7 @@ function Home() {
 			EventCode: "202104"
 		};
 
-		api_events_GetLeaderboardListV2(payload).then(
+		api_events_GetLeaderboardList(payload).then(
 			res => {
 				if (!isMountedRef.current) return;
 				if (res.data.errorCode === 0) {

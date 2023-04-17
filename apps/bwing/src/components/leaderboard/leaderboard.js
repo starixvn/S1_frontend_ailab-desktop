@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import {
-	api_events_GetLeaderboardListV2,
-	api_events_GetCustRankV2
+	api_events_GetLeaderboardList,
+	api_events_GetCustRank
 } from "../../service/api/events";
 import bottomImgResult from "../../styles/img/ranking/bottomImg.png";
 import moneyImgResult from "../../styles/img/ranking/money.png";
@@ -185,7 +185,7 @@ export default () => {
 			EventCode: defPeriodList[currentperiodId].eventCode
 		};
 
-		await api_events_GetLeaderboardListV2(payload).then(async res => {
+		await api_events_GetLeaderboardList(payload).then(async res => {
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0) {
 					const topArr = res.data.data;
@@ -200,7 +200,7 @@ export default () => {
 					} else if (userInTop) {
 						setRankingData(topArr);
 					} else {
-						const selfItem = await api_events_GetCustRankV2({
+						const selfItem = await api_events_GetCustRank({
 							LBCategoryId: payload.lBCategoryId,
 							BeforeDays: payload.BeforeDays,
 							EventCode: payload.EventCode

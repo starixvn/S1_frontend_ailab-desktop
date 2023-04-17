@@ -1,24 +1,24 @@
 import { eventsRequest } from "./base";
 
-export const api_events_GetLeaderboardListV2 = ({
+export const api_events_GetLeaderboardList = ({
 	lBCategoryId,
 	TopNum,
 	BeforeDays,
 	EventCode
 }) =>
-	eventsRequest.post("/GetLeaderboardListV2", {
+	eventsRequest.post("/GetLeaderboardList", {
 		lBCategoryId,
 		TopNum,
 		BeforeDays,
 		EventCode
 	});
 
-export const api_events_GetCustRankV2 = ({
+export const api_events_GetCustRank = ({
 	LBCategoryId,
 	BeforeDays,
 	EventCode
 }) =>
-	eventsRequest.post("/GetCustRankV2", {
+	eventsRequest.post("/GetCustRank", {
 		LBCategoryId,
 		BeforeDays,
 		EventCode
