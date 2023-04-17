@@ -9,6 +9,7 @@ import { getUrlParameter, passwordCheck } from "../common/common";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import ResetPasswordForm from "./resetPassword.form";
+import useShieldCheck from "../hook/useShieldCheck";
 
 const initStatus = { checked: null, msg: "" };
 
@@ -56,7 +57,8 @@ const ResetPassWord = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -137,7 +139,8 @@ const ResetPassWord = () => {
 											<div className="btnGroup">
 												<button
 													className="btn-cancel"
-													onClick={ClickPopBoxClose}>
+													onClick={ClickPopBoxClose}
+												>
 													{t("lbl_Close")}
 												</button>
 											</div>
@@ -161,7 +164,8 @@ const ResetPassWord = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={handleLogout}>
+											onClick={handleLogout}
+										>
 											OK
 										</button>
 									</div>
@@ -177,7 +181,8 @@ const ResetPassWord = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -196,7 +201,8 @@ const ResetPassWord = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
