@@ -4,8 +4,8 @@ import moment from "moment";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import {
-	api_events_GetLeaderboardListV2,
-	api_events_GetCustRankV2
+	api_events_GetLeaderboardList,
+	api_events_GetCustRank
 } from "../../service/api/events";
 import {
 	defTabId,
@@ -149,14 +149,14 @@ export default () => {
 			EventCode: defPeriodList[currentperiodId].eventCode
 		};
 
-		await api_events_GetLeaderboardListV2(payload).then(
+		await api_events_GetLeaderboardList(payload).then(
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
 						const rankDatas = res.data.data;
 
 						if (rankDatas?.length > 0) {
-							api_events_GetCustRankV2({
+							api_events_GetCustRank({
 								LBCategoryId: payload.lBCategoryId,
 								BeforeDays: payload.BeforeDays,
 								EventCode: payload.EventCode

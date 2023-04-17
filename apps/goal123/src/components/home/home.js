@@ -21,7 +21,7 @@ import {
 	number_format
 } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
-import { api_events_GetLeaderboardListV2 } from "../../service/api/events";
+import { api_events_GetLeaderboardList } from "../../service/api/events";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import config from "../../config";
@@ -251,7 +251,7 @@ const Home = ({ productTpIds }) => {
 			EventCode: "202104"
 		};
 
-		api_events_GetLeaderboardListV2(payload).then(
+		api_events_GetLeaderboardList(payload).then(
 			res => {
 				if (!isMountedRef.current) return;
 				if (res.data.errorCode === 0) {
