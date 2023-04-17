@@ -117,7 +117,13 @@ const Panel = ({
 
 				{isCrypto ? (
 					<div className="accountInfo">
-						<div>{imgUrl}</div>
+						<div
+							style={{
+								wordBreak: "break-all",
+								textAlign: "center"
+							}}>
+							{imgUrl}
+						</div>
 						<div>
 							<button
 								className="copyBtn"
@@ -150,7 +156,11 @@ const Panel = ({
 
 				{accountNumber && (
 					<div className="accountInfo">
-						<div>
+						<div
+							style={{
+								wordBreak: "break-all",
+								textAlign: "center"
+							}}>
 							{t("lbl_Deposit_DragonPayPop_BankName")}：{bankName}
 						</div>
 						<div>
