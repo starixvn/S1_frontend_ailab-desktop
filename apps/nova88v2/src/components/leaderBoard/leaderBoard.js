@@ -5,8 +5,8 @@ import { navigate } from "gatsby";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import {
-	GetLeaderboardListV3,
-	api_events_GetCustRankV2,
+	api_events_GetLeaderboardList,
+	api_events_GetCustRank,
 	GetLeaderboardListMonth,
 	GetCustRankMonth
 } from "../../service/api/events";
@@ -197,11 +197,11 @@ export default () => {
 		};
 
 		const GetRankDatas = async () => {
-			await GetLeaderboardListV3(payload).then(res => {
+			await api_events_GetLeaderboardList(payload).then(res => {
 				if (res.data.errorCode === 0) {
 					const rankDatas = res.data.data;
 					if (rankDatas?.length > 0) {
-						api_events_GetCustRankV2({
+						api_events_GetCustRank({
 							LBCategoryId: payload.lBCategoryId,
 							BeforeDays: payload.BeforeDays,
 							EventCode: payload.EventCode
