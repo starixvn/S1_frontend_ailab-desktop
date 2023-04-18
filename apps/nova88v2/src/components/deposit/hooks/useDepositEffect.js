@@ -248,91 +248,93 @@ const useDepositEffect = ({
 			}
 		};
 
-		// * 真正的 login
-		if (userInfo.isLogin && userInfo.accountName) {
-			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
-			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
-			const closeBackupThenCheckInfo = () => {
-				setPopBox({ isOpen: false });
-				checkUserInfo();
-			};
-			const cookiePromptDeposit = `promptDeposit${userInfo.userName}`;
-			const isShowPromptDeposit = readCookie(cookiePromptDeposit) !== "1";
+		const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
+		const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
+		const closeBackupThenCheckInfo = () => {
+			setPopBox({ isOpen: false });
+			checkUserInfo();
+		};
+		const cookiePromptDeposit = `promptDeposit${userInfo.userName}`;
+		const isShowPromptDeposit = readCookie(cookiePromptDeposit) !== "1";
 
-			const now = moment();
-			const nowInGMT8 = now.utcOffset(480);
-			const hour = nowInGMT8.hour();
-			if (
-				userInfo.currencyId === defCurrencyList.THB &&
-				hour >= 0 &&
-				hour < 3 &&
-				isShowPromptDeposit
-			) {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.PromptDeposit,
-					onClickClose: () => {
-						setPopBox({ isOpen: false });
-						if (isShowBackupDomain) {
-							api_site_GetSupportDomainList({
-								langId: userInfo.langId
-							}).then(res => {
-								if (
-									res.data.errorCode === 0 &&
-									isMounted &&
-									res.data.data.length > 0
-								) {
-									!userInfo.isResetPwd &&
-										setPopBox({
-											isOpen: true,
-											popBoxType:
-												defPopBoxType.BackupDomain,
-											clickBackDropToClose: true,
-											onClickClose: () =>
-												closeBackupThenCheckInfo(),
-											linkList: res.data.data
-										});
-								} else {
-									checkUserInfo();
-								}
+		const now = moment();
+		const nowInGMT8 = now.utcOffset(480);
+		const hour = nowInGMT8.hour();
+		if (
+			// * 真正的 login
+			userInfo.isLogin &&
+			userInfo.accountName &&
+			userInfo.currencyId === defCurrencyList.THB &&
+			hour >= 0 &&
+			hour < 3 &&
+			isShowPromptDeposit
+		) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.PromptDeposit,
+				onClickClose: () => {
+					setPopBox({ isOpen: false });
+					if (isShowBackupDomain) {
+						api_site_GetSupportDomainList({
+							langId: userInfo.langId
+						}).then(res => {
+							if (
+								res.data.errorCode === 0 &&
+								isMounted &&
+								res.data.data.length > 0
+							) {
+								!userInfo.isResetPwd &&
+									setPopBox({
+										isOpen: true,
+										popBoxType: defPopBoxType.BackupDomain,
+										clickBackDropToClose: true,
+										onClickClose: () =>
+											closeBackupThenCheckInfo(),
+										linkList: res.data.data
+									});
+							} else {
+								checkUserInfo();
+							}
+						});
+					} else {
+						checkUserInfo();
+					}
+				}
+			});
+		} else if (
+			userInfo.isLogin &&
+			userInfo.userName &&
+			isShowBackupDomain
+		) {
+			api_site_GetSupportDomainList({ langId: userInfo.langId }).then(
+				res => {
+					if (
+						res.data.errorCode === 0 &&
+						isMounted &&
+						res.data.data.length > 0
+					) {
+						!userInfo.isResetPwd &&
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.BackupDomain,
+								clickBackDropToClose: true,
+								onClickClose: () => closeBackupThenCheckInfo(),
+								linkList: res.data.data
 							});
-						} else {
-							checkUserInfo();
-						}
+					} else {
+						checkUserInfo();
 					}
-				});
-			} else if (isShowBackupDomain) {
-				api_site_GetSupportDomainList({ langId: userInfo.langId }).then(
-					res => {
-						if (
-							res.data.errorCode === 0 &&
-							isMounted &&
-							res.data.data.length > 0
-						) {
-							!userInfo.isResetPwd &&
-								setPopBox({
-									isOpen: true,
-									popBoxType: defPopBoxType.BackupDomain,
-									clickBackDropToClose: true,
-									onClickClose: () =>
-										closeBackupThenCheckInfo(),
-									linkList: res.data.data
-								});
-						} else {
-							checkUserInfo();
-						}
-					}
-				);
-			} else {
-				checkUserInfo();
-			}
+				}
+			);
+		} else {
+			checkUserInfo();
 		}
 
 		return () => {
 			isMounted = false;
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [userInfo.isLogin, userInfo.userName]);
+	}, [userInfo.isLogin, userInfo.userName, userInfo.accountName]);
 
 	useEffect(() => {
 		if (formInfo.amount !== null) {
