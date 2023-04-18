@@ -2457,7 +2457,8 @@ header input:focus-within {
   font-size: 18px;
 }
 .header > div.function .wallet .icon-plus,
-.header > div.function .wallet .icon-minus {
+.header > div.function .wallet .icon-minus,
+.header > div.function .wallet .icon-spinner11 {
   background: #112240;
   border-radius: 30px;
   display: -webkit-box;
@@ -2470,12 +2471,19 @@ header input:focus-within {
       -ms-flex-pack: center;
           justify-content: center;
   width: 18px;
-  height: 17px;
+  height: 18px;
   margin-left: 3px;
 }
 .header > div.function .wallet .icon-plus:before,
-.header > div.function .wallet .icon-minus:before {
+.header > div.function .wallet .icon-minus:before,
+.header > div.function .wallet .icon-spinner11:before {
   color: white;
+}
+.header > div.function .wallet .icon-spinner11 {
+  background: #FF5E00;
+}
+.header > div.function .wallet .icon-spinner11::before {
+  font-size: 10px;
 }
 .header > div.function .wallet .submenu div {
   display: -webkit-box;
@@ -5986,10 +5994,15 @@ input[type=file] {
 .noticepop .checkbox {
   margin: 0 auto 15px !important;
 }
-.noticepop .checkbox label {
-  border: 1px solid #f77900 !important;
+.noticepop .checkbox input[type=checkbox] + label {
+  border: 1px solid #f77900;
 }
-.noticepop .checkbox:hover label {
+.noticepop .checkbox input[type=checkbox]:checked + label {
+  color: #f77900;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.noticepop .checkbox:hover input[type=checkbox] + label {
   background: #f77900;
 }
 
@@ -8481,8 +8494,8 @@ input:-webkit-autofill:active {
 }
 
 button.icon-spinner11.active {
-  -webkit-animation: rotate 0.7s linear 2;
-          animation: rotate 0.7s linear 2;
+  -webkit-animation: rotate 0.5s linear 2;
+          animation: rotate 0.5s linear 2;
 }
 button.icon-spinner11:before {
   margin: 0;
@@ -10011,6 +10024,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   text-transform: capitalize;
   min-height: 50px;
   word-break: break-all;
+  font-size: 13px;
 }
 .statement > div div:last-child {
   border: 0;
@@ -14532,6 +14546,40 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .rolloverListNew > div > div:last-child {
   border-right: 0;
+}
+
+.rolloverList div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 20px;
+}
+.rolloverList div div:nth-child(1) {
+  min-height: 38px;
+}
+
+.rolloverListNew > div {
+  min-height: 25px;
+}
+.rolloverListNew > div:nth-child(1) {
+  min-height: 49px;
+}
+.rolloverListNew > div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .countdown {
@@ -19336,6 +19384,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border-left: 1px solid #7591c1;
   border-right: 1px solid #7591c1;
   border-radius: 3px;
+  text-align: center;
 }
 .exclude__table__item {
   display: -webkit-box;
