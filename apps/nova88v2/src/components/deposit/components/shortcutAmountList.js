@@ -13,6 +13,7 @@ const defAmountList = {
 	[defCurrencyList.MYR]: [100, 300, 500, 1000, 2000],
 	[defCurrencyList.THB]: [500, 1000, 3000, 5000, 10000],
 	[defCurrencyList.IDR]: [300, 500, 1000, 3000, 5000],
+	[defCurrencyList.INR]: [100, 300, 500, 1000, 2000],
 	[defCurrencyList.BDT]: [100, 300, 500, 1000, 2000],
 	[defCurrencyList.CNY]: [100, 300, 500, 1000, 2000],
 	[defCurrencyList.USD]: [100, 300, 500, 1000, 2000]
@@ -49,7 +50,8 @@ const ShortcutAmountList = ({ amount, minAmount, maxAmount, onClick }) => {
 									? "active"
 									: ""
 							}
-							disabled={status !== 0}>
+							disabled={status !== 0}
+						>
 							{number_format(shortcutAmount, false, 0)}
 						</button>
 					);
