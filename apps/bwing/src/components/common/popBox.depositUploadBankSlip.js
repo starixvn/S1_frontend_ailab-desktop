@@ -281,8 +281,7 @@ const PopBoxDepositUploadBankSlip = ({
 											: " error"
 									}`}
 									onDragOver={e => e.preventDefault()}
-									onDrop={onUploadFile}
-								>
+									onDrop={onUploadFile}>
 									<input
 										type="file"
 										accept="image/*"
@@ -295,10 +294,7 @@ const PopBoxDepositUploadBankSlip = ({
 							{receiptInfo.map(({ receiptNo, depositPic }) => (
 								<label key={receiptNo} className="upload_img">
 									<input type="file" />
-									<img
-										src={`data:image/jpeg;base64,${depositPic}`}
-										alt=""
-									/>
+									<img src={depositPic} alt="" />
 								</label>
 							))}
 						</div>
@@ -311,8 +307,7 @@ const PopBoxDepositUploadBankSlip = ({
 									: " error"
 							}`}
 							onDragOver={e => e.preventDefault()}
-							onDrop={onUploadFile}
-						>
+							onDrop={onUploadFile}>
 							<input
 								type="file"
 								accept="image/*"
@@ -330,8 +325,7 @@ const PopBoxDepositUploadBankSlip = ({
 								depositImgFiles.checked === null
 									? "hidden"
 									: "visible"
-						}}
-					>
+						}}>
 						{depositImgFiles.tip}
 					</div>
 
@@ -381,8 +375,7 @@ const PopBoxDepositUploadBankSlip = ({
 						<div
 							className={`tip${
 								!depositTime.checked ? " active" : ""
-							}`}
-						>
+							}`}>
 							{depositTime.tip}
 						</div>
 
@@ -417,8 +410,7 @@ const PopBoxDepositUploadBankSlip = ({
 								onClick={() => {
 									closePopBox();
 									resolve({ success: false });
-								}}
-							>
+								}}>
 								{t("lbl_Cancel")}
 							</button>
 							<button type="submit" className="btn-check">

@@ -202,3 +202,12 @@ export const stringLinkify = text => {
 		.replace(pattern, '<a href="$1" target="_blank">$1</a>')
 		.replaceAll("\n", "<br>");
 };
+
+// 用於上傳圖片轉 AWS Url
+export const getBase64 = file =>
+	new Promise((resolve, reject) => {
+		const reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onload = () => resolve(reader.result);
+		reader.onerror = error => reject(error);
+	});

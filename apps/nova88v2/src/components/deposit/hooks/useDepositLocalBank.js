@@ -10,6 +10,7 @@ import {
 } from "../../../service/api/payment";
 
 import { api_account_GetCustBankInfo } from "../../../service/api/account";
+import { getBase64 } from "../../common/common";
 
 const useDepositLocalBank = ({ isMountedRef }) => {
 	const [localBankGroupList, setLocalBankGroupList] = useState([]);
@@ -97,12 +98,8 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 	const uploadLocalBankReceipt = async ({ transId, imgFile }) => {
 		let success = false;
 
-		const formData = new FormData();
-
-		formData.append("TransId", transId);
-		formData.append("Receipt", imgFile);
-
-		await api_payment_UploadReceipt(formData).then(
+		const image = await getBase64(imgFile);
+		await api_payment_UploadReceipt(transId, image).then(
 			res => {
 				if (!isMountedRef.current) return;
 

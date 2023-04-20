@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import moment from "moment";
 import { userInfoContext } from "../../common/context";
 import usePopBox from "../../hook/usePopBox";
-
+import { getBase64 } from "../../common/common";
 import {
 	api_payment_GetBankInfoOffList,
 	api_payment_GetLocalBankInfo,
@@ -94,12 +94,8 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 	const uploadLocalBankReceipt = async ({ transId, imgFile }) => {
 		let success = false;
 
-		const formData = new FormData();
-
-		formData.append("TransId", transId);
-		formData.append("Receipt", imgFile);
-
-		await api_payment_UploadReceipt(formData).then(
+		const image = await getBase64(imgFile);
+		await api_payment_UploadReceipt(transId, image).then(
 			res => {
 				if (!isMountedRef.current) return;
 
