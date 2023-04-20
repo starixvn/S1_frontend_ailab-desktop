@@ -231,6 +231,57 @@ export default () => {
 		}));
 	};
 
+	const valueCheck = (val, col) => {
+		let checked = true;
+		let tip = "";
+		const addrCheckList = [
+			"addressLineFirst",
+			"addressCity",
+			"addressPostCode",
+			"addressState",
+			"addressCountry"
+		];
+
+		if (col === "accountName") {
+			if (!val) {
+				tip = t("lbl_NameRequired");
+				checked = !!val;
+			} else if (
+				// * 如果使用者有填入特殊字元則顯示錯誤訊息
+				String(val).match(
+					INPUT_PATTERN.userNameSpecialCharactersPattern
+				)
+			) {
+				tip = t("lbl_EnterRealName");
+				checked = false;
+			}
+		} else if (col === "birth") {
+			const pattern =
+				/^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+			if (!val) {
+				tip = t("lbl_BirthRequired");
+				checked = !!val;
+			}
+			if (!pattern.test(val)) {
+				tip = t("lbl_BirthdayErrorTip");
+				checked = false;
+			}
+		} else if (addrCheckList.includes(col)) {
+			tip = !val ? t("msg_Content_Not_Empty") : "";
+			checked = !!val;
+		}
+
+		setStatus(prev => ({
+			...prev,
+			[col]: {
+				checked,
+				tip
+			}
+		}));
+
+		return checked;
+	};
+
 	const editField = (col, e) => {
 		let val = null;
 		const addrInputList = [
@@ -253,6 +304,7 @@ export default () => {
 			val = e.target.value;
 			val = val.replace(/[^0-9]+/g, "");
 		}
+
 		setUserValue(prev => ({
 			...prev,
 			[col]: val
@@ -321,49 +373,6 @@ export default () => {
 		return checked;
 	};
 
-	const valueCheck = (val, col) => {
-		let checked = true;
-		let tip = "";
-		const addrCheckList = [
-			"addressLineFirst",
-			"addressCity",
-			"addressPostCode",
-			"addressState",
-			"addressCountry"
-		];
-
-		if (col === "accountName") {
-			if (!val) {
-				tip = t("lbl_NameRequired");
-				checked = !!val;
-			} else if (
-				// * 如果使用者有填入特殊字元則顯示錯誤訊息
-				String(val).match(
-					INPUT_PATTERN.userNameSpecialCharactersPattern
-				)
-			) {
-				tip = t("lbl_EnterRealName");
-				checked = false;
-			}
-		} else if (col === "birth") {
-			tip = !val ? t("lbl_BirthRequired") : "";
-			checked = !!val;
-		} else if (addrCheckList.includes(col)) {
-			tip = !val ? t("msg_Content_Not_Empty") : "";
-			checked = !!val;
-		}
-
-		setStatus(prev => ({
-			...prev,
-			[col]: {
-				checked,
-				tip
-			}
-		}));
-
-		return checked;
-	};
-
 	const clickSubmit = (e, type) => {
 		e.preventDefault();
 		if (disableSubmit(type)) return;
@@ -379,7 +388,6 @@ export default () => {
 			birthCheck = userInfo.birth_d
 				? true
 				: valueCheck(userValue.birth, "birth");
-
 			phoneNoCheck = userInfo.phoneNo
 				? true
 				: phoneCheck("phoneNo", userValue.phoneNo);

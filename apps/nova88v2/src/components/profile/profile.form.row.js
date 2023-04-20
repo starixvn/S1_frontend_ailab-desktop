@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import DateTime from "react-datetime";
 import Inputbox from "../common/inputbox";
-import Dropdown from "../common/dropdown";
 import { GetCurrencyName, isConvert, number_format } from "../common/common";
 import { AreaCodeDropdown } from "../join/join.form";
 import { areaCodeList } from "../join/join";
@@ -72,12 +71,15 @@ const DisplayRow = ({
 					<div className="inputBox-blue">
 						<DateTime
 							onChange={editField.bind(this, "birth")}
-							onBlur={e => valueCheck(e, "birth")}
 							value={userValue.birth}
 							timeFormat={false}
 							dateFormat="YYYY-MM-DD"
 							isValidDate={vaildDate}
 							viewDate={moment(legalDate).format("YYYY-MM-DD")}
+							inputProps={{
+								placeholder: "YYYY-MM-DD",
+								onBlur: e => valueCheck(e.target.value, "birth")
+							}}
 						/>
 						<div className="iconModule">
 							<i className="icon icon-calendar" />
@@ -102,7 +104,8 @@ const DisplayRow = ({
 					<div
 						className={`inputBox-blue${
 							status.phoneNo.checked === false ? " error" : ""
-						}`}>
+						}`}
+					>
 						<AreaCodeDropdown
 							defaultOption={_areaCode}
 							options={areaCodeList}
@@ -153,7 +156,8 @@ const DisplayRow = ({
 					{`(${areaCode})${content}`}
 					<button
 						className="icon icon-mobile btn-org"
-						onClick={sendOTPSMS}>
+						onClick={sendOTPSMS}
+					>
 						{t("lbl_PhoneVerification")}
 						<div className="description">
 							<div className="title">
@@ -194,7 +198,8 @@ const DisplayRow = ({
 					) : (
 						<button
 							className="icon icon-envelope btn-org"
-							onClick={sendEmailOtp}>
+							onClick={sendEmailOtp}
+						>
 							{t("lbl_EmailVerification")}
 							<div className="description">
 								<div className="title">

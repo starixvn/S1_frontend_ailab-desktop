@@ -102,19 +102,23 @@ const ProfileEdit = ({
 						<div
 							className={`inputBox${
 								status.birth.checked === false ? " error" : ""
-							}`}>
+							}`}
+						>
 							<i className="txt-blue12">{t("lbl_Birthday")}</i>
 							<DateTime
 								value={birthValue}
 								onChange={onChangeBirth}
 								timeFormat={false}
 								dateFormat="YYYY-MM-DD"
-								onBlur={checkBirth}
 								viewDate={moment(legalDate).format(
 									"YYYY-MM-DD"
 								)}
 								isValidDate={valid}
 								viewMode="years"
+								inputProps={{
+									placeholder: "YYYY-MM-DD",
+									onBlur: checkBirth
+								}}
 							/>
 							{dateTimeIcon(status.birth)}
 						</div>
@@ -122,7 +126,8 @@ const ProfileEdit = ({
 							<div
 								className={`tip ${
 									status.birth.checked ? "" : "active"
-								}`}>
+								}`}
+							>
 								{status.birth.tip}
 							</div>
 						)}
