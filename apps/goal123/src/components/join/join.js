@@ -23,7 +23,6 @@ import { initValue, initTip } from "./join.def";
 import JoinForm from "./join.form";
 import usePopBox from "../hook/usePopBox";
 import { eventPeriodIdpd } from "../../datas/eventDef";
-import path from "../../router";
 import useShieldCheck from "../hook/useShieldCheck";
 
 export default () => {
@@ -254,7 +253,9 @@ export default () => {
 		const _reCaptchaCheck = reCaptchaToken !== "";
 
 		const checked =
-			_usernameCheck.checked && _passwordCheck.checked && _agreeCheck &&
+			_usernameCheck.checked &&
+			_passwordCheck.checked &&
+			_agreeCheck &&
 			_reCaptchaCheck;
 
 		if (!checked) {
@@ -345,7 +346,7 @@ export default () => {
 												"1"
 											);
 											await navigate(
-												`/${userInfo.langId}/${path.deposit.root}`
+												`/${userInfo.langId}`
 											);
 											saveShieldData();
 										} else {

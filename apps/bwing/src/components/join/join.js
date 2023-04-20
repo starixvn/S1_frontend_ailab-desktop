@@ -19,7 +19,6 @@ import areaCode from "../../datas/areaCode";
 import { initValue, initTip, currencyToAreacode } from "./join.def";
 import JoinForm from "./join.form";
 import usePopBox from "../hook/usePopBox";
-import path from "../../router";
 import useShieldCheck from "../hook/useShieldCheck";
 
 export default () => {
@@ -394,7 +393,7 @@ export default () => {
 												"1"
 											);
 											await navigate(
-												`/${userInfo.langId}/${path.deposit.root}`
+												`/${userInfo.langId}`
 											);
 											saveShieldData();
 										} else {
