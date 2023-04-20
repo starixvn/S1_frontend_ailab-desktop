@@ -6,14 +6,12 @@ import {
 	userInfoContext,
 	popBoxContext
 } from "../common/context";
-import { api_site_GetSupportDomainList } from "../../service/api/site";
 import { defDepositType, defDepositOptions } from "./deposit.def";
 import { defPopBoxType } from "../common/popBox";
 import {
 	checkAmount,
 	isConvert,
 	getUrlParameter,
-	readCookie,
 	number_format
 } from "../common/common";
 
@@ -259,7 +257,8 @@ const Deposit = () => {
 							navigate(
 								`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`
 							)
-						}>
+						}
+					>
 						{t("lbl_UpdatePersonalDetail")}
 					</button>
 				</div>
@@ -346,12 +345,14 @@ const Deposit = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={() => resolve(false)}>
+										onClick={() => resolve(false)}
+									>
 										{t("lbl_ReModify")}
 									</button>
 									<button
 										className="btn-check"
-										onClick={() => resolve(true)}>
+										onClick={() => resolve(true)}
+									>
 										{t("lbl_Confirm")}
 									</button>
 								</div>
@@ -407,7 +408,8 @@ const Deposit = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={closePopBox}>
+											onClick={closePopBox}
+										>
 											OK
 										</button>
 									</div>
@@ -610,44 +612,6 @@ const Deposit = () => {
 		};
 	});
 
-	useEffect(() => {
-		if (userInfo.isLogin && userInfo.userName) {
-			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
-			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
-
-			if (isShowBackupDomain) {
-				api_site_GetSupportDomainList().then(
-					res => {
-						if (!isMountedRef.current) return;
-						if (
-							res.data.errorCode === 0 &&
-							res.data.data.length > 0
-						) {
-							!userInfo.isResetPwd &&
-								setPopBox({
-									isOpen: true,
-									popBoxType: defPopBoxType.BackupDomain,
-									onClickClose: () =>
-										setPopBox({ isOpen: false }),
-									linkList: res.data.data
-								});
-						} else if (res.data.errorCode !== 0) {
-							errorPopBox(
-								res.data.message || "error",
-								res.data.errorCode
-							);
-						}
-					},
-					() => {
-						if (isMountedRef.current) {
-							errorPopBox();
-						}
-					}
-				);
-			}
-		}
-	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
-
 	if (loading || !isInitDataDone) return null;
 
 	const depositOptions = defDepositOptions({
@@ -692,7 +656,8 @@ const Deposit = () => {
 				onSubmit={onSubmit}
 				setDepositType={onChangeDepositType}
 				canSubmit={formInfo.canSubmit}
-				submitHandle={submitHandle}>
+				submitHandle={submitHandle}
+			>
 				{depositType === defDepositType.mobile && (
 					<MobileForm
 						t={t}
