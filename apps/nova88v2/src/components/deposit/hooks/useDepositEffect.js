@@ -13,7 +13,6 @@ import { defDepositOptions, defDepositType } from "../deposit.def";
 import defPopBoxType from "../../common/defPopBoxType";
 import usePopBox from "../../hook/usePopBox";
 import path from "../../../router";
-import { api_site_GetSupportDomainList } from "../../../service/api/site";
 
 const useDepositEffect = ({
 	t,
@@ -225,6 +224,7 @@ const useDepositEffect = ({
 
 			if (
 				isLogin &&
+				isMounted &&
 				((!accountName && accountName !== undefined) ||
 					(!phoneNo && phoneNo !== undefined) ||
 					(!email && email !== undefined))
@@ -248,12 +248,6 @@ const useDepositEffect = ({
 			}
 		};
 
-		const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
-		const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
-		const closeBackupThenCheckInfo = () => {
-			setPopBox({ isOpen: false });
-			checkUserInfo();
-		};
 		const cookiePromptDeposit = `promptDeposit${userInfo.userName}`;
 		const isShowPromptDeposit = readCookie(cookiePromptDeposit) !== "1";
 
@@ -267,65 +261,17 @@ const useDepositEffect = ({
 			userInfo.currencyId === defCurrencyList.THB &&
 			hour >= 0 &&
 			hour < 3 &&
-			isShowPromptDeposit
+			isShowPromptDeposit &&
+			isMounted
 		) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.PromptDeposit,
 				onClickClose: () => {
 					setPopBox({ isOpen: false });
-					if (isShowBackupDomain) {
-						api_site_GetSupportDomainList({
-							langId: userInfo.langId
-						}).then(res => {
-							if (
-								res.data.errorCode === 0 &&
-								isMounted &&
-								res.data.data.length > 0
-							) {
-								!userInfo.isResetPwd &&
-									setPopBox({
-										isOpen: true,
-										popBoxType: defPopBoxType.BackupDomain,
-										clickBackDropToClose: true,
-										onClickClose: () =>
-											closeBackupThenCheckInfo(),
-										linkList: res.data.data
-									});
-							} else {
-								checkUserInfo();
-							}
-						});
-					} else {
-						checkUserInfo();
-					}
+					checkUserInfo();
 				}
 			});
-		} else if (
-			userInfo.isLogin &&
-			userInfo.userName &&
-			isShowBackupDomain
-		) {
-			api_site_GetSupportDomainList({ langId: userInfo.langId }).then(
-				res => {
-					if (
-						res.data.errorCode === 0 &&
-						isMounted &&
-						res.data.data.length > 0
-					) {
-						!userInfo.isResetPwd &&
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.BackupDomain,
-								clickBackDropToClose: true,
-								onClickClose: () => closeBackupThenCheckInfo(),
-								linkList: res.data.data
-							});
-					} else {
-						checkUserInfo();
-					}
-				}
-			);
 		} else {
 			checkUserInfo();
 		}
