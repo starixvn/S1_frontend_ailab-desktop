@@ -87,11 +87,10 @@ export const api_payment_CheckDepositSpecialCode = SpecialCode =>
 export const api_payment_SetDepositCancel = TransId =>
 	paymentRequest.post("/SetDepositCancel", { TransId });
 
-export const api_payment_UploadReceipt = formData =>
-	paymentRequest.post("/UploadReceipt", formData, {
-		headers: {
-			"Content-Type": "multipart/form-data"
-		}
+export const api_payment_UploadReceipt = (TransId, Receipt) =>
+	paymentRequest.post("/UploadReceipt", {
+		TransId,
+		Receipt
 	});
 
 export const api_payment_SetDepositReceipt = (TransId, DepositTime, RefNo) =>
