@@ -1017,7 +1017,7 @@ html.Newtheme header .header > div.function .wallet.active:after,
 html.Newtheme header .header > div.function .memberfile.active > button,
 html.Newtheme header .header > div.function .memberfile.active:before,
 html.Newtheme header .header > div.function .memberfile.active:after {
-  color: #1e85ec;
+  color: #5084e4;
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -1048,6 +1048,15 @@ html.Newtheme header .header > div.function .memberfile:after {
   font-size: 18px;
   -webkit-transition: 0.7s;
   transition: 0.7s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 html.Newtheme header .header > div.function .cashier:before,
 html.Newtheme header .header > div.function .wallet:before,
@@ -1193,14 +1202,26 @@ html.Newtheme header .header > div.function .cashier button, html.Newtheme heade
   color: #fab617;
 }
 html.Newtheme header .header > div.function .wallet button.icon-eye-blocked,
-html.Newtheme header .header > div.function .wallet button.icon-eye {
+html.Newtheme header .header > div.function .wallet button.icon-eye,
+html.Newtheme header .header > div.function .wallet button.icon-spinner11 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 5px;
+  margin-left: 4px;
+  padding: 0 2px;
+}
+html.Newtheme header .header > div.function .wallet button.icon-spinner11 {
+  color: #fab617;
+  font-size: 11px;
+}
+html.Newtheme header .header > div.function .wallet button.icon-spinner11:hover {
+  -webkit-filter: brightness(0.7);
+          filter: brightness(0.7);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 html.Newtheme header .header > div.function .wallet .submenu div {
   display: -webkit-box;
@@ -13210,6 +13231,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   border-left: 1px solid #284985;
   border-right: 1px solid #284985;
   border-radius: 3px;
+  text-align: center;
 }
 .exclude__table__item {
   display: -webkit-box;
