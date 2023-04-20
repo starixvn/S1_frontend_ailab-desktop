@@ -123,7 +123,7 @@ const LoginPanel = () => {
 							isLogin: res.isLogin
 						}));
 						setPopBox({ isOpen: false });
-						navigate(`/${userInfo.langId}/${path.deposit.root}`);
+						navigate(`/${userInfo.langId}`);
 						saveShieldData();
 					}
 				} else if (

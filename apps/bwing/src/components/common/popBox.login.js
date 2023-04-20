@@ -128,7 +128,7 @@ const LoginPanel = () => {
 							isLogin: res.isLogin
 						}));
 						setPopBox({ isOpen: false });
-						navigate(`/${userInfo.langId}/${path.deposit.root}`);
+						navigate(`/${userInfo.langId}`);
 						saveShieldData();
 					}
 				} else if (
@@ -225,7 +225,8 @@ export const LoginForm = ({
 						<Link
 							className="txt-blue2"
 							to={`/${userInfo.langId}/${path.join.root}`}
-							onClick={openJoin}>
+							onClick={openJoin}
+						>
 							{t("lbl_JoinNow")}
 						</Link>
 					</div>
@@ -252,7 +253,8 @@ export const LoginForm = ({
 								{t("lbl_Password")} &nbsp;
 								<Link
 									to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-									className="txt-blue15">
+									className="txt-blue15"
+								>
 									{t("lbl_ForgetPassword")}
 								</Link>
 							</div>
@@ -278,7 +280,8 @@ export const LoginForm = ({
 							<button
 								className="btn-cancel"
 								type="button"
-								onClick={clickCancel}>
+								onClick={clickCancel}
+							>
 								{t("lbl_Cancel")}
 							</button>
 							<button className="blue" type="submit">
