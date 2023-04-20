@@ -156,7 +156,9 @@ export default () => {
 
 		const checkResult =
 			Boolean(userInfo.birth_d) || isValidDate(birthValue);
-		const checkTip = isValidDate(birthValue) ? "" : t("lbl_BirthRequired");
+		const checkTip = isValidDate(birthValue)
+			? ""
+			: t("lbl_BirthdayErrorTip");
 
 		setStatus(prev => ({
 			...prev,
