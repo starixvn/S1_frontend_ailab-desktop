@@ -30,7 +30,6 @@ import { cloudImgUrl, bannerImgUrl } from "../../config";
 import { Iov_GetBlackBox } from "../common/iovation";
 import { initValue, initTip, currencyToAreacode } from "../common/join.data";
 import JoinForm from "./join.form";
-import path from "../../router";
 import JoinPromoInfo from "./join.promoInfo";
 import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
 import { limitCountryNum } from "./join.def";
@@ -559,9 +558,7 @@ export default () => {
 											if (lineUserId) {
 												removeLocalStorage("lineUser");
 											}
-											await navigate(
-												`/${_user.langId}/${path.deposit.root}`
-											);
+											await navigate(`/${_user.langId}`);
 										} else {
 											errorPopBox(
 												res_custInfo.data.message ||
