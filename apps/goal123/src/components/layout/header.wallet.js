@@ -60,7 +60,6 @@ export default props => {
 			mainWallet={mainWallet}
 			tpWallets={tpWallets}
 			isHideBalance={isHideBalance}
-			lastLogin={userInfo.lastLogin}
 		/>
 	) : (
 		<></>
@@ -75,6 +74,7 @@ class Dropdown extends Component {
 		}
 		this.state = { isOpen: false };
 		this.wrapper = createRef(null);
+		this.intervalId = createRef(null);
 	}
 
 	handleClickOutside = e => {
@@ -87,6 +87,19 @@ class Dropdown extends Component {
 		e.preventDefault();
 		this.setState(prev => ({ isOpen: !prev.isOpen }));
 	};
+
+	// * 定時更新錢包資訊
+	componentDidMount() {
+		const newIntervalId = setInterval(() => {
+			this.props.RefreshAllWallets();
+		}, 30000);
+
+		this.intervalId.current = newIntervalId;
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.intervalId.current);
+	}
 
 	render() {
 		const {
@@ -139,6 +152,9 @@ class Dropdown extends Component {
 						isHideBalance ? "-blocked" : ""
 					}`}
 				/>
+
+				<ReloadSpin func={this.props.RefreshAllWallets} />
+
 				<div className="submenu">
 					<div className="balance">
 						<span>

@@ -140,21 +140,6 @@ class Dropdown extends Component {
 				);
 			});
 
-		// componentDidMount() {
-		// 	const interval = setInterval(() => {
-		// 		setCount(prev => prev - 1);
-		// 	}, 1000);
-		// 	intervalId = interval;
-
-		// 	return () => {
-		// 		clearInterval(timerRef.current);
-		// 	};
-		//   }
-
-		//   componentWillUnmount(){
-		// 	clearInterval(intervalId);
-		//   }
-
 		return (
 			<div
 				className={`wallet icon icon-balance${

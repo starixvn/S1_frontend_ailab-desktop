@@ -1532,7 +1532,8 @@ header .header > div.function .memberfile img {
           animation: newicon 0.5s linear infinite alternate;
 }
 header .header > div.function .wallet button.icon-eye-blocked,
-header .header > div.function .wallet button.icon-eye {
+header .header > div.function .wallet button.icon-eye,
+header .header > div.function .wallet button.icon-spinner11 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1540,6 +1541,9 @@ header .header > div.function .wallet button.icon-eye {
       -ms-flex-align: center;
           align-items: center;
   margin-left: 5px;
+}
+header .header > div.function .wallet > button.icon-spinner11 {
+  color: #56ceff;
 }
 header .header > div.function .wallet .submenu {
   padding: 15px;
@@ -15198,13 +15202,9 @@ input + .iconModule i.icon.icon-checkmark:before {
   height: 30px;
   top: -10px;
 }
-.eventLink.vgaming .icon-close::before {
-  font-size: 5px;
-}
 
 .subheader {
-  background: -webkit-gradient(linear, left bottom, left top, from(#121c30), to(#000000));
-  background: linear-gradient(to top, #121c30 0%, #000000 100%);
+  background: #000;
   padding: 0.75rem;
 }
 .subheader__container {
@@ -15227,7 +15227,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 .subcopyright {
   width: calc(100% - 20px);
   margin: 0 auto;
-  background: #121c30;
+  background: #000;
   padding: 10px;
   text-align: center;
   color: #afafaf;
@@ -15237,7 +15237,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .exclude {
   padding: 20px 10px;
-  background: #f1f1f1;
+  background: #0A1533;
   color: #3e3e3e;
   min-width: unset;
   font-family: Arial, sans-serif;
@@ -15268,9 +15268,10 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 .exclude__table {
   width: 100%;
-  border-left: 1px solid #56ceff;
-  border-right: 1px solid #56ceff;
+  border-left: 1px solid #557987;
+  border-right: 1px solid #557987;
   border-radius: 3px;
+  text-align: center;
 }
 .exclude__table__item {
   display: -webkit-box;
@@ -15289,7 +15290,8 @@ input + .iconModule i.icon.icon-checkmark:before {
   font-weight: bold;
 }
 .exclude__table__item div {
-  background: #fafafa;
+  background: #202739;
+  color: #c9c9c9;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15306,10 +15308,10 @@ input + .iconModule i.icon.icon-checkmark:before {
   -webkit-box-flex: 1;
       -ms-flex: 1 1;
           flex: 1 1;
-  border-bottom: 1px solid #56ceff;
+  border-bottom: 1px solid #557987;
 }
 .exclude__table__item div:first-child {
-  border-right: 1px solid #56ceff;
+  border-right: 1px solid #557987;
 }
 .exclude__table__item div span {
   display: block;
@@ -15326,7 +15328,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   bottom: 1px;
   height: 1px;
   width: 100%;
-  background: #56ceff;
+  background: #557987;
 }
 .exclude__table__item div span:last-child {
   padding-bottom: 0;
