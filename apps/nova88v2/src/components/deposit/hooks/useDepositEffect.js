@@ -238,8 +238,7 @@ const useDepositEffect = ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}
-							>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>

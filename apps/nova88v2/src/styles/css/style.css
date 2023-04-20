@@ -2457,7 +2457,8 @@ header input:focus-within {
   font-size: 18px;
 }
 .header > div.function .wallet .icon-plus,
-.header > div.function .wallet .icon-minus {
+.header > div.function .wallet .icon-minus,
+.header > div.function .wallet .icon-spinner11 {
   background: #112240;
   border-radius: 30px;
   display: -webkit-box;
@@ -2470,12 +2471,19 @@ header input:focus-within {
       -ms-flex-pack: center;
           justify-content: center;
   width: 18px;
-  height: 17px;
+  height: 18px;
   margin-left: 3px;
 }
 .header > div.function .wallet .icon-plus:before,
-.header > div.function .wallet .icon-minus:before {
+.header > div.function .wallet .icon-minus:before,
+.header > div.function .wallet .icon-spinner11:before {
   color: white;
+}
+.header > div.function .wallet .icon-spinner11 {
+  background: #FF5E00;
+}
+.header > div.function .wallet .icon-spinner11::before {
+  font-size: 10px;
 }
 .header > div.function .wallet .submenu div {
   display: -webkit-box;
@@ -8486,8 +8494,8 @@ input:-webkit-autofill:active {
 }
 
 button.icon-spinner11.active {
-  -webkit-animation: rotate 0.7s linear 2;
-          animation: rotate 0.7s linear 2;
+  -webkit-animation: rotate 0.5s linear 2;
+          animation: rotate 0.5s linear 2;
 }
 button.icon-spinner11:before {
   margin: 0;
@@ -17004,6 +17012,21 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .profileModule > div.profile > div > div > button.icon:before {
   margin-left: 0;
+}
+.profileModule > div.profile input::-webkit-input-placeholder {
+  color: #b2b2b2;
+}
+.profileModule > div.profile input::-moz-placeholder {
+  color: #b2b2b2;
+}
+.profileModule > div.profile input:-ms-input-placeholder {
+  color: #b2b2b2;
+}
+.profileModule > div.profile input::-ms-input-placeholder {
+  color: #b2b2b2;
+}
+.profileModule > div.profile input::placeholder {
+  color: #b2b2b2;
 }
 .profileModule + .btnGroup {
   width: 270px;

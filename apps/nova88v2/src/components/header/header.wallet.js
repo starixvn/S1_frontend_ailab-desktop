@@ -73,6 +73,7 @@ class Dropdown extends Component {
 		}
 		this.state = { isOpen: false };
 		this.wrapper = createRef(null);
+		this.intervalId = createRef(null);
 	}
 
 	handleClickOutside = e => {
@@ -85,6 +86,19 @@ class Dropdown extends Component {
 		e.preventDefault();
 		this.setState(prev => ({ isOpen: !prev.isOpen }));
 	};
+
+	// * 定時更新錢包資訊
+	componentDidMount() {
+		const newIntervalId = setInterval(() => {
+			this.props.RefreshAllWallets();
+		}, 30000);
+
+		this.intervalId.current = newIntervalId;
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.intervalId.current);
+	}
 
 	render() {
 		const {
@@ -126,6 +140,21 @@ class Dropdown extends Component {
 				);
 			});
 
+		// componentDidMount() {
+		// 	const interval = setInterval(() => {
+		// 		setCount(prev => prev - 1);
+		// 	}, 1000);
+		// 	intervalId = interval;
+
+		// 	return () => {
+		// 		clearInterval(timerRef.current);
+		// 	};
+		//   }
+
+		//   componentWillUnmount(){
+		// 	clearInterval(intervalId);
+		//   }
+
 		return (
 			<div
 				className={`wallet icon icon-balance${
@@ -147,6 +176,11 @@ class Dropdown extends Component {
 					value={!isHideBalance}
 					onClick={_handleIsHideBalance}
 					className={`icon icon-${isHideBalance ? "plus" : "minus"}`}
+				/>
+
+				<ReloadSpin
+					btnActive={false}
+					func={this.props.RefreshAllWallets}
 				/>
 
 				<div className="submenu">
