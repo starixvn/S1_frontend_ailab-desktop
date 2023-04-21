@@ -21,7 +21,7 @@ export default ({
 
 				const success = errorCode === 0;
 				if (success) {
-					setPromoList(data);
+					setPromoList(data || []);
 				} else errorPopBox(message || "error", errorCode);
 			},
 			() => {
