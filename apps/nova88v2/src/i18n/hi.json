@@ -262,7 +262,7 @@
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "अधिकतम फ़ाइल का आकार 4 MB",
 	"BankSlipHint2": "फ़ाइल की अधिकतम संख्या: 6",
-	"BankSlipHint3": "स्वीकृत फ़ाइल प्रकार: JPG, JPEG, PNG, GIF",
+	"BankSlipHint3": "स्वीकृत फ़ाइल प्रकार: JPG, JPEG, PNG",
 	"msg_DepositHint": "हमारे खेलों और सेवाओं का आनंद लेने के लिए अभी जमा करें।",
 	"lbl_DepositType1": "ऑनलाइन बैंकिंग",
 	"lbl_DepositType2": "मोबाइल भुगतान",
