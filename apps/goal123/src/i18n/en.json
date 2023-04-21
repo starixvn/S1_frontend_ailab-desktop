@@ -390,7 +390,7 @@
 	"lbl_Unlimited": "Unlimited",
 	"BankSlipHint1": "Maximum file size 4 MB each",
 	"BankSlipHint2": "Maximum number of file:6",
-	"BankSlipHint3": "Accepted file types: JPG, JPEG, PNG, GIF",
+	"BankSlipHint3": "Accepted file types: JPG, JPEG, PNG",
 	"lbl_WireTransfers": "Bank Transfer",
 	"lbl_ConfirmDeposit": "Please confirm the deposit information.",
 	"lbl_SelectedChannel": "Selected Channel",

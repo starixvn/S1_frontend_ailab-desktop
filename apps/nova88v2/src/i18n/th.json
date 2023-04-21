@@ -264,7 +264,7 @@
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "ขนาดไฟล์ไม่เกิน 4MB",
 	"BankSlipHint2": "ขนาดไฟล์ไม่เกิน : 6",
-	"BankSlipHint3": "ประเภทไฟล์ที่ยอมรับ: JPG, JPEG, PNG, GIF",
+	"BankSlipHint3": "ประเภทไฟล์ที่ยอมรับ: JPG, JPEG, PNG",
 	"msg_DepositHint": "ฝากเงินเลย เพื่อเพลินเงินกับเกมและบริการของเร",
 	"lbl_DepositType1": "ธนาคารออนไลน์",
 	"lbl_DepositType2": "จ่ายผ่านมือถือ",

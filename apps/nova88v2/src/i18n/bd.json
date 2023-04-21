@@ -260,7 +260,7 @@
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "সর্বোচ্চ ফাইলের আকার প্রতিটি 4 এমবি",
 	"BankSlipHint2": "ফাইলের সর্বোচ্চ সংখ্যা: 6",
-	"BankSlipHint3": "স্বীকৃত ফাইল প্রকার: JPG, JPEG, PNG, GIF",
+	"BankSlipHint3": "স্বীকৃত ফাইল প্রকার: JPG, JPEG, PNG",
 	"msg_DepositHint": "আমাদের খেলা এবং পরিষেবা উপভোগ করতে এখনই আমানত করুন।",
 	"lbl_DepositType1": "অনলাইন ব্যাংকিং",
 	"lbl_DepositType2": "মোবাইলের পেমেন্ট",

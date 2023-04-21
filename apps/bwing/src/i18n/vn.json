@@ -399,7 +399,7 @@
 	"lbl_Unlimited": "Không giới hạn",
 	"BankSlipHint1": "Kích thước tập tin tối đa 4MB cho mỗi tập tin",
 	"BankSlipHint2": "Số tập tin đối đa:6",
-	"BankSlipHint3": "Các kiểu được hỗ trợ: JPG, JPEG, PNG, GIF",
+	"BankSlipHint3": "Các kiểu được hỗ trợ: JPG, JPEG, PNG",
 	"lbl_WireTransfers": "Chuyển khoản",
 	"lbl_ConfirmDeposit": "Vui lòng xác nhận thông tin nạp tiền.。",
 	"lbl_SelectedChannel": "Kênh lựa chọn",

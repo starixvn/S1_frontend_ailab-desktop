@@ -259,7 +259,7 @@
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "Saiz maksimum 4 MB untuk setiap fail",
 	"BankSlipHint2": "Bilangan fail maksimum:6",
-	"BankSlipHint3": "Jenis fail yang boleh diterima: JPG, JPEG, PNG, GIF",
+	"BankSlipHint3": "Jenis fail yang boleh diterima: JPG, JPEG, PNG",
 	"msg_DepositHint": "Deposit sekarang untuk menikmati permainan dan perkhidmatan kami.",
 	"lbl_DepositType1": "Perbankan atas talian",
 	"lbl_DepositType2": "Pembayaran Mobile",
