@@ -128,7 +128,6 @@ const Home = ({ productTpIds }) => {
 				setCookie(cookieName, "1", 1);
 				api_account_GetWalletInfo().then(
 					res => {
-						res.data.errorCode = 1;
 						if (res.data.errorCode === 0 && isMountedRef.current) {
 							const tpWallets = res.data.data.tpWallets?.map(
 								tp => ({
