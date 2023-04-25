@@ -76,6 +76,7 @@ const DisplayRow = ({
 							dateFormat="YYYY-MM-DD"
 							isValidDate={vaildDate}
 							viewDate={moment(legalDate).format("YYYY-MM-DD")}
+							onClose={() => valueCheck(userValue.birth, "birth")}
 							inputProps={{
 								placeholder: "YYYY-MM-DD",
 								onBlur: e => valueCheck(e.target.value, "birth")
