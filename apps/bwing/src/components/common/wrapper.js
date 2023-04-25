@@ -7,8 +7,7 @@ import { getUrlParameter, setCookie, deleteCookie, readCookie } from "./common";
 import { IS_LOGGED_IN } from "../../service/auth";
 import {
 	api_account_GetMsgCount,
-	api_account_onlineCheck,
-	api_account_GetPopupMsg
+	api_account_onlineCheck
 } from "../../service/api/account";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import {

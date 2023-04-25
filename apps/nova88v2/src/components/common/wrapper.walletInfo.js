@@ -88,12 +88,10 @@ const GetTpWallets = ({
 						errorPopBox
 					});
 				});
-			} else if (res.data.errorCode !== 0) {
-				errorPopBox(res.data.message || "error", res.data.errorCode);
 			}
 		},
 		() => {
-			errorPopBox();
+			// errorPopBox();
 		}
 	);
 };
@@ -109,12 +107,10 @@ const GetTpWalletBalance = ({ tpId, dispatch, displayText, errorPopBox }) => {
 					displayText,
 					balance
 				});
-			} else if (res.data.errorCode !== 0) {
-				errorPopBox(res.data.message || "error", res.data.errorCode);
 			}
 		},
 		() => {
-			errorPopBox();
+			// errorPopBox();
 		}
 	);
 };
@@ -130,12 +126,10 @@ const GetMainWalet = ({ isLogin, dispatch, errorPopBox }) => {
 					isHideBalance: res.data.data.isHideBalance,
 					lastTransaction: res.data.data.lastTransaction
 				});
-			} else {
-				errorPopBox(res.data.message || "error", res.data.errorCode);
 			}
 		},
 		() => {
-			errorPopBox();
+			// errorPopBox();
 		}
 	);
 };
@@ -164,12 +158,10 @@ const GetBonusWallets = ({ isLogin, dispatch, errorPopBox }) => {
 					type: defAction.GET_BONUS_WALLETS,
 					value: res.data.data
 				});
-			} else {
-				errorPopBox(res.data.message || "error", res.data.errorCode);
 			}
 		},
 		() => {
-			errorPopBox();
+			// errorPopBox();
 		}
 	);
 };

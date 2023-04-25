@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -6,7 +7,6 @@ export default ({ btnBar, message, errorCode, icon = "icon-library" }) => {
 	const [countDownSecond, setCountDownSecond] = useState(300);
 	const timerRef = useRef(null);
 	const hasTooManyRequestError = errorCode === 1004;
-	const errMsg = `${errorCode ? `[${errorCode}] ` : ""}${message}`;
 
 	const startTimer = () => {
 		timerRef.current = setInterval(() => {
@@ -57,7 +57,17 @@ export default ({ btnBar, message, errorCode, icon = "icon-library" }) => {
 						})}
 					</span>
 				) : (
-					<span>{errMsg}</span>
+					<>
+						<span>{!!message && message}</span>
+						<div>
+							<span>
+								time:{" "}
+								{moment()
+									.utcOffset("+00:00")
+									.format("YYYY-MM-DD hh:mm:ssZ")}
+							</span>
+						</div>
+					</>
 				)}
 			</div>
 			{btnBar}
