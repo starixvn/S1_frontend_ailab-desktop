@@ -1,3 +1,4 @@
+import moment from "moment";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
@@ -16,6 +17,14 @@ export default ({
 			<div className="title">{t("lbl_Information")}</div>
 			<div>
 				<span>{errMsg}</span>
+				<div>
+					<span>
+						time:{" "}
+						{moment()
+							.utcOffset("+00:00")
+							.format("YYYY-MM-DD hh:mm:ssZ")}
+					</span>
+				</div>
 			</div>
 			{btnBar}
 		</div>
