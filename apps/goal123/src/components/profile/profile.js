@@ -103,11 +103,18 @@ export default () => {
 	};
 
 	const onChangePhone = e => {
-		const { value } = e.target;
+		// * goal 在註冊時不需填寫手機，因此將手機規則加強在 edit profile 頁面
+		function removeLeadingZeros(str) {
+			return str.replace(/^0+/, "");
+		}
+		const { value: originValue } = e.target;
+		const value = removeLeadingZeros(originValue);
+
 		const regex = /^(\(?\+?[0-9]*\?)?[0-9_]*$/;
 		if (!(regex.test(value) || value === "") || value.length > 10) {
 			return false;
 		}
+
 		setPhoneValue(value);
 	};
 
