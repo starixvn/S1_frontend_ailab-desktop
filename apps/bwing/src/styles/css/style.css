@@ -1532,8 +1532,7 @@ header .header > div.function .memberfile img {
           animation: newicon 0.5s linear infinite alternate;
 }
 header .header > div.function .wallet button.icon-eye-blocked,
-header .header > div.function .wallet button.icon-eye,
-header .header > div.function .wallet button.icon-spinner11 {
+header .header > div.function .wallet button.icon-eye {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1541,9 +1540,6 @@ header .header > div.function .wallet button.icon-spinner11 {
       -ms-flex-align: center;
           align-items: center;
   margin-left: 5px;
-}
-header .header > div.function .wallet > button.icon-spinner11 {
-  color: #56ceff;
 }
 header .header > div.function .wallet .submenu {
   padding: 15px;
@@ -15036,7 +15032,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   z-index: 4;
 }
 .eventLink--top {
-  margin: 0 0 5px 10px;
+  margin: 0 0 5px 70px;
 }
 .eventLink--top img {
   width: 50px !important;
@@ -15336,4 +15332,82 @@ input + .iconModule i.icon.icon-checkmark:before {
 .exclude__table__item div span:last-child::after {
   height: 0;
   display: none;
+}
+
+.cambodia {
+  position: relative;
+}
+.cambodia::before {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: rabbitboy 1s infinite;
+          animation: rabbitboy 1s infinite;
+  position: absolute;
+  left: 185px;
+}
+.cambodia:after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: rabbitgirl 1s infinite;
+          animation: rabbitgirl 1s infinite;
+  position: absolute;
+  left: 205px;
+}
+
+@-webkit-keyframes rabbitgirl {
+  0% {
+    top: 0;
+    background: url(https://banner.bw88.io/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(https://banner.bw88.io/desktop/img/rabbitgirl-b.png) no-repeat center/cover;
+  }
+  100% {
+    bottom: 0;
+    background: url(https://banner.bw88.io/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
+  }
+}
+
+@keyframes rabbitgirl {
+  0% {
+    top: 0;
+    background: url(https://banner.bw88.io/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(https://banner.bw88.io/desktop/img/rabbitgirl-b.png) no-repeat center/cover;
+  }
+  100% {
+    bottom: 0;
+    background: url(https://banner.bw88.io/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
+  }
+}
+@-webkit-keyframes rabbitboy {
+  0% {
+    top: 0;
+    background: url(https://banner.bw88.io/desktop/img/rabbitboy-a.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(https://banner.bw88.io/desktop/img/rabbitboy-b.png) no-repeat center/cover;
+  }
+  100% {
+    bottom: 0;
+    background: url(https://banner.bw88.io/desktop/img/rabbitboy-a.png) no-repeat center/cover;
+  }
+}
+@keyframes rabbitboy {
+  0% {
+    top: 0;
+    background: url(https://banner.bw88.io/desktop/img/rabbitboy-a.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(https://banner.bw88.io/desktop/img/rabbitboy-b.png) no-repeat center/cover;
+  }
+  100% {
+    bottom: 0;
+    background: url(https://banner.bw88.io/desktop/img/rabbitboy-a.png) no-repeat center/cover;
+  }
 }/*# sourceMappingURL=style.css.map */
