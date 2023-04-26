@@ -238,8 +238,7 @@ const useDepositEffect = ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}
-							>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>
@@ -257,7 +256,7 @@ const useDepositEffect = ({
 		if (
 			// * 真正的 login
 			userInfo.isLogin &&
-			userInfo.accountName &&
+			Object.keys(userInfo).includes("accountName") &&
 			userInfo.currencyId === defCurrencyList.THB &&
 			hour >= 0 &&
 			hour < 3 &&

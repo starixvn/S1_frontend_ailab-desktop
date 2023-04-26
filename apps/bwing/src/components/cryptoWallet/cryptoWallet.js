@@ -73,8 +73,7 @@ export default () => {
 					<div className="btnGroup">
 						<Link
 							className="btn-check"
-							to={`/${userInfo.langId}/${path.profile.root}`}
-						>
+							to={`/${userInfo.langId}/${path.profile.root}`}>
 							{t("lbl_UpdatePersonalDetail")}
 						</Link>
 					</div>
@@ -95,7 +94,12 @@ export default () => {
 		<>
 			<div className="infoModule">
 				<div className="inside-title">{t("lbl_CryptoWallet")}</div>
-				<div className="txt-lightgray">
+				<div
+					className="txt-lightgray"
+					style={{
+						wordBreak: "break-all",
+						textAlign: "center"
+					}}>
 					{t("lbl_Update_Crypto_Wallet")}
 				</div>
 

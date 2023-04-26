@@ -17013,6 +17013,21 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .profileModule > div.profile > div > div > button.icon:before {
   margin-left: 0;
 }
+.profileModule > div.profile input::-webkit-input-placeholder {
+  color: #b2b2b2;
+}
+.profileModule > div.profile input::-moz-placeholder {
+  color: #b2b2b2;
+}
+.profileModule > div.profile input:-ms-input-placeholder {
+  color: #b2b2b2;
+}
+.profileModule > div.profile input::-ms-input-placeholder {
+  color: #b2b2b2;
+}
+.profileModule > div.profile input::placeholder {
+  color: #b2b2b2;
+}
 .profileModule + .btnGroup {
   width: 270px;
 }

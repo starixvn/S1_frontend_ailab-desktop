@@ -111,7 +111,13 @@ const Panel = ({
 				)}
 
 				<div className="accountInfo">
-					<div>{imgUrl}</div>
+					<div
+						style={{
+							wordBreak: "break-all",
+							textAlign: "center"
+						}}>
+						{imgUrl}
+					</div>
 					<div>
 						<button
 							className="copyBtn"

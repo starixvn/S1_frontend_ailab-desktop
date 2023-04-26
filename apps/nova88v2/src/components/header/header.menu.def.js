@@ -8,9 +8,7 @@ import {
 } from "../common/eventIcon";
 import { defCurrencyList } from "../common/common";
 import { getLeaderBoardSupportCurrencyId } from "../leaderBoard/leaderBoard.def";
-import allowedCurrencyList, {
-	changeAllowCurrenciesByTime
-} from "../../datas/allowedCurrencyList";
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 // PP 移除時間
 const ppDestroyDate = "2023-02-28 23:00:00";
@@ -1442,25 +1440,25 @@ export const defMenuLinks = {
 					bgImg: "lotteryta.png",
 					hoverBgImg: "lotterytaa.png"
 				}
-			},
-			{
-				...productList.indo4D,
-				className: "indo",
-				displayKey: "lbl_Indo4D",
-				listNpcImgUrl: "lo-indo.png",
-				listBgImgUrl: "gameListHover.png",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.indo4D },
-				lobbyPage: {
-					bgImg: "lottery4d.png",
-					hoverBgImg: "lottery4da.png"
-				},
-				allowCurrencies: changeAllowCurrenciesByTime({
-					allowCurriesList: allowedCurrencyList.indo4d,
-					currencies: [defCurrencyList.IDR],
-					endTime: "2023-03-29 19:00:00"
-				})
 			}
+			// {
+			// 	...productList.indo4D,
+			// 	className: "indo",
+			// 	displayKey: "lbl_Indo4D",
+			// 	listNpcImgUrl: "lo-indo.png",
+			// 	listBgImgUrl: "gameListHover.png",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.indo4D },
+			// 	lobbyPage: {
+			// 		bgImg: "lottery4d.png",
+			// 		hoverBgImg: "lottery4da.png"
+			// 	},
+			// 	allowCurrencies: changeAllowCurrenciesByTime({
+			// 		allowCurriesList: allowedCurrencyList.indo4d,
+			// 		currencies: [defCurrencyList.IDR],
+			// 		endTime: "2023-03-29 19:00:00"
+			// 	})
+			// }
 		]
 	},
 	promotion: {
