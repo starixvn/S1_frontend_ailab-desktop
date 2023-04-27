@@ -7,24 +7,20 @@ import Swiper from "react-id-swiper";
 import { SetPathParameter } from "../common/swipperBanner";
 import path from "../../router";
 import { api_hotEvent_GetDataList } from "../../service/api/hotevent";
-import usePopBox from "../hook/usePopBox";
 
 const EventSwipper = memo(({ langId }) => {
-	const { errorPopBox } = usePopBox();
 	const [banner, setBanner] = useState([]);
 	const timeRef = useRef(null);
 	const getHotEventDataList = () => {
 		api_hotEvent_GetDataList({ langId }).then(
 			res => {
-				const { errorCode, message, data } = res.data;
+				const { errorCode, data } = res.data;
 				if (errorCode === 0) {
 					setBanner(data);
-				} else {
-					errorPopBox(message || "error", errorCode);
 				}
 			},
 			() => {
-				errorPopBox();
+				// errorPopBox();
 			}
 		);
 	};

@@ -5,25 +5,22 @@ import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import CustomSwipper, { SetPathParameter } from "../../common/customSwipper";
 import path from "../../../router";
-import usePopBox from "../../hook/usePopBox";
+
 import { api_hotEvent_GetDataList } from "../../../service/api/hotEvent";
 
 const EventSwipper = memo(({ langId }) => {
-	const { errorPopBox } = usePopBox();
 	const [banner, setBanner] = useState([]);
 	const timeRef = useRef(null);
 	const getHotEventDataList = () => {
 		api_hotEvent_GetDataList({ langId }).then(
 			res => {
-				const { errorCode, message, data } = res.data;
+				const { errorCode, data } = res.data;
 				if (errorCode === 0) {
 					setBanner(data);
-				} else {
-					errorPopBox(message || "error", errorCode);
 				}
 			},
 			() => {
-				errorPopBox();
+				// errorPopBox();
 			}
 		);
 	};

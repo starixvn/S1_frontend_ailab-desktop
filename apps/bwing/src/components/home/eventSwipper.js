@@ -3,7 +3,6 @@ import moment from "moment";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import { AutoPlayWithBtn, SetPathParameter } from "../common/swipperBanner";
-import usePopBox from "../hook/usePopBox";
 import path from "../../router";
 import { api_hotEvent_GetDataList } from "../../service/api/hotEvent";
 
@@ -12,21 +11,18 @@ const swiperConfig = {
 };
 
 const EventSwipper = memo(({ langId }) => {
-	const { errorPopBox } = usePopBox();
 	const [banner, setBanner] = useState([]);
 	const timeRef = useRef(null);
 	const getHotEventDataList = () => {
 		api_hotEvent_GetDataList({ langId }).then(
 			res => {
-				const { errorCode, message, data } = res.data;
+				const { errorCode, data } = res.data;
 				if (errorCode === 0) {
 					setBanner(data);
-				} else {
-					errorPopBox(message || "error", errorCode);
 				}
 			},
 			() => {
-				errorPopBox();
+				// errorPopBox();
 			}
 		);
 	};
