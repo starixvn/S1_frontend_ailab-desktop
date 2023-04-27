@@ -225,6 +225,18 @@ export const LicensesSection = ({ t, errorPopBox }) => {
 									data-xcm-image-size="128"
 									data-xcm-image-type="basic-small"
 								/>
+								<div>
+									<a
+										href="https://www.begambleaware.org/"
+										target="_blank"
+										rel="noreferrer"
+									>
+										<img
+											src="https://banner.0814media.net/desktop/img/aware.png"
+											alt=""
+										/>
+									</a>
+								</div>
 							</div>
 						</>
 					)}
