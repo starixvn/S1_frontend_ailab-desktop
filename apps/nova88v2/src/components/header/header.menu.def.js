@@ -543,7 +543,7 @@ export const defMenuLinks = {
 	},
 	casino: {
 		displayKey: "lbl_LiveCasino",
-		className: "livecasinobtn",
+		className: "livecasinobtn icon icon-newicon",
 		path: path.liveCasino.root,
 		filterByAuth: true,
 		checkBeforeLogin: true,
@@ -560,6 +560,23 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: { npcImg: "casino_pp" },
 				allowCurrencies: getPPAllowCurrencies()
+			},
+			{
+				...productList.liveCasino_BG,
+				keyName: "casino_BG",
+				className: "liveBG",
+				icon: "icon icon-BG",
+				displayText: "Big Gaming",
+				listNpcImgUrl: "casino-bg.png",
+				listBgImgUrl: ["bgbg.png", "livecasinListHover.png"],
+				menuType: defMenuType.entPage,
+				lobbyPage: { npcImg: "casino_bg" },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_BG
+					})
+				]
 			},
 			{
 				...productList.liveCasino_YeeBet,
