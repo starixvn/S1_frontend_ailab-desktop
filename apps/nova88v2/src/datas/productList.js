@@ -275,6 +275,11 @@ export default {
 		tpId: 5,
 		tpGameType: 16
 	},
+	liveCasino_BG: {
+		gameId: 0,
+		tpId: 47,
+		tpGameType: 94
+	},
 	liveCasino_DG: {
 		gameId: 4,
 		tpId: 4,

@@ -406,6 +406,22 @@ export const defMenuLinks = {
 				}
 			},
 			{
+				...productList.liveCasino_BG,
+				className: "liveBG",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_BG
+					})
+				],
+				icon: "icon icon-BG",
+				displayText: "Big Gaming",
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-bg"
+				}
+			},
+			{
 				...productList.liveCasino_YeeBet,
 				className: "liveYB",
 				eventIcons: [

@@ -46,6 +46,10 @@ const defPlatform = [
 		imgName: "pp"
 	},
 	{
+		...productList.liveCasino_BG,
+		imgName: "bg"
+	},
+	{
 		...productList.liveCasino_YeeBet,
 		imgName: "yb"
 	},
