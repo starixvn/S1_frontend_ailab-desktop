@@ -127,7 +127,7 @@ const GetMainWalet = ({ isLogin, dispatch, errorPopBox }) => {
 			}
 		},
 		() => {
-			errorPopBox();
+			// errorPopBox();
 		}
 	);
 };
