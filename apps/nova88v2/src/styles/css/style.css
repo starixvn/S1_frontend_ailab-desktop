@@ -184,7 +184,7 @@ header input:focus-within {
           justify-content: space-between;
 }
 .header > div a.rewardsLogo {
-  margin: 0 0 20px 10px;
+  margin: 0 0 20px 30px;
 }
 .header > div a.rewardsLogo img {
   width: 65px;
@@ -19466,4 +19466,83 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .exclude__table__item div span:last-child::after {
   height: 0;
   display: none;
+}
+
+.header .logo {
+  position: relative;
+}
+.header .cambodia::before {
+  content: "";
+  display: block;
+  width: 85px;
+  height: 85px;
+  -webkit-animation: rabbitboy 1s infinite;
+          animation: rabbitboy 1s infinite;
+  position: absolute;
+  left: -47px;
+  bottom: 14px;
+}
+.header .cambodia::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: rabbitgirl 1s infinite;
+          animation: rabbitgirl 1s infinite;
+  position: absolute;
+  right: 50px;
+  bottom: 13px;
+}
+.header .cambodia > img {
+  width: 80px;
+  overflow: hidden;
+  position: absolute;
+  bottom: 23px;
+  right: 95px;
+}
+
+@-webkit-keyframes rabbitgirl {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitgirl-b.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
+  }
+}
+
+@keyframes rabbitgirl {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitgirl-b.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
+  }
+}
+@-webkit-keyframes rabbitboy {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitboy-a.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitboy-b.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitboy-a.png) no-repeat center/cover;
+  }
+}
+@keyframes rabbitboy {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitboy-a.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitboy-b.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/rabbitboy-a.png) no-repeat center/cover;
+  }
 }/*# sourceMappingURL=style.css.map */
