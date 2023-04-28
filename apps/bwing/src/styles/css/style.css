@@ -938,6 +938,9 @@ header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveAG .img {
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .livePP .img {
   background: url(https://banner.bw88.io/desktop/img/live/live-pp.png) no-repeat center/auto 100%;
 }
+header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveYB .img {
+  background: url(https://banner.bw88.io/desktop/img/live/live-yb.png) no-repeat center/auto 100%;
+}
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveBG .img {
   background: url(https://banner.bw88.io/desktop/img/live/live-bg.png) no-repeat center/auto 100%;
 }
@@ -1532,7 +1535,8 @@ header .header > div.function .memberfile img {
           animation: newicon 0.5s linear infinite alternate;
 }
 header .header > div.function .wallet button.icon-eye-blocked,
-header .header > div.function .wallet button.icon-eye {
+header .header > div.function .wallet button.icon-eye,
+header .header > div.function .wallet button.icon-spinner11 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1540,6 +1544,9 @@ header .header > div.function .wallet button.icon-eye {
       -ms-flex-align: center;
           align-items: center;
   margin-left: 5px;
+}
+header .header > div.function .wallet > button.icon-spinner11 {
+  color: #56ceff;
 }
 header .header > div.function .wallet .submenu {
   padding: 15px;
@@ -1854,6 +1861,14 @@ footer > div .platformGroup button.pp {
 footer > div .platformGroup a.pp:hover,
 footer > div .platformGroup button.pp:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/pp-a.png) no-repeat center;
+}
+footer > div .platformGroup a.yb,
+footer > div .platformGroup button.yb {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/yb.png) no-repeat center;
+}
+footer > div .platformGroup a.yb:hover,
+footer > div .platformGroup button.yb:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/yb-a.png) no-repeat center;
 }
 footer > div .platformGroup a.bg,
 footer > div .platformGroup button.bg {
@@ -7418,6 +7433,12 @@ main > .swiper-container .swiper-slide {
 }
 .livelobbyList > div.live-pp:hover {
   background: url(https://banner.bw88.io/desktop/img/livelobby/live-pp-a.png) no-repeat center;
+}
+.livelobbyList > div.live-yb {
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-yb.png) no-repeat center;
+}
+.livelobbyList > div.live-yb:hover {
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-yb-a.png) no-repeat center;
 }
 .livelobbyList > div.live-bg {
   background: url(https://banner.bw88.io/desktop/img/livelobby/live-bg.png) no-repeat center;
