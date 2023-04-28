@@ -1535,8 +1535,7 @@ header .header > div.function .memberfile img {
           animation: newicon 0.5s linear infinite alternate;
 }
 header .header > div.function .wallet button.icon-eye-blocked,
-header .header > div.function .wallet button.icon-eye,
-header .header > div.function .wallet button.icon-spinner11 {
+header .header > div.function .wallet button.icon-eye {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1544,9 +1543,6 @@ header .header > div.function .wallet button.icon-spinner11 {
       -ms-flex-align: center;
           align-items: center;
   margin-left: 5px;
-}
-header .header > div.function .wallet > button.icon-spinner11 {
-  color: #56ceff;
 }
 header .header > div.function .wallet .submenu {
   padding: 15px;

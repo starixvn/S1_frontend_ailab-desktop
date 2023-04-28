@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
-import { isDateRange } from "@ailab-desktop/common";
+import { cambodiaSeaGameEventPeriod, isDateRange } from "@ailab-desktop/common";
+import classNames from "classnames";
 import {
 	userInfoContext,
 	productTpIdsContext,
@@ -38,10 +39,18 @@ export default () => {
 	return (
 		<header className={isEvent ? "newyear" : ""}>
 			<div className="header">
-				<div className="logo">
+				<div
+					className={classNames("logo", {
+						cambodia: isDateRange(cambodiaSeaGameEventPeriod)
+					})}
+				>
 					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
-							src={`${bannerImgUrl}/desktop/img/logo.png`}
+							src={`${bannerImgUrl}/desktop/img/${
+								isDateRange(cambodiaSeaGameEventPeriod)
+									? "logo-cambodia2023"
+									: "logo"
+							}.png`}
 							alt={config.siteName}
 						/>
 					</Link>

@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link, navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
-import { isDateRange } from "@ailab-desktop/common";
+import { cambodiaSeaGameEventPeriod, isDateRange } from "@ailab-desktop/common";
+import classNames from "classnames";
 import {
 	userInfoContext,
 	popBoxContext,
@@ -83,24 +84,45 @@ export default () => {
 	return (
 		<header id="header">
 			<div className="header">
-				<div className="logo">
-					<Link
-						className="logo"
-						to={`/${userInfo.langId}`}
-						onClick={reload}>
+				<div
+					className={classNames("logo", {
+						cambodia: isDateRange(cambodiaSeaGameEventPeriod)
+					})}
+				>
+					<Link to={`/${userInfo.langId}`} onClick={reload}>
+						{isDateRange(cambodiaSeaGameEventPeriod) ? (
+							<img
+								src={`${bannerImgUrl}/desktop/img/logo-cambodia2023${
+									userInfo.langId === "cs" ? "_cs" : ""
+								}.png`}
+								alt={config.siteName}
+							/>
+						) : (
+							<img
+								src={`${bannerImgUrl}/desktop/img/${
+									userInfo.langId === "cs"
+										? "logo_cs"
+										: "logo_en"
+								}.png`}
+								alt={config.siteName}
+							/>
+						)}
+					</Link>
+					{isDateRange(cambodiaSeaGameEventPeriod) && (
 						<img
-							src={`${bannerImgUrl}/desktop/img/${
-								userInfo.langId === "cs" ? "logo_cs" : "logo_en"
-							}.png`}
+							className="cambodia"
+							src={`${bannerImgUrl}/desktop/img/cambodia.png`}
 							alt={config.siteName}
 						/>
-					</Link>
+					)}
+
 					{allowedCurrencyList.rewards.includes(currencyId) && (
 						<a
 							className="rewardsLogo"
 							target="_blank"
 							href={`${config.openURL}/rewards/`}
-							rel="noreferrer">
+							rel="noreferrer"
+						>
 							<img
 								src={`${bannerImgUrl}/desktop/img/88rewards.png`}
 								alt="Rewards"
@@ -123,7 +145,8 @@ export default () => {
 					{userInfo.isLogin ? null : (
 						<Link
 							to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-							className="forgot">
+							className="forgot"
+						>
 							{t("lbl_ForgetPassword")}
 						</Link>
 					)}
