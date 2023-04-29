@@ -370,13 +370,15 @@ export default () => {
 		let checked = true;
 		let msg = "";
 		const phoneLengthRegx =
-			/^\+60[0-9]{9,10}$|\+62[0-9]{10,13}$|\+86[0-9]{10,11}$|\+91[0-9]{10}$|\+66[0-9]{9}$|\+880[0-9]{9}$/;
+			/^\+60[0-9]{9,10}$|\+62[0-9]{10,13}$|\+86[0-9]{10,11}$|\+91[0-9]{10}$|\+66[0-9]{9}$|\+880[0-9]{10}$/;
+
 		if (val === "" || !_areaCode) {
 			checked = false;
 			msg = "lbl_PhoneRequired";
 		} else if (Object.keys(limitCountryNum).includes(_areaCode)) {
 			const limitRange =
 				limitCountryNum[areaCodeList[userValue.areaCodeIdx].areaCode];
+
 			if (!phoneLengthRegx.test(_areaCode + val)) {
 				checked = false;
 				msg = t("lbl_PhoneNumberErrorTip", {
