@@ -116,11 +116,24 @@ export default () => {
 						/>
 					)}
 
-					{allowedCurrencyList.rewards.includes(currencyId) && (
+					{allowedCurrencyList.rewards.includes(currencyId) ? (
 						<a
 							className="rewardsLogo"
 							target="_blank"
 							href={`${config.openURL}/rewards/`}
+							rel="noreferrer"
+						>
+							<img
+								src={`${bannerImgUrl}/desktop/img/88rewards.png`}
+								alt="Rewards"
+							/>
+						</a>
+					) : (
+						<a
+							className="rewardsLogo"
+							target="_blank"
+							href={`${config.openURL}/rewards/`}
+							style={{ visibility: "hidden" }}
 							rel="noreferrer"
 						>
 							<img
