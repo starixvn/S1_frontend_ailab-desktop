@@ -131,14 +131,12 @@ export default () => {
 					) : (
 						<a
 							className="rewardsLogo"
-							target="_blank"
-							href={`${config.openURL}/rewards/`}
+							href="/"
 							style={{ visibility: "hidden" }}
-							rel="noreferrer"
 						>
 							<img
 								src={`${bannerImgUrl}/desktop/img/88rewards.png`}
-								alt="Rewards"
+								alt=""
 							/>
 						</a>
 					)}
