@@ -42,10 +42,7 @@ const Iovation = () => (
                        };
                  `}
 		</script>
-		<script
-			src={`${config.openURL}/common/js/loader_only.js?v=201027`}
-			type="text/javascript"
-		/>
+		<script src={`/js/loader_only.js?v=201027`} type="text/javascript" />
 	</Helmet>
 );
 
@@ -78,7 +75,8 @@ const GTM = () => (
 		</script>
 		<script
 			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-B22CGGG5KJ"></script>
+			src="https://www.googletagmanager.com/gtag/js?id=G-B22CGGG5KJ"
+		></script>
 		<script>
 			{`  window.dataLayer = window.dataLayer || [];
 				function gtag(){dataLayer.push(arguments);}

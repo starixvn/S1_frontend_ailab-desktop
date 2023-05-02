@@ -140,24 +140,24 @@ export const defMenuLinks = langId => ({
 					hoverImg: `${bannerImgUrl}/desktop/img/new-games/vga-hover.png`
 				}
 			},
-			{
-				...productList.MaxGame,
-				displayText: "Max Game",
-				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/max.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/max-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/maxgame-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/max.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/max-hover.png`
-				},
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.game_MaxGame
-					})
-				]
-			},
+			// {
+			// 	...productList.MaxGame,
+			// 	displayText: "Max Game",
+			// 	menuType: defMenuType.entPage,
+			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/max.png`,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/max-item.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/maxgame-icon.png`,
+			// 	lobbyPage: {
+			// 		bgImg: `${bannerImgUrl}/desktop/img/new-games/max.png`,
+			// 		hoverImg: `${bannerImgUrl}/desktop/img/new-games/max-hover.png`
+			// 	},
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.game_MaxGame
+			// 		})
+			// 	]
+			// },
 			{
 				...productList.V8_Poker,
 				className: "v8",
@@ -184,20 +184,20 @@ export const defMenuLinks = langId => ({
 					bgImg: `${bannerImgUrl}/desktop/img/new-games/table.png`,
 					hoverImg: `${bannerImgUrl}/desktop/img/new-games/table-hover.png`
 				}
-			},
-			{
-				...productList.virtualGame,
-				displayKey: "lbl_Virtual_Games",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.virtualGame },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/vir.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/vir-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/virtualgames-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/vir.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/vir-hover.png`
-				}
 			}
+			// {
+			// 	...productList.virtualGame,
+			// 	displayKey: "lbl_Virtual_Games",
+			// 	menuType: defMenuType.LinkOrBtn,
+			// 	parameter: { ...productList.virtualGame },
+			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/vir.png`,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/vir-item.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/virtualgames-icon.png`,
+			// 	lobbyPage: {
+			// 		bgImg: `${bannerImgUrl}/desktop/img/new-games/vir.png`,
+			// 		hoverImg: `${bannerImgUrl}/desktop/img/new-games/vir-hover.png`
+			// 	}
+			// }
 		]
 	},
 	eSport: {
@@ -458,17 +458,17 @@ export const defMenuLinks = langId => ({
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pg.png`,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pg-item.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pg-icon.png`
-			},
-			{
-				...defCasinoProviders.OW,
-				className: "OW",
-				icon: "icon icon-OW",
-				displayText: "Saba Casino",
-				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sabaslot.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sabaslot-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/sabaslot-icon.png`
 			}
+			// {
+			// 	...defCasinoProviders.OW,
+			// 	className: "OW",
+			// 	icon: "icon icon-OW",
+			// 	displayText: "Saba Casino",
+			// 	menuType: defMenuType.entPage,
+			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sabaslot.png`,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sabaslot-item.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/sabaslot-icon.png`
+			// }
 		]
 	},
 	liveCasino: {
