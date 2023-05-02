@@ -116,19 +116,19 @@ export const defMenuLinks = {
 				parameter: { ...productList.sabaClub },
 				lobbyPage: { bgClass: "vgaming" }
 			},
-			{
-				...productList.MaxGame,
-				className: "maxgame",
-				displayText: "Max Game",
-				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "maxgame" },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.game_MaxGame
-					})
-				]
-			},
+			// {
+			// 	...productList.MaxGame,
+			// 	className: "maxgame",
+			// 	displayText: "Max Game",
+			// 	menuType: defMenuType.entPage,
+			// 	lobbyPage: { bgClass: "maxgame" },
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.game_MaxGame
+			// 		})
+			// 	]
+			// },
 			{
 				...productList.V8_Poker,
 				className: "v8",
@@ -144,16 +144,16 @@ export const defMenuLinks = {
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.tableGame },
 				lobbyPage: { bgClass: "tablegame" }
-			},
-			{
-				...productList.virtualGame,
-				path: path.sports.root,
-				className: "virtual",
-				displayKey: "lbl_Virtual_Games",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.virtualGame },
-				lobbyPage: { bgClass: "virtualgames" }
 			}
+			// {
+			// 	...productList.virtualGame,
+			// 	path: path.sports.root,
+			// 	className: "virtual",
+			// 	displayKey: "lbl_Virtual_Games",
+			// 	menuType: defMenuType.LinkOrBtn,
+			// 	parameter: { ...productList.virtualGame },
+			// 	lobbyPage: { bgClass: "virtualgames" }
+			// }
 		]
 	},
 	// numberGame: {
@@ -378,14 +378,14 @@ export const defMenuLinks = {
 				displayText: "PG Soft",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.PG.name }
-			},
-			{
-				...defCasinoProviders.OW,
-				className: "OW",
-				icon: "icon icon-OW",
-				displayText: "Saba Casino",
-				menuType: defMenuType.entPage
 			}
+			// {
+			// 	...defCasinoProviders.OW,
+			// 	className: "OW",
+			// 	icon: "icon icon-OW",
+			// 	displayText: "Saba Casino",
+			// 	menuType: defMenuType.entPage
+			// }
 		]
 	},
 	liveCasino: {
