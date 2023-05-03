@@ -74,12 +74,13 @@ const JoinForm = ({
 				) : null}
 			</div>
 
-			<ReCAPTCHA
+			{/* // TODO:渲染不出畫面，暫時拿到，上班日修復 */}
+			{/* <ReCAPTCHA
 				class="g-recaptcha"
 				sitekey="6LfhmRciAAAAAFSX-wXBxMISia2lpS5_SQ7aa7-E"
 				onChange={reCaptchaOnChange}
 				hl={reCaptchaEnum[langId]}
-			/>
+			/> */}
 
 			<div className="Terms">
 				<Checkbox

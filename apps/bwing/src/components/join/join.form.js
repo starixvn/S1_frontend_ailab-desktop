@@ -96,19 +96,18 @@ const JoinForm = ({
 			/>
 		</div>
 
-		<ReCAPTCHA
+		{/* // TODO:渲染不出畫面，暫時拿到，上班日修復 */}
+		{/* <ReCAPTCHA
 			class="g-recaptcha"
 			sitekey="6LdzkRciAAAAAMuli_1oYaulJv-LHcT0wNZtaK69"
 			onChange={reCaptchaOnChange}
 			hl={reCaptchaEnum[langId]}
-		/>
-
+		/> */}
 		<div className="Terms">
 			<Checkbox
 				id="joinAgreeCheck"
 				checked={userValue.agreeCheck}
-				onChange={checkboxHandler.bind(null, "agreeCheck")}
-			>
+				onChange={checkboxHandler.bind(null, "agreeCheck")}>
 				{t("lbl_Check18TC1")}{" "}
 				<a target="_blank" rel="noreferrer" href={tandCTerms}>
 					{t("lbl_TermsConditions")}{" "}
@@ -123,7 +122,6 @@ const JoinForm = ({
 		{tip.checkbox.msg !== "" ? (
 			<div className="tip active">{tip.checkbox.msg}</div>
 		) : null}
-
 		<div className="btnGroup">
 			<button type="button" className="gray" onClick={clickCancel}>
 				{t("lbl_CANCEL")}
