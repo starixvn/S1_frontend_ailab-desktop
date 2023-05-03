@@ -1740,9 +1740,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .promoList.bd {
   background: url(https://banner.0814media.net/desktop/img/pomobanner-bd.jpg) no-repeat center/auto;
 }
-.header > div.menu .subMenu-Wrapper-new .promoList.kh {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-kh.jpg) no-repeat center/auto;
-}
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1830,9 +1827,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .cryptoList.cs {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_cs.jpg) no-repeat center/auto;
 }
-.header > div.menu .subMenu-Wrapper-new .cryptoList.kh {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_kh.jpg) no-repeat center/auto;
-}
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_en_um.jpg);
 }
@@ -1847,9 +1841,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.cs {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_cs_um.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.kh {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_kh_um.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.vipen {
   background: url(https://banner.0814media.net/desktop/img/vipbg_en.jpg) no-repeat center/auto;
@@ -1887,9 +1878,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
   background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-id.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .rankingList.kh {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-kh.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > a {
@@ -2853,6 +2841,7 @@ footer .footerList > .item-wrapper > div > div.title {
 }
 footer .footerList > .item-wrapper > div > div.title + div {
   margin: 10px 0;
+  height: 38px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3360,9 +3349,6 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
 .flag.bd:before {
   background: url(https://banner.0814media.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
 }
-.flag.kh:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
-}
 .flag.gb:before {
   background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
@@ -3631,7 +3617,6 @@ input[type=file] {
           justify-content: center;
   min-width: 123px;
   margin: 0 5px;
-  font-size: 12px;
 }
 .btnGroup button.btn-org,
 .btnGroup a.btn-org {
@@ -6386,7 +6371,7 @@ input[type=file] {
 .walletModule .walletBalanceModule span.icon-icon32px_Sportsbook-Wallet + span + .btnGroup button {
   height: 30px;
   min-width: 90px;
-  padding: 10px 5px;
+  padding: 10px 0;
 }
 .walletModule .walletBalanceModule .icon.icon-spinner11 {
   margin-top: 0;
@@ -6613,10 +6598,6 @@ input[type=file] {
   position: absolute;
   top: 25px;
   right: 12px;
-}
-.addBank .addBankName .cryptoInfo .checkbox {
-  margin-right: -2px;
-  margin-left: 5px;
 }
 .addBank .addBankName .cryptoInfo > .title {
   width: 100%;
@@ -7095,9 +7076,6 @@ input[type=file] {
 .quickSelect .dropdown .dropdown-container .dropdown-item {
   margin: 0;
   padding: 5px 0 5px 10px;
-}
-.quickSelect .dropdown .btn {
-  padding: 0 10px;
 }
 
 .specialBonus {
@@ -10969,19 +10947,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .subModuleListColumn > .subModule.bankQR .qrCode {
   width: calc(20% - 40px);
-  height: 114px;
   padding: 5px;
   background: rgba(240, 247, 255, 0.8);
-  overflow: hidden;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
-.subModuleListColumn > .subModule.bankQR .qrCode svg, .subModuleListColumn > .subModule.bankQR .qrCode img {
-  width: auto;
+.subModuleListColumn > .subModule.bankQR .qrCode svg {
+  width: 100%;
   height: 100%;
 }
 .subModuleListColumn .column {
@@ -12351,14 +12321,14 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .quickLinkNew4 {
   position: fixed;
   right: 0;
-  top: 180px;
+  top: 145px;
   z-index: 1;
   -webkit-transition: 0.6s;
   transition: 0.6s;
   padding: 10px;
   cursor: pointer;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(75%, rgba(204, 204, 204, 0.8)), to(rgba(255, 255, 255, 0)));
-  background: linear-gradient(to bottom, rgba(204, 204, 204, 0.8) 75%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, rgba(204, 204, 204, 0.8)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to bottom, rgba(204, 204, 204, 0.8) 60%, rgba(255, 255, 255, 0) 100%);
   color: #0f2346;
   font-weight: bold;
   display: -webkit-box;
@@ -12374,7 +12344,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 175px;
+  height: 150px;
   width: 20px;
 }
 .quickLinkNew1 i,
@@ -12396,8 +12366,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .quickLinkNew4 > div {
   letter-spacing: 1px;
   height: 24px;
-  width: 160px;
-  white-space: nowrap;
+  width: 100px;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
   display: -webkit-box;
@@ -13025,7 +12994,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   list-style: decimal;
   line-height: 20px;
   margin-left: 15px;
-  word-wrap: break-word;
 }
 .important li span,
 .important li a {
@@ -13270,9 +13238,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border-radius: 30px;
   color: #fff;
   font-size: 14px;
-  padding: 0 20px;
+  padding: 10px 20px;
   font-weight: bold;
-  height: 40px;
 }
 .jpotModule .jpot .jpot-btn:hover a,
 .jpotModule .jpot .jpot-btn:hover button {
@@ -14596,7 +14563,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-height: 30px;
+  min-height: 20px;
 }
 .rolloverList div div:nth-child(1) {
   min-height: 38px;
@@ -18958,7 +18925,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .duitnowPop > div.popTit img {
   width: auto;
-  max-width: 300px;
   height: 20px;
   position: absolute;
   left: 5px;
@@ -19015,24 +18981,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #cf0404;
 }
 .duitnowPop > div.guide .qrCode {
-  width: 180px;
-  height: 180px;
-  padding: 5px;
-  background: rgba(240, 247, 255, 0.8);
-  overflow: hidden;
   margin: 5px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
-.duitnowPop > div.guide .qrCode svg, .duitnowPop > div.guide .qrCode img {
-  width: auto;
+.duitnowPop > div.guide .qrCode svg {
+  width: 180px;
   height: 180px;
 }
 .duitnowPop > div.guide .qrCode path:nth-child(2) {
