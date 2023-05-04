@@ -262,6 +262,49 @@ const defSortFishing = {
 	}
 };
 
+const defSortGames = {
+	[defCurrencyList.THB]: {
+		games_MPoker: 1,
+		games_AMBpoker: 2,
+		games_VGaming: 3,
+		games_MaxGame: 4,
+		games_kingMaker: 5,
+		games_VirtualGame: 6
+	},
+	[defCurrencyList.MYR]: {
+		games_MPoker: 1,
+		games_AMBpoker: 2,
+		games_VGaming: 3,
+		games_MaxGame: 4,
+		games_kingMaker: 5,
+		games_VirtualGame: 6
+	},
+	[defCurrencyList.IDR]: {
+		games_MPoker: 1,
+		games_AMBpoker: 2,
+		games_VGaming: 3,
+		games_MaxGame: 4,
+		games_kingMaker: 5,
+		games_VirtualGame: 6
+	},
+	[defCurrencyList.INR]: {
+		games_MPoker: 1,
+		games_AMBpoker: 2,
+		games_VGaming: 3,
+		games_MaxGame: 4,
+		games_kingMaker: 5,
+		games_VirtualGame: 6
+	},
+	[defCurrencyList.BDT]: {
+		games_MPoker: 1,
+		games_AMBpoker: 2,
+		games_VGaming: 3,
+		games_MaxGame: 4,
+		games_kingMaker: 5,
+		games_VirtualGame: 6
+	}
+};
+
 export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
@@ -1034,6 +1077,7 @@ export const defMenuLinks = {
 		displayKey: "lbl_Games",
 		path: path.game.root,
 		filterByAuth: true,
+		customSort: defSortGames,
 		subMenu: [
 			{
 				keyName: "games_MPoker",
@@ -1083,26 +1127,10 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgImg: "gamevg.png",
 					hoverBgImg: "gamevga.png"
-				}
+				},
+				allowCurrencies: allowedCurrencyList.vGaming
 			},
-			// {
-			// 	keyName: "games_MaxGame",
-			// 	listNpcImgUrl: "max.png",
-			// 	listBgImgUrl: "tablelisthover.png",
-			// 	displayText: "Max Game",
-			// 	menuType: defMenuType.entPage,
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.game_MaxGame
-			// 		})
-			// 	],
-			// 	...productList.game_MaxGame,
-			// 	lobbyPage: {
-			// 		bgImg: "gamemax.png",
-			// 		hoverBgImg: "gamemaxa.png"
-			// 	}
-			// },
+
 			{
 				keyName: "games_kingMaker",
 				className: "fsgw",
@@ -1117,19 +1145,6 @@ export const defMenuLinks = {
 					hoverBgImg: "gamekima.png"
 				}
 			}
-			// {
-			// 	...productList.virtualGame,
-			// 	keyName: "games_VirtualGame",
-			// 	listNpcImgUrl: "virtualgames.png",
-			// 	listBgImgUrl: "tablelisthover.png",
-			// 	displayKey: "lbl_Virtual_Games",
-			// 	menuType: defMenuType.entPage,
-			// 	parameter: { ...productList.virtualGame },
-			// 	lobbyPage: {
-			// 		bgImg: "gamevirtual.png",
-			// 		hoverBgImg: "gamevirtuala.png"
-			// 	}
-			// }
 		]
 	},
 	fishing: {

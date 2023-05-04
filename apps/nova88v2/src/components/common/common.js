@@ -217,6 +217,7 @@ export const defCurrencyList = {
 	IDR: 15,
 	INR: 61,
 	USDT: 96,
+	KHM: 72,
 	BDT: 74
 };
 
@@ -237,6 +238,7 @@ export const defCountryList = {
 	13: "China",
 	15: "Indonesia",
 	61: "India",
+	72: "Cambodia",
 	74: "Bangladesh"
 };
 
@@ -244,6 +246,7 @@ export const currencyIdToTimeZone = {
 	2: "+08:00",
 	4: "+07:00",
 	15: "+07:00",
+	72: "+07:00",
 	74: "+06:00",
 	61: "+05:30",
 	3: "+00:00",
@@ -257,6 +260,7 @@ export const langAndCurrMapping = {
 	th: 4,
 	id: 15,
 	hi: 61,
+	kh: 72,
 	bd: 74
 };
 
@@ -267,6 +271,7 @@ export const defCurrencyToClass = {
 	13: "cs",
 	15: "id",
 	61: "in",
+	72: "kh",
 	74: "bd"
 };
 
@@ -277,6 +282,7 @@ export const defCurrencyToLangId = {
 	13: "cs",
 	15: "id",
 	61: "hi",
+	72: "kh",
 	74: "bd"
 };
 
@@ -295,7 +301,8 @@ export const validImgLang = langId => {
 		langId !== "my" &&
 		langId !== "th" &&
 		langId !== "id" &&
-		langId !== "bd"
+		langId !== "bd" &&
+		langId !== "kh"
 	) {
 		return "en";
 	}

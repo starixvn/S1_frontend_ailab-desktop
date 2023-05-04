@@ -39,7 +39,8 @@ const allowedCurrencyList = {
 		defCurrencyList.MYR,
 		defCurrencyList.THB,
 		defCurrencyList.IDR,
-		defCurrencyList.INR
+		defCurrencyList.INR,
+		defCurrencyList.KHM
 	],
 	eWallet: [
 		defCurrencyList.IDR,
@@ -51,21 +52,26 @@ const allowedCurrencyList = {
 	// ==== products ====
 
 	// slot
-	slotAMB: [defCurrencyList.THB, defCurrencyList.USD, defCurrencyList.CNY],
-
-	// poker
-	oneGame: [
-		defCurrencyList.MYR,
-		defCurrencyList.IDR,
+	slotAMB: [
 		defCurrencyList.THB,
-		defCurrencyList.BDT,
+		defCurrencyList.USD,
 		defCurrencyList.CNY,
-		defCurrencyList.USD
+		defCurrencyList.KHM
 	],
 
 	// game
 	mPoker: [defCurrencyList.THB],
 	amb: [defCurrencyList.THB],
+	vGaming: [
+		defCurrencyList.MYR,
+		defCurrencyList.IDR,
+		defCurrencyList.THB,
+		defCurrencyList.BDT,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.KHM,
+		defCurrencyList.INR
+	],
 
 	// fishing
 	fishingGod: [defCurrencyList.INR],

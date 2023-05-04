@@ -16,7 +16,8 @@ const defAmountList = {
 	[defCurrencyList.INR]: [100, 300, 500, 1000, 2000],
 	[defCurrencyList.BDT]: [100, 300, 500, 1000, 2000],
 	[defCurrencyList.CNY]: [100, 300, 500, 1000, 2000],
-	[defCurrencyList.USD]: [100, 300, 500, 1000, 2000]
+	[defCurrencyList.USD]: [100, 300, 500, 1000, 2000],
+	[defCurrencyList.KHM]: [100, 300, 500, 1000, 2000]
 };
 
 const ShortcutAmountList = ({ amount, minAmount, maxAmount, onClick }) => {

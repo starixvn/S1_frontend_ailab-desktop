@@ -87,9 +87,11 @@ export class Dropdown extends Component {
 					}
 				}
 			} else {
-				this.props.setUserInfo(prev => ({ ...prev, currencyId }));
+				this.props.setUserInfo(prev => ({
+					...prev,
+					currencyId
+				}));
 			}
-
 			navigate(newPath);
 			setCookie(SiteInfo.langCookie, value);
 			setCookie(SiteInfo.currencyCookie, currencyId);

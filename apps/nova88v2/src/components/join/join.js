@@ -29,12 +29,13 @@ import usePopBox from "../hook/usePopBox";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { cloudImgUrl, bannerImgUrl } from "../../config";
 import { Iov_GetBlackBox } from "../common/iovation";
-import { initValue, initTip, currencyToAreacode } from "../common/join.data";
+import { initValue, initTip } from "../common/join.data";
 import JoinForm from "./join.form";
 import JoinPromoInfo from "./join.promoInfo";
 import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
-import { limitCountryNum } from "./join.def";
+import { currencyToAreacode, limitCountryNum } from "./join.def";
 import { defLangGroups } from "../header/header.langDropdown";
+import { currencyCode } from "../../datas/countryCode";
 
 export const areaCodeList = Object.values(areaCode).map(el => ({
 	id: `${el.AreaCode} ${el.Name}`,
@@ -101,14 +102,31 @@ export default () => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
 							const { currencyId } = res.data.data;
+
 							const currencyArr = [
 								{
 									id: currencyId,
 									displayKey: `Currency_${currencyId}`
 								}
 							];
+
 							setSiteCurrency(currencyArr);
-							onSelectItem(0);
+
+							// README RULE 2.1、2.2
+							if (currencyId === currencyCode.KH) {
+								const currencyName =
+									currencyToAreacode[currencyCode.KH];
+								const areaCodeIdx = areaCodeList.findIndex(
+									({ abbr }) => abbr === currencyName
+								);
+
+								// * 清除 default option 才顯示得出 selected option
+								setDefaultOption(null);
+								setUserValue(prev => ({
+									...prev,
+									...{ currencyIdx: 0, areaCodeIdx }
+								}));
+							}
 						} else {
 							getCurrencyList();
 						}
@@ -136,16 +154,23 @@ export default () => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
 						const { data } = res.data;
-						const currencyArr = data.map(id => ({
+						const originCurrencyArr = data.map(id => ({
 							id,
 							displayKey: `Currency_${id}`
 						}));
+
+						// * 篩選掉 KH 選項，讓畫面看不到 KH 選項
+						// * 選項含有 KHUSD 及 USD，目的是讓使用者只看得到 USD 進行註冊
+						const currencyArr = originCurrencyArr.filter(
+							val => val.id !== currencyCode.KH
+						);
+
 						if (lineUserId) {
 							currencyArr.filter(
 								el => el.id === defCurrencyList.THB
 							);
 						}
-						setSiteCurrency(() => currencyArr);
+						setSiteCurrency(currencyArr);
 					} else {
 						errorPopBox(
 							res.data.message || "error",
@@ -370,8 +395,7 @@ export default () => {
 		let checked = true;
 		let msg = "";
 		const phoneLengthRegx =
-			/^\+60[0-9]{9,10}$|\+62[0-9]{10,13}$|\+86[0-9]{10,11}$|\+91[0-9]{10}$|\+66[0-9]{9}$|\+880[0-9]{10}$/;
-
+			/^\+60[0-9]{9,10}$|\+62[0-9]{10,13}$|\+86[0-9]{10,11}$|\+91[0-9]{10}$|\+66[0-9]{9}$|\+880[0-9]{10}$|\+855[0-9]{8,9}$/;
 		if (val === "" || !_areaCode) {
 			checked = false;
 			msg = "lbl_PhoneRequired";
@@ -512,12 +536,22 @@ export default () => {
 			};
 			const signupLangId = getSignupLangId();
 
+			let currencyId = siteCurrency[userValue.currencyIdx]?.id;
+
+			// README RULE 1.1
+			if (
+				currencyId === currencyCode.USD &&
+				_areaCode === areaCode.KH.AreaCode
+			) {
+				currencyId = currencyCode.KH;
+			}
+
 			const regData = {
 				UserName: userValue.username,
 				Userpwd: userValue.password,
 				Email: userValue.email,
 				PhoneNo: userValue.phone,
-				CurrencyId: siteCurrency[userValue.currencyIdx]?.id,
+				CurrencyId: currencyId,
 				UserLang: signupLangId,
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
