@@ -340,6 +340,54 @@ export const defMetaData = {
 					hreflang: "bn-bd"
 				}
 			]
+		},
+		kh: {
+			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Asia`,
+			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
+			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
+			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88106.net/kh/`
+				},
+				{ rel: "canonical", href: `https://www.nova88106.net/kh/` },
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/",
+					hreflang: "bn-bd"
+				}
+			]
 		}
 	},
 	[path.join.root]: {
@@ -488,6 +536,54 @@ export const defMetaData = {
 				{
 					rel: "canonical",
 					href: `https://www.nova88-indo805.info/id/join`
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/join",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/join",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/join",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/join",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/join",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/join",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/join",
+					hreflang: "bn-bd"
+				}
+			]
+		},
+		kh: {
+			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88-indo805.info/kh/join`
+				},
+				{
+					rel: "canonical",
+					href: `https://www.nova88-indo805.info/kh/join`
 				},
 				{
 					rel: "alternate",
@@ -694,6 +790,57 @@ export const defMetaData = {
 				{
 					rel: "canonical",
 					href: `https://www.nova88-indo805.info/id/promotion`
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/promotion",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/promotion",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/promotion",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/promotion",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/promotion",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/promotion",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/promotion",
+					hreflang: "bn-bd"
+				}
+			]
+		},
+		kh: {
+			title: `Nova88 Promotion | Trusted Live Casino | Welcome Bonus`,
+			description: `Looking For The Best Live Casino Bonuses and Rewards? Don't Miss Out Our Monthly Exclusive Promotions! Play And Earn More Bonus With Nova88 now!`,
+			keyword: `Online Casino Promotion, Welcome Bonus, Reload Bonus, Cash Rebate, Weekly Cashback, Withdrawal Bonus, Referral Rewards, Birthday Reward, New Member Promotion, Sportsbook Promotion, Casino Promotion, Slot Promotion`,
+			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/kh/promotion`
+				},
+				{
+					rel: "canonical",
+					href: `https://www.nova88.net/kh/promotion`
 				},
 				{
 					rel: "alternate",
@@ -950,6 +1097,57 @@ export const defMetaData = {
 				{
 					rel: "canonical",
 					href: `https://www.nova88-indo805.info/id/leaderBoard`
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/leaderBoard",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/leaderBoard",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/leaderBoard",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/leaderBoard",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/leaderBoard",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/leaderBoard",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/leaderBoard",
+					hreflang: "bn-bd"
+				}
+			]
+		},
+		kh: {
+			title: `Nova88 | Asia Most Trusted Sportsbook | SABA Sports`,
+			description: `Nova88 Offers Wide Variety of Sports Games To Keep Players Entertained. Officially Licensed and Subsidiary of SABA Sports. Don't Miss Any Betting Opportunity!`,
+			keyword: `Nova88, Sports Betting, SABA Sports, Soccer Betting, Soccer, Soccer Leagues, Basketball, Tennis, Cricket, Virtual Sports, Volleyball, World Cup, EURO`,
+			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/kh/leaderBoard`
+				},
+				{
+					rel: "canonical",
+					href: `https://www.nova88.net/kh/leaderBoard`
 				},
 				{
 					rel: "alternate",
@@ -1250,6 +1448,54 @@ export const defMetaData = {
 					rel: "canonical",
 					href: `https://www.nova88-indo805.info/id/slots`
 				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/slots",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/slots",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/slots",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/slots",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/slots",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/slots",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/slots",
+					hreflang: "bn-bd"
+				}
+			]
+		},
+		kh: {
+			title: `Nova88 | Best Online Slots | Asia's Most Trusted Platform`,
+			description: `Explore More Slot Games in Nova88. Login Everyday And Enjoy The Games. Get Appreciation Token and Weekly Free Spins From Us. Don't Miss Out, Claim Now!`,
+			keyword: `Slots, Online Slots, Casino Slot Games, Slot Machine, Free Spins, Habanero, Jili, Mega888, Pragmatic Play, NetEnt, Game Play, YGGdrasil, Joker, AdvantPlay, Spade Gaming, Red Tiger, CQ9, Astro Tech, Playtech`,
+			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/kh/slots`
+				},
+				{ rel: "canonical", href: `https://www.nova88.net/kh/slots` },
 				{
 					rel: "alternate",
 					href: "https://www.nova88.net/en/slots",

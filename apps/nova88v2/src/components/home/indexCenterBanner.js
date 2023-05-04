@@ -13,7 +13,8 @@ const BANNER_IMAGE_LIST = {
 	th: "indexCenterBanner_th.jpg",
 	hi: "indexCenterBanner_hi.jpg",
 	bd: "indexCenterBanner_bd.jpg",
-	my: "indexCenterBanner_my.jpg"
+	my: "indexCenterBanner_my.jpg",
+	kh: "indexCenterBanner_kh.jpg"
 };
 
 const testImg = src =>
@@ -35,7 +36,7 @@ const IndexCenterBanner = ({ langId }) => {
 		const checkImage = async () => {
 			let success = false;
 			const bannerImg = `${bannerImgUrl}/desktop/img/${BANNER_IMAGE_LIST[langId]}`;
-			const defaultBannerImg = `${bannerImgUrl}/img/${BANNER_IMAGE_LIST[DEFAULT_LANGID]}`;
+			const defaultBannerImg = `${bannerImgUrl}/desktop/img/${BANNER_IMAGE_LIST[DEFAULT_LANGID]}`;
 
 			success = await testImg(bannerImg);
 

@@ -27,7 +27,8 @@ import Dropdown from "./dropdown";
 import Checkbox from "./checkbox";
 import { Iov_GetBlackBox } from "./iovation";
 
-import { initValue, initTip, currencyToAreacode } from "./join.data";
+import { initValue, initTip } from "./join.data";
+import { currencyToAreacode } from "../join/join.def";
 
 export default () => {
 	const { t } = useTranslation();
