@@ -253,9 +253,10 @@ export default () => {
 		const _reCaptchaCheck = reCaptchaToken !== "";
 
 		const checked =
-			_usernameCheck.checked && _passwordCheck.checked && _agreeCheck;
-		// TODO:渲染不出畫面，暫時拿到，上班日修復
-		// &&_reCaptchaCheck;
+			_usernameCheck.checked &&
+			_passwordCheck.checked &&
+			_agreeCheck &&
+			_reCaptchaCheck;
 
 		if (!checked) {
 			let checkboxMsg = "";

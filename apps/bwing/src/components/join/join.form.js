@@ -96,13 +96,12 @@ const JoinForm = ({
 			/>
 		</div>
 
-		{/* // TODO:渲染不出畫面，暫時拿到，上班日修復 */}
-		{/* <ReCAPTCHA
+		<ReCAPTCHA
 			class="g-recaptcha"
 			sitekey="6LdzkRciAAAAAMuli_1oYaulJv-LHcT0wNZtaK69"
 			onChange={reCaptchaOnChange}
 			hl={reCaptchaEnum[langId]}
-		/> */}
+		/>
 		<div className="Terms">
 			<Checkbox
 				id="joinAgreeCheck"
