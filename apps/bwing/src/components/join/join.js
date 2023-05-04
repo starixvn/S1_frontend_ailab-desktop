@@ -279,8 +279,7 @@ export default () => {
 	const checkAll = async () => {
 		const _reCaptchaCheck = reCaptchaToken !== "";
 		// * 機器人驗證沒過直接 return 出去
-		// TODO:渲染不出畫面，暫時拿到，上班日修復
-		// if (!_reCaptchaCheck) return false;
+		if (!_reCaptchaCheck) return false;
 
 		const res = await Promise.all([
 			usernameCheck(userValue.username),

@@ -206,8 +206,7 @@ const JoinForm = ({
 			/>
 		</div>
 
-		{/* // TODO:渲染不出畫面，暫時拿到，上班日修復 */}
-		{/* {Object.keys(recaptchaInfo).length > 0 &&
+		{Object.keys(recaptchaInfo).length > 0 &&
 			recaptchaInfo.country !== "CN" && (
 				<ReCAPTCHA
 					class="g-recaptcha"
@@ -215,7 +214,7 @@ const JoinForm = ({
 					onChange={reCaptchaOnChange}
 					hl={reCaptchaEnum[langId]}
 				/>
-			)} */}
+			)}
 
 		<div className="Terms">
 			{t("lbl_sign_up_terms_start")}
