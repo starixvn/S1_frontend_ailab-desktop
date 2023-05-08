@@ -36,8 +36,7 @@ const useAppDownLoad = () => {
 					}
 				})
 				.catch(() => {
-					if (!isMountedRef.current) return;
-					errorPopBox();
+					// 在首頁網路斷線時會進來這個 catch，故不特別做錯誤處理
 				});
 		};
 
