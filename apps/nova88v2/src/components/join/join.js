@@ -35,7 +35,6 @@ import JoinPromoInfo from "./join.promoInfo";
 import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
 import { currencyToAreacode, limitCountryNum } from "./join.def";
 import { defLangGroups } from "../header/header.langDropdown";
-import { currencyCode } from "../../datas/countryCode";
 
 export const areaCodeList = Object.values(areaCode).map(el => ({
 	id: `${el.AreaCode} ${el.Name}`,
@@ -111,22 +110,6 @@ export default () => {
 							];
 
 							setSiteCurrency(currencyArr);
-
-							// README RULE 2.1、2.2
-							if (currencyId === currencyCode.KH) {
-								const currencyName =
-									currencyToAreacode[currencyCode.KH];
-								const areaCodeIdx = areaCodeList.findIndex(
-									({ abbr }) => abbr === currencyName
-								);
-
-								// * 清除 default option 才顯示得出 selected option
-								setDefaultOption(null);
-								setUserValue(prev => ({
-									...prev,
-									...{ currencyIdx: 0, areaCodeIdx }
-								}));
-							}
 						} else {
 							getCurrencyList();
 						}
@@ -154,16 +137,10 @@ export default () => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
 						const { data } = res.data;
-						const originCurrencyArr = data.map(id => ({
+						const currencyArr = data.map(id => ({
 							id,
 							displayKey: `Currency_${id}`
 						}));
-
-						// * 篩選掉 KH 選項，讓畫面看不到 KH 選項
-						// * 選項含有 KHUSD 及 USD，目的是讓使用者只看得到 USD 進行註冊
-						const currencyArr = originCurrencyArr.filter(
-							val => val.id !== currencyCode.KH
-						);
 
 						if (lineUserId) {
 							currencyArr.filter(
@@ -536,15 +513,7 @@ export default () => {
 			};
 			const signupLangId = getSignupLangId();
 
-			let currencyId = siteCurrency[userValue.currencyIdx]?.id;
-
-			// README RULE 1.1
-			if (
-				currencyId === currencyCode.USD &&
-				_areaCode === areaCode.KH.AreaCode
-			) {
-				currencyId = currencyCode.KH;
-			}
+			const currencyId = siteCurrency[userValue.currencyIdx]?.id;
 
 			const regData = {
 				UserName: userValue.username,
