@@ -10950,11 +10950,19 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .subModuleListColumn > .subModule.bankQR .qrCode {
   width: calc(20% - 40px);
+  height: 114px;
   padding: 5px;
   background: rgba(240, 247, 255, 0.8);
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.subModuleListColumn > .subModule.bankQR .qrCode svg {
-  width: 100%;
+.subModuleListColumn > .subModule.bankQR .qrCode svg, .subModuleListColumn > .subModule.bankQR .qrCode img {
+  width: auto;
   height: 100%;
 }
 .subModuleListColumn .column {
@@ -18931,6 +18939,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .duitnowPop > div.popTit img {
   width: auto;
+  max-width: 300px;
   height: 20px;
   position: absolute;
   left: 5px;
@@ -18987,10 +18996,24 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #cf0404;
 }
 .duitnowPop > div.guide .qrCode {
-  margin: 5px 0;
-}
-.duitnowPop > div.guide .qrCode svg {
   width: 180px;
+  height: 180px;
+  padding: 5px;
+  background: rgba(240, 247, 255, 0.8);
+  overflow: hidden;
+  margin: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.duitnowPop > div.guide .qrCode svg, .duitnowPop > div.guide .qrCode img {
+  width: auto;
   height: 180px;
 }
 .duitnowPop > div.guide .qrCode path:nth-child(2) {

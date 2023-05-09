@@ -3787,6 +3787,172 @@ html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .dropdown-container
 html.Newtheme #popup .pop .loackAmount .btnGroup {
   margin: 20px 0 15px;
 }
+html.Newtheme #popup .pop .qrpayPop {
+  padding: 5px 10px;
+  font-size: 13px;
+  min-width: 350px;
+  width: 350px;
+}
+html.Newtheme #popup .pop .qrpayPop ul {
+  color: #fff;
+  margin-bottom: 5px;
+}
+html.Newtheme #popup .pop .qrpayPop ul li {
+  margin-left: 15px;
+  list-style: decimal;
+}
+html.Newtheme #popup .pop .qrpayPop ul li button {
+  font-size: 12px;
+  background: #1f3258;
+  color: white;
+  padding: 2px 5px;
+  margin-right: 10px;
+}
+html.Newtheme #popup .pop .qrpayPop .logo {
+  background: #fff;
+  width: 150px;
+  margin: 20px 0 10px;
+  border-radius: 2px;
+}
+html.Newtheme #popup .pop .qrpayPop > div {
+  width: 100%;
+  color: #fff;
+  margin: 2px auto;
+  text-align: center;
+}
+html.Newtheme #popup .pop .qrpayPop > div span {
+  font-weight: bold;
+}
+html.Newtheme #popup .pop .qrpayPop > div.popTit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 0;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: -15px;
+}
+html.Newtheme #popup .pop .qrpayPop > div.popTit .icon-close {
+  position: absolute;
+  right: -15px !important;
+  top: auto !important;
+  color: white !important;
+}
+html.Newtheme #popup .pop .qrpayPop > div.guide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px dotted #4e6ca8;
+  border-bottom: 1px dotted #4e6ca8;
+  padding: 10px 0;
+}
+html.Newtheme #popup .pop .qrpayPop > div.guide .code {
+  font-size: 25px;
+  font-weight: bold;
+  color: #d83b35;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme #popup .pop .qrpayPop > div.guide .code a, html.Newtheme #popup .pop .qrpayPop > div.guide .code button {
+  background: #5084e4;
+  padding: 3px 5px;
+  border-radius: 3px;
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: normal;
+}
+html.Newtheme #popup .pop .qrpayPop > div.guide .code a:hover, html.Newtheme #popup .pop .qrpayPop > div.guide .code button:hover {
+  background: #4e6ca8;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+html.Newtheme #popup .pop .qrpayPop > div.guide .qrCode {
+  width: 188px;
+  height: 188px;
+  padding: 5px;
+  background: rgba(198, 198, 198, 0.5);
+  overflow: hidden;
+  margin: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 2px;
+}
+html.Newtheme #popup .pop .qrpayPop > div.guide .qrCode svg, html.Newtheme #popup .pop .qrpayPop > div.guide .qrCode img {
+  width: auto;
+  height: 180px;
+}
+html.Newtheme #popup .pop .qrpayPop > div.guide .qrCode path:nth-child(2) {
+  fill: #EE2968;
+}
+html.Newtheme #popup .pop .qrpayPop .info {
+  margin: 5px auto;
+}
+html.Newtheme #popup .pop .qrpayPop .info span {
+  display: block;
+}
+html.Newtheme #popup .pop .qrpayPop ul + .info {
+  color: #d83b35;
+}
+html.Newtheme #popup .pop .qrpayPop .amount span {
+  font-size: 16px;
+  display: block;
+  border-radius: 2px;
+  color: #fff;
+  margin: 0 auto 10px;
+}
+html.Newtheme #popup .pop .qrpayPop .sisa {
+  text-align: center;
+  margin: 8px 0;
+}
+html.Newtheme #popup .pop .qrpayPop .sisa div:last-child {
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html.Newtheme #popup .pop .qrpayPop .sisa div:last-child span {
+  font-size: 14px;
+  color: #1f3258;
+  font-weight: normal;
+  padding: 2px 5px;
+  margin: 0 3px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #fff;
+  border-radius: 2px;
+}
 html.Newtheme #popup .friend {
   width: auto;
   position: relative;
@@ -8342,6 +8508,34 @@ html.Newtheme .subModuleListColumn > .subModule .dropdown > .dropdown-container 
 html.Newtheme .subModuleListColumn > .subModule .dropdown > .btn {
   color: #1f3258;
   margin-left: 5px;
+}
+html.Newtheme .subModuleListColumn > .subModule.bankQR {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html.Newtheme .subModuleListColumn > .subModule.bankQR .bankAccount {
+  width: 80%;
+}
+html.Newtheme .subModuleListColumn > .subModule.bankQR .qrCode {
+  width: calc(20% - 20px);
+  height: 126px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme .subModuleListColumn > .subModule.bankQR .qrCode svg, html.Newtheme .subModuleListColumn > .subModule.bankQR .qrCode img {
+  width: auto;
+  height: 100%;
 }
 html.Newtheme .subModuleListColumn .subModuleTitle {
   margin: 10px 0;
