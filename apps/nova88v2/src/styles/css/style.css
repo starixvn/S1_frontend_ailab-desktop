@@ -1740,9 +1740,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .promoList.bd {
   background: url(https://banner.0814media.net/desktop/img/pomobanner-bd.jpg) no-repeat center/auto;
 }
-.header > div.menu .subMenu-Wrapper-new .promoList.kh {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-kh.jpg) no-repeat center/auto;
-}
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1830,9 +1827,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .cryptoList.cs {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_cs.jpg) no-repeat center/auto;
 }
-.header > div.menu .subMenu-Wrapper-new .cryptoList.kh {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_kh.jpg) no-repeat center/auto;
-}
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_en_um.jpg);
 }
@@ -1847,9 +1841,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.cs {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_cs_um.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.kh {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_kh_um.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.vipen {
   background: url(https://banner.0814media.net/desktop/img/vipbg_en.jpg) no-repeat center/auto;
@@ -1887,9 +1878,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
   background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-id.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .rankingList.kh {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-kh.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > a {
@@ -6614,10 +6602,6 @@ input[type=file] {
   top: 25px;
   right: 12px;
 }
-.addBank .addBankName .cryptoInfo .checkbox {
-  margin-right: -2px;
-  margin-left: 5px;
-}
 .addBank .addBankName .cryptoInfo > .title {
   width: 100%;
   margin-bottom: 5px;
@@ -7095,9 +7079,6 @@ input[type=file] {
 .quickSelect .dropdown .dropdown-container .dropdown-item {
   margin: 0;
   padding: 5px 0 5px 10px;
-}
-.quickSelect .dropdown .btn {
-  padding: 0 10px;
 }
 
 .specialBonus {
