@@ -715,6 +715,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-WM.png",
 				listBgImgUrl: ["wmBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
+				allowCurrencies: allowedCurrencyList.casino_WM,
 				...productList.liveCasino_WM,
 				lobbyPage: { npcImg: "casino_wm" }
 			},
