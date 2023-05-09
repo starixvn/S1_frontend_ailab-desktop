@@ -10,7 +10,7 @@ SITE_LIST=(NOVA88 GOAL123 BWING)
 
 # READ
 echo "選擇品牌"
-for i in ${SITE_LIST[@]} 
+for i in ${SITE_LIST[@]}
 do
   echo "$i \c"
 done
@@ -28,18 +28,7 @@ if [ $site = "NOVA88" ] || [ $site = "nova88" ]
 then
     projectPath="${PROJECT}/apps/nova88v2/src/styles"
 fi
-    cp -R ${designPath} ${projectPath}        
+    cp -R ${designPath} ${projectPath}
 done
 
-# -- 
-
-
-
-
-
-
-
-
-
-
-
+# --

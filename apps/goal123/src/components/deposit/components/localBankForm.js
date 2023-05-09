@@ -178,6 +178,9 @@ const LocalBankForm = ({
 		}));
 	};
 
+	const QRCodeObj = localBankGroupList?.find(
+		obj => obj.bankName === localBankInfo.bankName
+	);
 	return (
 		<>
 			<div className="subModuleTitle">
@@ -194,7 +197,8 @@ const LocalBankForm = ({
 							className={`${
 								item.sysId === sysIdForRecord ? "active" : ""
 							}${item.canSubmit ? "" : " pending"}`}
-							onClick={() => onChangeBankInfo(item)}>
+							onClick={() => onChangeBankInfo(item)}
+						>
 							<div>
 								<img
 									src={`${
@@ -236,7 +240,7 @@ const LocalBankForm = ({
 					{t("lbl_BankAccount")}
 				</span>
 			</div>
-			<div className="subModule">
+			<div className="subModule bankQR">
 				<div className="bankAccount">
 					{t("lbl_TransactionHint")}
 					<div className="smallList">
@@ -270,6 +274,14 @@ const LocalBankForm = ({
 						</ul>
 					</div>
 				</div>
+				{QRCodeObj?.qrCodeUrl && (
+					<div className="qrCode">
+						<img
+							src={`${config.cloudImgUrl}${QRCodeObj?.qrCodeUrl}`}
+							alt={QRCodeObj?.bankName}
+						/>
+					</div>
+				)}
 			</div>
 
 			{!userInfo.accountName ? (

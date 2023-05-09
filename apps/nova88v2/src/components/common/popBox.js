@@ -342,6 +342,7 @@ export default () => {
 		case defPopBoxType.BankQR:
 			content = (
 				<BankQR
+					channelName={popBox.channelName}
 					onClickClose={popBox.onClickClose}
 					qrUrl={popBox.qrUrl}
 					amount={popBox.amount}

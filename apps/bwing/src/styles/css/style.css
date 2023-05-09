@@ -941,9 +941,6 @@ header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .livePP .img {
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveYB .img {
   background: url(https://banner.bw88.io/desktop/img/live/live-yb.png) no-repeat center/auto 100%;
 }
-header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveBG .img {
-  background: url(https://banner.bw88.io/desktop/img/live/live-bg.png) no-repeat center/auto 100%;
-}
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveSK .img {
   background: url(https://banner.bw88.io/desktop/img/live/live-sk.png) no-repeat center/auto 100%;
 }
@@ -1535,8 +1532,7 @@ header .header > div.function .memberfile img {
           animation: newicon 0.5s linear infinite alternate;
 }
 header .header > div.function .wallet button.icon-eye-blocked,
-header .header > div.function .wallet button.icon-eye,
-header .header > div.function .wallet button.icon-spinner11 {
+header .header > div.function .wallet button.icon-eye {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1544,9 +1540,6 @@ header .header > div.function .wallet button.icon-spinner11 {
       -ms-flex-align: center;
           align-items: center;
   margin-left: 5px;
-}
-header .header > div.function .wallet > button.icon-spinner11 {
-  color: #56ceff;
 }
 header .header > div.function .wallet .submenu {
   padding: 15px;
@@ -1869,14 +1862,6 @@ footer > div .platformGroup button.yb {
 footer > div .platformGroup a.yb:hover,
 footer > div .platformGroup button.yb:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/yb-a.png) no-repeat center;
-}
-footer > div .platformGroup a.bg,
-footer > div .platformGroup button.bg {
-  background: url(https://banner.bw88.io/desktop/img/partherNew/bg.png) no-repeat center;
-}
-footer > div .platformGroup a.bg:hover,
-footer > div .platformGroup button.bg:hover {
-  background: url(https://banner.bw88.io/desktop/img/partherNew/bg-a.png) no-repeat center;
 }
 footer > div .platformGroup a.sk,
 footer > div .platformGroup button.sk {
@@ -4350,6 +4335,177 @@ main > .swiper-container .swiper-slide {
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
+#popup .qrpayPop {
+  padding: 5px 10px;
+  font-size: 13px;
+  min-width: 350px;
+  width: 350px;
+}
+#popup .qrpayPop ul {
+  color: #fff;
+  margin-bottom: 5px;
+}
+#popup .qrpayPop ul li {
+  margin-left: 15px;
+  list-style: decimal;
+}
+#popup .qrpayPop ul li button {
+  font-size: 12px;
+  background: #56ceff;
+  color: white;
+  padding: 2px 5px;
+  margin-right: 10px;
+}
+#popup .qrpayPop .logo {
+  background: #fff;
+  width: 150px;
+  margin: 20px auto 10px;
+  border-radius: 2px;
+}
+#popup .qrpayPop > div {
+  width: 100%;
+  color: #fff;
+  margin: 2px auto;
+  text-align: center;
+}
+#popup .qrpayPop > div span {
+  font-weight: bold;
+}
+#popup .qrpayPop > div.popTit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 0;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: -15px;
+}
+#popup .qrpayPop > div.popTit .icon-close {
+  position: absolute;
+  right: -15px !important;
+  top: auto !important;
+  color: white !important;
+}
+#popup .qrpayPop > div.guide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px dotted #56ceff;
+  border-bottom: 1px dotted #56ceff;
+  padding: 10px 0;
+}
+#popup .qrpayPop > div.guide .code {
+  font-size: 25px;
+  font-weight: bold;
+  color: #f52805;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px;
+}
+#popup .qrpayPop > div.guide .code a, #popup .qrpayPop > div.guide .code button {
+  background: #56ceff;
+  padding: 3px 5px;
+  border-radius: 3px;
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: normal;
+}
+#popup .qrpayPop > div.guide .code a:hover, #popup .qrpayPop > div.guide .code button:hover {
+  background: #f77a00;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+#popup .qrpayPop > div.guide .qrCode {
+  width: 188px;
+  height: 188px;
+  padding: 5px;
+  background: rgba(224, 224, 224, 0.5);
+  overflow: hidden;
+  margin: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 2px;
+}
+#popup .qrpayPop > div.guide .qrCode svg, #popup .qrpayPop > div.guide .qrCode img {
+  width: auto;
+  height: 180px;
+}
+#popup .qrpayPop > div.guide .qrCode path:nth-child(2) {
+  fill: #EE2968;
+}
+#popup .qrpayPop .info {
+  margin: 5px auto;
+}
+#popup .qrpayPop .info span {
+  display: block;
+}
+#popup .qrpayPop ul + .info {
+  color: #f52805;
+}
+#popup .qrpayPop .amount span {
+  font-size: 16px;
+  display: block;
+  border-radius: 2px;
+  color: #fff;
+  margin: 0 auto 10px;
+}
+#popup .qrpayPop .sisa {
+  text-align: center;
+  margin: 8px 0;
+}
+#popup .qrpayPop .sisa div:last-child {
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#popup .qrpayPop .sisa div:last-child span {
+  font-size: 14px;
+  color: #000;
+  font-weight: normal;
+  padding: 2px 5px;
+  margin: 0 3px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #fff;
+  border-radius: 2px;
+}
 
 .Submit,
 .Success,
@@ -4625,25 +4781,10 @@ main > .swiper-container .swiper-slide {
   max-height: calc(100% - 160px);
 }
 
-.uploadModule {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 75%;
-  margin: 20px 0;
-}
-
 .upload_img {
-  width: calc(33.3333% - 7px);
-  height: 80px;
-  margin: 0 5px 10px 0;
   border-radius: 5px;
   border: 1px solid #1e85ec;
+  height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4655,33 +4796,10 @@ main > .swiper-container .swiper-slide {
           align-items: center;
   overflow: hidden;
   cursor: pointer;
-  position: relative;
-}
-.upload_img.error {
-  border-color: #f52805;
-}
-.upload_img.error .icon {
-  color: #f52805;
 }
 .upload_img .icon {
-  font-size: 36px;
+  font-size: 48px;
   color: #1e85ec;
-}
-.upload_img .icon-close {
-  position: absolute;
-  top: 5px !important;
-  right: 5px !important;
-  font-size: 8px !important;
-  background: #868686;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  padding: 2px;
-  z-index: 3;
-}
-.upload_img .icon-close::before {
-  font-size: 8px;
-  margin: 0 2px;
-  color: #fff;
 }
 .upload_img img {
   height: 100%;
@@ -4744,7 +4862,7 @@ main > .swiper-container .swiper-slide {
 .directions {
   border-bottom: 1px solid #666;
   color: #aeb2bc;
-  margin: 5px 0 20px 20px;
+  margin: 20px 0 20px 20px;
   padding-bottom: 20px;
   text-align: left;
 }
@@ -7439,12 +7557,6 @@ main > .swiper-container .swiper-slide {
 }
 .livelobbyList > div.live-yb:hover {
   background: url(https://banner.bw88.io/desktop/img/livelobby/live-yb-a.png) no-repeat center;
-}
-.livelobbyList > div.live-bg {
-  background: url(https://banner.bw88.io/desktop/img/livelobby/live-bg.png) no-repeat center;
-}
-.livelobbyList > div.live-bg:hover {
-  background: url(https://banner.bw88.io/desktop/img/livelobby/live-bg-a.png) no-repeat center;
 }
 .livelobbyList > div.live-sk {
   background: url(https://banner.bw88.io/desktop/img/livelobby/live-sk.png) no-repeat center;
@@ -12041,6 +12153,34 @@ input + .iconModule i.icon.icon-checkmark:before {
 .subModuleListColumn > .subModule .tip {
   margin-left: 0;
 }
+.subModuleListColumn > .subModule.bankQR {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.subModuleListColumn > .subModule.bankQR .bankAccount {
+  width: 80%;
+}
+.subModuleListColumn > .subModule.bankQR .qrCode {
+  width: calc(20% - 50px);
+  height: 122.59px;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.subModuleListColumn > .subModule.bankQR .qrCode svg, .subModuleListColumn > .subModule.bankQR .qrCode img {
+  width: auto;
+  height: 100%;
+}
 .subModuleListColumn .column {
   width: calc(85% - 135px);
 }
@@ -12181,6 +12321,12 @@ input + .iconModule i.icon.icon-checkmark:before {
 .upload_new .checkBankSlip ul {
   width: 100%;
 }
+.upload_new .upload_img {
+  margin: 5px 0 0;
+}
+.upload_new .upload_img.error {
+  border-color: #f52805;
+}
 
 .inputBox-white {
   width: calc(100% - 100px);
@@ -12221,6 +12367,70 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 .directions + form .tip {
   margin-left: 75px;
+}
+
+.upload_img {
+  max-width: 80%;
+  min-width: 75%;
+  border-radius: 5px;
+  border: 1px solid #1fbdfd;
+  height: 250px;
+  margin: 40px 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+.upload_img .icon-folder-upload {
+  display: none;
+}
+.upload_img.error {
+  border-color: #f52805;
+}
+.upload_img .icon {
+  font-size: 48px;
+  color: #1fbdfd;
+}
+.upload_img .icon.icon-broken_image:before {
+  font-size: 48px;
+  color: #666;
+}
+.upload_img img {
+  height: 100%;
+}
+.upload_img + .smallList {
+  max-width: 80%;
+  min-width: 75%;
+  border-bottom: 1px solid #666;
+  padding-bottom: 20px;
+}
+.upload_img + .smallList ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.upload_img + .smallList ul li {
+  margin-left: 10px;
+  width: auto;
+}
+.upload_img + .smallList ul li .icon {
+  color: #1e85ec;
+}
+.upload_img + .smallList ul li:nth-child(1) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 0;
 }
 
 .vip {
@@ -15053,7 +15263,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   z-index: 4;
 }
 .eventLink--top {
-  margin: 0 0 5px 70px;
+  margin: 0 0 5px 10px;
 }
 .eventLink--top img {
   width: 50px !important;
@@ -15208,227 +15418,5 @@ input + .iconModule i.icon.icon-checkmark:before {
             transform: rotateZ(0);
     -webkit-transform-origin: 50% 70%;
             transform-origin: 50% 70%;
-  }
-}
-.eventLink.vgaming {
-  bottom: 220px;
-  left: 30px;
-}
-.eventLink.vgaming .icon-close {
-  width: 30px;
-  height: 30px;
-  top: -10px;
-}
-
-.subheader {
-  background: #000;
-  padding: 0.75rem;
-}
-.subheader__container {
-  width: 100%;
-  max-width: 912px;
-  margin: 0 auto;
-}
-.subheader a::before {
-  content: "";
-  display: block;
-  width: 134px;
-  height: 46px;
-  background-image: url("https://banner.bw88.io/desktop/img/logo.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  -webkit-transition: ease 0.15s;
-  transition: ease 0.15s;
-}
-
-.subcopyright {
-  width: calc(100% - 20px);
-  margin: 0 auto;
-  background: #000;
-  padding: 10px;
-  text-align: center;
-  color: #afafaf;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-}
-
-.exclude {
-  padding: 20px 10px;
-  background: #0A1533;
-  color: #3e3e3e;
-  min-width: unset;
-  font-family: Arial, sans-serif;
-}
-.exclude__container {
-  width: 100%;
-  max-width: 912px;
-  margin: 0 auto;
-}
-.exclude__title {
-  font-weight: bold;
-  font-size: 18px;
-  color: #529de9;
-  position: relative;
-  margin-bottom: 25px;
-}
-.exclude__title::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  width: 100%;
-  background-image: -webkit-gradient(linear, left top, right top, from(#529de9), to(rgba(247, 122, 0, 0)));
-  background-image: linear-gradient(to right, #529de9, rgba(247, 122, 0, 0));
-}
-.exclude__table {
-  width: 100%;
-  border-left: 1px solid #557987;
-  border-right: 1px solid #557987;
-  border-radius: 3px;
-  text-align: center;
-}
-.exclude__table__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.exclude__table__item:first-child div {
-  background: #56ceff;
-  color: #3e3e3e;
-  font-weight: bold;
-}
-.exclude__table__item div {
-  background: #202739;
-  color: #c9c9c9;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1;
-          flex: 1 1;
-  border-bottom: 1px solid #557987;
-}
-.exclude__table__item div:first-child {
-  border-right: 1px solid #557987;
-}
-.exclude__table__item div span {
-  display: block;
-  text-align: center;
-  width: 100%;
-  line-height: 2;
-  padding-bottom: 2px;
-  position: relative;
-}
-.exclude__table__item div span::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 1px;
-  height: 1px;
-  width: 100%;
-  background: #557987;
-}
-.exclude__table__item div span:last-child {
-  padding-bottom: 0;
-}
-.exclude__table__item div span:last-child::after {
-  height: 0;
-  display: none;
-}
-
-.cambodia {
-  position: relative;
-}
-.cambodia::before {
-  content: "";
-  display: block;
-  width: 70px;
-  height: 70px;
-  -webkit-animation: rabbitboy 1s infinite;
-          animation: rabbitboy 1s infinite;
-  position: absolute;
-  left: 185px;
-}
-.cambodia:after {
-  content: "";
-  display: block;
-  width: 70px;
-  height: 70px;
-  -webkit-animation: rabbitgirl 1s infinite;
-          animation: rabbitgirl 1s infinite;
-  position: absolute;
-  left: 205px;
-}
-
-@-webkit-keyframes rabbitgirl {
-  0% {
-    top: 0;
-    background: url(https://banner.bw88.io/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
-  }
-  50% {
-    background: url(https://banner.bw88.io/desktop/img/rabbitgirl-b.png) no-repeat center/cover;
-  }
-  100% {
-    bottom: 0;
-    background: url(https://banner.bw88.io/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
-  }
-}
-
-@keyframes rabbitgirl {
-  0% {
-    top: 0;
-    background: url(https://banner.bw88.io/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
-  }
-  50% {
-    background: url(https://banner.bw88.io/desktop/img/rabbitgirl-b.png) no-repeat center/cover;
-  }
-  100% {
-    bottom: 0;
-    background: url(https://banner.bw88.io/desktop/img/rabbitgirl-a.png) no-repeat center/cover;
-  }
-}
-@-webkit-keyframes rabbitboy {
-  0% {
-    top: 0;
-    background: url(https://banner.bw88.io/desktop/img/rabbitboy-a.png) no-repeat center/cover;
-  }
-  50% {
-    background: url(https://banner.bw88.io/desktop/img/rabbitboy-b.png) no-repeat center/cover;
-  }
-  100% {
-    bottom: 0;
-    background: url(https://banner.bw88.io/desktop/img/rabbitboy-a.png) no-repeat center/cover;
-  }
-}
-@keyframes rabbitboy {
-  0% {
-    top: 0;
-    background: url(https://banner.bw88.io/desktop/img/rabbitboy-a.png) no-repeat center/cover;
-  }
-  50% {
-    background: url(https://banner.bw88.io/desktop/img/rabbitboy-b.png) no-repeat center/cover;
-  }
-  100% {
-    bottom: 0;
-    background: url(https://banner.bw88.io/desktop/img/rabbitboy-a.png) no-repeat center/cover;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -32,5 +32,6 @@ export const defPopBoxType = {
 	PaymentQR: "PaymentQR",
 	NewYear: "NewYear",
 	WithdrawalMsg: "WithdrawalMsg",
-	DepositMsg: "DepositMsg"
+	DepositMsg: "DepositMsg",
+	BankQR: "BankQR"
 };

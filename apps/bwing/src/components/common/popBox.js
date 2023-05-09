@@ -379,6 +379,11 @@ export default () => {
 			);
 			break;
 		}
+		case defPopBoxType.BankQR: {
+			const BankQR = lazy(() => import("./popBox.bankQR"));
+			content = <BankQR {...popBox} />;
+			break;
+		}
 
 		case defPopBoxType.default:
 			break;
