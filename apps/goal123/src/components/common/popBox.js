@@ -37,7 +37,8 @@ export const defPopBoxType = {
 	PaymentQR: "PaymentQR",
 	NewYear: "NewYear",
 	WithdrawalMsg: "WithdrawalMsg",
-	DepositMsg: "DepositMsg"
+	DepositMsg: "DepositMsg",
+	BankQR: "BankQR"
 };
 
 export default () => {
@@ -384,6 +385,12 @@ export default () => {
 					<DepositMsg {...popBox} />
 				</Suspense>
 			);
+			break;
+		}
+
+		case defPopBoxType.BankQR: {
+			const BankQR = lazy(() => import("./popBox.bankQR"));
+			content = <BankQR {...popBox} />;
 			break;
 		}
 

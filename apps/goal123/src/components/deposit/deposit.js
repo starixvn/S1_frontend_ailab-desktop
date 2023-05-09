@@ -38,6 +38,7 @@ import DepositRecentHistory from "./deposit.recentHistory";
 import { api_cashier_DepositReqCryptoPay } from "../../service/api/cashier";
 
 import usePopBox from "../hook/usePopBox";
+import { api_payment_DepositReqLocalPay } from "../../service/api/payment";
 
 const isOTPVerified = ({
 	phoneVerified,
@@ -314,7 +315,9 @@ const Deposit = () => {
 				mode,
 				cardCode,
 				cardSerial,
-				depositPromo
+				depositPromo,
+				groupId,
+				groupName
 			} = formInfo;
 
 			let { bonusCode } = formInfo?.depositPromo;
@@ -421,19 +424,55 @@ const Deposit = () => {
 					}
 				}
 			} else if (depositType === defDepositType.mobile) {
-				const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay`;
+				if (channelId === -1) {
+					// channelId === -1 代表是自建的假渠道，使用彈窗顯示 qrCode
+					try {
+						const res = await api_payment_DepositReqLocalPay({
+							groupId,
+							amount: resultAmount,
+							bonusCode: bonusCode ?? ""
+						});
+						const { data, errorCode } = res.data;
+						const {
+							amount: popBoxAmount,
+							code,
+							returnUrl,
+							transId
+						} = data;
+						if (errorCode === 0) {
+							setPopBox({
+								title: t("lbl_MobileDeposit"),
+								isOpen: true,
+								popBoxType: defPopBoxType.BankQR,
+								onClose: () => {
+									setPopBox({ isOpen: false });
+									window.location.reload();
+								},
+								qrCodeUrl: returnUrl,
+								amount: popBoxAmount,
+								bankLogo: `${groupName?.toLowerCase()}.png`,
+								code,
+								transId
+							});
+						}
+					} catch (e) {
+						errorPopBox();
+					}
+				} else {
+					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay`;
 
-				const params = [
-					`ChannelId=${channelId}`,
-					`Amount=${resultAmount}`,
-					bonusCode ? `BonusCode=${bonusCode}` : ""
-				]
-					.filter(Boolean)
-					.join("&");
+					const params = [
+						`ChannelId=${channelId}`,
+						`Amount=${resultAmount}`,
+						bonusCode ? `BonusCode=${bonusCode}` : ""
+					]
+						.filter(Boolean)
+						.join("&");
 
-				window.open(`${baseUrl}?${params}`);
+					window.open(`${baseUrl}?${params}`);
 
-				await delay(1000);
+					await delay(1000);
+				}
 			} else if (depositType === defDepositType.onlineBank) {
 				const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqBankAutoChannel`;
 
@@ -554,18 +593,54 @@ const Deposit = () => {
 					window.open(`${baseUrl}?${params}`);
 				}
 			} else if (depositType === defDepositType.QRPay) {
-				const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqQRPay`;
+				if (channelId === -1) {
+					// channelId === -1 代表是自建的假渠道，使用彈窗顯示 qrCode
+					try {
+						const res = await api_payment_DepositReqLocalPay({
+							groupId,
+							amount: resultAmount,
+							bonusCode: bonusCode ?? ""
+						});
+						const { data, errorCode } = res.data;
+						const {
+							amount: popBoxAmount,
+							bankLogo,
+							code,
+							returnUrl,
+							transId
+						} = data;
+						if (errorCode === 0) {
+							setPopBox({
+								title: t("lbl_DepositType6"),
+								isOpen: true,
+								popBoxType: defPopBoxType.BankQR,
+								onClose: () => {
+									setPopBox({ isOpen: false });
+									window.location.reload();
+								},
+								qrCodeUrl: returnUrl,
+								amount: popBoxAmount,
+								bankLogo,
+								code,
+								transId
+							});
+						}
+					} catch (e) {
+						errorPopBox();
+					}
+				} else {
+					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqQRPay`;
 
-				const params = [
-					`ChannelId=${channelId}`,
-					`Amount=${resultAmount}`,
-					bonusCode ? `BonusCode=${bonusCode}` : ""
-				]
-					.filter(Boolean)
-					.join("&");
+					const params = [
+						`ChannelId=${channelId}`,
+						`Amount=${resultAmount}`,
+						bonusCode ? `BonusCode=${bonusCode}` : ""
+					]
+						.filter(Boolean)
+						.join("&");
 
-				window.open(`${baseUrl}?${params}`);
-
+					window.open(`${baseUrl}?${params}`);
+				}
 				await delay(1000);
 			}
 
