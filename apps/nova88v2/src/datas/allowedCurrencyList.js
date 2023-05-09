@@ -58,6 +58,15 @@ const allowedCurrencyList = {
 		defCurrencyList.CNY,
 		defCurrencyList.KHM
 	],
+	casino_WM: [
+		defCurrencyList.MYR,
+		defCurrencyList.USD,
+		defCurrencyList.THB,
+		defCurrencyList.CNY,
+		defCurrencyList.IDR,
+		defCurrencyList.INR,
+		defCurrencyList.KHM
+	],
 
 	// game
 	mPoker: [defCurrencyList.THB],
