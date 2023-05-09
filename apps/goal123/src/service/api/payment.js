@@ -206,3 +206,15 @@ export const api_payment_WithdrawalCryptoReq = ({
 		exchangeRate,
 		exchangeAmount
 	});
+
+// 取得 bankQR
+export const api_payment_DepositReqLocalPay = ({
+	groupId,
+	amount,
+	bonusCode
+}) =>
+	paymentRequest.post("DepositReqLocalPay", {
+		groupId,
+		amount,
+		bonusCode
+	});

@@ -236,12 +236,12 @@ export const api_payment_GetLineChannelForDpeosit = () =>
 export const api_payment_GetEWalletInfoSysList = () =>
 	paymentRequest.post("GetEWalletInfoSysList");
 
-export const api_payment_DepositReqFakeMobilePay = ({
+export const api_payment_DepositReqLocalPay = ({
 	groupId,
 	amount,
 	bonusCode
 }) =>
-	paymentRequest.post("DepositReqFakeMobilePay", {
+	paymentRequest.post("DepositReqLocalPay", {
 		groupId,
 		amount,
 		bonusCode

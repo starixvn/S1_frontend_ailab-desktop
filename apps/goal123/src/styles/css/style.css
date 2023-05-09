@@ -303,8 +303,6 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper .icon:before {
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList a, html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList button,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .gameList a,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .gameList button,
-html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .esportList a,
-html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .esportList button,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .casinoList a,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .casinoList button,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .livecasinoList a,
@@ -318,8 +316,6 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList 
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList a .item-icon, html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList button .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .gameList a .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .gameList button .item-icon,
-html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .esportList a .item-icon,
-html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .esportList button .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .casinoList a .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .casinoList button .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .livecasinoList a .item-icon,
@@ -334,7 +330,6 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList 
 }
 html.Newtheme header .header > div.menu .sportList,
 html.Newtheme header .header > div.menu .gameList,
-html.Newtheme header .header > div.menu .esportList,
 html.Newtheme header .header > div.menu .casinoList,
 html.Newtheme header .header > div.menu .livecasinoList,
 html.Newtheme header .header > div.menu .fishList,
@@ -345,7 +340,6 @@ html.Newtheme header .header > div.menu .lotteryList {
 }
 html.Newtheme header .header > div.menu .sportList.active,
 html.Newtheme header .header > div.menu .gameList.active,
-html.Newtheme header .header > div.menu .esportList.active,
 html.Newtheme header .header > div.menu .casinoList.active,
 html.Newtheme header .header > div.menu .livecasinoList.active,
 html.Newtheme header .header > div.menu .fishList.active,
@@ -361,7 +355,6 @@ html.Newtheme header .header > div.menu .lotteryList.active {
 }
 html.Newtheme header .header > div.menu .sportList.active div,
 html.Newtheme header .header > div.menu .gameList.active div,
-html.Newtheme header .header > div.menu .esportList.active div,
 html.Newtheme header .header > div.menu .casinoList.active div,
 html.Newtheme header .header > div.menu .livecasinoList.active div,
 html.Newtheme header .header > div.menu .fishList.active div,
@@ -374,8 +367,6 @@ html.Newtheme header .header > div.menu .sportList a,
 html.Newtheme header .header > div.menu .sportList button,
 html.Newtheme header .header > div.menu .gameList a,
 html.Newtheme header .header > div.menu .gameList button,
-html.Newtheme header .header > div.menu .esportList a,
-html.Newtheme header .header > div.menu .esportList button,
 html.Newtheme header .header > div.menu .casinoList a,
 html.Newtheme header .header > div.menu .casinoList button,
 html.Newtheme header .header > div.menu .livecasinoList a,
@@ -411,8 +402,6 @@ html.Newtheme header .header > div.menu .sportList a img,
 html.Newtheme header .header > div.menu .sportList button img,
 html.Newtheme header .header > div.menu .gameList a img,
 html.Newtheme header .header > div.menu .gameList button img,
-html.Newtheme header .header > div.menu .esportList a img,
-html.Newtheme header .header > div.menu .esportList button img,
 html.Newtheme header .header > div.menu .casinoList a img,
 html.Newtheme header .header > div.menu .casinoList button img,
 html.Newtheme header .header > div.menu .livecasinoList a img,
@@ -429,8 +418,6 @@ html.Newtheme header .header > div.menu .sportList a span,
 html.Newtheme header .header > div.menu .sportList button span,
 html.Newtheme header .header > div.menu .gameList a span,
 html.Newtheme header .header > div.menu .gameList button span,
-html.Newtheme header .header > div.menu .esportList a span,
-html.Newtheme header .header > div.menu .esportList button span,
 html.Newtheme header .header > div.menu .casinoList a span,
 html.Newtheme header .header > div.menu .casinoList button span,
 html.Newtheme header .header > div.menu .livecasinoList a span,
@@ -458,8 +445,6 @@ html.Newtheme header .header > div.menu .sportList a span > p,
 html.Newtheme header .header > div.menu .sportList button span > p,
 html.Newtheme header .header > div.menu .gameList a span > p,
 html.Newtheme header .header > div.menu .gameList button span > p,
-html.Newtheme header .header > div.menu .esportList a span > p,
-html.Newtheme header .header > div.menu .esportList button span > p,
 html.Newtheme header .header > div.menu .casinoList a span > p,
 html.Newtheme header .header > div.menu .casinoList button span > p,
 html.Newtheme header .header > div.menu .livecasinoList a span > p,
@@ -479,8 +464,6 @@ html.Newtheme header .header > div.menu .sportList a:hover,
 html.Newtheme header .header > div.menu .sportList button:hover,
 html.Newtheme header .header > div.menu .gameList a:hover,
 html.Newtheme header .header > div.menu .gameList button:hover,
-html.Newtheme header .header > div.menu .esportList a:hover,
-html.Newtheme header .header > div.menu .esportList button:hover,
 html.Newtheme header .header > div.menu .casinoList a:hover,
 html.Newtheme header .header > div.menu .casinoList button:hover,
 html.Newtheme header .header > div.menu .livecasinoList a:hover,
@@ -497,8 +480,6 @@ html.Newtheme header .header > div.menu .sportList a:hover span,
 html.Newtheme header .header > div.menu .sportList button:hover span,
 html.Newtheme header .header > div.menu .gameList a:hover span,
 html.Newtheme header .header > div.menu .gameList button:hover span,
-html.Newtheme header .header > div.menu .esportList a:hover span,
-html.Newtheme header .header > div.menu .esportList button:hover span,
 html.Newtheme header .header > div.menu .casinoList a:hover span,
 html.Newtheme header .header > div.menu .casinoList button:hover span,
 html.Newtheme header .header > div.menu .livecasinoList a:hover span,
@@ -516,8 +497,6 @@ html.Newtheme header .header > div.menu .sportList a:hover .item-img,
 html.Newtheme header .header > div.menu .sportList button:hover .item-img,
 html.Newtheme header .header > div.menu .gameList a:hover .item-img,
 html.Newtheme header .header > div.menu .gameList button:hover .item-img,
-html.Newtheme header .header > div.menu .esportList a:hover .item-img,
-html.Newtheme header .header > div.menu .esportList button:hover .item-img,
 html.Newtheme header .header > div.menu .casinoList a:hover .item-img,
 html.Newtheme header .header > div.menu .casinoList button:hover .item-img,
 html.Newtheme header .header > div.menu .livecasinoList a:hover .item-img,
@@ -534,8 +513,6 @@ html.Newtheme header .header > div.menu .sportList a:hover .liveitem-img,
 html.Newtheme header .header > div.menu .sportList button:hover .liveitem-img,
 html.Newtheme header .header > div.menu .gameList a:hover .liveitem-img,
 html.Newtheme header .header > div.menu .gameList button:hover .liveitem-img,
-html.Newtheme header .header > div.menu .esportList a:hover .liveitem-img,
-html.Newtheme header .header > div.menu .esportList button:hover .liveitem-img,
 html.Newtheme header .header > div.menu .casinoList a:hover .liveitem-img,
 html.Newtheme header .header > div.menu .casinoList button:hover .liveitem-img,
 html.Newtheme header .header > div.menu .livecasinoList a:hover .liveitem-img,
@@ -552,8 +529,6 @@ html.Newtheme header .header > div.menu .sportList a img,
 html.Newtheme header .header > div.menu .sportList button img,
 html.Newtheme header .header > div.menu .gameList a img,
 html.Newtheme header .header > div.menu .gameList button img,
-html.Newtheme header .header > div.menu .esportList a img,
-html.Newtheme header .header > div.menu .esportList button img,
 html.Newtheme header .header > div.menu .casinoList a img,
 html.Newtheme header .header > div.menu .casinoList button img,
 html.Newtheme header .header > div.menu .livecasinoList a img,
@@ -568,8 +543,6 @@ html.Newtheme header .header > div.menu .sportList a.active,
 html.Newtheme header .header > div.menu .sportList button.active,
 html.Newtheme header .header > div.menu .gameList a.active,
 html.Newtheme header .header > div.menu .gameList button.active,
-html.Newtheme header .header > div.menu .esportList a.active,
-html.Newtheme header .header > div.menu .esportList button.active,
 html.Newtheme header .header > div.menu .casinoList a.active,
 html.Newtheme header .header > div.menu .casinoList button.active,
 html.Newtheme header .header > div.menu .livecasinoList a.active,
@@ -594,8 +567,6 @@ html.Newtheme header .header > div.menu .sportList a.active .maintenance,
 html.Newtheme header .header > div.menu .sportList button.active .maintenance,
 html.Newtheme header .header > div.menu .gameList a.active .maintenance,
 html.Newtheme header .header > div.menu .gameList button.active .maintenance,
-html.Newtheme header .header > div.menu .esportList a.active .maintenance,
-html.Newtheme header .header > div.menu .esportList button.active .maintenance,
 html.Newtheme header .header > div.menu .casinoList a.active .maintenance,
 html.Newtheme header .header > div.menu .casinoList button.active .maintenance,
 html.Newtheme header .header > div.menu .livecasinoList a.active .maintenance,
@@ -616,8 +587,6 @@ html.Newtheme header .header > div.menu .sportList a .maintenance,
 html.Newtheme header .header > div.menu .sportList button .maintenance,
 html.Newtheme header .header > div.menu .gameList a .maintenance,
 html.Newtheme header .header > div.menu .gameList button .maintenance,
-html.Newtheme header .header > div.menu .esportList a .maintenance,
-html.Newtheme header .header > div.menu .esportList button .maintenance,
 html.Newtheme header .header > div.menu .casinoList a .maintenance,
 html.Newtheme header .header > div.menu .casinoList button .maintenance,
 html.Newtheme header .header > div.menu .livecasinoList a .maintenance,
@@ -632,9 +601,6 @@ html.Newtheme header .header > div.menu .sportList .newicon:before, html.Newthem
 html.Newtheme header .header > div.menu .gameList .newicon:before,
 html.Newtheme header .header > div.menu .gameList .liveicon:before,
 html.Newtheme header .header > div.menu .gameList .hoticon:before,
-html.Newtheme header .header > div.menu .esportList .newicon:before,
-html.Newtheme header .header > div.menu .esportList .liveicon:before,
-html.Newtheme header .header > div.menu .esportList .hoticon:before,
 html.Newtheme header .header > div.menu .casinoList .newicon:before,
 html.Newtheme header .header > div.menu .casinoList .liveicon:before,
 html.Newtheme header .header > div.menu .casinoList .hoticon:before,
@@ -659,7 +625,6 @@ html.Newtheme header .header > div.menu .lotteryList .hoticon:before {
 }
 html.Newtheme header .header > div.menu .sportList .newicon::before,
 html.Newtheme header .header > div.menu .gameList .newicon::before,
-html.Newtheme header .header > div.menu .esportList .newicon::before,
 html.Newtheme header .header > div.menu .casinoList .newicon::before,
 html.Newtheme header .header > div.menu .livecasinoList .newicon::before,
 html.Newtheme header .header > div.menu .fishList .newicon::before,
@@ -668,7 +633,6 @@ html.Newtheme header .header > div.menu .lotteryList .newicon::before {
 }
 html.Newtheme header .header > div.menu .sportList .liveicon::before,
 html.Newtheme header .header > div.menu .gameList .liveicon::before,
-html.Newtheme header .header > div.menu .esportList .liveicon::before,
 html.Newtheme header .header > div.menu .casinoList .liveicon::before,
 html.Newtheme header .header > div.menu .livecasinoList .liveicon::before,
 html.Newtheme header .header > div.menu .fishList .liveicon::before,
@@ -677,7 +641,6 @@ html.Newtheme header .header > div.menu .lotteryList .liveicon::before {
 }
 html.Newtheme header .header > div.menu .sportList .hoticon::before,
 html.Newtheme header .header > div.menu .gameList .hoticon::before,
-html.Newtheme header .header > div.menu .esportList .hoticon::before,
 html.Newtheme header .header > div.menu .casinoList .hoticon::before,
 html.Newtheme header .header > div.menu .livecasinoList .hoticon::before,
 html.Newtheme header .header > div.menu .fishList .hoticon::before,
@@ -692,7 +655,6 @@ html.Newtheme header .header > div.menu .livecasinoList button:hover .item-img {
 }
 html.Newtheme header .header > div.menu .sportList .item-bg,
 html.Newtheme header .header > div.menu .gameList .item-bg,
-html.Newtheme header .header > div.menu .esportList .item-bg,
 html.Newtheme header .header > div.menu .casinoList .item-bg,
 html.Newtheme header .header > div.menu .livecasinoList .item-bg,
 html.Newtheme header .header > div.menu .fishList .item-bg,
@@ -704,7 +666,6 @@ html.Newtheme header .header > div.menu .lotteryList .item-bg {
 }
 html.Newtheme header .header > div.menu .sportList .item-img,
 html.Newtheme header .header > div.menu .gameList .item-img,
-html.Newtheme header .header > div.menu .esportList .item-img,
 html.Newtheme header .header > div.menu .casinoList .item-img,
 html.Newtheme header .header > div.menu .livecasinoList .item-img,
 html.Newtheme header .header > div.menu .fishList .item-img,
@@ -716,7 +677,6 @@ html.Newtheme header .header > div.menu .lotteryList .item-img {
 }
 html.Newtheme header .header > div.menu .sportList .liveitem-img,
 html.Newtheme header .header > div.menu .gameList .liveitem-img,
-html.Newtheme header .header > div.menu .esportList .liveitem-img,
 html.Newtheme header .header > div.menu .casinoList .liveitem-img,
 html.Newtheme header .header > div.menu .livecasinoList .liveitem-img,
 html.Newtheme header .header > div.menu .fishList .liveitem-img,
@@ -741,8 +701,6 @@ html.Newtheme header .header > div.menu .sportList a .item-icon,
 html.Newtheme header .header > div.menu .sportList button .item-icon,
 html.Newtheme header .header > div.menu .gameList a .item-icon,
 html.Newtheme header .header > div.menu .gameList button .item-icon,
-html.Newtheme header .header > div.menu .esportList a .item-icon,
-html.Newtheme header .header > div.menu .esportList button .item-icon,
 html.Newtheme header .header > div.menu .casinoList a .item-icon,
 html.Newtheme header .header > div.menu .casinoList button .item-icon,
 html.Newtheme header .header > div.menu .livecasinoList a .item-icon,
@@ -1059,7 +1017,7 @@ html.Newtheme header .header > div.function .wallet.active:after,
 html.Newtheme header .header > div.function .memberfile.active > button,
 html.Newtheme header .header > div.function .memberfile.active:before,
 html.Newtheme header .header > div.function .memberfile.active:after {
-  color: #5084e4;
+  color: #1e85ec;
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -1090,15 +1048,6 @@ html.Newtheme header .header > div.function .memberfile:after {
   font-size: 18px;
   -webkit-transition: 0.7s;
   transition: 0.7s;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 html.Newtheme header .header > div.function .cashier:before,
 html.Newtheme header .header > div.function .wallet:before,
@@ -1244,26 +1193,14 @@ html.Newtheme header .header > div.function .cashier button, html.Newtheme heade
   color: #fab617;
 }
 html.Newtheme header .header > div.function .wallet button.icon-eye-blocked,
-html.Newtheme header .header > div.function .wallet button.icon-eye,
-html.Newtheme header .header > div.function .wallet button.icon-spinner11 {
+html.Newtheme header .header > div.function .wallet button.icon-eye {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 4px;
-  padding: 0 2px;
-}
-html.Newtheme header .header > div.function .wallet button.icon-spinner11 {
-  color: #fab617;
-  font-size: 11px;
-}
-html.Newtheme header .header > div.function .wallet button.icon-spinner11:hover {
-  -webkit-filter: brightness(0.7);
-          filter: brightness(0.7);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  margin-left: 5px;
 }
 html.Newtheme header .header > div.function .wallet .submenu div {
   display: -webkit-box;
@@ -1509,13 +1446,6 @@ html.Newtheme main.joinlogin, html.Newtheme main .small {
 html.Newtheme main.sports {
   height: calc(100% - 115px);
   min-height: calc(100% - 115px);
-}
-html.Newtheme main.exclude {
-  padding: 20px 10px;
-  background: #152849;
-  color: #152849;
-  min-width: unset;
-  font-family: Arial, sans-serif;
 }
 html.Newtheme main section {
   padding-top: 0;
@@ -4263,7 +4193,7 @@ html.Newtheme .smallList ul li:first-child {
 html.Newtheme .directions {
   border-bottom: 1px solid #666;
   color: #c6c6c6;
-  margin: 5px 0 20px;
+  margin: 20px 0;
   padding-bottom: 20px;
   max-width: 80%;
   min-width: 75%;
@@ -4304,23 +4234,13 @@ html.Newtheme .directions ul {
 html.Newtheme .directions ul li {
   list-style: disc;
 }
-html.Newtheme .uploadModule {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1;
-          flex: 1 1;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 77%;
-}
 html.Newtheme .upload_img {
-  width: calc(33.333% - 6px);
-  height: 90px;
+  max-width: 80%;
+  min-width: 75%;
   border-radius: 15px;
   border: 1px solid #1e85ec;
-  margin: 0 5px 10px 0;
+  height: 250px;
+  margin: 40px 0 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4332,43 +4252,14 @@ html.Newtheme .upload_img {
           align-items: center;
   overflow: hidden;
   cursor: pointer;
-  position: relative;
-}
-html.Newtheme .upload_img:hover {
-  background: #1e85ec;
-}
-html.Newtheme .upload_img:hover .icon {
-  color: #fff;
-}
-html.Newtheme .upload_img:hover.error .icon-plus::before {
-  color: #fff;
-}
-html.Newtheme .upload_img:nth-child(3n) {
-  margin-right: 0;
 }
 html.Newtheme .upload_img .icon {
-  font-size: 36px;
+  font-size: 48px;
   color: #1e85ec;
 }
 html.Newtheme .upload_img img {
   height: 100%;
   width: auto;
-}
-html.Newtheme .upload_img .icon-close {
-  position: absolute;
-  top: 5px !important;
-  right: 5px !important;
-  font-size: 8px !important;
-  background: #868686;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  padding: 2px;
-  z-index: 3;
-}
-html.Newtheme .upload_img .icon-close::before {
-  font-size: 8px;
-  margin: 0 2px;
-  color: #fff;
 }
 html.Newtheme .upload_img + .smallList {
   max-width: 80%;
@@ -7791,18 +7682,6 @@ html.Newtheme .eventLink .angpaoLink img.eventlinkimg {
             transform-origin: 50% 70%;
   }
 }
-html.Newtheme .eventLink.vgaming {
-  bottom: 200px;
-}
-html.Newtheme .eventLink.vgaming .icon-close {
-  top: 10px;
-  background: #cecece;
-  color: rgb(92, 92, 92);
-}
-html.Newtheme .eventLink.vgaming .vgimg {
-  width: 185px;
-  height: 185px;
-}
 html.Newtheme .time {
   position: absolute;
   top: calc(50% + 240px);
@@ -8795,6 +8674,7 @@ html.Newtheme .upload_new .checkBankSlip {
           flex: 2;
 }
 html.Newtheme .upload_new .checkBankSlip:nth-child(2) {
+  padding-right: 20px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -8805,11 +8685,14 @@ html.Newtheme .upload_new .checkBankSlip:nth-child(2) {
 html.Newtheme .upload_new .checkBankSlip ul {
   width: 100%;
 }
+html.Newtheme .upload_new .checkBankSlip .upload_img {
+  margin: 0;
+}
 html.Newtheme .upload_new .checkBankSlip .upload_img.error {
   border-color: #e91010;
 }
 html.Newtheme .upload_new .checkBankSlip .upload_img.error i {
-  color: #e91010;
+  color: #c6c6c6;
 }
 html.Newtheme .upload_new .txt-blue {
   color: #1e85ec;
@@ -9130,18 +9013,15 @@ html.Newtheme .lotterylobbyList > div .txt-darkBlue {
 }
 html.Newtheme .esportslobbyList {
   margin-top: 125px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 html.Newtheme .esportslobbyList > div {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(25% - 25px);
-          flex: 0 0 calc(25% - 25px);
+      -ms-flex: 0 0 calc(20% - 25px);
+          flex: 0 0 calc(20% - 25px);
   margin: 10px;
 }
 html.Newtheme .esportslobbyList > div .txt-darkBlue {
-  bottom: 3px;
+  bottom: 4px;
   left: 0;
   height: 45px;
   font-weight: bold;
@@ -13400,253 +13280,5 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   70% {
     -webkit-transform: rotate(0deg) scale(1);
             transform: rotate(0deg) scale(1);
-  }
-}
-.subheader {
-  background: #030c1b;
-  padding: 0.75rem;
-}
-.subheader__container {
-  width: 100%;
-  max-width: 912px;
-  margin: 0 auto;
-}
-.subheader a::before {
-  content: "";
-  display: block;
-  width: 190px;
-  height: 35px;
-  background-image: url("https://banner.goal123.org/desktop/img/logo.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  -webkit-transition: ease 0.15s;
-  transition: ease 0.15s;
-}
-
-.subcopyright {
-  width: calc(100% - 20px);
-  margin: 0 auto;
-  background: #0e0c2e;
-  padding: 10px;
-  text-align: center;
-  color: #c6c6c6;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-}
-
-.exclude {
-  padding: 20px 10px;
-  background: #152849;
-  color: #152849;
-  min-width: unset;
-  font-family: Arial, sans-serif;
-}
-.exclude__container {
-  width: 100%;
-  max-width: 912px;
-  margin: 0 auto;
-}
-.exclude__title {
-  font-weight: bold;
-  font-size: 18px;
-  color: #4b95df;
-  position: relative;
-  margin-bottom: 25px;
-}
-.exclude__title::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  width: 100%;
-  background-image: -webkit-gradient(linear, left top, right top, from(#4b95df), to(rgba(247, 122, 0, 0)));
-  background-image: linear-gradient(to right, #4b95df, rgba(247, 122, 0, 0));
-}
-.exclude__table {
-  width: 100%;
-  border-left: 1px solid #284985;
-  border-right: 1px solid #284985;
-  border-radius: 3px;
-  text-align: center;
-}
-.exclude__table__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.exclude__table__item:first-child div {
-  background: #284985;
-  color: #fff;
-  font-weight: bold;
-}
-.exclude__table__item div {
-  background: #eeeeee;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1;
-          flex: 1 1;
-  border-bottom: 1px solid #284985;
-}
-.exclude__table__item div:first-child {
-  border-right: 1px solid #284985;
-}
-.exclude__table__item div span {
-  display: block;
-  text-align: center;
-  width: 100%;
-  line-height: 2;
-  padding-bottom: 2px;
-  position: relative;
-}
-.exclude__table__item div span::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 1px;
-  height: 1px;
-  width: 100%;
-  background: #284985;
-}
-.exclude__table__item div span:last-child {
-  padding-bottom: 0;
-}
-.exclude__table__item div span:last-child::after {
-  height: 0;
-  display: none;
-}
-
-.cambodia {
-  position: relative;
-}
-.cambodia::before {
-  background: url(https://banner.goal123.org/desktop/img/rabbitboy.png) no-repeat center/cover;
-  content: "";
-  display: block;
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  top: -1px;
-  left: -57px;
-  -webkit-animation: slide-in-blurred-right 2s cubic-bezier(0.23, 1, 0.32, 1) both;
-          animation: slide-in-blurred-right 2s cubic-bezier(0.23, 1, 0.32, 1) both;
-}
-@media (max-width: 1480px) {
-  .cambodia::before {
-    background: none;
-  }
-}
-.cambodia::after {
-  content: "";
-  display: block;
-  background: url(https://banner.goal123.org/desktop/img/rabbitgirl.png) no-repeat center/cover;
-  position: absolute;
-  width: 85px;
-  height: 85px;
-  top: -19px;
-  right: -65px;
-  -webkit-animation: slide-in-blurred-left 2s cubic-bezier(0.23, 1, 0.32, 1) both;
-          animation: slide-in-blurred-left 2s cubic-bezier(0.23, 1, 0.32, 1) both;
-}
-
-@-webkit-keyframes slide-in-blurred-right {
-  0% {
-    -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
-    transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
-    -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
-    -webkit-filter: blur(40px);
-    filter: blur(40px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
-    transform: translateX(0) scaleY(1) scaleX(1);
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-filter: blur(0);
-    filter: blur(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-blurred-right {
-  0% {
-    -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
-    transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
-    -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
-    -webkit-filter: blur(40px);
-    filter: blur(40px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
-    transform: translateX(0) scaleY(1) scaleX(1);
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-filter: blur(0);
-    filter: blur(0);
-    opacity: 1;
-  }
-}
-@-webkit-keyframes slide-in-blurred-left {
-  0% {
-    -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
-    transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
-    -webkit-transform-origin: 100% 50%;
-    transform-origin: 100% 50%;
-    -webkit-filter: blur(40px);
-    filter: blur(40px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
-    transform: translateX(0) scaleY(1) scaleX(1);
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-filter: blur(0);
-    filter: blur(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-in-blurred-left {
-  0% {
-    -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
-    transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
-    -webkit-transform-origin: 100% 50%;
-    transform-origin: 100% 50%;
-    -webkit-filter: blur(40px);
-    filter: blur(40px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
-    transform: translateX(0) scaleY(1) scaleX(1);
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-filter: blur(0);
-    filter: blur(0);
-    opacity: 1;
   }
 }/*# sourceMappingURL=style.css.map */
