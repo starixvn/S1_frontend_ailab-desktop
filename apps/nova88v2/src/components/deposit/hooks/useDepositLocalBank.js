@@ -63,7 +63,8 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 		fromChannel,
 		fromSysId,
 		fromAccountNum,
-		hasPromotion
+		hasPromotion,
+		bankId
 	}) => {
 		const transId = await api_payment_DepositReqWireTransfer({
 			amount,
@@ -71,7 +72,8 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 			fromChannel,
 			fromSysId,
 			fromAccountNum,
-			hasPromotion
+			hasPromotion,
+			bankId
 		}).then(
 			res => {
 				if (!isMountedRef.current) return;

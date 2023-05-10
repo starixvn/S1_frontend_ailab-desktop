@@ -64,7 +64,8 @@ export const api_payment_DepositReqWireTransfer = ({
 	fromChannel,
 	fromSysId,
 	fromAccountNum,
-	hasPromotion
+	hasPromotion,
+	bankId
 }) =>
 	paymentRequest.post("/DepositReqWireTransfer", {
 		amount,
@@ -72,7 +73,8 @@ export const api_payment_DepositReqWireTransfer = ({
 		fromChannel,
 		fromSysId,
 		fromAccountNum,
-		hasPromotion
+		hasPromotion,
+		bankId
 	});
 
 export const api_payment_GetDepositInfoRecent = () =>

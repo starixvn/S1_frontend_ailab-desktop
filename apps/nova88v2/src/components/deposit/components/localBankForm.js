@@ -36,7 +36,8 @@ const LocalBankForm = ({
 	localBankChannelError,
 	localBankBankInfoErrpr,
 	depositInfoStorage,
-	isGroupListFetchDone
+	isGroupListFetchDone,
+	setSelectedBankId
 }) => {
 	const parameterSysId = Number(getUrlParameter("sysId"));
 	const [fromChannelIdIdx, setFromChannelIdIdx] = useState(0);
@@ -53,6 +54,7 @@ const LocalBankForm = ({
 		}));
 
 	const onChangeBankInfo = item => {
+		setSelectedBankId(item.bankId);
 		setSysIdForRecord(item.sysId);
 		getLocalBankInfo({ sysId: item.sysId });
 		setFormInfo(prev => ({ ...prev, ...item }));
@@ -305,8 +307,7 @@ const LocalBankForm = ({
 								className={`${className} ${
 									item.canSubmit ? "" : "pending"
 								}`}
-								onClick={() => onChangeBankInfo(item)}
-							>
+								onClick={() => onChangeBankInfo(item)}>
 								<div>
 									<img
 										src={`${paymentImgUrl}/square/${bankLogo}`}
@@ -430,8 +431,7 @@ const LocalBankForm = ({
 				<div
 					className={`inputBox-blue${
 						localBankChannelError.checked === false ? " error" : ""
-					}`}
-				>
+					}`}>
 					<Dropdown
 						mainKey="deposit-localbank-channel-provider"
 						defaultOption={
@@ -455,8 +455,7 @@ const LocalBankForm = ({
 				<div
 					className={`tip${
 						localBankChannelError.tip ? " active" : ""
-					}`}
-				>
+					}`}>
 					{localBankChannelError.tip}
 				</div>
 			</div>
@@ -474,8 +473,7 @@ const LocalBankForm = ({
 								localBankBankInfoErrpr.checked === false
 									? " error"
 									: ""
-							}`}
-						>
+							}`}>
 							<Dropdown
 								mainKey="deposit-localbank-Bank-provider"
 								defaultOption={
@@ -500,8 +498,7 @@ const LocalBankForm = ({
 											`/${userInfo.langId}/${path.bankInfo.root}`
 										)
 									}
-									className="btn-check"
-								>
+									className="btn-check">
 									+
 								</button>
 							</div>
@@ -510,8 +507,7 @@ const LocalBankForm = ({
 						<div
 							className={`tip${
 								localBankBankInfoErrpr.tip ? " active" : ""
-							}`}
-						>
+							}`}>
 							{localBankBankInfoErrpr.tip}
 						</div>
 					</div>
@@ -574,6 +570,7 @@ LocalBankForm.propTypes = {
 	localBankBankInfoErrpr: PropTypes.objectOf(PropTypes.any).isRequired,
 	depositInfoStorage: PropTypes.objectOf(PropTypes.any),
 	isGroupListFetchDone: PropTypes.bool.isRequired,
-	onChangePromotion: PropTypes.func
+	onChangePromotion: PropTypes.func,
+	setSelectedBankId: PropTypes.func.isRequired
 };
 export default LocalBankForm;
