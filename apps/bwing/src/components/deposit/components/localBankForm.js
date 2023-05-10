@@ -25,7 +25,8 @@ const LocalBankForm = ({
 	asyncUploadBankPopBox,
 	depositPromoList,
 	isGroupListFetchDone,
-	onChangePromotion
+	onChangePromotion,
+	setSelectedBankId
 }) => {
 	const parameterSysId = Number(getUrlParameter("sysId"));
 
@@ -79,6 +80,7 @@ const LocalBankForm = ({
 			"",
 			`${window.location.pathname}?type=${depositType}&sysId=${item.sysId}`
 		);
+		setSelectedBankId(item.bankId);
 		setSysIdForRecord(item.sysId);
 		getLocalBankInfo({ sysId: item.sysId });
 		setFormInfo(prev => ({ ...prev, ...item }));
@@ -200,8 +202,7 @@ const LocalBankForm = ({
 							className={`${
 								item.sysId === sysIdForRecord ? "active" : ""
 							} ${item.canSubmit ? "" : "pending"}`}
-							onClick={() => onChangeBankInfo(item)}
-						>
+							onClick={() => onChangeBankInfo(item)}>
 							<div>
 								<img
 									src={`${
@@ -403,6 +404,7 @@ LocalBankForm.propTypes = {
 	asyncUploadBankPopBox: PropTypes.func.isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired,
-	onChangePromotion: PropTypes.func.isRequired
+	onChangePromotion: PropTypes.func.isRequired,
+	setSelectedBankId: PropTypes.func.isRequired
 };
 export default LocalBankForm;
