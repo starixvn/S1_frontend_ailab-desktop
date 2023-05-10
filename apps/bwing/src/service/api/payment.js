@@ -56,8 +56,8 @@ export const api_payment_GetLoadCardPayGroupList = () =>
 export const api_payment_GetLoadCardPayInfoList = GroupId =>
 	paymentRequest.post("/GetLoadCardPayInfoList", { GroupId });
 
-export const api_payment_DepositReqWireTransfer = ({ amount, sysId }) =>
-	paymentRequest.post("/DepositReqWireTransfer", { amount, sysId });
+export const api_payment_DepositReqWireTransfer = ({ amount, sysId, bankId }) =>
+	paymentRequest.post("/DepositReqWireTransfer", { amount, sysId, bankId });
 
 export const api_payment_GetDepositInfoRecent = () =>
 	paymentRequest.post("/GetDepositInfoRecent");
