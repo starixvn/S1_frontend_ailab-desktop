@@ -37,10 +37,11 @@ export default function HTML(props) {
 					type="text/css"
 					href={`/styles/css/datePicker.css?v=${vkey}`}
 				/>
-				<script
+				{/* <script
 					type="text/javascript"
 					src="https://tickers2.playtech.com/jackpots/new_jackpotjs.js"
-				/>
+				/> */}
+
 				{/* <script
 					type="text/javascript"
 					src="https://a7019fa5-9f9a-468b-92da-4890f6a6e4a7.snippet.antillephone.com/apg-seal.js"
