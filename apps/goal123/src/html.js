@@ -35,10 +35,11 @@ export default function HTML(props) {
 					href={`/styles/css/datePicker.css?v=${vkey}`}
 				/>
 
-				{/* <script
+				<script
+					async
 					type="text/javascript"
 					src="https://tickers2.playtech.com/jackpots/new_jackpotjs.js"
-				/> */}
+				/>
 
 				{/* <script type="text/javascript" src="/lib/jquery-3.6.0.min.js" /> */}
 

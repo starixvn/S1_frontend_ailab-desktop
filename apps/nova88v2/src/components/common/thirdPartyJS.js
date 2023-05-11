@@ -19,7 +19,7 @@ function ThirdPartyJS() {
 
 const LiveChat = () => (
 	<Helmet>
-		<script>
+		<script async>
 			{`window.__lc = window.__lc || {};
          window.__lc.license = 11638088;
          window.__lc.chat_between_groups = false;
@@ -31,7 +31,7 @@ const LiveChat = () => (
 
 const Iovation = () => (
 	<Helmet>
-		<script>
+		<script async>
 			{`
                         window.IGLOO = window.IGLOO || {
                          "enable_flash" : false,
@@ -42,7 +42,11 @@ const Iovation = () => (
                        };
                  `}
 		</script>
-		<script src={`/js/loader_only.js?v=201027`} type="text/javascript" />
+		<script
+			src={`/js/loader_only.js?v=201027`}
+			type="text/javascript"
+			async
+		/>
 	</Helmet>
 );
 
@@ -58,7 +62,7 @@ const PlayTech = () => (
 
 const GTM = () => (
 	<Helmet>
-		<script>
+		<script async>
 			{`(function (w, d, s, l, i) {
 				w[l] = w[l] || [];
 				w[l].push({
@@ -77,7 +81,7 @@ const GTM = () => (
 			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-B22CGGG5KJ"
 		></script>
-		<script>
+		<script async>
 			{`  window.dataLayer = window.dataLayer || [];
 				function gtag(){dataLayer.push(arguments);}
 				gtag('js', new Date());
