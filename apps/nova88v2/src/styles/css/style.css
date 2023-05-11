@@ -2721,6 +2721,9 @@ footer .license > div:nth-child(1) > div:nth-child(2) > div {
   margin: 15px 20px 0 0;
   width: 65px;
 }
+footer .license > div:nth-child(1) > div:nth-child(2) > div:last-child {
+  width: 115px;
+}
 footer .license > div:nth-child(2) {
   width: 730px;
   display: -webkit-box;
