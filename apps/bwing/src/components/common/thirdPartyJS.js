@@ -59,7 +59,7 @@ const Shield = () => {
 
 const GTM = () => (
 	<Helmet>
-		<script>
+		<script async>
 			{`(function (w, d, s, l, i) {
 				w[l] = w[l] || [];
 				w[l].push({
@@ -80,7 +80,7 @@ const GTM = () => (
 			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-V0NSTJVY5J"
 		/>
-		<script>
+		<script async>
 			{`window.dataLayer = window.dataLayer || [];
 				function gtag(){dataLayer.push(arguments);}
 				gtag('js', new Date());
