@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { paymentImgUrl } from "../../config";
+import { userInfoContext } from "../common/context";
+import { defCurrencyList } from "../common/common";
 
 const BankCard = ({
 	t,
@@ -13,7 +15,7 @@ const BankCard = ({
 	isIfscRequired
 }) => {
 	const isMountedRef = useRef(null);
-
+	const { userInfo } = useContext(userInfoContext);
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -43,6 +45,11 @@ const BankCard = ({
 		);
 	});
 
+	// * 等待財務部門開放 khm 的 bank info 功能
+	if (userInfo?.currencyId === defCurrencyList.KHM) {
+		return null;
+	}
+
 	return (
 		<div className="walletModule">
 			<div className="addBank">
@@ -56,6 +63,7 @@ const BankCard = ({
 						<div>{t("lbl_AddBankAccount")}</div>
 					</div>
 				)}
+
 				{/* <div className="remainder">
 				{t("lbl_NumberOfBankAccounts")}:{custBankInfo?.length ?? 0}/3
 				</div> */}

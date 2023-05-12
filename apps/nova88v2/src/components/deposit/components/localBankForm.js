@@ -280,7 +280,7 @@ const LocalBankForm = ({
 					formInfo.maxAmount
 			  }`;
 	const qrCodeObj = localBankGroupList?.find(
-		obj => obj.bankName === localBankInfo.bankName
+		obj => obj.bankLogo === localBankInfo.bankLogo
 	);
 
 	return (
@@ -307,7 +307,8 @@ const LocalBankForm = ({
 								className={`${className} ${
 									item.canSubmit ? "" : "pending"
 								}`}
-								onClick={() => onChangeBankInfo(item)}>
+								onClick={() => onChangeBankInfo(item)}
+							>
 								<div>
 									<img
 										src={`${paymentImgUrl}/square/${bankLogo}`}
@@ -431,7 +432,8 @@ const LocalBankForm = ({
 				<div
 					className={`inputBox-blue${
 						localBankChannelError.checked === false ? " error" : ""
-					}`}>
+					}`}
+				>
 					<Dropdown
 						mainKey="deposit-localbank-channel-provider"
 						defaultOption={
@@ -455,7 +457,8 @@ const LocalBankForm = ({
 				<div
 					className={`tip${
 						localBankChannelError.tip ? " active" : ""
-					}`}>
+					}`}
+				>
 					{localBankChannelError.tip}
 				</div>
 			</div>
@@ -473,7 +476,8 @@ const LocalBankForm = ({
 								localBankBankInfoErrpr.checked === false
 									? " error"
 									: ""
-							}`}>
+							}`}
+						>
 							<Dropdown
 								mainKey="deposit-localbank-Bank-provider"
 								defaultOption={
@@ -498,7 +502,8 @@ const LocalBankForm = ({
 											`/${userInfo.langId}/${path.bankInfo.root}`
 										)
 									}
-									className="btn-check">
+									className="btn-check"
+								>
 									+
 								</button>
 							</div>
@@ -507,7 +512,8 @@ const LocalBankForm = ({
 						<div
 							className={`tip${
 								localBankBankInfoErrpr.tip ? " active" : ""
-							}`}>
+							}`}
+						>
 							{localBankBankInfoErrpr.tip}
 						</div>
 					</div>
