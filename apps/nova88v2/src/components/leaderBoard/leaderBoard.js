@@ -92,7 +92,9 @@ export default () => {
 	};
 
 	const getPeriodList = () => {
-		const dataStartDate = new Date("2023-01-01");
+		// * 月排名暫時顯示四月到當前月份，等ＰＭ通知再修正回起始月份 "2023-01-01"
+		const dataStartDate = new Date("2023-04-01");
+
 		const currentDate = new Date();
 		const betweenMonthNum =
 			(currentDate.getFullYear() - dataStartDate.getFullYear()) * 12 +
@@ -395,8 +397,7 @@ export default () => {
 			className="rankingNew"
 			style={{
 				backgroundImage: `url(${showBackground()})`
-			}}
-		>
+			}}>
 			<section>
 				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 				{tab === defTabId.first ? (

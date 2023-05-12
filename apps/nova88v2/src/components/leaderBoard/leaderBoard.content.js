@@ -32,6 +32,9 @@ const leaderBoardContent = ({
 					return null;
 				}
 
+				// 日排名隱藏status欄位，等ＰＭ通知再修正回顯示
+				return <div>{` `}</div>;
+
 				let result = <div className="icon icon-minus" />;
 				if (_status > 0) {
 					result = <div className="icon icon-arrow_drop_up" />;
@@ -92,7 +95,9 @@ const leaderBoardContent = ({
 								<div>{t("lbl_Ranking")}</div>
 								<div>{t("lbl_Username")}</div>
 								{tab === defTabId.fourth ? null : (
-									<div>{t("lbl_Status")}</div>
+									// 日排名隱藏status欄位，等ＰＭ通知再修正回顯示
+									<div> {` `}</div>
+									// <div>{t("lbl_Status")}</div>
 								)}
 								<div>{t("lbl_Points")}</div>
 							</li>
