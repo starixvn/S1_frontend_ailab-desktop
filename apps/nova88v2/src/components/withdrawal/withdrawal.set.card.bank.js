@@ -45,11 +45,6 @@ const BankCard = ({
 		);
 	});
 
-	// * 等待財務部門開放 khm 的 bank info 功能
-	if (userInfo?.currencyId === defCurrencyList.KHM) {
-		return null;
-	}
-
 	return (
 		<div className="walletModule">
 			<div className="addBank">
@@ -57,8 +52,7 @@ const BankCard = ({
 				{(!bankArr || bankArr.length < 3) && (
 					<div
 						className="addBankName noBank"
-						onClick={addBankAccount}
-					>
+						onClick={addBankAccount}>
 						<div className="icon icon-plus" />
 						<div>{t("lbl_AddBankAccount")}</div>
 					</div>
