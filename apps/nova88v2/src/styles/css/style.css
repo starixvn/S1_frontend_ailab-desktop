@@ -2721,9 +2721,6 @@ footer .license > div:nth-child(1) > div:nth-child(2) > div {
   margin: 15px 20px 0 0;
   width: 65px;
 }
-footer .license > div:nth-child(1) > div:nth-child(2) > div:last-child {
-  width: 115px;
-}
 footer .license > div:nth-child(2) {
   width: 730px;
   display: -webkit-box;
@@ -13159,6 +13156,31 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: url(https://banner.0814media.net/desktop/img/homepage/jpotbg.jpg) no-repeat;
   position: relative;
   cursor: pointer;
+}
+.jpotModule .jpot.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  pointer-events: none;
+}
+.jpotModule .jpot.active .jpot-btn, .jpotModule .jpot.active .number {
+  -webkit-filter: brightness(0.7);
+          filter: brightness(0.7);
+}
+.jpotModule .jpot.active .under {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.jpotModule .jpot .under {
+  display: none;
+  position: absolute;
+  right: 5px;
+  bottom: 8px;
+  z-index: 1;
+  color: #fff;
+  padding: 5px 10px;
+  -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
+          filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
 }
 .jpotModule .jpot .jpot-item {
   position: absolute;

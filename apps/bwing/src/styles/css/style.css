@@ -3417,6 +3417,33 @@ main > .swiper-container .swiper-slide {
   position: relative;
   cursor: pointer;
 }
+.bannerS .jpot.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  pointer-events: none;
+}
+.bannerS .jpot.active > img {
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
+}
+.bannerS .jpot.active .under {
+  display: block;
+}
+.bannerS .jpot .under {
+  display: none;
+  position: absolute;
+  right: 70px;
+  bottom: 60px !important;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  z-index: 1;
+  color: #fff;
+  font-weight: normal;
+  font-size: 16px;
+  -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
+          filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
+}
 .bannerS .jpot > div {
   position: absolute;
   bottom: 32px;

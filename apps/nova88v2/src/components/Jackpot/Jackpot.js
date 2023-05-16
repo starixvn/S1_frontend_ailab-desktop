@@ -12,7 +12,8 @@ export default function Jackpot({
 	label,
 	value,
 	animationLoopMillisecond,
-	onClick
+	onClick,
+	jPotSuccess
 }) {
 	const { t } = useTranslation();
 	const { isRoot } = useContext(isRootContext);
@@ -70,10 +71,13 @@ export default function Jackpot({
 		});
 	}, [animationLoopMillisecond, jackpotItemList]);
 
-	if (jackpotItemList?.length <= 0) return null;
+	if (jackpotItemList?.length <= 0 && !isRoot) return null;
 
 	return (
-		<div className="jpot" onClick={onClick}>
+		<div
+			className={`jpot${jPotSuccess ? "" : " active"}`}
+			onClick={onClick}
+		>
 			{isRoot && (
 				<>
 					<div className="jpot-btn">
@@ -98,17 +102,22 @@ export default function Jackpot({
 					<JaclpotList jackpotItemList={jackpotItemList} />
 				)}
 			</div>
+			{!jPotSuccess && (
+				<div className="under">{t("lbl_underMaintenance")}</div>
+			)}
 		</div>
 	);
 }
 
 Jackpot.defaultProps = {
-	onClick: null
+	onClick: null,
+	jPotSuccess: false
 };
 
 Jackpot.propTypes = {
 	onClick: PropTypes.func,
 	animationLoopMillisecond: PropTypes.number.isRequired,
 	label: PropTypes.string.isRequired,
-	value: PropTypes.string.isRequired
+	value: PropTypes.string.isRequired,
+	jPotSuccess: PropTypes.bool
 };
