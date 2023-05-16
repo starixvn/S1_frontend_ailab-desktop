@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { Link, navigate } from "gatsby";
+import { navigate } from "gatsby";
 import path from "../../router";
 import useInterval from "../hook/useInterval";
 
 import Jackpot from "../Jackpot/Jackpot";
-import { bannerImgUrl } from "../../config";
 
 const ANIMATION_LOOP_MILLISECOND = 2000;
 
@@ -53,24 +52,7 @@ export default function HomeJackpot({ t, userInfo }) {
 		}
 	}, ANIMATION_LOOP_MILLISECOND + DELAY_MILLISECOND);
 
-	return !jPotSuccess ? (
-		<div className="jpotModule">
-			<div className="moduleTitle">{t("lbl_Slots")}</div>
-			<Link
-				className="slotsbox"
-				to={`/${userInfo.langId}/${path.casino.root}`}
-			>
-				<img
-					src={`${bannerImgUrl}/img/indexslots_bg_${userInfo.langId}.jpg`}
-					alt="slot-bg"
-				/>
-				<img
-					src={`${bannerImgUrl}/img/indexslots_items.png`}
-					alt="slot-item"
-				/>
-			</Link>
-		</div>
-	) : (
+	return (
 		<div className="jpotModule">
 			<div className="moduleTitle">{t("lbl_homeJackpotTitle")}</div>
 
@@ -84,9 +66,11 @@ export default function HomeJackpot({ t, userInfo }) {
 				onClick={() =>
 					navigate(`/${userInfo.langId}/${path.casino.root}`)
 				}
+				jPotSuccess={jPotSuccess}
 			/>
 		</div>
 	);
+	// );
 }
 
 HomeJackpot.propTypes = {

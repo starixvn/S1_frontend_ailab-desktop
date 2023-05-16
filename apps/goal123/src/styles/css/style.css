@@ -4570,6 +4570,34 @@ html.Newtheme .indexliveCasinoList.topten .indexJackpot {
   position: relative;
   cursor: pointer;
 }
+html.Newtheme .indexliveCasinoList.topten .indexJackpot.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  pointer-events: none;
+}
+html.Newtheme .indexliveCasinoList.topten .indexJackpot.active > img {
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
+}
+html.Newtheme .indexliveCasinoList.topten .indexJackpot.active .under {
+  display: block;
+}
+html.Newtheme .indexliveCasinoList.topten .indexJackpot .under {
+  display: none;
+  position: absolute;
+  right: 70px;
+  top: calc(50% + 45px);
+  bottom: unset;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  z-index: 1;
+  color: #fff;
+  font-weight: normal;
+  font-size: 14px;
+  -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
+          filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
+}
 html.Newtheme .indexliveCasinoList.topten .indexJackpot > div {
   position: absolute;
   bottom: calc(50% - 70px);
