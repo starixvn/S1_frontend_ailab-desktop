@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import path from "../../router";
@@ -8,6 +8,7 @@ import { getCurrencyCode } from "../common/common";
 
 const Jackpot = ({ t, userInfo }) => {
 	const currencyId = userInfo.currencyId ?? getCurrencyCode(userInfo.langId);
+	const [jPotSuccess, setJPotSuccess] = useState(false);
 
 	useEffect(() => {
 		const jackpotCurrency = t(`Currency_${currencyId}`);
@@ -19,6 +20,10 @@ const Jackpot = ({ t, userInfo }) => {
 					casino: "hotspin88am",
 					currency: String(jackpotCurrency).toLowerCase()
 				});
+
+				if (ticker) {
+					setJPotSuccess(true);
+				}
 
 				ticker.attachToTextBox("jpot-id");
 				ticker.SetCurrencySign("");
@@ -38,13 +43,17 @@ const Jackpot = ({ t, userInfo }) => {
 				navigate(
 					`/${userInfo.langId}/${path.casino.root}?tab=${defNav.PROMO.key}`
 				)
-			}>
-			<div className="jpot">
+			}
+		>
+			<div className={`jpot${jPotSuccess ? "" : " active"}`}>
 				<div>
 					<div>{t(`Currency_${currencyId}`)}</div>
 
 					<span id="jpot-id" />
 				</div>
+				{!jPotSuccess && (
+					<div className="under">{t("lbl_underMaintenance")}</div>
+				)}
 			</div>
 		</div>
 	);
