@@ -1,40 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import path from "../../router";
 import { defNav } from "../casino/casino.def";
-
 import { getCurrencyCode } from "../common/common";
+import useJackPotTick from "../hook/useJackPotTick";
 
 const Jackpot = ({ t, userInfo }) => {
 	const currencyId = userInfo.currencyId ?? getCurrencyCode(userInfo.langId);
-	const [jPotSuccess, setJPotSuccess] = useState(false);
-
-	useEffect(() => {
-		const jackpotCurrency = t(`Currency_${currencyId}`);
-
-		(() => {
-			try {
-				const ticker = new Ticker({
-					info: 2,
-					casino: "hotspin88am",
-					currency: String(jackpotCurrency).toLowerCase()
-				});
-
-				if (ticker) {
-					setJPotSuccess(true);
-				}
-
-				ticker.attachToTextBox("jpot-id");
-				ticker.SetCurrencySign("");
-				ticker.tick();
-			} catch (e) {
-				// eslint-disable-next-line no-console
-				console.log(e);
-			}
-		})();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [currencyId]);
+	const { isJackPotLoaded } = useJackPotTick({ currencyId });
 
 	return (
 		<div
@@ -45,13 +19,13 @@ const Jackpot = ({ t, userInfo }) => {
 				)
 			}
 		>
-			<div className={`jpot${jPotSuccess ? "" : " active"}`}>
+			<div className={`jpot${isJackPotLoaded ? "" : " active"}`}>
 				<div>
 					<div>{t(`Currency_${currencyId}`)}</div>
 
 					<span id="jpot-id" />
 				</div>
-				{!jPotSuccess && (
+				{!isJackPotLoaded && (
 					<div className="under">{t("lbl_underMaintenance")}</div>
 				)}
 			</div>
