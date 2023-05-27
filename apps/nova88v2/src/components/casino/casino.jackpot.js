@@ -9,7 +9,10 @@ import {
 export default function CasinoJackpot({ t, userInfo }) {
 	const ref = useRef();
 	const { currencyId } = userInfo;
-	const { currentText } = useJackPotTick({ ref, currencyId });
+	const { currentText, isJackPotLoaded } = useJackPotTick({
+		ref,
+		currencyId
+	});
 
 	return (
 		<div className="slotJpot">
@@ -20,6 +23,7 @@ export default function CasinoJackpot({ t, userInfo }) {
 				value={currentText}
 				langId={userInfo.langId}
 				animationLoopMillisecond={ANIMATION_LOOP_MILLISECOND}
+				jPotSuccess={isJackPotLoaded}
 			/>
 		</div>
 	);
