@@ -7,14 +7,14 @@ import useAppDownLoad from "../appDownload/useAppDownLoad";
 const DEFAULT_LANGID = "en";
 
 const BANNER_IMAGE_LIST = {
-	en: "indexCenterBanner_en.jpg",
-	cs: "indexCenterBanner_cs.jpg",
-	id: "indexCenterBanner_id.jpg",
-	th: "indexCenterBanner_th.jpg",
-	hi: "indexCenterBanner_hi.jpg",
-	bd: "indexCenterBanner_bd.jpg",
-	my: "indexCenterBanner_my.jpg",
-	kh: "indexCenterBanner_kh.jpg"
+	en: "NewindexCenterBanner_en.jpg",
+	cs: "NewindexCenterBanner_cs.jpg",
+	id: "NewindexCenterBanner_id.jpg",
+	th: "NewindexCenterBanner_th.jpg",
+	hi: "NewindexCenterBanner_hi.jpg",
+	bd: "NewindexCenterBanner_bd.jpg",
+	my: "NewindexCenterBanner_my.jpg",
+	kh: "NewindexCenterBanner_kh.jpg"
 };
 
 const testImg = src =>
