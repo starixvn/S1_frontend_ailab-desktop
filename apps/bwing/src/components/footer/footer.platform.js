@@ -12,10 +12,14 @@ import { SET_ENTER_PAGE } from "../../service/enterPage";
 
 const defPlatform = [
 	{
-		...productList.sabaClub,
+		...productList.eSport,
 		path: path.sports.root,
 		parameter: { game: "soccer" },
 		imgName: "saba"
+	},
+	{
+		...productList.eSport_TFGaming,
+		imgName: "tfg"
 	},
 	{
 		...productList.sportSbo,

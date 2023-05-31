@@ -169,37 +169,51 @@ export const defMenuLinks = {
 	eSport: {
 		path: path.eSport.root,
 		displayKey: "lbl_eSports",
-		entryList: [
-			{
-				...productList.eSport_Dota2,
-				_class: "dota",
-				displayKey: "Dota2",
-				menuType: defMenuType.entPage
-			},
-			{
-				...productList.eSport_Csgo,
-				_class: "cso",
-				displayKey: "CSGO",
-				menuType: defMenuType.entPage
-			},
+		subMenu: [
+			// {
+			// 	...productList.eSport_Dota2,
+			// 	_class: "dota",
+			// 	displayKey: "Dota2",
+			// 	menuType: defMenuType.entPage
+			// },
+			// {
+			// 	...productList.eSport_Csgo,
+			// 	_class: "cso",
+			// 	displayKey: "CSGO",
+			// 	menuType: defMenuType.entPage
+			// },
 			{
 				...productList.eSport,
-				_class: "all",
-				displayKey: "All",
+				_class: "saba",
+				className: "saba",
+				displayKey: "lbl_Saba",
 				menuType: defMenuType.entPage
 			},
 			{
-				...productList.eSport_LeagueOfLegends,
-				_class: "lol",
-				displayKey: "LOL",
-				menuType: defMenuType.entPage
-			},
-			{
-				...productList.eSport_KingOfGlory,
-				_class: "king",
-				displayKey: "Kog",
-				menuType: defMenuType.entPage
+				...productList.eSport_TFGaming,
+				_class: "tfg",
+				className: "tfg",
+				displayKey: "lbl_TFGaming",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.TFGaming
+					})
+				]
 			}
+			// {
+			// 	...productList.eSport_LeagueOfLegends,
+			// 	_class: "lol",
+			// 	displayKey: "LOL",
+			// 	menuType: defMenuType.entPage
+			// },
+			// {
+			// 	...productList.eSport_KingOfGlory,
+			// 	_class: "king",
+			// 	displayKey: "Kog",
+			// 	menuType: defMenuType.entPage
+			// }
 		]
 	},
 	casino: {
@@ -874,5 +888,6 @@ export const defSubListClassName = {
 	liveCasino: "livecasinoList",
 	games: "gameList",
 	fishing: "fishList",
-	lottery: "lotteryList"
+	lottery: "lotteryList",
+	eSport: "esportList"
 };
