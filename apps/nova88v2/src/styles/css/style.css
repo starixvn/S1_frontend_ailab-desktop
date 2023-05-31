@@ -2721,6 +2721,9 @@ footer .license > div:nth-child(1) > div:nth-child(2) > div {
   margin: 15px 20px 0 0;
   width: 65px;
 }
+footer .license > div:nth-child(1) > div:nth-child(2) > div:last-child {
+  width: 115px;
+}
 footer .license > div:nth-child(2) {
   width: 730px;
   display: -webkit-box;
@@ -12599,13 +12602,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .indexCenterBanner .qrGroup .qrCode:first-child {
   position: absolute;
-  right: 227.5px;
-  bottom: 21px;
+  left: 257.5px;
+  bottom: 77px;
 }
 .indexCenterBanner .qrGroup .qrCode:last-child {
   position: absolute;
-  right: 37px;
-  bottom: 21px;
+  left: 60px;
+  bottom: 77px;
 }
 
 .streaming {
