@@ -18,6 +18,10 @@ const defPlatform = [
 		imgName: "saba"
 	},
 	{
+		...productList.eSport_TFGaming,
+		imgName: "tfg"
+	},
+	{
 		...productList.sportSbo,
 		imgName: "sbo"
 	},

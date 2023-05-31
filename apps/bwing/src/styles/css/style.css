@@ -354,6 +354,7 @@ header .header > div.menu .nweSubMenu-Wrapper .hotimg {
 }
 header .header > div.menu .nweSubMenu-Wrapper .sportsList,
 header .header > div.menu .nweSubMenu-Wrapper .gameList,
+header .header > div.menu .nweSubMenu-Wrapper .esportList,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList,
 header .header > div.menu .nweSubMenu-Wrapper .fishList,
@@ -392,6 +393,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList.active,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList div,
 header .header > div.menu .nweSubMenu-Wrapper .gameList.active,
 header .header > div.menu .nweSubMenu-Wrapper .gameList div,
+header .header > div.menu .nweSubMenu-Wrapper .esportList.active,
+header .header > div.menu .nweSubMenu-Wrapper .esportList div,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList.active,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList div,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList.active,
@@ -413,6 +416,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a,
@@ -446,6 +451,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a .img,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button .img,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a .img,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button .img,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a .img,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button .img,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a .img,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img,
@@ -464,6 +471,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button .img .light,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a .img .light,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .light,
@@ -487,6 +496,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a .img .light.light-sl
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button .img .light.light-slot,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a .img .light.light-slot,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button .img .light.light-slot,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a .img .light.light-slot,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button .img .light.light-slot,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a .img .light.light-slot,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img .light.light-slot,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .light.light-slot,
@@ -519,6 +530,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button .img .dice,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a .img .dice,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .dice,
@@ -540,6 +553,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button .img .dice.dice2,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a .img .dice.dice2,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .dice.dice2,
@@ -558,6 +573,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button .img .ballR1,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a .img .ballR1,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .ballR1,
@@ -579,6 +596,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button .img .ballR1.ballG1,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a .img .ballR1.ballG1,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .ballR1.ballG1,
@@ -597,6 +616,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a .logo,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button .logo,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a .logo,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button .logo,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a .logo,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button .logo,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a .logo,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button .logo,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .logo,
@@ -612,6 +633,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a span,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button span,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a span,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button span,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a span,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button span,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a span,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button span,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a span,
@@ -628,6 +651,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a:hover,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button:hover,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a:hover,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button:hover,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a:hover,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button:hover,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a:hover,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover,
@@ -645,6 +670,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a:hover .img,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button:hover .img,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a:hover .img,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button:hover .img,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a:hover .img,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button:hover .img,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a:hover .img,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover .img,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover .img,
@@ -660,6 +687,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a:hover .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button:hover .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a:hover .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button:hover .img .light,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a:hover .img .light,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button:hover .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a:hover .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover .img .light,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover .img .light,
@@ -674,6 +703,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a:hover .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button:hover .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a:hover .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button:hover .img .dice,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a:hover .img .dice,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button:hover .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a:hover .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover .img .dice,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover .img .dice,
@@ -689,6 +720,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a:hover .img .dice.dic
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button:hover .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a:hover .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button:hover .img .dice.dice2,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a:hover .img .dice.dice2,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button:hover .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a:hover .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover .img .dice.dice2,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover .img .dice.dice2,
@@ -704,6 +737,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a:hover .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button:hover .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a:hover .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button:hover .img .ballR1,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a:hover .img .ballR1,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button:hover .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a:hover .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover .img .ballR1,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover .img .ballR1,
@@ -719,6 +754,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a:hover .img .ballR1.b
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button:hover .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a:hover .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button:hover .img .ballR1.ballG1,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a:hover .img .ballR1.ballG1,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button:hover .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a:hover .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover .img .ballR1.ballG1,
@@ -734,6 +771,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a:hover span,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button:hover span,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a:hover span,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button:hover span,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a:hover span,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button:hover span,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a:hover span,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button:hover span,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a:hover span,
@@ -748,6 +787,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a.under,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button.under,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a.under,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button.under,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a.under,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button.under,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a.under,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button.under,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a.under,
@@ -763,6 +804,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a.under .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button.under .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a.under .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button.under .underBtn,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a.under .underBtn,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button.under .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a.under .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button.under .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a.under .underBtn,
@@ -777,6 +820,8 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList a .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .sportsList button .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .gameList a .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .gameList button .underBtn,
+header .header > div.menu .nweSubMenu-Wrapper .esportList a .underBtn,
+header .header > div.menu .nweSubMenu-Wrapper .esportList button .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList a .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .casinoList button .underBtn,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .underBtn,
@@ -853,6 +898,12 @@ header .header > div.menu .nweSubMenu-Wrapper .gameList .tablegame .img {
 }
 header .header > div.menu .nweSubMenu-Wrapper .gameList .virtual .img {
   background: url(https://banner.bw88.io/desktop/img/new-game/virtual.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .esportList .saba .img {
+  background: url(https://banner.bw88.io/desktop/img/esport/saba.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .esportList .tfg .img {
+  background: url(https://banner.bw88.io/desktop/img/esport/tfg.png) no-repeat center/auto 100%;
 }
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .AMB .img {
   background: url(https://banner.bw88.io/desktop/img/slot/amb.png) no-repeat center/auto 100%;
@@ -1535,8 +1586,7 @@ header .header > div.function .memberfile img {
           animation: newicon 0.5s linear infinite alternate;
 }
 header .header > div.function .wallet button.icon-eye-blocked,
-header .header > div.function .wallet button.icon-eye,
-header .header > div.function .wallet button.icon-spinner11 {
+header .header > div.function .wallet button.icon-eye {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1544,9 +1594,6 @@ header .header > div.function .wallet button.icon-spinner11 {
       -ms-flex-align: center;
           align-items: center;
   margin-left: 5px;
-}
-header .header > div.function .wallet > button.icon-spinner11 {
-  color: #56ceff;
 }
 header .header > div.function .wallet .submenu {
   padding: 15px;
@@ -1821,6 +1868,14 @@ footer > div .platformGroup button.saba {
 footer > div .platformGroup a.saba:hover,
 footer > div .platformGroup button.saba:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/saba-a.png) no-repeat center;
+}
+footer > div .platformGroup a.tfg,
+footer > div .platformGroup button.tfg {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/tfg.png) no-repeat center;
+}
+footer > div .platformGroup a.tfg:hover,
+footer > div .platformGroup button.tfg:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/tfg-a.png) no-repeat center;
 }
 footer > div .platformGroup a.bti,
 footer > div .platformGroup button.bti {
@@ -4823,25 +4878,10 @@ main > .swiper-container .swiper-slide {
   max-height: calc(100% - 160px);
 }
 
-.uploadModule {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 75%;
-  margin: 20px 0;
-}
-
 .upload_img {
-  width: calc(33.3333% - 7px);
-  height: 80px;
-  margin: 0 5px 10px 0;
   border-radius: 5px;
   border: 1px solid #1e85ec;
+  height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4853,33 +4893,10 @@ main > .swiper-container .swiper-slide {
           align-items: center;
   overflow: hidden;
   cursor: pointer;
-  position: relative;
-}
-.upload_img.error {
-  border-color: #f52805;
-}
-.upload_img.error .icon {
-  color: #f52805;
 }
 .upload_img .icon {
-  font-size: 36px;
+  font-size: 48px;
   color: #1e85ec;
-}
-.upload_img .icon-close {
-  position: absolute;
-  top: 5px !important;
-  right: 5px !important;
-  font-size: 8px !important;
-  background: #868686;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  padding: 2px;
-  z-index: 3;
-}
-.upload_img .icon-close::before {
-  font-size: 8px;
-  margin: 0 2px;
-  color: #fff;
 }
 .upload_img img {
   height: 100%;
@@ -4942,7 +4959,7 @@ main > .swiper-container .swiper-slide {
 .directions {
   border-bottom: 1px solid #666;
   color: #aeb2bc;
-  margin: 5px 0 20px 20px;
+  margin: 20px 0 20px 20px;
   padding-bottom: 20px;
   text-align: left;
 }
@@ -12407,6 +12424,12 @@ input + .iconModule i.icon.icon-checkmark:before {
 .upload_new .checkBankSlip ul {
   width: 100%;
 }
+.upload_new .upload_img {
+  margin: 5px 0 0;
+}
+.upload_new .upload_img.error {
+  border-color: #f52805;
+}
 
 .inputBox-white {
   width: calc(100% - 100px);
@@ -12447,6 +12470,70 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 .directions + form .tip {
   margin-left: 75px;
+}
+
+.upload_img {
+  max-width: 80%;
+  min-width: 75%;
+  border-radius: 5px;
+  border: 1px solid #1fbdfd;
+  height: 250px;
+  margin: 40px 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+.upload_img .icon-folder-upload {
+  display: none;
+}
+.upload_img.error {
+  border-color: #f52805;
+}
+.upload_img .icon {
+  font-size: 48px;
+  color: #1fbdfd;
+}
+.upload_img .icon.icon-broken_image:before {
+  font-size: 48px;
+  color: #666;
+}
+.upload_img img {
+  height: 100%;
+}
+.upload_img + .smallList {
+  max-width: 80%;
+  min-width: 75%;
+  border-bottom: 1px solid #666;
+  padding-bottom: 20px;
+}
+.upload_img + .smallList ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.upload_img + .smallList ul li {
+  margin-left: 10px;
+  width: auto;
+}
+.upload_img + .smallList ul li .icon {
+  color: #1e85ec;
+}
+.upload_img + .smallList ul li:nth-child(1) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 0;
 }
 
 .vip {
@@ -14340,27 +14427,11 @@ input + .iconModule i.icon.icon-checkmark:before {
   display: -ms-flexbox;
   display: flex;
 }
-.esportlobbyList > div.dota {
-  background: url(https://banner.bw88.io/desktop/img/esportslobby/dota.png) no-repeat center;
+.esportlobbyList > div.saba {
+  background: url(https://banner.bw88.io/desktop/img/esportslobby/saba.png) no-repeat center;
 }
-.esportlobbyList > div.cso {
-  background: url(https://banner.bw88.io/desktop/img/esportslobby/cs.png) no-repeat center;
-}
-.esportlobbyList > div.all {
-  background: url(https://banner.bw88.io/desktop/img/esportslobby/all.png) no-repeat center;
-}
-.esportlobbyList > div.lol {
-  background: url(https://banner.bw88.io/desktop/img/esportslobby/lol.png) no-repeat center;
-}
-.esportlobbyList > div.king {
-  background: url(https://banner.bw88.io/desktop/img/esportslobby/king.png) no-repeat center;
-}
-.esportlobbyList > div.coming {
-  opacity: 0.5;
-}
-.esportlobbyList > div.coming:hover {
-  -webkit-transform: scale(1);
-          transform: scale(1);
+.esportlobbyList > div.tfg {
+  background: url(https://banner.bw88.io/desktop/img/esportslobby/tfg.png) no-repeat center;
 }
 
 .home .swiper-container {
