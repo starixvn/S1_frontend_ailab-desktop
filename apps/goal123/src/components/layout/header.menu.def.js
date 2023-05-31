@@ -203,37 +203,57 @@ export const defMenuLinks = langId => ({
 	eSport: {
 		path: path.eSport.root,
 		displayKey: "lbl_eSports",
-		entryList: [
-			{
-				...productList.eSport_Dota2,
-				imgSrc: `${bannerImgUrl}/desktop/img/esports/dota2.png`,
-				displayKey: "Dota2",
-				menuType: defMenuType.entPage
-			},
-			{
-				...productList.eSport_Csgo,
-				imgSrc: `${bannerImgUrl}/desktop/img/esports/cs.png`,
-				displayKey: "CSGO",
-				menuType: defMenuType.entPage
-			},
+		subMenu: [
+			// {
+			// 	...productList.eSport_Dota2,
+			// 	imgSrc: `${bannerImgUrl}/desktop/img/esports/dota2.png`,
+			// 	displayKey: "Dota2",
+			// 	menuType: defMenuType.entPage
+			// },
+			// {
+			// 	...productList.eSport_Csgo,
+			// 	imgSrc: `${bannerImgUrl}/desktop/img/esports/cs.png`,
+			// 	displayKey: "CSGO",
+			// 	menuType: defMenuType.entPage
+			// },
 			{
 				...productList.eSport,
-				imgSrc: `${bannerImgUrl}/desktop/img/esports/all.png`,
-				displayKey: "All",
-				menuType: defMenuType.entPage
+				imgSrc: `${bannerImgUrl}/desktop/img/esports/saba.png`,
+				displayKey: "lbl_Saba",
+				displayText: "Saba",
+				menuType: defMenuType.entPage,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/saba.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/saba-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/saba-icon.png`
 			},
 			{
-				...productList.eSport_LeagueOfLegends,
-				imgSrc: `${bannerImgUrl}/desktop/img/esports/lol.png`,
-				displayKey: "LOL",
-				menuType: defMenuType.entPage
-			},
-			{
-				...productList.eSport_KingOfGlory,
-				imgSrc: `${bannerImgUrl}/desktop/img/esports/king.png`,
-				displayKey: "Kog",
-				menuType: defMenuType.entPage
+				...productList.eSport_TFGaming,
+				imgSrc: `${bannerImgUrl}/desktop/img/esports/tfg.png`,
+				displayKey: "lbl_TFGaming",
+				displayText: "TFGaming",
+				menuType: defMenuType.entPage,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/tfg.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/tfg-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/tfg-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.TFGaming
+					})
+				]
 			}
+			// {
+			// 	...productList.eSport_LeagueOfLegends,
+			// 	imgSrc: `${bannerImgUrl}/desktop/img/esports/lol.png`,
+			// 	displayKey: "LOL",
+			// 	menuType: defMenuType.entPage
+			// },
+			// {
+			// 	...productList.eSport_KingOfGlory,
+			// 	imgSrc: `${bannerImgUrl}/desktop/img/esports/king.png`,
+			// 	displayKey: "Kog",
+			// 	menuType: defMenuType.entPage
+			// }
 		]
 	},
 	casino: {
@@ -1014,5 +1034,6 @@ export const defSubListClassName = {
 	liveCasino: "livecasinoList",
 	games: "gameList",
 	fishing: "fishList",
-	lottery: "lotteryList"
+	lottery: "lotteryList",
+	eSport: "esportList"
 };

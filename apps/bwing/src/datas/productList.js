@@ -70,12 +70,10 @@ export default {
 		tpGameType: 49
 	},
 	eSport: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet,
+		tpId: 41,
 		gameId: 43,
 		name: "eSport",
-		// tpGameType: 1
-		tpGameType: 69 // seamless wallet
+		tpGameType: 69
 	},
 	soccer: {
 		// tpId: 1,
@@ -175,6 +173,11 @@ export default {
 		// tpGameType: 1,
 		tpGameType: 69, // seamless wallet
 		betType: 2
+	},
+	eSport_TFGaming: {
+		tpId: 48,
+		gameId: 0,
+		tpGameType: 97
 	},
 
 	/* === 3. live casino === */

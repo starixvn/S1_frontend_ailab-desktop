@@ -41,16 +41,16 @@ const Esport = () => {
 	};
 
 	const getSubMenu = () => {
-		let { entryList } = defMenuLinks.eSport;
+		let { subMenu } = defMenuLinks.eSport;
 
-		if (entryList && productTpIds?.length > 0) {
-			entryList = entryList.filter(s => productTpIds.includes(s.tpId));
+		if (subMenu && productTpIds?.length > 0) {
+			subMenu = subMenu.filter(s => productTpIds.includes(s.tpId));
 		}
 
-		return entryList;
+		return subMenu;
 	};
 
-	const entryList = getSubMenu();
+	const subMenu = getSubMenu();
 
 	return (
 		<section>
@@ -61,7 +61,7 @@ const Esport = () => {
 					<div className="esportlobbyList">
 						<EsportList
 							t={t}
-							subMenu={entryList}
+							subMenu={subMenu}
 							allMaintainList={allMaintainList}
 							clickItem={clickItem}
 						/>

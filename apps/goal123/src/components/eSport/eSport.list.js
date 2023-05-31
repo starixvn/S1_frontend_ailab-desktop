@@ -43,13 +43,27 @@ const EsportListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
 		gameId,
 		imgSrc,
 		tpGameType,
-		betType
+		betType,
+		eventIcons
 	} = subMenuItem;
 	const _displayText = displayText || t(displayKey);
 
+	let iconStrings = "";
+	if (eventIcons) {
+		for (let i = 0; i < eventIcons.length; i++) {
+			iconStrings += `${eventIcons[i]}`;
+		}
+	}
+	// 判斷是否有 eventIcons 與 isInMaintain 以符合設計的 className
+	const isInMaintainOrIconStrings = (iconString = "", isUnderMaintain) => {
+		if (isUnderMaintain) {
+			return `active ${iconString}`;
+		}
+		return `${iconString}`;
+	};
 	return (
 		<div
-			className={isInMaintain ? "active" : ""}
+			className={isInMaintainOrIconStrings(iconStrings, isInMaintain)}
 			onClick={() =>
 				clickItem({
 					tpId,
