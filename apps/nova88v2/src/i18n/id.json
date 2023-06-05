@@ -270,6 +270,7 @@
 	"lbl_DepositType3": "Bank Lokal",
 	"lbl_DepositType4": "Crypto",
 	"lbl_DepositType7": "Deposit Otomatis",
+	"lbl_DepositType8": "Crypto Wallet",
 	"lbl_DepositStatus0": "Draft",
 	"lbl_DepositStatus1": "Ditunda",
 	"lbl_DepositStatus2": "Paid",

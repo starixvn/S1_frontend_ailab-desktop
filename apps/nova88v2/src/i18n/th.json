@@ -271,6 +271,7 @@
 	"lbl_DepositType3": "ธนาคารในประเทศ",
 	"lbl_DepositType4": "ชำระเงินแบบ Crypto",
 	"lbl_DepositType7": "Auto Deposit",
+	"lbl_DepositType8": "Crypto Wallet",
 	"lbl_DepositStatus0": "ร่าง",
 	"lbl_DepositStatus1": "รอดำเนินการ",
 	"lbl_DepositStatus2": "Paid",

@@ -366,6 +366,7 @@
 	"lbl_DepositType4": "Thanh toán bằng tiền ảo",
 	"lbl_DepositType5": "THẺ CÀO",
 	"lbl_DepositType6": "QR Pay",
+	"lbl_DepositType8": "Crypto Wallet",
 	"lbl_DepositStatus0": "Bản nháp",
 	"lbl_DepositStatus1": "Chờ xử lý",
 	"lbl_DepositStatus2": "Đã thanh toán",

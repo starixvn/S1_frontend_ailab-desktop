@@ -24,3 +24,8 @@ export const api_cashier_DepositReqLoadCardPay = ({
 
 export const api_cashier_DepositReqCryptoPay = ({ langId, paramsUrl }) =>
 	cashierRequest.get(`/${langId}/Cashier/DepositReqCryptoPay?${paramsUrl}`);
+
+export const api_cashier_DepositReqCryptoLocalPay = ({ langId, paramsUrl }) =>
+	cashierRequest.get(
+		`/${langId}/Cashier/DepositReqCryptoLocalPay?${paramsUrl}`
+	);

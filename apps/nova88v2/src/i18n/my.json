@@ -266,6 +266,7 @@
 	"lbl_DepositType3": "Pemindahan dana bank",
 	"lbl_DepositType4": "Kripto",
 	"lbl_DepositType7": "Deposit Secara Automatik",
+	"lbl_DepositType8": "Crypto Wallet",
 	"lbl_DepositStatus0": "Draf",
 	"lbl_DepositStatus1": "Belum selesai",
 	"lbl_DepositStatus2": "Sudah bayar",

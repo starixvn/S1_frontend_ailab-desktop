@@ -35,7 +35,10 @@ import QRPayForm from "./components/qrPayForm";
 
 import DepositInfoMoule from "./deposit.infoMoule";
 import DepositRecentHistory from "./deposit.recentHistory";
-import { api_cashier_DepositReqCryptoPay } from "../../service/api/cashier";
+import {
+	api_cashier_DepositReqCryptoPay,
+	api_cashier_DepositReqCryptoLocalPay
+} from "../../service/api/cashier";
 
 import usePopBox from "../hook/usePopBox";
 import { api_payment_DepositReqLocalPay } from "../../service/api/payment";
@@ -523,69 +526,134 @@ const Deposit = () => {
 					.filter(Boolean)
 					.join("&");
 				if (formInfo.mode === 3) {
-					await api_cashier_DepositReqCryptoPay({
-						langId: userInfo.langId,
-						paramsUrl: params
-					}).then(res => {
-						if (res.data.errorCode === 0) {
-							const promoContent = {
-								cashbackAmount: null,
-								receivedAmount: null,
-								PromotionRate: null,
-								Promotion: null
-							};
-							if (res.data.data.formData?.Promotion === "1") {
-								promoContent.cashbackAmount =
-									res.data.data.formData?.PromotionAmount;
-								promoContent.receivedAmount =
-									Number(
-										res.data.data.formData?.PromotionAmount
-									) +
-									Number(
-										res.data.data.formData?.DepositAmount
+					// groupId===-1表示是自營的crypto wallet
+					if (groupId === -1) {
+						const paramsUrl = [
+							`ChannelId=${channelId}`,
+							`Amount=${resultAmount}`,
+							bonusCode && `BonusCode=${bonusCode}`
+						]
+							.filter(Boolean)
+							.join("&");
+						await api_cashier_DepositReqCryptoLocalPay({
+							langId: userInfo.langId,
+							paramsUrl
+						}).then(
+							res => {
+								if (res.data.errorCode === 0) {
+									setPopBox({
+										isOpen: true,
+										title: t("lbl_DepositType8"),
+										popBoxType: defPopBoxType.PaymentQR,
+										depositAmount:
+											res.data.data.formData
+												?.DepositAmount,
+										rate:
+											parseFloat(
+												res.data.data.formData?.Rate
+											) ?? null,
+										requestAmount:
+											parseFloat(
+												res.data.data.formData
+													?.RequestAmount
+											) ?? null,
+										token:
+											res.data.data.formData?.Token ??
+											null,
+										amount: resultAmount,
+										currencyId: userInfo.currencyId,
+										imgUrl: res.data.data.url,
+										thirdId: res.data.data.thirdId ?? null,
+										depositType: defDepositType.cryptoPay,
+										handlePopBox: () => {
+											setPopBox(prevState => ({
+												...prevState,
+												isOpen: false
+											}));
+										},
+										currencyName: formInfo?.currencyName
+									});
+								} else {
+									errorPopBox(
+										res.data.message || "error",
+										res.data.errorCode
 									);
-								promoContent.PromotionRate = `${Number(
-									res.data.data.formData?.PromotionRate
-								).toFixed(2)}%`;
-
-								promoContent.Promotion =
-									res.data.data.formData?.Promotion;
+								}
+							},
+							() => {
+								errorPopBox();
 							}
+						);
+					} else {
+						await api_cashier_DepositReqCryptoPay({
+							langId: userInfo.langId,
+							paramsUrl: params
+						}).then(res => {
+							if (res.data.errorCode === 0) {
+								const promoContent = {
+									cashbackAmount: null,
+									receivedAmount: null,
+									PromotionRate: null,
+									Promotion: null
+								};
+								if (res.data.data.formData?.Promotion === "1") {
+									promoContent.cashbackAmount =
+										res.data.data.formData?.PromotionAmount;
+									promoContent.receivedAmount =
+										Number(
+											res.data.data.formData
+												?.PromotionAmount
+										) +
+										Number(
+											res.data.data.formData
+												?.DepositAmount
+										);
+									promoContent.PromotionRate = `${Number(
+										res.data.data.formData?.PromotionRate
+									).toFixed(2)}%`;
 
-							setPopBox({
-								isOpen: true,
-								title: t("lbl_DepositType4"),
-								popBoxType: defPopBoxType.PaymentQR,
-								depositAmount:
-									res.data.data.formData?.DepositAmount,
-								cashbackAmount: promoContent.cashbackAmount,
-								receivedAmount: promoContent.receivedAmount,
-								PromotionRate: promoContent.PromotionRate,
-								promoContent: promoContent.Promotion,
+									promoContent.Promotion =
+										res.data.data.formData?.Promotion;
+								}
 
-								rate:
-									parseFloat(res.data.data.formData?.Rate) ??
-									null,
-								requestAmount:
-									parseFloat(
-										res.data.data.formData?.RequestAmount
-									) ?? null,
-								token: res.data.data.formData?.Token ?? null,
-								amount: resultAmount,
-								currencyId: userInfo.currencyId,
-								imgUrl: res.data.data.url,
-								thirdId: res.data.data.thirdId ?? null,
-								depositType: defDepositType.cryptoPay,
-								handlePopBox: () => {
-									setPopBox(prevState => ({
-										...prevState,
-										isOpen: false
-									}));
-								},
-								currencyName: formInfo.currencyName
-							});
-						}
-					});
+								setPopBox({
+									isOpen: true,
+									title: t("lbl_DepositType4"),
+									popBoxType: defPopBoxType.PaymentQR,
+									depositAmount:
+										res.data.data.formData?.DepositAmount,
+									cashbackAmount: promoContent.cashbackAmount,
+									receivedAmount: promoContent.receivedAmount,
+									PromotionRate: promoContent.PromotionRate,
+									promoContent: promoContent.Promotion,
+
+									rate:
+										parseFloat(
+											res.data.data.formData?.Rate
+										) ?? null,
+									requestAmount:
+										parseFloat(
+											res.data.data.formData
+												?.RequestAmount
+										) ?? null,
+									token:
+										res.data.data.formData?.Token ?? null,
+									amount: resultAmount,
+									currencyId: userInfo.currencyId,
+									imgUrl: res.data.data.url,
+									thirdId: res.data.data.thirdId ?? null,
+									depositType: defDepositType.cryptoPay,
+									handlePopBox: () => {
+										setPopBox(prevState => ({
+											...prevState,
+											isOpen: false
+										}));
+									},
+									currencyName: formInfo.currencyName
+								});
+							}
+						});
+					}
 				} else {
 					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqCryptoPay`;
 
