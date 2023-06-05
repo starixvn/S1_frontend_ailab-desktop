@@ -375,6 +375,7 @@
 	"lbl_DepositType4": "Crypto Pay",
 	"lbl_DepositType5": "TOP-UP CARD",
 	"lbl_DepositType6": "QR Pay",
+	"lbl_DepositType8": "Crypto Wallet",
 	"lbl_DepositStatus0": "Draft",
 	"lbl_DepositStatus1": "Pending",
 	"lbl_DepositStatus2": "Paid",

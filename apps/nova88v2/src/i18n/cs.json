@@ -270,6 +270,7 @@
 	"lbl_DepositType3": "银行卡",
 	"lbl_DepositType4": "加密货币",
 	"lbl_DepositType7": "Auto Deposit",
+	"lbl_DepositType8": "Crypto Wallet",
 	"lbl_DepositStatus0": "草稿",
 	"lbl_DepositStatus1": "待定",
 	"lbl_DepositStatus2": "已付款",
