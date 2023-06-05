@@ -271,6 +271,7 @@
 	"lbl_DepositType3": "Bank Transfer",
 	"lbl_DepositType4": "Crypto",
 	"lbl_DepositType7": "Auto Deposit",
+	"lbl_DepositType8": "Crypto Wallet",
 	"lbl_DepositStatus0": "Draft",
 	"lbl_DepositStatus1": "Pending",
 	"lbl_DepositStatus2": "Paid",
