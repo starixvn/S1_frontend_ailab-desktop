@@ -319,7 +319,7 @@
 	"lbl_MinMaxAmount": "Had Min/Maks",
 	"lbl_DepositImportantNoticeContent1": "Sila semak butiran akaun bank deposit aktif yang terkini sebelum buat deposit.",
 	"lbl_DepositImportantNoticeContent2": "Untuk guna kaedah deposit <span>Pemindahan Bank Tempatan</span> , sila buat pemindahan dan serahkan rekod transaksi untuk mengelakkan kelewatan pada deposit.",
-	"lbl_DepositImportantNoticeContent3": "<span>NAMA AKAUN</span> Pendeposit mesti padan dengan nama penuh anda yang didaftarkan. Kami tidak menggalakkan transaksi yang dibuat menggunakan akaun pihak ke-3/syarikat.",
+	"lbl_DepositImportantNoticeContent3": "Nama pendeposit mesti memenuhi kriteria pengesahan, termasuk nama daftar atau nombor rujukan dalam slip.",
 	"lbl_DepositImportantNoticeContent4": "<span>JANGAN</span> isi <span>'NOVA88'</span> atau sebarang perkataan sensitif yang berkaitan dengan perjudian sebagai rujukan/nota dalam transaksi dalam talian anda.",
 	"lbl_DepositImportantNoticeContent5": "Sila ambil perhatian bahawa 1x rollover diperlukan untuk semua deposit yang dibuat sebelum sebarang pengeluaran boleh diproses.",
 	"lbl_DepositImportantNoticeContent6": "Sila hubungi <Link>LIVECHAT 24/7</Link> kami jika transaksi anda masih belum diproses lebih daripada 5 minit.",
