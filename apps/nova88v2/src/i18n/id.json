@@ -324,7 +324,7 @@
 	"lbl_MinMaxAmount": "Batas Min / Maks",
 	"lbl_DepositImportantNoticeContent1": "Mohon periksa detail bank simpanan Anda sebelum Anda melakukan penyetoran.",
 	"lbl_DepositImportantNoticeContent2": "Untuk menggunakan opsi penyetoran <span>'Transfer Bank'</span>, harap lakukan transfer sebelum mengajukan transaksi untuk menghindari penundaan transaksi.",
-	"lbl_DepositImportantNoticeContent3": "<span>NAMA REKENING</span> penyetor harus sama dengan nama lengkap Anda yang terdaftar. Kami tidak rekomen transaksi yang dilakukan menggunakan akun pihak ke-3 / perusahaan.",
+	"lbl_DepositImportantNoticeContent3": "Nama penyetor harus memenuhi kriteria verifikasi, termasuk nama terdaftar atau nomor referensi dalam slip.",
 	"lbl_DepositImportantNoticeContent4": "Mohon <span>TIDAK</span> mengisi <span>'NOVA88'</span> atau kata-kata sensitif terkait perjudian sebagai referensi / catatan dalam transaksi online Anda.",
 	"lbl_DepositImportantNoticeContent5": "Harap perhatikan bahwa akan diperlukan 1x turnover untuk semua deposit yang dilakukan sebelum penarikan dapat diproses.",
 	"lbl_DepositImportantNoticeContent6": "Silakan hubungi <Link>LIVE CHAT 24/7</Link> kami jika transaksi Anda masih tertunda selama lebih dari 5 menit.",

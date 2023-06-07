@@ -323,7 +323,7 @@
 	"lbl_MinMaxAmount": "最低/最高额度",
 	"lbl_DepositImportantNoticeContent1": "务必检查当前最新活跃的存款帐户，再进行存款。",
 	"lbl_DepositImportantNoticeContent2": "使用 <span>银行转账</span> 选项的用户，请先完成转帐充值再提交存款申请，以避免存款延迟。",
-	"lbl_DepositImportantNoticeContent3": "存款 <span>帐户全名</span> 必须与注册名字匹配，本司不接受第三方/公司账号存款。",
+	"lbl_DepositImportantNoticeContent3": "存款人姓名需符合核实标准，包括注册姓名，存款凭据序号等信息",
 	"lbl_DepositImportantNoticeContent4": "转账时 <span>请勿</span> 填写 <span>'NOVA88'</span> 或任何与博彩有关联的敏感信息。",
 	"lbl_DepositImportantNoticeContent5": "所有存款金额统一必须完成1倍流水需求方可进行提款。",
 	"lbl_DepositImportantNoticeContent6": "如您的存款申请时长超过5分钟或以上，请联系 <Link>24/7在线客服 </Link> 以寻求帮助。",
