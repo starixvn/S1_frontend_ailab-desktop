@@ -2844,6 +2844,7 @@ footer .footerList > .item-wrapper > div > div.title {
 }
 footer .footerList > .item-wrapper > div > div.title + div {
   margin: 10px 0;
+  height: 38px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3351,9 +3352,6 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
 .flag.bd:before {
   background: url(https://banner.0814media.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
 }
-.flag.kh:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
-}
 .flag.gb:before {
   background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
@@ -3622,7 +3620,6 @@ input[type=file] {
           justify-content: center;
   min-width: 123px;
   margin: 0 5px;
-  font-size: 12px;
 }
 .btnGroup button.btn-org,
 .btnGroup a.btn-org {
@@ -6313,6 +6310,20 @@ input[type=file] {
 .walletModule .addBank .addBankName.active .addBankInfo .checkbox label:before {
   display: block;
 }
+.walletModule .addBank .addBankName.pending {
+  position: relative;
+}
+.walletModule .addBank .addBankName.pending .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background: rgba(40, 73, 133, 0.6);
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  z-index: 1;
+}
 .walletModule > .walletType {
   width: 100%;
 }
@@ -6377,7 +6388,7 @@ input[type=file] {
 .walletModule .walletBalanceModule span.icon-icon32px_Sportsbook-Wallet + span + .btnGroup button {
   height: 30px;
   min-width: 90px;
-  padding: 10px 5px;
+  padding: 10px 0;
 }
 .walletModule .walletBalanceModule .icon.icon-spinner11 {
   margin-top: 0;
@@ -10953,19 +10964,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .subModuleListColumn > .subModule.bankQR .qrCode {
   width: calc(20% - 40px);
-  height: 114px;
   padding: 5px;
   background: rgba(240, 247, 255, 0.8);
-  overflow: hidden;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
-.subModuleListColumn > .subModule.bankQR .qrCode svg, .subModuleListColumn > .subModule.bankQR .qrCode img {
-  width: auto;
+.subModuleListColumn > .subModule.bankQR .qrCode svg {
+  width: 100%;
   height: 100%;
 }
 .subModuleListColumn .column {
@@ -12335,14 +12338,14 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .quickLinkNew4 {
   position: fixed;
   right: 0;
-  top: 180px;
+  top: 145px;
   z-index: 1;
   -webkit-transition: 0.6s;
   transition: 0.6s;
   padding: 10px;
   cursor: pointer;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(75%, rgba(204, 204, 204, 0.8)), to(rgba(255, 255, 255, 0)));
-  background: linear-gradient(to bottom, rgba(204, 204, 204, 0.8) 75%, rgba(255, 255, 255, 0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, rgba(204, 204, 204, 0.8)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to bottom, rgba(204, 204, 204, 0.8) 60%, rgba(255, 255, 255, 0) 100%);
   color: #0f2346;
   font-weight: bold;
   display: -webkit-box;
@@ -12358,7 +12361,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 175px;
+  height: 150px;
   width: 20px;
 }
 .quickLinkNew1 i,
@@ -12380,8 +12383,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .quickLinkNew4 > div {
   letter-spacing: 1px;
   height: 24px;
-  width: 160px;
-  white-space: nowrap;
+  width: 100px;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
   display: -webkit-box;
@@ -13009,7 +13011,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   list-style: decimal;
   line-height: 20px;
   margin-left: 15px;
-  word-wrap: break-word;
 }
 .important li span,
 .important li a {
@@ -13279,9 +13280,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border-radius: 30px;
   color: #fff;
   font-size: 14px;
-  padding: 0 20px;
+  padding: 10px 20px;
   font-weight: bold;
-  height: 40px;
 }
 .jpotModule .jpot .jpot-btn:hover a,
 .jpotModule .jpot .jpot-btn:hover button {
@@ -14605,7 +14605,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-height: 30px;
+  min-height: 20px;
 }
 .rolloverList div div:nth-child(1) {
   min-height: 38px;
@@ -18967,7 +18967,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .duitnowPop > div.popTit img {
   width: auto;
-  max-width: 300px;
   height: 20px;
   position: absolute;
   left: 5px;
@@ -19024,24 +19023,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #cf0404;
 }
 .duitnowPop > div.guide .qrCode {
-  width: 180px;
-  height: 180px;
-  padding: 5px;
-  background: rgba(240, 247, 255, 0.8);
-  overflow: hidden;
   margin: 5px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
-.duitnowPop > div.guide .qrCode svg, .duitnowPop > div.guide .qrCode img {
-  width: auto;
+.duitnowPop > div.guide .qrCode svg {
+  width: 180px;
   height: 180px;
 }
 .duitnowPop > div.guide .qrCode path:nth-child(2) {
@@ -19540,12 +19525,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: absolute;
   left: -47px;
   bottom: 14px;
-}
-@media (max-width: 1480px) {
-  .header .cambodia::before {
-    -webkit-animation: none;
-            animation: none;
-  }
 }
 .header .cambodia::after {
   content: "";

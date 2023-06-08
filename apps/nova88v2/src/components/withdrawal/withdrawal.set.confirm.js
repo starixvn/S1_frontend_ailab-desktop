@@ -11,6 +11,7 @@ import {
 	api_payment_WithdrawalCryptoReq,
 	api_payment_GetExchangeInfo
 } from "../../service/api/payment";
+import { api_account_GetCustBankInfo } from "../../service/api/account";
 import { Iov_GetBlackBox } from "../common/iovation";
 
 const ConfirmPanel = ({
@@ -46,6 +47,41 @@ const ConfirmPanel = ({
 	};
 
 	const clickSubmit = async () => {
+		let target;
+		if (selectedAccount.usdtAddress) {
+			await api_account_GetCustBankInfo().then(
+				res => {
+					const { uSDTDetail } = res.data.data;
+					if (uSDTDetail && uSDTDetail.length > 0) {
+						target = uSDTDetail.find(
+							({ usdtAddress }) =>
+								usdtAddress === selectedAccount.usdtAddress
+						);
+					}
+				},
+				() => {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: t("msg_ApiServerError"),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={() => {
+										setPopBox({ isOpen: false });
+									}}
+								>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+				}
+			);
+		}
+		if (target !== undefined && target.disabled) return;
+
 		const setInitState = () => {
 			dispatch({ type: defActionType.SET_INIT_STATE });
 			GetDailyWithdrawalLimit();
