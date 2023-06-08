@@ -43,12 +43,14 @@ const CryptoCard = ({
 								Address,
 								NickName
 							})
-						}>
+						}
+					>
 						{t("lbl_Yes")}
 					</button>
 					<button
 						className="btn-cancel"
-						onClick={() => setPopBox({ isOpen: false })}>
+						onClick={() => setPopBox({ isOpen: false })}
+					>
 						{t("lbl_No")}
 					</button>
 				</div>
@@ -76,9 +78,8 @@ const CryptoCard = ({
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={() =>
-										setPopBox({ isOpen: false })
-									}>
+									onClick={() => setPopBox({ isOpen: false })}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -117,7 +118,8 @@ const CryptoCard = ({
 			<div
 				key="add-bank"
 				className="addBankName noBank"
-				onClick={addCryptoWallet}>
+				onClick={addCryptoWallet}
+			>
 				<div className="icon icon-plus" />
 				<div>{t("lbl_Add_Crypto_Wallet")}</div>
 			</div>
@@ -155,7 +157,7 @@ const CryptoCardLayout = props => {
 			? props.network
 			: `${props.currencyName}-${props.network}`;
 	return (
-		<div className="addBankName">
+		<div className={`addBankName ${props.disabled ? "pending" : ""}`}>
 			<div className="cryptoInfo">
 				<div className="title">{props.nickName}</div>
 				<div className="title">{_network}</div>
@@ -173,6 +175,7 @@ const CryptoCardLayout = props => {
 						className="icon icon-checkbox-checked"
 					/>
 				</div>
+				{props.disabled ? <div className="mask" /> : null}
 			</div>
 
 			{/* * 暫時隱藏 delete crypto wallet 按鈕，以防止有用戶重複新增刪除帳號來套利，當 risk 評估覺得可以的話有機會再打開 */}
@@ -210,7 +213,8 @@ CryptoCardLayout.propTypes = {
 	checked: PropTypes.bool.isRequired,
 	nickName: PropTypes.string,
 	network: PropTypes.string,
-	currencyName: PropTypes.string
+	currencyName: PropTypes.string,
+	disabled: PropTypes.bool.isRequired
 	// hideDelBtn: PropTypes.bool,
 	// delUSDTwallet: PropTypes.func.isRequired,
 	// userInfo: PropTypes.objectOf(PropTypes.any).isRequired,

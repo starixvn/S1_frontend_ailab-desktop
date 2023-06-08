@@ -9,14 +9,21 @@ const CryptoCard = ({
 	hideDeleteIcon,
 	handlerDelete
 }) => {
-	const { nickName, usdtAddress, network, currencyName, currencyId } = item;
+	const {
+		nickName,
+		usdtAddress,
+		network,
+		currencyName,
+		currencyId,
+		disabled
+	} = item;
 
 	const checkKey = `${currencyId}-${usdtAddress}`;
 	const _network =
 		network === currencyName ? network : `${currencyName}-${network}`;
 
 	return (
-		<div className="addBankName">
+		<div className={`addBankName ${disabled ? "pending" : ""}`}>
 			<div className="cryptoInfo">
 				<div className="title">{nickName}</div>
 				<div className="title">{_network}</div>
@@ -44,6 +51,7 @@ const CryptoCard = ({
 				{/* 	<button className="icon icon-bin" onClick={handlerDelete} /> */}
 				{/* )} */}
 			</div>
+			{disabled ? <div className="mask" /> : null}
 		</div>
 	);
 };
