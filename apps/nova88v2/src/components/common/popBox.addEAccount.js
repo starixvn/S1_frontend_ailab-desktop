@@ -80,7 +80,7 @@ const PopBox = ({ EInfoSysList = [], custEWalletInfo, getCustEWalletInfo }) => {
 		val =
 			col === "accountNo"
 				? val.replace(/[^\d]+/g, "")
-				: val.replace(/[\W]/g, "");
+				: val.replace(/[\W_]/g, "");
 		setUserValue(prev => ({ ...prev, [col]: val }));
 	};
 
@@ -151,8 +151,7 @@ const PopBox = ({ EInfoSysList = [], custEWalletInfo, getCustEWalletInfo }) => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}
-										>
+											onClick={clickClose}>
 											OK
 										</button>
 									</div>
@@ -202,16 +201,14 @@ const PopBox = ({ EInfoSysList = [], custEWalletInfo, getCustEWalletInfo }) => {
 						</div>
 						<div
 							className="iconModule"
-							onClick={clickInfo.bind(this, "realName_after")}
-						>
+							onClick={clickInfo.bind(this, "realName_after")}>
 							<i className="icon icon-information-solid" />
 						</div>
 					</div>
 					<div
 						className={`tip${
 							status.realName_after.tip ? " active" : ""
-						}`}
-					>
+						}`}>
 						{status.realName_after.tip}
 					</div>
 				</>

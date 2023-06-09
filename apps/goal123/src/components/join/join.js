@@ -145,7 +145,7 @@ export default () => {
 		let val = e.target.value;
 
 		if (col === "username") {
-			val = val.replace(/[\W]/g, "");
+			val = val.replace(/[\W_]/g, "");
 		}
 
 		setUserValue(prev => ({

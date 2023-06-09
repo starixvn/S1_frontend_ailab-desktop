@@ -72,7 +72,7 @@ const LoginPanel = () => {
 		let val = e.target.value;
 
 		if (col === "username") {
-			val = val.replace(/[\W]/g, "");
+			val = val.replace(/[\W_]/g, "");
 		}
 
 		setUserValue(prev => ({ ...prev, [col]: val }));
@@ -250,8 +250,7 @@ export const LoginForm = ({
 
 			<Link
 				to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-				className="txt-blue2"
-			>
+				className="txt-blue2">
 				{t("lbl_ForgetPassword")}
 			</Link>
 		</div>
