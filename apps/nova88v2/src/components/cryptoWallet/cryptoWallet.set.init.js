@@ -23,8 +23,6 @@ const InitPanel = ({ t, numberOfAccount, addCryptoWallet }) => {
 				</div>
 				<div className="tip active">
 					{t("lbl_Crypto_Wallet_Submit_Note")}
-					<br />
-					{t("lbl_Modification_Please_Contact_CSD")}
 				</div>
 			</div>
 		</div>
