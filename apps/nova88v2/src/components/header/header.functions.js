@@ -63,7 +63,7 @@ const BeforeLogin = ({ t }) => {
 		let val = e.target.value;
 
 		if (col === "username") {
-			val = val.replace(/[\W]/g, "");
+			val = val.replace(/[\W_]/g, "");
 		}
 
 		setUserValue(prev => ({ ...prev, [col]: val }));
@@ -226,8 +226,7 @@ const AfterLogin = ({ t, userInfo, msgCount }) => {
 			/>
 			<Link
 				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
-				to={`/${userInfo.langId}/${path.message.root}`}
-			>
+				to={`/${userInfo.langId}/${path.message.root}`}>
 				<MsgPopup userInfo={userInfo} />
 			</Link>
 		</>

@@ -89,7 +89,7 @@ const PopBox = ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 		val =
 			col === "accountNo"
 				? val.replace(/[^\d]+/g, "")
-				: val.replace(/[\W]/g, "");
+				: val.replace(/[\W_]/g, "");
 		setUserValue(prev => ({ ...prev, [col]: val }));
 	};
 

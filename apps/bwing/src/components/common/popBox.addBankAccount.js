@@ -53,7 +53,7 @@ const PopBox = ({
 
 		val =
 			col === "realName"
-				? val.replace(/[\W]/g, "")
+				? val.replace(/[\W_]/g, "")
 				: val.replace(/[^0-9,.]+/g, "");
 		setUserValue(prev => ({ ...prev, [col]: val }));
 	};

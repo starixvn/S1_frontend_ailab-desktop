@@ -143,7 +143,7 @@ export default () => {
 		let val = e.target.value;
 
 		if (col === "username") {
-			val = val.replace(/[\W]/g, "");
+			val = val.replace(/[\W_]/g, "");
 		}
 		if (col === "phone") {
 			val = val.replace(/[^0-9]+/g, "");
