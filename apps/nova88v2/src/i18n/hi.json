@@ -850,7 +850,6 @@
 	"lbl_Enter_Wallet_Address": "वॉलेट पता दर्ज करें",
 	"lbl_Please_Enter_Wallet_Address": "कृपया अपना क्रिप्टो वॉलेट पता दर्ज करें",
 	"lbl_Crypto_Wallet_Submit_Note": "कृपया ध्यान दें: एक बार क्रिप्टो वॉलेट जमा हो जाने के बाद, इसे संशोधित/हटाया नहीं जा सकता है।",
-	"lbl_Modification_Please_Contact_CSD": "संशोधन के किसी भी अनुरोध के लिए, कृपया सीएसडी से संपर्क करें।",
 	"lbl_Wallet_Address_Required": "वॉलेट पता आवश्यक है",
 	"lbl_Wallet_NickName_Tip": "यह आपकी पहचान को सुविधाजनक बनाने के लिए वैकल्पिक वॉलेट उपनाम पर है",
 	"lbl_Wallet_Address_Tip": "केवल अक्षर (a-z) और अंक (0-9) दर्ज करें।",
