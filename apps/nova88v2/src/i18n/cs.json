@@ -902,7 +902,6 @@
 	"lbl_Please_Enter_Wallet_Address": "请输入您加密钱包地址",
 	"lbl_Crypto_Wallet_Submit_Note": "注意：加密钱包一旦提交即无法编辑或取消。",
 	"lbl_E_Wallet_Submit_Note": "注意：電子錢包帳戶必須經過驗證。",
-	"lbl_Modification_Please_Contact_CSD": "任何编辑需求，请联系客服。",
 	"lbl_Wallet_Address_Required": "需填钱包地址",
 	"lbl_Wallet_NickName_Tip": "钱包昵称可随选以便识别核实您的身份",
 	"lbl_Wallet_Address_Tip": "输入字母（a-z）和数字（0-9）。",
