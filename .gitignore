@@ -55,6 +55,10 @@ cmd
 /apps/goal123/static/styles
 /apps/bwing/static/styles
 
+/apps/ivorysport/node_modules
+/apps/ivorysport/public
+/apps/ivorysport/.cache
+
 done
 output
 /apps/nova88v2/node_modules

@@ -1,0 +1,88 @@
+import { useState, useEffect, useRef } from "react";
+import usePopBox from "./usePopBox";
+import { api_site_GetSocialChannel } from "../../service/api/site";
+import { langAndCurrMapping } from "../common/common";
+
+export const defDisplayPage = {
+	Home: 1,
+	ContactUs: 2,
+	App: 3,
+	Footer: 4
+};
+
+export const buttonTypeList = ["Livachat"];
+
+export const sideBarIconName = {
+	Livechat: "icon icon icon-chat",
+	WhatsApp: "icon icon-whatsapp",
+	Telegram: "icon icon-telegram",
+	"E-mail": "icon icon icon-envelope",
+	Facebook: "icon icon-facebook2",
+	Twitter: "icon icon-twitter",
+	Instagram: "icon icon-instagram",
+	LINE: "icon icon-line",
+	Youtube: "icon icon-youtube"
+};
+
+export const defLinkType = {
+	url: 1,
+	qrCode: 2
+};
+
+export const footerImgName = {
+	Youtube: "yta.png",
+	Telegram: "tga.png",
+	Facebook: "fba.png",
+	Twitter: "twa.png",
+	Instagram: "ina.png",
+	Pinterest: "pta.png",
+	WhatsApp: "waa.png",
+	"E-mail": "ema.png",
+	Livechat: "chat.png",
+	LINE: "line.png"
+};
+
+const useGetSocialChannel = ({ langId, currencyId, displayPage }) => {
+	const [socialChannel, setSocialChannel] = useState([]);
+	const isMountedRef = useRef(null);
+	const { errorPopBox } = usePopBox();
+
+	// 試圖修復 Oops 報錯，強制 api 不能給 null
+	const defaultLangId = langId ?? "en";
+	const defaultCurrencyId = currencyId ?? langAndCurrMapping.en;
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	const getChannel = async () => {
+		await api_site_GetSocialChannel({
+			langId: defaultLangId,
+			currencyId: defaultCurrencyId,
+			displayPage
+		}).then(
+			res => {
+				if (!isMountedRef.current) return;
+				const { errorCode, data, message } = res.data;
+				if (errorCode === 0) {
+					setSocialChannel(data);
+				} else {
+					errorPopBox(message || "error", errorCode);
+				}
+			},
+			() => {
+				// 在首頁網路斷線時會進來這個 catch，故不特別做錯誤處理
+			}
+		);
+	};
+
+	useEffect(() => {
+		getChannel();
+	}, []);
+
+	return { socialChannel };
+};
+
+export default useGetSocialChannel;

@@ -473,6 +473,106 @@
 			"tags": [],
 			"implicitDependencies": ["nova88v2"]
 		},
+		"ivorysport": {
+			"root": "apps/ivorysport",
+			"sourceRoot": "apps/ivorysport/src",
+			"projectType": "application",
+			"schematics": {},
+			"architect": {
+				"autoBuild": {
+					"builder": "@nrwl/gatsby:build",
+					"options": {
+						"outputPath": "apps/ivorysport/public",
+						"uglify": true,
+						"color": true,
+						"profile": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"build": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							"gulp minify --gulpfile=apps/ivorysport/gulpfile.js",
+							"(git rev-parse HEAD & git rev-parse --abbrev-ref HEAD & git config user.name) > apps/ivorysport/static/rnt.txt",
+							"nx autoBuild ivorysport --skip-nx-cache"
+						],
+						"parallel": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"autoServe": {
+					"builder": "@nrwl/gatsby:server",
+					"options": {
+						"buildTarget": "ivorysport:build",
+						"port": 4204,
+						"open": true
+					},
+					"configurations": {
+						"production": {
+							"buildTarget": "ivorysport:build:production"
+						}
+					}
+				},
+				"serve": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							"gulp minify --gulpfile=apps/ivorysport/gulpfile.js",
+							"nx autoServe ivorysport"
+						],
+						"parallel": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {}
+				},
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"options": {
+						"jestConfig": "apps/ivorysport/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			},
+			"tags": []
+		},
+		"ivorysport-e2e": {
+			"root": "apps/ivorysport-e2e",
+			"sourceRoot": "apps/ivorysport-e2e/src",
+			"projectType": "application",
+			"architect": {
+				"e2e": {
+					"builder": "@nrwl/cypress:cypress",
+					"options": {
+						"cypressConfig": "apps/ivorysport-e2e/cypress.json",
+						"tsConfig": "apps/ivorysport-e2e/tsconfig.e2e.json",
+						"devServerTarget": "ivorysport:serve"
+					},
+					"configurations": {
+						"production": {
+							"devServerTarget": "ivorysport:serve:production"
+						}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["apps/ivorysport-e2e/**/*.{js,ts}"]
+					}
+				}
+			},
+			"tags": [],
+			"implicitDependencies": ["ivorysport"]
+		},
 		"wrapper": {
 			"root": "libs/wrapper",
 			"sourceRoot": "libs/wrapper/src",

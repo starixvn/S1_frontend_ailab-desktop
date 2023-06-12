@@ -1,0 +1,65 @@
+import React, { useEffect, useRef, useContext, useState } from "react";
+import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
+import { userInfoContext } from "../common/context";
+import { number_format, isConvert } from "../common/common";
+import ReloadSpin from "../common/reloadSpin";
+
+const Content = ({ balanceData, GetWithdrawalAvailableBalance }) => {
+	const { t } = useTranslation();
+	const { userInfo } = useContext(userInfoContext);
+	const [realNameTip, setRealNameTip] = useState("");
+	const _isConvert = isConvert(userInfo.currencyId);
+	const isMountedRef = useRef(null);
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	const showRealNameTip = () => {
+		const tip = realNameTip === "" ? t("lbl_BankAccountHint") : "";
+		setRealNameTip(tip);
+	};
+
+	return (
+		<div className="walletModule">
+			{userInfo.accountName ? (
+				<div className="walletBalanceModule">
+					<span className="icon icon-balance">
+						{t("lbl_BankAccountName")}
+					</span>
+					<span>{userInfo?.accountName}</span>
+					<button
+						className="icon icon-error"
+						onClick={showRealNameTip}
+					/>
+					<div className={`tip${realNameTip ? " active" : ""}`}>
+						{realNameTip}
+					</div>
+				</div>
+			) : null}
+			<div className="walletBalanceModule">
+				<span className="icon icon-balance">
+					{t("lbl_EligibleWithdrawalAmount")}
+				</span>
+				<span>
+					{number_format(balanceData?.availableBalance, _isConvert)}
+				</span>
+				<ReloadSpin
+					func={GetWithdrawalAvailableBalance}
+					btnActive={false}
+				/>
+			</div>
+		</div>
+	);
+};
+
+Content.propTypes = {
+	balanceData: PropTypes.objectOf(PropTypes.any).isRequired,
+	GetWithdrawalAvailableBalance: PropTypes.func.isRequired
+};
+
+export default Content;
