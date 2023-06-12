@@ -1,0 +1,89 @@
+import React, { useContext, createRef } from "react";
+import { useTranslation } from "react-i18next";
+import { bannerImgUrl } from "../../config";
+import { useGotoGame } from "../hook/useGotoGame";
+import { userInfoContext } from "../common/context";
+import productList from "../../datas/productList";
+
+const OneGame = () => {
+	const { t } = useTranslation();
+	const { userInfo } = useContext(userInfoContext);
+	const { data } = useGotoGame({
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId,
+		tpId: productList.poker.tpId
+	});
+
+	const OnClick = e => {
+		return typeof window !== undefined ? window.open(e.target.value) : null;
+	};
+
+	const APPDownloadLink = "https://interdownload.info/download/OneGaming.apk";
+
+	return (
+		<section className="inside">
+			<div className="rightModule">
+				<div className="infoModule onegameModule">
+					<div className="promotionsInfo">
+						<div className="onegame">
+							<div className="left">
+								<div className="downloadItem">
+									<div className="title">
+										{t("lbl_Username")}
+									</div>
+									<ButtonWithCopyBtn value={data?.account} />
+									<div className="title">
+										{t("lbl_Password")}
+									</div>
+									<ButtonWithCopyBtn value={data?.password} />
+								</div>
+							</div>
+							<button>
+								<img
+									src={`${bannerImgUrl}/desktop/img/onegame/logo.png`}
+									alt="img_go"
+								/>
+							</button>
+							<div className="left right">
+								<div className="downloadItem">
+									<div className="title icon icon-android">
+										{t("lbl_DownloadApp")}
+									</div>
+									<button
+										onClick={OnClick}
+										value={APPDownloadLink}>
+										{t("lbl_Android")}
+									</button>
+								</div>
+								<img
+									src={`${bannerImgUrl}/desktop/img/onegame/qr.png`}
+									alt="img_go"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
+};
+
+const ButtonWithCopyBtn = ({ value }) => {
+	const ipt = createRef();
+	const OnCopy = () => {
+		ipt.current.select();
+		document.execCommand("copy");
+	};
+	return (
+		<div className="readonly">
+			<input readOnly defaultValue={value} ref={ipt} />
+			<button
+				className="icon icon-files-empty"
+				value={value}
+				onClick={OnCopy}
+			/>
+		</div>
+	);
+};
+
+export default OneGame;

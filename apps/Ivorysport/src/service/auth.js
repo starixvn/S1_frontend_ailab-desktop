@@ -1,0 +1,93 @@
+import { api_account_UserLogin, api_account_UserLogout } from "./api/account";
+import { api_accountStrict_GetCustProfile } from "./api/accountStrict";
+
+const isBrowser = typeof window !== `undefined`;
+
+export const LOGIN = async ({ userName, password }) => {
+	if (!isBrowser) return false;
+
+	let result = {};
+	try {
+		let url;
+		let platform;
+		let userAgent;
+		let screen;
+		let di = "";
+		if (typeof window !== undefined) {
+			url = window.location.origin;
+			platform = navigator.platform;
+			userAgent = navigator.userAgent;
+			screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`;
+			di = document.getElementById("__di")?.value;
+		}
+
+		const res = await api_account_UserLogin({
+			UserName: userName,
+			Userpwd: password,
+			isPersistent: true,
+			url,
+			platform,
+			userAgent,
+			screen,
+			di
+		});
+
+		let errMsg = res.data.message;
+		let isLogin = false;
+		let userData = {};
+		if (res.data.errorCode === 0) {
+			const userlangId = res.data.message.replace("/", "");
+
+			const res_custInfo = await api_accountStrict_GetCustProfile();
+			let _loginUser = {
+				userName,
+				langId: userlangId,
+				isLogin: true
+			};
+
+			if (res_custInfo.data.errorCode === 0) {
+				const { data } = res_custInfo.data;
+				_loginUser = {
+					..._loginUser,
+					...data
+				};
+			}
+
+			errMsg = "";
+			isLogin = true;
+			userData = _loginUser;
+		}
+
+		result = {
+			errorCode: res.data.errorCode,
+			message: errMsg,
+			isLogin,
+			userData
+		};
+	} catch (error) {
+		result = {
+			errorCode: 999,
+			message: "",
+			isLogin: false,
+			userData: {}
+		};
+	}
+
+	return result;
+};
+
+export const LOGOUT = callback => {
+	if (!isBrowser) return;
+	api_account_UserLogout().then(
+		res => {
+			if (res.data.errorCode === 0) {
+				callback();
+			}
+		},
+		err => {
+			if (err.response.status === 401) {
+				callback();
+			}
+		}
+	);
+};

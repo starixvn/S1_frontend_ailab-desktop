@@ -1,0 +1,330 @@
+import React, { useContext, useEffect } from "react";
+import PropTypes from "prop-types";
+import { Link } from "gatsby";
+import { number_format, checkAmount, defCurrencyList } from "../common/common";
+import { defActionType, defPanel } from "./withdrawal.reducer";
+import { popBoxContext } from "../common/context";
+import Inputbox from "../common/inputbox";
+import defPopBoxType from "../common/defPopBoxType";
+import path from "../../router";
+
+const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
+	const { setPopBox } = useContext(popBoxContext);
+
+	useEffect(() => {
+		if (Object.keys(state.selectedAccount).length > 0 && state.amount) {
+			ValidAmount(state.amount);
+		}
+	}, [state.selectedAccount]);
+
+	useEffect(() => {
+		if (
+			userInfo.currencyId === defCurrencyList.INR &&
+			!userInfo.phoneVerified
+		) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.UpdateProfile,
+				title: t("lbl_Withdrawal"),
+				content: t("lbl_Complete_PhoneVerification"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}>
+							{t("lbl_Later")}
+						</button>
+						<Link
+							className="btn-check"
+							to={`/${userInfo.langId}/${path.profile.root}`}>
+							{t("lbl_VertifyNow")}
+						</Link>
+					</div>
+				)
+			});
+		}
+	}, [userInfo.currencyId]);
+
+	const isEWalletSelectedHandler = () => {
+		const target = state.custEWalletInfo.find(
+			item =>
+				item.accountNo === state.selectedAccount.accountNo &&
+				item.eWalletName === state.selectedAccount.bankName
+		);
+		return Boolean(target);
+	};
+
+	const isEWalletItemSelected = isEWalletSelectedHandler();
+
+	const formatAmount = _val => number_format(_val, _isConvert, 0);
+	const EditAmount = Value => {
+		const value = String(Value).replace(/^(0+)|[^\d]+/g, "");
+		ValidAmount(value);
+		dispatch({
+			type: defActionType.EDIT_AMOUNT,
+			amount: value
+		});
+	};
+
+	const ValidAmount = _amount => {
+		let result = {};
+		const real_amount = _isConvert
+			? Number(_amount) * 1000
+			: Number(_amount);
+
+		let _withdrawalMin = isEWalletItemSelected
+			? state.eWalletWithdrawalMin
+			: state.withdrawalMin;
+
+		const _unlimited = state.unlimited;
+
+		if (state.selectedAccount.usdtAddress) {
+			const { currencyId, network } = state.selectedAccount;
+			const cryptoInfo = state.usdtList.find(
+				el => el.currencyId === currencyId && el.network === network
+			);
+
+			_withdrawalMin = cryptoInfo.withdrawalMin;
+		}
+
+		if (
+			!_unlimited &&
+			isEWalletItemSelected &&
+			real_amount > state.eWalletWithdrawalAvailableAmount
+		) {
+			result = {
+				status: 2,
+				msg: t("lbl_NotinLimit")
+			};
+		} else if (!_unlimited && real_amount > state.withdrawalMax) {
+			result = {
+				status: 2,
+				msg: t("lbl_WithdrawalDailyReached")
+			};
+		} else {
+			result = checkAmount({
+				amount: _amount,
+				minAmount: _withdrawalMin,
+				maxAmount: state.balanceData?.availableBalance,
+				_isConvert,
+				t,
+				maxAmountAllowUnlimit: _unlimited,
+				hintKey: "lbl_Insufficientbalance",
+				digits: 0
+			});
+		}
+
+		if (result.status !== 0) {
+			dispatch({
+				type: defActionType.CHECK_AMOUNT,
+				checked: false,
+				tip: result.msg
+			});
+		} else {
+			dispatch({
+				type: defActionType.CHECK_AMOUNT,
+				checked: true,
+				tip: ""
+			});
+		}
+		return result.status === 0;
+	};
+
+	const crytpoLimit = state.usdtList?.find(
+		el =>
+			el.currencyId === state.selectedAccount.currencyId &&
+			el.network === state.selectedAccount.network
+	);
+	const _unlimited = state.unlimited;
+
+	const withdrawalMinMaxLimitHint = `${t("lbl_Daily_Min_Max_Amount", {
+		min: number_format(
+			state.selectedAccount?.usdtAddress
+				? crytpoLimit.withdrawalMin
+				: state.withdrawalMin,
+			_isConvert,
+			2
+		),
+		max: _unlimited
+			? t("lbl_Unlimited")
+			: number_format(state.withdrawalMax, _isConvert, 2)
+	})}`;
+
+	const ClosePopBox = () => {
+		setPopBox({ isOpen: false });
+	};
+
+	const clickSubmit = async e => {
+		e.preventDefault();
+		const amountChecked = ValidAmount(state.amount);
+
+		if (
+			(state.selectedAccount.accountNo ||
+				state.selectedAccount.usdtAddress) &&
+			amountChecked
+		) {
+			dispatch({
+				type: defActionType.TO_OTHER_PANEL,
+				panel: defPanel.confirm
+			});
+		} else if (
+			!state.selectedAccount.accountNo ||
+			state.selectedAccount.usdtAddress
+		) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: state.selectedAccount.usdtAddress
+					? t("lbl_Select_Crypto_Wallet")
+					: t("lbl_SelectBank_Required"),
+				btnBar: (
+					<div className="btnGroup">
+						<button className="btn-check" onClick={ClosePopBox}>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+		}
+	};
+	return (
+		<div className="subModule">
+			<div className="subModuleBody">
+				<div className="calculation">
+					<div>
+						<div>{t("lbl_Balance")}</div>
+						<div>
+							{userInfo.currencyId
+								? t(`Currency_${userInfo.currencyId}`)
+								: ""}
+							<span>
+								{number_format(
+									state.balanceData?.balance,
+									_isConvert
+								)}
+							</span>
+						</div>
+					</div>
+					<div>-</div>
+					<div>
+						<div>{t("lbl_Deduction")}</div>
+						<div>
+							{userInfo.currencyId
+								? t(`Currency_${userInfo.currencyId}`)
+								: ""}
+							<span>
+								{number_format(
+									state.balanceData?.deduction,
+									_isConvert
+								)}
+							</span>
+						</div>
+					</div>
+					<div>=</div>
+					<div>
+						<div>{t("lbl_EligibleWithdrawalAmount")}</div>
+						<div>
+							{userInfo.currencyId
+								? t(`Currency_${userInfo.currencyId}`)
+								: ""}
+							<span>
+								{number_format(
+									state.balanceData?.availableBalance,
+									_isConvert
+								)}
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<form className="inputModuleRow" onSubmit={clickSubmit}>
+					<Inputbox
+						className="inputBox-white"
+						value={state.amount}
+						onChange={e => EditAmount(e.target.value)}
+						// clickInfo={clickInfo}
+						placeholder={
+							isEWalletItemSelected
+								? `${t("lbl_MinMaxAmount")} ${
+										_isConvert
+											? state.eWalletWithdrawalMin / 1000
+											: state.eWalletWithdrawalMin
+								  } / ${
+										state.unlimited
+											? t("lbl_Unlimited")
+											: _isConvert
+											? state.eWalletWithdrawalAvailableAmount /
+											  1000
+											: state.eWalletWithdrawalAvailableAmount
+								  }`
+								: ""
+						}
+						title={t("lbl_Amount")}
+						checked={state.checked ?? null}
+						tip={state.tip}
+						_isConvert={_isConvert}
+						onBlur={ValidAmount.bind(this, state.amount)}
+						isAmount={true}
+					/>
+					<div className="tip active">
+						<span>
+							{t("lbl_Times")}:{" "}
+							{`${state.withdrawalTimes} / ${
+								state.maxTimes === 0
+									? t("lbl_Unlimited")
+									: state.maxTimes
+							}`}
+						</span>
+						{withdrawalMinMaxLimitHint}
+					</div>
+					<div className="btnGroup">
+						<button
+							className={
+								state.checked &&
+								!(
+									userInfo.currencyId ===
+										defCurrencyList.INR &&
+									!userInfo.phoneVerified
+								) &&
+								!(
+									isEWalletItemSelected &&
+									(state.amount * 1000 <
+										state.eWalletWithdrawalMin ||
+										(!state.unlimited &&
+											state.amount > state.withdrawalMax))
+								)
+									? "btn-check"
+									: "gray"
+							}
+							disabled={
+								!state.checked ||
+								(userInfo.currencyId === defCurrencyList.INR &&
+									!userInfo.phoneVerified) ||
+								(state.maxTimes > 0 &&
+									state.withdrawalTimes >= state.maxTimes) ||
+								(isEWalletItemSelected &&
+									(state.amount * 1000 <
+										state.eWalletWithdrawalMin ||
+										(!state.unlimited &&
+											state.amount >
+												state.withdrawalMax)))
+							}
+							type="submit">
+							{t("lbl_Submit")}
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	);
+};
+
+AmountPanel.propTypes = {
+	dispatch: PropTypes.func.isRequired,
+	state: PropTypes.objectOf(PropTypes.any).isRequired,
+	t: PropTypes.func.isRequired,
+	_isConvert: PropTypes.bool.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired
+};
+
+export default AmountPanel;

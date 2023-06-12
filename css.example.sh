@@ -6,7 +6,7 @@ DESIGN_PROJECT=/Users/Lukelin/Project/Design
 PROJECT=/Users/Lukelin/Project/ailab-desktop
 
 # 目前既有品牌
-SITE_LIST=(NOVA88 GOAL123 BWING)
+SITE_LIST=(NOVA88 GOAL123 BWING IVORYSPORT)
 
 # READ
 echo "選擇品牌"

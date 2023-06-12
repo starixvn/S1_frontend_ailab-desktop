@@ -1,0 +1,3 @@
+User-Agent: *
+
+Sitemap: https://www.nova88-indo805.info/sitemapid.xml
