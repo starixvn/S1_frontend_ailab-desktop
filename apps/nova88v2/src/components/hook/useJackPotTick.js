@@ -9,7 +9,7 @@ const DELAY_MILLISECOND = 800;
 const useJackPotTick = ({ ref, currencyId }) => {
 	const { t } = useTranslation();
 	const [currentText, setCurrentText] = useState("");
-	const [isJackPotLoaded, setIsJackPotLoaded] = useState(false);
+	const [isJackPotLoaded, setIsJackPotLoaded] = useState(true);
 
 	useEffect(() => {
 		try {
