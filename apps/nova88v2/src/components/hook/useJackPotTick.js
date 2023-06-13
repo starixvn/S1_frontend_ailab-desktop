@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import useInterval from "./useInterval";
 
@@ -9,9 +9,9 @@ const DELAY_MILLISECOND = 800;
 const useJackPotTick = ({ ref, currencyId }) => {
 	const { t } = useTranslation();
 	const [currentText, setCurrentText] = useState("");
-	const [isJackPotLoaded, setIsJackPotLoaded] = useState(true);
+	const [isJackPotLoaded, setIsJackPotLoaded] = useState(false);
 
-	useEffect(() => {
+	useInterval(() => {
 		try {
 			const jackpotCurrency =
 				currencyId === 13
@@ -34,7 +34,7 @@ const useJackPotTick = ({ ref, currencyId }) => {
 			console.log(e);
 			setIsJackPotLoaded(false);
 		}
-	});
+	}, 1000);
 
 	useInterval(() => {
 		const [_currentText] = String(ref.current.innerText).split(" ");
