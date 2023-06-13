@@ -6,7 +6,7 @@ import useInterval from "./useInterval";
 const useJackPotTick = ({ currencyId }) => {
 	const { t } = useTranslation();
 
-	const [isJackPotLoaded, setIsJackPotLoaded] = useState(false);
+	const [isJackPotLoaded, setIsJackPotLoaded] = useState(true);
 
 	useInterval(() => {
 		try {
