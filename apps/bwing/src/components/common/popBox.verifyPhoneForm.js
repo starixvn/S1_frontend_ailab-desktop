@@ -251,6 +251,10 @@ export default ({ startUnixTime = 0 }) => {
 								<MobileVerificationLoading />
 							) : (
 								<button
+									style={{
+										minHeight: "36px",
+										maxHeight: "36px"
+									}}
 									disabled={retransmitCountDownSecond > 0}
 									className="yellow"
 									onClick={sendOTPSMS}>
@@ -267,7 +271,8 @@ export default ({ startUnixTime = 0 }) => {
 
 const MobileVerificationLoading = () => {
 	return (
-		<div style={{ minWidth: "128px" }}>
+		<div
+			style={{ minWidth: "128px", minHeight: "36px", maxHeight: "36px" }}>
 			<div className="otpLoading">
 				<i className="icon icon-spinner11" />
 			</div>
