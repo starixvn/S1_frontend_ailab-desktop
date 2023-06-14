@@ -8500,8 +8500,6 @@ input:-webkit-autofill:active {
 }
 
 .otpLoading {
-  -webkit-animation: rotate 0.7s linear infinite;
-          animation: rotate 0.7s linear infinite;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8516,6 +8514,8 @@ input:-webkit-autofill:active {
 
 .otpLoading .icon {
   font-size: 14px;
+  -webkit-animation: rotate 0.7s linear infinite;
+          animation: rotate 0.7s linear infinite;
 }
 
 button.icon-spinner11.active {
