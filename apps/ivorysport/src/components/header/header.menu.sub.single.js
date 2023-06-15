@@ -1,0 +1,260 @@
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
+import { Link, navigate } from "gatsby";
+import QRCode from "qrcode.react";
+import defPopBoxType from "../common/defPopBoxType";
+import { popBoxContext } from "../common/context";
+import {
+	GET_OPEN_RULE,
+	OPEN_IN_BLANK,
+	SET_ENTER_PAGE
+} from "../../service/enterPage";
+import productList, { defTpGameType } from "../../datas/productList";
+import path from "../../router";
+import { defMenuLinks } from "./header.menu.def";
+import { bannerImgUrl } from "../../config";
+import useAppDownLoad from "../appDownload/useAppDownLoad";
+
+const SubMenuSingle = ({
+	subClassName,
+	menuKey,
+	userInfo,
+	t,
+	maintainList
+}) => {
+	const { setPopBox } = useContext(popBoxContext);
+	const { appLinkDatas } = useAppDownLoad();
+	const pathLink = defMenuLinks[menuKey].path;
+	const { allowCurrencies, productInfo } = defMenuLinks[menuKey];
+
+	const showLoginPopBox = () => {
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.Login
+		});
+	};
+
+	let isInMaintain = false;
+	if (productInfo?.tpGameType) {
+		isInMaintain = maintainList?.some(
+			mt =>
+				mt.tpId === productInfo.tpId &&
+				(mt.tpGameType === productInfo.tpGameType ||
+					mt.tpGameType === defTpGameType.All)
+		);
+	}
+
+	let className = subClassName || "";
+	let style = {};
+
+	if (isInMaintain) {
+		className += ` maintenance`;
+		style = { pointerEvents: "none" };
+	}
+
+	const langClassName = `${className} ${userInfo.langId}`;
+
+	const clickEvent = ({ param }) => {
+		const { tpId, gameId, tpGameType } = param;
+
+		SET_ENTER_PAGE({
+			isLogin: userInfo.isLogin,
+			langId: userInfo.langId,
+			tpId,
+			gameId,
+			loginCallback: showLoginPopBox,
+			tpGameType
+		});
+	};
+
+	if (menuKey === "cryptoSports") {
+		const langClass = () =>
+			["th", "cs", "id"].includes(userInfo.langId)
+				? userInfo.langId
+				: "en";
+		return (
+			<button
+				className={`${className} ${langClass()}`}
+				style={style}
+				onClick={() => {
+					clickEvent({ param: productList.cryptoSports });
+				}}
+			/>
+		);
+	}
+
+	if (
+		menuKey === "worldCup" &&
+		allowCurrencies.includes(userInfo.currencyId)
+	) {
+		return (
+			<Link
+				className={className}
+				style={style}
+				to={`/${userInfo.langId}/${path.sports.root}?provider=saba&type=world-cup`}>
+				<div>
+					<img
+						src={`${bannerImgUrl}/desktop/img/event/worldcup/eventbanner_full.jpg`}
+						alt=""
+					/>
+				</div>
+			</Link>
+		);
+	}
+
+	if (menuKey === "poker") {
+		const rule = GET_OPEN_RULE(
+			userInfo.langId,
+			productList.poker.tpId,
+			null
+		);
+		const linkToPokerWeb = () => {
+			userInfo.isLogin
+				? OPEN_IN_BLANK(rule.entPageUrl, rule.windowKey)
+				: showLoginPopBox();
+		};
+
+		const linkToPokerRoot = () => {
+			userInfo.isLogin
+				? navigate(
+						`/${userInfo.langId}/${path.oneGame.root}?provider=1g`
+				  )
+				: showLoginPopBox();
+		};
+
+		const isPokerMaintain = maintainList?.some(
+			mt =>
+				mt.tpId === productList.poker.tpId &&
+				(mt.tpGameType === productList.poker.tpGameType ||
+					mt.tpGameType === defTpGameType.All)
+		);
+
+		return (
+			<div className={`${className}${isPokerMaintain ? " um" : ""}`}>
+				<div>
+					<div>{t("lbl_BLUFF_RAISE_OR_CALL")}</div>
+					<div>{t("lbl_KEEP_CALM_GO_ALL_IN")}</div>
+					{isPokerMaintain ? (
+						<div className="under">{t("lbl_underMaintenance")}</div>
+					) : null}
+					<div className="btnGroup">
+						<button className="lightblue" onClick={linkToPokerWeb}>
+							{t("lbl_POKER_NOW")}
+						</button>
+						<button className="lightblue" onClick={linkToPokerRoot}>
+							{t("lbl_DOWNLOAD_APP_NOW")}
+						</button>
+					</div>
+				</div>
+			</div>
+		);
+	}
+
+	if (menuKey === "vip") {
+		return (
+			<div className={className} style={style}>
+				<div>
+					<div>{t("lbl_VIP_CLUB")}</div>
+					<div>
+						<span className="txt-orange">
+							{t("lbl_EARN_EXCLUSIVE_VIP_BENEFIT")}
+						</span>
+					</div>
+					<div className="btnGroup">
+						<Link
+							className="lightblue"
+							to={
+								userInfo.isLogin
+									? `/${userInfo.langId}/${pathLink}`
+									: `/${userInfo.langId}/${path.join.root}`
+							}>
+							{t("lbl_JOIN_US_NOW")}
+						</Link>
+					</div>
+				</div>
+			</div>
+		);
+	}
+	if (menuKey === "ranking") {
+		return (
+			<div>
+				<Link
+					className={langClassName}
+					style={style}
+					to={`/${userInfo.langId}/${path.leaderBoard.root}`}>
+					<div />
+				</Link>
+			</div>
+		);
+	}
+	if (menuKey === "appDownload") {
+		const andriodDownloadUrl = appLinkDatas?.Andriod?.downloadLink ?? "";
+		const IOSDownloadUrl = appLinkDatas?.IOS?.downloadLink ?? "";
+
+		return (
+			<Link
+				className={className}
+				to={`/${userInfo.langId}/${path.appDownload.root}`}
+				style={style}>
+				<div>
+					<div className="txt-orange">ivorysport</div>
+					<div>{t("lbl_AppBannerText")}</div>
+					<div className="appListQrcode">
+						{IOSDownloadUrl && (
+							<div>
+								<QRCode
+									value={IOSDownloadUrl}
+									renderAs="svg"
+									size={112}
+									includeMargin={true}
+								/>
+								<img
+									src={`${bannerImgUrl}/desktop/img/appdownload_ios.jpg`}
+									alt="IOS Download"
+								/>
+							</div>
+						)}
+						{andriodDownloadUrl && (
+							<div>
+								<QRCode
+									value={andriodDownloadUrl}
+									renderAs="svg"
+									size={112}
+									includeMargin={true}
+								/>
+								<img
+									src={`${bannerImgUrl}/desktop/img/appdownload_and.jpg`}
+									alt="Andriod Download"
+								/>
+							</div>
+						)}
+					</div>
+				</div>
+			</Link>
+		);
+	}
+
+	if (menuKey === "promotion") {
+		return (
+			<div>
+				<Link
+					className={langClassName}
+					style={style}
+					to={`/${userInfo.langId}/${path.promotion.root}`}>
+					<div />
+				</Link>
+			</div>
+		);
+	}
+	return <div />;
+};
+
+SubMenuSingle.propTypes = {
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	t: PropTypes.func.isRequired,
+	menuKey: PropTypes.string.isRequired,
+	subClassName: PropTypes.string.isRequired,
+	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
+};
+
+export default SubMenuSingle;

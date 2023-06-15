@@ -28,6 +28,10 @@ Will auto navigate to <http://localhost:4202>
 Run `nx serve bwing`
 Will auto navigate to <http://localhost:4203>
 
+**Bwing**
+Run `nx serve ivorysport`
+Will auto navigate to <http://localhost:4204>
+
 ---
 
 ## Git commit format

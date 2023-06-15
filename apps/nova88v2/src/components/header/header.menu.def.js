@@ -27,8 +27,14 @@ const defSortSports = {
 		soccer: 2,
 		sabaSoccer: 3,
 		basketball: 4,
-		tennis: 5,
-		virtualSports: 6
+		badminton: 5
+	},
+	[defCurrencyList.BDT]: {
+		cricket: 1,
+		soccer: 2,
+		sabaSoccer: 3,
+		basketball: 4,
+		badminton: 5
 	}
 };
 
@@ -455,17 +461,6 @@ export const defMenuLinks = {
 			},
 			{
 				path: path.sports.root,
-				displayKey: "lbl_Tennis",
-				listNpcImgUrl: "tennisNPC.png",
-				listBgImgUrl: "tennisBG.png",
-				menuType: defMenuType.Link,
-				// parameter: { ...productList.tennis },
-				parameter: { provider: "saba", type: "tennis" },
-				...productList.tennis,
-				keyName: "tennis"
-			},
-			{
-				path: path.sports.root,
 				displayKey: "lbl_Cricket",
 				listNpcImgUrl: "cricketNPC.png",
 				listBgImgUrl: "cricketBG.png",
@@ -473,7 +468,29 @@ export const defMenuLinks = {
 				// parameter: { ...productList.cricket },
 				parameter: { provider: "saba", type: "cricket" },
 				...productList.cricket,
-				keyName: "cricket"
+				keyName: "cricket",
+				allowCurrencies: allowedCurrencyList.sportsCricket
+			},
+			{
+				path: path.sports.root,
+				displayKey: "lbl_Badminton",
+				listNpcImgUrl: "badmintonNPC.png",
+				listBgImgUrl: "badmintonBG.png",
+				menuType: defMenuType.Link,
+				parameter: { provider: "saba", type: "badminton" },
+				...productList.badminton,
+				keyName: "badminton"
+			},
+			{
+				path: path.sports.root,
+				displayKey: "lbl_Volleyball",
+				listNpcImgUrl: "volleyballNPC.png",
+				listBgImgUrl: "volleyballBG.png",
+				menuType: defMenuType.Link,
+				parameter: { provider: "saba", type: "volleyball" },
+				...productList.volleyball,
+				keyName: "volleyball",
+				allowCurrencies: allowedCurrencyList.sportsVolleyball
 			},
 			{
 				path: path.sports.root,

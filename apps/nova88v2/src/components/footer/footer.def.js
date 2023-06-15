@@ -20,7 +20,7 @@ export const defSportsBetting_Section1 = {
 	badmintion: {
 		productInfo: productList.badmintion,
 		path: path.sports.root,
-		displayKey: "lbl_badminton"
+		displayKey: "lbl_Badminton"
 	}
 };
 

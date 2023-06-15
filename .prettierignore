@@ -20,3 +20,7 @@
 /apps/nova88v2/node_modules
 /apps/nova88v2/public
 /apps/nova88v2/.cache
+
+/apps/ivorysport/node_modules
+/apps/ivorysport/public
+/apps/ivorysport/.cache
