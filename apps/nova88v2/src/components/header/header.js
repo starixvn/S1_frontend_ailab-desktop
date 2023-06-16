@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
 import { Link, navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
-import { cambodiaSeaGameEventPeriod, isDateRange } from "@ailab-desktop/common";
+import {
+	dragonBoatFestivalEventPeriod,
+	isDateRange
+} from "@ailab-desktop/common";
 import classNames from "classnames";
 import {
 	userInfoContext,
@@ -86,13 +89,21 @@ export default () => {
 			<div className="header">
 				<div
 					className={classNames("logo", {
-						cambodia: isDateRange(cambodiaSeaGameEventPeriod)
+						dragon: isDateRange(dragonBoatFestivalEventPeriod)
 					})}
 				>
-					<Link to={`/${userInfo.langId}`} onClick={reload}>
-						{isDateRange(cambodiaSeaGameEventPeriod) ? (
+					<Link
+						to={`/${userInfo.langId}`}
+						onClick={reload}
+						className={classNames({
+							dragonlogo: isDateRange(
+								dragonBoatFestivalEventPeriod
+							)
+						})}
+					>
+						{isDateRange(dragonBoatFestivalEventPeriod) ? (
 							<img
-								src={`${bannerImgUrl}/desktop/img/logo-cambodia2023${
+								src={`${bannerImgUrl}/desktop/img/dragon-logo${
 									userInfo.langId === "cs" ? "_cs" : ""
 								}.png`}
 								alt={config.siteName}
@@ -108,12 +119,19 @@ export default () => {
 							/>
 						)}
 					</Link>
-					{isDateRange(cambodiaSeaGameEventPeriod) && (
-						<img
-							className="cambodia"
-							src={`${bannerImgUrl}/desktop/img/cambodia.png`}
-							alt={config.siteName}
-						/>
+					{isDateRange(dragonBoatFestivalEventPeriod) && (
+						<>
+							<img
+								className="dragon"
+								src={`${bannerImgUrl}/desktop/img/dragon.png`}
+								alt={config.siteName}
+							/>
+							<img
+								className="dragon-light"
+								src={`${bannerImgUrl}/desktop/img/dragon-light.png`}
+								alt={config.siteName}
+							/>
+						</>
 					)}
 
 					{allowedCurrencyList.rewards.includes(currencyId) && (
