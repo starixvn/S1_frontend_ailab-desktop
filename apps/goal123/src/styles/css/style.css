@@ -6968,8 +6968,6 @@ html.Newtheme .mobileAmount span {
   margin-right: 5px;
 }
 html.Newtheme .otpLoading {
-  -webkit-animation: rotate 0.7s linear infinite;
-          animation: rotate 0.7s linear infinite;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6983,6 +6981,8 @@ html.Newtheme .otpLoading {
 }
 html.Newtheme .otpLoading .icon {
   font-size: 12px;
+  -webkit-animation: rotate 0.7s linear infinite;
+          animation: rotate 0.7s linear infinite;
 }
 html.Newtheme button.icon-spinner11.active {
   -webkit-animation: rotate 0.7s linear 2;
