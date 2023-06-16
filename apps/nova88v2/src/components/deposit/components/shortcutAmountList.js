@@ -27,7 +27,27 @@ const ShortcutAmountList = ({ amount, minAmount, maxAmount, onClick }) => {
 	const { currencyId } = userInfo;
 	const _isConvert = isConvert(currencyId);
 
-	const amountList = defAmountList[currencyId];
+	const getAmountList = () => {
+		const amountList = [];
+		for (let i = 0; i < 5; i++) {
+			const currentAmount = minAmount * Math.pow(5, i);
+			const maxDigit = Math.pow(
+				10,
+				Math.floor(Math.log10(currentAmount))
+			);
+			let roundedAmount = Math.floor(currentAmount / maxDigit) * maxDigit;
+
+			if (_isConvert) {
+				roundedAmount = Math.floor(roundedAmount / 1000);
+			}
+
+			amountList.push(roundedAmount);
+		}
+
+		return amountList;
+	};
+
+	const amountList = minAmount ? getAmountList() : defAmountList[currencyId];
 
 	return (
 		<div className="btnGroup shortcut">
