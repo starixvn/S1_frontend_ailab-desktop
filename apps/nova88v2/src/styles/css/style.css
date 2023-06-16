@@ -2721,6 +2721,9 @@ footer .license > div:nth-child(1) > div:nth-child(2) > div {
   margin: 15px 20px 0 0;
   width: 65px;
 }
+footer .license > div:nth-child(1) > div:nth-child(2) > div:last-child {
+  width: 115px;
+}
 footer .license > div:nth-child(2) {
   width: 730px;
   display: -webkit-box;
@@ -12601,13 +12604,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .indexCenterBanner .qrGroup .qrCode:first-child {
   position: absolute;
-  right: 227.5px;
-  bottom: 21px;
+  left: 257.5px;
+  bottom: 77px;
 }
 .indexCenterBanner .qrGroup .qrCode:last-child {
   position: absolute;
-  right: 37px;
-  bottom: 21px;
+  left: 60px;
+  bottom: 77px;
 }
 
 .streaming {
@@ -19586,4 +19589,25 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   100% {
     background: url(https://banner.0814media.net/desktop/img/rabbitboy-a.png) no-repeat center/cover;
   }
+}
+.header .dragon {
+  position: relative;
+}
+.header .dragon .dragonlogo {
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#0E4956), to(#3899A2));
+  background-image: linear-gradient(to top, #0E4956, #3899A2);
+  padding: 0;
+  border-radius: 0 0 13px 13px;
+}
+.header .dragon .dragon {
+  width: 95px;
+  position: absolute;
+  bottom: 20px;
+  left: -15px;
+}
+.header .dragon .dragon-light {
+  width: 40px;
+  position: absolute;
+  top: 0;
+  right: -5px;
 }/*# sourceMappingURL=style.css.map */
