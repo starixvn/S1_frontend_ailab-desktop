@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
-import { cambodiaSeaGameEventPeriod, isDateRange } from "@ailab-desktop/common";
+import {
+	dragonBoatFestivalEventPeriod,
+	isDateRange
+} from "@ailab-desktop/common";
 import classNames from "classnames";
 import {
 	userInfoContext,
@@ -36,23 +39,26 @@ export default () => {
 			<div className="header">
 				<div
 					className={classNames("logo", {
-						cambodia: isDateRange(cambodiaSeaGameEventPeriod)
+						dragon: isDateRange(dragonBoatFestivalEventPeriod)
 					})}
 				>
-					<Link
-						className="logo"
-						to={`/${userInfo.langId}`}
-						onClick={reload}
-					>
+					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
 							src={`${bannerImgUrl}/desktop/img/${
-								isDateRange(cambodiaSeaGameEventPeriod)
-									? "logo-cambodia2023"
+								isDateRange(dragonBoatFestivalEventPeriod)
+									? "dragon-logo"
 									: "logo"
 							}.png`}
 							alt={config.siteName}
 						/>
 					</Link>
+					{isDateRange(dragonBoatFestivalEventPeriod) && (
+						<img
+							className="zongzi"
+							src={`${bannerImgUrl}/desktop/img/zongzi.png`}
+							alt={config.siteName}
+						/>
+					)}
 
 					{/* 僅限過年期間顯示 */}
 					{isDateRange(angPaoEventPeriod) && (

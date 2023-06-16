@@ -13691,4 +13691,13 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
     filter: blur(0);
     opacity: 1;
   }
+}
+.dragon {
+  position: relative;
+}
+.dragon .zongzi {
+  position: absolute;
+  width: 140px;
+  bottom: -16px;
+  left: -55px;
 }/*# sourceMappingURL=style.css.map */
