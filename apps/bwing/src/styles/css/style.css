@@ -13295,12 +13295,12 @@ input + .iconModule i.icon.icon-checkmark:before {
 .indexNew .offers .swiper-container .eventImg .gameName {
   position: absolute;
   left: 50%;
-  bottom: 15%;
+  bottom: 16%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   width: 202px;
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
