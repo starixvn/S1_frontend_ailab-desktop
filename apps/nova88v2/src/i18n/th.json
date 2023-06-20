@@ -486,7 +486,7 @@
 	"lbl_BankInfo": "ข้อมูลธนาคาร",
 	"lbl_LastTransaction": "รายการเล่นสุดท้าย",
 	"lbl_AmountTooltip": "จำนวนเงินต้องไม่น้อยกว่า {0}",
-	"lbl_NotinLimit": "จำนวนเงินมากกว่าหรือน้อยกว่าที่กำหนดไว้",
+	"lbl_NotinLimit": "จำนวนเงินมากกว่าที่กำหนดไว้",
 	"lbl_SelectBank": "เลือกธนาคาร",
 	"lbl_SelectedBank": "เลือกธนาคาร",
 	"lbl_EnterAmount": "ใส่จำนวนเงิน",
