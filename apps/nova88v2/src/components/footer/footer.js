@@ -177,15 +177,16 @@ export const LicensesSection = ({ t, errorPopBox }) => {
 	const formattedXCMScript = XCMScript?.replaceAll("-", "_");
 
 	useEffect(() => {
-		try {
-			if (showLicenseLogo) {
-				// apg_a7019fa5_9f9a_468b_92da_4890f6a6e4a7.init();
-				// xcm_226e4de2_30aa_4077_951b_d440012994f3.init();
+		const init =
+			showLicenseLogo && !!formattedCuracaoScript && !!formattedXCMScript;
+		if (init) {
+			try {
+				// xcm_226e4de2_30aa_4077_951b_d440012994f3.init(); // apg_a7019fa5_9f9a_468b_92da_4890f6a6e4a7.init();
 				`apg_${formattedCuracaoScript}`.init();
 				`xcm_${formattedXCMScript}`.init();
-			}
-		} catch (error) {}
-	}, [showLicenseLogo]);
+			} catch (error) {}
+		}
+	}, [showLicenseLogo, formattedCuracaoScript, formattedXCMScript]);
 
 	return (
 		<>
@@ -286,11 +287,11 @@ const LicenseHelmet = ({ script, xcmScript }) => (
 	<Helmet>
 		<script
 			type="text/javascript"
-			src={`https://${script}.snippet.antillephone.com/apg-seal.js`}
+			src={`https://${script}.snippet.antillephone.com/apg-seal.js?v=${Date.now()}`}
 		/>
 		<script
 			type="text/javascript"
-			src={`https://${xcmScript}.seals-xcm.certria.com/xcm-seal.js`}
+			src={`https://${xcmScript}.seals-xcm.certria.com/xcm-seal.js?v=${Date.now()}`}
 		/>
 	</Helmet>
 );
