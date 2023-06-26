@@ -32,7 +32,7 @@ import usePopBox from "../hook/usePopBox";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { cloudImgUrl, bannerImgUrl } from "../../config";
 import { Iov_GetBlackBox } from "../common/iovation";
-import { initValue, initTip } from "../common/join.data";
+import { initValue, initTip, initShowPwdState } from "../common/join.data";
 import JoinForm from "./join.form";
 import JoinPromoInfo from "./join.promoInfo";
 import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
@@ -53,7 +53,7 @@ export default () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const [userValue, setUserValue] = useState(initValue);
 	const [tip, setTip] = useState(initTip);
-	const [showPsw, setShowPsw] = useState(false);
+	const [showPwdState, setShowPwdState] = useState(initShowPwdState);
 	const [siteCurrency, setSiteCurrency] = useState([]);
 	const [reCaptchaToken, setReCaptchaToken] = useState("");
 	const [recaptchaInfo, setRecaptchaInfo] = useState({});
@@ -167,16 +167,16 @@ export default () => {
 		);
 	};
 
-	const showPswHandler = () => {
-		setShowPsw(!showPsw);
+	const showPwdHandler = col => {
+		setShowPwdState(prev => ({ ...prev, [col]: !prev[col] }));
 	};
 
 	const clickInfo = col => {
 		let msg = "";
 		if (col === "username") {
 			msg = t("lbl_UsernameTooltip");
-		} else if (col === "password") {
-			msg = t("lbl_PasswordTooltip");
+		} else if (col === "realName") {
+			msg = t("lbl_RemindForName");
 		} else if (col === "email") {
 			msg = t("lbl_EmailToolTip");
 		} else if (col === "currency") {
@@ -203,8 +203,9 @@ export default () => {
 		let val = e.target.value;
 		if (col === "username") {
 			val = val.replace(/[\W_]/g, "");
-		}
-		if (col === "phone") {
+		} else if (col === "realName") {
+			val = val.replace(/[^a-zA-Z\s]/g, "");
+		} else if (col === "phone") {
 			val = val.replace(/[^0-9]+/g, "");
 		}
 
@@ -257,10 +258,18 @@ export default () => {
 			const result = await usernameCheck(val);
 			checked = result.checked;
 			msg = result.msg;
+		} else if (col === "realName") {
+			const result = realNameCheck(val);
+			checked = result.checked;
+			msg = result.msg;
 		} else if (col === "password") {
 			const result = passwordCheck(val);
 			checked = result.checked;
 			msg = result.message;
+		} else if (col === "confirmPwd") {
+			const result = confirmPwdCheck(val);
+			checked = result.checked;
+			msg = result.msg;
 		} else if (col === "email") {
 			const result = await emailCheck(val);
 			checked = result.checked;
@@ -273,8 +282,6 @@ export default () => {
 			const result = await phoneCheck(val);
 			checked = result.checked;
 			msg = result.msg;
-		} else if (col === "specialBonusCode") {
-			checked = null;
 		}
 
 		setTip(prev => ({
@@ -324,6 +331,39 @@ export default () => {
 		return { checked, msg };
 	};
 
+	const realNameCheck = val => {
+		let checked = false;
+		let msg = "";
+
+		if (val === "") {
+			checked = false;
+			msg = "msg_RealNameReq";
+		} else {
+			checked = true;
+			msg = "";
+		}
+
+		return { checked, msg };
+	};
+
+	const confirmPwdCheck = val => {
+		let checked = false;
+		let msg = "";
+
+		if (val === "") {
+			checked = false;
+			msg = "msg_ConfirmPwdReq";
+		} else if (val !== userValue.password) {
+			checked = false;
+			msg = "msg_ConfirmPwdNotMatch";
+		} else {
+			checked = true;
+			msg = "";
+		}
+
+		return { checked, msg };
+	};
+
 	const emailCheck = async val => {
 		let checked = false;
 		let msg = "";
@@ -332,7 +372,7 @@ export default () => {
 
 		if (val === "") {
 			checked = false;
-			msg = "msg_MailWrongFormat";
+			msg = "msg_EmailReq";
 		} else if (!regx.test(val)) {
 			checked = false;
 			msg = "msg_MailWrongFormat";
@@ -433,15 +473,18 @@ export default () => {
 			]);
 
 			const _usernameCheck = res[0];
-			// const _phoneCheck = res[1];
+			const _realNameCheck = realNameCheck(userValue.realName);
 			const _phoneCheck = phoneCheck(userValue.phone);
 			const _emailCheck = res[2];
 			const _passwordCheck = passwordCheck(userValue.password);
+			const _confirmPwdCheck = confirmPwdCheck(userValue.confirmPwd);
 			const _currencyCheck = currencyCheck(defaultOption);
 
 			const checked =
 				_usernameCheck.checked &&
+				_realNameCheck.checked &&
 				_passwordCheck.checked &&
+				_confirmPwdCheck.checked &&
 				_phoneCheck.checked &&
 				_emailCheck.checked &&
 				_currencyCheck.checked;
@@ -453,9 +496,17 @@ export default () => {
 						checked: _usernameCheck.checked,
 						msg: t(_usernameCheck.msg)
 					},
+					realName: {
+						checked: _realNameCheck.checked,
+						msg: t(_realNameCheck.msg)
+					},
 					password: {
 						checked: _passwordCheck.checked,
 						msg: t(_passwordCheck.message)
+					},
+					confirmPwd: {
+						checked: _confirmPwdCheck.checked,
+						msg: t(_confirmPwdCheck.msg)
 					},
 					phone: {
 						checked: _phoneCheck.checked,
@@ -520,12 +571,12 @@ export default () => {
 
 			const regData = {
 				UserName: userValue.username,
+				RealName: userValue.realName,
 				Userpwd: userValue.password,
 				Email: userValue.email,
 				PhoneNo: userValue.phone,
 				CurrencyId: currencyId,
 				UserLang: signupLangId,
-				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
 				ReferralUrl: document.referrer,
 				ReCaptchaToken: reCaptchaToken
@@ -600,14 +651,6 @@ export default () => {
 							setTip(prev => ({
 								...prev,
 								password: {
-									checked: false,
-									msg: message
-								}
-							}));
-						} else if (errorCode === -7) {
-							setTip(prev => ({
-								...prev,
-								specialBonusCode: {
 									checked: false,
 									msg: message
 								}
@@ -694,8 +737,8 @@ export default () => {
 					clickInfo={clickInfo}
 					EditField={EditField}
 					checkValue={checkValue}
-					showPsw={showPsw}
-					showPswHandler={showPswHandler}
+					showPwdState={showPwdState}
+					showPwdHandler={showPwdHandler}
 					siteCurrency={siteCurrency}
 					_areaCode={_areaCode}
 					hasRefOrAffCode={hasRefOrAffCode}

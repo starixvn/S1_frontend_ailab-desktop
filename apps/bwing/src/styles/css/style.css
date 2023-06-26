@@ -2152,7 +2152,7 @@ footer > div.copyright {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .icon-arrow_drop_down {
@@ -2408,6 +2408,9 @@ footer > div.copyright {
 }
 .inputBox-blue.error + .tip {
   color: #f52805;
+}
+.inputBox-blue .countryCode {
+  margin-bottom: 2px;
 }
 
 input[type=file] {

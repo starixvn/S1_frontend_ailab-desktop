@@ -15,8 +15,8 @@ const JoinForm = ({
 	clickInfo,
 	EditField,
 	checkValue,
-	showPsw,
-	showPswHandler,
+	showPwdState,
+	showPwdHandler,
 	_areaCode,
 	hasRefOrAffCode,
 	checkboxHandler,
@@ -52,16 +52,43 @@ const JoinForm = ({
 			<div className="title">{t("lbl_Password")}</div>
 			<InputboxPSW
 				icon="icon-key txt-blue12"
-				inputType={`${!showPsw ? "password" : "text"}`}
+				inputType={`${!showPwdState.password ? "password" : "text"}`}
 				placeholder={t("lbl_Password")}
 				value={userValue.password}
 				tip={tip.password.msg}
 				onChange={EditField.bind(null, "password")}
 				onBlur={checkValue.bind(null, "password")}
-				showPsw={showPsw}
-				showPswHandler={showPswHandler}
+				showPsw={showPwdState.password}
+				showPswHandler={() => {
+					showPwdHandler("password");
+				}}
 				checked={tip.password.checked}
-				clickInfo={clickInfo.bind(this, "password")}
+			/>
+			<div className="title">{t("lbl_ConfirmPassword")}</div>
+			<InputboxPSW
+				icon="icon-key txt-blue12"
+				inputType={`${!showPwdState.confirmPwd ? "password" : "text"}`}
+				placeholder={t("lbl_ConfirmPassword")}
+				value={userValue.confirmPwd}
+				tip={tip.confirmPwd.msg}
+				onChange={EditField.bind(null, "confirmPwd")}
+				onBlur={checkValue.bind(null, "confirmPwd")}
+				showPsw={showPwdState.confirmPwd}
+				showPswHandler={() => {
+					showPwdHandler("confirmPwd");
+				}}
+				checked={tip.confirmPwd.checked}
+			/>
+			<div className="title">{t("lbl_RealName")}</div>
+			<Inputbox
+				icon="icon-member txt-blue12"
+				placeholder={t("lbl_RealName")}
+				value={userValue.realName}
+				tip={tip.realName.msg}
+				checked={tip.realName.checked}
+				clickInfo={clickInfo.bind(this, "realName")}
+				onChange={EditField.bind(null, "realName")}
+				onBlur={checkValue.bind(null, "realName")}
 			/>
 			<div className="title">{t("lbl_Phone")}</div>
 			<Inputbox
@@ -74,15 +101,18 @@ const JoinForm = ({
 				clickInfo={clickInfo.bind(this, "phone")}
 				onChange={EditField.bind(null, "phone")}
 				onBlur={checkValue.bind(null, "phone")}
-				// * 清空錯誤訊息， phone 改為按下 submit 之後才打 api 驗證
-				// onBlur={() =>
-				// 	setTip(prev => ({
-				// 		...prev,
-				// 		phone: { checked: null, msg: "" }
-				// 	}))
-				// }
 			/>
-
+			<div className="title">{t("lbl_Email")}</div>
+			<Inputbox
+				icon="icon-email txt-blue12"
+				placeholder={t("lbl_Email")}
+				value={userValue.email}
+				tip={tip.email.msg}
+				checked={tip.email.checked}
+				clickInfo={clickInfo.bind(this, "email")}
+				onChange={EditField.bind(null, "email")}
+				onBlur={checkValue.bind(null, "email")}
+			/>
 			<div className="title">{t("lbl_Affiliates")}</div>
 			<Inputbox
 				icon="icon-affiliate txt-blue12"
@@ -148,8 +178,8 @@ JoinForm.propTypes = {
 	clickInfo: PropTypes.func.isRequired,
 	EditField: PropTypes.func.isRequired,
 	checkValue: PropTypes.func.isRequired,
-	showPsw: PropTypes.bool.isRequired,
-	showPswHandler: PropTypes.func.isRequired,
+	showPwdState: PropTypes.objectOf(PropTypes.any).isRequired,
+	showPwdHandler: PropTypes.func.isRequired,
 	_areaCode: PropTypes.string,
 	hasRefOrAffCode: PropTypes.string,
 	checkboxHandler: PropTypes.func.isRequired,

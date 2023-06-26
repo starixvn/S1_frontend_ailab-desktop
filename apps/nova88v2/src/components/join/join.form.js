@@ -17,8 +17,8 @@ const JoinForm = ({
 	clickInfo,
 	EditField,
 	checkValue,
-	showPsw,
-	showPswHandler,
+	showPwdState,
+	showPwdHandler,
 	siteCurrency,
 	_areaCode,
 	hasRefOrAffCode,
@@ -85,16 +85,36 @@ const JoinForm = ({
 						: ""
 				}`}
 				icon="icon-key txt-blue"
-				inputType={`${!showPsw ? "password" : "text"}`}
+				inputType={`${!showPwdState.password ? "password" : "text"}`}
 				placeholder={t("lbl_Password")}
 				value={userValue.password}
 				tip={tip.password.msg}
 				onChange={EditField.bind(null, "password")}
 				onBlur={checkValue.bind(null, "password")}
-				showPsw={showPsw}
-				showPswHandler={showPswHandler}
+				showPsw={showPwdState.password}
+				showPswHandler={() => {
+					showPwdHandler("password");
+				}}
 				checked={tip.password.checked}
-				clickInfo={clickInfo.bind(this, "password")}
+			/>
+			<InputboxPSW
+				className={`inputBox-blue${
+					!tip.confirmPwd.checked && tip.confirmPwd.msg !== ""
+						? " error"
+						: ""
+				}`}
+				icon="icon-key txt-blue"
+				inputType={`${!showPwdState.confirmPwd ? "password" : "text"}`}
+				placeholder={t("lbl_ConfirmPassword")}
+				value={userValue.confirmPwd}
+				tip={tip.confirmPwd.msg}
+				onChange={EditField.bind(null, "confirmPwd")}
+				onBlur={checkValue.bind(null, "confirmPwd")}
+				showPsw={showPwdState.confirmPwd}
+				showPswHandler={() => {
+					showPwdHandler("confirmPwd");
+				}}
+				checked={tip.confirmPwd.checked}
 			/>
 			<Inputbox
 				className="inputBox-blue"
@@ -106,6 +126,17 @@ const JoinForm = ({
 				clickInfo={clickInfo.bind(this, "email")}
 				onChange={EditField.bind(null, "email")}
 				onBlur={checkValue.bind(null, "email")}
+			/>
+			<Inputbox
+				className="inputBox-blue"
+				icon="icon-member txt-blue"
+				placeholder={t("lbl_RealName")}
+				value={userValue.realName}
+				tip={tip.realName.msg}
+				checked={tip.realName.checked}
+				clickInfo={clickInfo.bind(this, "realName")}
+				onChange={EditField.bind(null, "realName")}
+				onBlur={checkValue.bind(null, "realName")}
 			/>
 			<div
 				className={`inputBox-blue${
@@ -183,18 +214,6 @@ const JoinForm = ({
 				))}
 
 			<Inputbox
-				className={`inputBox-blue${
-					tip.specialBonusCode.msg !== "" ? " error" : ""
-				}`}
-				icon="icon-promotion txt-blue"
-				placeholder={t("lbl_PromoCode")}
-				value={userValue.specialBonusCode}
-				onChange={EditField.bind(null, "specialBonusCode")}
-				onBlur={checkValue.bind(null, "specialBonusCode")}
-				tip={tip.specialBonusCode.msg}
-				checked={tip.specialBonusCode.checked}
-			/>
-			<Inputbox
 				className="inputBox-blue"
 				icon="icon-affiliate txt-blue"
 				placeholder={t("lbl_Affiliate_ID")}
@@ -261,8 +280,8 @@ JoinForm.propTypes = {
 	clickInfo: PropTypes.func.isRequired,
 	EditField: PropTypes.func.isRequired,
 	checkValue: PropTypes.func.isRequired,
-	showPsw: PropTypes.bool.isRequired,
-	showPswHandler: PropTypes.func.isRequired,
+	showPwdState: PropTypes.objectOf(PropTypes.any).isRequired,
+	showPwdHandler: PropTypes.func.isRequired,
 	siteCurrency: PropTypes.arrayOf(PropTypes.any).isRequired,
 	_areaCode: PropTypes.string,
 	hasRefOrAffCode: PropTypes.string,

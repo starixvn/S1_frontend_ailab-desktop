@@ -14,8 +14,8 @@ const JoinForm = ({
 	clickInfo,
 	EditField,
 	checkValue,
-	showPsw,
-	showPswHandler,
+	showPwdState,
+	showPwdHandler,
 	hasRefOrAffCode,
 	checkboxHandler,
 	configSiteName,
@@ -24,7 +24,8 @@ const JoinForm = ({
 	clickCancel,
 	clickSubmit,
 	langId,
-	reCaptchaOnChange
+	reCaptchaOnChange,
+	_areaCode
 }) => {
 	return (
 		<form className="joinloginFunction" onSubmit={clickSubmit}>
@@ -48,16 +49,66 @@ const JoinForm = ({
 				/>
 				<InputboxPSW
 					icon="icon-key txt-blue12"
-					inputType={`${!showPsw ? "password" : "text"}`}
+					inputType={`${
+						!showPwdState.password ? "password" : "text"
+					}`}
 					placeholder={t("lbl_Password")}
 					value={userValue.password}
 					tip={tip.password.msg}
 					onChange={EditField.bind(null, "password")}
 					onBlur={checkValue.bind(null, "password")}
-					showPsw={showPsw}
-					showPswHandler={showPswHandler}
+					showPsw={showPwdState.password}
+					showPswHandler={() => {
+						showPwdHandler("password");
+					}}
 					checked={tip.password.checked}
-					clickInfo={clickInfo.bind(this, "password")}
+				/>
+				<InputboxPSW
+					icon="icon-key txt-blue12"
+					inputType={`${
+						!showPwdState.confirmPwd ? "password" : "text"
+					}`}
+					placeholder={t("lbl_ConfirmPassword")}
+					value={userValue.confirmPwd}
+					tip={tip.confirmPwd.msg}
+					onChange={EditField.bind(null, "confirmPwd")}
+					onBlur={checkValue.bind(null, "confirmPwd")}
+					showPsw={showPwdState.confirmPwd}
+					showPswHandler={() => {
+						showPwdHandler("confirmPwd");
+					}}
+					checked={tip.confirmPwd.checked}
+				/>
+				<Inputbox
+					icon="icon-member txt-blue12"
+					placeholder={t("lbl_RealName")}
+					value={userValue.realName}
+					tip={tip.realName.msg}
+					checked={tip.realName.checked}
+					clickInfo={clickInfo.bind(this, "realName")}
+					onChange={EditField.bind(null, "realName")}
+					onBlur={checkValue.bind(null, "realName")}
+				/>
+				<Inputbox
+					icon="icon-phone txt-blue12"
+					areaCode={_areaCode}
+					placeholder={t("lbl_Phone")}
+					value={userValue.phone}
+					tip={tip.phone.msg}
+					checked={tip.phone.checked}
+					clickInfo={clickInfo.bind(this, "phone")}
+					onChange={EditField.bind(null, "phone")}
+					onBlur={checkValue.bind(null, "phone")}
+				/>
+				<Inputbox
+					icon="icon-email txt-blue12"
+					placeholder={t("lbl_Email")}
+					value={userValue.email}
+					tip={tip.email.msg}
+					checked={tip.email.checked}
+					clickInfo={clickInfo.bind(this, "email")}
+					onChange={EditField.bind(null, "email")}
+					onBlur={checkValue.bind(null, "email")}
 				/>
 				<Inputbox
 					icon="icon-affiliate txt-blue12"
@@ -122,7 +173,8 @@ const JoinForm = ({
 JoinForm.defaultProps = {
 	hasRefOrAffCode: null,
 	langId: null,
-	reCaptchaOnChange: null
+	reCaptchaOnChange: null,
+	_areaCode: null
 };
 
 JoinForm.propTypes = {
@@ -133,8 +185,8 @@ JoinForm.propTypes = {
 	clickInfo: PropTypes.func.isRequired,
 	EditField: PropTypes.func.isRequired,
 	checkValue: PropTypes.func.isRequired,
-	showPsw: PropTypes.bool.isRequired,
-	showPswHandler: PropTypes.func.isRequired,
+	showPwdState: PropTypes.bool.isRequired,
+	showPwdHandler: PropTypes.func.isRequired,
 	hasRefOrAffCode: PropTypes.string,
 	checkboxHandler: PropTypes.func.isRequired,
 	configSiteName: PropTypes.string.isRequired,
@@ -143,7 +195,8 @@ JoinForm.propTypes = {
 	clickCancel: PropTypes.func.isRequired,
 	clickSubmit: PropTypes.func.isRequired,
 	langId: PropTypes.string,
-	reCaptchaOnChange: PropTypes.func
+	reCaptchaOnChange: PropTypes.func,
+	_areaCode: PropTypes.string
 };
 
 export default JoinForm;
