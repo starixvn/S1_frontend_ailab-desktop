@@ -260,7 +260,8 @@ const Deposit = () => {
 							navigate(
 								`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`
 							)
-						}>
+						}
+					>
 						{t("lbl_UpdatePersonalDetail")}
 					</button>
 				</div>
@@ -350,12 +351,14 @@ const Deposit = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={() => resolve(false)}>
+										onClick={() => resolve(false)}
+									>
 										{t("lbl_ReModify")}
 									</button>
 									<button
 										className="btn-check"
-										onClick={() => resolve(true)}>
+										onClick={() => resolve(true)}
+									>
 										{t("lbl_Confirm")}
 									</button>
 								</div>
@@ -412,7 +415,8 @@ const Deposit = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={closePopBox}>
+											onClick={closePopBox}
+										>
 											OK
 										</button>
 									</div>
@@ -669,7 +673,8 @@ const Deposit = () => {
 							bankLogo,
 							code,
 							returnUrl,
-							transId
+							transId,
+							generateQr
 						} = data;
 						if (errorCode === 0) {
 							setPopBox({
@@ -684,7 +689,8 @@ const Deposit = () => {
 								amount: popBoxAmount,
 								bankLogo,
 								code,
-								transId
+								transId,
+								generateQr
 							});
 						}
 					} catch (err) {
@@ -794,7 +800,8 @@ const Deposit = () => {
 				onSubmit={onSubmit}
 				setDepositType={onChangeDepositType}
 				canSubmit={formInfo.canSubmit}
-				submitHandle={submitHandle}>
+				submitHandle={submitHandle}
+			>
 				{depositType === defDepositType.mobile && (
 					<MobileForm
 						t={t}
