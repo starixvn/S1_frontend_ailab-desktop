@@ -36,12 +36,7 @@ export default props => {
 
 					{props.checked !== undefined ? (
 						<div className="iconModule">
-							{props.checked === null ? (
-								<i
-									className="icon icon-information-solid"
-									onClick={props.clickInfo}
-								/>
-							) : props.checked ? (
+							{props.checked ? (
 								<i className="icon icon-checkmark" />
 							) : !props.checked && props.checked !== null ? (
 								<i className="icon icon-cross" />
