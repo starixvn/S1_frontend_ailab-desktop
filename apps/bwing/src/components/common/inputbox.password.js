@@ -4,14 +4,15 @@ import PropTypes from "prop-types";
 const InputBox = props => {
 	const checkfailed = !props.checked && props.checked !== null;
 	let checkIcon = null;
-	if (props.checked === null) {
-		checkIcon = (
-			<i
-				className="icon icon-information-solid"
-				onClick={props.clickInfo}
-			/>
-		);
-	} else if (props.checked) {
+	// if (props.checked === null) {
+	// 	checkIcon = (
+	// 		<i
+	// 			className="icon icon-information-solid"
+	// 			onClick={props.clickInfo}
+	// 		/>
+	// 	);
+	// }
+	if (props.checked) {
 		checkIcon = <i className="icon icon-checkmark" />;
 	} else if (checkfailed) {
 		checkIcon = <i className="icon icon-cross" />;
@@ -65,7 +66,7 @@ InputBox.defaultProps = {
 	inputType: "text",
 	max: null,
 	onBlur: null,
-	clickInfo: null,
+	// clickInfo: null,
 	placeholder: "",
 	onChange: () => null,
 	onFocus: () => null,
@@ -74,7 +75,7 @@ InputBox.defaultProps = {
 };
 
 InputBox.propTypes = {
-	clickInfo: PropTypes.func,
+	// clickInfo: PropTypes.func,
 	tip: PropTypes.string,
 	max: PropTypes.number,
 	value: PropTypes.string,
