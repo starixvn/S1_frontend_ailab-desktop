@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import QRCode from "qrcode.react";
 import PropTypes from "prop-types";
 import { userInfoContext } from "./context";
 import config from "../../config";
@@ -13,7 +14,8 @@ const BankQR = ({
 	transId,
 	code,
 	bankLogo,
-	title
+	title,
+	generateQr
 }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -76,7 +78,16 @@ const BankQR = ({
 			</div>
 			<div className="guide">
 				<div className="qrCode">
-					<img src={`${config.cloudImgUrl}${qrCodeUrl}`} alt="" />
+					{generateQr ? (
+						<QRCode
+							value={qrCodeUrl}
+							renderAs="svg"
+							size={135}
+							includeMargin={true}
+						/>
+					) : (
+						<img src={`${config.cloudImgUrl}${qrCodeUrl}`} alt="" />
+					)}
 				</div>
 				<div className="code">
 					{code}
@@ -101,7 +112,8 @@ const BankQR = ({
 export default BankQR;
 
 BankQR.defaultProps = {
-	onClose: () => null
+	onClose: () => null,
+	generateQr: null
 };
 
 BankQR.propTypes = {
@@ -111,5 +123,6 @@ BankQR.propTypes = {
 	transId: PropTypes.string.isRequired,
 	code: PropTypes.string.isRequired,
 	bankLogo: PropTypes.string.isRequired,
-	title: PropTypes.string.isRequired
+	title: PropTypes.string.isRequired,
+	generateQr: PropTypes.bool
 };
