@@ -157,8 +157,6 @@ export default () => {
 
 		if (col === "username") {
 			val = val.replace(/[\W_]/g, "");
-		} else if (col === "realName") {
-			val = val.replace(/[^a-zA-Z\s]/g, "");
 		} else if (col === "phone") {
 			val = val.replace(/[^0-9]+/g, "");
 		}

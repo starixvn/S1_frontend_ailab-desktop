@@ -51,10 +51,7 @@ const PopBox = ({
 	const editField = (col, e) => {
 		let val = e.target.value;
 
-		val =
-			col === "realName"
-				? val.replace(/[\W_]/g, "")
-				: val.replace(/[^0-9,.]+/g, "");
+		val = val.replace(/[^0-9,.]+/g, "");
 		setUserValue(prev => ({ ...prev, [col]: val }));
 	};
 
