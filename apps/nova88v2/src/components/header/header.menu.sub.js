@@ -6,7 +6,11 @@ import {
 	defSubListClassName,
 	defMenuType
 } from "./header.menu.def";
-import { popBoxContext, userInfoContext } from "../common/context";
+import {
+	popBoxContext,
+	productTpGameTypeSettingListContext,
+	userInfoContext
+} from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE, Open9WSports } from "../../service/enterPage";
 import SubMenuMultiple from "./header.menu.sub.Multiple";
@@ -18,6 +22,9 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const { tpGameTypeSettingList } = useContext(
+		productTpGameTypeSettingListContext
+	);
 	const { sortGameMenu } = useGameMenu({ productTpIds });
 
 	const isMountedRef = useRef(null);
@@ -106,7 +113,6 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 		]
 			.filter(Boolean)
 			.join(" ");
-
 		if (defMenuLinks[menuKey]?.subMenu) {
 			const {
 				filterByAuth,
@@ -121,7 +127,18 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 				filterByAuth,
 				checkBeforeLogin
 			});
-
+			if (tpGameTypeSettingList && tpGameTypeSettingList.length > 0) {
+				subMenu?.forEach(subItem => {
+					tpGameTypeSettingList.forEach(settingItem => {
+						if (
+							settingItem.gameType === subItem.tpGameType &&
+							settingItem.tpId === subItem.tpId
+						) {
+							Object.assign(subItem, settingItem);
+						}
+					});
+				});
+			}
 			return (
 				<div className={subClassName} key={`main-key-${menuKey}`}>
 					{subMenu?.map(subMenuItem => (

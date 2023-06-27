@@ -41,6 +41,7 @@
 	"lbl_LiveCasinoInfo1": "เพลิดเพลินไปกับคาสิโนสดที่หรูหรา",
 	"lbl_LiveCasinoInfo2": "กับนวัตกรรมของเกมคาสิโน",
 	"lbl_LiveCasinoInfo3": "ตัวแทนถ่ายทอดสดในเอเชียและยุโรป!",
+	"lbl_InaccessibleWithoutPermission": "ไม่สามารถเข้าถึงได้โดยไม่ได้รับอนุญาต",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Odds",

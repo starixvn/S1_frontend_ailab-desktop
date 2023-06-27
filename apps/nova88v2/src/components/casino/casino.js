@@ -9,7 +9,8 @@ import {
 	popBoxContext,
 	userInfoContext,
 	maintainListContext,
-	loadingContext
+	loadingContext,
+	productTpGameTypeSettingListContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { defRowsPerPage, defSearchColumn } from "./casino.def";
@@ -20,7 +21,11 @@ import { api_game_GetSlotGamePage } from "../../service/api/game";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defSpecialSetting, useGotoGame } from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
-import { defSlotTpGameType, defTpGameType } from "../../datas/productList";
+import {
+	defCategory,
+	defSlotTpGameType,
+	defTpGameType
+} from "../../datas/productList";
 import { getUrlParameter } from "../common/common";
 
 export default () => {
@@ -46,6 +51,9 @@ export default () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 	const { allMaintainList } = useContext(maintainListContext);
+	const { tpGameTypeSettingList } = useContext(
+		productTpGameTypeSettingListContext
+	);
 	const [isProcessing, setIsProcessing] = useState(false);
 	const { loading, setLoading } = useContext(loadingContext);
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
@@ -102,6 +110,29 @@ export default () => {
 				setCategoryList([]);
 				setActiveCategory(null);
 			}
+		} else if (
+			Object.keys(activeProvider).length === 0 &&
+			tpGameTypeSettingList &&
+			tpGameTypeSettingList.length > 0
+		) {
+			const uniqueTpIds = Array.from(
+				new Set(
+					tpGameTypeSettingList.map(item => {
+						if (item.categoryId === defCategory.Slots) {
+							return item.tpId;
+						}
+					})
+				)
+			);
+			const unLimitTpGameTypeList = allCategoryList.filter(
+				categoryObj => {
+					const found = Object.values(categoryObj)[0].find(
+						({ tpId }) => !uniqueTpIds.includes(tpId)
+					);
+					return found !== undefined;
+				}
+			);
+			setCategoryList(unLimitTpGameTypeList);
 		} else {
 			setCategoryList(allCategoryList);
 		}
@@ -173,6 +204,26 @@ export default () => {
 			pageInfo.currentPage > _totalPages
 				? _totalPages
 				: pageInfo.currentPage;
+
+		if (
+			tpGameTypeSettingList &&
+			tpGameTypeSettingList.length > 0 &&
+			_displayGames &&
+			_displayGames.length > 0
+		) {
+			const uniqueTpIds = Array.from(
+				new Set(
+					tpGameTypeSettingList.map(item => {
+						if (item.categoryId === defCategory.Slots) {
+							return item.tpId;
+						}
+					})
+				)
+			);
+			_displayGames = _displayGames.filter(
+				({ tpId }) => !uniqueTpIds.includes(tpId)
+			);
+		}
 		setDisplayGames(_displayGames);
 		setPageInfo(prevS => ({
 			...prevS,
@@ -226,8 +277,7 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}
-										>
+											onClick={clickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -247,8 +297,7 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}
-									>
+										onClick={clickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -420,8 +469,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}
-								>
+									onClick={clickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -440,8 +488,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}
-								>
+									onClick={clickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -543,7 +590,36 @@ export default () => {
 		}
 	};
 	const handleProviderChange = provider => {
-		if (!isProcessing) {
+		let noSelect = false;
+		if (tpGameTypeSettingList && tpGameTypeSettingList.length > 0) {
+			tpGameTypeSettingList.forEach(settingItem => {
+				if (settingItem.tpId === provider.tpId && settingItem.noPlay) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.Success,
+						icon: "icon icon-bell",
+						description: (
+							<div style={{ color: "red" }}>
+								{t("lbl_InaccessibleWithoutPermission")}
+							</div>
+						),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={() => {
+										setPopBox({ isOpen: false });
+									}}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+					noSelect = true;
+				}
+			});
+		}
+		if (!isProcessing && !noSelect) {
 			setActiveProvider(provider);
 		}
 	};
@@ -573,6 +649,7 @@ export default () => {
 								onChange={handleCategoryChange}
 								t={t}
 								isProcessing={isProcessing}
+								memberType={userInfo.memberType}
 							/>
 							<SearchBox
 								t={t}

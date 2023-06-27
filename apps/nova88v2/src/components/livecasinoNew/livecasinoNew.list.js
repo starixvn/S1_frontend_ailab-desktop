@@ -3,10 +3,26 @@ import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../config";
 import { defTpGameType } from "../../datas/productList";
 
-export default ({ listData, maintainList, clickItem, t }) => {
+export default ({
+	listData,
+	maintainList,
+	tpGameTypeSettingList,
+	clickItem,
+	t
+}) => {
 	return listData.map(subMenuItem => {
 		if (!subMenuItem.lobbyPage) return null;
-
+		if (tpGameTypeSettingList && tpGameTypeSettingList.length > 0) {
+			tpGameTypeSettingList.forEach(settingItem => {
+				if (
+					settingItem.gameType === subMenuItem.tpGameType &&
+					settingItem.tpId === subMenuItem.tpId
+				) {
+					Object.assign(subMenuItem, settingItem);
+				}
+			});
+		}
+		if (subMenuItem?.noShow) return null;
 		return (
 			<LiveCasinoListItem
 				key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
@@ -29,7 +45,8 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		needLogin,
 		menuType,
 		lobbyPage: { npcImg },
-		tpGameType
+		tpGameType,
+		noPlay
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
@@ -58,10 +75,10 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 					path,
 					needLogin,
 					menuType,
-					tpGameType
+					tpGameType,
+					noPlay
 				})
-			}
-		>
+			}>
 			{subMenuItem?.eventIcons?.length > 0 && (
 				<div className={subMenuItem.eventIcons[0]} />
 			)}

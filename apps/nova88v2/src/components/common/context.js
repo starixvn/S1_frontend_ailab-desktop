@@ -10,7 +10,7 @@ export const isRootContext = createContext({});
 export const maintainListContext = createContext([]);
 export const productTpIdsContext = createContext();
 export const popUpMsgContext = createContext();
-
+export const productTpGameTypeSettingListContext = createContext();
 // promotion
 export const promoPopBox = createContext({});
 

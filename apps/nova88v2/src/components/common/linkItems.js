@@ -6,7 +6,11 @@ import {
 	OPEN_IN_BLANK
 } from "../../service/enterPage";
 import defPopBoxType from "./defPopBoxType";
-import { popBoxContext, maintainListContext } from "./context";
+import {
+	popBoxContext,
+	maintainListContext,
+	productTpGameTypeSettingListContext
+} from "./context";
 import path from "../../router";
 import { defEventIcon } from "./eventIcon";
 import { defTpGameType } from "../../datas/productList";
@@ -34,6 +38,9 @@ export default ({
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { allMaintainList } = useContext(maintainListContext);
+	const { tpGameTypeSettingList } = useContext(
+		productTpGameTypeSettingListContext
+	);
 
 	const showLogin = () => {
 		setPopBox({
@@ -74,7 +81,6 @@ export default ({
 	});
 
 	const showRows = isLogin ? filterMenuLinks : fullMenuLinks;
-
 	const rows = showRows.map(key => {
 		const m = defMenuLinks[key];
 		let _className = m.className ? m.className : "";
@@ -178,20 +184,58 @@ export default ({
 			}
 
 			if (isBlank && rule.windowKey && !m.openPopBox) {
+				const onClickHandler = () => {
+					if (isInMaintain) {
+						return;
+					}
+					if (
+						tpGameTypeSettingList &&
+						tpGameTypeSettingList.length > 0
+					) {
+						tpGameTypeSettingList.forEach(settingItem => {
+							if (
+								m.productInfo.tpId === settingItem.tpId &&
+								m.productInfo.tpGameType ===
+									settingItem.gameType &&
+								settingItem.noPlay
+							) {
+								setPopBox({
+									isOpen: true,
+									popBoxType: defPopBoxType.Success,
+									icon: "icon icon-bell",
+									description: (
+										<div style={{ color: "red" }}>
+											{t(
+												"lbl_InaccessibleWithoutPermission"
+											)}
+										</div>
+									),
+									btnBar: (
+										<div className="btnGroup">
+											<button
+												className="btn-check"
+												onClick={() => {
+													setPopBox({
+														isOpen: false
+													});
+												}}>
+												{t("lbl_Close")}
+											</button>
+										</div>
+									)
+								});
+							}
+						});
+						return;
+					}
+					OPEN_IN_BLANK(rule.entPageUrl, rule.windowKey);
+				};
 				return (
 					<a
 						key={key}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
-						onClick={
-							isInMaintain
-								? () => null
-								: OPEN_IN_BLANK.bind(
-										this,
-										rule.entPageUrl,
-										rule.windowKey
-								  )
-						}
+						onClick={onClickHandler}
 						onFocus={() => 0}>
 						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
@@ -244,7 +288,6 @@ export default ({
 							</div>
 						)
 					});
-
 				return (
 					<button
 						key={key}
@@ -265,7 +308,6 @@ export default ({
 				m.className !== "eventbtn"
 					? `${_className} active`
 					: _className;
-
 			return !productTpIds ||
 				productTpIds?.length === 0 ||
 				productTpIds.includes(m.productInfo?.tpId) ? (
@@ -296,7 +338,6 @@ export default ({
 				checkMatchPage && `${langId}/${_path}` === currentPage
 					? `${_className} active`
 					: _className;
-
 			return (
 				<Link
 					key={key}
@@ -308,7 +349,6 @@ export default ({
 				</Link>
 			);
 		}
-
 		return isAllowCurrencies(m) ? (
 			<button
 				key={key}
