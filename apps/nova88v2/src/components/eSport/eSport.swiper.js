@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
 import { bannerImgUrl } from "../../config";
 
-const EsportSwiper = ({ t, subMenu, clickItem }) => {
+const EsportSwiper = ({ t, subMenu, tpGameTypeSettingList, clickItem }) => {
 	const params = {
 		slidesPerView: 5,
 		spaceBetween: 5,
@@ -64,14 +64,31 @@ const EsportSwiper = ({ t, subMenu, clickItem }) => {
 		subMenu &&
 		subMenu.length > 0 && (
 			<Swiper {...params}>
-				{subMenu.map(subMenuItem => (
-					<SlideItem
-						key={`${subMenuItem.displayKey}-${subMenuItem.isInMaintain}`}
-						t={t}
-						subMenuItem={subMenuItem}
-						clickItem={clickItem}
-					/>
-				))}
+				{subMenu.map(subMenuItem => {
+					if (
+						tpGameTypeSettingList &&
+						tpGameTypeSettingList.length > 0
+					) {
+						tpGameTypeSettingList.forEach(settingItem => {
+							if (
+								settingItem.gameType ===
+									subMenuItem.tpGameType &&
+								settingItem.tpId === subMenuItem.tpId
+							) {
+								Object.assign(subMenuItem, settingItem);
+							}
+						});
+					}
+					if (subMenuItem?.noShow) return null;
+					return (
+						<SlideItem
+							key={`${subMenuItem.displayKey}-${subMenuItem.isInMaintain}`}
+							t={t}
+							subMenuItem={subMenuItem}
+							clickItem={clickItem}
+						/>
+					);
+				})}
 			</Swiper>
 		)
 	);
@@ -80,7 +97,8 @@ const EsportSwiper = ({ t, subMenu, clickItem }) => {
 EsportSwiper.propTypes = {
 	t: PropTypes.func.isRequired,
 	clickItem: PropTypes.func.isRequired,
-	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired
+	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
+	tpGameTypeSettingList: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
 export default memo(EsportSwiper);
@@ -99,7 +117,8 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 		needLogin,
 		lobbyPage: { bgImg, hoverBgImg },
 		isInMaintain,
-		betType
+		betType,
+		noPlay
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
@@ -127,7 +146,8 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 					path,
 					needLogin,
 					isInMaintain,
-					betType
+					betType,
+					noPlay
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (

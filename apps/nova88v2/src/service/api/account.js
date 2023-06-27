@@ -122,3 +122,6 @@ export const api_account_SetPopupMsgRead = () =>
 
 export const api_account_GetReferralSettingDetail = () =>
 	accountRequest.post("/GetReferralSettingDetail");
+
+export const api_account_GetCustTpGameTypeSetting = () =>
+	accountRequest.post("/GetCustTpGameTypeSetting");

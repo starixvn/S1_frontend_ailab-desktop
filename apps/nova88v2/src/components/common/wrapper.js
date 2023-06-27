@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "@reach/router";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import * as ct from "./context";
@@ -10,7 +11,8 @@ import {
 	readCookie,
 	defCurrencyList,
 	setLocalStorage,
-	langAndCurrMapping
+	langAndCurrMapping,
+	memberType
 } from "./common";
 import {
 	api_site_CheckSignIn,
@@ -19,6 +21,7 @@ import {
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import {
+	api_account_GetCustTpGameTypeSetting,
 	api_account_GetMsgCount,
 	api_account_onlineCheck
 } from "../../service/api/account";
@@ -73,6 +76,7 @@ const getDefaultCurrencyId = () => {
 
 export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const { t, i18n } = useTranslation();
+	const location = useLocation();
 	const [popBox, setPopBox] = useState({
 		isOpen: false,
 		popBoxType: null
@@ -101,6 +105,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	const [isRoot, setIsRoot] = useState(false);
 	const [productTpIds, setProductTpIds] = useState(null);
+	const [tpGameTypeSettingList, setTpGameTypeSettingList] = useState([]);
 	const [allMaintainList, setAllMaintainList] = useState([]);
 
 	const isMountedRef = useRef(null);
@@ -119,6 +124,24 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 			isMountedRef.current = false;
 		};
 	});
+
+	// * 如果帳號是直播主，只允許進入 首頁 及 slots 頁面
+	useEffect(() => {
+		if (userInfo.memberType) {
+			const LiveStreamingMemberType = 3;
+			const isHome =
+				location.pathname === `/${userInfo.langId}` ||
+				location.pathname === "/";
+
+			if (
+				userInfo.memberType === LiveStreamingMemberType &&
+				!isHome &&
+				!location.pathname.includes(path.casino.root)
+			) {
+				navigate(`/${userInfo.langId}`);
+			}
+		}
+	}, [location.pathname, userInfo.memberType]);
 
 	useEffect(() => {
 		api_site_GetTpMaintainList().then(
@@ -152,8 +175,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}
-								>
+									}}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -173,8 +195,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}
-								>
+									}}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -246,8 +267,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}
-								>
+									}}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -288,8 +308,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -309,7 +328,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 							`${userInfo.userName}-doNotRedirect`
 						);
 					} else {
-						setRedirectPath(`/${userInfo.langId}`);
+						navigate(`/${userInfo.langId}`);
 					}
 				}
 				if (isLogin !== userInfo.isLogin && isMountedRef.current) {
@@ -324,7 +343,6 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		userInfo.kickout,
 		userInfo.willLogout,
 		setUserInfo,
-		setRedirectPath,
 		setPopBox
 	]);
 
@@ -351,6 +369,37 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									isOpen: true,
 									popBoxType: defPopBoxType.ChangePsw
 								});
+
+							if (data.memberType === memberType.liveHost)
+								api_account_GetCustTpGameTypeSetting().then(
+									res => {
+										setTpGameTypeSettingList(res.data.data);
+									},
+									() => {
+										if (isMountedRef.current) {
+											setPopBox({
+												isOpen: true,
+												popBoxType:
+													defPopBoxType.ErrorMsg,
+												message:
+													t("msg_ApiServerError"),
+												btnBar: (
+													<div className="btnGroup">
+														<button
+															className="btn-check"
+															onClick={() => {
+																setPopBox({
+																	isOpen: false
+																});
+															}}>
+															{t("lbl_Close")}
+														</button>
+													</div>
+												)
+											});
+										}
+									}
+								);
 						} else if (res_custInfo.data.errorCode !== 0) {
 							setPopBox({
 								isOpen: true,
@@ -362,8 +411,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 											className="btn-check"
 											onClick={() => {
 												setPopBox({ isOpen: false });
-											}}
-										>
+											}}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -383,8 +431,40 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 											className="btn-check"
 											onClick={() => {
 												setPopBox({ isOpen: false });
-											}}
-										>
+											}}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						}
+					}
+				);
+			}
+
+			if (
+				userInfo.memberType &&
+				userInfo.memberType === memberType.liveHost
+			) {
+				api_account_GetCustTpGameTypeSetting().then(
+					res => {
+						setTpGameTypeSettingList(res.data.data);
+					},
+					() => {
+						if (isMountedRef.current) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: t("msg_ApiServerError"),
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-check"
+											onClick={() => {
+												setPopBox({
+													isOpen: false
+												});
+											}}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -410,8 +490,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -431,8 +510,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -470,7 +548,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 					: GET_LANG_ID();
 
 				if (!pathLang && currentLang !== defaultLang) {
-					setRedirectPath(`/${currentLang}`);
+					navigate(`/${currentLang}`);
 				} else if (pathLang !== "" && pathLang !== currentLang) {
 					setUserInfo(prevState => ({
 						...prevState,
@@ -532,8 +610,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -553,8 +630,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -584,32 +660,30 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		userInfo.isLogin ? 10000 : null
 	);
 
-	if (redirectPath === null) {
-		const content = correctPath ? (
-			<ct.popUpMsgContext.Provider value={{ setPopUp, popUp }}>
-				<ct.maintainListContext.Provider value={{ allMaintainList }}>
-					<ct.productTpIdsContext.Provider value={{ productTpIds }}>
+	const content = correctPath ? (
+		<ct.popUpMsgContext.Provider value={{ setPopUp, popUp }}>
+			<ct.maintainListContext.Provider value={{ allMaintainList }}>
+				<ct.productTpIdsContext.Provider value={{ productTpIds }}>
+					<ct.productTpGameTypeSettingListContext.Provider
+						value={{ tpGameTypeSettingList }}>
 						<ct.userInfoContext.Provider
-							value={{ userInfo, setUserInfo }}
-						>
+							value={{ userInfo, setUserInfo }}>
 							<ct.walletInfoContext.Provider
 								value={{
 									...walletInfo.state,
 									dispatch: walletInfo.dispatch
-								}}
-							>
+								}}>
 								<ct.msgCountContext.Provider
-									value={{ msgCount, setMsgCount }}
-								>
+									value={{ msgCount, setMsgCount }}>
 									<ct.popBoxContext.Provider
-										value={{ popBox, setPopBox }}
-									>
+										value={{ popBox, setPopBox }}>
 										<ct.loadingContext.Provider
-											value={{ loading, setLoading }}
-										>
+											value={{ loading, setLoading }}>
 											<ct.isRootContext.Provider
-												value={{ isRoot, setIsRoot }}
-											>
+												value={{
+													isRoot,
+													setIsRoot
+												}}>
 												<ThirdPartyJS />
 
 												{children}
@@ -619,17 +693,13 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 								</ct.msgCountContext.Provider>
 							</ct.walletInfoContext.Provider>
 						</ct.userInfoContext.Provider>
-					</ct.productTpIdsContext.Provider>
-				</ct.maintainListContext.Provider>
-			</ct.popUpMsgContext.Provider>
-		) : (
-			<ThirdPartyJS />
-		);
+					</ct.productTpGameTypeSettingListContext.Provider>
+				</ct.productTpIdsContext.Provider>
+			</ct.maintainListContext.Provider>
+		</ct.popUpMsgContext.Provider>
+	) : (
+		<ThirdPartyJS />
+	);
 
-		return content;
-	}
-
-	navigate(redirectPath);
-
-	return [];
+	return content;
 };

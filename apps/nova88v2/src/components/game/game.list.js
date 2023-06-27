@@ -3,25 +3,45 @@ import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../config";
 import { defTpGameType } from "../../datas/productList";
 
-const GameList = ({ t, gameSubMenu, maintainList, clickItem }) => {
+const GameList = ({
+	t,
+	gameSubMenu,
+	maintainList,
+	tpGameTypeSettingList,
+	clickItem
+}) => {
 	if (gameSubMenu.length <= 0) return null;
 
-	return gameSubMenu.map(subMenuItem => (
-		<GameListItem
-			key={subMenuItem.tpGameType}
-			t={t}
-			subMenuItem={subMenuItem}
-			maintainList={maintainList}
-			clickItem={clickItem}
-		/>
-	));
+	return gameSubMenu.map(subMenuItem => {
+		if (tpGameTypeSettingList && tpGameTypeSettingList.length > 0) {
+			tpGameTypeSettingList.forEach(settingItem => {
+				if (
+					settingItem.gameType === subMenuItem.tpGameType &&
+					settingItem.tpId === subMenuItem.tpId
+				) {
+					Object.assign(subMenuItem, settingItem);
+				}
+			});
+		}
+		if (subMenuItem?.noShow) return;
+		return (
+			<GameListItem
+				key={subMenuItem.tpGameType}
+				t={t}
+				subMenuItem={subMenuItem}
+				maintainList={maintainList}
+				clickItem={clickItem}
+			/>
+		);
+	});
 };
 
 GameList.propTypes = {
 	t: PropTypes.func.isRequired,
 	gameSubMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
 	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	clickItem: PropTypes.func.isRequired
+	clickItem: PropTypes.func.isRequired,
+	tpGameTypeSettingList: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
 export default GameList;
@@ -39,7 +59,8 @@ const GameListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		path,
 		needLogin,
 		lobbyPage: { bgImg, hoverBgImg },
-		tpGameType
+		tpGameType,
+		noPlay
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
@@ -74,7 +95,8 @@ const GameListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 					path,
 					needLogin,
 					isInMaintain,
-					tpGameType
+					tpGameType,
+					noPlay
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (

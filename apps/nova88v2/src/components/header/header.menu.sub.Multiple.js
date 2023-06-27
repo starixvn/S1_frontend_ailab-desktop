@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { defMenuLinks, defMenuType } from "./header.menu.def";
 import { bannerImgUrl } from "../../config";
 import { defTpGameType } from "../../datas/productList";
+import { popBoxContext } from "../common/context";
+import defPopBoxType from "../common/defPopBoxType";
 
 const SubMenuMultiple = ({
 	menuKey,
@@ -14,6 +16,7 @@ const SubMenuMultiple = ({
 	maintainList,
 	showLoginPopBox
 }) => {
+	const { setPopBox } = useContext(popBoxContext);
 	const displayText = subMenuItem.displayText
 		? subMenuItem.displayText
 		: t(subMenuItem.displayKey);
@@ -93,31 +96,93 @@ const SubMenuMultiple = ({
 		</>
 	);
 
+	if (subMenuItem?.noShow) return;
+
 	if (subMenuItem.needLogin && userInfo.isLogin === false) {
 		return (
 			<button
 				className={className}
 				style={style}
-				onClick={showLoginPopBox}
-			>
+				onClick={showLoginPopBox}>
 				{content}
 			</button>
 		);
 	}
 
 	if (subMenuItem.menuType === defMenuType.Link) {
+		if (subMenuItem?.noPlay) {
+			return (
+				<a
+					className={className}
+					style={style}
+					onClick={() => {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.Success,
+							icon: "icon icon-bell",
+							description: (
+								<div style={{ color: "red" }}>
+									{t("lbl_InaccessibleWithoutPermission")}
+								</div>
+							),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={() => {
+											setPopBox({ isOpen: false });
+										}}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}}>
+					{content}
+				</a>
+			);
+		}
 		return (
 			<a
 				className={className}
 				style={style}
-				href={`/${userInfo.langId}/${pathLink}${_urlParams}`}
-			>
+				href={`/${userInfo.langId}/${pathLink}${_urlParams}`}>
 				{content}
 			</a>
 		);
 	}
 
 	if (subMenuItem.menuType === defMenuType.DirectUrl) {
+		if (subMenuItem?.noPlay) {
+			return (
+				<a
+					onClick={() => {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.Success,
+							icon: "icon icon-bell",
+							description: (
+								<div style={{ color: "red" }}>
+									{t("lbl_InaccessibleWithoutPermission")}
+								</div>
+							),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={() => {
+											setPopBox({ isOpen: false });
+										}}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}}>
+					{content}
+				</a>
+			);
+		}
 		return (
 			<a href={pathLink} target="_blank" rel="noreferrer">
 				{content}
@@ -130,8 +195,7 @@ const SubMenuMultiple = ({
 			<Link
 				className={className}
 				style={style}
-				to={`/${userInfo.langId}/${pathLink}`}
-			>
+				to={`/${userInfo.langId}/${pathLink}`}>
 				<div>{displayText}</div>
 				<div>{displayText2}</div>
 				<div>{displayText3}</div>
@@ -142,21 +206,45 @@ const SubMenuMultiple = ({
 			</Link>
 		);
 	}
-
 	return (
 		<button
 			className={className}
 			style={style}
-			onClick={clickItem.bind(this, {
-				tpId: subMenuItem.tpId,
-				gameId: subMenuItem.gameId,
-				path: subMenuItem.path,
-				needLogin: subMenuItem.needLogin,
-				menuType: subMenuItem.menuType,
-				tpGameType: subMenuItem.tpGameType,
-				betType: subMenuItem?.betType
-			})}
-		>
+			onClick={
+				subMenuItem.noPlay
+					? () => {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.Success,
+								icon: "icon icon-bell",
+								description: (
+									<div style={{ color: "red" }}>
+										{t("lbl_InaccessibleWithoutPermission")}
+									</div>
+								),
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-check"
+											onClick={() => {
+												setPopBox({ isOpen: false });
+											}}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+					  }
+					: clickItem.bind(this, {
+							tpId: subMenuItem.tpId,
+							gameId: subMenuItem.gameId,
+							path: subMenuItem.path,
+							needLogin: subMenuItem.needLogin,
+							menuType: subMenuItem.menuType,
+							tpGameType: subMenuItem.tpGameType,
+							betType: subMenuItem?.betType
+					  })
+			}>
 			<img
 				className="ListBG-left"
 				alt="ListBG-left"

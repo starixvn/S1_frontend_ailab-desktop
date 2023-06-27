@@ -62,9 +62,13 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
 						</Link>
 					) : (
 						<button
-							onClick={() =>
-								onChange(_item === activeProvider ? "" : _item)
-							}
+							onClick={() => {
+								onChange(
+									_item.tpId === activeProvider.tpId
+										? {}
+										: _item
+								);
+							}}
 							className={
 								activeProvider.tpId === _item.tpId
 									? "active"
