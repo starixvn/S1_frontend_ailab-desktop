@@ -7,7 +7,8 @@ import {
 	userInfoContext,
 	popBoxContext,
 	productTpIdsContext,
-	maintainListContext
+	maintainListContext,
+	productTpGameTypeSettingListContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import LotteryBanner from "./lottery.banner";
@@ -21,6 +22,9 @@ const Lottery = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
+	const { tpGameTypeSettingList } = useContext(
+		productTpGameTypeSettingListContext
+	);
 	const [lotterySubMenu, setLotterySubMenu] = useState([]);
 	const { sortGameMenu } = useGameMenu({ productTpIds });
 
@@ -30,7 +34,8 @@ const Lottery = () => {
 		needLogin,
 		path,
 		isInMaintain,
-		tpGameType
+		tpGameType,
+		noPlay = false
 	}) => {
 		const showLoginPopBox = () => {
 			setPopBox({
@@ -42,13 +47,40 @@ const Lottery = () => {
 		if (isInMaintain) {
 			return;
 		}
-		if (!tpId && !gameId && path) {
-			return needLogin && !userInfo.isLogin
-				? showLoginPopBox()
-				: navigate(`/${userInfo.langId}/${path}`);
+
+		if (noPlay) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Success,
+				icon: "icon icon-bell",
+				description: (
+					<div style={{ color: "red" }}>
+						{t("lbl_InaccessibleWithoutPermission")}
+					</div>
+				),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-check"
+							onClick={() => {
+								setPopBox({ isOpen: false });
+							}}>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+			return;
 		}
 
-		return SET_ENTER_PAGE({
+		if (!tpId && !gameId && path) {
+			needLogin && !userInfo.isLogin
+				? showLoginPopBox()
+				: navigate(`/${userInfo.langId}/${path}`);
+			return;
+		}
+
+		SET_ENTER_PAGE({
 			isLogin: userInfo.isLogin,
 			langId: userInfo.langId,
 			tpId,
@@ -86,7 +118,6 @@ const Lottery = () => {
 		};
 
 		const menu = getSubMenu();
-
 		setLotterySubMenu(menu);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -102,6 +133,7 @@ const Lottery = () => {
 						<LotterySwiper
 							t={t}
 							lotterySubMenu={lotterySubMenu}
+							tpGameTypeSettingList={tpGameTypeSettingList}
 							clickItem={clickItem}
 						/>
 					</div>

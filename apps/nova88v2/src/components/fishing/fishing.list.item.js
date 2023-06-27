@@ -5,7 +5,6 @@ import { defTpGameType } from "../../datas/productList";
 
 const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const [isHover, setIsHover] = useState(false);
-
 	const hoverHandler = () => setIsHover(prev => !prev);
 
 	const {
@@ -16,7 +15,8 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		path,
 		needLogin,
 		lobbyPage: { bgImg, hoverBgImg },
-		tpGameType
+		tpGameType,
+		noPlay
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
@@ -48,7 +48,8 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 					gameId,
 					path,
 					needLogin,
-					tpGameType
+					tpGameType,
+					noPlay
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (

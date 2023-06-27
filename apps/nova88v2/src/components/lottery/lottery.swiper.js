@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
 import { bannerImgUrl } from "../../config";
 
-const LotterySwiper = ({ t, lotterySubMenu, clickItem }) => {
+const LotterySwiper = ({
+	t,
+	lotterySubMenu,
+	tpGameTypeSettingList,
+	clickItem
+}) => {
 	const params = {
 		slidesPerView: 5,
 		spaceBetween: 5,
@@ -21,14 +26,31 @@ const LotterySwiper = ({ t, lotterySubMenu, clickItem }) => {
 		lotterySubMenu &&
 		lotterySubMenu.length > 0 && (
 			<Swiper {...params}>
-				{lotterySubMenu.map(subMenuItem => (
-					<SlideItem
-						key={`${subMenuItem.displayKey}-${subMenuItem.isInMaintain}`}
-						t={t}
-						subMenuItem={subMenuItem}
-						clickItem={clickItem}
-					/>
-				))}
+				{lotterySubMenu.map(subMenuItem => {
+					if (
+						tpGameTypeSettingList &&
+						tpGameTypeSettingList.length > 0
+					) {
+						tpGameTypeSettingList.forEach(settingItem => {
+							if (
+								settingItem.gameType ===
+									subMenuItem.tpGameType &&
+								settingItem.tpId === subMenuItem.tpId
+							) {
+								Object.assign(subMenuItem, settingItem);
+							}
+						});
+					}
+					if (subMenuItem?.noShow) return;
+					return (
+						<SlideItem
+							key={`${subMenuItem.displayKey}-${subMenuItem.isInMaintain}`}
+							t={t}
+							subMenuItem={subMenuItem}
+							clickItem={clickItem}
+						/>
+					);
+				})}
 			</Swiper>
 		)
 	);
@@ -37,7 +59,8 @@ const LotterySwiper = ({ t, lotterySubMenu, clickItem }) => {
 LotterySwiper.propTypes = {
 	t: PropTypes.func.isRequired,
 	clickItem: PropTypes.func.isRequired,
-	lotterySubMenu: PropTypes.arrayOf(PropTypes.any).isRequired
+	lotterySubMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
+	tpGameTypeSettingList: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
 export default memo(LotterySwiper);
@@ -56,7 +79,8 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 		needLogin,
 		lobbyPage: { bgImg, hoverBgImg },
 		tpGameType,
-		isInMaintain
+		isInMaintain,
+		noPlay
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
@@ -84,7 +108,8 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 					path,
 					needLogin,
 					isInMaintain,
-					tpGameType
+					tpGameType,
+					noPlay
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (

@@ -7,7 +7,8 @@ import {
 	userInfoContext,
 	popBoxContext,
 	productTpIdsContext,
-	maintainListContext
+	maintainListContext,
+	productTpGameTypeSettingListContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import EsportBanner from "./eSport.banner";
@@ -23,10 +24,20 @@ const Esport = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
+	const { tpGameTypeSettingList } = useContext(
+		productTpGameTypeSettingListContext
+	);
 	const [eSportsSubMenu, setESportsSubMenu] = useState([]);
 	const { sortGameMenu } = useGameMenu({ productTpIds });
 
-	const clickItem = ({ tpId, gameId, needLogin, path, betType }) => {
+	const clickItem = ({
+		tpId,
+		gameId,
+		needLogin,
+		path,
+		betType,
+		noPlay = false
+	}) => {
 		const showLoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
@@ -34,13 +45,39 @@ const Esport = () => {
 			});
 		};
 
-		if (!tpId && !gameId && path) {
-			return needLogin && !userInfo.isLogin
-				? showLoginPopBox()
-				: navigate(`/${userInfo.langId}/${path}`);
+		if (noPlay) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Success,
+				icon: "icon icon-bell",
+				description: (
+					<div style={{ color: "red" }}>
+						{t("lbl_InaccessibleWithoutPermission")}
+					</div>
+				),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-check"
+							onClick={() => {
+								setPopBox({ isOpen: false });
+							}}>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+			return;
 		}
 
-		return SET_ENTER_PAGE({
+		if (!tpId && !gameId && path) {
+			needLogin && !userInfo.isLogin
+				? showLoginPopBox()
+				: navigate(`/${userInfo.langId}/${path}`);
+			return;
+		}
+
+		SET_ENTER_PAGE({
 			isLogin: userInfo.isLogin,
 			langId: userInfo.langId,
 			tpId,
@@ -90,6 +127,7 @@ const Esport = () => {
 					<ESportSwiper
 						t={t}
 						subMenu={eSportsSubMenu}
+						tpGameTypeSettingList={tpGameTypeSettingList}
 						clickItem={clickItem}
 					/>
 				</div>

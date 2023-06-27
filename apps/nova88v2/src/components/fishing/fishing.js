@@ -7,7 +7,8 @@ import {
 	userInfoContext,
 	popBoxContext,
 	productTpIdsContext,
-	maintainListContext
+	maintainListContext,
+	productTpGameTypeSettingListContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import FishingBanner from "./fishing.banner";
@@ -22,10 +23,20 @@ const Fishing = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
+	const { tpGameTypeSettingList } = useContext(
+		productTpGameTypeSettingListContext
+	);
 	const [subMenu, setSubMenu] = useState([]);
 	const { sortGameMenu } = useGameMenu({ productTpIds });
 
-	const clickItem = ({ tpId, gameId, needLogin, path, tpGameType }) => {
+	const clickItem = ({
+		tpId,
+		gameId,
+		needLogin,
+		path,
+		tpGameType,
+		noPlay = false
+	}) => {
 		const showLoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
@@ -33,13 +44,38 @@ const Fishing = () => {
 			});
 		};
 
+		if (noPlay) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Success,
+				icon: "icon icon-bell",
+				description: (
+					<div style={{ color: "red" }}>
+						{t("lbl_InaccessibleWithoutPermission")}
+					</div>
+				),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-check"
+							onClick={() => {
+								setPopBox({ isOpen: false });
+							}}>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+			return;
+		}
 		if (!tpId && !gameId && path) {
-			return needLogin && !userInfo.isLogin
+			needLogin && !userInfo.isLogin
 				? showLoginPopBox()
 				: navigate(`/${userInfo.langId}/${path}`);
+			return;
 		}
 
-		return SET_ENTER_PAGE({
+		SET_ENTER_PAGE({
 			isLogin: userInfo.isLogin,
 			langId: userInfo.langId,
 			tpId,
@@ -81,6 +117,7 @@ const Fishing = () => {
 					<FishingList
 						subMenu={subMenu}
 						maintainList={allMaintainList}
+						tpGameTypeSettingList={tpGameTypeSettingList}
 						clickItem={clickItem}
 						t={t}
 					/>
