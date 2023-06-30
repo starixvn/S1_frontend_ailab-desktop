@@ -638,19 +638,19 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/dg-icon.png`,
 				lobbyImg: "dg"
 			},
-			{
-				...productList.liveCasino_Allbet,
-				gameId: 12,
-				tpId: 12,
-				className: "liveALL",
-				icon: "icon icon-AB",
-				listNpcImgUrl: "ab.png",
-				displayText: "Allbet",
-				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/allbet.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/allbet-icon.png`,
-				lobbyImg: "allbet"
-			},
+			// {
+			// 	...productList.liveCasino_Allbet,
+			// 	gameId: 12,
+			// 	tpId: 12,
+			// 	className: "liveALL",
+			// 	icon: "icon icon-AB",
+			// 	listNpcImgUrl: "ab.png",
+			// 	displayText: "Allbet",
+			// 	menuType: defMenuType.entPage,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/allbet.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/allbet-icon.png`,
+			// 	lobbyImg: "allbet"
+			// },
 			{
 				...productList.liveCasino_AG,
 				gameId: 3,
