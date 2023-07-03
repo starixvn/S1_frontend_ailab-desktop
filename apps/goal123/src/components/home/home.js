@@ -44,6 +44,7 @@ import Fireworks from "../specialEffects/fireworks";
 import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
 import { angPaoEventPeriod } from "../../pages/angpao";
 import { defMenuLinks } from "../layout/header.menu.def";
+import RecentlyViewedGameList from "./components/recentlyViewedGameList";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -312,7 +313,7 @@ const Home = ({ productTpIds }) => {
 					navigate={navigate}
 					allMaintainList={allMaintainList}
 				/>
-
+				{userInfo.isLogin && <RecentlyViewedGameList />}
 				<div className="indexInfo">
 					<InfoCenter t={t} langId={userInfo.langId} />
 

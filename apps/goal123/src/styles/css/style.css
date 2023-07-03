@@ -303,8 +303,6 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper .icon:before {
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList a, html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList button,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .gameList a,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .gameList button,
-html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .esportList a,
-html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .esportList button,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .casinoList a,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .casinoList button,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .livecasinoList a,
@@ -318,8 +316,6 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList 
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList a .item-icon, html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList button .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .gameList a .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .gameList button .item-icon,
-html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .esportList a .item-icon,
-html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .esportList button .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .casinoList a .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .casinoList button .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .livecasinoList a .item-icon,
@@ -334,7 +330,6 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList 
 }
 html.Newtheme header .header > div.menu .sportList,
 html.Newtheme header .header > div.menu .gameList,
-html.Newtheme header .header > div.menu .esportList,
 html.Newtheme header .header > div.menu .casinoList,
 html.Newtheme header .header > div.menu .livecasinoList,
 html.Newtheme header .header > div.menu .fishList,
@@ -345,7 +340,6 @@ html.Newtheme header .header > div.menu .lotteryList {
 }
 html.Newtheme header .header > div.menu .sportList.active,
 html.Newtheme header .header > div.menu .gameList.active,
-html.Newtheme header .header > div.menu .esportList.active,
 html.Newtheme header .header > div.menu .casinoList.active,
 html.Newtheme header .header > div.menu .livecasinoList.active,
 html.Newtheme header .header > div.menu .fishList.active,
@@ -361,7 +355,6 @@ html.Newtheme header .header > div.menu .lotteryList.active {
 }
 html.Newtheme header .header > div.menu .sportList.active div,
 html.Newtheme header .header > div.menu .gameList.active div,
-html.Newtheme header .header > div.menu .esportList.active div,
 html.Newtheme header .header > div.menu .casinoList.active div,
 html.Newtheme header .header > div.menu .livecasinoList.active div,
 html.Newtheme header .header > div.menu .fishList.active div,
@@ -374,8 +367,6 @@ html.Newtheme header .header > div.menu .sportList a,
 html.Newtheme header .header > div.menu .sportList button,
 html.Newtheme header .header > div.menu .gameList a,
 html.Newtheme header .header > div.menu .gameList button,
-html.Newtheme header .header > div.menu .esportList a,
-html.Newtheme header .header > div.menu .esportList button,
 html.Newtheme header .header > div.menu .casinoList a,
 html.Newtheme header .header > div.menu .casinoList button,
 html.Newtheme header .header > div.menu .livecasinoList a,
@@ -411,8 +402,6 @@ html.Newtheme header .header > div.menu .sportList a img,
 html.Newtheme header .header > div.menu .sportList button img,
 html.Newtheme header .header > div.menu .gameList a img,
 html.Newtheme header .header > div.menu .gameList button img,
-html.Newtheme header .header > div.menu .esportList a img,
-html.Newtheme header .header > div.menu .esportList button img,
 html.Newtheme header .header > div.menu .casinoList a img,
 html.Newtheme header .header > div.menu .casinoList button img,
 html.Newtheme header .header > div.menu .livecasinoList a img,
@@ -429,8 +418,6 @@ html.Newtheme header .header > div.menu .sportList a span,
 html.Newtheme header .header > div.menu .sportList button span,
 html.Newtheme header .header > div.menu .gameList a span,
 html.Newtheme header .header > div.menu .gameList button span,
-html.Newtheme header .header > div.menu .esportList a span,
-html.Newtheme header .header > div.menu .esportList button span,
 html.Newtheme header .header > div.menu .casinoList a span,
 html.Newtheme header .header > div.menu .casinoList button span,
 html.Newtheme header .header > div.menu .livecasinoList a span,
@@ -458,8 +445,6 @@ html.Newtheme header .header > div.menu .sportList a span > p,
 html.Newtheme header .header > div.menu .sportList button span > p,
 html.Newtheme header .header > div.menu .gameList a span > p,
 html.Newtheme header .header > div.menu .gameList button span > p,
-html.Newtheme header .header > div.menu .esportList a span > p,
-html.Newtheme header .header > div.menu .esportList button span > p,
 html.Newtheme header .header > div.menu .casinoList a span > p,
 html.Newtheme header .header > div.menu .casinoList button span > p,
 html.Newtheme header .header > div.menu .livecasinoList a span > p,
@@ -479,8 +464,6 @@ html.Newtheme header .header > div.menu .sportList a:hover,
 html.Newtheme header .header > div.menu .sportList button:hover,
 html.Newtheme header .header > div.menu .gameList a:hover,
 html.Newtheme header .header > div.menu .gameList button:hover,
-html.Newtheme header .header > div.menu .esportList a:hover,
-html.Newtheme header .header > div.menu .esportList button:hover,
 html.Newtheme header .header > div.menu .casinoList a:hover,
 html.Newtheme header .header > div.menu .casinoList button:hover,
 html.Newtheme header .header > div.menu .livecasinoList a:hover,
@@ -497,8 +480,6 @@ html.Newtheme header .header > div.menu .sportList a:hover span,
 html.Newtheme header .header > div.menu .sportList button:hover span,
 html.Newtheme header .header > div.menu .gameList a:hover span,
 html.Newtheme header .header > div.menu .gameList button:hover span,
-html.Newtheme header .header > div.menu .esportList a:hover span,
-html.Newtheme header .header > div.menu .esportList button:hover span,
 html.Newtheme header .header > div.menu .casinoList a:hover span,
 html.Newtheme header .header > div.menu .casinoList button:hover span,
 html.Newtheme header .header > div.menu .livecasinoList a:hover span,
@@ -516,8 +497,6 @@ html.Newtheme header .header > div.menu .sportList a:hover .item-img,
 html.Newtheme header .header > div.menu .sportList button:hover .item-img,
 html.Newtheme header .header > div.menu .gameList a:hover .item-img,
 html.Newtheme header .header > div.menu .gameList button:hover .item-img,
-html.Newtheme header .header > div.menu .esportList a:hover .item-img,
-html.Newtheme header .header > div.menu .esportList button:hover .item-img,
 html.Newtheme header .header > div.menu .casinoList a:hover .item-img,
 html.Newtheme header .header > div.menu .casinoList button:hover .item-img,
 html.Newtheme header .header > div.menu .livecasinoList a:hover .item-img,
@@ -534,8 +513,6 @@ html.Newtheme header .header > div.menu .sportList a:hover .liveitem-img,
 html.Newtheme header .header > div.menu .sportList button:hover .liveitem-img,
 html.Newtheme header .header > div.menu .gameList a:hover .liveitem-img,
 html.Newtheme header .header > div.menu .gameList button:hover .liveitem-img,
-html.Newtheme header .header > div.menu .esportList a:hover .liveitem-img,
-html.Newtheme header .header > div.menu .esportList button:hover .liveitem-img,
 html.Newtheme header .header > div.menu .casinoList a:hover .liveitem-img,
 html.Newtheme header .header > div.menu .casinoList button:hover .liveitem-img,
 html.Newtheme header .header > div.menu .livecasinoList a:hover .liveitem-img,
@@ -552,8 +529,6 @@ html.Newtheme header .header > div.menu .sportList a img,
 html.Newtheme header .header > div.menu .sportList button img,
 html.Newtheme header .header > div.menu .gameList a img,
 html.Newtheme header .header > div.menu .gameList button img,
-html.Newtheme header .header > div.menu .esportList a img,
-html.Newtheme header .header > div.menu .esportList button img,
 html.Newtheme header .header > div.menu .casinoList a img,
 html.Newtheme header .header > div.menu .casinoList button img,
 html.Newtheme header .header > div.menu .livecasinoList a img,
@@ -568,8 +543,6 @@ html.Newtheme header .header > div.menu .sportList a.active,
 html.Newtheme header .header > div.menu .sportList button.active,
 html.Newtheme header .header > div.menu .gameList a.active,
 html.Newtheme header .header > div.menu .gameList button.active,
-html.Newtheme header .header > div.menu .esportList a.active,
-html.Newtheme header .header > div.menu .esportList button.active,
 html.Newtheme header .header > div.menu .casinoList a.active,
 html.Newtheme header .header > div.menu .casinoList button.active,
 html.Newtheme header .header > div.menu .livecasinoList a.active,
@@ -594,8 +567,6 @@ html.Newtheme header .header > div.menu .sportList a.active .maintenance,
 html.Newtheme header .header > div.menu .sportList button.active .maintenance,
 html.Newtheme header .header > div.menu .gameList a.active .maintenance,
 html.Newtheme header .header > div.menu .gameList button.active .maintenance,
-html.Newtheme header .header > div.menu .esportList a.active .maintenance,
-html.Newtheme header .header > div.menu .esportList button.active .maintenance,
 html.Newtheme header .header > div.menu .casinoList a.active .maintenance,
 html.Newtheme header .header > div.menu .casinoList button.active .maintenance,
 html.Newtheme header .header > div.menu .livecasinoList a.active .maintenance,
@@ -616,8 +587,6 @@ html.Newtheme header .header > div.menu .sportList a .maintenance,
 html.Newtheme header .header > div.menu .sportList button .maintenance,
 html.Newtheme header .header > div.menu .gameList a .maintenance,
 html.Newtheme header .header > div.menu .gameList button .maintenance,
-html.Newtheme header .header > div.menu .esportList a .maintenance,
-html.Newtheme header .header > div.menu .esportList button .maintenance,
 html.Newtheme header .header > div.menu .casinoList a .maintenance,
 html.Newtheme header .header > div.menu .casinoList button .maintenance,
 html.Newtheme header .header > div.menu .livecasinoList a .maintenance,
@@ -632,9 +601,6 @@ html.Newtheme header .header > div.menu .sportList .newicon:before, html.Newthem
 html.Newtheme header .header > div.menu .gameList .newicon:before,
 html.Newtheme header .header > div.menu .gameList .liveicon:before,
 html.Newtheme header .header > div.menu .gameList .hoticon:before,
-html.Newtheme header .header > div.menu .esportList .newicon:before,
-html.Newtheme header .header > div.menu .esportList .liveicon:before,
-html.Newtheme header .header > div.menu .esportList .hoticon:before,
 html.Newtheme header .header > div.menu .casinoList .newicon:before,
 html.Newtheme header .header > div.menu .casinoList .liveicon:before,
 html.Newtheme header .header > div.menu .casinoList .hoticon:before,
@@ -659,7 +625,6 @@ html.Newtheme header .header > div.menu .lotteryList .hoticon:before {
 }
 html.Newtheme header .header > div.menu .sportList .newicon::before,
 html.Newtheme header .header > div.menu .gameList .newicon::before,
-html.Newtheme header .header > div.menu .esportList .newicon::before,
 html.Newtheme header .header > div.menu .casinoList .newicon::before,
 html.Newtheme header .header > div.menu .livecasinoList .newicon::before,
 html.Newtheme header .header > div.menu .fishList .newicon::before,
@@ -668,7 +633,6 @@ html.Newtheme header .header > div.menu .lotteryList .newicon::before {
 }
 html.Newtheme header .header > div.menu .sportList .liveicon::before,
 html.Newtheme header .header > div.menu .gameList .liveicon::before,
-html.Newtheme header .header > div.menu .esportList .liveicon::before,
 html.Newtheme header .header > div.menu .casinoList .liveicon::before,
 html.Newtheme header .header > div.menu .livecasinoList .liveicon::before,
 html.Newtheme header .header > div.menu .fishList .liveicon::before,
@@ -677,7 +641,6 @@ html.Newtheme header .header > div.menu .lotteryList .liveicon::before {
 }
 html.Newtheme header .header > div.menu .sportList .hoticon::before,
 html.Newtheme header .header > div.menu .gameList .hoticon::before,
-html.Newtheme header .header > div.menu .esportList .hoticon::before,
 html.Newtheme header .header > div.menu .casinoList .hoticon::before,
 html.Newtheme header .header > div.menu .livecasinoList .hoticon::before,
 html.Newtheme header .header > div.menu .fishList .hoticon::before,
@@ -692,7 +655,6 @@ html.Newtheme header .header > div.menu .livecasinoList button:hover .item-img {
 }
 html.Newtheme header .header > div.menu .sportList .item-bg,
 html.Newtheme header .header > div.menu .gameList .item-bg,
-html.Newtheme header .header > div.menu .esportList .item-bg,
 html.Newtheme header .header > div.menu .casinoList .item-bg,
 html.Newtheme header .header > div.menu .livecasinoList .item-bg,
 html.Newtheme header .header > div.menu .fishList .item-bg,
@@ -704,7 +666,6 @@ html.Newtheme header .header > div.menu .lotteryList .item-bg {
 }
 html.Newtheme header .header > div.menu .sportList .item-img,
 html.Newtheme header .header > div.menu .gameList .item-img,
-html.Newtheme header .header > div.menu .esportList .item-img,
 html.Newtheme header .header > div.menu .casinoList .item-img,
 html.Newtheme header .header > div.menu .livecasinoList .item-img,
 html.Newtheme header .header > div.menu .fishList .item-img,
@@ -716,7 +677,6 @@ html.Newtheme header .header > div.menu .lotteryList .item-img {
 }
 html.Newtheme header .header > div.menu .sportList .liveitem-img,
 html.Newtheme header .header > div.menu .gameList .liveitem-img,
-html.Newtheme header .header > div.menu .esportList .liveitem-img,
 html.Newtheme header .header > div.menu .casinoList .liveitem-img,
 html.Newtheme header .header > div.menu .livecasinoList .liveitem-img,
 html.Newtheme header .header > div.menu .fishList .liveitem-img,
@@ -741,8 +701,6 @@ html.Newtheme header .header > div.menu .sportList a .item-icon,
 html.Newtheme header .header > div.menu .sportList button .item-icon,
 html.Newtheme header .header > div.menu .gameList a .item-icon,
 html.Newtheme header .header > div.menu .gameList button .item-icon,
-html.Newtheme header .header > div.menu .esportList a .item-icon,
-html.Newtheme header .header > div.menu .esportList button .item-icon,
 html.Newtheme header .header > div.menu .casinoList a .item-icon,
 html.Newtheme header .header > div.menu .casinoList button .item-icon,
 html.Newtheme header .header > div.menu .livecasinoList a .item-icon,
@@ -4613,34 +4571,6 @@ html.Newtheme .indexliveCasinoList.topten .indexJackpot {
   position: relative;
   cursor: pointer;
 }
-html.Newtheme .indexliveCasinoList.topten .indexJackpot.active {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-  pointer-events: none;
-}
-html.Newtheme .indexliveCasinoList.topten .indexJackpot.active > img {
-  -webkit-filter: brightness(0.8);
-          filter: brightness(0.8);
-}
-html.Newtheme .indexliveCasinoList.topten .indexJackpot.active .under {
-  display: block;
-}
-html.Newtheme .indexliveCasinoList.topten .indexJackpot .under {
-  display: none;
-  position: absolute;
-  right: 70px;
-  top: calc(50% + 45px);
-  bottom: unset;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  z-index: 1;
-  color: #fff;
-  font-weight: normal;
-  font-size: 14px;
-  -webkit-filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
-          filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.9));
-}
 html.Newtheme .indexliveCasinoList.topten .indexJackpot > div {
   position: absolute;
   bottom: calc(50% - 70px);
@@ -5122,20 +5052,6 @@ html.Newtheme .addBank .addBankName {
   margin-bottom: 15px;
   margin-right: 10px;
   position: relative;
-}
-html.Newtheme .addBank .addBankName.pending {
-  position: relative;
-}
-html.Newtheme .addBank .addBankName.pending .mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  background: rgba(1, 0, 12, 0.7);
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  z-index: 1;
 }
 html.Newtheme .addBank .addBankName.noBank {
   display: -webkit-box;
@@ -9173,18 +9089,15 @@ html.Newtheme .lotterylobbyList > div .txt-darkBlue {
 }
 html.Newtheme .esportslobbyList {
   margin-top: 125px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 html.Newtheme .esportslobbyList > div {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(25% - 25px);
-          flex: 0 0 calc(25% - 25px);
+      -ms-flex: 0 0 calc(20% - 25px);
+          flex: 0 0 calc(20% - 25px);
   margin: 10px;
 }
 html.Newtheme .esportslobbyList > div .txt-darkBlue {
-  bottom: 3px;
+  bottom: 4px;
   left: 0;
   height: 45px;
   font-weight: bold;
@@ -13579,20 +13492,128 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   display: none;
 }
 
-.cambodia {
+.recently {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px auto 0;
+  overflow: hidden;
+  width: 1400px;
+  position: relative;
+  cursor: pointer;
+}
+.recently:hover .swiper-button-next, .recently:hover .swiper-button-prev {
+  opacity: 1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.recently .swiper-button-next, .recently .swiper-button-prev {
+  background: rgba(250, 182, 23, 0.8);
+  font-family: "icomoon";
+  width: 35px;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  top: 50%;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.recently .swiper-button-next::before, .recently .swiper-button-prev::before {
+  content: "\ea40";
+  font-size: 20px;
+}
+.recently .swiper-button-next {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.recently .swiper-slide {
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.recently .swiper-slide:hover .recently-game {
+  background: #4e6ca8;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.recently .swiper-slide:hover .recently-title {
+  color: #fff;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.recently .swiper-slide:hover .recently-game.active {
+  background: #E8EAED;
+  color: #1f3258;
+  cursor: default;
+}
+.recently-game {
+  background: #E8EAED;
+  border-radius: 7px;
+  font-weight: bold;
+  color: #1f3258;
+  padding: 10px;
+  border-bottom: 5px solid #fab617;
   position: relative;
 }
-.cambodia::before {
-  background: url(https://banner.goal123.org/desktop/img/rabbitboy.png) no-repeat center/cover;
-  content: "";
-  display: block;
+.recently-game > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.recently-game.active {
+  -webkit-filter: grayscale(1) brightness(0.85);
+          filter: grayscale(1) brightness(0.85);
+}
+.recently-game.active .under {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.recently-game .under {
+  display: none;
   position: absolute;
-  width: 70px;
-  height: 70px;
-  top: -1px;
-  left: -57px;
-  -webkit-animation: slide-in-blurred-right 2s cubic-bezier(0.23, 1, 0.32, 1) both;
-          animation: slide-in-blurred-right 2s cubic-bezier(0.23, 1, 0.32, 1) both;
+  top: calc(50% - 15px);
+  left: calc(50% - 110px);
+  z-index: 1;
+  background: #272727;
+  border-radius: 5px;
+  color: white;
+  font-weight: normal;
+  font-size: 12px;
+  width: 200px;
+  height: 50px;
+  padding: 0 10px;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.recently-image {
+  border-radius: 15px;
+  width: 90px;
+  height: 90px;
+  margin-right: 10px;
+}
+.recently-brand {
+  height: 55px;
+  display: block;
+  width: auto;
+  max-width: 200px;
+  margin-bottom: 5px;
+  -webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
 @media (max-width: 1480px) {
   .cambodia::before {
