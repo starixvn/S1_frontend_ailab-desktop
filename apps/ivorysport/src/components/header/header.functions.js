@@ -147,10 +147,10 @@ BeforeLogin.propTypes = {
 };
 
 const defCashierLinks = [
-	{
-		displayKey: "lbl_TransferFunds",
-		href: path.transferFunds.root
-	},
+	// {
+	// 	displayKey: "lbl_TransferFunds",
+	// 	href: path.transferFunds.root
+	// },
 	{
 		displayKey: "lbl_Withdrawal",
 		href: path.withdrawal.root
@@ -176,20 +176,20 @@ const AfterLogin = ({ t, userInfo, msgCount }) => {
 			href: path.bankInfo.root,
 			allowCurrencies: allowedCurrencyList.bankCard
 		},
-		{
-			displayKey: "lbl_CryptoWallet",
-			href: path.cryptoWallet.root
-		},
-		{
-			displayKey: "lbl_ReferFriends",
-			href: path.referral.root,
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.referral
-				})
-			]
-		},
+		// {
+		// 	displayKey: "lbl_CryptoWallet",
+		// 	href: path.cryptoWallet.root
+		// },
+		// {
+		// 	displayKey: "lbl_ReferFriends",
+		// 	href: path.referral.root,
+		// 	eventIcons: [
+		// 		showEventIcon({
+		// 			icon: defEventIcon.new,
+		// 			period: defEventPeriod.referral
+		// 		})
+		// 	]
+		// },
 		{
 			displayKey: "lbl_ChangePassword",
 			href: path.changePassword.root

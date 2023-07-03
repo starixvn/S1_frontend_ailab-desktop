@@ -494,28 +494,28 @@ export default () => {
 
 						const prevPage = getUrlParameter("prevPage");
 
-						if (!userInfo.phoneVerified)
-							return setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.ProfileCompelete,
-								contentMsg: t("lbl_VertifyContactConfirm"),
-								btnBar: (
-									<div className="btnGroup">
-										<button
-											className="btn-cancel"
-											onClick={closePopBox}
-										>
-											{t("lbl_Later")}
-										</button>
-										<button
-											className="blue"
-											onClick={sendOTPSMS}
-										>
-											{t("lbl_VertifyNow")}
-										</button>
-									</div>
-								)
-							});
+						// if (!userInfo.phoneVerified)
+						// 	return setPopBox({
+						// 		isOpen: true,
+						// 		popBoxType: defPopBoxType.ProfileCompelete,
+						// 		contentMsg: t("lbl_VertifyContactConfirm"),
+						// 		btnBar: (
+						// 			<div className="btnGroup">
+						// 				<button
+						// 					className="btn-cancel"
+						// 					onClick={closePopBox}
+						// 				>
+						// 					{t("lbl_Later")}
+						// 				</button>
+						// 				<button
+						// 					className="blue"
+						// 					onClick={sendOTPSMS}
+						// 				>
+						// 					{t("lbl_VertifyNow")}
+						// 				</button>
+						// 			</div>
+						// 		)
+						// 	});
 
 						if (defPrevPage[prevPage])
 							return setPopBox({
@@ -526,14 +526,12 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={closePopBox}
-										>
+											onClick={closePopBox}>
 											{t("lbl_Later")}
 										</button>
 										<Link
 											className="btn-check"
-											to={`/${userInfo.langId}/${defPrevPage[prevPage].path}`}
-										>
+											to={`/${userInfo.langId}/${defPrevPage[prevPage].path}`}>
 											{t(defPrevPage[prevPage].label)}
 										</Link>
 									</div>
@@ -548,8 +546,7 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={closePopBox}
-									>
+										onClick={closePopBox}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -571,8 +568,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={closePopBox}
-								>
+									onClick={closePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -615,8 +611,7 @@ export default () => {
 						</button>
 						<button
 							className="btn-check"
-							onClick={SetProfileOrAddr}
-						>
+							onClick={SetProfileOrAddr}>
 							{t("lbl_Confirm")}
 						</button>
 					</div>
@@ -686,8 +681,7 @@ export default () => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}
-								>
+									}}>
 									OK
 								</button>
 							</div>
@@ -723,18 +717,18 @@ export default () => {
 			</div>
 
 			<div className="profileModule">
-				<VerificationPanel
-					t={t}
-					userLevel={userInfo.userLevel}
-					langId={userInfo.langId}
-					accountName={userInfo.accountName}
-					phoneVerified={userInfo.phoneVerified}
-					emailVerified={userInfo.emailVerified}
-					currencyId={userInfo.currencyId}
-					phoneReward={userInfo.phoneReward}
-					emailReward={userInfo.emailReward}
-					isLineBinding={userInfo.isLineBinding}
-				/>
+				{/* <VerificationPanel */}
+				{/*	t={t} */}
+				{/*	userLevel={userInfo.userLevel} */}
+				{/*	langId={userInfo.langId} */}
+				{/*	accountName={userInfo.accountName} */}
+				{/*	phoneVerified={userInfo.phoneVerified} */}
+				{/*	emailVerified={userInfo.emailVerified} */}
+				{/*	currencyId={userInfo.currencyId} */}
+				{/*	phoneReward={userInfo.phoneReward} */}
+				{/*	emailReward={userInfo.emailReward} */}
+				{/*	isLineBinding={userInfo.isLineBinding} */}
+				{/* /> */}
 
 				<ProfileForm
 					t={t}
@@ -767,27 +761,26 @@ export default () => {
 								? "btn-cancel"
 								: "btn-check"
 						}
-						onClick={e => clickSubmit(e, "profile")}
-					>
+						onClick={e => clickSubmit(e, "profile")}>
 						{t("lbl_Submit")}
 					</button>
 				</div>
 			) : null}
 
-			<div className="addressModule">
-				<ProfileAddrForm
-					t={t}
-					userInfo={userInfo}
-					userValue={userValue}
-					status={status}
-					editField={editField}
-					valueCheck={valueCheck}
-					addrList={addrList}
-					disableSubmit={disableSubmit("addr")}
-					clickInfo={clickInfo}
-					clickSubmit={e => clickSubmit(e, "addr")}
-				/>
-			</div>
+			{/* <div className="addressModule"> */}
+			{/*	<ProfileAddrForm */}
+			{/*		t={t} */}
+			{/*		userInfo={userInfo} */}
+			{/*		userValue={userValue} */}
+			{/*		status={status} */}
+			{/*		editField={editField} */}
+			{/*		valueCheck={valueCheck} */}
+			{/*		addrList={addrList} */}
+			{/*		disableSubmit={disableSubmit("addr")} */}
+			{/*		clickInfo={clickInfo} */}
+			{/*		clickSubmit={e => clickSubmit(e, "addr")} */}
+			{/*	/> */}
+			{/* </div> */}
 		</div>
 	);
 };

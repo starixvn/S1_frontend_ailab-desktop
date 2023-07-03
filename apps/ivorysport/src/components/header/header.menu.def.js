@@ -351,19 +351,19 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		customSort: defSortSports,
 		subMenu: [
-			{
-				displayKey: "lbl_cryptoSports",
-				listNpcImgUrl: "cryptosportNPC.png",
-				menuType: defMenuType.entPage,
-				...productList.cryptoSports,
-				keyName: "cryptoSports",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.sports_cryptoSports
-					})
-				]
-			},
+			// {
+			// 	displayKey: "lbl_cryptoSports",
+			// 	listNpcImgUrl: "cryptosportNPC.png",
+			// 	menuType: defMenuType.entPage,
+			// 	...productList.cryptoSports,
+			// 	keyName: "cryptoSports",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.sports_cryptoSports
+			// 		})
+			// 	]
+			// },
 			{
 				path: path.sports.root,
 				displayKey: "lbl_Soccer",
@@ -418,24 +418,24 @@ export const defMenuLinks = {
 				parameter: { provider: "saba", type: "cricket" },
 				...productList.cricket,
 				keyName: "cricket"
-			},
-			{
-				path: path.sports.root,
-				displayKey: "lbl_Virtual_Sports",
-				listNpcImgUrl: "betradarsoccerNPC.png",
-				listBgImgUrl: "soccerBG.png",
-				menuType: defMenuType.Link,
-				// parameter: { ...productList.virtualSports },
-				parameter: { provider: "saba", type: "virtual-sports" },
-				...productList["virtual-sports"],
-				keyName: "virtualSports",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.sports_virtualSports
-					})
-				]
 			}
+			// {
+			// 	path: path.sports.root,
+			// 	displayKey: "lbl_Virtual_Sports",
+			// 	listNpcImgUrl: "betradarsoccerNPC.png",
+			// 	listBgImgUrl: "soccerBG.png",
+			// 	menuType: defMenuType.Link,
+			// 	// parameter: { ...productList.virtualSports },
+			// 	parameter: { provider: "saba", type: "virtual-sports" },
+			// 	...productList["virtual-sports"],
+			// 	keyName: "virtualSports",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.sports_virtualSports
+			// 		})
+			// 	]
+			// }
 		]
 	},
 	eSports: {

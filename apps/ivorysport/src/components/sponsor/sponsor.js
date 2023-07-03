@@ -58,7 +58,8 @@ const Sponsor = () => {
 								<div>
 									<h1>Joe Cole</h1>
 									<h2>
-										{t("lbl_Nova88")} {t("lbl_Ambassador")}
+										{t("lbl_IvorySport")}{" "}
+										{t("lbl_Ambassador")}
 									</h2>
 									<h3>2021-2022</h3>
 								</div>
@@ -125,7 +126,8 @@ const Sponsor = () => {
 								<div>
 									<h1>Amber Na</h1>
 									<h2>
-										{t("lbl_Nova88")} {t("lbl_Ambassador")}
+										{t("lbl_IvorySport")}{" "}
+										{t("lbl_Ambassador")}
 									</h2>
 									<h3>2021-2022</h3>
 								</div>

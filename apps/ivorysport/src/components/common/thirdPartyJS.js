@@ -9,7 +9,7 @@ function ThirdPartyJS() {
 		<>
 			<Helmet />
 			<GTM />
-			<LiveChat />
+			{/*<LiveChat />*/}
 			<Iovation />
 			<PlayTech />
 			<SEO />
@@ -79,8 +79,7 @@ const GTM = () => (
 		</script>
 		<script
 			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-B22CGGG5KJ"
-		></script>
+			src="https://www.googletagmanager.com/gtag/js?id=G-B22CGGG5KJ"></script>
 		<script async>
 			{`  window.dataLayer = window.dataLayer || [];
 				function gtag(){dataLayer.push(arguments);}

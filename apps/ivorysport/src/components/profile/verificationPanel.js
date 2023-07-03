@@ -62,97 +62,97 @@ const VerificationPanel = ({
 
 	return (
 		<div className="vipLv">
-			{vipDisplayText}
+			{/* {vipDisplayText} */}
 
-			<div className="accountSafety">
-				<div>{t("lbl_AccountSafety")}:</div>&nbsp;
-				<div>{t(safetyKey)}</div>
-			</div>
-			<div className="safetyLv">
-				<span className={accountSafety >= 1 ? "active" : ""} />
-				<span className={accountSafety >= 2 ? "active" : ""} />
-				<span className={accountSafety >= 3 ? "active" : ""} />
-			</div>
+			{/* <div className="accountSafety"> */}
+			{/*	<div>{t("lbl_AccountSafety")}:</div>&nbsp; */}
+			{/*	<div>{t(safetyKey)}</div> */}
+			{/* </div> */}
+			{/* <div className="safetyLv"> */}
+			{/*	<span className={accountSafety >= 1 ? "active" : ""} /> */}
+			{/*	<span className={accountSafety >= 2 ? "active" : ""} /> */}
+			{/*	<span className={accountSafety >= 3 ? "active" : ""} /> */}
+			{/* </div> */}
 
-			<div className="userVerification">
-				<div>{t("lbl_UserVerification")}:</div>
-				<div>
-					<div
-						className={`icon icon-person${
-							accountName ? " active" : ""
-						}`}>
-						<div className="description">
-							<div className="title">
-								{t("lbl_ProfileVerification")}
-							</div>
-							<div>{t("lbl_ProfileVerificationHint1")}</div>
-							<div>({t("lbl_ProfileVerificationHint2")})</div>
-						</div>
-					</div>
-					<div
-						className={`icon icon-email${
-							emailVerified ? " active" : ""
-						}`}>
-						<div className="description">
-							<div className="title">
-								{t("lbl_EmailVerification")}
-							</div>
-							<div>{t("lbl_EmailVerificationHint1")}</div>
-							<div>
-								{t("lbl_EmailVerificationHint2", {
-									currency: currencyName,
-									amount: number_format(
-										emailReward,
-										_isConvert
-									)
-								})}
-							</div>
-						</div>
-					</div>
-					<div
-						className={`icon icon-mobile${
-							phoneVerified ? " active" : ""
-						}`}>
-						<div className="description">
-							<div className="title">
-								{t("lbl_PhoneVerification")}
-							</div>
-							<div>{t("lbl_PhoneVerificationHint1")}</div>
-							<div>
-								{t("lbl_PhoneVerificationHint2", {
-									currency: currencyName,
-									amount: number_format(
-										phoneReward,
-										_isConvert
-									)
-								})}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			{/* <div className="userVerification"> */}
+			{/*	<div>{t("lbl_UserVerification")}:</div> */}
+			{/*	<div> */}
+			{/*		<div */}
+			{/*			className={`icon icon-person${ */}
+			{/*				accountName ? " active" : "" */}
+			{/*			}`}> */}
+			{/*			<div className="description"> */}
+			{/*				<div className="title"> */}
+			{/*					{t("lbl_ProfileVerification")} */}
+			{/*				</div> */}
+			{/*				<div>{t("lbl_ProfileVerificationHint1")}</div> */}
+			{/*				<div>({t("lbl_ProfileVerificationHint2")})</div> */}
+			{/*			</div> */}
+			{/*		</div> */}
+			{/*		<div */}
+			{/*			className={`icon icon-email${ */}
+			{/*				emailVerified ? " active" : "" */}
+			{/*			}`}> */}
+			{/*			<div className="description"> */}
+			{/*				<div className="title"> */}
+			{/*					{t("lbl_EmailVerification")} */}
+			{/*				</div> */}
+			{/*				<div>{t("lbl_EmailVerificationHint1")}</div> */}
+			{/*				<div> */}
+			{/*					{t("lbl_EmailVerificationHint2", { */}
+			{/*						currency: currencyName, */}
+			{/*						amount: number_format( */}
+			{/*							emailReward, */}
+			{/*							_isConvert */}
+			{/*						) */}
+			{/*					})} */}
+			{/*				</div> */}
+			{/*			</div> */}
+			{/*		</div> */}
+			{/*		<div */}
+			{/*			className={`icon icon-mobile${ */}
+			{/*				phoneVerified ? " active" : "" */}
+			{/*			}`}> */}
+			{/*			<div className="description"> */}
+			{/*				<div className="title"> */}
+			{/*					{t("lbl_PhoneVerification")} */}
+			{/*				</div> */}
+			{/*				<div>{t("lbl_PhoneVerificationHint1")}</div> */}
+			{/*				<div> */}
+			{/*					{t("lbl_PhoneVerificationHint2", { */}
+			{/*						currency: currencyName, */}
+			{/*						amount: number_format( */}
+			{/*							phoneReward, */}
+			{/*							_isConvert */}
+			{/*						) */}
+			{/*					})} */}
+			{/*				</div> */}
+			{/*			</div> */}
+			{/*		</div> */}
+			{/*	</div> */}
+			{/* </div> */}
 
-			{currencyId === defCurrencyList.THB && (
-				<>
-					<div className="btnGroup">
-						<button
-							className={`btn-line${
-								isLineBinding ? " active" : ""
-							}`}
-							onClick={clickLineBinding}>
-							<i className="icon icon-line-bold" />
-							{isLineBinding
-								? t("lineRegister.lbl_Connected")
-								: t("lineRegister.lbl_Connect")}
-						</button>
-					</div>
-					{!isLineBinding && (
-						<div className="txt-line">
-							{t("lineRegister.lbl_LinkLineAccount")}
-						</div>
-					)}
-				</>
-			)}
+			{/* {currencyId === defCurrencyList.THB && ( */}
+			{/*	<> */}
+			{/*		<div className="btnGroup"> */}
+			{/*			<button */}
+			{/*				className={`btn-line${ */}
+			{/*					isLineBinding ? " active" : "" */}
+			{/*				}`} */}
+			{/*				onClick={clickLineBinding}> */}
+			{/*				<i className="icon icon-line-bold" /> */}
+			{/*				{isLineBinding */}
+			{/*					? t("lineRegister.lbl_Connected") */}
+			{/*					: t("lineRegister.lbl_Connect")} */}
+			{/*			</button> */}
+			{/*		</div> */}
+			{/*		{!isLineBinding && ( */}
+			{/*			<div className="txt-line"> */}
+			{/*				{t("lineRegister.lbl_LinkLineAccount")} */}
+			{/*			</div> */}
+			{/*		)} */}
+			{/*	</> */}
+			{/* )} */}
 		</div>
 	);
 };

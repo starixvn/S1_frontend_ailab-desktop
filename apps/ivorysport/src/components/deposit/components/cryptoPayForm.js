@@ -232,12 +232,12 @@ const CryptoPayForm = ({
 				)}
 			</div>
 
-			<PromotionSelect
-				value={formInfo?.depositPromo ?? {}}
-				amount={Number(formInfo.amount)}
-				depositPromoList={depositPromoList}
-				onSelectItem={onChangePromotion}
-			/>
+			{/* <PromotionSelect */}
+			{/*	value={formInfo?.depositPromo ?? {}} */}
+			{/*	amount={Number(formInfo.amount)} */}
+			{/*	depositPromoList={depositPromoList} */}
+			{/*	onSelectItem={onChangePromotion} */}
+			{/* /> */}
 
 			<div className="btnGroup">
 				<button

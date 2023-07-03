@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link, navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
-import { cambodiaSeaGameEventPeriod, isDateRange } from "@ailab-desktop/common";
 import classNames from "classnames";
 import {
 	userInfoContext,
@@ -81,43 +80,24 @@ export default () => {
 	return (
 		<header id="header">
 			<div className="header">
-				<div
-					className={classNames("logo", {
-						cambodia: isDateRange(cambodiaSeaGameEventPeriod)
-					})}>
+				<div className={classNames("logo")}>
 					<Link to={`/${userInfo.langId}`} onClick={reload}>
-						{isDateRange(cambodiaSeaGameEventPeriod) ? (
-							<img
-								src={`${bannerImgUrl}/desktop/img/logo-cambodia2023${
-									userInfo.langId === "cs" ? "_cs" : ""
-								}.png`}
-								alt={config.siteName}
-							/>
-						) : (
-							<img
-								src={`${bannerImgUrl}/desktop/img/logo.png`}
-								alt={config.siteName}
-							/>
-						)}
-					</Link>
-					{isDateRange(cambodiaSeaGameEventPeriod) && (
 						<img
-							className="cambodia"
-							src={`${bannerImgUrl}/desktop/img/cambodia.png`}
+							src={`${bannerImgUrl}/desktop/img/logo.png`}
 							alt={config.siteName}
 						/>
-					)}
+					</Link>
 				</div>
 				<div className="function">
 					<Functions />
 					<LanguageDropDown />
-					{userInfo.isLogin ? null : (
-						<Link
-							to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-							className="forgot">
-							{t("lbl_ForgetPassword")}
-						</Link>
-					)}
+					{/* {userInfo.isLogin ? null : ( */}
+					{/*	<Link */}
+					{/*		to={`/${userInfo.langId}/${path.forgetPassword.root}`} */}
+					{/*		className="forgot"> */}
+					{/*		{t("lbl_ForgetPassword")} */}
+					{/*	</Link> */}
+					{/* )} */}
 					<LogoutButton />
 				</div>
 				<Menu

@@ -59,8 +59,7 @@ const AppDownload = () => {
 								<a
 									href={IOSDownloadUrl}
 									target="_blank"
-									rel="noreferrer"
-								>
+									rel="noreferrer">
 									{/* <button>{t("lbl_DOWNLOAD")}</button> */}
 								</a>
 							</div>
@@ -86,8 +85,7 @@ const AppDownload = () => {
 								<a
 									href={andriodDownLoadUrl}
 									download
-									rel="noreferrer"
-								>
+									rel="noreferrer">
 									<button>{t("lbl_DOWNLOAD")}</button>
 								</a>
 							</div>
@@ -103,7 +101,7 @@ const AppDownload = () => {
 						/>
 						{t("lbl_iOS_App_Trust_Authentication")}
 					</div>
-					<div>{t("lbl_Once_Nova88_App_is_installed")}</div>
+					<div>{t("lbl_Once_IvorySport_App_is_installed")}</div>
 					<div className="installWrapper">
 						<div className="installStep">
 							<div>

@@ -223,7 +223,8 @@ export const currencyIdToCurrency = {
 	13: "CNY",
 	15: "IDR",
 	61: "INR",
-	74: "BDT"
+	74: "BDT",
+	51: "VND"
 };
 
 export const defCountryList = {
@@ -234,7 +235,8 @@ export const defCountryList = {
 	15: "Indonesia",
 	61: "India",
 	72: "Cambodia",
-	74: "Bangladesh"
+	74: "Bangladesh",
+	51: "Vietnam"
 };
 
 export const currencyIdToTimeZone = {
@@ -245,7 +247,8 @@ export const currencyIdToTimeZone = {
 	74: "+06:00",
 	61: "+05:30",
 	3: "+00:00",
-	13: "+08:00"
+	13: "+08:00",
+	51: "+07:00"
 };
 
 export const langAndCurrMapping = {
@@ -262,6 +265,7 @@ export const defCurrencyToClass = {
 	4: "th",
 	13: "cs",
 	15: "id",
+	51: "vn",
 	61: "in",
 	72: "kh",
 	74: "bd"
@@ -273,6 +277,7 @@ export const defCurrencyToLangId = {
 	4: "th",
 	13: "cs",
 	15: "id",
+	51: "vn",
 	61: "hi",
 	72: "kh",
 	74: "bd"

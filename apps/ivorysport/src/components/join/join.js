@@ -59,10 +59,15 @@ export default () => {
 	const [defaultOption, setDefaultOption] = useState(
 		t("lbl_PrefferedCurrency")
 	);
-	const tandCTerms = `${bannerImgUrl}/Static/${getCombineLangId(
-		defaultLangId,
-		userInfo.currencyId
-	)}/TermsConditions.html`;
+
+	// 暫時都只有en
+	// const tandCTerms = `${bannerImgUrl}/Static/${getCombineLangId(
+	// 	defaultLangId,
+	// 	userInfo.currencyId
+	// )}/TermsConditions.html`;
+
+	const tandCTerms = `${bannerImgUrl}/Static/en/TermsConditions.html`;
+
 	const { lineLogin } = useHandleLineLogin();
 	const lineUserId = getLocalStorage("lineUser");
 	const _areaCode = areaCodeList[userValue?.areaCodeIdx]?.areaCode;
@@ -645,13 +650,8 @@ export default () => {
 	return (
 		<div className="joinpop">
 			<div className="joinloginModule">
-				<JoinPromoInfo currencyId={userInfo.currencyId} t={t} />
+				 <JoinPromoInfo currencyId={userInfo.currencyId} t={t} />
 				<div className="joinAnimation">
-					<img
-						className="animationlogo"
-						alt="animationlogo"
-						src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
-					/>
 					<img
 						className="npc1"
 						alt="npc1"

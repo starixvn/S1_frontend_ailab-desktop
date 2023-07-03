@@ -310,12 +310,12 @@ const MobileForm = ({
 					</div>
 				</>
 			) : null}
-			<PromotionSelect
-				value={formInfo?.depositPromo ?? {}}
-				amount={Number(formInfo.amount)}
-				depositPromoList={depositPromoList}
-				onSelectItem={onChangePromotion}
-			/>
+			{/* <PromotionSelect */}
+			{/*	value={formInfo?.depositPromo ?? {}} */}
+			{/*	amount={Number(formInfo.amount)} */}
+			{/*	depositPromoList={depositPromoList} */}
+			{/*	onSelectItem={onChangePromotion} */}
+			{/* /> */}
 		</>
 	);
 };

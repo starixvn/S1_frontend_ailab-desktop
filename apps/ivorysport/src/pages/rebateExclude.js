@@ -16,7 +16,7 @@ export default () => {
 					<RebateExclude />
 				</main>
 				<div className="subcopyright">
-					<span className="text">{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved.`}</span>
+					<span className="text">{`© Copyright ${new Date().getFullYear()}. IvorySport. All Rights Reserved.`}</span>
 				</div>
 			</Layout>
 		</Wrapper>
