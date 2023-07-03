@@ -28,9 +28,13 @@ Will auto navigate to <http://localhost:4202>
 Run `nx serve bwing`
 Will auto navigate to <http://localhost:4203>
 
-**Bwing**
+**Ivorysport**
 Run `nx serve ivorysport`
 Will auto navigate to <http://localhost:4204>
+
+**Leobet**
+Run `nx serve Leobet`
+Will auto navigate to <http://localhost:42015>
 
 ---
 

@@ -1,0 +1,184 @@
+/* eslint-disable react/prop-types */
+import React, { Component, createRef } from "react";
+import { defCurrencyToClass } from "./common";
+
+class Dropdown extends Component {
+	handleClickOutside = e => {
+		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
+			this.setState({ isOpen: false });
+		}
+	};
+
+	clickDropdown = e => {
+		e.preventDefault();
+		if (this.props.disabled) return;
+
+		this.setState(prev => ({ isOpen: !prev.isOpen }));
+		if (this.props.clickDropdown) {
+			this.props.clickDropdown();
+		}
+	};
+
+	selectItem = (props, e) => {
+		e.stopPropagation();
+		const { idx, item } = props;
+		this.setState({ isOpen: false });
+		this.props.onSelectItem(idx, item);
+	};
+
+	constructor(props) {
+		super(props);
+
+		this.state = { isOpen: false };
+		this.wrapper = createRef(null);
+	}
+
+	UNSAFE_componentWillMount() {
+		if (typeof document !== `undefined`) {
+			document.removeEventListener("mousedown", this.handleClickOutside);
+		}
+	}
+
+	componentDidMount() {
+		if (typeof document !== `undefined`) {
+			document.addEventListener("mousedown", this.handleClickOutside);
+		}
+	}
+
+	render() {
+		const arr = this.props.options
+			.map((item, i) => (
+				<Item
+					key={`${this.props.mainKey}_${item.id}`}
+					displayKey={item.displayKey}
+					i18n={this.props.i18n}
+					currencyId={item.id}
+					onClick={this.selectItem.bind(this, { idx: i, item })}
+					displayText={item.displayText}
+					imgUrl={
+						this.props.imgUrl +
+						(item.image
+							? String(item.image).toLowerCase()
+							: item.image)
+					}
+					className={this.props.className}
+					active={this.props.selectedIdx === i}
+					year={item.year}
+					flag={this.props.flag}
+				/>
+			))
+			.filter(
+				(_, idx) =>
+					(this.props.isHideSelfItem &&
+						idx !== this.props.selectedIdx) ||
+					!this.props.isHideSelfItem
+			);
+
+		let selected = null;
+		if (
+			this.props.options?.length > 0 &&
+			this.props.options[this.props.selectedIdx]
+		) {
+			const _s = this.props.options[this.props.selectedIdx];
+			if (this.props.imgUrl) {
+				selected = (
+					<>
+						<img
+							src={
+								this.props.imgUrl +
+								(_s.image
+									? String(_s.image).toLowerCase()
+									: _s.image)
+							}
+							alt=""
+						/>
+						<div>{_s.displayText}</div>
+					</>
+				);
+			} else if (_s?.displaySelected || _s.displayText) {
+				selected = _s?.displaySelected ?? _s.displayText;
+			} else {
+				selected = `${this.props.i18n(_s.displayKey)} ${_s.year ?? ""}`;
+			}
+		} else {
+			selected = this.props.placeholder;
+		}
+
+		return (
+			<div
+				className="dropdown"
+				ref={this.wrapper}
+				onClick={this.clickDropdown}
+				data-testid={`dropdown_${this.props.mainKey}`}
+			>
+				{this.props.title ? <span>{this.props.title}</span> : null}
+				{this.props.icon ? (
+					<i className={`icon ${this.props.icon}`} />
+				) : null}
+				<button className="btn">
+					{this.props.flag &&
+						this.props.options[this.props.selectedIdx] && (
+							<div>
+								<div
+									className={`flag ${
+										defCurrencyToClass[
+											this.props.options[
+												this.props.selectedIdx
+											].id
+										]
+									}`}
+								/>
+							</div>
+						)}
+
+					{this.props.defaultOption ?? selected}
+				</button>
+				{arr.length < 1 ? null : (
+					<div
+						className={`dropdown-container${
+							this.state.isOpen ? " active" : ""
+						}`}
+						data-testid={`dropdown_container_${this.props.mainKey}`}
+					>
+						{arr}
+					</div>
+				)}
+			</div>
+		);
+	}
+}
+
+const Item = props => {
+	let content = `${props.i18n(props.displayKey)} ${props.year ?? ""}`;
+	if (props.imgUrl) {
+		content = (
+			<>
+				<div className={props.className}>
+					<img src={props.imgUrl} alt="" />
+				</div>
+				<div>{props.displayText}</div>
+			</>
+		);
+	} else if (props.displayText) {
+		content = props.displayText;
+	}
+
+	return (
+		<div
+			className="dropdown-item"
+			onClick={props.onClick}
+			data-testid={`dropdown-item-${props.displayKey}`}
+		>
+			{props.flag && props.currencyId ? (
+				<div
+					className={`flag ${defCurrencyToClass[props.currencyId]}`}
+				/>
+			) : (
+				""
+			)}
+			{content}
+		</div>
+	);
+};
+
+export default Dropdown;

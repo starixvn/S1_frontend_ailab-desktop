@@ -573,6 +573,106 @@
 			"tags": [],
 			"implicitDependencies": ["ivorysport"]
 		},
+		"leobet": {
+			"root": "apps/leobet",
+			"sourceRoot": "apps/leobet/src",
+			"projectType": "application",
+			"schematics": {},
+			"architect": {
+				"autoBuild": {
+					"builder": "@nrwl/gatsby:build",
+					"options": {
+						"outputPath": "apps/leobet/public",
+						"uglify": true,
+						"color": true,
+						"profile": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"build": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							"gulp minify --gulpfile=apps/leobet/gulpfile.js",
+							"(git rev-parse HEAD & git rev-parse --abbrev-ref HEAD & git config user.name) > apps/leobet/static/rnt.txt",
+							"nx autoBuild leobet --skip-nx-cache"
+						],
+						"parallel": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"autoServe": {
+					"builder": "@nrwl/gatsby:server",
+					"options": {
+						"buildTarget": "leobet:build",
+						"port": 4205,
+						"open": true
+					},
+					"configurations": {
+						"production": {
+							"buildTarget": "leobet:build:production"
+						}
+					}
+				},
+				"serve": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							"gulp minify --gulpfile=apps/leobet/gulpfile.js",
+							"nx autoServe leobet"
+						],
+						"parallel": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {}
+				},
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"options": {
+						"jestConfig": "apps/leobet/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			},
+			"tags": []
+		},
+		"leo-e2e": {
+			"root": "apps/leobet-e2e",
+			"sourceRoot": "apps/leobet-e2e/src",
+			"projectType": "application",
+			"architect": {
+				"e2e": {
+					"builder": "@nrwl/cypress:cypress",
+					"options": {
+						"cypressConfig": "apps/leobet-e2e/cypress.json",
+						"tsConfig": "apps/leobet-e2e/tsconfig.e2e.json",
+						"devServerTarget": "leobet:serve"
+					},
+					"configurations": {
+						"production": {
+							"devServerTarget": "leobet:serve:production"
+						}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["apps/leobet-e2e/**/*.{js,ts}"]
+					}
+				}
+			},
+			"tags": [],
+			"implicitDependencies": ["leobet"]
+		},
 		"wrapper": {
 			"root": "libs/wrapper",
 			"sourceRoot": "libs/wrapper/src",
