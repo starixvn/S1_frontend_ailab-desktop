@@ -18,13 +18,13 @@ pipeline {
                         stage('Install dependencies') {
 
                             steps {
+                                sh 'pwd'
                                 sh 'npm i -g node-sass'
                                 sh 'npm i --force'
                             }
                         }
                         stage('Build') {
                             steps {
-                                sh 'pwd'
                                 sh 'npx gulp minify --gulpfile=apps/${project_name}/gulpfile.js'
                                 sh '(git rev-parse --short=7 HEAD & git rev-parse --abbrev-ref HEAD) > apps/${project_name}/static/rnt.txt'
                                 sh 'npx nx clear-cache'
