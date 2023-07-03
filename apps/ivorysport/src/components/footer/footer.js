@@ -79,7 +79,8 @@ export const CopyrightSection = ({ t, langId, currencyId }) => {
 					currencyId
 				)}/AboutUs.html`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_AboutUs")}
 			</a>
 			<a
@@ -88,7 +89,8 @@ export const CopyrightSection = ({ t, langId, currencyId }) => {
 					currencyId
 				)}/ContactUs.html`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_ContactUs")}
 			</a>
 			<a
@@ -97,10 +99,11 @@ export const CopyrightSection = ({ t, langId, currencyId }) => {
 					currencyId
 				)}/Terms.html`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_TermsConditions")}
 			</a>
-			<span>{`© Copyright ${new Date().getFullYear()}. ivorysport. All Rights Reserved. 18+`}</span>
+			<span>{`© Copyright ${new Date().getFullYear()}. ivorysport. All Rights Reserved. 21+`}</span>
 		</div>
 	);
 };
