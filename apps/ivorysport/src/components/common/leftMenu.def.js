@@ -10,10 +10,10 @@ export const defLeftMenu = {
 				path: path.deposit.root,
 				displayKey: "lbl_Deposit"
 			},
-			transferFunds: {
-				path: path.transferFunds.root,
-				displayKey: "lbl_TransferFunds"
-			},
+			// transferFunds: {
+			// 	path: path.transferFunds.root,
+			// 	displayKey: "lbl_TransferFunds"
+			// },
 			withdrawal: {
 				path: path.withdrawal.root,
 				displayKey: "lbl_Withdrawal"
@@ -42,24 +42,23 @@ export const defLeftMenu = {
 					defCurrencyList.MYR,
 					defCurrencyList.THB,
 					defCurrencyList.IDR,
-					defCurrencyList.INR,
-					defCurrencyList.KHM
+					defCurrencyList.VND
 				]
 			},
-			cryptoWallet: {
-				path: path.cryptoWallet.root,
-				displayKey: "lbl_CryptoWallet"
-			},
-			referral: {
-				path: path.referral.root,
-				displayKey: "lbl_ReferFriends",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.referral
-					})
-				]
-			},
+			// cryptoWallet: {
+			// 	path: path.cryptoWallet.root,
+			// 	displayKey: "lbl_CryptoWallet"
+			// },
+			// referral: {
+			// 	path: path.referral.root,
+			// 	displayKey: "lbl_ReferFriends",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.referral
+			// 		})
+			// 	]
+			// },
 			changePassword: {
 				path: path.changePassword.root,
 				displayKey: "lbl_ChangePassword"

@@ -26,7 +26,7 @@ const ProfileAddrForm = ({
 				<span>
 					{t("lbl_Shipping_Address")}({t("lbl_Option2")})
 				</span>
-				<div>{t("lbl_Shipping_Hint")}</div>
+				{/* <div>{t("lbl_Shipping_Hint")}</div> */}
 			</div>
 			<div className="sub-title">{t("lbl_Address")}</div>
 			<div className="address-list">
@@ -72,8 +72,7 @@ const ProfileAddrForm = ({
 				<div className="btnGroup">
 					<button
 						className={disableSubmit ? "btn-cancel" : "btn-check"}
-						onClick={clickSubmit}
-					>
+						onClick={clickSubmit}>
 						{t("lbl_Submit")}
 					</button>
 				</div>

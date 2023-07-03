@@ -147,8 +147,7 @@ const CardPanel = ({
 					<div className="btnGroup">
 						<Link
 							className="btn-check"
-							to={`/${userInfo.langId}/${path.profile.root}`}
-						>
+							to={`/${userInfo.langId}/${path.profile.root}`}>
 							{t("lbl_UpdatePersonalDetail")}
 						</Link>
 					</div>
@@ -297,28 +296,28 @@ const CardPanel = ({
 					isIfscRequired={isIfscRequired}
 				/>
 			)}
-			{allowedCurrencyList.eWallet.includes(userInfo.currencyId) &&
-				state.eWalletStatus && (
-					<ECard
-						t={t}
-						state={state}
-						defPanel={defPanel}
-						custEWalletInfo={custEWalletInfo}
-						addEAccount={addEAccount}
-						selectAccount={selectAccount}
-						delAccount={delEWallet}
-					/>
-				)}
-			<CryptoCard
-				userInfo={userInfo}
-				t={t}
-				state={state}
-				custBankInfo={custBankInfo}
-				selectAccount={selectAccount}
-				addCryptoWallet={addCryptoWallet}
-				GetCustBankInfo={GetCustBankInfo}
-				defPanel={defPanel}
-			/>
+			{/* {allowedCurrencyList.eWallet.includes(userInfo.currencyId) && */}
+			{/*	state.eWalletStatus && ( */}
+			{/*		<ECard */}
+			{/*			t={t} */}
+			{/*			state={state} */}
+			{/*			defPanel={defPanel} */}
+			{/*			custEWalletInfo={custEWalletInfo} */}
+			{/*			addEAccount={addEAccount} */}
+			{/*			selectAccount={selectAccount} */}
+			{/*			delAccount={delEWallet} */}
+			{/*		/> */}
+			{/*	)} */}
+			{/* <CryptoCard */}
+			{/*	userInfo={userInfo} */}
+			{/*	t={t} */}
+			{/*	state={state} */}
+			{/*	custBankInfo={custBankInfo} */}
+			{/*	selectAccount={selectAccount} */}
+			{/*	addCryptoWallet={addCryptoWallet} */}
+			{/*	GetCustBankInfo={GetCustBankInfo} */}
+			{/*	defPanel={defPanel} */}
+			{/* /> */}
 		</>
 	);
 };

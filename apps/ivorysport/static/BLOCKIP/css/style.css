@@ -365,26 +365,20 @@ body::before {
   }
 }
 .flag.en::before {
-  background: url(../img/en.jpg) no-repeat top left/cover;
+  background: url(https://banner.0814media.net/desktop/img/flag/en.jpg) no-repeat top left/cover;
 }
 .flag.cs::before {
-  background: url(../img/cs.jpg) no-repeat top left/cover;
+  background: url(https://banner.0814media.net/desktop/img/flag/cs.jpg) no-repeat top left/cover;
 }
 .flag.my::before {
-  background: url(../img/ch.jpg) no-repeat top left/cover;
+  background: url(https://banner.0814media.net/desktop/img/flag/ch.jpg) no-repeat top left/cover;
 }
 .flag.th::before {
-  background: url(../img/th.jpg) no-repeat top left/cover;
+  background: url(https://banner.0814media.net/desktop/img/flag/th.jpg) no-repeat top left/cover;
 }
 .flag.id::before {
-  background: url(../img/id.jpg) no-repeat top left/cover;
+  background: url(https://banner.0814media.net/desktop/img/flag/id.jpg) no-repeat top left/cover;
 }
-.flag.hi::before {
-  background: url(../img/in.jpg) no-repeat top left/cover;
-}
-.flag.bd::before {
-  background: url(../img/bd.jpg) no-repeat top left/cover;
-}
-.flag.kh::before {
-  background: url(../img/kh.jpg) no-repeat top left/cover;
+.flag.vn::before {
+  background: url(https://banner.0814media.net/desktop/img/flag/vn.jpg) no-repeat top left/cover;
 }/*# sourceMappingURL=style.css.map */

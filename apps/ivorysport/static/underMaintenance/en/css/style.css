@@ -29,6 +29,11 @@ body{
   margin: 20px 0 10px;
   text-transform:uppercase;
 }
+.title span {
+  font-size: 36px;
+  display: block;
+  text-transform: none;
+}
 .stitle{
   font-size: 25px;
   color: #f77a00;
@@ -72,6 +77,9 @@ body{
   .title{
     font-size: 7.8vw;
     margin: 0 0 3vw;
+  }
+  .title span {
+    font-size: 6vw;
   }
   .stitle{
     font-size: 5.5vw;

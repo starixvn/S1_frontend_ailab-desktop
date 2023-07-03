@@ -43,29 +43,29 @@ const JoinForm = ({
 				{t("lbl_LoginHere")}
 			</button>
 		</div>
-		{(langId === "th" ||
-			langId === "th_en" ||
-			currencyId === defCurrencyList.THB) &&
-			!lineUserId && (
-				<>
-					<div className="register-line">
-						{t("lineRegister.lbl_RegisterWithLine")} ID
-						<div className="btnGroup">
-							<button
-								className="btn-line"
-								onClick={e => {
-									handleLineRegister(e);
-								}}>
-								<i className="icon icon-line-bold" />
-								{t("lineRegister.lbl_RegisterWithLine")}
-							</button>
-						</div>
-					</div>
-					<div>
-						<span>OR</span>
-					</div>
-				</>
-			)}
+		{/* {(langId === "th" || */}
+		{/*	langId === "th_en" || */}
+		{/*	currencyId === defCurrencyList.THB) && */}
+		{/*	!lineUserId && ( */}
+		{/*		<> */}
+		{/*			<div className="register-line"> */}
+		{/*				{t("lineRegister.lbl_RegisterWithLine")} ID */}
+		{/*				<div className="btnGroup"> */}
+		{/*					<button */}
+		{/*						className="btn-line" */}
+		{/*						onClick={e => { */}
+		{/*							handleLineRegister(e); */}
+		{/*						}}> */}
+		{/*						<i className="icon icon-line-bold" /> */}
+		{/*						{t("lineRegister.lbl_RegisterWithLine")} */}
+		{/*					</button> */}
+		{/*				</div> */}
+		{/*			</div> */}
+		{/*			<div> */}
+		{/*				<span>OR</span> */}
+		{/*			</div> */}
+		{/*		</> */}
+		{/*	)} */}
 		<div className="inputModule">
 			<Inputbox
 				className="inputBox-blue"
@@ -182,29 +182,29 @@ const JoinForm = ({
 					<div className="tip active">{t("lbl_CantChangePhone")}</div>
 				))}
 
-			<Inputbox
-				className={`inputBox-blue${
-					tip.specialBonusCode.msg !== "" ? " error" : ""
-				}`}
-				icon="icon-promotion txt-blue"
-				placeholder={t("lbl_PromoCode")}
-				value={userValue.specialBonusCode}
-				onChange={EditField.bind(null, "specialBonusCode")}
-				onBlur={checkValue.bind(null, "specialBonusCode")}
-				tip={tip.specialBonusCode.msg}
-				checked={tip.specialBonusCode.checked}
-			/>
-			<Inputbox
-				className="inputBox-blue"
-				icon="icon-affiliate txt-blue"
-				placeholder={t("lbl_Affiliate_ID")}
-				value={hasRefOrAffCode ?? userValue.affCode}
-				onChange={EditField.bind(null, "affCode")}
-				readOnly={hasRefOrAffCode}
-				checked={tip.affCode.checked}
-				tip={tip.affCode.msg}
-				clickInfo={clickInfo.bind(this, "affCode")}
-			/>
+			{/* <Inputbox */}
+			{/*	className={`inputBox-blue${ */}
+			{/*		tip.specialBonusCode.msg !== "" ? " error" : "" */}
+			{/*	}`} */}
+			{/*	icon="icon-promotion txt-blue" */}
+			{/*	placeholder={t("lbl_PromoCode")} */}
+			{/*	value={userValue.specialBonusCode} */}
+			{/*	onChange={EditField.bind(null, "specialBonusCode")} */}
+			{/*	onBlur={checkValue.bind(null, "specialBonusCode")} */}
+			{/*	tip={tip.specialBonusCode.msg} */}
+			{/*	checked={tip.specialBonusCode.checked} */}
+			{/* /> */}
+			{/* <Inputbox */}
+			{/*	className="inputBox-blue" */}
+			{/*	icon="icon-affiliate txt-blue" */}
+			{/*	placeholder={t("lbl_Affiliate_ID")} */}
+			{/*	value={hasRefOrAffCode ?? userValue.affCode} */}
+			{/*	onChange={EditField.bind(null, "affCode")} */}
+			{/*	readOnly={hasRefOrAffCode} */}
+			{/*	checked={tip.affCode.checked} */}
+			{/*	tip={tip.affCode.msg} */}
+			{/*	clickInfo={clickInfo.bind(this, "affCode")} */}
+			{/* /> */}
 		</div>
 
 		{Object.keys(recaptchaInfo).length > 0 &&

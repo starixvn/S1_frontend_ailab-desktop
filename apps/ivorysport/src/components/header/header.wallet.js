@@ -199,11 +199,11 @@ class Dropdown extends Component {
 							className="orange">
 							{this.props.i18n("lbl_Deposit")}
 						</Link>
-						<Link
-							to={`/${this.props.langId}/${path.transferFunds.root}`}
-							className="orange">
-							{this.props.i18n("lbl_TransferFunds")}
-						</Link>
+						{/* <Link */}
+						{/*	to={`/${this.props.langId}/${path.transferFunds.root}`} */}
+						{/*	className="orange"> */}
+						{/*	{this.props.i18n("lbl_TransferFunds")} */}
+						{/* </Link> */}
 					</div>
 					<div className="loginLog">
 						<span>{this.props.i18n("lbl_LastLogin")}</span>

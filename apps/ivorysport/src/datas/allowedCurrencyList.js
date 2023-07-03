@@ -16,22 +16,9 @@ export const changeAllowCurrenciesByTime = ({
 
 const allowedCurrencyList = {
 	VIP: [defCurrencyList.MYR, defCurrencyList.THB, defCurrencyList.IDR],
-	affiliate: [
-		defCurrencyList.MYR,
-		defCurrencyList.THB,
-		defCurrencyList.IDR,
-		defCurrencyList.CNY,
-		defCurrencyList.BDT,
-		defCurrencyList.USD,
-		defCurrencyList.INR
-	],
+	affiliate: [defCurrencyList.MYR, defCurrencyList.THB, defCurrencyList.IDR],
 	exchange: [defCurrencyList.INR, defCurrencyList.BDT],
-	worldCup: [
-		defCurrencyList.MYR,
-		defCurrencyList.THB,
-		defCurrencyList.IDR,
-		defCurrencyList.INR
-	],
+	worldCup: [defCurrencyList.MYR, defCurrencyList.THB, defCurrencyList.IDR],
 	rewards: [defCurrencyList.MYR, defCurrencyList.THB, defCurrencyList.IDR],
 
 	// ==== withdrawal method ====
@@ -39,48 +26,20 @@ const allowedCurrencyList = {
 		defCurrencyList.MYR,
 		defCurrencyList.THB,
 		defCurrencyList.IDR,
-		defCurrencyList.INR,
-		defCurrencyList.KHM
+		defCurrencyList.VND
 	],
-	eWallet: [
-		defCurrencyList.IDR,
-		defCurrencyList.BDT,
-		defCurrencyList.MYR,
-		defCurrencyList.THB
-	],
+	eWallet: [defCurrencyList.IDR, defCurrencyList.MYR, defCurrencyList.THB],
 
 	// ==== products ====
 
 	// slot
-	slotAMB: [
-		defCurrencyList.THB,
-		defCurrencyList.USD,
-		defCurrencyList.CNY,
-		defCurrencyList.KHM
-	],
-	casino_WM: [
-		defCurrencyList.MYR,
-		defCurrencyList.USD,
-		defCurrencyList.THB,
-		defCurrencyList.CNY,
-		defCurrencyList.IDR,
-		defCurrencyList.INR,
-		defCurrencyList.KHM
-	],
+	slotAMB: [defCurrencyList.THB],
+	casino_WM: [defCurrencyList.MYR, defCurrencyList.THB, defCurrencyList.IDR],
 
 	// game
 	mPoker: [defCurrencyList.THB],
 	amb: [defCurrencyList.THB],
-	vGaming: [
-		defCurrencyList.MYR,
-		defCurrencyList.IDR,
-		defCurrencyList.THB,
-		defCurrencyList.BDT,
-		defCurrencyList.CNY,
-		defCurrencyList.USD,
-		defCurrencyList.KHM,
-		defCurrencyList.INR
-	],
+	vGaming: [defCurrencyList.MYR, defCurrencyList.IDR, defCurrencyList.THB],
 
 	// fishing
 	fishingGod: [defCurrencyList.INR],

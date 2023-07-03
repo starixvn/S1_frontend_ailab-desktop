@@ -1,5 +1,5 @@
 const siteName = "Ivorysport";
-const siteId = 1;
+const siteId = 5;
 
 const getAffiliate = () => {
 	if (typeof window === `undefined`) return "";

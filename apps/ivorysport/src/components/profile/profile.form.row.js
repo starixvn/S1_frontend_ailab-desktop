@@ -105,8 +105,7 @@ const DisplayRow = ({
 					<div
 						className={`inputBox-blue${
 							status.phoneNo.checked === false ? " error" : ""
-						}`}
-					>
+						}`}>
 						<AreaCodeDropdown
 							defaultOption={_areaCode}
 							options={areaCodeList}
@@ -155,27 +154,26 @@ const DisplayRow = ({
 			phoneContent = (
 				<div>
 					{`(${areaCode})${content}`}
-					<button
-						className="icon icon-mobile btn-org"
-						onClick={sendOTPSMS}
-					>
-						{t("lbl_PhoneVerification")}
-						<div className="description">
-							<div className="title">
-								{t("lbl_PhoneVerification")}
-							</div>
-							<div>{t("lbl_PhoneVerificationHint1")}</div>
-							<div>
-								{t("lbl_PhoneVerificationHint2", {
-									currency: currencyName,
-									amount: number_format(
-										userInfo.phoneReward ?? 0,
-										_isConvert
-									)
-								})}
-							</div>
-						</div>
-					</button>
+					{/* <button */}
+					{/*	className="icon icon-mobile btn-org" */}
+					{/*	onClick={sendOTPSMS}> */}
+					{/*	{t("lbl_PhoneVerification")} */}
+					{/*	<div className="description"> */}
+					{/*		<div className="title"> */}
+					{/*			{t("lbl_PhoneVerification")} */}
+					{/*		</div> */}
+					{/*		<div>{t("lbl_PhoneVerificationHint1")}</div> */}
+					{/*		<div> */}
+					{/*			{t("lbl_PhoneVerificationHint2", { */}
+					{/*				currency: currencyName, */}
+					{/*				amount: number_format( */}
+					{/*					userInfo.phoneReward ?? 0, */}
+					{/*					_isConvert */}
+					{/*				) */}
+					{/*			})} */}
+					{/*		</div> */}
+					{/*	</div> */}
+					{/* </button> */}
 				</div>
 			);
 		}
@@ -194,31 +192,31 @@ const DisplayRow = ({
 				<div>{t(displayKey)}</div>
 				<div>
 					{content}
-					{userInfo.emailVerified ? (
-						<span className="icon icon-Shield" />
-					) : (
-						<button
-							className="icon icon-envelope btn-org"
-							onClick={sendEmailOtp}
-						>
-							{t("lbl_EmailVerification")}
-							<div className="description">
-								<div className="title">
-									{t("lbl_EmailVerification")}
-								</div>
-								<div>{t("lbl_EmailVerificationHint1")}</div>
-								<div>
-									{t("lbl_EmailVerificationHint2", {
-										currency: currencyName,
-										amount: number_format(
-											userInfo.emailReward ?? 0,
-											_isConvert
-										)
-									})}
-								</div>
-							</div>
-						</button>
-					)}
+					{/* {userInfo.emailVerified ? ( */}
+					{/*	<span className="icon icon-Shield" /> */}
+					{/* ) : ( */}
+					{/*	<button */}
+					{/*		className="icon icon-envelope btn-org" */}
+					{/*		onClick={sendEmailOtp} */}
+					{/*	> */}
+					{/*		{t("lbl_EmailVerification")} */}
+					{/*		<div className="description"> */}
+					{/*			<div className="title"> */}
+					{/*				{t("lbl_EmailVerification")} */}
+					{/*			</div> */}
+					{/*			<div>{t("lbl_EmailVerificationHint1")}</div> */}
+					{/*			<div> */}
+					{/*				{t("lbl_EmailVerificationHint2", { */}
+					{/*					currency: currencyName, */}
+					{/*					amount: number_format( */}
+					{/*						userInfo.emailReward ?? 0, */}
+					{/*						_isConvert */}
+					{/*					) */}
+					{/*				})} */}
+					{/*			</div> */}
+					{/*		</div> */}
+					{/*	</button> */}
+					{/* )} */}
 				</div>
 			</div>
 		);

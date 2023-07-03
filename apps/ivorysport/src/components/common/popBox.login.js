@@ -169,11 +169,6 @@ const LoginPanel = () => {
 			<div className="joinloginModule">
 				<div className="loginAnimation">
 					<img
-						className="animationlogo"
-						alt="animationlogo"
-						src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
-					/>
-					<img
 						className="npc1"
 						alt="npc1"
 						src={`${bannerImgUrl}/desktop/img/loginNpc01.png`}
@@ -280,11 +275,11 @@ export const LoginForm = ({
 					className="inputBox-org"
 				/>
 
-				<Link
-					to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-					className="txt-blue2">
-					{t("lbl_ForgetPassword")}
-				</Link>
+				{/* <Link */}
+				{/*	to={`/${userInfo.langId}/${path.forgetPassword.root}`} */}
+				{/*	className="txt-blue2"> */}
+				{/*	{t("lbl_ForgetPassword")} */}
+				{/* </Link> */}
 			</div>
 			<div className="btnGroup">
 				<button

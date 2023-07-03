@@ -272,7 +272,7 @@ const LocalBankForm = ({
 		formInfo.fromChannel === defDepositChannelIdList.ATM;
 
 	const placeHolderText =
-		userInfo.currencyId === defCurrencyList.IDR
+		userInfo.currencyId === defCurrencyList.IDR || userInfo.currencyId === defCurrencyList.VND
 			? `${t("lbl_MinMaxAmount")} ${formInfo.minAmount / 1000} ~ ${
 					formInfo.maxAmount / 1000
 			  }`
@@ -412,7 +412,7 @@ const LocalBankForm = ({
 					isAmount={true}
 					placeholder={placeHolderText}
 					onKeyDown={onInputboxKeyDown}
-					format={userInfo.currencyId === defCurrencyList.IDR}
+					format={userInfo.currencyId === defCurrencyList.IDR || userInfo.currencyId === defCurrencyList.VND}
 				/>
 
 				<ShortcutAmountList
@@ -540,12 +540,12 @@ const LocalBankForm = ({
 				</div>
 			</div>
 
-			<PromotionSelect
-				value={formInfo?.depositPromo ?? {}}
-				amount={Number(formInfo.amount)}
-				depositPromoList={depositPromoList}
-				onSelectItem={onChangePromotion}
-			/>
+			{/* <PromotionSelect */}
+			{/*	value={formInfo?.depositPromo ?? {}} */}
+			{/*	amount={Number(formInfo.amount)} */}
+			{/*	depositPromoList={depositPromoList} */}
+			{/*	onSelectItem={onChangePromotion} */}
+			{/* /> */}
 		</>
 	);
 };

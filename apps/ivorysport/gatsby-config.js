@@ -3,7 +3,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 module.exports = {
 	siteMetadata: {
 		defaultLanguage: "en",
-		supportedLanguages: ["en", "cs", "th", "id", "vn"]
+		supportedLanguages: ["en", "cs", "th", "id", "vn" , "my"]
 	},
 	flags: {
 		FAST_DEV: true,
@@ -48,7 +48,7 @@ module.exports = {
 		app.use(
 			"/api",
 			createProxyMiddleware({
-				target: "https://www.n88dev.com",
+				target: "http://stag.ivorysport.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
@@ -56,7 +56,7 @@ module.exports = {
 		app.use(
 			"/SiteSkin",
 			createProxyMiddleware({
-				target: "https://www.n88dev.com",
+				target: "http://stag.ivorysport.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
@@ -64,7 +64,7 @@ module.exports = {
 		app.use(
 			"*/Cashier",
 			createProxyMiddleware({
-				target: "https://www.n88dev.com",
+				target: "http://stag.ivorysport.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
@@ -72,7 +72,7 @@ module.exports = {
 		app.use(
 			"*/entPage",
 			createProxyMiddleware({
-				target: "https://www.n88dev.com",
+				target: "http://stag.ivorysport.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
@@ -80,7 +80,7 @@ module.exports = {
 		app.use(
 			"*/liveStreamingEntPage",
 			createProxyMiddleware({
-				target: "https://www.n88dev.com",
+				target: "http://stag.ivorysport.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
