@@ -194,7 +194,6 @@ export default {
 	},
 	liveCasino_n2live: {
 		tpId: 28,
-		gameId: 2,
 		tpGameType: 45
 	},
 	liveCasino_PT: {
