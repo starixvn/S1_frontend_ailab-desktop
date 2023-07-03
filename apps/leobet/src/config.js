@@ -1,5 +1,5 @@
-const siteName = "Nova88";
-const siteId = 1;
+const siteName = "LeoBet";
+const siteId = 6;
 
 const getAffiliate = () => {
 	if (typeof window === `undefined`) return "";

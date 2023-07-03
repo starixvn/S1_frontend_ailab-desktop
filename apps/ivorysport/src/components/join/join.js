@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
-import { cambodiaSeaGameEventPeriod, isDateRange } from "@ailab-desktop/common";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
@@ -651,11 +650,7 @@ export default () => {
 					<img
 						className="animationlogo"
 						alt="animationlogo"
-						src={
-							isDateRange(cambodiaSeaGameEventPeriod)
-								? `${bannerImgUrl}/desktop/img/logo-cambodia2023_en_w.png`
-								: `${cloudImgUrl}/SiteSkin/img/logo_en_w.png`
-						}
+						src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
 					/>
 					<img
 						className="npc1"
