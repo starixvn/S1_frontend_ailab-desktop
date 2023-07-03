@@ -37,6 +37,7 @@ import usePopBox from "../hook/usePopBox";
 import { angpaoAllowedCurrencies, angPaoEventPeriod } from "../../pages/angpao";
 import LiveCasino from "./liveCasino";
 import { bannerImgUrl } from "../../config";
+import RecentlyViewedGameList from "./recentlyViewedGameList";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
@@ -192,6 +193,7 @@ const IndexPage = () => {
 				userInfo={userInfo}
 				maintainList={allMaintainList}
 			/>
+			{userInfo.isLogin && <RecentlyViewedGameList />}
 			<div className="newsVideo">
 				<HomeNews t={t} userInfo={userInfo} />
 

@@ -42,6 +42,7 @@ import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
 import { angPaoEventPeriod } from "../../pages/angpao";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { defMenuLinks } from "../layout/header.menu.def";
+import RecentlyViewedGameList from "./recentlyViewedGameList";
 
 function Home() {
 	const { t } = useTranslation();
@@ -300,6 +301,7 @@ function Home() {
 						setPopBox={setPopBox}
 						allMaintainList={allMaintainList}
 					/>
+					{userInfo.isLogin && <RecentlyViewedGameList />}
 				</section>
 
 				<section className={isEvent ? "newyear" : ""}>

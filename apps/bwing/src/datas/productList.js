@@ -429,7 +429,7 @@ export default {
 	V8_Poker: {
 		tpId: 25,
 		gameId: 0,
-		tpGameType: 42
+		tpGameType: 47
 	},
 	KingMaker: {
 		tpId: 11,

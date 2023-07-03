@@ -2215,6 +2215,10 @@ html.Newtheme .inputBox.disable input::-ms-input-placeholder, html.Newtheme .wor
 html.Newtheme .inputBox.disable input::placeholder, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event input::placeholder, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event input::placeholder {
   color: #1f3258 !important;
 }
+html.Newtheme .inputBox .countryCode, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .countryCode, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .countryCode {
+  font-size: 13px;
+  margin-bottom: 2px;
+}
 html.Newtheme .inputBox-org {
   background: transparent;
   border: 1px solid #f77900;
@@ -13578,126 +13582,137 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   display: none;
 }
 
-.cambodia {
+.recently {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px auto 0;
+  overflow: hidden;
+  width: 1400px;
+  position: relative;
+  cursor: pointer;
+}
+.recently:hover .swiper-button-next, .recently:hover .swiper-button-prev {
+  opacity: 1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.recently .swiper-button-next, .recently .swiper-button-prev {
+  background: rgba(250, 182, 23, 0.8);
+  font-family: "icomoon";
+  width: 35px;
+  height: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  top: 50%;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  z-index: 2;
+}
+.recently .swiper-button-next::before, .recently .swiper-button-prev::before {
+  content: "\ea40";
+  font-size: 20px;
+}
+.recently .swiper-button-next {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.recently .swiper-slide {
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.recently .swiper-slide:hover .recently-game {
+  background: #4e6ca8;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.recently .swiper-slide:hover .recently-title {
+  color: #fff;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.recently .swiper-slide:hover .recently-game.active {
+  background: #E8EAED;
+  color: #1f3258;
+  cursor: default;
+}
+.recently-game {
+  background: #E8EAED;
+  border-radius: 7px;
+  font-weight: bold;
+  color: #1f3258;
+  padding: 10px;
+  border-bottom: 5px solid #fab617;
   position: relative;
 }
-.cambodia::before {
-  background: url(https://banner.goal123.org/desktop/img/rabbitboy.png) no-repeat center/cover;
-  content: "";
+.recently-game > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.recently-game.active {
+  -webkit-filter: grayscale(1) brightness(0.85);
+          filter: grayscale(1) brightness(0.85);
+}
+.recently-game.active .under {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.recently-game .under {
+  display: none;
+  position: absolute;
+  top: calc(50% - 15px);
+  left: calc(50% - 110px);
+  z-index: 1;
+  background: #272727;
+  border-radius: 5px;
+  color: white;
+  font-weight: normal;
+  font-size: 12px;
+  width: 200px;
+  height: 50px;
+  padding: 0 10px;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.recently-image {
+  border-radius: 15px;
+  width: 90px;
+  height: 90px;
+  margin-right: 10px;
+}
+.recently-brand {
+  height: 55px;
   display: block;
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  top: -1px;
-  left: -57px;
-  -webkit-animation: slide-in-blurred-right 2s cubic-bezier(0.23, 1, 0.32, 1) both;
-          animation: slide-in-blurred-right 2s cubic-bezier(0.23, 1, 0.32, 1) both;
+  width: auto;
+  max-width: 200px;
+  margin-bottom: 5px;
+  -webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
 }
-@media (max-width: 1480px) {
-  .cambodia::before {
-    background: none;
-  }
-}
-.cambodia::after {
-  content: "";
-  display: block;
-  background: url(https://banner.goal123.org/desktop/img/rabbitgirl.png) no-repeat center/cover;
-  position: absolute;
-  width: 85px;
-  height: 85px;
-  top: -19px;
-  right: -65px;
-  -webkit-animation: slide-in-blurred-left 2s cubic-bezier(0.23, 1, 0.32, 1) both;
-          animation: slide-in-blurred-left 2s cubic-bezier(0.23, 1, 0.32, 1) both;
-}
-
-@-webkit-keyframes slide-in-blurred-right {
-  0% {
-    -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
-    transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
-    -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
-    -webkit-filter: blur(40px);
-    filter: blur(40px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
-    transform: translateX(0) scaleY(1) scaleX(1);
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-filter: blur(0);
-    filter: blur(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-blurred-right {
-  0% {
-    -webkit-transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
-    transform: translateX(1000px) scaleX(2.5) scaleY(0.2);
-    -webkit-transform-origin: 0% 50%;
-    transform-origin: 0% 50%;
-    -webkit-filter: blur(40px);
-    filter: blur(40px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
-    transform: translateX(0) scaleY(1) scaleX(1);
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-filter: blur(0);
-    filter: blur(0);
-    opacity: 1;
-  }
-}
-@-webkit-keyframes slide-in-blurred-left {
-  0% {
-    -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
-    transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
-    -webkit-transform-origin: 100% 50%;
-    transform-origin: 100% 50%;
-    -webkit-filter: blur(40px);
-    filter: blur(40px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
-    transform: translateX(0) scaleY(1) scaleX(1);
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-filter: blur(0);
-    filter: blur(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-in-blurred-left {
-  0% {
-    -webkit-transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
-    transform: translateX(-1000px) scaleX(2.5) scaleY(0.2);
-    -webkit-transform-origin: 100% 50%;
-    transform-origin: 100% 50%;
-    -webkit-filter: blur(40px);
-    filter: blur(40px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateX(0) scaleY(1) scaleX(1);
-    transform: translateX(0) scaleY(1) scaleX(1);
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-filter: blur(0);
-    filter: blur(0);
-    opacity: 1;
-  }
-}
-.dragon {
-  position: relative;
-}
-.dragon .zongzi {
-  position: absolute;
-  width: 140px;
-  bottom: -16px;
-  left: -55px;
+.recently-title {
+  width: 100%;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  color: #1f3258;
 }/*# sourceMappingURL=style.css.map */
