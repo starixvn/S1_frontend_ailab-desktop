@@ -80,55 +80,64 @@ export const CopyrightSection = ({ t }) => {
 				// )}/AboutUs.html`}
 				href={`${bannerImgUrl}/Static/en/AboutUs.html`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_AboutUs")}
 			</a>
 			<a
 				href={`${bannerImgUrl}/Static/en/ContactUs.html`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_ContactUs")}
 			</a>
 			<a
 				href={`${bannerImgUrl}/Static/en/FAQ.html`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_FAQ")}
 			</a>
 			<a
 				href={`${bannerImgUrl}/Static/en/AccountTerms.html`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_AccountTerms")}
 			</a>
 			<a
 				href={`${bannerImgUrl}/Static/en/RulesandRegulations.html`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_RuleRegulations")}
 			</a>
 			<a
 				href={`${bannerImgUrl}/Static/en/TermsConditions.html`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_TermsConditions")}
 			</a>
 			<a
 				href={`${bannerImgUrl}/Static/en/Terms.html`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_Terms")}
 			</a>
 			<a
 				href={`${bannerImgUrl}/Static/en/PrivacyPolicy.html`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_PrivacyPolicy")}
 			</a>
 			<a
 				href={`${bannerImgUrl}/Static/en/ResposibleGaming.html`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_ResposibleGaming")}
 			</a>
 			<span>{`© Copyright ${new Date().getFullYear()}. ivorysport. All Rights Reserved. 21+`}</span>
@@ -137,9 +146,7 @@ export const CopyrightSection = ({ t }) => {
 };
 
 CopyrightSection.propTypes = {
-	t: PropTypes.func.isRequired,
-	langId: PropTypes.string.isRequired,
-	currencyId: PropTypes.number.isRequired
+	t: PropTypes.func.isRequired
 };
 
 export default Footer;
