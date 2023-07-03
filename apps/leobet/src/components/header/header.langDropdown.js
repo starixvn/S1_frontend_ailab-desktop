@@ -5,31 +5,6 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { defCurrencyList } from "../common/common";
 
 export const defLangGroups = {
-	ch: [
-		{
-			displayText: "English",
-			value: "en",
-			currencyId: defCurrencyList.MYR
-		},
-		{
-			displayText: "简体中文",
-			value: "cs",
-			currencyId: defCurrencyList.MYR
-		},
-		{
-			displayText: "Malay",
-			value: "my",
-			currencyId: defCurrencyList.MYR
-		}
-	],
-	th: [
-		{
-			displayText: "English",
-			value: "en",
-			currencyId: defCurrencyList.THB
-		},
-		{ displayText: "ไทย", value: "th", currencyId: defCurrencyList.THB }
-	],
 	id: [
 		{
 			displayText: "English",
@@ -40,66 +15,6 @@ export const defLangGroups = {
 			displayText: "Bhs Indonesia",
 			value: "id",
 			currencyId: defCurrencyList.IDR
-		}
-	],
-	in: [
-		{
-			displayText: "English",
-			value: "en",
-			currencyId: defCurrencyList.INR
-		},
-		{
-			displayText: "Hindi",
-			value: "hi",
-			currencyId: defCurrencyList.INR
-		}
-	],
-	bd: [
-		{
-			displayText: "English",
-			value: "en",
-			currencyId: defCurrencyList.BDT
-		},
-		{
-			displayText: "বাংলা",
-			value: "bd",
-			currencyId: defCurrencyList.BDT
-		}
-	],
-	kh: [
-		{
-			displayText: "English",
-			value: "en",
-			currencyId: defCurrencyList.KHM
-		},
-		{
-			displayText: "ខ្មែរ",
-			value: "kh",
-			currencyId: defCurrencyList.KHM
-		}
-	],
-	cs: [
-		{
-			displayText: "English",
-			value: "en",
-			currencyId: defCurrencyList.CNY
-		},
-		{
-			displayText: "简体中文",
-			value: "cs",
-			currencyId: defCurrencyList.CNY
-		}
-	],
-	gb: [
-		{
-			displayText: "English",
-			value: "en",
-			currencyId: defCurrencyList.USD
-		},
-		{
-			displayText: "简体中文",
-			value: "cs",
-			currencyId: defCurrencyList.USD
 		}
 	]
 };
