@@ -9,6 +9,7 @@ module.exports = {
 		"<rootDir>/libs/api",
 		"<rootDir>/apps/nova88v2",
 		"<rootDir>/apps/ivorysport",
+		"<rootDir>/apps/leobet",
 		"<rootDir>/libs/components",
 		"<rootDir>/libs/wrapper"
 	]

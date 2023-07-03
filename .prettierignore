@@ -24,3 +24,7 @@
 /apps/ivorysport/node_modules
 /apps/ivorysport/public
 /apps/ivorysport/.cache
+
+/apps/leobet/node_modules
+/apps/leobet/public
+/apps/leobet/.cache

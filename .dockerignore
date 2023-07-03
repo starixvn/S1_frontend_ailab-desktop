@@ -35,12 +35,15 @@ README.md
 **/apps/bwing/.cache
 **/cmd
 
-
 **/apps/nova88v2/node_modules
 **/apps/nova88v2/.cache
 
 apps/ivorysport/node_modules
 apps/ivorysport/.cache
+
+apps/leobet/node_modules
+apps/leobet/.cache
+
 
 **/rnt.txt
 
