@@ -5,16 +5,16 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { defCurrencyList } from "../common/common";
 
 export const defLangGroups = {
-	id: [
+	in: [
 		{
 			displayText: "English",
 			value: "en",
-			currencyId: defCurrencyList.IDR
+			currencyId: defCurrencyList.INR
 		},
 		{
-			displayText: "Bhs Indonesia",
-			value: "id",
-			currencyId: defCurrencyList.IDR
+			displayText: "Hindi",
+			value: "hi",
+			currencyId: defCurrencyList.INR
 		}
 	]
 };
