@@ -57,6 +57,7 @@ const allowedCurrencyList = {
 		defCurrencyList.MYR,
 		defCurrencyList.THB
 	],
+	allbet: [defCurrencyList.IDR, defCurrencyList.MYR],
 
 	// ==== products ====
 
