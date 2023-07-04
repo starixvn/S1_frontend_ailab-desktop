@@ -3,7 +3,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 module.exports = {
 	siteMetadata: {
 		defaultLanguage: "en",
-		supportedLanguages: ["en", "id"]
+		supportedLanguages: ["en", "hi"]
 	},
 	flags: {
 		FAST_DEV: true,
