@@ -1,0 +1,142 @@
+import React, { useEffect, useRef, useState, useContext } from "react";
+import { navigate } from "gatsby";
+import { useTranslation } from "react-i18next";
+import Wrapper from "../components/common/wrapper";
+import Layout from "../components/common/layout";
+import Footer from "../components/footer/footer";
+// import LeftMenu from "../components/common/leftMenu";
+import { userInfoContext, popBoxContext } from "../components/common/context";
+import { getUrlParameter } from "../components/common/common";
+import { api_news_GetNewsById } from "../service/api/news";
+// import path from "../router";
+import Loading from "../components/common/loading";
+import defPopBoxType from "../components/common/defPopBoxType";
+
+export default () => {
+	return (
+		<Wrapper>
+			<Layout>
+				<main>
+					<section className="inside">
+						{/* <LeftMenu /> */}
+						<div className="rightModule">
+							<Content />
+						</div>
+					</section>
+				</main>
+				<Footer />
+			</Layout>
+		</Wrapper>
+	);
+};
+
+const Content = () => {
+	const { t } = useTranslation();
+	const { userInfo } = useContext(userInfoContext);
+	const { setPopBox } = useContext(popBoxContext);
+	const [newsInfo, setNewsInfo] = useState({
+		title: "",
+		content: "",
+		imgURL: ""
+	});
+	const [loading, setLoading] = useState(true);
+	const isMountedRef = useRef(null);
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
+		openNews();
+	}, []);
+
+	const openNews = () => {
+		const newsId = getUrlParameter("newsId");
+		const ClickClose = () => {
+			setPopBox({ isOpen: false });
+		};
+
+		api_news_GetNewsById({
+			langId: userInfo.langId,
+			NewsId: Number(newsId),
+			currencyId: userInfo.currencyId
+		}).then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						const datas = res.data.data;
+						setNewsInfo({
+							title: datas.title,
+							content: datas.content,
+							imageURL: datas.imageURL
+						});
+					} else {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={ClickClose}
+									>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+					setLoading(false);
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: t("msg_ApiServerError"),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={ClickClose}
+								>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+					setLoading(false);
+				}
+			}
+		);
+	};
+
+	const clickBack = () => {
+		navigate(`/${userInfo.langId}`);
+	};
+
+	if (loading) {
+		return <Loading />;
+	}
+
+	return (
+		<div className="infoModule">
+			<button
+				className="btn-check icon icon-arrow-left2"
+				onClick={clickBack}
+			>
+				{t("lbl_Back")}
+			</button>
+			<article>
+				<img src={newsInfo.imageURL} alt={newsInfo.title} />
+				<h1>{newsInfo.title}</h1>
+				<pre>{newsInfo.content}</pre>
+			</article>
+		</div>
+	);
+};

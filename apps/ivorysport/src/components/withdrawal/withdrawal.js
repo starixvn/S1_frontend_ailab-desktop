@@ -277,13 +277,7 @@ export default () => {
 											i18nKey="lbl_WithdrawalImportantNoticeContent1"
 											components={{
 												Link: (
-													<a
-														onClick={() =>
-															window.LiveChatWidget.call(
-																"maximize"
-															)
-														}
-													/>
+													<a href="mailto:support247@ivorysport.com" />
 												)
 											}}
 										/>
@@ -309,13 +303,7 @@ export default () => {
 											i18nKey="lbl_WithdrawalImportantNoticeContent5"
 											components={{
 												Link: (
-													<a
-														onClick={() =>
-															window.LiveChatWidget.call(
-																"maximize"
-															)
-														}
-													/>
+													<a href="mailto:support247@ivorysport.com" />
 												)
 											}}
 										/>

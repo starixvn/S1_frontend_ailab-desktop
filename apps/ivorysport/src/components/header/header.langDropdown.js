@@ -70,7 +70,8 @@ const currencyToLangKey = {
 	15: "id",
 	61: "in",
 	72: "kh",
-	74: "bd"
+	74: "bd",
+	51: "vn"
 };
 
 const defLangGroupCountry = {
@@ -81,7 +82,8 @@ const defLangGroupCountry = {
 	cs: "China",
 	gb: "Global",
 	bd: "Bangladesh",
-	kh: "Cambodia"
+	kh: "Cambodia",
+	vn : "Vietnam"
 };
 
 export default () => {

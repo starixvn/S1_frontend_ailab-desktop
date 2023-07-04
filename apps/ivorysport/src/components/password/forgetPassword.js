@@ -127,7 +127,7 @@ const ForgetPassword = () => {
 			<div className="joinloginModule">
 				<div className="loginAnimation">
 					<img
-						src={`${bannerImgUrl}/desktop/img/forgetpasswordbg.png`}
+						src={`${bannerImgUrl}/desktop/img/forgetpasswordbg.jpg`}
 						alt="forget-password-background"
 					/>
 				</div>

@@ -52,7 +52,11 @@ const ProfileForm = ({
 			/>
 		);
 	});
-	return <div className="profile">{arr}</div>;
+	return (
+		<div className="profile" style={{ width: "100%" }}>
+			{arr}
+		</div>
+	);
 };
 
 export default ProfileForm;

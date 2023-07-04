@@ -1,0 +1,48 @@
+import { useState, useEffect } from "react";
+import { defStreamingCategory } from "./defStreaming";
+import { api_video_GetLiveStreamingList } from "../../service/api/video";
+import usePopBox from "../hook/usePopBox";
+
+export const useGetVideo = ({ langId }) => {
+	const { errorPopBox } = usePopBox();
+	const [videoList, setVideoList] = useState([]);
+	const [selCategory, setSelCategory] = useState({
+		type: defStreamingCategory.FOOTBALL.type,
+		tpId: defStreamingCategory.FOOTBALL.tpId,
+		gameId: defStreamingCategory.FOOTBALL.gameId,
+		datas: []
+	});
+
+	useEffect(() => {
+		api_video_GetLiveStreamingList(langId).then(
+			res => {
+				if (res.data.errorCode === 0) {
+					setVideoList(res.data.data);
+					setSelCategory(prev => ({
+						...prev,
+						datas: res.data.data.filter(v => v.type === prev.type)
+					}));
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				// 在首頁網路斷線時會進來這個 catch，故不特別做錯誤處理
+			}
+		);
+	}, [langId]);
+
+	const handleSelectCategory = type => {
+		setSelCategory({
+			type,
+			tpId: defStreamingCategory[type].tpId,
+			gameId: defStreamingCategory[type].gameId,
+			datas: videoList?.filter(v => v.type === type)
+		});
+	};
+
+	return { selCategory, handleSelectCategory };
+};

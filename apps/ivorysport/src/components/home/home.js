@@ -18,9 +18,9 @@ import {
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWalletInfo } from "../../service/api/account";
+import Marquee from "./marquee";
 import { defBannerType } from "../../service/api/site";
 import SwipperBanner from "../common/swipperBanner";
-import Marquee from "./marquee";
 import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoList from "./promoList";
@@ -37,6 +37,7 @@ import usePopBox from "../hook/usePopBox";
 import { angpaoAllowedCurrencies, angPaoEventPeriod } from "../../pages/angpao";
 import LiveCasino from "./liveCasino";
 import { bannerImgUrl } from "../../config";
+import {HomeEntry} from "./homeEntry,js";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
@@ -148,7 +149,15 @@ const IndexPage = () => {
 		}
 	}, []);
 
-	return <main>test</main>;
+	return <main>
+		<div className="swiper-container">
+			<div className="swiper-wrapper">
+				<div className="swiper-slide"><img src={`${bannerImgUrl}/desktop/img/slide01.jpg`}/></div>
+			</div>
+		</div>
+		<Marquee />
+		<HomeEntry/>
+		</main>
 };
 
 export default IndexPage;

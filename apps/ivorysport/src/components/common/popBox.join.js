@@ -861,10 +861,12 @@ export default () => {
 							<a
 								target="_blank"
 								rel="noreferrer"
-								href={`${bannerImgUrl}/Static/${getCombineLangId(
-									defaultLangId,
-									userValue.currencyIdx
-								)}/TermsConditions.html`}
+								// 暫時都只有en
+								// href={`${bannerImgUrl}/Static/${getCombineLangId(
+								// 	defaultLangId,
+								// 	userValue.currencyIdx
+								// )}/TermsConditions.html`}
+								href={`${bannerImgUrl}/Static/en/TermsConditions.html`}
 							>
 								{t("lbl_TermsConditions")}
 							</a>
@@ -873,10 +875,12 @@ export default () => {
 							<a
 								target="_blank"
 								rel="noreferrer"
-								href={`${bannerImgUrl}/Static/${getCombineLangId(
-									defaultLangId,
-									userValue.currencyIdx
-								)}/RulesandRegulations.html`}
+								// 暫時都只有en
+								// href={`${bannerImgUrl}/Static/${getCombineLangId(
+								// 	defaultLangId,
+								// 	userValue.currencyIdx
+								// )}/RulesandRegulations.html`}
+								href={`${bannerImgUrl}/Static/en/RulesandRegulations.html`}
 							>
 								{t("lbl_RuleRegulations")}
 							</a>

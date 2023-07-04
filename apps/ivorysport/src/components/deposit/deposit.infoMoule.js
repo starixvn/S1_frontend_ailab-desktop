@@ -56,11 +56,11 @@ const DepositInfoMoule = ({
 				</span>
 				<div>{t("lbl_DepositOptionHint")}</div>
 
-				<Link
-					className="icon icon-friend"
-					to={`/${langId}/${path.referral.root}`}>
-					<span>{t("lbl_Refer_friends_rewards")}</span>
-				</Link>
+				{/* <Link */}
+				{/*	className="icon icon-friend" */}
+				{/*	to={`/${langId}/${path.referral.root}`}> */}
+				{/*	<span>{t("lbl_Refer_friends_rewards")}</span> */}
+				{/* </Link> */}
 			</div>
 			<div className="subModuleListColumn">
 				<div className="subModuleTitle">
@@ -205,13 +205,7 @@ const DepositInfoMoule = ({
 							i18nKey="lbl_DepositImportantNoticeContent6"
 							components={{
 								Link: (
-									<button
-										onClick={() =>
-											window.LiveChatWidget.call(
-												"maximize"
-											)
-										}
-									/>
+									<a href="mailto:support247@ivorysport.com" />
 								)
 							}}
 						/>
@@ -222,13 +216,7 @@ const DepositInfoMoule = ({
 								i18nKey="lbl_DepositImportantNoticeContent7"
 								components={{
 									Link: (
-										<button
-											onClick={() =>
-												window.LiveChatWidget.call(
-													"maximize"
-												)
-											}
-										/>
+										<a href="mailto:support247@ivorysport.com" />
 									)
 								}}
 							/>

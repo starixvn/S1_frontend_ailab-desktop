@@ -1,0 +1,77 @@
+const siteName = "LeoBet";
+const siteId = 6;
+
+const getAffiliate = () => {
+	if (typeof window === `undefined`) return "";
+
+	const fullPath = window.location.hostname;
+	const arr = fullPath.split(".");
+
+	return arr.length === 3
+		? `https://aff.${arr.filter((p, idx) => idx !== 0).join(".")}`
+		: `https://aff.${arr.join(".")}`;
+};
+
+export const errorPageUrl = langId =>
+	`https://error.0814media.net/404/index_${langId}.html`;
+
+export const SiteInfo = {
+	siteName,
+	logo: "https://image.0814media.net/SiteSkin/img/logo_evt.png",
+	affiliateLink: getAffiliate(),
+	langCookie: "nova88LangId",
+	currencyCookie: "nova88CurrencyId",
+	socialMedia: {
+		fb: {
+			link: "https://www.facebook.com/nova88official",
+			displayKey: "lbl_Facebook"
+		},
+		twitter: {
+			link: "https://twitter.com/nova88official",
+			displayKey: "lbl_Twitter"
+		},
+		ig: {
+			link: "https://www.instagram.com/nova88_official",
+			displayKey: "lbl_Instagram"
+		},
+		youtube: {
+			link: "https://www.youtube.com/channel/UCoUtgrQN2E10oke1Hmj0ATw",
+			displayKey: "lbl_Youtube"
+		}
+	},
+	staticPromotions:
+		"https://image.0814media.net/NovaPromotion/promotionList.json"
+};
+
+export const cloudImgUrl = "https://image.0814media.net";
+export const paymentImgUrl = "http://payment.0814media.net";
+export const bannerImgUrl = "https://banner.0814media.net";
+export const sportImgUrl = "https://sportsimgs.0814media.net";
+
+export default process.env.NODE_ENV === "production"
+	? {
+			siteName,
+			siteId,
+			apiURL: "",
+			openURL: "",
+			imgUrl: "",
+			t_and_cURL: "https://banner.0814media.net",
+			cloudImgUrl,
+			bannerImgUrl
+	  }
+	: {
+			siteName,
+			siteId,
+			cloudImgUrl,
+			bannerImgUrl,
+			appURL: "http://localhost:4201",
+
+			// apiURL: "http://localhost:60930",
+			// imgUrl: "http://localhost:60930",
+			// t_and_cURL: "http://localhost:60930"
+
+			apiURL: "",
+			imgUrl: "http://www.n88dev.com",
+			t_and_cURL: "https://banner.0814media.net",
+			openURL: "https://www.n88dev.com"
+	  };

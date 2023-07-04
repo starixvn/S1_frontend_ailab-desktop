@@ -1,0 +1,186 @@
+import config, { errorPageUrl } from "../config";
+import path from "../router";
+
+export const _ACTION_TYPE = {
+	blank: 1,
+	redirect: 2
+};
+
+export const SET_CASINO_ENTER_PAGE = ({
+	tpId,
+	gameId,
+	isFree,
+	langId,
+	execFunction,
+	tpGameType
+}) => {
+	if (typeof window !== `undefined`) {
+		if (execFunction) {
+			execFunction();
+		} else {
+			const appUrl = window.location.origin;
+			const homeUrl = `${appUrl}`;
+			const signupUrl = `${appUrl}/${path.join.root}`;
+			const LoginUrl = `${appUrl}/${path.login.root}`;
+			const _errorPageUrl = errorPageUrl(langId);
+			const _tpGameType = tpGameType ? `&tpGameType=${tpGameType}` : "";
+			const entPageUrl = `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&errorUrl=${_errorPageUrl}${_tpGameType}`;
+
+			window
+				.open(
+					`${entPageUrl}&fun=${isFree ? 1 : 0}&gameType=slots`,
+					`Tp_${tpId}`,
+					"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
+				)
+				.focus();
+		}
+	}
+};
+
+export const SET_ENTER_PAGE = ({
+	langId,
+	tpId,
+	gameId,
+	matchid,
+	isLogin,
+	loginCallback,
+	betType,
+	openInBlank = false,
+	tpGameType
+}) => {
+	const result = GET_OPEN_RULE(
+		langId,
+		tpId,
+		gameId,
+		matchid,
+		betType,
+		tpGameType
+	);
+	if (!isLogin && result.needLogin) {
+		loginCallback();
+	} else if (result.actionType === _ACTION_TYPE.blank || openInBlank) {
+		OPEN_IN_BLANK(result.entPageUrl, result.windowKey);
+	} else if (result.actionType === _ACTION_TYPE.redirect) {
+		if (typeof window !== `undefined`) {
+			window.location.href = result.entPageUrl;
+		}
+	}
+};
+
+export const OPEN_IN_BLANK = (url, windowKey) => {
+	if (typeof window !== `undefined`) {
+		window.open(
+			url,
+			windowKey,
+			"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
+		);
+	}
+};
+
+export const GET_OPEN_RULE = (
+	langId,
+	tpId,
+	gameId,
+	matchid,
+	betType,
+	tpGameType
+) => {
+	const _tpId = isNaN(tpId) ? tpId : Number(tpId);
+	const _gameId = isNaN(gameId) ? gameId : Number(gameId);
+	const _matchid = isNaN(matchid) ? matchid : Number(matchid);
+	let result = setResult("", true, _ACTION_TYPE.blank);
+	if (_tpId === 1) {
+		if (_gameId === 43 || _gameId === 220 || _gameId === 202) {
+			result = setResult("", true, _ACTION_TYPE.blank, _tpId, _gameId);
+		} else if (
+			_gameId < 100 ||
+			_gameId === 161 ||
+			_gameId === 180 ||
+			_gameId === 192 ||
+			_gameId === 2002
+		) {
+			result = setResult(
+				"",
+				false,
+				_ACTION_TYPE.redirect,
+				_tpId,
+				_gameId
+			);
+		} else if (_gameId >= 200) {
+			result = setResult("", true, _ACTION_TYPE.blank, _tpId, _gameId);
+		}
+	} else if (_tpId === 45) {
+		result = setResult("", false, _ACTION_TYPE.blank, _tpId);
+	} else {
+		result = setResult("", true, _ACTION_TYPE.blank, _tpId, _gameId);
+	}
+
+	return {
+		...result,
+		entPageUrl: GET_ENTER_PAGE_URL(
+			langId,
+			_tpId,
+			_gameId,
+			_matchid,
+			betType,
+			tpGameType
+		)
+	};
+};
+
+export const GET_ENTER_PAGE_URL = (
+	langId,
+	tpId,
+	gameId,
+	matchid,
+	betType,
+	tpGameType
+) => {
+	const appUrl =
+		typeof window !== `undefined` ? window.location.origin : null;
+	const homeUrl = `${appUrl}`;
+	const signupUrl = `${appUrl}/${path.join.root}`;
+	const LoginUrl = `${appUrl}/${path.login.root}`;
+	const lobbyUrl = ``;
+	const cashierUrl = `${appUrl}/${path.deposit.root}`;
+	const _matchid = matchid || "";
+	const _betType = betType ? `&bettype=${betType}` : "";
+	const _errorPageUrl = errorPageUrl(langId);
+	const _tpGameType = tpGameType ? `&tpGameType=${tpGameType}` : "";
+
+	return `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&matchid=${_matchid}${_betType}&errorUrl=${_errorPageUrl}${_tpGameType}`;
+};
+
+const setResult = (url, needLogin, actionType, tpId, gameId, matchid) => ({
+	url,
+	needLogin,
+	actionType,
+	windowKey: tpId === 1 ? `Tp_${tpId}_${gameId}` : `Tp_${tpId}`
+});
+
+export const Open9WSports = ({ url, userId, key }) => {
+	const windowName = `w_9WSportsForm`;
+	const form = document.createElement("form");
+	form.setAttribute("method", "post");
+	form.setAttribute("action", url);
+	form.setAttribute("target", windowName);
+
+	const addIptField = ({ name, value }) => {
+		const hiddenField = document.createElement("input");
+		hiddenField.setAttribute("type", "hidden");
+		hiddenField.setAttribute("name", name);
+		hiddenField.setAttribute("value", value);
+		form.appendChild(hiddenField);
+	};
+
+	addIptField({ name: "userId", value: userId });
+	addIptField({ name: "key", value: decodeURIComponent(key) });
+	document.body.appendChild(form);
+	window.open(
+		"",
+		windowName,
+		"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
+	);
+	form.submit();
+	form.remove();
+};
