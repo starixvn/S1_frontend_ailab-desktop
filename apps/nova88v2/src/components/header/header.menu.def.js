@@ -745,7 +745,8 @@ export const defMenuLinks = {
 				listBgImgUrl: ["allBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_Allbet,
-				lobbyPage: { npcImg: "casino_ab" }
+				lobbyPage: { npcImg: "casino_ab" },
+				allowCurrencies: allowedCurrencyList.allbet
 			},
 			{
 				keyName: "casino_EBET",
