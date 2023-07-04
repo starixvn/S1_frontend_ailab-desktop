@@ -3954,9 +3954,6 @@ html.Newtheme #popup .pop .qrpayPop > div.guide .qrCode svg, html.Newtheme #popu
   width: auto;
   height: 180px;
 }
-html.Newtheme #popup .pop .qrpayPop > div.guide .qrCode path:nth-child(2) {
-  fill: #EE2968;
-}
 html.Newtheme #popup .pop .qrpayPop .info {
   margin: 5px auto;
 }

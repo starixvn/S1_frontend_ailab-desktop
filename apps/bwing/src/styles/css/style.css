@@ -4565,9 +4565,6 @@ main > .swiper-container .swiper-slide {
   width: auto;
   height: 180px;
 }
-#popup .qrpayPop > div.guide .qrCode path:nth-child(2) {
-  fill: #EE2968;
-}
 #popup .qrpayPop .info {
   margin: 5px auto;
 }
