@@ -86,9 +86,9 @@ export class Dropdown extends Component {
 				onClick={this.clickDropdown}>
 				{userLevelImgInfo && (
 					<>
-						<div className="vipAnimation">
+						{/* <div className="vipAnimation">
 							<div />
-						</div>
+						</div> */}
 						<Link to={`/${this.props.langId}/${path.profile.root}`}>
 							<img
 								src={userLevelImgInfo.url}

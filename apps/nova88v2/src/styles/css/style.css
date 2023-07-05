@@ -2253,8 +2253,8 @@ header input:focus-within {
   background: #203769;
 }
 .header > div.function .memberfile > a {
-  width: 30px;
-  margin-right: 10px;
+  width: 33px;
+  margin-right: 5px;
   margin-left: 2px;
   z-index: 1;
   position: relative;
@@ -2297,51 +2297,35 @@ header input:focus-within {
   }
 }
 .header > div.function .memberfile > a img {
-  -webkit-animation: vipimg 2.5s infinite;
-          animation: vipimg 2.5s infinite;
+  -webkit-animation: vipimg 2.5s infinite ease-in-out;
+          animation: vipimg 2.5s infinite ease-in-out;
 }
 @-webkit-keyframes vipimg {
   0% {
-    -webkit-transform: rotate(45deg) scale(1);
-            transform: rotate(45deg) scale(1);
-  }
-  25% {
-    -webkit-transform: rotate(0deg) scale(1.2);
-            transform: rotate(0deg) scale(1.2);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   50% {
-    -webkit-transform: rotate(-45deg) scale(1);
-            transform: rotate(-45deg) scale(1);
-  }
-  75% {
-    -webkit-transform: rotate(0deg) scale(1.2);
-            transform: rotate(0deg) scale(1.2);
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
   100% {
-    -webkit-transform: rotate(45deg) scale(1);
-            transform: rotate(45deg) scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 @keyframes vipimg {
   0% {
-    -webkit-transform: rotate(45deg) scale(1);
-            transform: rotate(45deg) scale(1);
-  }
-  25% {
-    -webkit-transform: rotate(0deg) scale(1.2);
-            transform: rotate(0deg) scale(1.2);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   50% {
-    -webkit-transform: rotate(-45deg) scale(1);
-            transform: rotate(-45deg) scale(1);
-  }
-  75% {
-    -webkit-transform: rotate(0deg) scale(1.2);
-            transform: rotate(0deg) scale(1.2);
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
   100% {
-    -webkit-transform: rotate(45deg) scale(1);
-            transform: rotate(45deg) scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 .header > div.function .wallet,
@@ -7231,7 +7215,7 @@ input[type=file] {
           flex-flow: column;
 }
 .vipLv img {
-  width: 100px;
+  width: 150px;
 }
 .vipLv > div.vipbg {
   background: url(https://banner.0814media.net/desktop/img/vip/vipbg.png) no-repeat center/auto 100%;
@@ -7239,7 +7223,7 @@ input[type=file] {
   margin-top: 0;
 }
 .vipLv > div.vipname {
-  margin-top: 15px;
+  margin-top: 22px;
   background: #112240;
   padding: 5px 10px;
   border-radius: 15px;
