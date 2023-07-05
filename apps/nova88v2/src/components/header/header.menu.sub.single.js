@@ -24,7 +24,6 @@ const SubMenuSingle = ({
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { appLinkDatas } = useAppDownLoad();
-	const pathLink = defMenuLinks[menuKey].path;
 	const { allowCurrencies, productInfo } = defMenuLinks[menuKey];
 
 	const showLoginPopBox = () => {
@@ -154,26 +153,7 @@ const SubMenuSingle = ({
 	if (menuKey === "vip") {
 		return (
 			<div className={className} style={style}>
-				<div>
-					<div>{t("lbl_VIP_CLUB")}</div>
-					<div>
-						<span className="txt-orange">
-							{t("lbl_EARN_EXCLUSIVE_VIP_BENEFIT")}
-						</span>
-					</div>
-					<div className="btnGroup">
-						<Link
-							className="lightblue"
-							to={
-								userInfo.isLogin
-									? `/${userInfo.langId}/${pathLink}`
-									: `/${userInfo.langId}/${path.join.root}`
-							}
-						>
-							{t("lbl_JOIN_US_NOW")}
-						</Link>
-					</div>
-				</div>
+				<div />
 			</div>
 		);
 	}

@@ -1,4 +1,5 @@
 import { defCurrencyList } from "../common/common";
+import { bannerImgUrl } from "../../config";
 
 export const allowCurrencies = [
 	defCurrencyList.MYR,
@@ -8,59 +9,77 @@ export const allowCurrencies = [
 
 export const defbanner = langId => [
 	{
-		url: `https://banner.0814media.net/desktop/img/vip/${langId}/vip_1.png`,
-		alt: "vip_1"
+		url: `${bannerImgUrl}/desktop/img/vintage${
+			langId ? `-${langId}` : langId
+		}.png`,
+		level: 1,
+		levelText: "vintage"
 	},
 	{
-		url: `https://banner.0814media.net/desktop/img/vip/${langId}/vip_2.png`,
-		alt: "vip_2"
+		url: `${bannerImgUrl}/desktop/img/silver${
+			langId ? `-${langId}` : langId
+		}.png`,
+		level: 2,
+		levelText: "silver"
 	},
 	{
-		url: `https://banner.0814media.net/desktop/img/vip/${langId}/vip_3.png`,
-		alt: "vip_3"
+		url: `${bannerImgUrl}/desktop/img/gold${
+			langId ? `-${langId}` : langId
+		}.png`,
+		level: 3,
+		levelText: "gold"
 	},
 	{
-		url: `https://banner.0814media.net/desktop/img/vip/${langId}/vip_4.png`,
-		alt: "vip_4"
+		url: `${bannerImgUrl}/desktop/img/titanium${
+			langId ? `-${langId}` : langId
+		}.png`,
+		level: 4,
+		levelText: "titanium"
 	},
 	{
-		url: `https://banner.0814media.net/desktop/img/vip/${langId}/vip_5.png`,
-		alt: "vip_5"
+		url: `${bannerImgUrl}/desktop/img/diamond${
+			langId ? `-${langId}` : langId
+		}.png`,
+		level: 5,
+		levelText: "diamond"
 	},
 	{
-		url: `https://banner.0814media.net/desktop/img/vip/${langId}/vip_6.png`,
-		alt: "vip_6"
+		url: `${bannerImgUrl}/desktop/img/nova${
+			langId ? `-${langId}` : langId
+		}.png`,
+		level: 6,
+		levelText: "nova"
 	}
 ];
 
 export const defPageClubImg = [
 	{
-		url: "https://banner.0814media.net/desktop/img/vip/vip1.png",
+		url: `${bannerImgUrl}/desktop/img/vip1.png`,
 		displayKey: "lbl_Vintage_Club",
 		alt: "vip01"
 	},
 	{
-		url: "https://banner.0814media.net/desktop/img/vip/vip2.png",
+		url: `${bannerImgUrl}/desktop/img/vip2.png`,
 		displayKey: "lbl_Silver_Club",
 		alt: "vip02"
 	},
 	{
-		url: "https://banner.0814media.net/desktop/img/vip/vip3.png",
+		url: `${bannerImgUrl}/desktop/img/vip3.png`,
 		displayKey: "lbl_Gold_Club",
 		alt: "vip03"
 	},
 	{
-		url: "https://banner.0814media.net/desktop/img/vip/vip4.png",
+		url: `${bannerImgUrl}/desktop/img/vip4.png`,
 		displayKey: "lbl_Titanium_Club",
 		alt: "vip04"
 	},
 	{
-		url: "https://banner.0814media.net/desktop/img/vip/vip5.png",
+		url: `${bannerImgUrl}/desktop/img/vip5.png`,
 		displayKey: "lbl_Diamond_Club",
 		alt: "vip05"
 	},
 	{
-		url: "https://banner.0814media.net/desktop/img/vip/vip6.png",
+		url: `${bannerImgUrl}/desktop/img/vip6.png`,
 		displayKey: "lbl_Nova_Club",
 		alt: "vip06"
 	}

@@ -125,3 +125,8 @@ export const api_account_GetReferralSettingDetail = () =>
 
 export const api_account_GetCustTpGameTypeSetting = () =>
 	accountRequest.post("/GetCustTpGameTypeSetting");
+
+export const api_account_GetVipBanner = ({ CurrencyId }) =>
+	loginRequest.post("/GetVipBanner", {
+		CurrencyId
+	});
