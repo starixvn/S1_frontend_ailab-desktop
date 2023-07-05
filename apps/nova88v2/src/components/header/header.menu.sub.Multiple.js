@@ -108,7 +108,6 @@ const SubMenuMultiple = ({
 			</button>
 		);
 	}
-
 	if (subMenuItem.menuType === defMenuType.Link) {
 		if (subMenuItem?.noPlay) {
 			return (
