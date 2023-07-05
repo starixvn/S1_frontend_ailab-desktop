@@ -273,6 +273,17 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pp-icon.png`
 			},
 			{
+				...defCasinoProviders.SG,
+				className: "SG",
+				icon: "icon icon-SG",
+				displayText: "Spadegaming",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.SG.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sg.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sg-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/sg-icon.png`
+			},
+			{
 				...defCasinoProviders.AdvantPlay,
 				displayText: "AdvantPlay",
 				menuType: defMenuType.Link,
@@ -288,52 +299,15 @@ export const defMenuLinks = langId => ({
 				]
 			},
 			{
-				...defCasinoProviders.Skywind,
-				displayText: "Skywind",
+				...defCasinoProviders.PG,
+				className: "PG",
+				icon: "icon icon-PG",
+				displayText: "PG Soft",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.Skywind.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/skywind.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sk-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/sk-icon.png`,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.skywind
-					})
-				]
-			},
-			{
-				...defCasinoProviders.Habanero,
-				displayText: "Habanero",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.Habanero.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/habanero.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/habanero-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/habanero-icon.png`
-			},
-			{
-				...defCasinoProviders.NetEnt,
-				displayText: "NetEnt",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.NetEnt.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ne.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ne-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ne-icon.png`
-			},
-			{
-				...defCasinoProviders.SimplePlay,
-				displayText: "SimplePlay",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.SimplePlay.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/simpleplay.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/simpleplay-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/simpleplay-icon.png`,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_SimplePlay
-					})
-				]
+				parameter: { provider: defCasinoProviders.PG.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pg.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pg-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pg-icon.png`
 			},
 			{
 				...defCasinoProviders.MGPSW,
@@ -366,40 +340,39 @@ export const defMenuLinks = langId => ({
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/jili-item.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/jili-icon.png`
 			},
+			// {
+			// 	className: "JOKER",
+			// 	icon: "icon icon-JOKER",
+			// 	displayText: "JOKER",
+			// 	menuType: defMenuType.Link,
+			// 	tpId: 9,
+			// 	parameter: { tpId: 9 }
+			// },
 			{
-				...defCasinoProviders.PT,
-				className: "PT",
+				...defCasinoProviders.RedTiger,
+				className: "RedTiger",
+				displayText: "Red Tiger",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.RedTiger.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/rt.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/rt-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/rt-icon.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.casino_pt
+						period: defEventPeriod.casino_RedTiger
 					})
-				],
-				icon: "icon icon-pt",
-				displayText: "Playtech",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PT.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playtech.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playtech-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/playtech-icon.png`
+				]
 			},
-			// {
-			// 	...defCasinoProviders.AstroTech,
-			// 	className: "ICG",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.icg
-			// 		})
-			// 	],
-			// 	icon: "icon icon-icg",
-			// 	displayText: "Astro Tech",
-			// 	menuType: defMenuType.Link,
-			// 	parameter: { provider: defCasinoProviders.AstroTech.name },
-			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/icg.png`,
-			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/icg-item.png`,
-			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/icg-icon.png`
-			// },
+			{
+				...defCasinoProviders.NetEnt,
+				displayText: "NetEnt",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.NetEnt.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ne.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ne-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ne-icon.png`
+			},
 			{
 				...defCasinoProviders.CQ9,
 				className: "CQ9",
@@ -433,52 +406,79 @@ export const defMenuLinks = langId => ({
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ygg-item.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ygg-icon.png`
 			},
-			// {
-			// 	className: "JOKER",
-			// 	icon: "icon icon-JOKER",
-			// 	displayText: "JOKER",
-			// 	menuType: defMenuType.Link,
-			// 	tpId: 9,
-			// 	parameter: { tpId: 9 }
-			// },
 			{
-				...defCasinoProviders.SG,
-				className: "SG",
-				icon: "icon icon-SG",
-				displayText: "Spadegaming",
+				...defCasinoProviders.Habanero,
+				displayText: "Habanero",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.SG.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sg.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sg-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/sg-icon.png`
+				parameter: { provider: defCasinoProviders.Habanero.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/habanero.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/habanero-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/habanero-icon.png`
 			},
 			{
-				...defCasinoProviders.RedTiger,
-				className: "RedTiger",
-				displayText: "Red Tiger",
+				...defCasinoProviders.SimplePlay,
+				displayText: "SimplePlay",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.RedTiger.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/rt.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/rt-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/rt-icon.png`,
+				parameter: { provider: defCasinoProviders.SimplePlay.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/simpleplay.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/simpleplay-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/simpleplay-icon.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.casino_RedTiger
+						period: defEventPeriod.casino_SimplePlay
 					})
 				]
 			},
 			{
-				...defCasinoProviders.PG,
-				className: "PG",
-				icon: "icon icon-PG",
-				displayText: "PG Soft",
+				...defCasinoProviders.Skywind,
+				displayText: "Skywind",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PG.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pg.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pg-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pg-icon.png`
+				parameter: { provider: defCasinoProviders.Skywind.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/skywind.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sk-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/sk-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.skywind
+					})
+				]
+			},
+			{
+				...defCasinoProviders.PT,
+				className: "PT",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_pt
+					})
+				],
+				icon: "icon icon-pt",
+				displayText: "Playtech",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.PT.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playtech.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playtech-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/playtech-icon.png`
 			}
+			// {
+			// 	...defCasinoProviders.AstroTech,
+			// 	className: "ICG",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.icg
+			// 		})
+			// 	],
+			// 	icon: "icon icon-icg",
+			// 	displayText: "Astro Tech",
+			// 	menuType: defMenuType.Link,
+			// 	parameter: { provider: defCasinoProviders.AstroTech.name },
+			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/icg.png`,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/icg-item.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/icg-icon.png`
+			// },
 			// {
 			// 	...defCasinoProviders.OW,
 			// 	className: "OW",

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
 import { AutoPlayWithBtn } from "../common/swipperBanner";
@@ -6,11 +6,12 @@ import { InfoEn, InfoVn } from "./vip.info";
 import VipPage from "./vip.page";
 import { defbanner, defPageClubImg } from "./vip.def";
 import { currencyCode } from "../../datas/countryCode";
+import { api_account_GetVipBanner } from "../../service/api/site";
 
 const Vip = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
-
+	const [vipBanner, setVipBanner] = useState([]);
 	const _currencyId = currencyCode.VN;
 
 	const rows = defbanner[userInfo.langId].map(item => (
@@ -28,6 +29,26 @@ const Vip = () => {
 		vn: <InfoVn />
 	}[userInfo.langId];
 
+	useEffect(() => {
+		const getVipBanner = async () => {
+			await api_account_GetVipBanner({ CurrencyId: _currencyId }).then(
+				res => {
+					if (res.data.errorCode === 0) {
+						setVipBanner(res.data.data || []);
+					} else if (res.data.errorCode !== 0) {
+						errorPopBox();
+					}
+				},
+				() => {
+					if (isMountedRef.current) {
+						errorPopBox();
+					}
+				}
+			);
+		};
+		getVipBanner();
+	}, []);
+
 	return (
 		<main className="vip">
 			<AutoPlayWithBtn Rows={rows} />
@@ -39,6 +60,7 @@ const Vip = () => {
 				t={t}
 				currencyId={_currencyId}
 				langId={userInfo.langId}
+				vipBanner={vipBanner}
 			/>
 		</main>
 	);
