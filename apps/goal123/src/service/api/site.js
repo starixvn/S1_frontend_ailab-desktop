@@ -74,3 +74,8 @@ export const api_site_GetSocialChannel = ({ langId, displayPage }) =>
 		LangId: langId,
 		DisplayPage: displayPage
 	});
+
+export const api_account_GetVipBanner = ({ CurrencyId }) =>
+	siteRequest.post("/GetVipBanner", {
+		CurrencyId
+	});

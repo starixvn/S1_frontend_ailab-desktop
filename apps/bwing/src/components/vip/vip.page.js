@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
+import moment from "moment";
 import path from "../../router";
 import { bannerImgUrl } from "../../config";
 import PageEventListVn from "./components/pageEventList.vn";
 
-const VipPage = ({ pageClubImg, currencyId, t, langId }) => {
+const VipPage = ({ pageClubImg, currencyId, t, langId, vipBanner }) => {
 	const programImgs = {
 		en: `${bannerImgUrl}/desktop/img/vip/en/vip_program_en.png`,
 		vn: `${bannerImgUrl}/desktop/img/vip/vn/vip_program_vn.png`
@@ -17,7 +18,15 @@ const VipPage = ({ pageClubImg, currencyId, t, langId }) => {
 				<table className="medal">
 					<tbody>
 						<tr>
-							<td>{t("lbl_Vip_LastUpdated")} ： 10/25/2022</td>
+							<td>
+								{t("lbl_Vip_LastUpdated")} ：{" "}
+								{moment(
+									vipBanner?.lastUpdateTime,
+									"YYYY-MM-DDThh:mm:ssZ"
+								)
+									.zone("+07:00")
+									.format("MM/DD/YYYY")}
+							</td>
 							{pageClubImg.map(item => (
 								<td key={`${item.displayKey}-${item.alt}`}>
 									<img src={item.img} alt={item.alt} />
@@ -34,7 +43,10 @@ const VipPage = ({ pageClubImg, currencyId, t, langId }) => {
 						</tr>
 					</tbody>
 				</table>
-				<PageEventListVn currencyId={currencyId} />
+				<PageEventListVn
+					currencyId={currencyId}
+					vipBanner={vipBanner}
+				/>
 			</div>
 
 			{langId ? (
@@ -53,7 +65,8 @@ VipPage.propTypes = {
 	pageClubImg: PropTypes.arrayOf(PropTypes.object).isRequired,
 	currencyId: PropTypes.number.isRequired,
 	t: PropTypes.func.isRequired,
-	langId: PropTypes.string.isRequired
+	langId: PropTypes.string.isRequired,
+	vipBanner: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default VipPage;
