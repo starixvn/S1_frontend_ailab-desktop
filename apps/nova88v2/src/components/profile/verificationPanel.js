@@ -63,9 +63,9 @@ const VerificationPanel = ({
 	return (
 		<div className="vipLv">
 			<div className="vipbg">
-				<div className="vipAnimation">
+				{/* <div className="vipAnimation">
 					<div />
-				</div>
+				</div> */}
 				<img src={vipClubImg.url} alt={vipClubImg.alt} />
 			</div>
 
