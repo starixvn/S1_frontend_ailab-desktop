@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { Link, navigate } from "gatsby";
+import { navigate } from "gatsby";
 import { defMenuType } from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
@@ -124,10 +124,10 @@ const SubMenu = ({
 
 		if (s.menuType === defMenuType.Link) {
 			return (
-				<Link
+				<a
 					key={key}
 					className={_className}
-					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}
+					href={`/${userInfo.langId}/${mainUrl}${_urlParams}`}
 				>
 					{showIcon}
 					<div className="img">
@@ -140,7 +140,7 @@ const SubMenu = ({
 							{t("lbl_underMaintenance")}
 						</div>
 					) : null}
-				</Link>
+				</a>
 			);
 		}
 		return (

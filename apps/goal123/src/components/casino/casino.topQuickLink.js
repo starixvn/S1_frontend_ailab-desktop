@@ -9,15 +9,22 @@ import { defSlotTpGameType } from "../../datas/productList";
 
 SwiperCore.use([Navigation]);
 
-const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
+const TopQuickLink = ({
+	lobbyImgList,
+	activeProvider,
+	onChange,
+	langId,
+	initialSlide,
+	slidesPerViewNum
+}) => {
 	const { userInfo } = useContext(userInfoContext);
 	const [hoverImg, setHoverImg] = useState(null);
 	const handleOnMouseOverImg = imgName => {
 		setHoverImg(`${imgName}`);
 	};
-	const _slidesPerViewNum = 9;
+
 	const dataRows =
-		lobbyImgList.length > _slidesPerViewNum
+		lobbyImgList.length > slidesPerViewNum
 			? lobbyImgList
 			: [...lobbyImgList, ...lobbyImgList];
 
@@ -37,7 +44,8 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
 						  }&tpGameType=${
 								defSlotTpGameType[_item?.tpName]?.tpGameType
 						  }`
-				}>
+				}
+			>
 				<img
 					src={`${bannerImgUrl}/desktop/img/venderlogo/${_srcImg}.png`}
 					alt={_item.tpName}
@@ -57,7 +65,8 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
 									? "active"
 									: ""
 							}
-							to={`/${langId}/${_item.openPath}`}>
+							to={`/${langId}/${_item.openPath}`}
+						>
 							{content}
 						</Link>
 					) : (
@@ -76,7 +85,8 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
 							)}
 							onMouseOut={handleOnMouseOverImg.bind(this, "")}
 							onBlur={() => 0}
-							onFocus={() => 0}>
+							onFocus={() => 0}
+						>
 							{content}
 						</button>
 					)}
@@ -87,13 +97,18 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
 
 	const params = {
 		spaceBetween: 0,
-		slidesPerView: _slidesPerViewNum,
+		slidesPerView: slidesPerViewNum,
 		loop: true
 	};
 
 	return (
 		<div className="partnerSelect">
-			<Swiper navigation={true} {...params}>
+			<Swiper
+				key={initialSlide}
+				initialSlide={initialSlide}
+				navigation={true}
+				{...params}
+			>
 				{Rows}
 			</Swiper>
 		</div>
@@ -101,14 +116,18 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
 };
 
 TopQuickLink.defaultProps = {
-	langId: null
+	langId: null,
+	initialSlide: null,
+	slidesPerViewNum: null
 };
 
 TopQuickLink.propTypes = {
 	lobbyImgList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	activeProvider: PropTypes.objectOf(PropTypes.any).isRequired,
 	onChange: PropTypes.func.isRequired,
-	langId: PropTypes.string
+	langId: PropTypes.string,
+	initialSlide: PropTypes.number,
+	slidesPerViewNum: PropTypes.number
 };
 
 export default TopQuickLink;

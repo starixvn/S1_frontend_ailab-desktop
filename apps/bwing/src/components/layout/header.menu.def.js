@@ -231,6 +231,14 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.PP.name }
 			},
 			{
+				...defCasinoProviders.SG,
+				className: "SG",
+				icon: "icon icon-SG",
+				displayText: "Spadegaming",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.SG.name }
+			},
+			{
 				...defCasinoProviders.AdvantPlay,
 				className: "APnew",
 				displayText: "AdvantPlay",
@@ -244,44 +252,12 @@ export const defMenuLinks = {
 				]
 			},
 			{
-				...defCasinoProviders.Skywind,
-				className: "SK",
-				displayText: "Skywind",
+				...defCasinoProviders.PG,
+				className: "PG",
+				icon: "icon icon-PG",
+				displayText: "PG Soft",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.Skywind.name },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.skywind
-					})
-				]
-			},
-			{
-				...defCasinoProviders.Habanero,
-				className: "HO",
-				displayText: "Habanero",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.Habanero.name }
-			},
-			{
-				...defCasinoProviders.NetEnt,
-				className: "NE",
-				displayText: "NetEnt",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.NetEnt.name }
-			},
-			{
-				...defCasinoProviders.SimplePlay,
-				className: "SP",
-				displayText: "SimplePlay",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.SimplePlay.name },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_SimplePlay
-					})
-				]
+				parameter: { provider: defCasinoProviders.PG.name }
 			},
 			{
 				...defCasinoProviders.MGPSW,
@@ -312,33 +288,25 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.JILI.name }
 			},
 			{
-				...defCasinoProviders.PT,
-				className: "PT",
+				...defCasinoProviders.RedTiger,
+				className: "RED",
+				displayText: "Red Tiger",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.RedTiger.name },
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.casino_pt
+						period: defEventPeriod.casino_RedTiger
 					})
-				],
-				icon: "icon icon-pt",
-				displayText: "PlayTech",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PT.name }
+				]
 			},
-			// {
-			// 	...defCasinoProviders.AstroTech,
-			// 	className: "ICG",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.icg
-			// 		})
-			// 	],
-			// 	icon: "icon icon-ICG",
-			// 	displayText: "Astro Tech",
-			// 	menuType: defMenuType.Link,
-			// 	parameter: { provider: defCasinoProviders.AstroTech.name }
-			// },
+			{
+				...defCasinoProviders.NetEnt,
+				className: "NE",
+				displayText: "NetEnt",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.NetEnt.name }
+			},
 			{
 				...defCasinoProviders.CQ9,
 				className: "CQ9",
@@ -365,34 +333,66 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.YGG.name }
 			},
 			{
-				...defCasinoProviders.SG,
-				className: "SG",
-				icon: "icon icon-SG",
-				displayText: "Spadegaming",
+				...defCasinoProviders.Habanero,
+				className: "HO",
+				displayText: "Habanero",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.SG.name }
+				parameter: { provider: defCasinoProviders.Habanero.name }
 			},
 			{
-				...defCasinoProviders.RedTiger,
-				className: "RED",
-				displayText: "Red Tiger",
+				...defCasinoProviders.SimplePlay,
+				className: "SP",
+				displayText: "SimplePlay",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.RedTiger.name },
+				parameter: { provider: defCasinoProviders.SimplePlay.name },
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.casino_RedTiger
+						period: defEventPeriod.casino_SimplePlay
 					})
 				]
 			},
 			{
-				...defCasinoProviders.PG,
-				className: "PG",
-				icon: "icon icon-PG",
-				displayText: "PG Soft",
+				...defCasinoProviders.Skywind,
+				className: "SK",
+				displayText: "Skywind",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PG.name }
+				parameter: { provider: defCasinoProviders.Skywind.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.skywind
+					})
+				]
+			},
+			{
+				...defCasinoProviders.PT,
+				className: "PT",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_pt
+					})
+				],
+				icon: "icon icon-pt",
+				displayText: "PlayTech",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.PT.name }
 			}
+			// {
+			// 	...defCasinoProviders.AstroTech,
+			// 	className: "ICG",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.icg
+			// 		})
+			// 	],
+			// 	icon: "icon icon-ICG",
+			// 	displayText: "Astro Tech",
+			// 	menuType: defMenuType.Link,
+			// 	parameter: { provider: defCasinoProviders.AstroTech.name }
+			// },
 			// {
 			// 	...defCasinoProviders.OW,
 			// 	className: "OW",

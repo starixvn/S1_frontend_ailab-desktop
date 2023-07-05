@@ -43,6 +43,7 @@ export default () => {
 		[defSearchColumn.searchText]: "",
 		[defSearchColumn.provider]: { idx: 0, value: null }
 	});
+	const [initialSlide, setInitialSlide] = useState(9);
 	const [favoriteStr, setFavoriteStr] = useState(
 		localStorage.getItem("favorite")
 	);
@@ -59,6 +60,7 @@ export default () => {
 	const urlProviderTpId = Object.values(defCasinoProviders).find(
 		el => el.name.toUpperCase() === urlProvider.toUpperCase()
 	)?.tpId;
+	const slidesPerViewNum = 9;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -75,11 +77,6 @@ export default () => {
 			);
 
 			if (targetProvider) {
-				const filterPList = providerList.filter(
-					obj => obj.tpId !== Number(activeTpId)
-				);
-				filterPList.splice(11, 0, targetProvider);
-				setProviderList(filterPList);
 				setActiveProvider(
 					targetProvider.tpId === activeProvider.tpId
 						? {}
@@ -156,6 +153,16 @@ export default () => {
 			onChangeCategory(activeCategory);
 		}
 	}, [favoriteStr]);
+
+	useEffect(() => {
+		if (activeProvider.index) {
+			const newInitialSlide =
+				Object.keys(activeProvider).length === 0
+					? slidesPerViewNum
+					: activeProvider.index - 2;
+			setInitialSlide(newInitialSlide);
+		}
+	}, [activeProvider]);
 
 	const loadMore = () => {
 		if (allGames && pageInfo.totalPages > pageInfo.currentPage) {
@@ -362,20 +369,17 @@ export default () => {
 									obj => obj.tpId === Number(activeTpId)
 								);
 								if (_activeProvider) {
-									const filterPList = tempPList.filter(
-										obj => obj.tpId !== Number(activeTpId)
+									const index = tempPList.findIndex(
+										providerObj =>
+											providerObj.tpId ===
+											Number(activeTpId)
 									);
-									filterPList.splice(11, 0, _activeProvider);
-									setProviderList(filterPList);
-									const _tempList =
-										filterPList.find(
-											obj =>
-												obj.tpId === Number(activeTpId)
-										) ?? {};
-									setActiveProvider(_tempList);
-								} else {
-									setProviderList(tempPList);
+									Object.assign(_activeProvider, {
+										index
+									});
+									setActiveProvider(_activeProvider);
 								}
+								setProviderList(tempPList);
 							} else {
 								setProviderList(tempPList);
 							}
@@ -566,6 +570,8 @@ export default () => {
 						activeProvider={activeProvider}
 						onChange={handleProviderChange}
 						langId={userInfo.langId}
+						initialSlide={initialSlide}
+						slidesPerViewNum={slidesPerViewNum}
 					/>
 					<div
 						className="quickSelect CasinoSelect gameBtn
