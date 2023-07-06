@@ -95,7 +95,8 @@ export const WithdrawalUSDTConFirm = ({
 			setLoading(false);
 		};
 
-		getUSDTAmount();
+		if (amountValue) getUSDTAmount();
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [amountValue, currencyName, network]);
 
