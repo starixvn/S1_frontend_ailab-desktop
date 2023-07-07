@@ -135,6 +135,7 @@
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "Nama pengguna Wajib diisi.",
+	"msg_RealNameReq": "Nama asli diperlukan",
 	"msg_PasswordReq": "Kata Sandi wajib diisi",
 	"msg_UsernameLength": "6-18 karakter alfanumerik (A-Z, a-z, 0-9) saja.",
 	"msg_UsernameNotAvailable": "Username is no longer available.",

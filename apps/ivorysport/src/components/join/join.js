@@ -20,13 +20,13 @@ import {
 	passwordCheck,
 	getLocalStorage,
 	defCurrencyList,
-	getCombineLangId,
-	defCurrencyToClass
+	defCurrencyToClass,
+	realNameCheck
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 import { userInfoContext, popBoxContext } from "../common/context";
-import { cloudImgUrl, bannerImgUrl } from "../../config";
+import { bannerImgUrl } from "../../config";
 import { Iov_GetBlackBox } from "../common/iovation";
 import { initValue, initTip } from "../common/join.data";
 import JoinForm from "./join.form";
@@ -176,6 +176,8 @@ export default () => {
 		let msg = "";
 		if (col === "username") {
 			msg = t("lbl_UsernameTooltip");
+		} else if (col === "realName") {
+			msg = t("lbl_RemindForName");
 		} else if (col === "password") {
 			msg = t("lbl_PasswordTooltip");
 		} else if (col === "email") {
@@ -204,6 +206,8 @@ export default () => {
 		let val = e.target.value;
 		if (col === "username") {
 			val = val.replace(/[\W_]/g, "");
+		} else if (col === "realName") {
+			val = val.replace(/[\d\-!@#$%^&_()+";~～<>=|?\[\]\\`~{}]+/gu, "");
 		}
 		if (col === "phone") {
 			val = val.replace(/[^0-9]+/g, "");
@@ -256,6 +260,10 @@ export default () => {
 
 		if (col === "username") {
 			const result = await usernameCheck(val);
+			checked = result.checked;
+			msg = result.msg;
+		} else if (col === "realName") {
+			const result = realNameCheck(val);
 			checked = result.checked;
 			msg = result.msg;
 		} else if (col === "password") {
@@ -435,12 +443,14 @@ export default () => {
 
 			const _usernameCheck = res[0];
 			// const _phoneCheck = res[1];
+			const _realNameCheck = realNameCheck(userValue.realName);
 			const _phoneCheck = phoneCheck(userValue.phone);
 			const _emailCheck = res[2];
 			const _passwordCheck = passwordCheck(userValue.password);
 			const _currencyCheck = currencyCheck(defaultOption);
 
 			const checked =
+				_realNameCheck.checked &&
 				_usernameCheck.checked &&
 				_passwordCheck.checked &&
 				_phoneCheck.checked &&
@@ -453,6 +463,10 @@ export default () => {
 					username: {
 						checked: _usernameCheck.checked,
 						msg: t(_usernameCheck.msg)
+					},
+					realName: {
+						checked: _realNameCheck.checked,
+						msg: t(_realNameCheck.msg)
 					},
 					password: {
 						checked: _passwordCheck.checked,
@@ -521,6 +535,7 @@ export default () => {
 
 			const regData = {
 				UserName: userValue.username,
+				RealName: userValue.realName,
 				Userpwd: userValue.password,
 				Email: userValue.email,
 				PhoneNo: userValue.phone,
@@ -650,7 +665,7 @@ export default () => {
 	return (
 		<div className="joinpop">
 			<div className="joinloginModule">
-				 <JoinPromoInfo currencyId={userInfo.currencyId} t={t} />
+				<JoinPromoInfo currencyId={userInfo.currencyId} t={t} />
 				<div className="joinAnimation">
 					<img
 						className="npc1"

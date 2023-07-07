@@ -131,6 +131,7 @@
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "ইউজার নাম দরকার.",
+	"msg_RealNameReq": "প্রকৃত নাম মেলে না প্রয়োজন",
 	"msg_PasswordReq": "পাসওয়ার্ড প্রয়োজন.",
 	"msg_UsernameLength": "ব্যবহারকারীর নাম ৬ থেকে ১৮ অক্ষরের মধ্যে হতে হবে।",
 	"msg_UsernameNotAvailable": "ব্যবহারকারীর নাম আর উপলব্ধ নেই৷",
