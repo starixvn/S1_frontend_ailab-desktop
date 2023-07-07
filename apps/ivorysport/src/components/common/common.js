@@ -160,6 +160,21 @@ export const passwordCheck = val => {
 	return { checked: true, message: "" };
 };
 
+export const realNameCheck = val => {
+	let checked = false;
+	let msg = "";
+
+	if (val === "") {
+		checked = false;
+		msg = "msg_RealNameReq";
+	} else {
+		checked = true;
+		msg = "";
+	}
+
+	return { checked, msg };
+};
+
 export const isDateRange = (startDate, endDate) => {
 	const now = new Date();
 	const _startDate = startDate ? new Date(`${startDate} GMT+0800`) : null; // yyyy/mm/dd hh:mm:ss

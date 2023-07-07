@@ -107,6 +107,17 @@ const JoinForm = ({
 				onChange={EditField.bind(null, "email")}
 				onBlur={checkValue.bind(null, "email")}
 			/>
+			<Inputbox
+				className="inputBox-blue"
+				icon="icon-member txt-blue"
+				placeholder={t("lbl_RealName")}
+				value={userValue.realName}
+				tip={tip.realName.msg}
+				checked={tip.realName.checked}
+				clickInfo={clickInfo.bind(this, "realName")}
+				onChange={EditField.bind(null, "realName")}
+				onBlur={checkValue.bind(null, "realName")}
+			/>
 			<div
 				className={`inputBox-blue${
 					tip.currency.msg !== "" ? " error" : ""

@@ -136,6 +136,7 @@
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "Username is required.",
+	"msg_RealNameReq": "Real name is required",
 	"msg_PasswordReq": "Password is required.",
 	"msg_UsernameLength": "6-18 alphanumeric (A-Z, a-z, 0-9) characters only.",
 	"msg_UsernameNotAvailable": "Username is no longer available.",
