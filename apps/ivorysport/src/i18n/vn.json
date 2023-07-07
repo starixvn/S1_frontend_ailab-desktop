@@ -132,6 +132,7 @@
   "lbl_Mini": "Mini",
   "account ■■■■■■■■■■■■■■■■■■■■": "",
   "msg_UsernameReq": "Tên đăng nhập là bắt buộc.",
+  "msg_RealNameReq": "Tên thật là bắt buộc",
   "msg_PasswordReq": "Mật khẩu là bắt buộc",
   "msg_UsernameLength": "Tên đăng nhập phải có 6 đến 18 ký tự",
   "msg_UsernameNotAvailable": "Tên đăng nhập này đã được sử dụng.",

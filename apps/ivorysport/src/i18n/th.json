@@ -136,6 +136,7 @@
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "ต้องใส่ชื่อบัญชีผู้ใช้",
+	"msg_RealNameReq": "ต้องระบุชื่อจริง",
 	"msg_PasswordReq": "ต้องใส่รหัสผ่าน",
 	"msg_UsernameLength": "ตัวอักษรและตัวเลข 6-18 ตัว (A-Z, a-z, 0-9) เท่านั้น",
 	"msg_UsernameNotAvailable": "ชื่อบัญชีผู้ใช้ไม่สามารถใช้ได้อีกต่อไป",

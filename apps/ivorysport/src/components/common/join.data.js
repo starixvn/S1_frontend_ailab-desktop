@@ -13,6 +13,7 @@ export const initValue = {
 
 export const initTip = {
 	username: { checked: null, msg: "" },
+	realName: { checked: null, msg: "" },
 	password: { checked: null, msg: "" },
 	phone: { checked: null, msg: "" },
 	email: { checked: null, msg: "" },

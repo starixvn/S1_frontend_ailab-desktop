@@ -131,6 +131,7 @@
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "Nama pengguna diperlukan.",
+	"msg_RealNameReq": "Nama sebenar diperlukan",
 	"msg_PasswordReq": "Kata laluan diperlukan.",
 	"msg_UsernameLength": "Nama pengguna mempunyai antara 6 dan 18 aksara (A-Z, a-z, 0-9).",
 	"msg_UsernameNotAvailable": "Nama pengguna sudah diguna.",
