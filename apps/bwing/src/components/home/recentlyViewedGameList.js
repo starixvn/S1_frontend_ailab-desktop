@@ -5,11 +5,13 @@ import { Navigation } from "swiper";
 import { useTranslation } from "react-i18next";
 import { popBoxContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
-import { useGotoGame } from "../hook/useGotoGame";
+import { defSpecialSetting, useGotoGame } from "../hook/useGotoGame";
 import { defMenuLinks, defMenuType } from "../layout/header.menu.def";
 import { defPopBoxType } from "../common/defPopBoxType";
-import { SET_ENTER_PAGE } from "../../service/enterPage";
+import { SET_CASINO_ENTER_PAGE, SET_ENTER_PAGE } from "../../service/enterPage";
 import { api_game_GetRecentlyViewed } from "../../service/api/game";
+import useDelayFunc from "../hook/useDelayFunc";
+import { defCategory } from "../../datas/productList";
 
 const RecentlyViewedGameList = () => {
 	const [recentlyViewedGames, setRecentlyViewedGames] = useState([]);
@@ -17,6 +19,7 @@ const RecentlyViewedGameList = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { errorPopBox } = usePopBox();
 	const { t } = useTranslation();
+	const { throttle } = useDelayFunc();
 	const { handleGoToGame } = useGotoGame({
 		isLogin: userInfo.isLogin,
 		langId: userInfo.langId,
@@ -26,7 +29,10 @@ const RecentlyViewedGameList = () => {
 
 	const handleGoToRecentlyViewedGame = ({
 		selectedTpId,
-		selectedTpGameType
+		selectedTpGameType,
+		selectedCategoryId,
+		selectedGameId,
+		isMaintain
 	}) => {
 		let targetItem;
 		const gameItems = Object.values(defMenuLinks).find(itemList => {
@@ -92,7 +98,34 @@ const RecentlyViewedGameList = () => {
 		};
 
 		if (targetItem.menuType === defMenuType.Link) {
-			navigate(`/${userInfo.langId}/${pathLink}${_urlParams}`);
+			if (selectedCategoryId === defCategory.Slots) {
+				if (isMaintain) {
+					return;
+				}
+				throttle(
+					() =>
+						SET_CASINO_ENTER_PAGE({
+							tpId: selectedTpId,
+							gameId: selectedGameId,
+							isFree: false,
+							langId: userInfo.langId,
+							execFunction:
+								selectedTpId === defSpecialSetting.playTech
+									? handleGoToGame.bind(this, {
+											langId: userInfo.langId,
+											tpId: selectedTpId,
+											gameId: selectedGameId,
+											isFun: false,
+											tpGameType: selectedTpGameType
+									  })
+									: null,
+							tpGameType: selectedTpGameType
+						}),
+					5000
+				);
+			} else {
+				navigate(`/${userInfo.langId}/${pathLink}${_urlParams}`);
+			}
 		} else {
 			handleOpenGame({
 				tpId: targetItem.tpId,
@@ -150,7 +183,9 @@ const RecentlyViewedGameList = () => {
 								gameName,
 								tpId,
 								tpGameType,
-								isMaintain
+								isMaintain,
+								categoryId,
+								gameId
 							}) => (
 								<SwiperSlide
 									key={`recently-game-${tpId}-${tpGameType}`}
@@ -160,7 +195,10 @@ const RecentlyViewedGameList = () => {
 										onClick={() =>
 											handleGoToRecentlyViewedGame({
 												selectedTpId: tpId,
-												selectedTpGameType: tpGameType
+												selectedTpGameType: tpGameType,
+												selectedCategoryId: categoryId,
+												selectedGameId: gameId,
+												isMaintain
 											})
 										}
 									>
