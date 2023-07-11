@@ -116,12 +116,12 @@ const ProfileEdit = ({
 								isValidDate={valid}
 								viewMode="years"
 								onClose={() => {
-									checkBirth(data);
+									checkBirth(birthValue);
 								}}
 								inputProps={{
 									placeholder: "YYYY-MM-DD",
-									onBlur: data => {
-										checkBirth(data);
+									onBlur: e => {
+										checkBirth(e.target.value);
 									}
 								}}
 							/>
