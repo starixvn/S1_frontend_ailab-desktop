@@ -41,19 +41,19 @@ export const defLangGroups = {
 			value: "id",
 			currencyId: defCurrencyList.IDR
 		}
-	],
-	vn: [
-		{
-			displayText: "English",
-			value: "en",
-			currencyId: defCurrencyList.VND
-		},
-		{
-			displayText: "Tiếng Việt",
-			value: "vn",
-			currencyId: defCurrencyList.VND
-		}
 	]
+	// vn: [
+	// 	{
+	// 		displayText: "English",
+	// 		value: "en",
+	// 		currencyId: defCurrencyList.VND
+	// 	},
+	// 	{
+	// 		displayText: "Tiếng Việt",
+	// 		value: "vn",
+	// 		currencyId: defCurrencyList.VND
+	// 	}
+	// ]
 };
 
 const getLangs = (langKey, isLogin) => {
@@ -83,7 +83,7 @@ const defLangGroupCountry = {
 	gb: "Global",
 	bd: "Bangladesh",
 	kh: "Cambodia",
-	vn : "Vietnam"
+	vn: "Vietnam"
 };
 
 export default () => {
