@@ -155,15 +155,15 @@ export default () => {
 		return checked;
 	};
 
-	const checkBirth = () => {
+	const checkBirth = newBirthValue => {
 		const isValidDate = d => {
 			const date = new Date(d);
 			return date instanceof Date && !isNaN(date);
 		};
 
 		const checkResult =
-			Boolean(userInfo.birth_d) || isValidDate(birthValue);
-		const checkTip = isValidDate(birthValue)
+			Boolean(userInfo.birth_d) || isValidDate(newBirthValue);
+		const checkTip = isValidDate(newBirthValue)
 			? ""
 			: t("lbl_BirthdayErrorTip");
 
