@@ -968,6 +968,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList .ICG .img {
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .SP .img {
   background: url(https://banner.bw88.io/desktop/img/slot/simpleplay.png) no-repeat center/auto 100%;
 }
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .Nextspin .img {
+  background: url(https://banner.bw88.io/desktop/img/slot/nextspin.png) no-repeat center/auto 100%;
+}
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveEvo .img {
   background: url(https://banner.bw88.io/desktop/img/live/live-evo.png) no-repeat center/auto 100%;
 }
@@ -2072,6 +2075,14 @@ footer > div .platformGroup button.sp {
 footer > div .platformGroup a.sp:hover,
 footer > div .platformGroup button.sp:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/simpleplay-b.png) no-repeat center;
+}
+footer > div .platformGroup a.nextspin,
+footer > div .platformGroup button.nextspin {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/nextspin.png) no-repeat center;
+}
+footer > div .platformGroup a.nextspin:hover,
+footer > div .platformGroup button.nextspin:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/nextspin-a.png) no-repeat center;
 }
 footer > div .powered {
   width: 100%;

@@ -19941,4 +19941,200 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .exclude__table__item div span:last-child::after {
   height: 0;
   display: none;
+}
+
+.thiaPop {
+  padding: 5px 10px !important;
+  font-size: 12px;
+  width: 350px;
+}
+.thiaPop ul {
+  color: #5574A7;
+  margin-bottom: 5px;
+}
+.thiaPop ul li {
+  margin-left: 15px;
+  list-style: decimal;
+}
+.thiaPop ul li button {
+  font-size: 12px;
+  background: #5574A7;
+  color: white;
+  padding: 2px 5px;
+  margin-right: 10px;
+}
+.thiaPop .title {
+  margin: 5px auto !important;
+  text-align: center;
+  font-size: 16px;
+}
+.thiaPop > div {
+  width: 100%;
+  color: #5574A7;
+  margin: 2px auto;
+  text-align: center;
+}
+.thiaPop > div span {
+  font-weight: bold;
+}
+.thiaPop > div.popTit {
+  background: #0D3E64;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 0;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5px;
+  color: white;
+}
+.thiaPop > div.popTit img {
+  width: auto;
+  max-width: 150px;
+}
+.thiaPop > div.popTit .icon-close {
+  position: absolute;
+  right: 0 !important;
+  top: 5px !important;
+  color: white !important;
+}
+.thiaPop > div.guide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5px;
+  width: calc(100% - 14px);
+  padding: 10px 7px;
+  margin: 5px auto;
+  background: rgba(240, 247, 255, 0.7);
+}
+.thiaPop > div.guide span {
+  color: #cf0404;
+}
+.thiaPop > div.guide .banklogo {
+  padding: 0 10px;
+}
+.thiaPop > div.guide .banklogo img {
+  width: 130px;
+}
+.thiaPop > div.guide .qrCode {
+  width: 160px;
+  height: 160px;
+  padding: 5px;
+  background: rgba(240, 247, 255, 0.8);
+  overflow: hidden;
+  margin: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.thiaPop > div.guide .qrCode svg, .thiaPop > div.guide .qrCode img {
+  width: auto;
+  height: 160px;
+}
+.thiaPop > div.guide .qrCode path:nth-child(2) {
+  fill: #EE2968;
+}
+.thiaPop .amount {
+  color: #cf0404;
+  border-radius: 3px;
+  line-height: 1.8;
+}
+.thiaPop .amount span {
+  padding: 2px 5px;
+  background: rgba(255, 255, 255, 0.95);
+  margin: 5px auto 10px;
+}
+.thiaPop .description {
+  margin: 10px auto 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+.thiaPop .description input {
+  border: 0;
+  background: rgba(117, 145, 193, 0.2);
+  padding: 3px 5px;
+  border-radius: 3px;
+  margin: 0 5px;
+  color: #112240;
+}
+.thiaPop .description input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.thiaPop .description button {
+  border-radius: 3px;
+  background: #5574A7;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 21px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.thiaPop .description button:hover {
+  background: #5574A7;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.thiaPop .info {
+  line-height: 1.2;
+}
+.thiaPop .info span {
+  color: #cf0404;
+  font-weight: normal;
+}
+.thiaPop .info p {
+  font-weight: bold;
+  font-size: 13px;
+  margin: 4px auto;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted #1E85EC;
+}
+.thiaPop .info div {
+  margin: 10px auto 8px;
+}
+.thiaPop .info .note {
+  font-weight: bold;
+  margin: 5px auto;
+  padding-top: 10px;
+  border-top: 1px dotted #1E85EC;
 }/*# sourceMappingURL=style.css.map */
