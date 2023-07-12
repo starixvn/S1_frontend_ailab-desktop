@@ -355,7 +355,7 @@ export default () => {
 		Promise.all([checkEmail(), checkPhone()]).then(res => {
 			if (
 				checkName() === true &&
-				checkBirth() === true &&
+				checkBirth(birthValue) === true &&
 				res[0] === true &&
 				res[1] === true
 			) {
