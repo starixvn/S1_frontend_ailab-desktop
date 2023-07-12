@@ -2082,7 +2082,7 @@ footer > div.copyright {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  margin: 0 auto;
+  margin: auto;
 }
 
 .icon-arrow_drop_down {
@@ -2338,9 +2338,6 @@ footer > div.copyright {
 }
 .inputBox-blue.error + .tip {
   color: #f52805;
-}
-.inputBox-blue .countryCode {
-  margin-bottom: 2px;
 }
 
 input[type=file] {
@@ -4467,6 +4464,9 @@ main > .swiper-container .swiper-slide {
 #popup .qrpayPop > div.guide .qrCode svg, #popup .qrpayPop > div.guide .qrCode img {
   width: auto;
   height: 180px;
+}
+#popup .qrpayPop > div.guide .qrCode path:nth-child(2) {
+  fill: #EE2968;
 }
 #popup .qrpayPop .info {
   margin: 5px auto;
@@ -13178,12 +13178,12 @@ input + .iconModule i.icon.icon-checkmark:before {
 .indexNew .offers .swiper-container .eventImg .gameName {
   position: absolute;
   left: 50%;
-  bottom: 16%;
+  bottom: 15%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   width: 202px;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

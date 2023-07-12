@@ -41,5 +41,6 @@ export default {
 	LinePay: "LinePay",
 	BankQR: "BankQR",
 	WithdrawalMsg: "WithdrawalMsg",
-	DepositMsg: "DepositMsg"
+	DepositMsg: "DepositMsg",
+	EWalletQR: "EWalletQR"
 };

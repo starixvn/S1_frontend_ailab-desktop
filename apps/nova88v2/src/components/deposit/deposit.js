@@ -243,7 +243,8 @@ const Deposit = () => {
 
 					<Link
 						className="btn-check"
-						to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`}>
+						to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`}
+					>
 						{t("lbl_UpdatePersonalDetail")}
 					</Link>
 				</div>
@@ -314,7 +315,8 @@ const Deposit = () => {
 									onClick={() => {
 										closePopBox();
 										resolve(true);
-									}}>
+									}}
+								>
 									{t("lbl_Deposit_Promotion_Button_Proceed")}
 								</button>
 								<button
@@ -322,7 +324,8 @@ const Deposit = () => {
 									onClick={() => {
 										closePopBox();
 										resolve(false);
-									}}>
+									}}
+								>
 									{t("lbl_Deposit_Promotion_Button_Back")}
 								</button>
 							</div>
@@ -405,7 +408,6 @@ const Deposit = () => {
 				window.open(`${baseUrl}?${params}`);
 			} else if (depositType === defDepositType.mobile) {
 				setLoading(true);
-
 				const params = [
 					`ChannelId=${channelId}`,
 					`Amount=${resultAmount}`,
@@ -426,17 +428,31 @@ const Deposit = () => {
 
 						const { data, errorCode } = res.data;
 						if (errorCode === 0) {
-							setPopBox({
-								channelName: formInfo.channelName,
-								isOpen: true,
-								popBoxType: defPopBoxType.BankQR,
-								onClickClose: () => {
-									setPopBox({ isOpen: false });
-									window.location.reload();
-								},
-								qrUrl: data.returnUrl,
-								amount: formatAmount(resultAmount)
-							});
+							if (userInfo.currencyId === defCurrencyList.THB) {
+								setPopBox({
+									isOpen: true,
+									popBoxType: defPopBoxType.EWalletQR,
+									onClickClose: () => {
+										setPopBox({ isOpen: false });
+										window.location.reload();
+									},
+									qrUrl: data.returnUrl,
+									amount: resultAmount,
+									transId: data.transId
+								});
+							} else {
+								setPopBox({
+									channelName: formInfo.channelName,
+									isOpen: true,
+									popBoxType: defPopBoxType.BankQR,
+									onClickClose: () => {
+										setPopBox({ isOpen: false });
+										window.location.reload();
+									},
+									qrUrl: data.returnUrl,
+									amount: formatAmount(resultAmount)
+								});
+							}
 						} else {
 							errorPopBox(
 								res.data.message || "error",
@@ -850,7 +866,8 @@ const Deposit = () => {
 				setPopBox={setPopBox}
 				userName={userInfo.userName}
 				canSubmit={formInfo.canSubmit}
-				submitHandle={submitHandle}>
+				submitHandle={submitHandle}
+			>
 				{depositType === defDepositType.autoDeposit && (
 					<AutoDepositForm
 						t={t}
