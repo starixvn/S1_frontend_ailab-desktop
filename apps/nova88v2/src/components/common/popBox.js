@@ -43,6 +43,7 @@ import LinePay from "./popBox.linePayLink";
 import BankQR from "./popBox.bankQR";
 import WithdrawalMsg from "./popBox.withdrawalMsg";
 import DepositMsg from "./popBox.depositMsg";
+import EWalletQR from "./popBox.eWalletQR";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -365,6 +366,17 @@ export default () => {
 				<DepositMsg
 					transId={popBox.transId}
 					depositMessageDetail={popBox.depositMessageDetail}
+				/>
+			);
+			break;
+
+		case defPopBoxType.EWalletQR:
+			content = (
+				<EWalletQR
+					onClickClose={popBox.onClickClose}
+					qrUrl={popBox.qrUrl}
+					amount={popBox.amount}
+					transId={popBox.transId}
 				/>
 			);
 			break;

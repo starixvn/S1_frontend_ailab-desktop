@@ -252,6 +252,19 @@ export const defMenuLinks = {
 				]
 			},
 			{
+				...defCasinoProviders.Nextspin,
+				className: "Nextspin",
+				displayText: "Nextspin",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.Nextspin.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_nextspin
+					})
+				]
+			},
+			{
 				...defCasinoProviders.PG,
 				className: "PG",
 				icon: "icon icon-PG",

@@ -299,6 +299,21 @@ export const defMenuLinks = langId => ({
 				]
 			},
 			{
+				...defCasinoProviders.Nextspin,
+				displayText: "Nextspin",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.Nextspin.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/nextspin.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/nextspin-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/nextspin-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_nextspin
+					})
+				]
+			},
+			{
 				...defCasinoProviders.PG,
 				className: "PG",
 				icon: "icon icon-PG",

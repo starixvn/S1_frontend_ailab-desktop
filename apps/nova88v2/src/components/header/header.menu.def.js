@@ -863,6 +863,21 @@ export const defMenuLinks = {
 				]
 			},
 			{
+				keyName: "slot_Nextspin",
+				displayText: "Nextspin",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotNextspin.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { provider: "nextspin" },
+				...productList.casino_Nextspin,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_nextspin
+					})
+				]
+			},
+			{
 				keyName: "slot_PG",
 				icon: "icon icon-PG",
 				displayText: "PG Soft",
