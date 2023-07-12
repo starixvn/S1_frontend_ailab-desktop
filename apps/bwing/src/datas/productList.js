@@ -37,7 +37,8 @@ export const defSlotTpGameType = {
 	NetEnt: { tpId: 37, tpGameType: 64, name: "netent" },
 	SimplePlay: { tpId: 44, tpGameType: 86, name: "simple-play" },
 	Habanero: { tpId: 40, tpGameType: 68, name: "habanero" },
-	Skywind: { tpId: 43, tpGameType: 82, name: "skywind" }
+	Skywind: { tpId: 43, tpGameType: 82, name: "skywind" },
+	Nextspin: { tpId: 50, tpGameType: 99, name: "nextspin" }
 };
 
 export default {
@@ -533,5 +534,10 @@ export const defCasinoProviders = {
 		tpId: 43,
 		name: "Skywind",
 		tpGameType: 82
+	},
+	Nextspin: {
+		tpId: 50,
+		name: "Nextspin",
+		tpGameType: 99
 	}
 };
