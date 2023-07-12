@@ -863,17 +863,6 @@ export const defMenuLinks = {
 				]
 			},
 			{
-				keyName: "slot_PG",
-				icon: "icon icon-PG",
-				displayText: "PG Soft",
-				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotPG.png",
-				listBgImgUrl: "slotListHover.png",
-				// parameter: { ...productList.casino_PG },
-				parameter: { provider: "pg" },
-				...productList.casino_PG
-			},
-			{
 				keyName: "slot_Nextspin",
 				displayText: "Nextspin",
 				menuType: defMenuType.Link,
@@ -887,6 +876,17 @@ export const defMenuLinks = {
 						period: defEventPeriod.slot_nextspin
 					})
 				]
+			},
+			{
+				keyName: "slot_PG",
+				icon: "icon icon-PG",
+				displayText: "PG Soft",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotPG.png",
+				listBgImgUrl: "slotListHover.png",
+				// parameter: { ...productList.casino_PG },
+				parameter: { provider: "pg" },
+				...productList.casino_PG
 			},
 			{
 				keyName: "slot_MGPSW",

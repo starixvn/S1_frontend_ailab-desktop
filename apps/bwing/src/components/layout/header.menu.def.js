@@ -252,14 +252,6 @@ export const defMenuLinks = {
 				]
 			},
 			{
-				...defCasinoProviders.PG,
-				className: "PG",
-				icon: "icon icon-PG",
-				displayText: "PG Soft",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PG.name }
-			},
-			{
 				...defCasinoProviders.Nextspin,
 				className: "Nextspin",
 				displayText: "Nextspin",
@@ -271,6 +263,14 @@ export const defMenuLinks = {
 						period: defEventPeriod.slot_nextspin
 					})
 				]
+			},
+			{
+				...defCasinoProviders.PG,
+				className: "PG",
+				icon: "icon icon-PG",
+				displayText: "PG Soft",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.PG.name }
 			},
 			{
 				...defCasinoProviders.MGPSW,
