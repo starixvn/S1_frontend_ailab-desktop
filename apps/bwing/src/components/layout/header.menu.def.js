@@ -550,18 +550,18 @@ export const defMenuLinks = {
 				},
 				tpGameType: 10
 			},
-			// {
-			// 	gameId: 12,
-			// 	tpId: 12,
-			// 	className: "liveALL",
-			// 	icon: "icon icon-AB",
-			// 	displayText: "Allbet",
-			// 	menuType: defMenuType.entPage,
-			// 	lobbyPage: {
-			// 		bgClass: "live-ab"
-			// 	},
-			// 	tpGameType: 6
-			// },
+			{
+				gameId: 12,
+				tpId: 12,
+				className: "liveALL",
+				icon: "icon icon-AB",
+				displayText: "Allbet",
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-ab"
+				},
+				tpGameType: 6
+			},
 			{
 				gameId: 3,
 				tpId: 3,
