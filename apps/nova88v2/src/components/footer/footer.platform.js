@@ -187,6 +187,13 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			parameter: { ...productList.casino_Skywind },
 			imgName: "sk",
 			hoverImgName: "ska"
+		},
+		{
+			...productList.casino_Nextspin,
+			path: path.casino.root,
+			parameter: { ...productList.casino_Nextspin },
+			imgName: "casino_nextspin",
+			hoverImgName: "casino_nextspina"
 		}
 	];
 

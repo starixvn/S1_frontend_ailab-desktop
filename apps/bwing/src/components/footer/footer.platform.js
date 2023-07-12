@@ -154,6 +154,12 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.Skywind.name },
 		imgName: "sk"
+	},
+	{
+		...defCasinoProviders.Nextspin,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.Nextspin.name },
+		imgName: "nextspin"
 	}
 	// {
 	// 	...productList.liveCasino_Allbet,
