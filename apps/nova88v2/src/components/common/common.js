@@ -348,7 +348,7 @@ export function capitalizeFirstLetter(string = "") {
 
 	return words
 		.map(word => {
-			return word[0]?.toUpperCase() + word.substring(1);
+			return word.charAt(0).toUpperCase() + word.slice(1);
 		})
 		.join(" ");
 }
