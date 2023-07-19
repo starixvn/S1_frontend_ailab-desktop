@@ -40,7 +40,7 @@
 	"lbl_LiveCasinoInfo2": "रचनात्मक कैसीनो गेम खेलें",
 	"lbl_LiveCasinoInfo3": "एशियाई और यूरोपीय लाइव डीलर!",
 	"lbl_InaccessibleWithoutPermission": "inaccessible without permission",
-	"lbl_Recently_Viewed":"हाल ही में देखा गया",
+	"lbl_Recently_Viewed": "हाल ही में देखा गया",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "अंतर",
@@ -712,7 +712,7 @@
 	"lbl_Referral": "रेफ़रल",
 	"lbl_ReferFriends": "दोस्तों को भेजे",
 	"lbl_Referral_code": "रेफरल कोड",
-	"lbl_Referral_link": "रेफरल लिकं",
+	"lbl_Referral_link": "सिफ़ारिश के लिंक",
 	"lbl_Referral_description": "मिञो के पुरस्कारों का संदर्भ लें। आपको अपने दोस्तों के लिए अनन्य रेफर फ्रेंड्स रिवार्ड मिलेंगे, अपने यूनिक लिंक / कोड के साथ साइन-अप करें",
 	"lbl_Referral_Welcome": "Nova88 में आपका स्वागत है, आप हमारे साथ जुड़ने के लिए आमंत्रित हैं। नई प्रोफ़ाइल के लिए बहुत सारे पुरस्कृत कार्यक्रम ऑफ़र हैं। बस क्लिक करें और अपने पुरस्कार पाने के लिए हमारे साथ साइन अप करें और अपने दोस्त को पुरस्कृत करने में मदद करें! नियम व शर्तें लागू।",
 	"lbl_Share_with_friend": "अब अपने दोस्तों को रेफर करने के लिए अपने पसंदीदा ऑफर चुनें!",
@@ -808,7 +808,7 @@
 	"lbl_Vip_Accumulated_Deposit_Within_3_Months": "3 महीने के अंदर जमा की गई कुल राशि",
 	"lbl_Vip_Accumulated_Turnover_Within_3_Months": "3 महीने के भीतर संचित कारोबार",
 	"lbl_Vip_TopPriorityServices": "Top Priority Services",
-	"lbl_Vip_ExclusivePromo":"Exclusive Promo",
+	"lbl_Vip_ExclusivePromo": "Exclusive Promo",
 	"lbl_Vip_BirthdaySpecialGifts": "Birthday Special Gifts",
 	"lbl_Vip_LifetimeMembership": "Lifetime Membership",
 	"lbl_Vip_NoRestrictions": "NO RESTRICTIONS",
@@ -1102,5 +1102,12 @@
 		"lbl_GameName": "गेम का नाम"
 	},
 
-	"end-----": "end-----"
+	"Label_Referral_AccumulateRewardAmount": "संचय करें इनाम की रकम",
+	"Label_Referral_Simple3StepsToShare": "साझा करने के लिए सरल 3 चरण",
+	"Label_Share": "शेयर करना",
+	"Label_Recharge": "शेयर करना",
+	"Label_Referral_ShareDescription": "अपने मित्र को आमंत्रित करने के लिए अपना अद्वितीय लिंक/कोड साझा करें",
+	"Label_Referral_Recharge": "आपके मित्र ने सफलतापूर्वक रिचार्ज कर लिया है।",
+	"Label_Referral_RewardsDescription": "अपने पुरस्कार प्राप्त करें",
+	"Label_Referral_ShareAcrossSocialMedia": "सोशल मीडिया पर साझा करें"
 }

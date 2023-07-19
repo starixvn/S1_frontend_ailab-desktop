@@ -42,7 +42,7 @@
 	"lbl_LiveCasinoInfo2": "Innovative casino games with",
 	"lbl_LiveCasinoInfo3": "Asian & European live dealers!",
 	"lbl_InaccessibleWithoutPermission": "inaccessible without permission",
-	"lbl_Recently_Viewed":"RECENTLY VIEWED",
+	"lbl_Recently_Viewed": "RECENTLY VIEWED",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Odds",
@@ -398,6 +398,7 @@
 	"lbl_DepositLoadCardNoticeContent2": "Our card fee is cheapest in the market, only 25% apply for all telcoms.",
 
 
+	
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Payment Details",
 	"lbl_OrderAmount": "Order Amount",
@@ -875,7 +876,7 @@
 	"lbl_Vip_Accumulated_Deposit_Within_3_Months": "AKUMULASI DEPOSIT DALAM 3 BULAN",
 	"lbl_Vip_Accumulated_Turnover_Within_3_Months": "AKUMULASI TURNOVER DALAM 3 BULAN",
 	"lbl_Vip_TopPriorityServices": "Top Priority Services",
-	"lbl_Vip_ExclusivePromo":"Exclusive Promo",
+	"lbl_Vip_ExclusivePromo": "Exclusive Promo",
 	"lbl_Vip_BirthdaySpecialGifts": "Birthday Special Gifts",
 	"lbl_Vip_LifetimeMembership": "Lifetime Membership",
 	"lbl_Vip_NoRestrictions": "NO RESTRICTIONS",
@@ -1186,5 +1187,12 @@
 		"lbl_GameName": "Game Name"
 	},
 
-	"end-----": "end-----"
+	"Label_Referral_AccumulateRewardAmount": "ACCUMULATE REWARD AMOUNT",
+	"Label_Referral_Simple3StepsToShare": "SIMPLE 3 STEPS TO SHARE",
+	"Label_Share": "SHARE",
+	"Label_Recharge": "RECHARGE",
+	"Label_Referral_ShareDescription": "Share Your Unique Link Or Code To Invite Friends.",
+	"Label_Referral_Recharge": "Your Friend Has Successfully Recharge.",
+	"Label_Referral_RewardsDescription": "Get Your Rewards.",
+	"Label_Referral_ShareAcrossSocialMedia": "SHARE ACROSS SOCIAL MEDIA"
 }

@@ -147,6 +147,21 @@ export default () => {
 			});
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0) {
+					if (res.data.data !== 0) {
+						const currencyId = res.data.data;
+						setUserValue(prev => ({
+							...prev,
+							currencyIdx: 0
+						}));
+						const currencyArr = [
+							{
+								id: currencyId,
+								displayKey: `Currency_${currencyId}`
+							}
+						];
+						setSiteCurrency(currencyArr);
+					}
+
 					checked = true;
 					msg = "";
 				} else {
@@ -244,7 +259,7 @@ export default () => {
 		if (col === "username") {
 			val = val.replace(/[\W_]/g, "");
 		} else if (col === "realName") {
-			val = val.replace(/[\d\-!@#$%^&_()+";~～<>=|?\[\]\\`~{}]+/gu, "");
+			val = val.replace(/[\d\-!@#$%^&_()+";~～<>=|?[\]\\`~{}]+/gu, "");
 		} else if (col === "phone") {
 			val = val.replace(/[^0-9]+/g, "");
 		}

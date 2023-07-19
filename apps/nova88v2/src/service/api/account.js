@@ -93,7 +93,7 @@ export const api_account_GetReferralSetting = () =>
 	accountRequest.post("/GetReferralSetting");
 
 export const api_account_GetReferralSummary = () =>
-	accountRequest.post("/GetReferralSummary ");
+	accountRequest.post("/GetReferralSummaryV2");
 
 export const api_account_GetRefFriendList = ({
 	StartDate,
@@ -101,7 +101,7 @@ export const api_account_GetRefFriendList = ({
 	PageNumber,
 	PageSize
 }) =>
-	accountRequest.post("/GetRefFriendList", {
+	accountRequest.post("/GetRefFriendListV2", {
 		StartDate,
 		EndDate,
 		PageNumber,
