@@ -77,6 +77,8 @@ const AccountPanel = ({
 		let val = e.target.value;
 		if (_col === defColumn.accountNumber) {
 			val = val.replace(/[^0-9]+/g, "");
+		} else if (_col === defColumn.ifscCode) {
+			val = val.replace(/[\W_]/g, "");
 		} else {
 			const pattern = new RegExp(/["'`_^+-@#!<>%;)(&$.]/);
 			val = val.replace(pattern, "");
@@ -195,7 +197,8 @@ const AccountPanel = ({
 				<div className="subModule">
 					<form
 						className="subModuleBody column"
-						onSubmit={clickSubmit}>
+						onSubmit={clickSubmit}
+					>
 						<div>
 							<div className="bankName">
 								<img
