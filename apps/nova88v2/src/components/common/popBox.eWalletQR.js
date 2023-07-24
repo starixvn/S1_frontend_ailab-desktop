@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { bannerImgUrl, paymentImgUrl } from "../../config";
@@ -7,6 +7,7 @@ import { number_format } from "./common";
 const EWalletQR = ({ onClickClose, qrUrl, amount, transId }) => {
 	const inputRef = useRef(null);
 	const { t } = useTranslation();
+	const [counter, setCounter] = useState(167);
 
 	const copy = () => {
 		if (inputRef.current) {
@@ -14,6 +15,19 @@ const EWalletQR = ({ onClickClose, qrUrl, amount, transId }) => {
 			document.execCommand("copy");
 		}
 	};
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCounter(prev => {
+				if (prev > 0) {
+					return prev - 1;
+				}
+				onClickClose();
+				return 0;
+			});
+		}, 1000);
+		return () => clearInterval(interval); // Clean up the interval on component unmount
+	}, []);
 
 	return (
 		<div className="thiaPop active">
@@ -45,7 +59,7 @@ const EWalletQR = ({ onClickClose, qrUrl, amount, transId }) => {
 					<div>{t("lbl_EWalletQRDesc3")}</div>
 					<div>
 						{t("lbl_EWalletQRDesc4")}
-						<span>167</span>
+						<span>{counter}</span>
 						{t("lbl_EWalletQRDesc5")}
 					</div>
 					<div>
