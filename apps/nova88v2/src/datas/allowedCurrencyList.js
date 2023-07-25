@@ -33,14 +33,12 @@ const allowedCurrencyList = {
 		defCurrencyList.INR
 	],
 	rewards: [defCurrencyList.MYR, defCurrencyList.THB, defCurrencyList.IDR],
-	sportsCricket: [defCurrencyList.BDT, defCurrencyList.INR],
-	sportsVolleyball: [
-		defCurrencyList.MYR,
-		defCurrencyList.THB,
-		defCurrencyList.IDR,
-		defCurrencyList.USD,
-		defCurrencyList.CNY,
-		defCurrencyList.KHM
+
+	// ==== transfer ====
+	transferFunds: [
+		defCurrencyList.INR,
+		defCurrencyList.BDT,
+		defCurrencyList.USD
 	],
 
 	// ==== withdrawal method ====
@@ -60,6 +58,17 @@ const allowedCurrencyList = {
 	allbet: [defCurrencyList.IDR, defCurrencyList.MYR, defCurrencyList.THB],
 
 	// ==== products ====
+
+	// sports
+	sportsCricket: [defCurrencyList.BDT, defCurrencyList.INR],
+	sportsVolleyball: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.USD,
+		defCurrencyList.CNY,
+		defCurrencyList.KHM
+	],
 
 	// slot
 	slotAMB: [

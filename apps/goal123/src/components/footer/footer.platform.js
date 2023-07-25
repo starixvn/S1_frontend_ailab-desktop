@@ -63,9 +63,9 @@ const defPlatform = [
 		imgName: "mg"
 	},
 	{
-		...defCasinoProviders.PT,
+		...defCasinoProviders.PlayTech,
 		path: path.casino.root,
-		parameter: { provider: defCasinoProviders.PT.name },
+		parameter: { provider: defCasinoProviders.PlayTech.name },
 		imgName: "pt"
 	},
 	{

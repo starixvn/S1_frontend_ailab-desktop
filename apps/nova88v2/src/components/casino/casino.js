@@ -533,16 +533,16 @@ export default () => {
 						gameId,
 						isFree,
 						langId: userInfo.langId,
-						execFunction:
-							tpId === defSpecialSetting.playTech
-								? handleGoToGame.bind(this, {
-										langId: userInfo.langId,
-										tpId,
-										gameId,
-										isFun: isFree,
-										tpGameType
-								  })
-								: null,
+						// execFunction:
+						// 	tpId === defSpecialSetting.playTech
+						// 		? handleGoToGame.bind(this, {
+						// 				langId: userInfo.langId,
+						// 				tpId,
+						// 				gameId,
+						// 				isFun: isFree,
+						// 				tpGameType
+						// 		  })
+						// 		: null,
 						tpGameType
 					}),
 				delay

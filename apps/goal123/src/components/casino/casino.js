@@ -259,8 +259,7 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}
-										>
+											onClick={clickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -280,8 +279,7 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}
-									>
+										onClick={clickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -428,8 +426,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}
-								>
+									onClick={clickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -448,8 +445,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}
-								>
+									onClick={clickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -485,16 +481,16 @@ export default () => {
 						gameId,
 						isFree,
 						langId: userInfo.langId,
-						execFunction:
-							tpId === defSpecialSetting.playTech
-								? handleGoToGame.bind(this, {
-										langId: userInfo.langId,
-										tpId,
-										gameId,
-										isFun: isFree,
-										tpGameType
-								  })
-								: null,
+						// execFunction:
+						// 	tpId === defSpecialSetting.playTech
+						// 		? handleGoToGame.bind(this, {
+						// 				langId: userInfo.langId,
+						// 				tpId,
+						// 				gameId,
+						// 				isFun: isFree,
+						// 				tpGameType
+						// 		  })
+						// 		: null,
 						tpGameType
 					}),
 				delay

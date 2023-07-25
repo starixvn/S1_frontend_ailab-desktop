@@ -17,7 +17,8 @@ const GameList = ({
 	getIsInMaintain,
 	getTpGameType,
 	activeCategory,
-	favoriteStr
+	favoriteStr,
+	activeProvider
 }) => {
 	const inViewRef = useInView(() => onLoadMore());
 	let _imgUrl = "";
@@ -25,6 +26,16 @@ const GameList = ({
 		displayGames &&
 		displayGames
 			?.filter(g => filterJudge(g))
+			// If have sort in game object then sort when in active provider
+			.sort((a, b) => {
+				if (
+					activeProvider.tpId === a.tpId &&
+					activeProvider.tpId === b.tpId
+				) {
+					return a?.sort > b?.sort ? 1 : -1;
+				}
+				return true;
+			})
 			?.slice(startIdx, endIdx)
 			?.map(g => {
 				const imgName = g.imgName[langId]
@@ -59,7 +70,8 @@ const GameList = ({
 					<div
 						className={_className}
 						style={_style}
-						key={`casino-game-${g.tpId}-${g.gameId}`}>
+						key={`casino-game-${g.tpId}-${g.gameId}`}
+					>
 						<div className="brand">
 							<span>{gameProviderName}</span>
 						</div>
@@ -98,7 +110,8 @@ const GameList = ({
 										isInMaintain: getIsInMaintain(g),
 										tpGameType: getTpGameType(g).tpGameType
 									})
-								}>
+								}
+							>
 								{t("lbl_Play")}
 							</button>
 
@@ -115,7 +128,8 @@ const GameList = ({
 											tpGameType:
 												getTpGameType(g).tpGameType
 										})
-									}>
+									}
+								>
 									{t("lbl_Demo")}
 								</button>
 							) : null}
@@ -149,7 +163,8 @@ GameList.defaultProps = {
 	endIdx: null,
 	getIsInMaintain: () => null,
 	getTpGameType: () => null,
-	activeCategory: null
+	activeCategory: null,
+	activeProvider: null
 };
 
 GameList.propTypes = {
@@ -167,7 +182,8 @@ GameList.propTypes = {
 	getIsInMaintain: PropTypes.func,
 	getTpGameType: PropTypes.func,
 	activeCategory: PropTypes.string,
-	favoriteStr: PropTypes.string.isRequired
+	favoriteStr: PropTypes.string.isRequired,
+	activeProvider: PropTypes.objectOf(PropTypes.any)
 };
 
 export default GameList;

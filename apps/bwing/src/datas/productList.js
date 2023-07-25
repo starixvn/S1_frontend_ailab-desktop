@@ -29,7 +29,8 @@ export const defSlotTpGameType = {
 	PG: { tpId: 14, tpGameType: 17, name: "pg" },
 	CQ9: { tpId: 16, tpGameType: 29, name: "cq9" },
 	// Iconic: { tpId: 24, tpGameType: 39, name: "astro-tech" },
-	PT: { tpId: 27, tpGameType: 46, name: "playtech" },
+	// 新的 Playtech (Seamless Wallet)
+	PlayTech: { tpId: 51, tpGameType: 100, name: "playtech" },
 	JILI: { tpId: 32, tpGameType: 53, name: "jili" },
 	AP: { tpId: 39, tpGameType: 67, name: "advant-play" },
 	MG: { tpId: 34, tpGameType: 57, name: "microgaming" },
@@ -227,11 +228,12 @@ export default {
 		tpId: 28,
 		tpGameType: 45
 	},
-	liveCasino_PT: {
-		tpId: 27,
+	// 新的 PlayTech (Seamless Wallet)
+	liveCasino_PlayTech: {
+		tpId: 51,
 		gameId: "0",
-		name: "PT",
-		tpGameType: 48
+		name: "PlayTech",
+		tpGameType: 101
 	},
 	liveCasino_EVO: {
 		tpId: 36,
@@ -499,11 +501,12 @@ export const defCasinoProviders = {
 		name: "MGPSW",
 		tpGameType: 57
 	},
-	PT: {
-		tpId: 27,
+	// 新的 PlayTech (Seamless Wallet)
+	PlayTech: {
+		tpId: 51,
 		gameId: "0",
-		name: "PT",
-		tpGameType: 46
+		name: "PlayTech",
+		tpGameType: 100
 	},
 	RedTiger: {
 		tpId: 38,
