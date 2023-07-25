@@ -81,9 +81,9 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			hoverImgName: "casino_mga"
 		},
 		{
-			...productList.casino_PT,
+			...productList.casino_PlayTech,
 			path: path.casino.root,
-			parameter: { ...productList.casino_PT },
+			parameter: { ...productList.casino_PlayTech },
 			imgName: "pt",
 			hoverImgName: "pta"
 		},

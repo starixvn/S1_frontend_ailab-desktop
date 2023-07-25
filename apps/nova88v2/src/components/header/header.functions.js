@@ -149,7 +149,8 @@ BeforeLogin.propTypes = {
 const defCashierLinks = [
 	{
 		displayKey: "lbl_TransferFunds",
-		href: path.transferFunds.root
+		href: path.transferFunds.root,
+		allowCurrencies: allowedCurrencyList.transferFunds
 	},
 	{
 		displayKey: "lbl_Withdrawal",
@@ -196,11 +197,17 @@ const AfterLogin = ({ t, userInfo, msgCount }) => {
 		}
 	];
 
-	const navMenu = defCashierLinks.map(item => (
-		<Link key={item.displayKey} to={`/${userInfo.langId}/${item.href}`}>
-			<span>{t(item.displayKey)}</span>
-		</Link>
-	));
+	const navMenu = defCashierLinks
+		.filter(item =>
+			item.allowCurrencies
+				? item.allowCurrencies.includes(userInfo.currencyId)
+				: true
+		)
+		.map(item => (
+			<Link key={item.displayKey} to={`/${userInfo.langId}/${item.href}`}>
+				<span>{t(item.displayKey)}</span>
+			</Link>
+		));
 
 	const filteredSettingLinks = defSettingLinks.filter(
 		el =>

@@ -300,6 +300,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.JILI.name }
 			},
+			// 舊的 PT 測試用，等新的測試沒問題後移除
 			{
 				...defCasinoProviders.RedTiger,
 				className: "RED",
@@ -378,19 +379,14 @@ export const defMenuLinks = {
 					})
 				]
 			},
+			// 新的 PlayTech (Seamless Wallet)
 			{
-				...defCasinoProviders.PT,
+				...defCasinoProviders.PlayTech,
 				className: "PT",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_pt
-					})
-				],
 				icon: "icon icon-pt",
 				displayText: "PlayTech",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PT.name }
+				parameter: { provider: defCasinoProviders.PlayTech.name }
 			}
 			// {
 			// 	...defCasinoProviders.AstroTech,
@@ -503,18 +499,12 @@ export const defMenuLinks = {
 					bgClass: "live-evo"
 				}
 			},
+			// 新的 PlayTech (Seamless Wallet)
 			{
-				...productList.liveCasino_PT,
+				...productList.liveCasino_PlayTech,
 				className: "livePT",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.liveCasino_pt
-					})
-				],
 				icon: "icon icon-pt",
-				displayText: "Playtech",
-				menuType: defMenuType.useGoToGame,
+				displayText: "PlayTech",
 				lobbyPage: {
 					bgClass: "live-pt"
 				}

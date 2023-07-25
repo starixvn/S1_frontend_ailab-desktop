@@ -22,6 +22,7 @@ import HistoryTable from "./historyTable";
 import { Pagination } from "../common/pagination";
 import { defHistoryIdList, defHistoryNav, defColumns } from "./def";
 import { useDeposit, useDepositLocalBank } from "../deposit/hooks";
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 const History = () => {
 	const paramsKindId = getUrlParameter("kind");
@@ -301,20 +302,22 @@ const History = () => {
 	});
 
 	useEffect(() => {
-		const kindParamsSome = Object.values(defHistoryIdList).some(
-			item => item === paramsKindId
-		);
+		const initNavTag = allowedCurrencyList.transferFunds.includes(
+			userInfo.currencyId
+		)
+			? defHistoryIdList.transferId
+			: defHistoryIdList.depositId;
 
-		if (!kindParamsSome) {
+		if (userInfo.currencyId) {
 			window.history.replaceState(
 				{},
 				"",
-				`${location.pathname}?kind=${defHistoryIdList.transferId}`
+				`${location.pathname}?kind=${initNavTag}`
 			);
 
-			setSelectedTagId(defHistoryIdList.transferId);
+			setSelectedTagId(initNavTag);
 		}
-	}, [paramsKindId, location.pathname]);
+	}, [userInfo.currencyId]);
 
 	return (
 		<div className="infoModule">
@@ -331,6 +334,7 @@ const History = () => {
 				resetPage={resetPage}
 				selectedTagId={selectedTagId}
 				setSelectedTagId={setSelectedTagId}
+				currencyId={userInfo.currencyId}
 			/>
 
 			<div className="historyModule active">

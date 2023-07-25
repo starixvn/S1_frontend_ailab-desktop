@@ -7,26 +7,33 @@ export default function HistoryTagNav({
 	defHistoryNav,
 	selectedTagId,
 	setSelectedTagId,
-	resetPage
+	resetPage,
+	currencyId
 }) {
 	return (
 		<div className="btnGroup historyTag">
-			{defHistoryNav.map(item => (
-				<button
-					key={`history-tag-nav-${item.id}`}
-					onClick={() => {
-						setSelectedTagId(item.id);
-						resetPage();
-						window.history.replaceState(
-							{},
-							"",
-							`${pathname}?kind=${item.id}`
-						);
-					}}
-					className={selectedTagId === item.id ? "active" : ""}>
-					{t(item.displayKey)}
-				</button>
-			))}
+			{defHistoryNav
+				.filter(item =>
+					item.allowCurrencies
+						? item.allowCurrencies.includes(currencyId)
+						: true
+				)
+				.map(item => (
+					<button
+						key={`history-tag-nav-${item.id}`}
+						onClick={() => {
+							setSelectedTagId(item.id);
+							resetPage();
+							window.history.replaceState(
+								{},
+								"",
+								`${pathname}?kind=${item.id}`
+							);
+						}}
+						className={selectedTagId === item.id ? "active" : ""}>
+						{t(item.displayKey)}
+					</button>
+				))}
 		</div>
 	);
 }
@@ -37,5 +44,6 @@ HistoryTagNav.propTypes = {
 	defHistoryNav: PropTypes.arrayOf(PropTypes.any).isRequired,
 	selectedTagId: PropTypes.string.isRequired,
 	setSelectedTagId: PropTypes.func.isRequired,
-	resetPage: PropTypes.func.isRequired
+	resetPage: PropTypes.func.isRequired,
+	currencyId: PropTypes.number.isRequired
 };

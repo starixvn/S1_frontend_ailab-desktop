@@ -3,6 +3,7 @@ import moment from "moment";
 import { number_format } from "../common/common";
 import ReloadSpin from "../common/reloadSpin";
 import { withdrawalStatus } from "../withdrawal/withdrawal.historyResult";
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 export const defDepositStatusClassName = {
 	1: "pending",
@@ -31,7 +32,8 @@ export const defHistoryIdList = {
 export const defHistoryNav = [
 	{
 		displayKey: "lbl_Transfer",
-		id: defHistoryIdList.transferId
+		id: defHistoryIdList.transferId,
+		allowCurrencies: allowedCurrencyList.transferFunds
 	},
 	{
 		displayKey: "lbl_Deposit",
@@ -238,8 +240,7 @@ export const defColumns = ({
 									item.refId,
 									item.depositTime,
 									item.depositReceipt
-								)}
-							>
+								)}>
 								{t("lbl_SubmitProof")}
 							</button>
 							<button
@@ -249,8 +250,7 @@ export const defColumns = ({
 										keepData,
 										transId: item.transId
 									})
-								}
-							>
+								}>
 								{t("lbl_Cancel")}
 							</button>
 						</>
@@ -345,8 +345,7 @@ export const defColumns = ({
 									activateWithdrawalCancelConfirmModal(
 										item.transId
 									)
-								}
-							>
+								}>
 								{t("lbl_Cancel")}
 							</button>
 						</div>

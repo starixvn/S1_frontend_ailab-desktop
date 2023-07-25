@@ -18,6 +18,7 @@ import {
 	handleIsHideBalance
 } from "../common/wrapper.walletInfo";
 import usePopBox from "../hook/usePopBox";
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 export default ({ i18n }) => {
 	const { isHideBalance, mainWallet, tpWallets, bonusWallets, dispatch } =
@@ -199,11 +200,15 @@ class Dropdown extends Component {
 							className="orange">
 							{this.props.i18n("lbl_Deposit")}
 						</Link>
-						<Link
-							to={`/${this.props.langId}/${path.transferFunds.root}`}
-							className="orange">
-							{this.props.i18n("lbl_TransferFunds")}
-						</Link>
+						{allowedCurrencyList.transferFunds.includes(
+							this.props.currencyId
+						) && (
+							<Link
+								to={`/${this.props.langId}/${path.transferFunds.root}`}
+								className="orange">
+								{this.props.i18n("lbl_TransferFunds")}
+							</Link>
+						)}
 					</div>
 					<div className="loginLog">
 						<span>{this.props.i18n("lbl_LastLogin")}</span>
