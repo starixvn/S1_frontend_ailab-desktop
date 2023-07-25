@@ -25,12 +25,12 @@ blockquote, q {
 }
 
 blockquote:before, blockquote:after {
-  content: '';
+  content: "";
   content: none;
 }
 
 q:before, q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -53,12 +53,12 @@ pre {
 
 a {
   text-decoration: none;
-  color: #CDAE8E;
+  color: #5574A7;
   cursor: pointer;
 }
 
 img {
   width: 100%;
   display: block;
-}
-/*# sourceMappingURL=reset.css.map */
+  height: auto;
+}/*# sourceMappingURL=reset.css.map */
