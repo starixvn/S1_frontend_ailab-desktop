@@ -460,19 +460,14 @@ export const defMenuLinks = langId => ({
 					})
 				]
 			},
+			// 新的 PlayTech (Seamless Wallet)
 			{
-				...defCasinoProviders.PT,
+				...defCasinoProviders.PlayTech,
 				className: "PT",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_pt
-					})
-				],
 				icon: "icon icon-pt",
-				displayText: "Playtech",
+				displayText: "PlayTech",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PT.name },
+				parameter: { provider: defCasinoProviders.PlayTech.name },
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playtech.png`,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playtech-item.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/playtech-icon.png`
@@ -598,18 +593,12 @@ export const defMenuLinks = langId => ({
 					})
 				]
 			},
+			// 新的 PlayTech (Seamless Wallet)
 			{
-				...productList.liveCasino_PT,
+				...productList.liveCasino_PlayTech,
 				className: "PT",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.liveCasino_pt
-					})
-				],
 				icon: "icon icon-pt",
-				displayText: "Playtech",
-				menuType: defMenuType.useGoToGame,
+				displayText: "PlayTech",
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/playtech.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/playtech-icon.png`,
 				disabledInSlider: true,

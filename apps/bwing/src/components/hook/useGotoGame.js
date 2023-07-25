@@ -6,7 +6,7 @@ import { popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 
 export const defSpecialSetting = {
-	playTech: defCasinoProviders.PT.tpId
+	playTech: defCasinoProviders.PlayTech.tpId
 };
 
 const playTechLaunchGame = (client, game, mode, openType) => {

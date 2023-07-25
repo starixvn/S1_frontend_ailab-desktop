@@ -710,19 +710,13 @@ export const defMenuLinks = {
 					})
 				]
 			},
+			// 新的 PlayTech (Seamless Wallet)
 			{
 				keyName: "casino_PT",
-				displayText: "Playtech",
-				menuType: defMenuType.useGoToGame,
+				displayText: "PlayTech",
 				listNpcImgUrl: "casino-pt.png",
 				listBgImgUrl: ["ptbg.png", "livecasinListHover.png"],
-				...productList.liveCasino_PT,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.liveCasino_pt
-					})
-				],
+				...productList.liveCasino_PlayTech,
 				lobbyPage: { npcImg: "casino_pt" }
 			},
 			{
@@ -1063,22 +1057,16 @@ export const defMenuLinks = {
 					})
 				]
 			},
+			// 新的 PlayTech (Seamless Wallet)
 			{
 				keyName: "slot_PT",
 				icon: "icon icon-PT",
-				displayText: "Playtech",
+				displayText: "PlayTech",
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotpt.png",
 				listBgImgUrl: "slotListHover.png",
-				// parameter: { ...productList.casino_PT },
 				parameter: { provider: "playtech" },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_pt
-					})
-				],
-				...productList.casino_PT
+				...productList.casino_PlayTech
 			}
 			// {
 			// 	keyName: "slot_Mega888",
