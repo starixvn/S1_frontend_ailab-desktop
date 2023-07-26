@@ -54,3 +54,11 @@ export const api_promotion_SetDepositPromotionQueue = ({
 		BonusCode: bonusCode,
 		DeviceType: defDeviceType.Desktop
 	});
+
+export const api_promotion_GetRebateExcludeGameList = ({
+	langId,
+	currencyId
+}) =>
+	promotionRequest.post(`GetRebateExcludeGameList/${langId}`, {
+		CurrencyId: currencyId
+	});
