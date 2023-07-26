@@ -108,7 +108,7 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 
 		const subClassName = [
 			subClassKey,
-			subClassKey === defSubListClassName.vip && `vip${userInfo.langId}`,
+			subClassKey === defSubListClassName.vip && `${userInfo.langId}`,
 			menuKey === currentMenuKey && "active"
 		]
 			.filter(Boolean)
