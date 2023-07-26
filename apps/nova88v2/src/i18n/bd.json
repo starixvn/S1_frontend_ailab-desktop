@@ -748,6 +748,8 @@
 	"lbl_Next": "পরবর্তী",
 	"lbl_Start": "শুরু করুন",
 	"lbl_End": "শেষ",
+	"lbl_AffiliateIdWrong": "এফিলিয়েট আইডি পাওয়া যাচ্ছে না",
+
 	"MysteryBox ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_MysteryBox": "রহস্য বাক্স",
 	"lbl_MysteryBox_CreditedAccount1": "আপনি আজ পুরস্কৃত হয়েছেন",

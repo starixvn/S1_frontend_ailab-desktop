@@ -428,7 +428,6 @@
 	"lbl_Times": "Kali",
 	"lbl_WithdrawalCryptoNote": "Nilai konversi berfungsi sebagai tujuan referensi saja, jumlah yang tepat akan mengacu pada nilai terbaru.",
 	"lbl_EWalletAccountNumber": "Nomer Akun E-wallet",
-	"lbl_OK": "OK",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Dana",
@@ -779,6 +778,7 @@
 	"lbl_Next": "Lanjut",
 	"lbl_Start": "Mulai",
 	"lbl_End": "Akhir",
+	"lbl_AffiliateIdWrong": "ID afiliasi tidak dapat ditemukan",
 
 	"MysteryBox ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_MysteryBox": "MYSTERY BOX",
