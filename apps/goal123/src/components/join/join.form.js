@@ -16,7 +16,6 @@ const JoinForm = ({
 	checkValue,
 	showPwdState,
 	showPwdHandler,
-	hasRefOrAffCode,
 	checkboxHandler,
 	configSiteName,
 	tandCTerms,
@@ -25,7 +24,8 @@ const JoinForm = ({
 	clickSubmit,
 	langId,
 	reCaptchaOnChange,
-	_areaCode
+	_areaCode,
+	urlAffiliate
 }) => {
 	return (
 		<form className="joinloginFunction" onSubmit={clickSubmit}>
@@ -113,12 +113,13 @@ const JoinForm = ({
 				<Inputbox
 					icon="icon-affiliate txt-blue12"
 					placeholder={t("lbl_Affiliate_ID")}
-					value={hasRefOrAffCode ?? userValue.affCode}
-					onChange={EditField.bind(null, "affCode")}
-					readOnly={hasRefOrAffCode}
-					checked={tip.affCode.checked}
-					tip={tip.affCode.msg}
-					clickInfo={clickInfo.bind(this, "affCode")}
+					value={userValue.affiliate}
+					onChange={EditField.bind(null, "affiliate")}
+					onBlur={checkValue.bind(null, "affiliate")}
+					readOnly={urlAffiliate && userValue.affiliate}
+					tip={tip.affiliate.msg}
+					checked={tip.affiliate.checked}
+					clickInfo={clickInfo.bind(this, "affiliate")}
 				/>
 				{tip.currency.msg !== "" ? (
 					<div className="tip active">{tip.currency.msg}</div>
@@ -136,7 +137,8 @@ const JoinForm = ({
 				<Checkbox
 					id="joinAgreeCheck"
 					checked={userValue.agreeCheck}
-					onChange={checkboxHandler.bind(null, "agreeCheck")}>
+					onChange={checkboxHandler.bind(null, "agreeCheck")}
+				>
 					{t("lbl_Check18TC1")}&nbsp;
 					<a target="_blank" rel="noreferrer" href={tandCTerms}>
 						{t("lbl_TermsConditions")}
@@ -159,7 +161,8 @@ const JoinForm = ({
 				<button
 					type="button"
 					className="btn-cancel"
-					onClick={clickCancel}>
+					onClick={clickCancel}
+				>
 					{t("lbl_Cancel")}
 				</button>
 				<button className="btn-check" type="submit">
@@ -171,10 +174,10 @@ const JoinForm = ({
 };
 
 JoinForm.defaultProps = {
-	hasRefOrAffCode: null,
 	langId: null,
 	reCaptchaOnChange: null,
-	_areaCode: null
+	_areaCode: null,
+	urlAffiliate: null
 };
 
 JoinForm.propTypes = {
@@ -187,7 +190,6 @@ JoinForm.propTypes = {
 	checkValue: PropTypes.func.isRequired,
 	showPwdState: PropTypes.bool.isRequired,
 	showPwdHandler: PropTypes.func.isRequired,
-	hasRefOrAffCode: PropTypes.string,
 	checkboxHandler: PropTypes.func.isRequired,
 	configSiteName: PropTypes.string.isRequired,
 	tandCTerms: PropTypes.string.isRequired,
@@ -196,7 +198,8 @@ JoinForm.propTypes = {
 	clickSubmit: PropTypes.func.isRequired,
 	langId: PropTypes.string,
 	reCaptchaOnChange: PropTypes.func,
-	_areaCode: PropTypes.string
+	_areaCode: PropTypes.string,
+	urlAffiliate: PropTypes.bool
 };
 
 export default JoinForm;

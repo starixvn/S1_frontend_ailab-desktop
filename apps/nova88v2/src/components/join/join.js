@@ -12,7 +12,8 @@ import {
 	api_site_ExistsEmail,
 	// api_site_ExistsPhoneNo,
 	api_site_GetAffiliateAgent,
-	api_site_GetRecaptchaInfo
+	api_site_GetRecaptchaInfo,
+	api_site_AffiliateCheck
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import { GET_LANG_ID } from "../../service/language";
@@ -32,11 +33,16 @@ import usePopBox from "../hook/usePopBox";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { cloudImgUrl, bannerImgUrl } from "../../config";
 import { Iov_GetBlackBox } from "../common/iovation";
-import { initValue, initTip, initShowPwdState } from "../common/join.data";
+import {
+	initValue,
+	initTip,
+	initShowPwdState,
+	currencyToAreacode,
+	limitCountryNum
+} from "./join.def";
 import JoinForm from "./join.form";
 import JoinPromoInfo from "./join.promoInfo";
 import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
-import { currencyToAreacode, limitCountryNum } from "./join.def";
 import { defLangGroups } from "../header/header.langDropdown";
 
 export const areaCodeList = Object.values(areaCode).map(el => ({
@@ -71,6 +77,10 @@ export default () => {
 	const lineUserId = getLocalStorage("lineUser");
 	const _areaCode = areaCodeList[userValue?.areaCodeIdx]?.areaCode;
 
+	const urlAffId = getUrlParameter("AffId") || readCookie("AffId");
+	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
+	const urlAffiliate = urlAffId || urlAffCode;
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -94,36 +104,63 @@ export default () => {
 		} catch (err) {}
 	};
 
-	const checkUrlParam = async () => {
-		const _AffId = getUrlParameter("AffId") || readCookie("AffId");
-		if (!_AffId && !lineUserId) {
-			getCurrencyList();
-		} else if (_AffId) {
-			await api_site_GetAffiliateAgent({ AffId: _AffId }).then(
-				res => {
-					if (isMountedRef.current) {
-						if (res.data.errorCode === 0) {
-							const { currencyId } = res.data.data;
+	const checkAffiliate = async ({ formAffCode }) => {
+		let checked = null;
+		let msg = "";
 
-							const currencyArr = [
-								{
-									id: currencyId,
-									displayKey: `Currency_${currencyId}`
-								}
-							];
-
-							setSiteCurrency(currencyArr);
-						} else {
-							getCurrencyList();
+		if (urlAffId) {
+			const res = await api_site_GetAffiliateAgent({ AffId: urlAffId });
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					const { currencyId } = res.data.data;
+					const currencyArr = [
+						{
+							id: currencyId,
+							displayKey: `Currency_${currencyId}`
 						}
-					}
-				},
-				() => {
-					if (isMountedRef.current) {
-						errorPopBox();
-					}
+					];
+					setSiteCurrency(currencyArr);
+					setUserValue(prev => ({
+						...prev,
+						affiliate: urlAffId
+					}));
 				}
-			);
+			}
+		} else if (urlAffCode) {
+			const res = await api_site_AffiliateCheck({
+				AffCode: urlAffCode,
+				langId: userInfo.langId
+			});
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					setUserValue(prev => ({
+						...prev,
+						affiliate: urlAffCode
+					}));
+				}
+			}
+		} else if (formAffCode) {
+			const res = await api_site_AffiliateCheck({
+				AffCode: formAffCode,
+				langId: userInfo.langId
+			});
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					checked = true;
+					msg = "";
+				} else {
+					checked = false;
+					msg = "lbl_AffiliateIdWrong";
+				}
+			}
+		}
+
+		return { checked, msg };
+	};
+
+	const checkUrlParam = async () => {
+		if (urlAffiliate) {
+			checkAffiliate({});
 		} else if (lineUserId) {
 			setSiteCurrency([
 				{
@@ -131,6 +168,8 @@ export default () => {
 					displayKey: `Currency_${defCurrencyList.THB}`
 				}
 			]);
+		} else {
+			getCurrencyList();
 		}
 	};
 
@@ -183,7 +222,7 @@ export default () => {
 			msg = t("lbl_CantChangePreferredCurrency");
 		} else if (col === "phone") {
 			msg = t("lbl_PhoneTooltip");
-		} else if (col === "affCode") {
+		} else if (col === "affiliate") {
 			msg = t("lbl_Please_enter_Affiliate_ID");
 		}
 		if (tip[col].msg === msg) {
@@ -280,6 +319,10 @@ export default () => {
 			msg = result.msg;
 		} else if (col === "phone") {
 			const result = await phoneCheck(val);
+			checked = result.checked;
+			msg = result.msg;
+		} else if (col === "affiliate") {
+			const result = await checkAffiliate({ formAffCode: val });
 			checked = result.checked;
 			msg = result.msg;
 		}
@@ -467,18 +510,18 @@ export default () => {
 
 			const res = await Promise.all([
 				usernameCheck(userValue.username),
-				// phoneCheck(userValue.phone),
-				null,
-				emailCheck(userValue.email)
+				emailCheck(userValue.email),
+				checkAffiliate({ formAffCode: userValue.affiliate })
 			]);
 
 			const _usernameCheck = res[0];
 			const _realNameCheck = realNameCheck(userValue.realName);
 			const _phoneCheck = phoneCheck(userValue.phone);
-			const _emailCheck = res[2];
+			const _emailCheck = res[1];
 			const _passwordCheck = passwordCheck(userValue.password);
 			const _confirmPwdCheck = confirmPwdCheck(userValue.confirmPwd);
 			const _currencyCheck = currencyCheck(defaultOption);
+			const _affiliateCheck = res[2];
 
 			const checked =
 				_usernameCheck.checked &&
@@ -487,7 +530,10 @@ export default () => {
 				_confirmPwdCheck.checked &&
 				_phoneCheck.checked &&
 				_emailCheck.checked &&
-				_currencyCheck.checked;
+				_currencyCheck.checked &&
+				// affiliate is optional
+				(_affiliateCheck.checked === true ||
+					_affiliateCheck.checked === null);
 
 			if (!checked) {
 				setTip(prev => ({
@@ -529,14 +575,6 @@ export default () => {
 		}
 	};
 
-	const isUrlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
-
-	const hasRefOrAffCode =
-		getUrlParameter("AffId") ||
-		readCookie("AffId") ||
-		getUrlParameter("AffCode") ||
-		readCookie("AffCode");
-
 	const handleReCaptchaChange = token => {
 		setReCaptchaToken(token);
 	};
@@ -544,16 +582,6 @@ export default () => {
 	const clickSubmit = async e => {
 		e.preventDefault();
 		const checked = await checkAll();
-
-		const _AffId = getUrlParameter("AffId") || readCookie("AffId");
-		let affIdCheckPass = false;
-		if (_AffId) {
-			try {
-				affIdCheckPass =
-					(await api_site_GetAffiliateAgent({ AffId: _AffId })).data
-						.errorCode === 0;
-			} catch (error) {}
-		}
 
 		if (checked) {
 			const getSignupLangId = () => {
@@ -583,9 +611,11 @@ export default () => {
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
-			regData.AffId = affIdCheckPass ? _AffId : null;
+			// If userValue.affiliate means urlAffId is qualified
+			regData.AffId = urlAffId && userValue.affiliate ? urlAffId : null;
 			regData.Aff = getUrlParameter("Aff") || readCookie("Aff");
-			regData.AffCode = isUrlAffCode ?? userValue.affCode;
+			// If no urlAffId, then userValue.affiliate is affCode (no matter url or form value)
+			regData.AffCode = !urlAffId ? userValue.affiliate : null;
 			regData.blackbox = await Iov_GetBlackBox();
 			regData.LineUserId = lineUserId;
 
@@ -741,7 +771,7 @@ export default () => {
 					showPwdHandler={showPwdHandler}
 					siteCurrency={siteCurrency}
 					_areaCode={_areaCode}
-					hasRefOrAffCode={hasRefOrAffCode}
+					// hasRefOrAffCode={hasRefOrAffCode}
 					onSelectItem={onSelectItem}
 					tandCTerms={tandCTerms}
 					clickCancel={clickCancel}
@@ -754,6 +784,7 @@ export default () => {
 					areaCodeList={areaCodeList}
 					reCaptchaOnChange={handleReCaptchaChange}
 					recaptchaInfo={recaptchaInfo}
+					urlAffiliate={urlAffiliate}
 				/>
 			</div>
 		</div>
