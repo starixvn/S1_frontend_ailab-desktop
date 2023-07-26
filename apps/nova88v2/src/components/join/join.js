@@ -137,6 +137,7 @@ export default () => {
 						...prev,
 						affiliate: urlAffCode
 					}));
+					getCurrencyList();
 				}
 			}
 		} else if (formAffCode) {
