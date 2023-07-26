@@ -13,7 +13,6 @@ const JoinForm = ({
 	openLogin,
 	userValue,
 	tip,
-	setTip,
 	clickInfo,
 	EditField,
 	checkValue,
@@ -21,7 +20,6 @@ const JoinForm = ({
 	showPwdHandler,
 	siteCurrency,
 	_areaCode,
-	hasRefOrAffCode,
 	onSelectItem,
 	tandCTerms,
 	clickCancel,
@@ -33,7 +31,8 @@ const JoinForm = ({
 	lineUserId,
 	areaCodeList,
 	reCaptchaOnChange,
-	recaptchaInfo
+	recaptchaInfo,
+	urlAffiliate
 }) => (
 	<form className="joinloginFunction" onSubmit={clickSubmit}>
 		<span className="title txt-blue">{t("lbl_JoinNow")}</span>
@@ -55,7 +54,8 @@ const JoinForm = ({
 								className="btn-line"
 								onClick={e => {
 									handleLineRegister(e);
-								}}>
+								}}
+							>
 								<i className="icon icon-line-bold" />
 								{t("lineRegister.lbl_RegisterWithLine")}
 							</button>
@@ -141,7 +141,8 @@ const JoinForm = ({
 			<div
 				className={`inputBox-blue${
 					tip.currency.msg !== "" ? " error" : ""
-				}`}>
+				}`}
+			>
 				<Dropdown
 					defaultOption={defaultOption}
 					mainKey="join_currency"
@@ -171,7 +172,8 @@ const JoinForm = ({
 							!tip.phone.checked && tip.phone.msg !== ""
 								? " error"
 								: ""
-						}`}>
+						}`}
+					>
 						<AreaCodeDropdown
 							defaultOption={_areaCode}
 							options={areaCodeList}
@@ -217,12 +219,13 @@ const JoinForm = ({
 				className="inputBox-blue"
 				icon="icon-affiliate txt-blue"
 				placeholder={t("lbl_Affiliate_ID")}
-				value={hasRefOrAffCode ?? userValue.affCode}
-				onChange={EditField.bind(null, "affCode")}
-				readOnly={hasRefOrAffCode}
-				checked={tip.affCode.checked}
-				tip={tip.affCode.msg}
-				clickInfo={clickInfo.bind(this, "affCode")}
+				value={userValue.affiliate}
+				onChange={EditField.bind(null, "affiliate")}
+				onBlur={checkValue.bind(null, "affiliate")}
+				readOnly={urlAffiliate && userValue.affiliate}
+				checked={tip.affiliate.checked}
+				tip={tip.affiliate.msg}
+				clickInfo={clickInfo.bind(this, "affiliate")}
 			/>
 		</div>
 
@@ -242,7 +245,8 @@ const JoinForm = ({
 				className="txt-blue"
 				target="_blank"
 				rel="noreferrer"
-				href={tandCTerms}>
+				href={tandCTerms}
+			>
 				{t("lbl_sign_up_terms_center")}
 			</a>
 
@@ -261,14 +265,14 @@ const JoinForm = ({
 );
 
 JoinForm.defaultProps = {
-	hasRefOrAffCode: null,
 	_areaCode: null,
 	defaultOption: null,
 	langId: "en",
 	currencyId: null,
 	lineUserId: "",
 	reCaptchaOnChange: null,
-	recaptchaInfo: null
+	recaptchaInfo: null,
+	urlAffiliate: null
 };
 
 JoinForm.propTypes = {
@@ -276,7 +280,6 @@ JoinForm.propTypes = {
 	openLogin: PropTypes.func.isRequired,
 	userValue: PropTypes.objectOf(PropTypes.any).isRequired,
 	tip: PropTypes.objectOf(PropTypes.any).isRequired,
-	setTip: PropTypes.func.isRequired,
 	clickInfo: PropTypes.func.isRequired,
 	EditField: PropTypes.func.isRequired,
 	checkValue: PropTypes.func.isRequired,
@@ -284,7 +287,6 @@ JoinForm.propTypes = {
 	showPwdHandler: PropTypes.func.isRequired,
 	siteCurrency: PropTypes.arrayOf(PropTypes.any).isRequired,
 	_areaCode: PropTypes.string,
-	hasRefOrAffCode: PropTypes.string,
 	onSelectItem: PropTypes.func.isRequired,
 	tandCTerms: PropTypes.string.isRequired,
 	clickCancel: PropTypes.func.isRequired,
@@ -296,7 +298,8 @@ JoinForm.propTypes = {
 	lineUserId: PropTypes.string,
 	areaCodeList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	reCaptchaOnChange: PropTypes.func,
-	recaptchaInfo: PropTypes.objectOf(PropTypes.any)
+	recaptchaInfo: PropTypes.objectOf(PropTypes.any),
+	urlAffiliate: PropTypes.bool
 };
 
 export const AreaCodeDropdown = ({
@@ -359,7 +362,8 @@ export const AreaCodeDropdown = ({
 		<div
 			key={`item-${item.displayText}`}
 			className="dropdown-item"
-			onClick={e => selectItem(e, { idx: i, item })}>
+			onClick={e => selectItem(e, { idx: i, item })}
+		>
 			{item.displayText}
 		</div>
 	));

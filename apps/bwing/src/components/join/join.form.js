@@ -11,14 +11,12 @@ const JoinForm = ({
 	openLogin,
 	userValue,
 	tip,
-	setTip,
 	clickInfo,
 	EditField,
 	checkValue,
 	showPwdState,
 	showPwdHandler,
 	_areaCode,
-	hasRefOrAffCode,
 	checkboxHandler,
 	configSiteName,
 	tandCTerms,
@@ -26,7 +24,8 @@ const JoinForm = ({
 	clickCancel,
 	clickSubmit,
 	langId,
-	reCaptchaOnChange
+	reCaptchaOnChange,
+	urlAffiliate
 }) => (
 	<div className="joinModule" onSubmit={clickSubmit}>
 		<div className="title">{t("lbl_JoinNow")}</div>
@@ -117,12 +116,13 @@ const JoinForm = ({
 			<Inputbox
 				icon="icon-affiliate txt-blue12"
 				placeholder={t("lbl_Affiliate_ID")}
-				value={hasRefOrAffCode ?? userValue.affCode}
-				onChange={EditField.bind(null, "affCode")}
-				readOnly={hasRefOrAffCode}
-				checked={tip.affCode.checked}
-				tip={tip.affCode.msg}
-				clickInfo={clickInfo.bind(this, "affCode")}
+				value={userValue.affiliate}
+				onChange={EditField.bind(null, "affiliate")}
+				onBlur={checkValue.bind(null, "affiliate")}
+				readOnly={urlAffiliate && userValue.affiliate}
+				checked={tip.affiliate.checked}
+				tip={tip.affiliate.msg}
+				clickInfo={clickInfo.bind(this, "affiliate")}
 			/>
 		</div>
 
@@ -136,7 +136,8 @@ const JoinForm = ({
 			<Checkbox
 				id="joinAgreeCheck"
 				checked={userValue.agreeCheck}
-				onChange={checkboxHandler.bind(null, "agreeCheck")}>
+				onChange={checkboxHandler.bind(null, "agreeCheck")}
+			>
 				{t("lbl_Check18TC1")}{" "}
 				<a target="_blank" rel="noreferrer" href={tandCTerms}>
 					{t("lbl_TermsConditions")}{" "}
@@ -163,10 +164,10 @@ const JoinForm = ({
 );
 
 JoinForm.defaultProps = {
-	hasRefOrAffCode: null,
 	_areaCode: null,
 	langId: null,
-	reCaptchaOnChange: null
+	reCaptchaOnChange: null,
+	urlAffiliate: null
 };
 
 JoinForm.propTypes = {
@@ -174,14 +175,12 @@ JoinForm.propTypes = {
 	openLogin: PropTypes.func.isRequired,
 	userValue: PropTypes.objectOf(PropTypes.any).isRequired,
 	tip: PropTypes.objectOf(PropTypes.any).isRequired,
-	setTip: PropTypes.func.isRequired,
 	clickInfo: PropTypes.func.isRequired,
 	EditField: PropTypes.func.isRequired,
 	checkValue: PropTypes.func.isRequired,
 	showPwdState: PropTypes.objectOf(PropTypes.any).isRequired,
 	showPwdHandler: PropTypes.func.isRequired,
 	_areaCode: PropTypes.string,
-	hasRefOrAffCode: PropTypes.string,
 	checkboxHandler: PropTypes.func.isRequired,
 	configSiteName: PropTypes.string.isRequired,
 	tandCTerms: PropTypes.string.isRequired,
@@ -189,7 +188,8 @@ JoinForm.propTypes = {
 	clickCancel: PropTypes.func.isRequired,
 	clickSubmit: PropTypes.func.isRequired,
 	langId: PropTypes.string,
-	reCaptchaOnChange: PropTypes.func
+	reCaptchaOnChange: PropTypes.func,
+	urlAffiliate: PropTypes.bool
 };
 
 export default JoinForm;

@@ -426,7 +426,6 @@
 	"lbl_ReceiveUSDT": "Receive {{currencyName}} Amount",
 	"lbl_Times": "बारी",
 	"lbl_WithdrawalCryptoNote": "Conversion rate serves as reference purposes only, exact amount shall refer the latest rate.",
-	"lbl_OK": "OK",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "धनराशि का ट्रांसफर",
@@ -764,6 +763,7 @@
 	"lbl_Next": "अगला",
 	"lbl_Start": "शुरू करे ",
 	"lbl_End": "समाप्त",
+	"lbl_AffiliateIdWrong": "एफिलिएट आईडी नहीं मिला पा रहा है",
 
 	"MysteryBox ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_MysteryBox": "रहस्यमय बॉक्स",

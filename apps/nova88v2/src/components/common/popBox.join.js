@@ -26,9 +26,7 @@ import InputboxPSW from "./inputbox.password";
 import Dropdown from "./dropdown";
 import Checkbox from "./checkbox";
 import { Iov_GetBlackBox } from "./iovation";
-
-import { initValue, initTip } from "./join.data";
-import { currencyToAreacode } from "../join/join.def";
+import { initValue, initTip, currencyToAreacode } from "../join/join.def";
 
 export default () => {
 	const { t } = useTranslation();
@@ -84,8 +82,7 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={ClosePopBox}
-										>
+											onClick={ClosePopBox}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -104,8 +101,7 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClosePopBox}
-									>
+										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -137,8 +133,7 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClosePopBox}
-									>
+										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -157,8 +152,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClosePopBox}
-								>
+									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -291,8 +285,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClosePopBox}
-								>
+									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -339,8 +332,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClosePopBox}
-								>
+									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -385,8 +377,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClosePopBox}
-								>
+									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -579,8 +570,7 @@ export default () => {
 															className="btn-check"
 															onClick={
 																ClosePopBox
-															}
-														>
+															}>
 															{t("lbl_Close")}
 														</button>
 													</div>
@@ -601,8 +591,7 @@ export default () => {
 												<div className="btnGroup">
 													<button
 														className="btn-check"
-														onClick={ClosePopBox}
-													>
+														onClick={ClosePopBox}>
 														{t("lbl_Close")}
 													</button>
 												</div>
@@ -649,8 +638,7 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={ClosePopBox}
-										>
+											onClick={ClosePopBox}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -669,8 +657,7 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClosePopBox}
-									>
+										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -726,8 +713,7 @@ export default () => {
 						<button
 							className="txt-orange"
 							type="button"
-							onClick={openLogin}
-						>
+							onClick={openLogin}>
 							{t("lbl_LoginHere")}
 						</button>
 					</div>
@@ -786,8 +772,7 @@ export default () => {
 						<div
 							className={`inputBox-org${
 								tip.currency.msg !== "" ? " error" : ""
-							}`}
-						>
+							}`}>
 							<Dropdown
 								defaultOption={defaultOption}
 								mainKey="join_currency"
@@ -855,8 +840,7 @@ export default () => {
 						<Checkbox
 							id="joinTermsCheck"
 							checked={userValue.termsCheck}
-							onChange={checkboxHandler.bind(null, "termsCheck")}
-						>
+							onChange={checkboxHandler.bind(null, "termsCheck")}>
 							{t("lbl_Check18TC1")}
 							<a
 								target="_blank"
@@ -864,8 +848,7 @@ export default () => {
 								href={`${bannerImgUrl}/Static/${getCombineLangId(
 									defaultLangId,
 									userValue.currencyIdx
-								)}/TermsConditions.html`}
-							>
+								)}/TermsConditions.html`}>
 								{t("lbl_TermsConditions")}
 							</a>
 							&nbsp;
@@ -876,8 +859,7 @@ export default () => {
 								href={`${bannerImgUrl}/Static/${getCombineLangId(
 									defaultLangId,
 									userValue.currencyIdx
-								)}/RulesandRegulations.html`}
-							>
+								)}/RulesandRegulations.html`}>
 								{t("lbl_RuleRegulations")}
 							</a>
 							&nbsp;
@@ -888,8 +870,7 @@ export default () => {
 						<Checkbox
 							id="joinAgeCheck"
 							checked={userValue.ageCheck}
-							onChange={checkboxHandler.bind(null, "ageCheck")}
-						>
+							onChange={checkboxHandler.bind(null, "ageCheck")}>
 							{t("lbl_Check18TC4")}
 						</Checkbox>
 					</div>
@@ -901,8 +882,7 @@ export default () => {
 						<button
 							type="button"
 							className="btn-cancel"
-							onClick={ClosePopBox}
-						>
+							onClick={ClosePopBox}>
 							{t("lbl_Cancel")}
 						</button>
 						<button className="btn-check" type="submit">

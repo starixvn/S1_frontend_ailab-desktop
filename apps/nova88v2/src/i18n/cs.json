@@ -431,7 +431,6 @@
 	"lbl_WithdrawalCryptoNote": "汇率仅供参考, 详细到帐金额将由当时汇率决定",
 	"lbl_Times": "次数",
 	"lbl_EWalletAccountNumber": "电子钱包账户号码",
-	"lbl_OK": "OK",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "资金转移",
@@ -798,6 +797,7 @@
 	"lbl_End": "结束",
 	"lbl_AngPow_AlreadyDrawn": "您今日已领取过红包，请明天再试！",
 	"lbl_AngPow_NotWinning": "抱歉！红包派送完毕，请明日再继续！",
+	"lbl_AffiliateIdWrong": "代理商ID 无法查找",
 
 	"MysteryBox ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_MysteryBox": "神秘宝盒",

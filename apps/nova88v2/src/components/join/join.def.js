@@ -1,22 +1,32 @@
 export const initValue = {
 	username: "",
+	realName: "",
 	password: "",
+	confirmPwd: "",
+	areaCodeIdx: null,
 	phone: "",
-	currency: 0,
-	affCode: "",
+	email: "",
+	currencyIdx: null,
 	termsCheck: false,
 	ageCheck: false,
-	specialBonusCode: null
+	affiliate: null
 };
 
 export const initTip = {
 	username: { checked: null, msg: "" },
+	realName: { checked: null, msg: "" },
 	password: { checked: null, msg: "" },
-	currency: { checked: null, msg: "" },
+	confirmPwd: { checked: null, msg: "" },
 	phone: { checked: null, msg: "" },
-	affCode: { checked: null, msg: "" },
+	email: { checked: null, msg: "" },
+	currency: { checked: null, msg: "" },
 	checkbox: { checked: null, msg: "" },
-	specialBonusCode: { checked: null, msg: "" }
+	affiliate: { checked: null, msg: "" }
+};
+
+export const initShowPwdState = {
+	password: false,
+	confirmPwd: false
 };
 
 export const currencyToAreacode = {

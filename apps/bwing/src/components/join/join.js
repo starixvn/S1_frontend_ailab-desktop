@@ -6,7 +6,8 @@ import {
 	api_site_GetSiteCurrencyList,
 	api_site_Signup,
 	api_site_GetAffiliateAgent,
-	api_site_ExistsEmail
+	api_site_ExistsEmail,
+	api_site_AffiliateCheck
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import { getUrlParameter, readCookie, passwordCheck } from "../common/common";
@@ -42,6 +43,10 @@ export default () => {
 	const tandCTerms = TandC(defaultLangId).terms;
 	const tandCRule = TandC(defaultLangId).rule;
 
+	const urlAffId = getUrlParameter("AffId") || readCookie("AffId");
+	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
+	const urlAffiliate = urlAffId || urlAffCode;
+
 	const { getShieldData, saveShieldData } = useShieldCheck();
 
 	useEffect(() => {
@@ -52,41 +57,70 @@ export default () => {
 	});
 
 	useEffect(() => {
-		checkAffiliate();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 		getShieldData();
+
+		if (urlAffiliate) {
+			checkAffiliate({});
+		} else {
+			getCurrencyList();
+		}
 	}, []);
 
-	const checkAffiliate = async () => {
-		const _AffId = getUrlParameter("AffId") || readCookie("AffId");
-		if (!_AffId) {
-			getCurrencyList();
-		} else {
-			await api_site_GetAffiliateAgent({ AffId: _AffId }).then(
-				res => {
-					if (isMountedRef.current) {
-						if (res.data.errorCode === 0) {
-							const { currencyId } = res.data.data;
-							const currencyArr = [
-								{
-									id: currencyId,
-									displayKey: `Currency_${currencyId}`
-								}
-							];
-							setSiteCurrency(currencyArr);
-							onSelectItem(0);
-						} else {
-							getCurrencyList();
+	const checkAffiliate = async ({ formAffCode }) => {
+		let checked = null;
+		let msg = "";
+
+		if (urlAffId) {
+			const res = await api_site_GetAffiliateAgent({ AffId: urlAffId });
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					const { currencyId } = res.data.data;
+					const currencyArr = [
+						{
+							id: currencyId,
+							displayKey: `Currency_${currencyId}`
 						}
-					}
-				},
-				() => {
-					if (isMountedRef.current) {
-						errorPopBox();
-					}
+					];
+					setSiteCurrency(currencyArr);
+					onSelectItem(0);
+					setUserValue(prev => ({
+						...prev,
+						affiliate: urlAffId
+					}));
+				} else {
+					getCurrencyList();
 				}
-			);
+			}
+		} else if (urlAffCode) {
+			const res = await api_site_AffiliateCheck({
+				AffCode: urlAffCode,
+				langId: userInfo.langId
+			});
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					setUserValue(prev => ({
+						...prev,
+						affiliate: urlAffCode
+					}));
+				}
+			}
+		} else if (formAffCode) {
+			const res = await api_site_AffiliateCheck({
+				AffCode: formAffCode,
+				langId: userInfo.langId
+			});
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					checked = true;
+					msg = "";
+				} else {
+					checked = false;
+					msg = "lbl_AffiliateIdWrong";
+				}
+			}
 		}
+
+		return { checked, msg };
 	};
 
 	const getCurrencyList = () => {
@@ -189,7 +223,12 @@ export default () => {
 			const result = await emailCheck(val);
 			checked = result.checked;
 			msg = result.msg;
+		} else if (col === "affiliate") {
+			const result = await checkAffiliate({ formAffCode: val });
+			checked = result.checked;
+			msg = result.msg;
 		}
+
 		setTip(prev => ({
 			...prev,
 			[col]: {
@@ -368,7 +407,8 @@ export default () => {
 
 		const res = await Promise.all([
 			usernameCheck(userValue.username),
-			emailCheck(userValue.email)
+			emailCheck(userValue.email),
+			checkAffiliate({ formAffCode: userValue.affiliate })
 		]);
 
 		const _usernameCheck = res[0];
@@ -378,6 +418,7 @@ export default () => {
 		const _phoneCheck = phoneCheck(userValue.phone);
 		const _emailCheck = res[1];
 		const _agreeCheck = userValue.agreeCheck;
+		const _affiliateCheck = res[2];
 
 		const checked =
 			_usernameCheck.checked &&
@@ -386,7 +427,10 @@ export default () => {
 			_confirmPwdCheck.checked &&
 			_phoneCheck.checked &&
 			_emailCheck.checked &&
-			_agreeCheck;
+			_agreeCheck &&
+			// affiliate is optional
+			(_affiliateCheck.checked === true ||
+				_affiliateCheck.checked === null);
 
 		if (!checked) {
 			let checkboxMsg = "";
@@ -428,27 +472,9 @@ export default () => {
 		return checked;
 	};
 
-	const isUrlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
-
-	const hasRefOrAffCode =
-		getUrlParameter("AffId") ||
-		readCookie("AffId") ||
-		getUrlParameter("AffCode") ||
-		readCookie("AffCode");
-
 	const clickSubmit = async e => {
 		e.preventDefault();
 		const checked = await checkAll();
-
-		const _AffId = getUrlParameter("AffId") || readCookie("AffId");
-		let affIdCheckPass = false;
-		if (_AffId) {
-			try {
-				affIdCheckPass =
-					(await api_site_GetAffiliateAgent({ AffId: _AffId })).data
-						.errorCode === 0;
-			} catch (error) {}
-		}
 
 		if (checked && !userInfo.isLogin) {
 			const regData = {
@@ -466,9 +492,11 @@ export default () => {
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
-			regData.AffId = affIdCheckPass ? _AffId : null;
+			// If userValue.affiliate means urlAffId is qualified
+			regData.AffId = urlAffId && userValue.affiliate ? urlAffId : null;
 			regData.Aff = getUrlParameter("Aff") || readCookie("Aff");
-			regData.AffCode = isUrlAffCode ?? userValue.affCode;
+			// If no urlAffId, then userValue.affiliate is affCode (no matter url or form value)
+			regData.AffCode = !urlAffId ? userValue.affiliate : null;
 
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
@@ -594,7 +622,6 @@ export default () => {
 					showPwdState={showPwdState}
 					showPwdHandler={showPwdHandler}
 					_areaCode={_areaCode}
-					hasRefOrAffCode={hasRefOrAffCode}
 					checkboxHandler={checkboxHandler}
 					configSiteName={configSiteName}
 					tandCTerms={tandCTerms}
@@ -603,6 +630,7 @@ export default () => {
 					clickSubmit={clickSubmit}
 					langId={userInfo.langId}
 					reCaptchaOnChange={handleReCaptchaChange}
+					urlAffiliate={urlAffiliate}
 				/>
 			</div>
 		</div>
