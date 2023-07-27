@@ -1967,7 +1967,7 @@ header input:focus-within {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
-.header > div.function > a:nth-child(4) span {
+.header > div.function > a.solid-btn span {
   background: #112240;
   padding: 5px;
   border-radius: 5px;
