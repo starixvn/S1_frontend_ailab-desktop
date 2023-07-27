@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, navigate } from "gatsby";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import classNames from "classnames";
 import {
 	userInfoContext,
 	popBoxContext,
@@ -162,7 +163,8 @@ const defCashierLinks = [
 	},
 	{
 		displayKey: "lbl_Deposit",
-		href: path.deposit.root
+		href: path.deposit.root,
+		className: "solid-btn"
 	}
 ];
 
@@ -204,7 +206,11 @@ const AfterLogin = ({ t, userInfo, msgCount }) => {
 				: true
 		)
 		.map(item => (
-			<Link key={item.displayKey} to={`/${userInfo.langId}/${item.href}`}>
+			<Link
+				key={item.displayKey}
+				to={`/${userInfo.langId}/${item.href}`}
+				className={classNames(item.className)}
+			>
 				<span>{t(item.displayKey)}</span>
 			</Link>
 		));
@@ -233,7 +239,8 @@ const AfterLogin = ({ t, userInfo, msgCount }) => {
 			/>
 			<Link
 				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
-				to={`/${userInfo.langId}/${path.message.root}`}>
+				to={`/${userInfo.langId}/${path.message.root}`}
+			>
 				<MsgPopup userInfo={userInfo} />
 			</Link>
 		</>
