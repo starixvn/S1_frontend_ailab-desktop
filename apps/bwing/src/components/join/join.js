@@ -70,6 +70,9 @@ export default () => {
 		let checked = null;
 		let msg = "";
 
+		// * 預先撈取 default currencies
+		await getCurrencyList();
+
 		if (urlAffId) {
 			const res = await api_site_GetAffiliateAgent({ AffId: urlAffId });
 			if (isMountedRef.current) {
@@ -87,8 +90,6 @@ export default () => {
 						...prev,
 						affiliate: urlAffId
 					}));
-				} else {
-					getCurrencyList();
 				}
 			}
 		} else if (urlAffCode) {
@@ -345,6 +346,7 @@ export default () => {
 
 	const _currencyId = siteCurrency[userValue.currency]?.id;
 
+	console.log(siteCurrency);
 	const currencyToCountryCode = _currencyId
 		? currencyToAreacode[_currencyId]
 		: null;
