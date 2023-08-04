@@ -4,12 +4,7 @@ import ReactMarquee from "react-fast-marquee";
 import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
-import { useGotoGame } from "../hook/useGotoGame";
-import {
-	defTpGameType,
-	defCategory,
-	defSlotTpGameType
-} from "../../datas/productList";
+import { defTpGameType, defCategory } from "../../datas/productList";
 import { api_HotGame_GetDataList } from "../../service/api/hotGame";
 import usePopBox from "../hook/usePopBox";
 
@@ -23,11 +18,6 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { errorPopBox } = usePopBox();
 	const [gameList, setGameList] = useState([]);
-	const { handleGoToGame } = useGotoGame({
-		isLogin: userInfo.isLogin,
-		langId: userInfo.langId,
-		autoGetData: false
-	});
 	useEffect(() => {
 		api_HotGame_GetDataList({
 			currencyId: userInfo.currencyId
@@ -64,15 +54,7 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 			});
 			return;
 		}
-		if (tpId === defSlotTpGameType.PT.tpId) {
-			handleGoToGame({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId,
-				gameId,
-				tpGameType
-			});
-		} else if (tpCategory === defCategory.Slots) {
+		if (tpCategory === defCategory.Slots) {
 			if (userInfo.isLogin !== true) {
 				LoginPopBox();
 			} else {
