@@ -46,7 +46,9 @@ class Dropdown extends Component {
 	}
 
 	render() {
+		// TODO VND 上線後須將 filter id === 51 移除
 		const arr = this.props.options
+			.filter(item => item.id !== 51)
 			.map((item, i) => (
 				<Item
 					key={`${this.props.mainKey}_${item.id}`}
