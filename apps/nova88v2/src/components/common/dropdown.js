@@ -46,9 +46,7 @@ class Dropdown extends Component {
 	}
 
 	render() {
-		// TODO VND 上線後須將 filter id === 51 移除
 		const arr = this.props.options
-			.filter(item => item.id !== 51)
 			.map((item, i) => (
 				<Item
 					key={`${this.props.mainKey}_${item.id}`}
@@ -111,8 +109,7 @@ class Dropdown extends Component {
 				className="dropdown"
 				ref={this.wrapper}
 				onClick={this.clickDropdown}
-				data-testid={`dropdown_${this.props.mainKey}`}
-			>
+				data-testid={`dropdown_${this.props.mainKey}`}>
 				{this.props.title ? <span>{this.props.title}</span> : null}
 				{this.props.icon ? (
 					<i className={`icon ${this.props.icon}`} />
@@ -140,8 +137,7 @@ class Dropdown extends Component {
 						className={`dropdown-container${
 							this.state.isOpen ? " active" : ""
 						}`}
-						data-testid={`dropdown_container_${this.props.mainKey}`}
-					>
+						data-testid={`dropdown_container_${this.props.mainKey}`}>
 						{arr}
 					</div>
 				)}
@@ -169,8 +165,7 @@ const Item = props => {
 		<div
 			className="dropdown-item"
 			onClick={props.onClick}
-			data-testid={`dropdown-item-${props.displayKey}`}
-		>
+			data-testid={`dropdown-item-${props.displayKey}`}>
 			{props.flag && props.currencyId ? (
 				<div
 					className={`flag ${defCurrencyToClass[props.currencyId]}`}

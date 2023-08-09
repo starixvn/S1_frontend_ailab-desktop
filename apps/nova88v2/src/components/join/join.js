@@ -190,7 +190,10 @@ export default () => {
 								el => el.id === defCurrencyList.THB
 							);
 						}
-						setSiteCurrency(currencyArr);
+						// TODO VND 上線後須將 filter id === 51 移除
+						setSiteCurrency(
+							currencyArr.filter(item => item.id !== 51)
+						);
 					} else {
 						errorPopBox(
 							res.data.message || "error",
