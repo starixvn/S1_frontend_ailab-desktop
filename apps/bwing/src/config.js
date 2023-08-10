@@ -17,6 +17,7 @@ const getAffiliate = ({ langId }) => {
 export const bannerImgUrl = "https://banner.bw88.io";
 export const sportsImgUrl = "https://sportsimgs.bw88.io";
 export const cloudImgUrl = "https://payment.bw88.io";
+export const paymentImgUrl = "https://payment.0814media.net";
 
 export const errorPageUrl = langId =>
 	`https://error.bw88.io/404/index_${langId}.html`;
@@ -39,7 +40,8 @@ export default process.env.NODE_ENV === "production"
 			t_and_cURL: "https://banner.0814media.net",
 			bannerImgUrl,
 			sportsImgUrl,
-			cloudImgUrl
+			cloudImgUrl,
+			paymentImgUrl
 	  }
 	: {
 			siteName,
@@ -55,5 +57,6 @@ export default process.env.NODE_ENV === "production"
 			sportsImgUrl,
 			cloudImgUrl,
 			t_and_cURL: "https://banner.0814media.net",
-			openURL: "http://stag.Bwing.com"
+			openURL: "http://stag.Bwing.com",
+			paymentImgUrl
 	  };

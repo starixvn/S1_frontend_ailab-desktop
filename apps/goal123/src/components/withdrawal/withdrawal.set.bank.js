@@ -11,24 +11,40 @@ import { Crypto, useUSDTFetcher } from "./withdrawal.set.crypto";
 import KycUpload from "./withdrawal.set.kycUpload";
 import KycPending from "./withdrawal.set.kycPending";
 import WithdrawalConfirm, {
-	WithdrawalUSDTConFirm
+	WithdrawalUSDTConFirm,
+	WithdrawalEWalletConfirm
 } from "./withdrawal.set.confirm";
 import AddBankAccount from "./addBankAccount";
-import { api_payment_WithdrawalReq } from "../../service/api/payment";
-import { api_account_GetCustBankInfo } from "../../service/api/account";
+import {
+	api_payment_WithdrawalReq,
+	api_payment_WithdrawalEWalletReq
+} from "../../service/api/payment";
+import {
+	api_account_GetCustBankInfo,
+	api_account_GetCustEWalletInfo
+} from "../../service/api/account";
 import { userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import usePopBox from "../hook/usePopBox";
 import { getAmountTip, isConvert, checkAmount } from "../common/common";
+import EWalletInfoCard from "./withdrawal.set.eWallet";
+import AddEWallet from "./addEWallet";
 
 import path from "../../router";
 
 export const WITHDRAWAL_TYPE = {
 	BANK: "bank",
-	USDT: "usdt"
+	USDT: "usdt",
+	EWallet: "eWallet"
 };
 
 const INIT_BANK_INFO_DETAIL = { accountNo: "", bankName: "", sysId: null };
+
+const INIT_E_WALLET_INFO_DETAIL = {
+	accountNo: "",
+	eWalletName: "",
+	sysId: null
+};
 
 const INIT_USED_DETAIL = {
 	nickName: "",
@@ -70,7 +86,6 @@ const Main = ({
 		exchangeAmount: 0
 	});
 	const [processing, setProcessing] = useState(false);
-
 	const isMountedRef = useRef(null);
 
 	const {
@@ -83,18 +98,19 @@ const Main = ({
 	});
 
 	const [custBankInfo, setCustBankInfo] = useState(INIT_BANK_CUST_BANK_INFO);
+	const [custEWalletInfo, setCustEWalletInfo] = useState([]);
 
 	const [currentBankInfoDetail, setCurrentBankInfoDetail] = useState(
 		INIT_BANK_INFO_DETAIL
 	);
-
 	const [currentUSDTDetail, setCurrentUSDTDetail] =
 		useState(INIT_USED_DETAIL);
-
+	const [currentEWalletDetail, setCurrentEWalletDetail] = useState(
+		INIT_E_WALLET_INFO_DETAIL
+	);
 	const onChangeExchangeInfo = ({ exchangeRate, exchangeAmount }) => {
 		setExchangeInfo({ exchangeRate, exchangeAmount });
 	};
-
 	const getWithdrawalMinMaxLimit = () => {
 		let limit = withdrawalLimit;
 
@@ -112,12 +128,17 @@ const Main = ({
 					maxTimes: limit.limit
 				} || {};
 		}
-
 		return limit;
 	};
 
-	const { withdrawalMin, withdrawalMax, unlimited } =
-		getWithdrawalMinMaxLimit();
+	const {
+		withdrawalMin,
+		withdrawalMax,
+		unlimited,
+		eWalletStatus,
+		eWalletWithdrawalAvailableAmount,
+		eWalletWithdrawalMin
+	} = getWithdrawalMinMaxLimit();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -189,7 +210,31 @@ const Main = ({
 		);
 	};
 
+	const getCustEWalletInfo = async () => {
+		await api_account_GetCustEWalletInfo().then(
+			res => {
+				if (isMountedRef.current) {
+					const { data, errorCode, message } = res.data;
+
+					if (errorCode === 0) {
+						if (data) {
+							setCustEWalletInfo(data || []);
+						}
+					} else {
+						errorPopBox(message || "error", errorCode);
+					}
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
+			}
+		);
+	};
+
 	useEffect(() => {
+		getCustEWalletInfo();
 		getCustBankInfo();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [balanceData]);
@@ -209,8 +254,7 @@ const Main = ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}
-							>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>
@@ -235,6 +279,8 @@ const Main = ({
 
 		setCurrentBankInfoDetail(INIT_BANK_INFO_DETAIL);
 
+		setCurrentEWalletDetail(INIT_E_WALLET_INFO_DETAIL);
+
 		setWithdrawalType(WITHDRAWAL_TYPE.USDT);
 	};
 
@@ -243,7 +289,19 @@ const Main = ({
 
 		setCurrentUSDTDetail(INIT_USED_DETAIL);
 
+		setCurrentEWalletDetail(INIT_E_WALLET_INFO_DETAIL);
+
 		setWithdrawalType(WITHDRAWAL_TYPE.BANK);
+	};
+
+	const onChangeEWalletInfo = item => {
+		setCurrentEWalletDetail(item);
+
+		setCurrentBankInfoDetail(INIT_BANK_INFO_DETAIL);
+
+		setCurrentUSDTDetail(INIT_USED_DETAIL);
+
+		setWithdrawalType(WITHDRAWAL_TYPE.EWallet);
 	};
 
 	const onChangeAmount = e => {
@@ -260,7 +318,20 @@ const Main = ({
 			? Number(_amount) * 1000
 			: Number(_amount);
 
-		if (!unlimited && real_amount > withdrawalMax) {
+		const _withdrawalMin = currentEWalletDetail.eWalletName
+			? eWalletWithdrawalMin
+			: withdrawalMin;
+
+		if (
+			!unlimited &&
+			currentEWalletDetail.eWalletName &&
+			real_amount > eWalletWithdrawalAvailableAmount
+		) {
+			result = {
+				status: 2,
+				msg: t("lbl_NotinLimit")
+			};
+		} else if (!unlimited && real_amount > withdrawalMax) {
 			result = {
 				status: 2,
 				msg: t("lbl_WithdrawalDailyReached")
@@ -268,7 +339,7 @@ const Main = ({
 		} else {
 			result = checkAmount({
 				amount: _amount,
-				minAmount: withdrawalMin,
+				minAmount: _withdrawalMin,
 				maxAmount: balanceData.availableBalance,
 				formatRequired: _isConvert,
 				t,
@@ -312,12 +383,17 @@ const Main = ({
 				availableAccount = custBankInfo.uSDTDetail.find(
 					el => el.usdtAddress === currentUSDTDetail.usdtAddress
 				);
+			} else if (currentEWalletDetail.accountNo) {
+				availableAccount = custEWalletInfo.find(
+					el => el.accountNo === currentEWalletDetail.accountNo
+				);
 			}
 
 			if (
 				!availableAccount ||
 				(!currentBankInfoDetail.accountNo &&
-					!currentUSDTDetail.usdtAddress)
+					!currentUSDTDetail.usdtAddress &&
+					!currentEWalletDetail.accountNo)
 			) {
 				errorPopBox(t("lbl_SelectBank_Required"));
 			} else {
@@ -340,9 +416,12 @@ const Main = ({
 		getWithdrawalLimit();
 		refreshAvailableBalance();
 		getCustBankInfo();
+		getCustEWalletInfo();
 	};
 
 	const initForm = () => {
+		setProcessing(false);
+
 		setAmountValue("");
 
 		setShowConfirmPage(false);
@@ -399,31 +478,25 @@ const Main = ({
 		}
 	};
 
-	const confirmSubmit = () => {
+	const withdrawalEWalletSubmit = async () => {
 		const ClickDone = () => {
-			setAmountValue("");
-			onChangeBankInfo({});
-			refreshAvailableBalance();
-			setPopBox({
-				isOpen: false
-			});
-			setStatus({
-				checked: null,
-				tip: ""
-			});
-			setShowConfirmPage(false);
-			getKycStatus();
+			refreshData();
+			initForm();
 		};
-
-		const AccountNo = currentBankInfoDetail.accountNo;
-		const amount = _isConvert
-			? amountValue * 1000
-			: parseInt(amountValue, 10);
-		const { sysId } = currentBankInfoDetail;
 
 		if (!processing) {
 			setProcessing(true);
-			api_payment_WithdrawalReq(AccountNo, amount, sysId).then(
+
+			const amount = _isConvert
+				? amountValue * 1000
+				: parseInt(amountValue, 10);
+
+			api_payment_WithdrawalEWalletReq({
+				AccountNo: currentEWalletDetail.accountNo,
+				amount,
+				sysId: currentEWalletDetail.sysId,
+				memo: ""
+			}).then(
 				res => {
 					if (isMountedRef.current) {
 						if (
@@ -437,8 +510,7 @@ const Main = ({
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={ClickDone}
-										>
+											onClick={ClickDone}>
 											OK
 										</button>
 									</div>
@@ -458,8 +530,7 @@ const Main = ({
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}
-										>
+											onClick={ClickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -476,8 +547,7 @@ const Main = ({
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}
-										>
+											onClick={ClickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -495,8 +565,7 @@ const Main = ({
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}
-										>
+											onClick={ClickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -506,13 +575,12 @@ const Main = ({
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.ErrorMsg,
-								message: t("msg_ApiServerError"),
+								message: `[${res.data.errorCode}] ${res.data.message}`,
 								btnBar: (
 									<div className="btnGroup">
 										<button
-											className="btn-cancel"
-											onClick={ClickClose}
-										>
+											className="btn-check"
+											onClick={ClickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -533,8 +601,148 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				}
+			);
+		}
+	};
+
+	const confirmSubmit = () => {
+		const ClickDone = () => {
+			setProcessing(false);
+			setAmountValue("");
+			onChangeBankInfo({});
+			refreshAvailableBalance();
+			setPopBox({
+				isOpen: false
+			});
+			setStatus({
+				checked: null,
+				tip: ""
+			});
+			setShowConfirmPage(false);
+			getKycStatus();
+		};
+
+		const AccountNo = currentBankInfoDetail.accountNo;
+		const amount = _isConvert
+			? amountValue * 1000
+			: parseInt(amountValue, 10);
+		const { sysId } = currentBankInfoDetail;
+		if (!processing) {
+			setProcessing(true);
+			api_payment_WithdrawalReq(AccountNo, amount, sysId).then(
+				res => {
+					if (isMountedRef.current) {
+						if (
+							res.data.errorCode === 2 ||
+							res.data.errorCode === 0
+						) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.WithdrawalSuccess,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-check"
+											onClick={ClickDone}>
+											OK
+										</button>
+									</div>
+								)
+							});
+							getWithdrawalInfoRecent();
+							getKycStatus();
+							getWithdrawalLimit();
+						} else if (res.data.errorCode === -1) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: `${t("lbl_RolloverOver")}:${
+									res.data.message
+								}`,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-cancel"
+											onClick={ClickClose}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						} else if (res.data.errorCode === -2) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: `${t("lbl_DepositOver")}: ${
+									res.data.message
+								}`,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-cancel"
+											onClick={ClickClose}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						} else if (res.data.errorCode === -3) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: `${t("lbl_WithdrawalOver")}:${parseInt(
+									res.data.message,
+									10
+								).toString()}`,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-cancel"
+											onClick={ClickClose}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						} else {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: t("msg_ApiServerError"),
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-cancel"
+											onClick={ClickClose}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+							setProcessing(false);
+						}
+					}
+				},
+				() => {
+					if (isMountedRef.current) {
+						setProcessing(false);
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: t("msg_ApiServerError"),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -573,6 +781,16 @@ const Main = ({
 					_isConvert={_isConvert}
 				/>
 			),
+			[WITHDRAWAL_TYPE.EWallet]: (
+				<WithdrawalEWalletConfirm
+					eWalletNameValue={currentEWalletDetail.eWalletName}
+					amountValue={_isConvert ? amountValue * 1000 : amountValue}
+					accountNoValue={currentEWalletDetail.accountNo}
+					cancelSubmit={cancelSubmit}
+					confirmSubmit={withdrawalEWalletSubmit}
+					_isConvert={_isConvert}
+				/>
+			),
 			[WITHDRAWAL_TYPE.USDT]: (
 				<WithdrawalUSDTConFirm
 					t={t}
@@ -587,6 +805,20 @@ const Main = ({
 				/>
 			)
 		}[withdrawalType] || null;
+	// For Submit Input
+	const placeholder = () => {
+		if (currentEWalletDetail.eWalletName) {
+			return `${t("lbl_MinMaxAmount")} ${
+				_isConvert ? eWalletWithdrawalMin / 1000 : eWalletWithdrawalMin
+			} / ${
+				unlimited
+					? t("lbl_Unlimited")
+					: _isConvert
+					? eWalletWithdrawalAvailableAmount / 1000
+					: eWalletWithdrawalAvailableAmount
+			}`;
+		}
+	};
 
 	return (
 		<>
@@ -625,6 +857,25 @@ const Main = ({
 							/>
 						</div>
 					</div>
+
+					{Boolean(eWalletStatus) && (
+						<div className="walletModule">
+							<div className="addBank">
+								<EWalletInfoCard
+									datas={custEWalletInfo}
+									isShowConfirmPage={showConfirmPage}
+									onChangeEWalletInfo={onChangeEWalletInfo}
+									currentEWalletDetail={currentEWalletDetail}
+									updateCustEWalletInfo={getCustEWalletInfo}
+								/>
+
+								<AddEWallet
+									custEWalletInfo={custEWalletInfo}
+									updateCustEWalletInfo={getCustEWalletInfo}
+								/>
+							</div>
+						</div>
+					)}
 
 					<div className="walletModule">
 						<div className="addBank">
@@ -676,6 +927,7 @@ const Main = ({
 										withdrawalMax={withdrawalMax}
 										unlimited={unlimited}
 										withdrawalType={withdrawalType}
+										placeholder={placeholder()}
 									/>
 								</div>
 							)}

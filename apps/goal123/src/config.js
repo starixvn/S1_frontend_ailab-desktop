@@ -16,6 +16,7 @@ const getAffiliate = ({ langId }) => {
 export const bannerImgUrl = "https://banner.goal123.org";
 export const sportsImgUrl = "http://sportsimgs.goal123.org";
 export const cloudImgUrl = "https://payment.goal123.org";
+export const paymentImgUrl = "https://payment.0814media.net";
 
 export const errorPageUrl = langId =>
 	`https://error.goal123.org/404/index_${langId}.html`;
@@ -39,7 +40,8 @@ export default process.env.NODE_ENV === "production"
 			t_and_cURL: "https://banner.goal123.org",
 			bannerImgUrl,
 			sportsImgUrl,
-			cloudImgUrl
+			cloudImgUrl,
+			paymentImgUrl
 	  }
 	: {
 			siteName,
@@ -55,5 +57,6 @@ export default process.env.NODE_ENV === "production"
 			openURL: "http://stag.goal123.com",
 			bannerImgUrl,
 			sportsImgUrl,
-			cloudImgUrl
+			cloudImgUrl,
+			paymentImgUrl
 	  };

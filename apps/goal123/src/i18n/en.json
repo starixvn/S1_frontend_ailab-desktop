@@ -513,6 +513,8 @@
 	"lbl_Insufficientbalance": "Insufficient balance",
 	"lbl_Times": "Times",
 	"lbl_OK": "OK",
+	"lbl_EWalletAccountNumber": "E-wallet Account Number",
+
 
 	"■■■■■■■■■■■■■■■■■■■■ payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Payment Details",
@@ -572,6 +574,7 @@
 	"lbl_SelectedBank": "Selected Bank",
 	"lbl_EnterAmount": "Enter Amount",
 	"lbl_AddNewAccount": "Add New Account",
+	"lbl_AddEAccount": "Add E-Wallet",
 	"lbl_NumberOfBankAccounts": "Number of bank accounts",
 	"lbl_AccountNumber": "Account Number",
 	"lbl_BankAccountName": "Account Name",

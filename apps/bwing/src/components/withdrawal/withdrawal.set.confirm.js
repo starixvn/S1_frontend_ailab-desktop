@@ -63,6 +63,71 @@ WithdrawalConfirm.propTypes = {
 	confirmSubmit: func.isRequired
 };
 
+export const WithdrawalEWalletConfirm = ({
+	eWalletNameValue,
+	amountValue,
+	accountNoValue,
+	cancelSubmit,
+	confirmSubmit,
+	_isConvert
+}) => {
+	const { t } = useTranslation();
+	const { userInfo } = useContext(userInfoContext);
+
+	return (
+		<div className="subModuleBody column align-items-center">
+			<span className="title">{t("lbl_ImportantNote")}</span>
+			<div className="txt-lightgray">{t("lbl_ConfirmWithdrawal")}</div>
+			<div className="smallList">
+				<ul>
+					<li>{t("lbl_WithdrawalTo")}</li>
+					<li>{eWalletNameValue}</li>
+				</ul>
+				<ul>
+					<li>{t("lbl_AccountNumber")}</li>
+					<li className="accountNumber">
+						{`${accountNoValue?.slice(0, 4)}  `}
+						{`${accountNoValue?.slice(4, 8)} `}
+						{`${accountNoValue?.slice(8, 12)} `}
+						{`${accountNoValue?.slice(12, 16)} `}
+					</li>
+				</ul>
+				<ul>
+					<li>{t("lbl_BankAccountName")}</li>
+					<li>{userInfo.accountName}</li>
+				</ul>
+				<ul>
+					<li>{t("lbl_WithdrawalAmount")}</li>
+					<li>
+						{number_format({
+							number: amountValue,
+							formatRequired: _isConvert,
+							digits: 0
+						})}
+					</li>
+				</ul>
+			</div>
+			<div className="btnGroup">
+				<button className="btn-cancel" onClick={cancelSubmit}>
+					{t("lbl_Cancel")}
+				</button>
+				<button className="btn-check" onClick={confirmSubmit}>
+					{t("lbl_Confirm")}
+				</button>
+			</div>
+		</div>
+	);
+};
+
+WithdrawalEWalletConfirm.propTypes = {
+	eWalletNameValue: string.isRequired,
+	amountValue: number.isRequired,
+	accountNoValue: string.isRequired,
+	_isConvert: bool.isRequired,
+	cancelSubmit: func.isRequired,
+	confirmSubmit: func.isRequired
+};
+
 export const WithdrawalUSDTConFirm = ({
 	t,
 	currentUSDTDetail,
