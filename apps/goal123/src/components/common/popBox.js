@@ -13,6 +13,7 @@ export const defPopBoxType = {
 	AddBankAccount: "AddBankAccount",
 	AddBankSuccess: "AddBankSuccess",
 	AddCryptoWallet: "AddCryptoWallet",
+	AddEWallet: "AddEWallet",
 	ConfirmDelete: "ConfirmDelete",
 	ProfileConfirmCheck: "ProfileConfirmCheck",
 	ProfileCompelete: "ProfileCompelete",
@@ -152,6 +153,19 @@ export default () => {
 			);
 			content = (
 				<AddCryptoWallet GetCustBankInfo={popBox.GetCustBankInfo} />
+			);
+
+			break;
+		}
+
+		case defPopBoxType.AddEWallet: {
+			const AddEWallet = lazy(() => import("./popBox.addEWallet"));
+			content = (
+				<AddEWallet
+					custEWalletInfo={popBox.custEWalletInfo}
+					eWalletInfoSysList={popBox.eWalletInfoSysList}
+					updateCustEWalletInfo={popBox.updateCustEWalletInfo}
+				/>
 			);
 
 			break;

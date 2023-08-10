@@ -5,6 +5,7 @@ export const defPopBoxType = {
 	ErrorMsg: "ErrorMsg",
 	Login: "Login",
 	AddBankAccount: "AddBankAccount",
+	AddEWallet: "AddEWallet",
 	AddCryptoWallet: "AddCryptoWallet",
 	AddBankSuccess: "AddBankSuccess",
 	ConfirmDelete: "ConfirmDelete",

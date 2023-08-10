@@ -514,6 +514,7 @@
 	"lbl_Insufficientbalance": "Số Dư Không Đủ",
 	"lbl_Times": "Số lần",
 	"lbl_OK": "OK",
+	"lbl_EWalletAccountNumber": "E-wallet Account Number",
 
 	"■■■■■■■■■■■■■■■■■■■■ payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Thông tin thanh toán",
@@ -586,6 +587,7 @@
 	"lbl_QuickPick": "Chọn nhanh",
 	"lbl_RollOver": "VÒNG CƯỢC",
 	"lbl_BankAccountHint": "Họ tên đầy đủ phải khớp với tài khoản ngân hàng",
+	"lbl_AddEAccount": "Thêm ví điện tử",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "SÒNG BÀI",

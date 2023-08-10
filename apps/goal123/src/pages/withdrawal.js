@@ -231,7 +231,12 @@ const Content = () => {
 						withdrawalMax: res.data.data.withdrawalAvailableAmount,
 						unlimited: res.data.data.unlimited,
 						maxTimes: res.data.data.maxTimes,
-						withdrawalTimes: res.data.data.withdrawalTimes
+						withdrawalTimes: res.data.data.withdrawalTimes,
+						eWalletStatus: res.data.data.eWalletStatus,
+						eWalletUnlimited: res.data.data.eWalletUnlimited,
+						eWalletWithdrawalAvailableAmount:
+							res.data.data.eWalletWithdrawalAvailableAmount,
+						eWalletWithdrawalMin: res.data.data.eWalletWithdrawalMin
 					});
 				} else if (res.data.errorCode !== 0) {
 					setPopBox({
