@@ -18,7 +18,8 @@ const Input = ({
 	withdrawalMax,
 	unlimited,
 	withdrawalTimes,
-	maxTimes
+	maxTimes,
+	placeholder
 }) => {
 	const { t } = useTranslation();
 
@@ -47,6 +48,7 @@ const Input = ({
 				checked={checked}
 				tip={tip}
 				_isConvert={_isConvert}
+				placeholder={placeholder}
 			/>
 
 			<div className={`tip ${withdrawalType ? "active" : ""}`}>
@@ -61,14 +63,17 @@ const Input = ({
 
 			<div className="btnGroup">
 				<button
-					disabled={maxTimes > 0 && withdrawalTimes >= maxTimes}
+					disabled={
+						!checked ||
+						(maxTimes > 0 && withdrawalTimes >= maxTimes)
+					}
 					className={`${
-						maxTimes > 0 && withdrawalTimes >= maxTimes
+						!checked ||
+						(maxTimes > 0 && withdrawalTimes >= maxTimes)
 							? "darkGray"
 							: "btn-check"
 					}`}
-					onClick={toConfirmPage}
-				>
+					onClick={toConfirmPage}>
 					{t("lbl_Submit")}
 				</button>
 			</div>
@@ -90,7 +95,8 @@ Input.defaultProps = {
 	withdrawalMax: null,
 	unlimited: null,
 	withdrawalTimes: null,
-	maxTimes: null
+	maxTimes: null,
+	placeholder: ""
 };
 
 Input.propTypes = {
@@ -107,7 +113,8 @@ Input.propTypes = {
 	withdrawalMax: PropTypes.number,
 	unlimited: PropTypes.bool,
 	withdrawalTimes: PropTypes.number,
-	maxTimes: PropTypes.number
+	maxTimes: PropTypes.number,
+	placeholder: PropTypes.string
 };
 
 export default Input;

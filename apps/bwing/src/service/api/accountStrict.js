@@ -121,3 +121,15 @@ export const api_accountStrict_DelCustCryptoWallet = ({
 		NickName,
 		Address
 	});
+
+export const api_accountStrict_SetCustEWalletInfo = ({ AccountNo, SysId }) =>
+	accountStrictRequest.post("SetCustEWalletInfo", {
+		AccountNo,
+		SysId
+	});
+
+export const api_accountStrict_DelCustEWalletInfo = ({ AccountNo, SysId }) =>
+	accountStrictRequest.post("/DelCustEWalletInfo", {
+		AccountNo,
+		SysId
+	});

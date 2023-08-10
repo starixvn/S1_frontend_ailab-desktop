@@ -130,6 +130,19 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.AddEWallet: {
+			const AddEWallet = lazy(() => import("./popBox.addEWallet"));
+			content = (
+				<AddEWallet
+					custEWalletInfo={popBox.custEWalletInfo}
+					eWalletInfoSysList={popBox.eWalletInfoSysList}
+					updateCustEWalletInfo={popBox.updateCustEWalletInfo}
+				/>
+			);
+
+			break;
+		}
+
 		case defPopBoxType.ConfirmDelete: {
 			const ConfirmDelete = lazy(() => import("./popBox.confirmDelete"));
 			content = (
