@@ -23,7 +23,7 @@ export default ({
 						time:{" "}
 						{moment()
 							.utcOffset("+00:00")
-							.format("YYYY-MM-DD hh:mm:ssZ")}
+							.format("YYYY-MM-DD hh:mm:ss A")}
 					</span>
 				</div>
 			</div>
