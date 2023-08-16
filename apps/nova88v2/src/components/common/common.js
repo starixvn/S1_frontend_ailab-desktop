@@ -25,8 +25,10 @@ export const number_format = (
 		// 無條件捨去到第二位，避免四捨五入進位
 		n =
 			digits > 0
-				? Math.floor(n * Math.pow(10, digits)) /
-				  Math.pow(10, digits).toFixed(digits)
+				? (
+						Math.floor(_number * Math.pow(10, digits)) /
+						Math.pow(10, digits).toFixed(digits)
+				  ).toFixed(digits)
 				: Number(n);
 	}
 
