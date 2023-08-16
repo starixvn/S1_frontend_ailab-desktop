@@ -24,7 +24,10 @@ export const number_format = ({
 		}
 
 		if (digits > 0) {
-			_number = Number(_number).toFixed(digits);
+			// 無條件捨去到第二位，避免四捨五入進位
+			_number =
+				Math.floor(number * Math.pow(10, digits)) /
+				Math.pow(10, digits).toFixed(digits);
 		}
 	}
 

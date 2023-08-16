@@ -22,7 +22,12 @@ export const number_format = (
 		if (IsConvertRequired) {
 			n /= 1000;
 		}
-		n = digits > 0 ? Number(n).toFixed(digits) : Number(n);
+		// 無條件捨去到第二位，避免四捨五入進位
+		n =
+			digits > 0
+				? Math.floor(n * Math.pow(10, digits)) /
+				  Math.pow(10, digits).toFixed(digits)
+				: Number(n);
 	}
 
 	n += "";
