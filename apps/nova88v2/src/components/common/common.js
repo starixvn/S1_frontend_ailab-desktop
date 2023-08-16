@@ -26,7 +26,7 @@ export const number_format = (
 		n =
 			digits > 0
 				? (
-						Math.floor(_number * Math.pow(10, digits)) /
+						Math.floor(n * Math.pow(10, digits)) /
 						Math.pow(10, digits).toFixed(digits)
 				  ).toFixed(digits)
 				: Number(n);
