@@ -11,6 +11,7 @@ import PromotionSelect from "./promotionSelect";
 
 const AutoDepositForm = ({
 	t,
+	_isConvert,
 	formatAmount,
 	depositType,
 	formInfo,
@@ -59,14 +60,9 @@ const AutoDepositForm = ({
 		setDefaultBankInfo();
 	}, []);
 
-	const placeHolderText =
-		userInfo.currencyId === defCurrencyList.IDR
-			? `${t("lbl_MinMaxAmount")} ${formInfo.minAmount / 1000} ~ ${
-					formInfo.maxAmount / 1000
-			  }`
-			: `${t("lbl_MinMaxAmount")} ${formInfo.minAmount} ~ ${
-					formInfo.maxAmount
-			  }`;
+	const placeHolderText = `${t("lbl_MinMaxAmount")} ${
+		_isConvert ? formInfo.minAmount / 1000 : formInfo.minAmount
+	} ~ ${_isConvert ? formInfo.maxAmount / 1000 : formInfo.maxAmount}`;
 
 	return (
 		<>
@@ -88,8 +84,7 @@ const AutoDepositForm = ({
 									item.sysId === sysIdForRecord
 										? "active"
 										: ""
-								}
-							>
+								}>
 								<div>
 									<img
 										src={`${paymentImgUrl}/square/${bankLogo}`}
@@ -135,7 +130,7 @@ const AutoDepositForm = ({
 							onChange={e => onChangeAmount(e.target.value)}
 							checked={formInfo?.checked}
 							tip={formInfo?.tip}
-							_isConvert={false}
+							_isConvert={_isConvert}
 							isAmount={true}
 							placeholder={placeHolderText}
 							onKeyDown={onInputboxKeyDown}
@@ -164,6 +159,7 @@ const AutoDepositForm = ({
 
 AutoDepositForm.propTypes = {
 	t: PropTypes.func.isRequired,
+	_isConvert: PropTypes.bool.isRequired,
 	formatAmount: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,

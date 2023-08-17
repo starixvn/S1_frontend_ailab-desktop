@@ -248,3 +248,17 @@ export const api_payment_DepositReqLocalPay = ({
 		amount,
 		bonusCode
 	});
+
+export const api_payment_GetQRPayGroupList = () =>
+	paymentRequest.post("/GetQRPayGroupList");
+
+export const api_payment_GetQRPayInfoList = GroupId =>
+	paymentRequest.post("/GetQRPayInfoList", {
+		GroupId
+	});
+
+export const api_payment_GetLoadCardPayGroupList = () =>
+	paymentRequest.post("/GetLoadCardPayGroupList");
+
+export const api_payment_GetLoadCardPayInfoList = GroupId =>
+	paymentRequest.post("/GetLoadCardPayInfoList", { GroupId });

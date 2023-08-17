@@ -126,7 +126,8 @@ const Vip = () => {
 		th: <img src={`${bannerImgUrl}/desktop/img/vipinfo-th.png`} alt="" />,
 		id: <img src={`${bannerImgUrl}/desktop/img/vipinfo-id.png`} alt="" />,
 		cs: <img src={`${bannerImgUrl}/desktop/img/vipinfo-cs.png`} alt="" />,
-		my: <img src={`${bannerImgUrl}/desktop/img/vipinfo-my.png`} alt="" />
+		my: <img src={`${bannerImgUrl}/desktop/img/vipinfo-my.png`} alt="" />,
+		vn: <img src={`${bannerImgUrl}/desktop/img/vipinfo-vn.png`} alt="" />
 	}[userInfo.langId];
 
 	useEffect(() => {
@@ -152,9 +153,7 @@ const Vip = () => {
 	return (
 		<main className="vip">
 			<AutoPlayWithBtn Rows={rows} />
-
 			<div className="newvipinfo">{vipInfo}</div>
-
 			<VipTable
 				t={t}
 				pageClubImg={defPageClubImg}

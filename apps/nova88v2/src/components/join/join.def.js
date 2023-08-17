@@ -55,7 +55,8 @@ export const reCaptchaEnum = {
 	bd: "bn",
 	bd_en: "en",
 	kh: "en",
-	kh_en: "en"
+	kh_en: "en",
+	vn: "vi"
 };
 
 export const countryEnum = {
@@ -66,7 +67,8 @@ export const countryEnum = {
 	BD: "1.8",
 	CS: "1.8",
 	GB: "1.8",
-	KH: "1.8"
+	KH: "1.8",
+	VN: "1.8"
 };
 
 export const limitCountryNum = {
@@ -76,5 +78,6 @@ export const limitCountryNum = {
 	"+91": "10",
 	"+86": "10-11",
 	"+880": "10",
-	"+855": "8-9"
+	"+855": "8-9",
+	"+84": "9"
 };

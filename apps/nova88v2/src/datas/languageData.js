@@ -1,10 +1,29 @@
-export const defLangList = ["en", "cs", "my", "th", "id", "hi", "bd", "kh"];
+export const defLangList = [
+	"en",
+	"cs",
+	"my",
+	"th",
+	"id",
+	"hi",
+	"bd",
+	"kh",
+	"vn"
+];
 
-export const defOldLangList = ["en", "cs", "th", "id", "bd", "kh"];
+export const defOldLangList = ["en", "cs", "th", "id", "bd", "kh", "vn"];
 
 export const isOldLang = _lang => defOldLangList.includes(_lang);
 
-export const defCountryLangList = ["en", "cs", "th", "id", "hi", "bd", "kh"];
+export const defCountryLangList = [
+	"en",
+	"cs",
+	"th",
+	"id",
+	"hi",
+	"bd",
+	"kh",
+	"vn"
+];
 
 export const isCountryLang = _lang => defCountryLangList.includes(_lang);
 
@@ -16,7 +35,8 @@ export const defLang = {
 	id: "id",
 	hi: "hi",
 	bd: "bd",
-	kh: "kh"
+	kh: "kh",
+	vn: "vn"
 };
 
 export const defLangToCurrency = {
@@ -27,5 +47,6 @@ export const defLangToCurrency = {
 	id: "IDR",
 	hi: "INR",
 	bd: "BDT",
-	kh: "KHM"
+	kh: "KHM",
+	vn: "VND"
 };

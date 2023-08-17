@@ -24,12 +24,14 @@ import usePopBox from "../hook/usePopBox";
 import {
 	useDeposit,
 	useDepositCryptoPay,
+	useDepositQRPay,
 	useDepositLocalBank,
 	useDepositMobilePay,
 	useDepositOnline,
 	useDepositEffect,
 	useAutoDeposit,
-	useDepositLinePay
+	useDepositLinePay,
+	useDepositLoadCard
 } from "./hooks";
 
 import config from "../../config";
@@ -41,6 +43,8 @@ import OnlineBankForm from "./components/onlineBankForm";
 import LocalBankForm from "./components/localBankForm";
 import CryptoPayForm from "./components/cryptoPayForm";
 import AutoDepositForm from "./components/autoDepositForm";
+import QRPayForm from "./components/qrPayForm";
+import LoadCardForm from "./components/loadCardForm";
 
 import {
 	api_cashier_DepositReqMobilePay,
@@ -177,6 +181,22 @@ const Deposit = () => {
 		cryptoPayInfo
 	} = useDepositCryptoPay({ isMountedRef });
 
+	const {
+		getQRPayGroupList,
+		getQRPayInfoList,
+		QRPayGroupList,
+		QRPayInfoList
+	} = useDepositQRPay({ isMountedRef });
+
+	const {
+		loadCardPayGroupList,
+		getLoadCardPayGroupList,
+		getLoadCardPayInfoList,
+		getReqLoadCardPay
+	} = useDepositLoadCard({
+		isMountedRef
+	});
+
 	const { autoDepositGroupList, getAutoDepositGroupList } = useAutoDeposit({
 		isMountedRef
 	});
@@ -201,6 +221,8 @@ const Deposit = () => {
 			await getOnlineBankGroupList();
 		} else if (type === defDepositType.cryptoPay) {
 			await getCryptoPayGroupList();
+		} else if (type === defDepositType.QRPay) {
+			await getQRPayGroupList();
 		}
 
 		setIsGroupListFetchDone(true);
@@ -211,9 +233,31 @@ const Deposit = () => {
 		setFormInfo(prev => ({ ...prev, amount }));
 	};
 
+	const onChangeCardInfo = (val, col) => {
+		let checked = true;
+		let tip = "";
+		if (col === "cardCode") {
+			if (val === "") {
+				checked = false;
+				tip = t("msg_PleaseEnterCardCode");
+			}
+		}
+
+		if (col === "cardSerial") {
+			if (val === "") {
+				checked = false;
+				tip = t("msg_PleaseEnterCardSerial");
+			}
+		}
+
+		setFormInfo(prev => ({
+			...prev,
+			[col]: { val, checked, tip }
+		}));
+	};
+
 	const onReset = () => {
 		setLocalBankChecked(true);
-
 		setFormInfo(prev => ({
 			...prev,
 			imgFile: null,
@@ -259,7 +303,6 @@ const Deposit = () => {
 
 			return;
 		}
-
 		setFormInfo(prev => ({
 			...prev,
 			depositPromo: {
@@ -272,6 +315,8 @@ const Deposit = () => {
 	};
 
 	const onSubmit = async () => {
+		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 		const saveInfoToLocalStorage = () => {
 			const localStoragePath = {
 				amount: formInfo.amount,
@@ -622,7 +667,7 @@ const Deposit = () => {
 					if (groupId === -1) {
 						const paramsUrl = [
 							`ChannelId=${channelId}`,
-							`Amount=${amount}`,
+							`Amount=${resultAmount}`,
 							bonusCode && `BonusCode=${bonusCode}`
 						]
 							.filter(Boolean)
@@ -769,6 +814,84 @@ const Deposit = () => {
 
 					window.open(`${baseUrl}?${params}`);
 				}
+			} else if (depositType === defDepositType.QRPay) {
+				setLoading(true);
+				// channelId === -1 代表是自建的假渠道，使用彈窗顯示 qrCode
+				if (channelId === -1) {
+					try {
+						const res = await api_payment_DepositReqLocalPay({
+							groupId: formInfo.groupId,
+							amount: resultAmount,
+							bonusCode: formInfo.depositPromo.bonusCode
+						});
+						const { data, errorCode } = res.data;
+						const {
+							amount: popBoxAmount,
+							bankLogo,
+							code,
+							returnUrl,
+							transId,
+							generateQr
+						} = data;
+						if (errorCode === 0) {
+							setPopBox({
+								title: t("lbl_DepositType6"),
+								isOpen: true,
+								popBoxType: defPopBoxType.BankQR,
+								onClose: () => {
+									setPopBox({ isOpen: false });
+									window.location.reload();
+								},
+								qrCodeUrl: returnUrl,
+								amount: popBoxAmount,
+								bankLogo,
+								code,
+								transId,
+								generateQr
+							});
+						}
+					} catch (e) {
+						errorPopBox();
+					}
+				} else {
+					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqQRPay`;
+
+					const params = [
+						`ChannelId=${channelId}`,
+						`Amount=${resultAmount}`,
+						bonusCode ? `BonusCode=${bonusCode}` : ""
+					]
+						.filter(Boolean)
+						.join("&");
+					window.open(`${baseUrl}?${params}`);
+				}
+				await delay(1000);
+			} else if (depositType === defDepositType.loadCard) {
+				if (formInfo.mode === 3) {
+					getReqLoadCardPay({
+						langId: userInfo.langId,
+						channelId,
+						cardCode: formInfo.cardCode.val,
+						cardSerial: formInfo.cardSerial.val,
+						amount: resultAmount,
+						bonusCode
+					});
+				} else {
+					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqLoadCardPay`;
+
+					const params = [
+						`ChannelId=${channelId}`,
+						`Code=${formInfo.cardCode.val}`,
+						`Serial=${formInfo.cardSerial.val}`,
+						`Amount=${resultAmount}`,
+						bonusCode ? `BonusCode=${bonusCode}` : ""
+					]
+						.filter(Boolean)
+						.join("&");
+
+					window.open(`${baseUrl}?${params}`);
+					await delay(1000);
+				}
 			}
 
 			await getDepositInfoRecent();
@@ -816,6 +939,15 @@ const Deposit = () => {
 
 	const formatAmount = _val => number_format(_val, _isConvert, 0);
 
+	const isCheck =
+		depositType === defDepositType.loadCard
+			? Boolean(
+					!!formInfo.checked &&
+						formInfo?.cardCode?.val &&
+						formInfo?.cardSerial?.val
+			  )
+			: Boolean(!!formInfo.checked && localBankChecked);
+
 	useDepositEffect({
 		t,
 		userInfo,
@@ -829,6 +961,8 @@ const Deposit = () => {
 		onlineBankGroupList,
 		localBankGroupList,
 		cryptoPayGroupList,
+		QRPayGroupList,
+		loadCardPayGroupList,
 		setLoading,
 		onValidAmount,
 		setDepositType,
@@ -840,14 +974,16 @@ const Deposit = () => {
 		getLocalBankGroupList,
 		getOnlineBankGroupList,
 		getCryptoPayGroupList,
+		getQRPayGroupList,
+		getLoadCardPayGroupList,
 		getAutoDepositGroupList,
 		getLinePayLink,
 		linePayLink
 	});
+
 	if (loading || !isInitDataDone) return null;
 
 	const isPending = depositInfoRecentDatas.some(item => item.status === 1);
-
 	return (
 		<>
 			<DepositInfoMoule
@@ -857,7 +993,7 @@ const Deposit = () => {
 				depositType={depositType}
 				depositOptions={depositOptions}
 				saveInfoChecked={saveInfoChecked}
-				checked={!!formInfo.checked && localBankChecked}
+				checked={isCheck}
 				processingDescriptionActive={processingDescriptionActive}
 				onReset={onReset}
 				onSubmit={onSubmit}
@@ -976,6 +1112,42 @@ const Deposit = () => {
 						onValidAmount={onValidAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
 						onSubmit={onSubmit}
+					/>
+				)}
+				{depositType === defDepositType.QRPay && (
+					<QRPayForm
+						t={t}
+						depositType={depositType}
+						_isConvert={_isConvert}
+						formatAmount={formatAmount}
+						QRPayGroupList={QRPayGroupList}
+						getQRPayInfoList={getQRPayInfoList}
+						QRPayInfoList={QRPayInfoList}
+						formInfo={formInfo}
+						depositPromoList={depositPromoList}
+						isGroupListFetchDone={isGroupListFetchDone}
+						setFormInfo={setFormInfo}
+						onChangeAmount={onChangeAmount}
+						onValidAmount={onValidAmount}
+						onChangePromotion={onChangePromotion}
+						onInputboxKeyDown={onInputboxKeyDown}
+					/>
+				)}
+				{depositType === defDepositType.loadCard && (
+					<LoadCardForm
+						t={t}
+						formInfo={formInfo}
+						_isConvert={_isConvert}
+						formatAmount={formatAmount}
+						depositType={depositType}
+						setFormInfo={setFormInfo}
+						loadCardPayGroupList={loadCardPayGroupList}
+						depositPromoList={depositPromoList}
+						isGroupListFetchDone={isGroupListFetchDone}
+						onChangeCardInfo={onChangeCardInfo}
+						onChangePromotion={onChangePromotion}
+						onChangeAmount={onChangeAmount}
+						getLoadCardPayInfoList={getLoadCardPayInfoList}
 					/>
 				)}
 			</DepositInfoMoule>

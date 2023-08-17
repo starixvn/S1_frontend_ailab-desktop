@@ -1,4 +1,6 @@
+import { CurrenciesEnum } from "@ailab-desktop/common";
 import config, { errorPageUrl } from "../config";
+import productList from "../datas/productList";
 import path from "../router";
 
 export const _ACTION_TYPE = {
@@ -46,7 +48,8 @@ export const SET_ENTER_PAGE = ({
 	loginCallback,
 	betType,
 	openInBlank = false,
-	tpGameType
+	tpGameType,
+	currencyId
 }) => {
 	const result = GET_OPEN_RULE(
 		langId,
@@ -54,7 +57,8 @@ export const SET_ENTER_PAGE = ({
 		gameId,
 		matchid,
 		betType,
-		tpGameType
+		tpGameType,
+		currencyId
 	);
 	if (!isLogin && result.needLogin) {
 		loginCallback();
@@ -83,7 +87,8 @@ export const GET_OPEN_RULE = (
 	gameId,
 	matchid,
 	betType,
-	tpGameType
+	originTpGameType,
+	currencyId
 ) => {
 	const _tpId = isNaN(tpId) ? tpId : Number(tpId);
 	const _gameId = isNaN(gameId) ? gameId : Number(gameId);
@@ -114,6 +119,13 @@ export const GET_OPEN_RULE = (
 	} else {
 		result = setResult("", true, _ACTION_TYPE.blank, _tpId, _gameId);
 	}
+
+	// tcg 在 VND 語系時帶 55，其他幣別照原本的 54 目前先這樣改，之後挪到新專案再重構
+	const tpGameType =
+		currencyId === CurrenciesEnum.VN &&
+		originTpGameType === productList.tcg.tpGameType
+			? 55
+			: originTpGameType;
 
 	return {
 		...result,

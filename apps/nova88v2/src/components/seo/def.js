@@ -47,6 +47,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -95,6 +105,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -146,6 +166,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -194,6 +224,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -242,6 +282,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -290,6 +340,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -338,6 +398,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -386,6 +456,74 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
+				}
+			]
+		},
+		vn: {
+			title: `Nova88 | Nova88 quay hũ | Nova88 Casino | Nova88 Asia`,
+			description: `Nova88 là nhà cái đáng tin cậy cung cấp dịch vụ cá độ thể thao, live casino, và quay hũ tại châu Á. Là đối tác chính thức của SABA Sports.`,
+			keyword: `Nhà cái hàng đầu châu Á, Live Casino, Quay hũ, SABA Sports, Online Casino, cá độ trực tuyến`,
+			links: [
+				{ rel: "canonical", href: `https://www.nova88.net/en/` },
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/en/`
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/",
+					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		}
@@ -433,6 +571,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/join",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -478,6 +626,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/join",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -523,6 +681,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/join",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -571,6 +739,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/join",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -619,6 +797,71 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/join",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
+				}
+			]
+		},
+		vn: {
+			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/en/join`
+				},
+				{ rel: "canonical", href: `https://www.nova88.net/en/join` },
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/join",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/join",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/join",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/join",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/join",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/join",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/join",
+					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		}
@@ -672,6 +915,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/promotion",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -723,6 +976,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/promotion",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -774,6 +1037,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/promotion",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -825,6 +1098,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/promotion",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -876,6 +1159,77 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/promotion",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
+				}
+			]
+		},
+		vn: {
+			title: `Nova88 Promotion | Trusted Live Casino | Welcome Bonus`,
+			description: `Looking For The Best Live Casino Bonuses and Rewards? Don't Miss Out Our Monthly Exclusive Promotions! Play And Earn More Bonus With Nova88 now!`,
+			keyword: `Online Casino Promotion, Welcome Bonus, Reload Bonus, Cash Rebate, Weekly Cashback, Withdrawal Bonus, Referral Rewards, Birthday Reward, New Member Promotion, Sportsbook Promotion, Casino Promotion, Slot Promotion`,
+			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/en/promotion`
+				},
+				{
+					rel: "canonical",
+					href: `https://www.nova88.net/en/promotion`
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/promotion",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/promotion",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/promotion",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/promotion",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/promotion",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/promotion",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/promotion",
+					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		}
@@ -926,6 +1280,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/vip",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		}
@@ -979,6 +1343,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/leaderBoard",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -1030,6 +1404,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/leaderBoard",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -1081,6 +1465,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/leaderBoard",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -1132,6 +1526,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/leaderBoard",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -1183,6 +1587,74 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/leaderBoard",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
+				}
+			]
+		},
+		vn: {
+			title: `Nova88 VIP Program | VIP Member | Exclusive Rewards`,
+			description: `Become Nova88 Exclusive VIP Today To Enjoy The Benefits And privileges With Difference Membership Tier. Play More, Rewards More. Hurry, We Are Waiting For You!`,
+			keyword: `Nova88, Casino VIP Program, VIP privileges, VIP Exclusive Reward, Nova Club, Nova VIP Exclusive, Tier Upgrade Bonus, VIP Special Rebate, VIP Bonus, VIP Member Benefits`,
+			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/en/vip`
+				},
+				{ rel: "canonical", href: `https://www.nova88.net/en/vip` },
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/vip",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/vip",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/vip",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/vip",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/vip",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/vip",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/vip",
+					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		}
@@ -1231,6 +1703,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/eSport",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		}
@@ -1279,6 +1761,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/liveCasino",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		}
@@ -1329,6 +1821,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/slots",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -1380,6 +1882,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/slots",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -1431,6 +1943,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/slots",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -1482,6 +2004,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/slots",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		},
@@ -1530,6 +2062,72 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/slots",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
+				}
+			]
+		},
+		vn: {
+			title: `Nova88 | Trusted Live Casino | Play & Win!`,
+			description: `Nova88 Has Been In The Industry For Over 20 Years. There Are Various of Live Casino Games Offered, Such As Baccarat, Roulette, Blackjack, Poker And Many More.`,
+			keyword: `Online Casino, Casino Games, Live Gambling, Baccarat, Roulette, Blackjack, Poker, Slots, Game Shows, Sic Bo, Dragon Tiger, Pragmatic Play, Microgaming, Evolution Gaming, Playtech, Dream Gaming, AE Sexy, SA Gaming, Allbet, Asia Gaming, WM Casino, eBet`,
+			links: [
+				{
+					rel: "canonical",
+					href: `https://www.nova88.net/en/liveCasino`
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/liveCasino",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/liveCasino",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/liveCasino",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/liveCasino",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/liveCasino",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/liveCasino",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/liveCasino",
+					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		}
@@ -1580,6 +2178,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/oneGame",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		}
@@ -1625,6 +2233,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/game",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		}
@@ -1670,6 +2288,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/fishing",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		}
@@ -1715,6 +2343,16 @@ export const defMetaData = {
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/lottery",
 					hreflang: "bn-bd"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88103.net/kh/",
+					hreflang: "kh-kh"
+				},
+				{
+					rel: "alternate",
+					href: "http://nova88901.net/vn/",
+					hreflang: "vi-vn"
 				}
 			]
 		}

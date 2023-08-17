@@ -21,7 +21,10 @@ const InputBox = ({
 	_isConvert,
 	readOnly,
 	isTipHide,
-	format
+	format,
+	isShowPaste,
+	handlePaste,
+	pasteCol
 }) => {
 	const showCheckIcon = () => {
 		if (checked === null && clickInfo) {
@@ -56,38 +59,73 @@ const InputBox = ({
 
 	return (
 		<>
-			<div className={inputBoxClass()}>
-				{!!icon && <i className={`icon ${icon}`} />}
+			{isShowPaste ? (
+				<>
+					{!!icon && <i className={`icon ${icon}`} />}
 
-				{!!title && <i className="txt-blue">{title}</i>}
+					{!!title && <i className="txt-blue">{title}</i>}
 
-				{!!areaCode && <div className="txt-lightgray">{areaCode}</div>}
+					{!!areaCode && (
+						<div className="txt-lightgray">{areaCode}</div>
+					)}
 
-				<input
-					data-testid="input"
-					type={inputType ?? "text"}
-					value={value ?? ""}
-					placeholder={placeholder}
-					max={max}
-					onBlur={onBlur}
-					onChange={onChange}
-					readOnly={readOnly}
-					onKeyDown={onKeyDown}
-				/>
+					<input
+						data-testid="input"
+						type={inputType ?? "text"}
+						value={value ?? ""}
+						placeholder={placeholder}
+						max={max}
+						onBlur={onBlur}
+						onChange={onChange}
+						readOnly={readOnly}
+						onKeyDown={onKeyDown}
+					/>
 
-				{!!tooltip && <div className="description">{tooltip}</div>}
-				{format && "('000)"}
-				{checked !== undefined && (
-					<div className="iconModule">
-						{!!_isConvert && <i>('000)</i>}
-						{showCheckIcon()}
-					</div>
-				)}
-			</div>
+					{!!tooltip && <div className="description">{tooltip}</div>}
+					{format && "('000)"}
+					{checked !== undefined && (
+						<div className="iconModule">
+							{!!_isConvert && <i>('000)</i>}
+							{showCheckIcon()}
+						</div>
+					)}
+				</>
+			) : (
+				<div className={inputBoxClass()}>
+					{!!icon && <i className={`icon ${icon}`} />}
 
-			{inputType !== "date" && !isTipHide && (
-				<div className={`tip${tip ? " active" : ""}`}>{tip}</div>
+					{!!title && <i className="txt-blue">{title}</i>}
+
+					{!!areaCode && (
+						<div className="txt-lightgray">{areaCode}</div>
+					)}
+
+					<input
+						data-testid="input"
+						type={inputType ?? "text"}
+						value={value ?? ""}
+						placeholder={placeholder}
+						max={max}
+						onBlur={onBlur}
+						onChange={onChange}
+						readOnly={readOnly}
+						onKeyDown={onKeyDown}
+					/>
+
+					{!!tooltip && <div className="description">{tooltip}</div>}
+					{format && "('000)"}
+					{checked !== undefined && (
+						<div className="iconModule">
+							{!!_isConvert && <i>('000)</i>}
+							{showCheckIcon()}
+						</div>
+					)}
+				</div>
 			)}
+
+			{inputType !== "date" && !isTipHide && !isShowPaste ? (
+				<div className={`tip${tip ? " active" : ""}`}>{tip}</div>
+			) : null}
 		</>
 	);
 };
@@ -110,7 +148,11 @@ InputBox.defaultProps = {
 	onChange: null,
 	_isConvert: null,
 	readOnly: false,
-	format: false
+	format: false,
+	isTipHide: false,
+	isShowPaste: false,
+	handlePaste: null,
+	pasteCol: null
 };
 
 InputBox.propTypes = {
@@ -132,7 +174,11 @@ InputBox.propTypes = {
 	placeholder: PropTypes.string,
 	onChange: PropTypes.func,
 	_isConvert: PropTypes.bool,
-	format: PropTypes.bool
+	format: PropTypes.bool,
+	isTipHide: PropTypes.bool,
+	isShowPaste: PropTypes.bool,
+	handlePaste: PropTypes.func,
+	pasteCol: PropTypes.string
 };
 
 export default InputBox;

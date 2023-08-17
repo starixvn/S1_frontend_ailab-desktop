@@ -11,6 +11,7 @@ import { userInfoContext } from "../../common/context";
 
 const CryptoPayForm = ({
 	t,
+	_isConvert,
 	depositType,
 	formatAmount,
 	isPending,
@@ -106,14 +107,9 @@ const CryptoPayForm = ({
 	const buttonAble =
 		groupIdForRecord && infoChannelIdForRecord && formInfo?.amount;
 
-	const placeHolderText =
-		userInfo.currencyId === defCurrencyList.IDR
-			? `${t("lbl_MinMaxAmount")} ${formInfo.minAmount / 1000} ~ ${
-					formInfo.maxAmount / 1000
-			  }`
-			: `${t("lbl_MinMaxAmount")} ${formInfo.minAmount} ~ ${
-					formInfo.maxAmount
-			  }`;
+	const placeHolderText = `${t("lbl_MinMaxAmount")} ${
+		_isConvert ? formInfo.minAmount / 1000 : formInfo.minAmount
+	} ~ ${_isConvert ? formInfo.maxAmount / 1000 : formInfo.maxAmount}`;
 
 	return (
 		<>
@@ -216,7 +212,7 @@ const CryptoPayForm = ({
 					onBlur={() => onValidAmount(formInfo.amount)}
 					checked={formInfo?.checked}
 					tip={formInfo?.tip}
-					_isConvert={false}
+					_isConvert={_isConvert}
 					isAmount={true}
 					placeholder={placeHolderText}
 					onKeyDown={event => buttonAble && onInputboxKeyDown(event)}
@@ -259,6 +255,7 @@ CryptoPayForm.propTypes = {
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	depositType: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
+	_isConvert: PropTypes.bool.isRequired,
 	formatAmount: PropTypes.func.isRequired,
 	cryptoPayGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,

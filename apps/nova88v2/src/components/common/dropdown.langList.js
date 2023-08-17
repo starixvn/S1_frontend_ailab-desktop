@@ -27,6 +27,7 @@ export class Dropdown extends Component {
 		}
 	}
 
+	// eslint-disable-next-line react/sort-comp
 	handleClickOutside = e => {
 		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
 			this.setState({ isOpen: false });
@@ -60,7 +61,8 @@ export class Dropdown extends Component {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={this.props.clickClose}>
+											onClick={this.props.clickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -78,7 +80,8 @@ export class Dropdown extends Component {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={this.props.clickClose}>
+										onClick={this.props.clickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -92,6 +95,7 @@ export class Dropdown extends Component {
 					currencyId
 				}));
 			}
+
 			navigate(newPath);
 			setCookie(SiteInfo.langCookie, value);
 			setCookie(SiteInfo.currencyCookie, currencyId);
@@ -125,7 +129,8 @@ export class Dropdown extends Component {
 									item.value,
 									item.currencyId,
 									getNewLanguagePath(item.value)
-								)}>
+								)}
+							>
 								{item.displayText}
 							</button>
 						);
@@ -146,7 +151,8 @@ export class Dropdown extends Component {
 					this.state.isOpen ? " active" : ""
 				}`}
 				ref={this.wrapper}
-				onClick={this.clickDropdown}>
+				onClick={this.clickDropdown}
+			>
 				{selected}
 				<div className={this.props.subClassName}>{rows}</div>
 			</div>

@@ -96,7 +96,8 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 					gameId,
 					loginCallback: showLoginPopBox,
 					tpGameType,
-					betType
+					betType,
+					currencyId: userInfo.currencyId
 				});
 			}
 		}
@@ -109,7 +110,8 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 		const subClassName = [
 			subClassKey,
 			subClassKey === defSubListClassName.vip && `${userInfo.langId}`,
-			menuKey === currentMenuKey && "active"
+			menuKey === currentMenuKey && "active",
+			langId
 		]
 			.filter(Boolean)
 			.join(" ");

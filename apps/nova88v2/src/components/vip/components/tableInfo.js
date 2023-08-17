@@ -121,7 +121,7 @@ const TableInfo = ({ currencyId, vipBanner }) => {
 				<tr>
 					<td>{capitalizeFirstLetter(t("lbl_Vip_Sport_Rebate"))}</td>
 					{vipBanner?.vipBannerData?.map(item => (
-						<td>{item?.rebateCategory[0].percentage}%</td>
+						<td>{item?.rebateCategory[0]?.percentage}%</td>
 					))}
 				</tr>
 				<tr>
@@ -129,7 +129,7 @@ const TableInfo = ({ currencyId, vipBanner }) => {
 						{capitalizeFirstLetter(t("lbl_Vip_Live_Casino_Rebate"))}
 					</td>
 					{vipBanner?.vipBannerData?.map(item => (
-						<td>{item?.rebateCategory[2].percentage}%</td>
+						<td>{item?.rebateCategory[2]?.percentage}%</td>
 					))}
 				</tr>
 				<tr>
@@ -139,7 +139,7 @@ const TableInfo = ({ currencyId, vipBanner }) => {
 						)}
 					</td>
 					{vipBanner?.vipBannerData?.map(item => (
-						<td>{item?.rebateCategory[1].percentage}%</td>
+						<td>{item?.rebateCategory[1]?.percentage}%</td>
 					))}
 				</tr>
 				<tr>
@@ -149,7 +149,7 @@ const TableInfo = ({ currencyId, vipBanner }) => {
 						)}
 					</td>
 					{vipBanner?.vipBannerData?.map(item => (
-						<td>{item?.rebateCategory[3].percentage}%</td>
+						<td>{item?.rebateCategory[3]?.percentage}%</td>
 					))}
 				</tr>
 				<tr className="title">

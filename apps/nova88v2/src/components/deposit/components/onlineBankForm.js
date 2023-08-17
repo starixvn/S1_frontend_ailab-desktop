@@ -11,6 +11,7 @@ import { userInfoContext } from "../../common/context";
 
 const OnlineBankForm = ({
 	t,
+	_isConvert,
 	formatAmount,
 	depositType,
 	onlineBankGroupList,
@@ -101,14 +102,9 @@ const OnlineBankForm = ({
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isGroupListFetchDone]);
 
-	const placeHolderText =
-		userInfo.currencyId === defCurrencyList.IDR
-			? `${t("lbl_MinMaxAmount")} ${formInfo.minAmount / 1000} ~ ${
-					formInfo.maxAmount / 1000
-			  }`
-			: `${t("lbl_MinMaxAmount")} ${formInfo.minAmount} ~ ${
-					formInfo.maxAmount
-			  }`;
+	const placeHolderText = `${t("lbl_MinMaxAmount")} ${
+		_isConvert ? formInfo.minAmount / 1000 : formInfo.minAmount
+	} ~ ${_isConvert ? formInfo.maxAmount / 1000 : formInfo.maxAmount}`;
 
 	if (onlineBankGroupList.length <= 0) return null;
 
@@ -132,8 +128,7 @@ const OnlineBankForm = ({
 									item.payName === payNameForRecord
 										? "active"
 										: ""
-								}
-							>
+								}>
 								<div>
 									<img
 										alt={item.payName}
@@ -183,8 +178,7 @@ const OnlineBankForm = ({
 										item.sysId === sysIdForRecord
 											? "active"
 											: ""
-									}
-								>
+									}>
 									<div>
 										<img
 											src={`${paymentImgUrl}/square/${bankLogo}`}
@@ -236,7 +230,7 @@ const OnlineBankForm = ({
 							onChange={e => onChangeAmount(e.target.value)}
 							checked={formInfo?.checked}
 							tip={formInfo?.tip}
-							_isConvert={false}
+							_isConvert={_isConvert}
 							isAmount={true}
 							placeholder={placeHolderText}
 							onKeyDown={onInputboxKeyDown}
@@ -265,6 +259,7 @@ const OnlineBankForm = ({
 
 OnlineBankForm.propTypes = {
 	t: PropTypes.func.isRequired,
+	_isConvert: PropTypes.bool.isRequired,
 	formatAmount: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	onlineBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
@@ -277,8 +272,7 @@ OnlineBankForm.propTypes = {
 	setOnlineBankInfoList: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
-	isGroupListFetchDone: PropTypes.bool.isRequired,
-	onChangePromotion: PropTypes.func.isRequired
+	isGroupListFetchDone: PropTypes.bool.isRequired
 };
 
 export default OnlineBankForm;

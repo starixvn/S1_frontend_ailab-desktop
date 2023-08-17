@@ -13019,12 +13019,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .indexCenterBanner .qrGroup .qrCode:first-child {
   position: absolute;
-  left: 257.5px;
+  left: 60px;
   bottom: 77px;
 }
 .indexCenterBanner .qrGroup .qrCode:last-child {
   position: absolute;
-  left: 60px;
+  left: 257.5px;
   bottom: 77px;
 }
 
