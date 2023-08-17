@@ -64,7 +64,8 @@ const Lottery = () => {
 							className="btn-check"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -86,7 +87,8 @@ const Lottery = () => {
 			tpId,
 			gameId,
 			loginCallback: showLoginPopBox,
-			tpGameType
+			tpGameType,
+			currencyId: userInfo.currencyId
 		});
 	};
 

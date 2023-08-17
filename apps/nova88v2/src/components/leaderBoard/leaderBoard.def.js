@@ -254,5 +254,59 @@ export const defRewardList = ({ t }) => ({
 				bonus: "1,680,000"
 			}
 		]
+	},
+	VND: {
+		section1: [
+			{ turnover: "550,000", point: "1" },
+			{ turnover: "2,750,000", point: "1" },
+			{ turnover: "5,500,000", point: "1" }
+		],
+		section2: [
+			{
+				rank: t("lbl_RankChampion"),
+				point: "30,000",
+				bonus: "55,000,000"
+			},
+			{
+				rank: t("lbl_Rank1"),
+				point: "25,000",
+				bonus: "44,000,000"
+			},
+			{
+				rank: t("lbl_Rank2"),
+				point: "18,000",
+				bonus: "33,000,000"
+			},
+			{
+				rank: t("lbl_Rank3"),
+				point: "15,000",
+				bonus: "27,500,000"
+			},
+			{
+				rank: t("lbl_Rank4"),
+				point: "12,000",
+				bonus: "22,000,000"
+			},
+			{
+				rank: t("lbl_Rank5"),
+				point: "10,000",
+				bonus: "16,500,000"
+			},
+			{
+				rank: t("lbl_Rank6"),
+				point: "9,000",
+				bonus: "11,000,000"
+			},
+			{
+				rank: t("lbl_Rank7"),
+				point: "8,000",
+				bonus: "5,500,000"
+			},
+			{
+				rank: t("lbl_Rank9_30"),
+				point: "5,000",
+				bonus: "2,750,000"
+			}
+		]
 	}
 });

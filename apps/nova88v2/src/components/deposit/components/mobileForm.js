@@ -97,14 +97,9 @@ const MobileForm = ({
 
 	const isSelAmountType = formInfo.amountRule === 3;
 
-	const placeHolderText =
-		userInfo.currencyId === defCurrencyList.IDR
-			? `${t("lbl_MinMaxAmount")} ${formInfo.minAmount / 1000} ~ ${
-					formInfo.maxAmount / 1000
-			  }`
-			: `${t("lbl_MinMaxAmount")} ${formInfo.minAmount} ~ ${
-					formInfo.maxAmount
-			  }`;
+	const placeHolderText = `${t("lbl_MinMaxAmount")} ${
+		_isConvert ? formInfo.minAmount / 1000 : formInfo.minAmount
+	} ~ ${_isConvert ? formInfo.maxAmount / 1000 : formInfo.maxAmount}`;
 
 	if (mobilePayGourpList.length <= 0) return null;
 
@@ -292,7 +287,7 @@ const MobileForm = ({
 							onChange={e => onChangeAmount(e.target.value)}
 							checked={formInfo?.checked}
 							tip={formInfo?.tip}
-							_isConvert={false}
+							_isConvert={_isConvert}
 							isAmount={true}
 							placeholder={placeHolderText}
 							onKeyDown={onInputboxKeyDown}

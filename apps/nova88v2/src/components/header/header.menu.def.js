@@ -924,7 +924,8 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_JOKER },
 				parameter: { provider: "joker" },
-				...productList.casino_JOKER
+				...productList.casino_JOKER,
+				allowCurrencies: allowedCurrencyList.slotJoker
 			},
 			{
 				keyName: "slot_RedTiger",
@@ -1183,6 +1184,7 @@ export const defMenuLinks = {
 		className: "fishbtn",
 		path: path.fishing.root,
 		filterByAuth: true,
+		checkBeforeLogin: true,
 		customSort: defSortFishing,
 		subMenu: [
 			{
@@ -1202,7 +1204,8 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.fishing_Joker
 					})
-				]
+				],
+				allowCurrencies: allowedCurrencyList.fishingHaiba
 			},
 			{
 				keyName: "fishing_Hunting_Happy_Fish_5",
@@ -1215,7 +1218,8 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgImg: "fishhf.png",
 					hoverBgImg: "fishhfa.png"
-				}
+				},
+				allowCurrencies: allowedCurrencyList.happyFish5
 			},
 			{
 				keyName: "fishing_Hunting_Monster_Awaken",
@@ -1234,7 +1238,8 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.fishing_Joker
 					})
-				]
+				],
+				allowCurrencies: allowedCurrencyList.monsterAwaken
 			},
 			{
 				keyName: "fishing_CQ9_PARADISE",
@@ -1382,6 +1387,7 @@ export const defMenuLinks = {
 		displayKey: "lbl_Lottery",
 		path: path.lottery.root,
 		filterByAuth: true,
+		checkBeforeLogin: true,
 		subMenu: [
 			{
 				...productList.GPI_Keno,
@@ -1436,7 +1442,8 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.GPI_Lottery
 					})
-				]
+				],
+				allowCurrencies: allowedCurrencyList.fast3
 			},
 			{
 				...productList.tcg,

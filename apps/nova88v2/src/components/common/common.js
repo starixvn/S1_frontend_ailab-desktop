@@ -225,7 +225,8 @@ export const defCurrencyList = {
 	INR: 61,
 	USDT: 96,
 	KHM: 72,
-	BDT: 74
+	BDT: 74,
+	VND: 51
 };
 
 export const currencyIdToCurrency = {
@@ -235,7 +236,8 @@ export const currencyIdToCurrency = {
 	13: "CNY",
 	15: "IDR",
 	61: "INR",
-	74: "BDT"
+	74: "BDT",
+	51: "VND"
 };
 
 export const defCountryList = {
@@ -246,7 +248,8 @@ export const defCountryList = {
 	15: "Indonesia",
 	61: "India",
 	72: "Cambodia",
-	74: "Bangladesh"
+	74: "Bangladesh",
+	51: "Vietnam"
 };
 
 export const currencyIdToTimeZone = {
@@ -257,7 +260,8 @@ export const currencyIdToTimeZone = {
 	74: "+06:00",
 	61: "+05:30",
 	3: "+00:00",
-	13: "+08:00"
+	13: "+08:00",
+	51: "+07:00"
 };
 
 export const langAndCurrMapping = {
@@ -268,7 +272,8 @@ export const langAndCurrMapping = {
 	id: 15,
 	hi: 61,
 	kh: 72,
-	bd: 74
+	bd: 74,
+	vn: 51
 };
 
 export const defCurrencyToClass = {
@@ -279,7 +284,8 @@ export const defCurrencyToClass = {
 	15: "id",
 	61: "in",
 	72: "kh",
-	74: "bd"
+	74: "bd",
+	51: "vn"
 };
 
 export const defCurrencyToLangId = {
@@ -288,6 +294,7 @@ export const defCurrencyToLangId = {
 	4: "th",
 	13: "cs",
 	15: "id",
+	51: "vn",
 	61: "hi",
 	72: "kh",
 	74: "bd"
@@ -309,7 +316,8 @@ export const validImgLang = langId => {
 		langId !== "th" &&
 		langId !== "id" &&
 		langId !== "bd" &&
-		langId !== "kh"
+		langId !== "kh" &&
+		langId !== "vn"
 	) {
 		return "en";
 	}

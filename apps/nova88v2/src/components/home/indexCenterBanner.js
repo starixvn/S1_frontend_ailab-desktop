@@ -14,7 +14,8 @@ const BANNER_IMAGE_LIST = {
 	hi: "NewindexCenterBanner_hi.jpg",
 	bd: "NewindexCenterBanner_bd.jpg",
 	my: "NewindexCenterBanner_my.jpg",
-	kh: "NewindexCenterBanner_kh.jpg"
+	kh: "NewindexCenterBanner_kh.jpg",
+	vn: "NewindexCenterBanner_vn.jpg"
 };
 
 const testImg = src =>

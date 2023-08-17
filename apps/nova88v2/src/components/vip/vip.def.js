@@ -4,7 +4,8 @@ import { bannerImgUrl } from "../../config";
 export const allowCurrencies = [
 	defCurrencyList.MYR,
 	defCurrencyList.THB,
-	defCurrencyList.IDR
+	defCurrencyList.IDR,
+	defCurrencyList.VND
 ];
 
 export const defbanner = langId => [
