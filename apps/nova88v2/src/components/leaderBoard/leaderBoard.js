@@ -24,7 +24,11 @@ import {
 import { bannerImgUrl } from "../../config";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
-import { langAndCurrMapping, defCurrencyList } from "../common/common";
+import {
+	langAndCurrMapping,
+	defCurrencyList,
+	getCombineLangId
+} from "../common/common";
 import { siteDefLangId } from "../../service/language";
 
 const CanSeeLeaderBoard = ({ currencyId }) => {
@@ -362,16 +366,11 @@ export default () => {
 	};
 
 	const linkToTnc = () => {
-		let _langId = userInfo.langId;
-		if (userInfo.langId === "en") {
-			if (userInfo.currencyId === defCurrencyList.THB) {
-				_langId = "th_en";
-			} else if (userInfo.currencyId === defCurrencyList.IDR) {
-				_langId = "id_en";
-			}
-		}
 		window.open(
-			`${bannerImgUrl}/NovaPromotion/ranking_new_tnc/${_langId}.html`
+			`${bannerImgUrl}/NovaPromotion/ranking_new_tnc/${getCombineLangId(
+				userInfo.langId,
+				userInfo.currencyId
+			)}.html`
 		);
 	};
 
@@ -397,7 +396,8 @@ export default () => {
 			className="rankingNew"
 			style={{
 				backgroundImage: `url(${showBackground()})`
-			}}>
+			}}
+		>
 			<section>
 				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 				{tab === defTabId.first ? (
