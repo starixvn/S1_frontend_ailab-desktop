@@ -27,6 +27,8 @@ const useDepositEffect = ({
 	onlineBankGroupList,
 	localBankGroupList,
 	cryptoPayGroupList,
+	QRPayGroupList,
+	loadCardPayGroupList,
 	setLoading,
 	onValidAmount,
 	setDepositType,
@@ -38,6 +40,8 @@ const useDepositEffect = ({
 	getLocalBankGroupList,
 	getOnlineBankGroupList,
 	getCryptoPayGroupList,
+	getQRPayGroupList,
+	getLoadCardPayGroupList,
 	getAutoDepositGroupList,
 	getLinePayLink,
 	linePayLink
@@ -63,6 +67,8 @@ const useDepositEffect = ({
 					getLocalBankGroupList(),
 					getOnlineBankGroupList(),
 					getCryptoPayGroupList(),
+					getQRPayGroupList(),
+					getLoadCardPayGroupList(),
 					getAutoDepositGroupList()
 				]);
 			} catch (e) {
@@ -97,13 +103,13 @@ const useDepositEffect = ({
 					onlineBankGroupList,
 					localBankGroupList,
 					cryptoPayGroupList,
+					QRPayGroupList,
+					loadCardPayGroupList,
 					linePayLink
 				});
-
 				const filterDepositOptions = originalDepositOptions.filter(
 					item => !item.isHide
 				);
-
 				if (filterDepositOptions.length) {
 					setDepositOptions(filterDepositOptions);
 				}
@@ -136,7 +142,9 @@ const useDepositEffect = ({
 				mobilePayGourpList,
 				onlineBankGroupList,
 				localBankGroupList,
-				cryptoPayGroupList
+				cryptoPayGroupList,
+				QRPayGroupList,
+				loadCardPayGroupList
 			});
 			const filterDepositOptions = originalDepositOptions.filter(
 				item => !item.isHide

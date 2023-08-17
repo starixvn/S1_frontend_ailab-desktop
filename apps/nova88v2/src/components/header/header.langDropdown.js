@@ -30,6 +30,18 @@ export const defLangGroups = {
 		},
 		{ displayText: "ไทย", value: "th", currencyId: defCurrencyList.THB }
 	],
+	vn: [
+		{
+			displayText: "English",
+			value: "en",
+			currencyId: defCurrencyList.VND
+		},
+		{
+			displayText: "Tiếng Việt",
+			value: "vn",
+			currencyId: defCurrencyList.VND
+		}
+	],
 	id: [
 		{
 			displayText: "English",
@@ -116,6 +128,7 @@ const currencyToLangKey = {
 	4: "th",
 	13: "cs",
 	15: "id",
+	51: "vn",
 	61: "in",
 	72: "kh",
 	74: "bd"
@@ -129,7 +142,8 @@ const defLangGroupCountry = {
 	cs: "China",
 	gb: "Global",
 	bd: "Bangladesh",
-	kh: "Cambodia"
+	kh: "Cambodia",
+	vn: "Vietnam"
 };
 
 export default () => {
