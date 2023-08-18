@@ -91,6 +91,28 @@ const paymentList = {
 			name: "FxBit",
 			img: `${bannerImgUrl}/desktop/img/footer/fxbit.png`
 		}
+	],
+	VND: [
+		{
+			name: "ACB",
+			img: `${bannerImgUrl}/desktop/img/footer/acb.png`
+		},
+		{
+			name: "MB",
+			img: `${bannerImgUrl}/desktop/img/footer/mb.png`
+		},
+		{
+			name: "VCB",
+			img: `${bannerImgUrl}/desktop/img/footer/vcb.png`
+		},
+		{
+			name: "VPB",
+			img: `${bannerImgUrl}/desktop/img/footer/vpb.png`
+		},
+		{
+			name: "MOMO",
+			img: `${bannerImgUrl}/desktop/img/footer/momo.png`
+		}
 	]
 };
 
