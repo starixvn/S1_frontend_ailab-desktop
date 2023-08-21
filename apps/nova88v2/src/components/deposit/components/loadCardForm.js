@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
-import { getUrlParameter } from "../../common/common";
+import { getUrlParameter, number_format } from "../../common/common";
 import { bannerImgUrl, paymentImgUrl } from "../../../config";
 import PromotionSelect from "./promotionSelect";
-import ShortcutAmountList from "./shortcutAmountList";
 
 export default function LoadCardForm({
 	t,
@@ -74,6 +73,15 @@ export default function LoadCardForm({
 
 	const isSelAmountType = formInfo.amountRule === 3;
 
+	const amountList = formInfo.amountList.map(amount => (
+		<button
+			className={amount === Number(formInfo.amount) ? "active" : ""}
+			onClick={() => onChangeAmount(amount)}
+		>
+			{number_format(amount, _isConvert, 0)}
+		</button>
+	));
+
 	return (
 		<>
 			<div className="subModuleTitle">
@@ -90,7 +98,8 @@ export default function LoadCardForm({
 								item.channelId === infoChannelIdForRecord
 									? "active"
 									: ""
-							}>
+							}
+						>
 							<div>
 								<img
 									alt={item.groupName}
@@ -230,19 +239,17 @@ export default function LoadCardForm({
 						<div
 							className={`tipImg ${
 								cardCodeInfoIconActive ? "active" : ""
-							}`}>
+							}`}
+						>
 							<img
 								src={`${bannerImgUrl}/desktop/img/cardinfo.png`}
 								alt="cardinfoImg"
 							/>
 						</div>
 						{isSelAmountType && (
-							<ShortcutAmountList
-								amount={formInfo.amount}
-								minAmount={formInfo.minAmount}
-								maxAmount={formInfo.maxAmount}
-								onClick={amount => onChangeAmount(amount)}
-							/>
+							<div className="btnGroup shortcut">
+								{amountList}
+							</div>
 						)}
 					</div>
 				</>
