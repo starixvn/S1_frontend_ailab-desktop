@@ -343,6 +343,30 @@ export const getCombineLangId = (langId, currencyId) => {
 	return combineLangId;
 };
 
+export const getCombineLeaderBoardLangId = (langId, currencyId) => {
+	let combineLangId = "";
+
+	if (currencyId === langAndCurrMapping.my) {
+		return langId;
+	}
+
+	switch (langId) {
+		case "en":
+			combineLangId = `${defCurrencyToLangId[Number(currencyId)]}_en`;
+			break;
+		case "cs":
+			combineLangId =
+				currencyId === defCurrencyList.CNY
+					? "cs"
+					: `${defCurrencyToLangId[Number(currencyId)]}_cs`;
+			break;
+		default:
+			combineLangId = langId;
+			break;
+	}
+	return combineLangId;
+};
+
 // 用於上傳圖片轉 AWS Url
 export const getBase64 = file =>
 	new Promise((resolve, reject) => {
