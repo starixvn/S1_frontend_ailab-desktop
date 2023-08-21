@@ -27,7 +27,7 @@ import Content from "./leaderBoard.content";
 import {
 	langAndCurrMapping,
 	defCurrencyList,
-	getCombineLangId
+	getCombineLeaderBoardLangId
 } from "../common/common";
 import { siteDefLangId } from "../../service/language";
 
@@ -367,7 +367,7 @@ export default () => {
 
 	const linkToTnc = () => {
 		window.open(
-			`${bannerImgUrl}/NovaPromotion/ranking_new_tnc/${getCombineLangId(
+			`${bannerImgUrl}/NovaPromotion/ranking_new_tnc/${getCombineLeaderBoardLangId(
 				userInfo.langId,
 				userInfo.currencyId
 			)}.html`
