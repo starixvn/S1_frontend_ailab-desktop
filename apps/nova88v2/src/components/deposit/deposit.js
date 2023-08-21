@@ -873,7 +873,8 @@ const Deposit = () => {
 						channelId,
 						cardCode: formInfo.cardCode.val,
 						cardSerial: formInfo.cardSerial.val,
-						amount: resultAmount,
+						// loadCard 的 amount 不需要在上面多*1000，所以這裡除回來
+						amount: resultAmount / 1000,
 						bonusCode
 					});
 				} else {
@@ -883,7 +884,8 @@ const Deposit = () => {
 						`ChannelId=${channelId}`,
 						`Code=${formInfo.cardCode.val}`,
 						`Serial=${formInfo.cardSerial.val}`,
-						`Amount=${resultAmount}`,
+						// loadCard 的 amount 不需要在上面多*1000，所以這裡除回來
+						`Amount=${resultAmount / 1000}`,
 						bonusCode ? `BonusCode=${bonusCode}` : ""
 					]
 						.filter(Boolean)
@@ -919,8 +921,8 @@ const Deposit = () => {
 			t,
 			digits: 0
 		});
-
-		if (result.status !== 0) {
+		// loadCard 的 amount 不受 minAmount, maxAmount 限制
+		if (result.status !== 0 && depositType !== defDepositType.loadCard) {
 			setFormInfo(prev => ({
 				...prev,
 				checked: false,
