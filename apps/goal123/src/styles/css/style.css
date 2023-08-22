@@ -3626,6 +3626,7 @@ html.Newtheme #popup .pop {
   max-height: calc(100% - 160px);
   overflow-y: auto;
   color: white;
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap");
 }
 html.Newtheme #popup .pop .title {
   color: white;
@@ -3995,6 +3996,163 @@ html.Newtheme #popup .pop .qrpayPop .sisa div:last-child span {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid #fff;
   border-radius: 2px;
+}
+html.Newtheme #popup .pop .promosback {
+  background: transparent;
+  border: unset;
+  padding-top: unset;
+  display: none;
+}
+html.Newtheme #popup .pop .promosback.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html.Newtheme #popup .pop .promosback-pop {
+  position: relative;
+  background: rgba(0, 0, 0, 0);
+  margin-bottom: 220px;
+  -webkit-animation: promosback 2s ease-in-out;
+          animation: promosback 2s ease-in-out;
+}
+@-webkit-keyframes promosback {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  25% {
+    -webkit-transform: scale(1.08, 1.08);
+            transform: scale(1.08, 1.08);
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  75% {
+    -webkit-transform: scale(1.15, 1.15);
+            transform: scale(1.15, 1.15);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+@keyframes promosback {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  25% {
+    -webkit-transform: scale(1.08, 1.08);
+            transform: scale(1.08, 1.08);
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  75% {
+    -webkit-transform: scale(1.15, 1.15);
+            transform: scale(1.15, 1.15);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+html.Newtheme #popup .pop .popgo {
+  color: #fff;
+  text-align: center;
+  background: #FAB617;
+  font-size: 16px;
+  padding: 10px 30px;
+  border-radius: 25px;
+  min-width: 150px;
+  -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+  font-family: "Poppins", "Noto Sans TC", sans-serif;
+  font-weight: 500;
+  position: absolute;
+  left: calc(50% - 75px);
+  bottom: -6px;
+  -webkit-animation: popgo 2s ease-in-out;
+          animation: popgo 2s ease-in-out;
+}
+html.Newtheme #popup .pop .popgo:hover {
+  background: #D83B35;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@-webkit-keyframes popgo {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes popgo {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+html.Newtheme #popup .pop .closepop {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  position: absolute;
+  left: calc(50% - 15px);
+  bottom: -55px;
+  opacity: 0.7;
+  -webkit-animation: closepop 2.3s ease-in-out;
+          animation: closepop 2.3s ease-in-out;
+}
+html.Newtheme #popup .pop .closepop:hover {
+  opacity: 1;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+@-webkit-keyframes closepop {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes closepop {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+html.Newtheme #popup .pop.promosbackpopup {
+  overflow-y: unset;
+  background: transparent;
+  padding: unset;
+  border-radius: unset;
 }
 html.Newtheme #popup .friend {
   width: auto;

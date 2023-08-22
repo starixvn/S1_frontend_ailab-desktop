@@ -1742,6 +1742,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .promoList.bd {
   background: url(https://banner.0814media.net/desktop/img/pomobanner-bd.jpg) no-repeat center/auto;
 }
+.header > div.menu .subMenu-Wrapper-new .promoList.vn {
+  background: url(https://banner.0814media.net/desktop/img/pomobanner-vn.jpg) no-repeat center/auto;
+}
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1829,11 +1832,17 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .cryptoList.cs {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_cs.jpg) no-repeat center/auto;
 }
+.header > div.menu .subMenu-Wrapper-new .cryptoList.vn {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_vn.jpg) no-repeat center/auto;
+}
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_en_um.jpg);
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.en {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_en_um.jpg) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.en {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_vn_um.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.th {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_th_um.jpg) no-repeat center/auto;
@@ -1843,6 +1852,9 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.cs {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_cs_um.jpg) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.vn {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_vn_um.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.en {
   background: url(https://banner.0814media.net/desktop/img/vipdropdown.png) no-repeat center/auto;
@@ -1858,6 +1870,9 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.th {
   background: url(https://banner.0814media.net/desktop/img/vipdropdown-th.png) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .vipList.vn {
+  background: url(https://banner.0814media.net/desktop/img/vipdropdown-vn.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList > div {
   margin: 0 auto 0 100px;
@@ -1883,6 +1898,9 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
   background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-id.jpg) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .rankingList.vn {
+  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > a {
@@ -5217,6 +5235,7 @@ input[type=file] {
   border-radius: 5px;
   max-height: calc(100% - 160px);
   overflow-y: auto;
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap");
 }
 #popup .pop.photo img {
   max-width: 800px;
@@ -5774,6 +5793,171 @@ input[type=file] {
   height: 24px;
   line-height: 1.75;
   text-align: center;
+}
+#popup .pop .promosback {
+  background: transparent;
+  border: unset;
+  padding-top: unset;
+  display: none;
+}
+#popup .pop .promosback.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#popup .pop .promosback-pop {
+  position: relative;
+  background: rgba(0, 0, 0, 0);
+  margin-bottom: 150px;
+  -webkit-animation: promosback 1.5s ease-in-out;
+          animation: promosback 1.5s ease-in-out;
+}
+@-webkit-keyframes promosback {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  25% {
+    -webkit-transform: scale(1.25, 1.25);
+            transform: scale(1.25, 1.25);
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  75% {
+    -webkit-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+@keyframes promosback {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  25% {
+    -webkit-transform: scale(1.25, 1.25);
+            transform: scale(1.25, 1.25);
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  75% {
+    -webkit-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+#popup .pop .promosback .popgo {
+  color: #fff;
+  text-align: center;
+  background: #113158;
+  font-size: 16px;
+  padding: 10px 30px;
+  border-radius: 25px;
+  min-width: 200px;
+  -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+  font-family: "Poppins", "Noto Sans TC", sans-serif;
+  position: absolute;
+  left: calc(50% - 100px);
+  bottom: 40px;
+  -webkit-animation: popgo 2s ease-in-out;
+          animation: popgo 2s ease-in-out;
+}
+#popup .pop .promosback .popgo:hover {
+  background: #FF5E00;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@-webkit-keyframes popgo {
+  0% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+            box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+  }
+  75% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+            box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+@keyframes popgo {
+  0% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+            box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+  }
+  75% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+            box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+#popup .pop .promosback .closepop {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  position: absolute;
+  left: calc(50% - 15px);
+  bottom: -20px;
+  opacity: 0.7;
+  -webkit-animation: closepop 2.3s ease-in-out;
+          animation: closepop 2.3s ease-in-out;
+}
+#popup .pop .promosback .closepop:hover {
+  opacity: 1;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+@-webkit-keyframes closepop {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes closepop {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#popup .pop.promosbackpopup {
+  overflow-y: unset;
 }
 
 .Submit,
@@ -10874,6 +11058,22 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   float: left;
   width: 810px;
 }
+.subModuleListColumn .note {
+  background: #e2e2e2;
+  color: #838383;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 13px;
+}
+.subModuleListColumn .note .title {
+  margin-bottom: 15px;
+  color: #cf0404;
+}
+.subModuleListColumn .note li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
 .subModuleListColumn > .subModule {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10887,6 +11087,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin-bottom: 20px;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
+  position: relative;
 }
 .subModuleListColumn > .subModule .dropdown {
   min-width: 190px;
@@ -10917,6 +11118,49 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .subModuleListColumn > .subModule .inputBox-white {
   width: 300px;
 }
+.subModuleListColumn > .subModule .inputBox-white + .icon-files-empty, .subModuleListColumn > .subModule .inputBox-white + span {
+  color: white;
+  background: #5574A7;
+  border-radius: 5px;
+  padding: 7.5px 4.5px;
+  max-height: 32px;
+  margin: 10px 5px;
+  font-size: 12px;
+}
+.subModuleListColumn > .subModule .inputBox-white + .icon-files-empty::before, .subModuleListColumn > .subModule .inputBox-white + span::before {
+  font-size: 15px;
+}
+.subModuleListColumn > .subModule .inputBox-white + .icon-files-empty:hover, .subModuleListColumn > .subModule .inputBox-white + span:hover {
+  background: #7591C1;
+}
+.subModuleListColumn > .subModule .input-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10px;
+}
+.subModuleListColumn > .subModule .input-column div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.subModuleListColumn > .subModule .tipImg {
+  width: 28%;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  display: none;
+}
+.subModuleListColumn > .subModule .tipImg img {
+  border-radius: 10px;
+}
+.subModuleListColumn > .subModule .tipImg.active {
+  display: block;
+}
 .subModuleListColumn > .subModule .inputBox-blue {
   width: auto;
   margin-right: 10px;
@@ -10930,6 +11174,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 35px;
 }
 .subModuleListColumn > .subModule + .btnGroup + .text-center {
+  color: #5574A7;
+}
+.subModuleListColumn > .subModule + .note + .btnGroup + .text-center {
   color: #5574A7;
 }
 .subModuleListColumn > .subModule > .btnGroup {
@@ -11320,6 +11567,24 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-weight: bold;
 }
 
+.icon-qrpay::before {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 55px;
+  margin: 0 auto !important;
+  background: url(https://banner.0814media.net/desktop/img/qrpay.png) center/cover;
+}
+
+.icon-topup::before {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 55px;
+  margin: 0 auto !important;
+  background: url(https://banner.0814media.net/desktop/img/topup.png) center/cover;
+}
+
 .text-center {
   text-align: center;
 }
@@ -11576,7 +11841,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0 auto;
+  margin: 20px auto;
   overflow: hidden;
   width: 1400px;
   position: relative;
@@ -11617,7 +11882,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .recently .swiper-slide {
   cursor: pointer;
-  padding-top: 40px;
+  padding-top: 20px;
   margin-top: -10px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
