@@ -179,7 +179,7 @@ const Home = ({ productTpIds }) => {
 			// * 如果未登入 or 當日觸發過 則直接進入下一個彈窗
 			if (
 				!userInfo.isLogin ||
-				!userInfo.userName ||
+				!userInfo.accountName ||
 				readCookie(cookieName) === "1"
 			) {
 				openNextPopUp();
@@ -255,7 +255,7 @@ const Home = ({ productTpIds }) => {
 			}
 		};
 		!userInfo.isResetPwd && openNextPopUp();
-	}, [userInfo.isLogin, setPopBox, userInfo.langId, userInfo.userName]);
+	}, [userInfo.isLogin, setPopBox, userInfo.langId, userInfo.accountName]);
 
 	useEffect(() => {
 		const popBoxMsg = readCookie("popBoxMsg");

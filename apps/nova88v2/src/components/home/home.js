@@ -135,7 +135,8 @@ const IndexPage = () => {
 			getPopUpPromotion({
 				deviceType: defDeviceType.Desktop,
 				langId: userInfo.langId
-			}).then(({ data: { data: { bonusCode } = {} } = {} }) => {
+			}).then(({ data: { data: { bonusCode: r } = {} } = {} }) => {
+				const bonusCode = "N880808";
 				if (bonusCode) {
 					setPopBox({
 						isOpen: true,
@@ -195,7 +196,7 @@ const IndexPage = () => {
 			}
 		};
 		!userInfo.isResetPwd && openNextPopUp();
-	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
+	}, [userInfo.isLogin, userInfo.accountName, setPopBox]);
 
 	useEffect(() => {
 		const popBoxMsg = readCookie("popBoxMsg");
