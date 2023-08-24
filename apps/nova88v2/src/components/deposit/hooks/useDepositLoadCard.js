@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import usePopBox from "../../hook/usePopBox";
-import { defPopBoxType } from "../../common/popBox";
+import defPopBoxType from "../../common/defPopBoxType";
 import {
 	api_payment_GetLoadCardPayGroupList,
 	api_payment_GetLoadCardPayInfoList
