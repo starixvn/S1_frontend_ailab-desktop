@@ -135,8 +135,7 @@ const IndexPage = () => {
 			getPopUpPromotion({
 				deviceType: defDeviceType.Desktop,
 				langId: userInfo.langId
-			}).then(({ data: { data: { bonusCode: r } = {} } = {} }) => {
-				const bonusCode = "N880808";
+			}).then(({ data: { data: { bonusCode } = {} } = {} }) => {
 				if (bonusCode) {
 					setPopBox({
 						isOpen: true,
