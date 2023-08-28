@@ -26,7 +26,7 @@ const GameList = ({
 		if (subMenuItem?.noShow) return;
 		return (
 			<GameListItem
-				key={subMenuItem.tpGameType}
+				key={`${subMenuItem.tpGameType}-${subMenuItem.gameId}`}
 				t={t}
 				subMenuItem={subMenuItem}
 				maintainList={maintainList}

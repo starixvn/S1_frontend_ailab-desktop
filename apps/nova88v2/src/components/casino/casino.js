@@ -62,7 +62,7 @@ export default () => {
 	const urlTpId = getUrlParameter("tpId");
 	const urlProvider = getUrlParameter("provider");
 	const urlProviderTpId = Object.values(defSlotTpGameType).find(
-		el => el.name === urlProvider
+		el => el.name.toUpperCase() === urlProvider.toUpperCase()
 	)?.tpId;
 	const slidesPerViewNum = 9;
 

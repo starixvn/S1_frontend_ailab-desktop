@@ -174,6 +174,19 @@ const allowedCurrencyList = {
 		defCurrencyList.BDT,
 		defCurrencyList.CNY,
 		defCurrencyList.USD
+	],
+
+	// other products
+
+	// slot & game
+	SPRIBE: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.INR,
+		defCurrencyList.USD,
+		defCurrencyList.CNY,
+		defCurrencyList.KHM
 	]
 };
 

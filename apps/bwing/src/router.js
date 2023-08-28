@@ -175,5 +175,8 @@ export default {
 	},
 	rebateExclude: {
 		root: "rebateExclude"
+	},
+	sportsIM: {
+		root: "sportsIM"
 	}
 };
