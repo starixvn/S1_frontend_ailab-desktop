@@ -160,6 +160,21 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.Nextspin.name },
 		imgName: "nextspin"
+	},
+	{
+		...productList.eSport_IM,
+		path: path.sportsIM.root,
+		imgName: "imsports"
+	},
+	{
+		...productList.eSport_IM,
+		imgName: "imesports"
+	},
+	{
+		...defCasinoProviders.SPRIBE,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.SPRIBE.name },
+		imgName: "spribe"
 	}
 	// {
 	// 	...productList.liveCasino_Allbet,

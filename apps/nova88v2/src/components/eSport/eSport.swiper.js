@@ -62,35 +62,30 @@ const EsportSwiper = ({ t, subMenu, tpGameTypeSettingList, clickItem }) => {
 
 	return (
 		subMenu &&
-		subMenu.length > 0 && (
-			<Swiper {...params}>
-				{subMenu.map(subMenuItem => {
+		subMenu.length > 0 &&
+		// <Swiper {...params}>
+		subMenu.map(subMenuItem => {
+			if (tpGameTypeSettingList && tpGameTypeSettingList.length > 0) {
+				tpGameTypeSettingList.forEach(settingItem => {
 					if (
-						tpGameTypeSettingList &&
-						tpGameTypeSettingList.length > 0
+						settingItem.gameType === subMenuItem.tpGameType &&
+						settingItem.tpId === subMenuItem.tpId
 					) {
-						tpGameTypeSettingList.forEach(settingItem => {
-							if (
-								settingItem.gameType ===
-									subMenuItem.tpGameType &&
-								settingItem.tpId === subMenuItem.tpId
-							) {
-								Object.assign(subMenuItem, settingItem);
-							}
-						});
+						Object.assign(subMenuItem, settingItem);
 					}
-					if (subMenuItem?.noShow) return null;
-					return (
-						<SlideItem
-							key={`${subMenuItem.displayKey}-${subMenuItem.isInMaintain}`}
-							t={t}
-							subMenuItem={subMenuItem}
-							clickItem={clickItem}
-						/>
-					);
-				})}
-			</Swiper>
-		)
+				});
+			}
+			if (subMenuItem?.noShow) return null;
+			return (
+				<SlideItem
+					key={`${subMenuItem.displayKey}-${subMenuItem.isInMaintain}`}
+					t={t}
+					subMenuItem={subMenuItem}
+					clickItem={clickItem}
+				/>
+			);
+		})
+		// </Swiper>
 	);
 };
 
@@ -113,6 +108,7 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 		displayKey,
 		tpId,
 		gameId,
+		tpGameType,
 		path,
 		needLogin,
 		lobbyPage: { bgImg, hoverBgImg },
@@ -123,9 +119,9 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 
 	const _displayText = displayText || t(displayKey);
 
-	const _className = ["swiper-slide", isInMaintain && "active"]
-		.filter(Boolean)
-		.join(" ");
+	// const _className = ["swiper-slide", isInMaintain && "active"]
+	// 	.filter(Boolean)
+	// 	.join(" ");
 
 	const _style = {
 		pointerEvents: isInMaintain ? "none" : "auto"
@@ -133,7 +129,7 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 
 	return (
 		<div
-			className={_className}
+			className={`esport-item ${isInMaintain ? " active" : ""}`}
 			style={_style}
 			onMouseOver={hoverHandler}
 			onMouseOut={hoverHandler}
@@ -147,14 +143,15 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 					needLogin,
 					isInMaintain,
 					betType,
-					noPlay
+					noPlay,
+					tpGameType
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (
 				<div className={subMenuItem.eventIcons[0]} />
 			)}
 
-			<div className="name">{_displayText}</div>
+			<div className="esport-name">{_displayText}</div>
 
 			{isHover ? (
 				<img

@@ -123,17 +123,18 @@ const defSortSlot = {
 		slot_PG: 4,
 		slot_MGPSW: 5,
 		slot_JI: 6,
-		slot_JOKER: 7,
-		slot_RedTiger: 8,
-		slot_NetEnt: 9,
-		slot_CQ9: 10,
-		slot_GPI: 11,
-		slot_YGG: 12,
-		slot_AMB: 13,
-		slot_Habanero: 14,
-		slot_SimplePlay: 15,
-		slot_Skywind: 16,
-		slot_PT: 17
+		slot_SPRIBE: 7,
+		slot_JOKER: 8,
+		slot_RedTiger: 9,
+		slot_NetEnt: 10,
+		slot_CQ9: 11,
+		slot_GPI: 12,
+		slot_YGG: 13,
+		slot_AMB: 14,
+		slot_Habanero: 15,
+		slot_SimplePlay: 16,
+		slot_Skywind: 17,
+		slot_PT: 18
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -144,17 +145,18 @@ const defSortSlot = {
 		slot_PG: 4,
 		slot_MGPSW: 5,
 		slot_JI: 6,
-		slot_JOKER: 7,
-		slot_RedTiger: 8,
-		slot_NetEnt: 9,
-		slot_CQ9: 10,
-		slot_GPI: 11,
-		slot_YGG: 12,
-		slot_AMB: 13,
-		slot_Habanero: 14,
-		slot_SimplePlay: 15,
-		slot_Skywind: 16,
-		slot_PT: 17
+		slot_SPRIBE: 7,
+		slot_JOKER: 8,
+		slot_RedTiger: 9,
+		slot_NetEnt: 10,
+		slot_CQ9: 11,
+		slot_GPI: 12,
+		slot_YGG: 13,
+		slot_AMB: 14,
+		slot_Habanero: 15,
+		slot_SimplePlay: 16,
+		slot_Skywind: 17,
+		slot_PT: 18
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -165,17 +167,18 @@ const defSortSlot = {
 		slot_PG: 4,
 		slot_MGPSW: 5,
 		slot_JI: 6,
-		slot_JOKER: 7,
-		slot_RedTiger: 8,
-		slot_NetEnt: 9,
-		slot_CQ9: 10,
-		slot_GPI: 11,
-		slot_YGG: 12,
-		slot_AMB: 13,
-		slot_Habanero: 14,
-		slot_SimplePlay: 15,
-		slot_Skywind: 16,
-		slot_PT: 17
+		slot_SPRIBE: 7,
+		slot_JOKER: 8,
+		slot_RedTiger: 9,
+		slot_NetEnt: 10,
+		slot_CQ9: 11,
+		slot_GPI: 12,
+		slot_YGG: 13,
+		slot_AMB: 14,
+		slot_Habanero: 15,
+		slot_SimplePlay: 16,
+		slot_Skywind: 17,
+		slot_PT: 18
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -186,17 +189,18 @@ const defSortSlot = {
 		slot_PG: 4,
 		slot_MGPSW: 5,
 		slot_JI: 6,
-		slot_JOKER: 7,
-		slot_RedTiger: 8,
-		slot_NetEnt: 9,
-		slot_CQ9: 10,
-		slot_GPI: 11,
-		slot_YGG: 12,
-		slot_AMB: 13,
-		slot_Habanero: 14,
-		slot_SimplePlay: 15,
-		slot_Skywind: 16,
-		slot_PT: 17
+		slot_SPRIBE: 7,
+		slot_JOKER: 8,
+		slot_RedTiger: 9,
+		slot_NetEnt: 10,
+		slot_CQ9: 11,
+		slot_GPI: 12,
+		slot_YGG: 13,
+		slot_AMB: 14,
+		slot_Habanero: 15,
+		slot_SimplePlay: 16,
+		slot_Skywind: 17,
+		slot_PT: 18
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -550,64 +554,82 @@ export const defMenuLinks = {
 		path: path.eSport.root,
 		subMenu: [
 			{
-				displayKey: "lbl_All",
-				listNpcImgUrl: "esportALL.png",
+				displayText: "Saba",
+				listNpcImgUrl: "esportSABA.png",
 				listBgImgUrl: "eSportsListHover.png",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.eSportAll },
 				...productList.eSportAll,
 				lobbyPage: {
-					bgImg: "esposts-all.png",
-					hoverBgImg: "esposts-alla.png"
+					bgImg: "esposts-saba.png",
+					hoverBgImg: "esposts-sabaa.png"
 				}
 			},
+			// {
+			// 	displayKey: "lbl_Dota2",
+			// 	listNpcImgUrl: "esportDOTA2.png",
+			// 	listBgImgUrl: "eSportsListHover.png",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.eSport_DOTA2 },
+			// 	...productList.eSport_DOTA2,
+			// 	lobbyPage: {
+			// 		bgImg: "esposts-dota.png",
+			// 		hoverBgImg: "esposts-dotaa.png"
+			// 	}
+			// },
+			// {
+			// 	displayKey: "lbl_LOL",
+			// 	listNpcImgUrl: "esportLOL.png",
+			// 	listBgImgUrl: "eSportsListHover.png",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.eSport_LOL },
+			// 	...productList.eSport_LOL,
+			// 	lobbyPage: {
+			// 		bgImg: "esposts-lol.png",
+			// 		hoverBgImg: "esposts-lola.png"
+			// 	}
+			// },
+			// {
+			// 	displayKey: "lbl_CSGO",
+			// 	listNpcImgUrl: "esportCS.png",
+			// 	listBgImgUrl: "eSportsListHover.png",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.eSport_CSGO },
+			// 	...productList.eSport_CSGO,
+			// 	lobbyPage: {
+			// 		bgImg: "esposts-cs.png",
+			// 		hoverBgImg: "esposts-csa.png"
+			// 	}
+			// },
+			// {
+			// 	displayKey: "lbl_Kog",
+			// 	listNpcImgUrl: "esportKOG.png",
+			// 	listBgImgUrl: "eSportsListHover.png",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.eSport_KOG },
+			// 	...productList.eSport_KOG,
+			// 	lobbyPage: {
+			// 		bgImg: "esposts-kog.png",
+			// 		hoverBgImg: "esposts-koga.png"
+			// 	}
+			// },
 			{
-				displayKey: "lbl_Dota2",
-				listNpcImgUrl: "esportDOTA2.png",
+				displayText: "IM E-Sports",
+				listNpcImgUrl: "esportInplayMatrix.png",
 				listBgImgUrl: "eSportsListHover.png",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.eSport_DOTA2 },
-				...productList.eSport_DOTA2,
+				parameter: { ...productList.eSport_IM },
+				...productList.eSport_IM,
 				lobbyPage: {
-					bgImg: "esposts-dota.png",
-					hoverBgImg: "esposts-dotaa.png"
-				}
-			},
-			{
-				displayKey: "lbl_LOL",
-				listNpcImgUrl: "esportLOL.png",
-				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.eSport_LOL },
-				...productList.eSport_LOL,
-				lobbyPage: {
-					bgImg: "esposts-lol.png",
-					hoverBgImg: "esposts-lola.png"
-				}
-			},
-			{
-				displayKey: "lbl_CSGO",
-				listNpcImgUrl: "esportCS.png",
-				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.eSport_CSGO },
-				...productList.eSport_CSGO,
-				lobbyPage: {
-					bgImg: "esposts-cs.png",
-					hoverBgImg: "esposts-csa.png"
-				}
-			},
-			{
-				displayKey: "lbl_Kog",
-				listNpcImgUrl: "esportKOG.png",
-				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.eSport_KOG },
-				...productList.eSport_KOG,
-				lobbyPage: {
-					bgImg: "esposts-kog.png",
-					hoverBgImg: "esposts-koga.png"
-				}
+					bgImg: "esposts-inplaymatrix.png",
+					hoverBgImg: "esposts-inplaymatrixa.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
 			}
 		]
 	},
@@ -907,13 +929,23 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_JILI },
 				parameter: { provider: "jili" },
+				...productList.casino_JILI
+			},
+			{
+				keyName: "slot_SPRIBE",
+				displayText: "SPRIBE",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotSPRIBE.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { provider: "spribe" },
+				...productList.casino_SPRIBE,
+				allowCurrencies: allowedCurrencyList.SPRIBE,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.casino_ji
+						period: defEventPeriod.IM
 					})
-				],
-				...productList.casino_JILI
+				]
 			},
 			{
 				keyName: "slot_JOKER",
@@ -1162,7 +1194,6 @@ export const defMenuLinks = {
 				},
 				allowCurrencies: allowedCurrencyList.vGaming
 			},
-
 			{
 				keyName: "games_kingMaker",
 				className: "fsgw",
@@ -1176,6 +1207,90 @@ export const defMenuLinks = {
 					bgImg: "gamekim.png",
 					hoverBgImg: "gamekima.png"
 				}
+			},
+			{
+				keyName: "games_im_aviator",
+				className: "fsgw",
+				listNpcImgUrl: "gameSpribeAviator.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Aviator",
+				menuType: defMenuType.entPage,
+				...productList.games_im_avaitor,
+				parameter: { ...productList.games_im_avaitor },
+				lobbyPage: {
+					bgImg: "gamespribe-aciator.png",
+					hoverBgImg: "gamespribe-aciatora.png"
+				},
+				allowCurrencies: allowedCurrencyList.SPRIBE,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				keyName: "games_im_mines",
+				className: "fsgw",
+				listNpcImgUrl: "gameSpribeMines.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Mines",
+				menuType: defMenuType.entPage,
+				...productList.games_im_mines,
+				parameter: { ...productList.games_im_mines },
+				lobbyPage: {
+					bgImg: "gamespribe-mines.png",
+					hoverBgImg: "gamespribe-minesa.png"
+				},
+				allowCurrencies: allowedCurrencyList.SPRIBE,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				keyName: "games_im_goal",
+				className: "fsgw",
+				listNpcImgUrl: "gameSpribeGoal.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Goal",
+				menuType: defMenuType.entPage,
+				...productList.games_im_goal,
+				parameter: { ...productList.games_im_goal },
+				lobbyPage: {
+					bgImg: "gamespribe-goal.png",
+					hoverBgImg: "gamespribe-goala.png"
+				},
+				allowCurrencies: allowedCurrencyList.SPRIBE,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				keyName: "games_im_dice",
+				className: "fsgw",
+				listNpcImgUrl: "gameSpribeDice.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Dice",
+				menuType: defMenuType.entPage,
+				...productList.games_im_dice,
+				parameter: { ...productList.games_im_dice },
+				lobbyPage: {
+					bgImg: "gamespribe-dice.png",
+					hoverBgImg: "gamespribe-dicea.png"
+				},
+				allowCurrencies: allowedCurrencyList.SPRIBE,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
 			}
 		]
 	},

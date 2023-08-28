@@ -881,6 +881,9 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList .virtual .img {
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .sbobet .img {
   background: url(https://banner.bw88.io/desktop/img/sports/sbobet.png) no-repeat center/auto 100%;
 }
+header .header > div.menu .nweSubMenu-Wrapper .sportsList .InplayMatrix .img {
+  background: url(https://banner.bw88.io/desktop/img/sports/inplaymatrix.png) no-repeat center/auto 100%;
+}
 header .header > div.menu .nweSubMenu-Wrapper .gameList .kingmaker .img {
   background: url(https://banner.bw88.io/desktop/img/new-game/king.png) no-repeat center/auto 100%;
 }
@@ -899,11 +902,26 @@ header .header > div.menu .nweSubMenu-Wrapper .gameList .tablegame .img {
 header .header > div.menu .nweSubMenu-Wrapper .gameList .virtual .img {
   background: url(https://banner.bw88.io/desktop/img/new-game/virtual.png) no-repeat center/auto 100%;
 }
+header .header > div.menu .nweSubMenu-Wrapper .gameList .aviator .img {
+  background: url(https://banner.bw88.io/desktop/img/new-game/spribe-aviator.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .gameList .mines .img {
+  background: url(https://banner.bw88.io/desktop/img/new-game/spribe-mines.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .gameList .goal .img {
+  background: url(https://banner.bw88.io/desktop/img/new-game/spribe-goal.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .gameList .dice .img {
+  background: url(https://banner.bw88.io/desktop/img/new-game/spribe-dice.png) no-repeat center/auto 100%;
+}
 header .header > div.menu .nweSubMenu-Wrapper .esportList .saba .img {
   background: url(https://banner.bw88.io/desktop/img/esport/saba.png) no-repeat center/auto 100%;
 }
 header .header > div.menu .nweSubMenu-Wrapper .esportList .tfg .img {
   background: url(https://banner.bw88.io/desktop/img/esport/tfg.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .esportList .inplaymatrix .img {
+  background: url(https://banner.bw88.io/desktop/img/esport/inplaymatrix.png) no-repeat center/auto 100%;
 }
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .AMB .img {
   background: url(https://banner.bw88.io/desktop/img/slot/amb.png) no-repeat center/auto 100%;
@@ -931,6 +949,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList .PT .img {
 }
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .JILI .img {
   background: url(https://banner.bw88.io/desktop/img/slot/jili.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .SPRIBE .img {
+  background: url(https://banner.bw88.io/desktop/img/slot/spribe.png) no-repeat center/auto 100%;
 }
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .GPI .img {
   background: url(https://banner.bw88.io/desktop/img/slot/gpi.png) no-repeat center/auto 100%;
@@ -2083,6 +2104,30 @@ footer > div .platformGroup button.nextspin {
 footer > div .platformGroup a.nextspin:hover,
 footer > div .platformGroup button.nextspin:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/nextspin-a.png) no-repeat center;
+}
+footer > div .platformGroup a.imsports,
+footer > div .platformGroup button.imsports {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/im-sports.png) no-repeat center;
+}
+footer > div .platformGroup a.imsports:hover,
+footer > div .platformGroup button.imsports:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/im-sports-a.png) no-repeat center;
+}
+footer > div .platformGroup a.imesports,
+footer > div .platformGroup button.imesports {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/im-esports.png) no-repeat center;
+}
+footer > div .platformGroup a.imesports:hover,
+footer > div .platformGroup button.imesports:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/im-esports-a.png) no-repeat center;
+}
+footer > div .platformGroup a.spribe,
+footer > div .platformGroup button.spribe {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/spribe.png) no-repeat center;
+}
+footer > div .platformGroup a.spribe:hover,
+footer > div .platformGroup button.spribe:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/spribea.png) no-repeat center;
 }
 footer > div .powered {
   width: 100%;
@@ -8243,6 +8288,18 @@ main > .swiper-container .swiper-slide {
 .gameslobbyList .gameslobbyitem > div:hover.virtualgames {
   background: url(https://banner.bw88.io/desktop/img/new-gameslobby/virtual-hover.png) no-repeat center/cover;
 }
+.gameslobbyList .gameslobbyitem > div:hover.spribe.aviator {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/spribeAviator-hover.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div:hover.spribe.mines {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/spribeMines-hover.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div:hover.spribe.goal {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/spribeGoal-hover.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div:hover.spribe.dice {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/spribeDice-hover.png) no-repeat center/cover;
+}
 .gameslobbyList .gameslobbyitem > div.kingmaker {
   background: url(https://banner.bw88.io/desktop/img/new-gameslobby/king.png) no-repeat center/cover;
 }
@@ -8260,6 +8317,18 @@ main > .swiper-container .swiper-slide {
 }
 .gameslobbyList .gameslobbyitem > div.virtualgames {
   background: url(https://banner.bw88.io/desktop/img/new-gameslobby/virtual.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.spribe.aviator {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/spribeAviator.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.spribe.mines {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/spribeMines.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.spribe.goal {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/spribeGoal.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.spribe.dice {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/spribeDice.png) no-repeat center/cover;
 }
 .gameslobbyList > div .underBtn {
   display: none;
@@ -14429,6 +14498,9 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 .esportlobbyList > div.tfg {
   background: url(https://banner.bw88.io/desktop/img/esportslobby/tfg.png) no-repeat center;
+}
+.esportlobbyList > div.Inplaymatrix {
+  background: url(https://banner.bw88.io/desktop/img/esportslobby/inplaymatrix.png) no-repeat center;
 }
 
 .home .swiper-container {

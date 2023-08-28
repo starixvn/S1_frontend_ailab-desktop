@@ -194,6 +194,18 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			parameter: { ...productList.casino_Nextspin },
 			imgName: "casino_nextspin",
 			hoverImgName: "casino_nextspina"
+		},
+		{
+			...productList.eSport_IM,
+			imgName: "im-esports",
+			hoverImgName: "im-esportsa"
+		},
+		{
+			...productList.casino_SPRIBE,
+			path: path.casino.root,
+			parameter: { ...productList.casino_SPRIBE },
+			imgName: "spribe",
+			hoverImgName: "spribea"
 		}
 	];
 
@@ -261,8 +273,7 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 					onClick={ClickItem.bind(this, {
 						...p,
 						urlParams: _urlParams
-					})}
-				>
+					})}>
 					<img
 						src={`${bannerImgUrl}/desktop/img/venderlogo/${imgName}.png`}
 						name={imgName}

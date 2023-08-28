@@ -61,7 +61,6 @@ a {
 img {
   width: 100%;
   display: block;
-  height: auto;
 }
 
 button[disabled] {
@@ -14222,6 +14221,117 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   left: 54px;
 }
 
+.esport {
+  margin-top: 50px;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.esport-item {
+  text-align: center;
+  margin: 10px 30px;
+  cursor: pointer;
+  position: relative;
+}
+.esport-item img {
+  width: 250px;
+  margin: 0 auto;
+}
+.esport-item .under {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background: #555;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+.esport-item .under + div {
+  font-size: 12px;
+}
+.esport-item.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.esport-item.active .under {
+  display: block;
+}
+.esport-item .icon-mediafire,
+.esport-item .icon-new {
+  background: #cf0404;
+  position: absolute;
+  top: 20px;
+  left: -10px;
+  padding: 3px;
+  border-radius: 5px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+.esport-item .icon-mediafire:before,
+.esport-item .icon-new:before {
+  position: unset;
+  color: white;
+  font-weight: normal;
+}
+.esport-item .icon-mediafire::after,
+.esport-item .icon-new::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 21px 10px;
+  border-color: transparent transparent transparent #cf0404;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 54px;
+}
+.esport-item .icon-new {
+  background: #f77900;
+}
+.esport-item .icon-new::after {
+  border-color: transparent transparent transparent #f77900;
+  left: 54px;
+}
+.esport-name {
+  color: #70ddfc;
+  font-weight: bold;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+}
+
 .esportinside {
   position: relative;
   background: #131419 url(https://banner.0814media.net/desktop/img/esport/esportsbg.jpg) no-repeat bottom center/100%;
@@ -14466,10 +14576,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .gameinside .inside .rightModule .gameItem {
   text-align: center;
-  margin: 0 20px;
+  margin: 0px 20px 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
