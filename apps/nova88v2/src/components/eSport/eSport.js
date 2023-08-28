@@ -36,7 +36,8 @@ const Esport = () => {
 		needLogin,
 		path,
 		betType,
-		noPlay = false
+		noPlay = false,
+		tpGameType
 	}) => {
 		const showLoginPopBox = () => {
 			setPopBox({
@@ -83,6 +84,7 @@ const Esport = () => {
 			tpId,
 			gameId,
 			loginCallback: showLoginPopBox,
+			tpGameType,
 			betType
 		});
 	};
@@ -124,12 +126,14 @@ const Esport = () => {
 			<EsportBanner slideImgList={SLIDE_IMG_LIST} />
 			<section className="inside">
 				<div className="rightModule">
-					<ESportSwiper
-						t={t}
-						subMenu={eSportsSubMenu}
-						tpGameTypeSettingList={tpGameTypeSettingList}
-						clickItem={clickItem}
-					/>
+					<div className="esport">
+						<ESportSwiper
+							t={t}
+							subMenu={eSportsSubMenu}
+							tpGameTypeSettingList={tpGameTypeSettingList}
+							clickItem={clickItem}
+						/>
+					</div>
 				</div>
 			</section>
 		</>

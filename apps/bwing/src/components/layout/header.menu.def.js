@@ -61,14 +61,21 @@ export const defMenuLinks = {
 				...productList.sportBti,
 				subPath: path.sportBti.root,
 				className: "btiSport",
+				displayKey: "lbl_Bti_Sport",
+				parameter: { ...productList.sportBti }
+			},
+			{
+				...productList.sports_IM,
+				subPath: path.sportsIM.root,
+				className: "InplayMatrix",
+				displayText: "IM Sports",
+				parameter: { ...productList.sports_IM },
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.sportBti
+						period: defEventPeriod.IM
 					})
-				],
-				displayKey: "lbl_Bti_Sport",
-				parameter: { ...productList.sportBti }
+				]
 			},
 			{
 				...productList.virtualSports,
@@ -144,6 +151,79 @@ export const defMenuLinks = {
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.tableGame },
 				lobbyPage: { bgClass: "tablegame" }
+			},
+			{
+				...productList.IM_Avaitor,
+				className: "aviator",
+				displayText: "Avaitor",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "spribe aviator" },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				...productList.IM_Mines,
+				className: "mines",
+				displayText: "Mines",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "spribe mines" },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				...productList.IM_Goal,
+				className: "goal",
+				displayText: "Goal",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "spribe goal" },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				...productList.IM_Dice,
+				className: "dice",
+				displayText: "Dice",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "spribe dice" },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				...productList.Spaceman,
+				className: "spaceman",
+				displayText: "Spaceman",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "spaceman" }
+			},
+			{
+				...productList.Crash,
+				className: "crash",
+				displayText: "Crash",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "crash" }
+			},
+			{
+				...productList.GoRush,
+				className: "gorush",
+				displayText: "Go Rush",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "gorush" }
 			}
 			// {
 			// 	...productList.virtualGame,
@@ -190,17 +270,24 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage
 			},
 			{
-				...productList.eSport_TFGaming,
-				_class: "tfg",
-				className: "tfg",
-				displayKey: "lbl_TFGaming",
+				...productList.eSport_IM,
+				_class: "Inplaymatrix",
+				className: "inplaymatrix",
+				displayText: "IM E-Sports",
 				menuType: defMenuType.entPage,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.TFGaming
+						period: defEventPeriod.IM
 					})
 				]
+			},
+			{
+				...productList.eSport_TFGaming,
+				_class: "tfg",
+				className: "tfg",
+				displayKey: "lbl_TFGaming",
+				menuType: defMenuType.entPage
 			}
 			// {
 			// 	...productList.eSport_LeagueOfLegends,
@@ -289,18 +376,25 @@ export const defMenuLinks = {
 			{
 				...defCasinoProviders.JILI,
 				className: "JILI",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_ji
-					})
-				],
 				icon: "icon icon-jili",
 				displayText: "JILI",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.JILI.name }
 			},
-			// 舊的 PT 測試用，等新的測試沒問題後移除
+			{
+				...defCasinoProviders.SPRIBE,
+				className: "SPRIBE",
+				icon: "SPRIBE",
+				displayText: "SPRIBE",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.SPRIBE.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
 			{
 				...defCasinoProviders.RedTiger,
 				className: "RED",

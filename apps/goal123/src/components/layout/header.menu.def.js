@@ -71,17 +71,27 @@ export const defMenuLinks = langId => ({
 				subPath: path.sportBti.root,
 				menuType: defMenuType.entPage,
 				className: "BTI",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.sportBti
-					})
-				],
 				displayKey: "lbl_Bti_Sport",
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/bti.png`,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/bti-item.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/bti-icon.png`,
 				parameter: { ...productList.sportBti }
+			},
+			{
+				...productList.sports_IM,
+				subPath: path.sportsIM.root,
+				menuType: defMenuType.entPage,
+				displayText: "IM Sports",
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/inplaymatrix.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/inplaymatrix-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/inplaymatrix-icon.png`,
+				parameter: { ...productList.sports_IM },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
 			},
 			{
 				...productList.virtualSports,
@@ -184,6 +194,121 @@ export const defMenuLinks = langId => ({
 					bgImg: `${bannerImgUrl}/desktop/img/new-games/table.png`,
 					hoverImg: `${bannerImgUrl}/desktop/img/new-games/table-hover.png`
 				}
+			},
+			{
+				...productList.IM_Avaitor,
+				displayText: "Avaitor",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.IM_Avaitor },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeAviator.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeAviator-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/spribe-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/spribeAviator.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/spribeAviator-hover.png`
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				...productList.IM_Mines,
+				displayText: "Mines",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.IM_Mines },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeMines.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeMines-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/spribe-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/spribeMines.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/spribeMines-hover.png`
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				...productList.IM_Goal,
+				displayText: "Goal",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.IM_Goal },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeGoal.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeGoal-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/spribe-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/spribeGoal.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/spribeGoal-hover.png`
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				...productList.IM_Dice,
+				displayText: "Dice",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.IM_Dice },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeDice.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeDice-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/spribe-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/spribeDice.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/spribeDice-hover.png`
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				...productList.Spaceman,
+				displayText: "Spaceman",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.Spaceman },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/pp.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/pp-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/pp-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/pp.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/pp-hover.png`
+				}
+			},
+			{
+				...productList.Crash,
+				displayText: "Crash",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.Crash },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/ap.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/ap-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/ap-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/ap.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/ap-hover.png`
+				}
+			},
+			{
+				...productList.GoRush,
+				displayText: "Go Rush",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.GoRush },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/jili.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/jili-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/jili-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/jili.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/jili-hover.png`
+				}
 			}
 			// {
 			// 	...productList.virtualGame,
@@ -227,6 +352,21 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/saba-icon.png`
 			},
 			{
+				...productList.eSport_IM,
+				imgSrc: `${bannerImgUrl}/desktop/img/esports/inplaymatrix.png`,
+				displayText: "IM E-Sports",
+				menuType: defMenuType.entPage,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/inplaymatrix.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/inplaymatrix-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/inplaymatrix-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
 				...productList.eSport_TFGaming,
 				imgSrc: `${bannerImgUrl}/desktop/img/esports/tfg.png`,
 				displayKey: "lbl_TFGaming",
@@ -234,13 +374,7 @@ export const defMenuLinks = langId => ({
 				menuType: defMenuType.entPage,
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/tfg.png`,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/tfg-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/tfg-icon.png`,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.TFGaming
-					})
-				]
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/tfg-icon.png`
 			}
 			// {
 			// 	...productList.eSport_LeagueOfLegends,
@@ -342,12 +476,6 @@ export const defMenuLinks = langId => ({
 			{
 				...defCasinoProviders.JILI,
 				className: "JI",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_ji
-					})
-				],
 				displayText: "JILI",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.JILI.name },
@@ -355,14 +483,21 @@ export const defMenuLinks = langId => ({
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/jili-item.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/jili-icon.png`
 			},
-			// {
-			// 	className: "JOKER",
-			// 	icon: "icon icon-JOKER",
-			// 	displayText: "JOKER",
-			// 	menuType: defMenuType.Link,
-			// 	tpId: 9,
-			// 	parameter: { tpId: 9 }
-			// },
+			{
+				...defCasinoProviders.SPRIBE,
+				displayText: "SPRIBE",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.SPRIBE.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/spribe.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/spribe-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/spribe-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
 			{
 				...defCasinoProviders.RedTiger,
 				className: "RedTiger",

@@ -46,160 +46,131 @@ export const defSlotTpGameType = {
 	SimplePlay: { tpId: 44, tpGameType: 86, name: "simple-play" },
 	Habanero: { tpId: 40, tpGameType: 68, name: "habanero" },
 	Skywind: { tpId: 43, tpGameType: 82, name: "skywind" },
-	Nextspin: { tpId: 50, tpGameType: 99, name: "nextspin" }
+	Nextspin: { tpId: 50, tpGameType: 99, name: "nextspin" },
+	SPRIBE: { tpId: 53, tpGameType: 104, name: "spribe" }
 };
 
 export default {
 	/* === sports === */
 
 	sabaClub: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
+		tpId: 41,
 		gameId: 171,
-		// tpGameType: 59,
-		tpGameType: 95 // seamless wallet
+		tpGameType: 95
 	},
 	_9WSports: {
 		tpId: 31,
 		tpGameType: 51
 	},
 	sports: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
+		tpId: 41,
 		gameId: 1,
-		// tpGameType: 1
-		tpGameType: 69 // seamless wallet
+		tpGameType: 69
 	},
 	soccer: {
 		gameId: 1,
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-
-		// tpGameType: 1,
-		tpGameType: 69 // seamless wallet
+		tpId: 41,
+		tpGameType: 69
 	},
 	"saba-soccer": {
 		gameId: 997,
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// tpGameType: 1,
-		tpGameType: 69 // seamless wallet
+		tpId: 41,
+		tpGameType: 69
 	},
 	basketball: {
 		gameId: 2,
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// tpGameType: 1,
-		tpGameType: 69 // seamless wallet
+		tpId: 41,
+		tpGameType: 69
 	},
 	badminton: {
 		gameId: 9,
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// tpGameType: 1
-		tpGameType: 69 // seamless wallet
+		tpId: 41,
+		tpGameType: 69
 	},
 	football: {
 		gameId: 3,
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// tpGameType: 1,
-		tpGameType: 69 // seamless wallet
+		tpId: 41,
+		tpGameType: 69
 	},
 	tennis: {
 		gameId: 5,
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// tpGameType: 1
-		tpGameType: 69 // seamless wallet
+		tpId: 41,
+		tpGameType: 69
 	},
 	hockey: {
 		gameId: 4,
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// tpGameType: 1
-		tpGameType: 69 // seamless wallet
+		tpId: 41,
+		tpGameType: 69
 	},
 	baseball: {
 		gameId: 8,
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// tpGameType: 1
-		tpGameType: 69 // seamless wallet
+		tpId: 41,
+		tpGameType: 69
 	},
 	volleyball: {
 		gameId: 6,
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// tpGameType: 1
-		tpGameType: 69 // seamless wallet
+		tpId: 41,
+		tpGameType: 69
 	},
 	cricket: {
 		gameId: 50,
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// tpGameType: 1
-		tpGameType: 69 // seamless wallet
-	},
-	eSport: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		gameId: 43,
-		// tpGameType: 1
-		tpGameType: 69 // seamless wallet
-	},
-	eSportAll: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		gameId: 43,
-		// tpGameType: 1
-		tpGameType: 69 // seamless wallet
-	},
-	eSport_DOTA2: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// gameId: 4320,
-		gameId: 43,
-		// tpGameType: 1,
-		tpGameType: 69, // seamless wallet
-		betType: 1
-	},
-	eSport_LOL: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// gameId: 4325,
-		gameId: 43,
-		// tpGameType: 1,
-		tpGameType: 69, // seamless wallet
-		betType: 2
-	},
-	eSport_CSGO: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// gameId: 4319,
-		gameId: 43,
-		// tpGameType: 1,
-		tpGameType: 69, // seamless wallet
-		betType: 3
-	},
-	eSport_KOG: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// gameId: 4324,
-		gameId: 43,
-		// tpGameType: 1,
-		tpGameType: 69, // seamless wallet
-		betType: 4
+		tpId: 41,
+		tpGameType: 69
 	},
 	worldCup: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
+		tpId: 41,
 		gameId: 2002,
 		tpGameType: 1
 	},
 	cryptoSports: {
 		tpId: 45,
 		tpGameType: 87
+	},
+
+	/* === e-sports === */
+
+	eSport: {
+		tpId: 41,
+		gameId: 43,
+		tpGameType: 69
+	},
+	eSportAll: {
+		tpId: 41,
+		gameId: 43,
+		tpGameType: 69
+	},
+	eSport_DOTA2: {
+		tpId: 41,
+		// gameId: 4320,
+		gameId: 43,
+		tpGameType: 69,
+		betType: 1
+	},
+	eSport_LOL: {
+		tpId: 41,
+		// gameId: 4325,
+		gameId: 43,
+		tpGameType: 69,
+		betType: 2
+	},
+	eSport_CSGO: {
+		tpId: 41,
+		// gameId: 4319,
+		gameId: 43,
+		tpGameType: 69,
+		betType: 3
+	},
+	eSport_KOG: {
+		tpId: 41,
+		// gameId: 4324,
+		gameId: 43,
+		tpGameType: 69,
+		betType: 4
+	},
+	eSport_IM: {
+		tpId: 52,
+		gameId: "ESPORTSBULL",
+		tpGameType: 102
 	},
 
 	/* === 2.  slot === */
@@ -246,8 +217,7 @@ export default {
 		tpGameType: 17
 	},
 	casino_OW: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
+		tpId: 41,
 		gameId: 208,
 		tpGameType: 4
 	},
@@ -295,6 +265,10 @@ export default {
 	casino_Nextspin: {
 		tpId: 50,
 		tpGameType: 99
+	},
+	casino_SPRIBE: {
+		tpId: 53,
+		tpGameType: 104
 	},
 
 	/* === 3. live casino === */
@@ -485,39 +459,29 @@ export default {
 	/* === 6. lottery === */
 
 	keno: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
+		tpId: 41,
 		gameId: 202,
-		// tpGameType: 5,
-		tpGameType: 73 // seamless wallet
+		tpGameType: 73
 	},
 	lottery: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
+		tpId: 41,
 		gameId: 220,
-		// tpGameType: 19
-		tpGameType: 74 // seamless wallet
+		tpGameType: 74
 	},
 	tablegame: {
 		gameId: 222,
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		// tpGameType: 23,
-		tpGameType: 75 // seamless wallet
+		tpId: 41,
+		tpGameType: 75
 	},
 	"number-game": {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
+		tpId: 41,
 		gameId: 161,
-		// tpGameType: 2,
-		tpGameType: 70 // seamless wallet
+		tpGameType: 70
 	},
 	indo4D: {
 		gameId: 223,
-		// tpId: 1,
-		tpId: 41, // seamless wallet
+		tpId: 41,
 		tpGameType: 20
-		// allowCurrency: [4, 15]
 	},
 	tcg: {
 		tpId: 33,
@@ -542,17 +506,14 @@ export default {
 	/* === 7. virtual sports === */
 
 	virtualGame: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
+		tpId: 41,
 		gameId: 245,
 		tpGameType: 22
 	},
 	"virtual-sports": {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
+		tpId: 41,
 		gameId: 192,
-		// tpGameType: 24,
-		tpGameType: 72 // seamless wallet
+		tpGameType: 72
 	},
 
 	/* === 8. poker === */
@@ -574,14 +535,48 @@ export default {
 		tpGameType: 60
 	},
 	game_MaxGame: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
+		tpId: 41,
 		gameId: 237,
 		tpGameType: 83
+	},
+	games_im_avaitor: {
+		tpId: 53,
+		gameId: "imgame12001",
+		tpGameType: 104
+	},
+	games_im_mines: {
+		tpId: 53,
+		gameId: "imgame12002",
+		tpGameType: 104
+	},
+	games_im_goal: {
+		tpId: 53,
+		gameId: "imgame12003",
+		tpGameType: 104
+	},
+	games_im_dice: {
+		tpId: 53,
+		gameId: "imgame12004",
+		tpGameType: 104
 	},
 	mega888: {
 		tpId: 22,
 		tpGameType: 34
+	},
+	games_Spaceman: {
+		tpId: 5,
+		tpGameType: 7,
+		gameId: 1302
+	},
+	games_Crash: {
+		tpId: 39,
+		tpGameType: 67,
+		gameId: "Crash"
+	},
+	games_GoRush: {
+		tpId: 32,
+		tpGameType: 53,
+		gameId: 224
 	},
 
 	/* === 9. event === */
