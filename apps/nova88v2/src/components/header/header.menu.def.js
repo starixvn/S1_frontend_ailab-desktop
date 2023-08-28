@@ -1305,8 +1305,7 @@ export const defMenuLinks = {
 					bgImg: "gamepp.png",
 					hoverBgImg: "gameppa.png"
 				},
-				allowCurrencies: allowedCurrencyList.spaceman,
-				canSeeOnlyAfterLogin: true
+				allowCurrencies: allowedCurrencyList.spaceman
 			},
 			{
 				keyName: "games_Crash",
