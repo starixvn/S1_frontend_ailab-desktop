@@ -203,6 +203,27 @@ export const defMenuLinks = {
 						period: defEventPeriod.IM
 					})
 				]
+			},
+			{
+				...productList.Spaceman,
+				className: "spaceman",
+				displayText: "Spaceman",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "spaceman" }
+			},
+			{
+				...productList.Crash,
+				className: "crash",
+				displayText: "Crash",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "crash" }
+			},
+			{
+				...productList.GoRush,
+				className: "gorush",
+				displayText: "Go Rush",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "gorush" }
 			}
 			// {
 			// 	...productList.virtualGame,

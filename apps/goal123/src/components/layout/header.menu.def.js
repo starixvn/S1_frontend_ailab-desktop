@@ -270,6 +270,45 @@ export const defMenuLinks = langId => ({
 						period: defEventPeriod.IM
 					})
 				]
+			},
+			{
+				...productList.Spaceman,
+				displayText: "Spaceman",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.Spaceman },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/pp.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/pp-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/pp-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/pp.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/pp-hover.png`
+				}
+			},
+			{
+				...productList.Crash,
+				displayText: "Crash",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.Crash },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/ap.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/ap-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/ap-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/ap.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/ap-hover.png`
+				}
+			},
+			{
+				...productList.GoRush,
+				displayText: "Go Rush",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.GoRush },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/jili.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/jili-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/jili-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/jili.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/jili-hover.png`
+				}
 			}
 			// {
 			// 	...productList.virtualGame,

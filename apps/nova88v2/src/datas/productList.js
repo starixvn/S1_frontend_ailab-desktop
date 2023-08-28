@@ -563,6 +563,21 @@ export default {
 		tpId: 22,
 		tpGameType: 34
 	},
+	games_Spaceman: {
+		tpId: 5,
+		tpGameType: 7,
+		gameId: 1302
+	},
+	games_Crash: {
+		tpId: 39,
+		tpGameType: 67,
+		gameId: "Crash"
+	},
+	games_GoRush: {
+		tpId: 32,
+		tpGameType: 53,
+		gameId: 224
+	},
 
 	/* === 9. event === */
 	"world-cup": {
