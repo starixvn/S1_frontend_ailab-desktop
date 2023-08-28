@@ -125,6 +125,16 @@ const allowedCurrencyList = {
 		defCurrencyList.INR,
 		defCurrencyList.VND
 	],
+	spaceman: [
+		defCurrencyList.MYR,
+		defCurrencyList.IDR,
+		defCurrencyList.THB,
+		defCurrencyList.BDT,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.KHM,
+		defCurrencyList.VND
+	],
 
 	// fishing
 	fishingGod: [defCurrencyList.INR, defCurrencyList.VND],

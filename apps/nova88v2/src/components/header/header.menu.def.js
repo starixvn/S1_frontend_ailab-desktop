@@ -1291,6 +1291,50 @@ export const defMenuLinks = {
 						period: defEventPeriod.IM
 					})
 				]
+			},
+			{
+				keyName: "games_Spaceman",
+				className: "fsgw",
+				listNpcImgUrl: "pp.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Spaceman",
+				menuType: defMenuType.entPage,
+				...productList.games_Spaceman,
+				parameter: { ...productList.games_Spaceman },
+				lobbyPage: {
+					bgImg: "gamepp.png",
+					hoverBgImg: "gameppa.png"
+				},
+				allowCurrencies: allowedCurrencyList.spaceman,
+				canSeeOnlyAfterLogin: true
+			},
+			{
+				keyName: "games_Crash",
+				className: "fsgw",
+				listNpcImgUrl: "ap.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Crash",
+				menuType: defMenuType.entPage,
+				...productList.games_Crash,
+				parameter: { ...productList.games_Crash },
+				lobbyPage: {
+					bgImg: "gameap.png",
+					hoverBgImg: "gameapa.png"
+				}
+			},
+			{
+				keyName: "games_GoRush",
+				className: "fsgw",
+				listNpcImgUrl: "jili.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Go Rush",
+				menuType: defMenuType.entPage,
+				...productList.games_GoRush,
+				parameter: { ...productList.games_GoRush },
+				lobbyPage: {
+					bgImg: "gamejili.png",
+					hoverBgImg: "gamejilia.png"
+				}
 			}
 		]
 	},
