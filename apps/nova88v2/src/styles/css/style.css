@@ -61,6 +61,7 @@ a {
 img {
   width: 100%;
   display: block;
+  height: auto;
 }
 
 button[disabled] {
@@ -1741,6 +1742,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .promoList.bd {
   background: url(https://banner.0814media.net/desktop/img/pomobanner-bd.jpg) no-repeat center/auto;
 }
+.header > div.menu .subMenu-Wrapper-new .promoList.vn {
+  background: url(https://banner.0814media.net/desktop/img/pomobanner-vn.jpg) no-repeat center/auto;
+}
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1828,11 +1832,17 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .cryptoList.cs {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_cs.jpg) no-repeat center/auto;
 }
+.header > div.menu .subMenu-Wrapper-new .cryptoList.vn {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_vn.jpg) no-repeat center/auto;
+}
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_en_um.jpg);
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.en {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_en_um.jpg) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.en {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_vn_um.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.th {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_th_um.jpg) no-repeat center/auto;
@@ -1842,6 +1852,9 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.cs {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_cs_um.jpg) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.vn {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_vn_um.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.en {
   background: url(https://banner.0814media.net/desktop/img/vipdropdown.png) no-repeat center/auto;
@@ -1857,6 +1870,9 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.th {
   background: url(https://banner.0814media.net/desktop/img/vipdropdown-th.png) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .vipList.vn {
+  background: url(https://banner.0814media.net/desktop/img/vipdropdown-vn.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList > div {
   margin: 0 auto 0 100px;
@@ -1882,6 +1898,9 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
   background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-id.jpg) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .rankingList.vn {
+  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > a {
@@ -10873,6 +10892,22 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   float: left;
   width: 810px;
 }
+.subModuleListColumn .note {
+  background: #e2e2e2;
+  color: #838383;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 13px;
+}
+.subModuleListColumn .note .title {
+  margin-bottom: 15px;
+  color: #cf0404;
+}
+.subModuleListColumn .note li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
 .subModuleListColumn > .subModule {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10886,6 +10921,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin-bottom: 20px;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
+  position: relative;
 }
 .subModuleListColumn > .subModule .dropdown {
   min-width: 190px;
@@ -10916,6 +10952,49 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .subModuleListColumn > .subModule .inputBox-white {
   width: 300px;
 }
+.subModuleListColumn > .subModule .inputBox-white + .icon-files-empty, .subModuleListColumn > .subModule .inputBox-white + span {
+  color: white;
+  background: #5574A7;
+  border-radius: 5px;
+  padding: 7.5px 4.5px;
+  max-height: 32px;
+  margin: 10px 5px;
+  font-size: 12px;
+}
+.subModuleListColumn > .subModule .inputBox-white + .icon-files-empty::before, .subModuleListColumn > .subModule .inputBox-white + span::before {
+  font-size: 15px;
+}
+.subModuleListColumn > .subModule .inputBox-white + .icon-files-empty:hover, .subModuleListColumn > .subModule .inputBox-white + span:hover {
+  background: #7591C1;
+}
+.subModuleListColumn > .subModule .input-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 10px;
+}
+.subModuleListColumn > .subModule .input-column div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.subModuleListColumn > .subModule .tipImg {
+  width: 28%;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  display: none;
+}
+.subModuleListColumn > .subModule .tipImg img {
+  border-radius: 10px;
+}
+.subModuleListColumn > .subModule .tipImg.active {
+  display: block;
+}
 .subModuleListColumn > .subModule .inputBox-blue {
   width: auto;
   margin-right: 10px;
@@ -10929,6 +11008,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 35px;
 }
 .subModuleListColumn > .subModule + .btnGroup + .text-center {
+  color: #5574A7;
+}
+.subModuleListColumn > .subModule + .note + .btnGroup + .text-center {
   color: #5574A7;
 }
 .subModuleListColumn > .subModule > .btnGroup {
@@ -11319,6 +11401,24 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-weight: bold;
 }
 
+.icon-qrpay::before {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 55px;
+  margin: 0 auto !important;
+  background: url(https://banner.0814media.net/desktop/img/qrpay.png) center/cover;
+}
+
+.icon-topup::before {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 55px;
+  margin: 0 auto !important;
+  background: url(https://banner.0814media.net/desktop/img/topup.png) center/cover;
+}
+
 .text-center {
   text-align: center;
 }
@@ -11575,7 +11675,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0 auto;
+  margin: 20px auto;
   overflow: hidden;
   width: 1400px;
   position: relative;
@@ -11616,7 +11716,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .recently .swiper-slide {
   cursor: pointer;
-  padding-top: 40px;
+  padding-top: 20px;
   margin-top: -10px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -14573,15 +14673,15 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
 .gameinside .inside .rightModule .gameItem {
   text-align: center;
-  margin: 0px 20px 30px;
+  margin: 0 20px 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

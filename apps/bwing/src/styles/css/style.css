@@ -902,6 +902,15 @@ header .header > div.menu .nweSubMenu-Wrapper .gameList .tablegame .img {
 header .header > div.menu .nweSubMenu-Wrapper .gameList .virtual .img {
   background: url(https://banner.bw88.io/desktop/img/new-game/virtual.png) no-repeat center/auto 100%;
 }
+header .header > div.menu .nweSubMenu-Wrapper .gameList .crash .img {
+  background: url(https://banner.bw88.io/desktop/img/new-game/ap.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .gameList .gorush .img {
+  background: url(https://banner.bw88.io/desktop/img/new-game/jili.png) no-repeat center/auto 100%;
+}
+header .header > div.menu .nweSubMenu-Wrapper .gameList .spaceman .img {
+  background: url(https://banner.bw88.io/desktop/img/new-game/pp.png) no-repeat center/auto 100%;
+}
 header .header > div.menu .nweSubMenu-Wrapper .gameList .aviator .img {
   background: url(https://banner.bw88.io/desktop/img/new-game/spribe-aviator.png) no-repeat center/auto 100%;
 }
@@ -8288,6 +8297,15 @@ main > .swiper-container .swiper-slide {
 .gameslobbyList .gameslobbyitem > div:hover.virtualgames {
   background: url(https://banner.bw88.io/desktop/img/new-gameslobby/virtual-hover.png) no-repeat center/cover;
 }
+.gameslobbyList .gameslobbyitem > div:hover.crash {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/ap-hover.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div:hover.gorush {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/jili-hover.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div:hover.spaceman {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/pp-hover.png) no-repeat center/cover;
+}
 .gameslobbyList .gameslobbyitem > div:hover.spribe.aviator {
   background: url(https://banner.bw88.io/desktop/img/new-gameslobby/spribeAviator-hover.png) no-repeat center/cover;
 }
@@ -8317,6 +8335,15 @@ main > .swiper-container .swiper-slide {
 }
 .gameslobbyList .gameslobbyitem > div.virtualgames {
   background: url(https://banner.bw88.io/desktop/img/new-gameslobby/virtual.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.crash {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/ap.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.gorush {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/jili.png) no-repeat center/cover;
+}
+.gameslobbyList .gameslobbyitem > div.spaceman {
+  background: url(https://banner.bw88.io/desktop/img/new-gameslobby/pp.png) no-repeat center/cover;
 }
 .gameslobbyList .gameslobbyitem > div.spribe.aviator {
   background: url(https://banner.bw88.io/desktop/img/new-gameslobby/spribeAviator.png) no-repeat center/cover;
