@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import {
@@ -10,6 +10,7 @@ import ShortcutAmountList from "./shortcutAmountList";
 import { paymentImgUrl } from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
 import PromotionSelect from "./promotionSelect";
+import { userInfoContext } from "../../common/context";
 
 const defInputCol = {
 	payAccount: "payAccount"
@@ -178,9 +179,8 @@ const MobileForm = ({
 					<div className="subModule">
 						<div>
 							{mobilePayInfoList.map(item => {
-								const imgParam = defCurrencyList.BDT
-									? item.channelName
-									: item.payName;
+								const imgParam = item.channelName;
+
 								const imgName = String(imgParam).toLowerCase();
 
 								return (

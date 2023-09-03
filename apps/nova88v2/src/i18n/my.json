@@ -39,7 +39,7 @@
 	"lbl_Home_HomeTeam": "Halaman Utama",
 	"lbl_Home_AwayTeam": "Tidak Hadir",
 	"lbl_InaccessibleWithoutPermission": "dilarang masuk tanpa kebenaran",
-	"lbl_Recently_Viewed":"BARU SAJA DILIHAT",
+	"lbl_Recently_Viewed": "BARU SAJA DILIHAT",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Kadar Kemenangan",
@@ -830,7 +830,7 @@
 	"lbl_Vip_Accumulated_Deposit_Within_3_Months": "AKUMULASI DEPOSIT DALAM 3 BULAN",
 	"lbl_Vip_Accumulated_Turnover_Within_3_Months": "AKUMULASI TURNOVER DALAM 3 BULAN",
 	"lbl_Vip_TopPriorityServices": "PERKHIDMATAN KEUTAMAAN",
-	"lbl_Vip_ExclusivePromo":"PROMO ELSKLUSIF",
+	"lbl_Vip_ExclusivePromo": "PROMO ELSKLUSIF",
 	"lbl_Vip_BirthdaySpecialGifts": "HADIAH ISTIMEWA HARI LAHIR",
 	"lbl_Vip_LifetimeMembership": "KEAHLIAN SEUMUR HIDUP",
 	"lbl_Vip_NoRestrictions": "TIADA SEKATAN",
@@ -1121,5 +1121,12 @@
 		"lbl_GameName": "Nama Permainan"
 	},
 
-	"end-----": "end-----"
+	"Label_Referral_AccumulateRewardAmount": "Jumlah ganjaran",
+	"Label_Referral_Simple3StepsToShare": "3 langkah mudah untuk perkongsian",
+	"Label_Share": "Kongsi",
+	"Label_Recharge": "Isi semula",
+	"Label_Referral_ShareDescription": "Kongsi pautan/kod unik anda Untuk menjemput rakan anda",
+	"Label_Referral_Recharge": "Rakan anda telah berjaya mengecas semula.",
+	"Label_Referral_RewardsDescription": "Dapatkan Ganjaran Anda",
+	"Label_Referral_ShareAcrossSocialMedia": "kongsi di media sosial"
 }

@@ -26,7 +26,8 @@ export const defHistoryIdList = {
 	depositId: "deposit",
 	withdrawalId: "withdrawal",
 	financialId: "log",
-	referralId: "referral"
+	referralId: "referral",
+	referralDetailId: "referralDetailId"
 };
 
 export const defHistoryNav = [
@@ -56,7 +57,8 @@ export const defColumns = ({
 	depositActivateCancelConfirmModal,
 	activateWithdrawalCancelConfirmModal,
 	timeZone,
-	SubmitProof
+	SubmitProof,
+	handleRefFriendDetail
 }) => ({
 	[defHistoryIdList.transferId]: [
 		{
@@ -430,61 +432,27 @@ export const defColumns = ({
 			render: (_, index) => index + 1
 		},
 		{
-			title: t("lbl_Username"),
-			dataIndex: "userName",
-			key: "userName"
-		},
-		{
-			title: `${t("lbl_RegisterDate")} (${timeZone})`,
-			dataIndex: "registerDate",
-			key: "registerDate",
-			render: item => (
-				<>
-					{moment(item.registerDate, "YYYY-MM-DDThh:mm:ssZ")
-						.zone(timeZone)
-						.format("DD/MM/YYYY")}
-					<span className="txt-blue">
-						{moment(item.registerDate, "YYYY-MM-DDThh:mm:ssZ")
-							.zone(timeZone)
-							.format("HH:mm:ss")}
-					</span>
-				</>
-			)
-		},
-		{
-			title: t("lbl_Currency"),
-			dataIndex: "currencyId",
-			key: "currencyId",
-			render: item => <div>{t(`Currency_${item.currencyId}`)}</div>
+			title: `${t("lbl_Date")} (${timeZone})`,
+			dataIndex: "settledDate",
+			key: "settledDate",
+			render: item =>
+				moment(item.settledDate, "YYYY-MM-DDThh:mm:ssZ")
+					.zone(timeZone)
+					.format("DD/MM/YYYY")
 		},
 		{
 			title: t("lbl_TotalDeposit"),
 			dataIndex: "totalDeposit",
 			key: "totalDeposit",
-			render: item => (
-				<>
-					{number_format(item.totalDeposit, _isConvert)} /
-					<span>{number_format(item.depositC, _isConvert)}</span>
-				</>
-			)
+			render: item => number_format(item.totalDeposit, _isConvert)
 		},
 		{
-			title: t("lbl_TotalBet"),
-			dataIndex: "totalBet",
-			key: "totalBet",
-			render: item => (
-				<>
-					{number_format(item.totalBet, _isConvert)} /
-					<span>{number_format(item.vaildBetC, _isConvert)}</span>
-				</>
-			)
+			title: t("lbl_RewardAmount"),
+			dataIndex: "rewardAmount",
+			key: "rewardAmount",
+			render: item => number_format(item.rewardAmount, _isConvert)
 		},
-		{
-			title: t("lbl_BonusAmount"),
-			dataIndex: "bonusAmount",
-			key: "bonusAmount",
-			render: item => number_format(item.bonusAmount, _isConvert)
-		},
+
 		{
 			title: (
 				<>
@@ -502,9 +470,61 @@ export const defColumns = ({
 					/>
 				</>
 			),
-			dataIndex: "status",
-			key: "status",
-			render: item => t(`lbl_ReferralStatus${item.status}`)
+			dataIndex: "referralStatus",
+			key: "referralStatus",
+			render: item => (
+				<button
+					className="txt-blue"
+					onClick={() => {
+						const payload = {
+							startDate: moment(item.settledDate).unix(),
+							endDate: moment(item.settledDate)
+								.endOf("day")
+								.unix(),
+							pageNumber: 1,
+							pageSize: 10
+						};
+
+						handleRefFriendDetail(payload);
+					}}
+				>
+					{t("lbl_Details")}
+				</button>
+			)
+		}
+	],
+	[defHistoryIdList.referralDetailId]: [
+		{
+			title: t("lbl_NO"),
+			dataIndex: "no",
+			key: "no",
+			render: (_, index) => index + 1
+		},
+		{
+			title: `${t("lbl_Date")} (${timeZone})`,
+			dataIndex: "settledDate",
+			key: "settledDate",
+			render: item =>
+				moment(item.settledDate, "YYYY-MM-DDThh:mm:ssZ")
+					.zone(timeZone)
+					.format("DD/MM/YYYY")
+		},
+		{
+			title: t("lbl_Username"),
+			dataIndex: "userName",
+			key: "userName"
+		},
+		{
+			title: t("lbl_TotalDeposit"),
+			dataIndex: "totalDeposit",
+			key: "totalDeposit",
+			render: item => number_format(item.totalDeposit, _isConvert)
+		},
+		{
+			title: t("lbl_RewardAmount"),
+			dataIndex: "rewardAmount",
+			key: "rewardAmount",
+			render: item => number_format(item.rewardAmount, _isConvert)
 		}
 	]
 });

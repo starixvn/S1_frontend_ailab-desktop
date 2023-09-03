@@ -42,7 +42,7 @@
 	"lbl_LiveCasinoInfo2": "最新颖游戏",
 	"lbl_LiveCasinoInfo3": "亚洲与欧洲荷官！",
 	"lbl_InaccessibleWithoutPermission": "未经允许不得进入",
-	"lbl_Recently_Viewed":"近期浏览",
+	"lbl_Recently_Viewed": "近期浏览",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Odds",
@@ -859,7 +859,7 @@
 	"lbl_Vip_Accumulated_Deposit_Within_3_Months": "三个月内累计存款",
 	"lbl_Vip_Accumulated_Turnover_Within_3_Months": "三个月内的累计有效投注",
 	"lbl_Vip_TopPriorityServices": "优先服务",
-	"lbl_Vip_ExclusivePromo":"独家促销",
+	"lbl_Vip_ExclusivePromo": "独家促销",
 	"lbl_Vip_BirthdaySpecialGifts": "生日特别奖励",
 	"lbl_Vip_LifetimeMembership": "终身会员",
 	"lbl_Vip_NoRestrictions": "无限制条件",
@@ -1155,5 +1155,12 @@
 		"lbl_GameName": "游戏名称"
 	},
 
-	"end-----": "end-----"
+	"Label_Referral_AccumulateRewardAmount": "累积奖励金额",
+	"Label_Referral_Simple3StepsToShare": "简单3步骤分享",
+	"Label_Share": "分享",
+	"Label_Recharge": "充值",
+	"Label_Referral_ShareDescription": "向朋友分享您的推荐链接/代码",
+	"Label_Referral_Recharge": "您的好友已充值成功。",
+	"Label_Referral_RewardsDescription": "获得您的奖励",
+	"Label_Referral_ShareAcrossSocialMedia": "通过社交媒体分享"
 }

@@ -43,7 +43,7 @@
 	"lbl_LiveCasinoInfo2": "সাথে আরো উদ্ভাবনি ক্যাসিনো গেম",
 	"lbl_LiveCasinoInfo3": "সরাসরি এশিয়ান এবং ইউরোপীয় ডিলার",
 	"lbl_InaccessibleWithoutPermission": "inaccessible without permission",
-	"lbl_Recently_Viewed":"সম্প্রতি দেখা",
+	"lbl_Recently_Viewed": "সম্প্রতি দেখা",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "মতভেদ",
@@ -696,8 +696,8 @@
 	"referral ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Referral": "সুপারিশ",
 	"lbl_ReferFriends": "বন্ধুদের উল্লেখ করুন",
-	"lbl_Referral_code": "সুপারিশ কোড",
-	"lbl_Referral_link": "রেফারেল লিংক",
+	"lbl_Referral_code": "রেফারেল কোড।",
+	"lbl_Referral_link": "রেফারেল লিঙ্ক।",
 	"lbl_Referral_description": "বন্ধুদের পুরস্কার উল্লেখ করুন. আপনি আপনার বন্ধুদের জন্য একচেটিয়া বন্ধু সুপারিশ পুরস্কার পাবেন . আপনার অনন্য লিঙ্ক/কোড দিয়ে সাইন আপ করুন",
 	"lbl_Referral_Welcome": "Nova88-এ স্বাগতম, আপনাকে আমাদের সাথে যোগ দিতে আমন্ত্রণ জানানো হচ্ছে। নতুন সদস্যদের জন্য প্রচুর পুরষ্কারমূলক কার্যক্রম প্রস্তাব রয়েছে। নিজেকে পেতে এবং আপনার বন্ধুকে পুরস্কৃত করতে সাহায্য করতে কেবল ক্লিক করুন এবং আমাদের সাথে সাইন আপ করুন! শর্তাবলী এবং শর্ত প্রযোজ্য.",
 	"lbl_Share_with_friend": "এখনই আপনার বন্ধুদের রেফার করতে আপনার প্রিয় অফারগুলি পছন্দ করুন!",
@@ -718,10 +718,10 @@
 	"lbl_ReferralStatus2": "মেয়াদোত্তীর্ণ",
 	"lbl_Refer_friends_rewards": "বন্ধুদের পুরস্কার উল্লেখ করুন",
 	"lbl_Dont_show_me_again": "আমাকে আবার দেখাবেন না",
-	"lbl_ReferralStatus": "আপনার সুপারিশ স্ট্যাটাস",
+	"lbl_ReferralStatus": "আপনার রেফারেল স্থিতি।",
 	"lbl_InvitationAccepted": "আমন্ত্রণ গৃহীত",
 	"lbl_MissionCompleted": "মিশন সম্পন্ন",
-	"lbl_NoOfAchievements": "কৃতিত্বের সংখ্যা",
+	"lbl_NoOfAchievements": "অধিগ্রহণের সংখ্যা।",
 	"lbl_RewardAmount": "পুরস্কারের পরিমাণ",
 	"lbl_ReferralReward": "রেফারেল পুরস্কার",
 	"lbl_FriendsInvitationLimit": "আমন্ত্রিত বন্ধুদের সীমা",
@@ -792,7 +792,7 @@
 	"lbl_Vip_Accumulated_Deposit_Within_3_Months": "AKUMULASI DEPOSIT DALAM 3 BULAN",
 	"lbl_Vip_Accumulated_Turnover_Within_3_Months": "AKUMULASI TURNOVER DALAM 3 BULAN",
 	"lbl_Vip_TopPriorityServices": "শীর্ষ অগ্রাধিকার পরিষেবা",
-	"lbl_Vip_ExclusivePromo":"এক্সক্লুসিভ প্রোমো",
+	"lbl_Vip_ExclusivePromo": "এক্সক্লুসিভ প্রোমো",
 	"lbl_Vip_BirthdaySpecialGifts": "জন্মদিনের বিশেষ উপহার",
 	"lbl_Vip_LifetimeMembership": "আজীবন সদস্যপদ",
 	"lbl_Vip_NoRestrictions": "NO RESTRICTIONS",
@@ -1047,5 +1047,14 @@
 		"lbl_RebateExclude_title": "এই তালিকার গেমগুলি দৈনিক রিবেট পুরষ্কার বাদ দেওয়া হবে",
 		"lbl_Product": "পণ্য",
 		"lbl_GameName": "খেলার নাম"
-	}
+	},
+
+	"Label_Referral_AccumulateRewardAmount": "সংগ্রহিত পুরস্কার পরিমাণ।",
+	"Label_Referral_Simple3StepsToShare": "ভাগ করতে সহজ ৩ ধাপ।",
+	"Label_Share": "ভাগ করুন।",
+	"Label_Recharge": "জমা দিন।",
+	"Label_Referral_ShareDescription": "আপনার অনন্য লিঙ্ক/কোড শেয়ার করুন আপনার বন্ধুদের আমন্ত্রণ জানানোর জন্য",
+	"Label_Referral_Recharge": "আপনার বন্ধু সফলভাবে জমা দিয়েছে।",
+	"Label_Referral_RewardsDescription": "আপনার পুরস্কার পান",
+	"Label_Referral_ShareAcrossSocialMedia": "সোশ্যাল মিডিয়াতে ভাগ করুন।"
 }
