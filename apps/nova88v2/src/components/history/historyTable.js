@@ -1,7 +1,12 @@
 import React, { Children, useContext } from "react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import defPopBoxType from "../common/defPopBoxType";
-import { defWithdrawalStatusClassName, defDepositStatusClassName } from "./def";
+import {
+	defWithdrawalStatusClassName,
+	defDepositStatusClassName,
+	defHistoryIdList
+} from "./def";
 import { popBoxContext } from "../common/context";
 
 const createUuid = () => {
@@ -137,7 +142,11 @@ const HistoryTable = ({ t, dataSource, columns, children, selectedTagId }) => {
 	const tableDatasCount = Children.count(body);
 
 	return (
-		<div className="list history">
+		<div
+			className={classNames("list history", {
+				refhistory: selectedTagId === defHistoryIdList.referralDetailId
+			})}
+		>
 			{tableDatasCount > 0 && (
 				<>
 					<div className="listHeader">{header}</div>

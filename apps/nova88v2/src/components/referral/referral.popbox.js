@@ -28,60 +28,66 @@ export default () => {
 export const ReferralPopBox = ({ data, closePopBox, t }) => (
 	<div className="promotionsInfo">
 		<div className="icon icon-close" onClick={closePopBox} />
-		<img src={data.referralContent.bannerUrl} alt="banner" />
+		{data?.referralContent?.bannerUrl && (
+			<img src={data.referralContent.bannerUrl} alt="banner" />
+		)}
+
 		<div className="proData">
 			<div className="proDataTitle">
 				<div className="txt-darkBlue">
-					{data.referralContent.title}
+					{data.referralContent?.title}
 					<div className="txt-gray">
-						{data.referralContent.description}
+						{data.referralContent?.description}
 					</div>
 				</div>
 			</div>
-			<div className="rolloverList">
-				<div>
-					<div>{t("lbl_ReferralReward")}</div>
-					<div>{data.referralReward}</div>
-				</div>
-				<div>
-					<div>{t("lbl_FriendsInvitationLimit")}</div>
-					<div>{data.invitationLimit}</div>
-				</div>
-				<div>
-					<div>{t("lbl_DepositRequirement")}</div>
-					<div>{data.agentDeposit}</div>
-				</div>
-				<div>
-					<div>{t("lbl_ValidBetRequirement")}</div>
-					<div>{data.agentValidBet}</div>
-				</div>
-			</div>
-			<div className="rolloverList">
-				<div>
-					<div>{t("lbl_ReferredFreeCredit")}</div>
-					<div>{data.memberReward}</div>
-				</div>
-				<div>
-					<div>{t("lbl_DepositRequirement")}</div>
-					<div>{data.deposit}</div>
-				</div>
-				<div>
-					<div>{t("lbl_ValidBetRequirement")}</div>
-					<div>{data.vaildBet}</div>
-				</div>
-				<div>
-					<div>{t("lbl_TermPeriodWithin")}</div>
-					<div>
-						{data.periodDays} ({t("lbl_Days")})
-					</div>
-				</div>
-			</div>
-			<div
-				className="proDataBody"
-				dangerouslySetInnerHTML={{
-					__html: data.referralContent.detail
-				}}
-			/>
+			{/* PM 與設計討論先暫時關閉  */}
+			{/* <div className="rolloverList"> */}
+			{/* 	<div> */}
+			{/* 		<div>{t("lbl_ReferralReward")}</div> */}
+			{/* 		<div>{data.referralReward}</div> */}
+			{/* 	</div> */}
+			{/* 	<div> */}
+			{/* 		<div>{t("lbl_FriendsInvitationLimit")}</div> */}
+			{/* 		<div>{data.invitationLimit}</div> */}
+			{/* 	</div> */}
+			{/* 	<div> */}
+			{/* 		<div>{t("lbl_DepositRequirement")}</div> */}
+			{/* 		<div>{data.agentDeposit}</div> */}
+			{/* 	</div> */}
+			{/* 	<div> */}
+			{/* 		<div>{t("lbl_ValidBetRequirement")}</div> */}
+			{/* 		<div>{data.agentValidBet}</div> */}
+			{/* 	</div> */}
+			{/* </div> */}
+			{/* <div className="rolloverList"> */}
+			{/* 	<div> */}
+			{/* 		<div>{t("lbl_ReferredFreeCredit")}</div> */}
+			{/* 		<div>{data.memberReward}</div> */}
+			{/* 	</div> */}
+			{/* 	<div> */}
+			{/* 		<div>{t("lbl_DepositRequirement")}</div> */}
+			{/* 		<div>{data.deposit}</div> */}
+			{/* 	</div> */}
+			{/* 	<div> */}
+			{/* 		<div>{t("lbl_ValidBetRequirement")}</div> */}
+			{/* 		<div>{data.vaildBet}</div> */}
+			{/* 	</div> */}
+			{/* 	<div> */}
+			{/* 		<div>{t("lbl_TermPeriodWithin")}</div> */}
+			{/* 		<div> */}
+			{/* 			{data.periodDays} ({t("lbl_Days")}) */}
+			{/* 		</div> */}
+			{/* 	</div> */}
+			{/* </div> */}
+			{data?.referralContent?.detail && (
+				<div
+					className="proDataBody"
+					dangerouslySetInnerHTML={{
+						__html: data.referralContent.detail
+					}}
+				/>
+			)}
 		</div>
 	</div>
 );

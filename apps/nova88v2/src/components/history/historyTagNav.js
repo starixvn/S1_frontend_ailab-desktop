@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 export default function HistoryTagNav({
 	t,
@@ -30,7 +31,9 @@ export default function HistoryTagNav({
 								`${pathname}?kind=${item.id}`
 							);
 						}}
-						className={selectedTagId === item.id ? "active" : ""}>
+						className={classNames({
+							active: selectedTagId === item.id
+						})}>
 						{t(item.displayKey)}
 					</button>
 				))}

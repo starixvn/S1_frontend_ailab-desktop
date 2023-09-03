@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import moment from "moment";
 import { useLocation } from "@reach/router";
 import { useTranslation } from "react-i18next";
+import { useLazyGetRefFriendDetailQuery } from "@ailab-desktop/service";
 import {
 	isConvert,
 	getUrlParameter,
@@ -24,6 +25,43 @@ import { defHistoryIdList, defHistoryNav, defColumns } from "./def";
 import { useDeposit, useDepositLocalBank } from "../deposit/hooks";
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
+const useReferralDetail = ({ setSelectedTagId }) => {
+	const [refFriendDetailPayload, setRefFriendDetailPayload] = useState({});
+
+	const [getRefFriendDetail, { data: { data: referralDetail = [] } = {} }] =
+		useLazyGetRefFriendDetailQuery();
+
+	const [detailPagination, setDetailPagination] = useState({
+		totalPages: 0,
+		currentPage: 1
+	});
+
+	const handleRefFriendDetail = async ({
+		startDate,
+		endDate,
+		pageNumber,
+		pageSize
+	}) => {
+		const { totalPages } = await getRefFriendDetail({
+			startDate,
+			endDate,
+			pageNumber,
+			pageSize
+		}).unwrap();
+		setRefFriendDetailPayload({ startDate, endDate, pageNumber, pageSize });
+		setDetailPagination(prev => ({ ...prev, totalPages }));
+		setSelectedTagId(defHistoryIdList.referralDetailId);
+	};
+
+	return {
+		refFriendDetailPayload,
+		setRefFriendDetailPayload,
+		referralDetail,
+		handleRefFriendDetail,
+		detailPagination
+	};
+};
+
 const History = () => {
 	const paramsKindId = getUrlParameter("kind");
 
@@ -39,6 +77,7 @@ const History = () => {
 	const [historyDatas, setHistoryDatas] = useState([]);
 	const [processing, setProcessing] = useState(false);
 	const [filterData, setFilterData] = useState({});
+
 	const [keepData, setKeepData] = useState({});
 	const [pagination, setPagination] = useState({
 		totalPages: 0,
@@ -149,6 +188,14 @@ const History = () => {
 
 	const { uploadLocalBankReceipt } = useDepositLocalBank({ isMountedRef });
 
+	const {
+		refFriendDetailPayload,
+		setRefFriendDetailPayload,
+		referralDetail,
+		handleRefFriendDetail,
+		detailPagination
+	} = useReferralDetail({ setSelectedTagId });
+
 	const SubmitProof = async (
 		bankInfo,
 		depositRep,
@@ -241,7 +288,8 @@ const History = () => {
 		activateWithdrawalCancelConfirmModal,
 		timeZone,
 		setPopBox,
-		SubmitProof
+		SubmitProof,
+		handleRefFriendDetail
 	})[selectedTagId];
 
 	const clickPageNumber = page => {
@@ -345,16 +393,47 @@ const History = () => {
 
 				<HistoryTable
 					t={t}
-					dataSource={historyDatas}
+					dataSource={
+						selectedTagId === defHistoryIdList.referralDetailId
+							? referralDetail
+							: historyDatas
+					}
 					columns={columns}
 					selectedTagId={selectedTagId}
 				/>
 
-				<Pagination
-					totalPages={pagination.totalPages}
-					currentPage={pagination.currentPage}
-					clickPageNumber={clickPageNumber}
-				/>
+				{selectedTagId === defHistoryIdList.referralDetailId && (
+					<div className="btnGroup">
+						<button
+							className="btn-check"
+							onClick={() => {
+								setSelectedTagId(defHistoryIdList.referralId);
+								setRefFriendDetailPayload({});
+							}}
+						>
+							Back
+						</button>
+					</div>
+				)}
+
+				{selectedTagId === defHistoryIdList.referralDetailId ? (
+					<Pagination
+						totalPages={detailPagination.totalPages}
+						currentPage={detailPagination.currentPage}
+						clickPageNumber={page => {
+							handleRefFriendDetail({
+								...refFriendDetailPayload,
+								pageNumber: page
+							});
+						}}
+					/>
+				) : (
+					<Pagination
+						totalPages={pagination.totalPages}
+						currentPage={pagination.currentPage}
+						clickPageNumber={clickPageNumber}
+					/>
+				)}
 			</div>
 		</div>
 	);
