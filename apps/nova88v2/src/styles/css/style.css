@@ -5235,6 +5235,7 @@ input[type=file] {
   border-radius: 5px;
   max-height: calc(100% - 160px);
   overflow-y: auto;
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap");
 }
 #popup .pop.photo img {
   max-width: 800px;
@@ -5792,6 +5793,171 @@ input[type=file] {
   height: 24px;
   line-height: 1.75;
   text-align: center;
+}
+#popup .pop .promosback {
+  background: transparent;
+  border: unset;
+  padding-top: unset;
+  display: none;
+}
+#popup .pop .promosback.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#popup .pop .promosback-pop {
+  position: relative;
+  background: rgba(0, 0, 0, 0);
+  margin-bottom: 150px;
+  -webkit-animation: promosback 1.5s ease-in-out;
+          animation: promosback 1.5s ease-in-out;
+}
+@-webkit-keyframes promosback {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  25% {
+    -webkit-transform: scale(1.25, 1.25);
+            transform: scale(1.25, 1.25);
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  75% {
+    -webkit-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+@keyframes promosback {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  25% {
+    -webkit-transform: scale(1.25, 1.25);
+            transform: scale(1.25, 1.25);
+  }
+  50% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  75% {
+    -webkit-transform: scale(1.2, 1.2);
+            transform: scale(1.2, 1.2);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+#popup .pop .promosback .popgo {
+  color: #fff;
+  text-align: center;
+  background: #113158;
+  font-size: 16px;
+  padding: 10px 30px;
+  border-radius: 25px;
+  min-width: 200px;
+  -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+  font-family: "Poppins", "Noto Sans TC", sans-serif;
+  position: absolute;
+  left: calc(50% - 100px);
+  bottom: 40px;
+  -webkit-animation: popgo 2s ease-in-out;
+          animation: popgo 2s ease-in-out;
+}
+#popup .pop .promosback .popgo:hover {
+  background: #FF5E00;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@-webkit-keyframes popgo {
+  0% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+            box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+  }
+  75% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+            box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+@keyframes popgo {
+  0% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+            box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+  }
+  75% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+            box-shadow: 0 0px 6px 1px rgba(255, 255, 255, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.3);
+  }
+}
+#popup .pop .promosback .closepop {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  position: absolute;
+  left: calc(50% - 15px);
+  bottom: -20px;
+  opacity: 0.7;
+  -webkit-animation: closepop 2.3s ease-in-out;
+          animation: closepop 2.3s ease-in-out;
+}
+#popup .pop .promosback .closepop:hover {
+  opacity: 1;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+@-webkit-keyframes closepop {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes closepop {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#popup .pop.promosbackpopup {
+  overflow-y: unset;
 }
 
 .Submit,

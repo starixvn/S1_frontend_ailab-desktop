@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import i18next from "i18next";
 import { isDateRange } from "@ailab-desktop/common";
+import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
 import { AngpaoFloatLink } from "@ailab-desktop/components";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
 import path from "../../router";
@@ -43,16 +44,21 @@ import { angPaoEventPeriod } from "../../pages/angpao";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { defMenuLinks } from "../layout/header.menu.def";
 import RecentlyViewedGameList from "./recentlyViewedGameList";
+import { defDeviceType } from "../../service/api/base";
 
 function Home() {
 	const { t } = useTranslation();
-	const { setPopBox, errorPopBox } = usePopBox();
+
+	const { setPopBox, errorPopBox, closePopBox } = usePopBox();
 
 	const isMountedRef = useRef(null);
 
 	const { userInfo } = useContext(userInfoContext);
 	const { setIsRoot } = useContext(isRootContext);
 	const { allMaintainList } = useContext(maintainListContext);
+
+	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
+	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
 
 	const { videoList } = useGetVideo({
 		langId: userInfo.langId,
@@ -189,10 +195,83 @@ function Home() {
 			}
 		};
 
+		const displayPromotionPopup = () => {
+			const cookieName = `popUpPromotion${userInfo.userName}`;
+
+			// * 如果未登入 or 當日觸發過 則直接進入下一個彈窗
+			if (
+				!userInfo.isLogin ||
+				!userInfo.accountName ||
+				readCookie(cookieName) === "1"
+			) {
+				openNextPopUp();
+				return;
+			}
+
+			// * 如果 bonusCode 不為 null ，打開並記錄 cookie，效期為一日
+			getPopUpPromotion({
+				deviceType: defDeviceType.Desktop,
+				langId: userInfo.langId
+			}).then(({ data: { data: { bonusCode } = {} } = {} }) => {
+				if (bonusCode) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.Modal,
+						content: (
+							<div id="popup" className="active">
+								<div className="pop promosbackpopup">
+									<div className="promosback active">
+										<div className="promosback-pop">
+											<img
+												src={`${
+													process.env
+														.REACT_APP_BANNER_URL
+												}/desktop/img/promosBackPopup/promosPopup-${
+													userInfo?.langId || "en"
+												}.png`}
+												alt="img-promosPopup"
+											/>
+
+											<button
+												className="popgo"
+												onClick={() => {
+													navigate(
+														`/${path.promotion.root}?bonusCode=${bonusCode}`
+													);
+												}}
+											>
+												{t(
+													"promotion.lbl_promo_claim_now"
+												)}
+											</button>
+
+											<img
+												src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/promosBackPopup/delet.png`}
+												alt="img-delet"
+												className="closepop"
+												onClick={() => {
+													closePopBox();
+													openNextPopUp();
+												}}
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+						)
+					});
+					setCookie(cookieName, "1", 1);
+				} else {
+					openNextPopUp();
+				}
+			});
+		};
+
 		const popUpStack = [
 			displayDepositPopup,
 			displayNewYearPopup,
-			displayAnnouncePopup
+			displayAnnouncePopup,
+			displayPromotionPopup
 		];
 
 		const openNextPopUp = () => {
@@ -203,22 +282,24 @@ function Home() {
 			}
 		};
 		!userInfo.isResetPwd && openNextPopUp();
-	}, [userInfo.isLogin, setPopBox, userInfo.langId, userInfo.userName]);
+	}, [userInfo.isLogin, setPopBox, userInfo.langId, userInfo.accountName]);
 
 	useEffect(() => {
 		const popBoxMsg = readCookie("popBoxMsg");
 		if (popBoxMsg) {
-			const closePopBox = () => {
-				deleteCookie("popBoxMsg");
-				setPopBox({ isOpen: false });
-			};
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.ErrorMsg,
 				message: popBoxMsg,
 				btnBar: (
 					<div className="btnGroup">
-						<button className="btn-cancel" onClick={closePopBox}>
+						<button
+							className="btn-cancel"
+							onClick={() => {
+								deleteCookie("popBoxMsg");
+								closePopBox();
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
