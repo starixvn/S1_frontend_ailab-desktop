@@ -1,4 +1,5 @@
 export const defPopBoxType = {
+	Modal: "Modal",
 	Cancel: "Cancel",
 	UploadBankSlip: "UploadBankSlip",
 	Success: "Success",
