@@ -12,8 +12,6 @@ export default () => {
 			const Modal = lazy(() => import("./popBox.modal"));
 			content = (
 				<Modal
-					icon={popBox.icon}
-					title={popBox.title}
 					closePopBox={popBox.closePopBox}
 					content={popBox.content}
 				/>

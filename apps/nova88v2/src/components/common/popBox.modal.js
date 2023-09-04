@@ -5,11 +5,7 @@ import useClickOutSide from "../hook/useClickOutSide";
 const PopBoxModule = ({ closePopBox, content }) => {
 	const ref = useClickOutSide(() => closePopBox());
 
-	return (
-		<div ref={ref} className="Success active">
-			{content}
-		</div>
-	);
+	return <div ref={ref}>{content}</div>;
 };
 
 export default PopBoxModule;
