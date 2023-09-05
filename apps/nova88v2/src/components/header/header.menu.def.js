@@ -339,11 +339,11 @@ export const defSubListClassName = {
 	appDownload: "appList",
 	sports: "sportsList",
 	exchange: "exchangeList",
-	eSports: "eSportsList",
+	esports: "eSportsList",
 	slot: "casinoList",
 	casino: "livecasinoList",
 	poker: "pokerList",
-	games: "tableList",
+	game: "tableList",
 	lottery: "gameList",
 	fishing: "fishList",
 	promotion: "promoList",
@@ -400,12 +400,8 @@ export const defMenuLinks = {
 			}
 		]
 	},
-	appDownload: {
-		className: "icon icon-mobile",
-		path: path.appDownload.root
-	},
 	rewards: {
-		className: "rewardsbtn",
+		className: "reward",
 		allowCurrencies: allowedCurrencyList.rewards,
 		href: `${config.openURL}/rewards/`
 	},
@@ -543,7 +539,7 @@ export const defMenuLinks = {
 			}
 		]
 	},
-	eSports: {
+	esports: {
 		displayKey: "lbl_eSports",
 		className: "eSportsbtn",
 		path: path.eSport.root,
@@ -818,7 +814,7 @@ export const defMenuLinks = {
 				className: "liveAG",
 				icon: "icon icon-AG",
 				displayText: "Asia Gaming",
-				listNpcImgUrl: "casino-AG.png",
+				listNpcImgUrl: "casino-ag.png",
 				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_AG,
@@ -861,7 +857,7 @@ export const defMenuLinks = {
 				keyName: "slot_AdvantPlay",
 				displayText: "AdvantPlay",
 				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotapnew.png",
+				listNpcImgUrl: "slotap.png",
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_AdvantPlay },
 				parameter: { provider: "advant-play" },
@@ -1132,7 +1128,7 @@ export const defMenuLinks = {
 	// 	className: "pokerbtn",
 	// 	allowCurrencies: allowedCurrencyList.oneGame
 	// },
-	games: {
+	game: {
 		displayKey: "lbl_Games",
 		path: path.game.root,
 		filterByAuth: true,

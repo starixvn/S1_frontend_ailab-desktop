@@ -36,14 +36,16 @@ export class Dropdown extends Component {
 
 	clickDropdown = e => {
 		e.preventDefault();
+		e.stopPropagation();
 		this.setState(prev => ({ isOpen: !prev.isOpen }));
 	};
 
 	selectItem = (value, currencyId, newPath, e) => {
 		e.stopPropagation();
 		this.setState({ isOpen: false });
+
 		if (
-			value !== this.props.selectedValue ||
+			value !== this.props.langId ||
 			currencyId !== this.props.selectedCurrencyId
 		) {
 			if (this.props.isLogin) {
@@ -61,8 +63,7 @@ export class Dropdown extends Component {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={this.props.clickClose}
-										>
+											onClick={this.props.clickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -80,8 +81,7 @@ export class Dropdown extends Component {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={this.props.clickClose}
-									>
+										onClick={this.props.clickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -116,7 +116,7 @@ export class Dropdown extends Component {
 				<div className={`flag ${_group}`}>
 					{this.props.defLangGroup[_group].map(item => {
 						if (
-							item.value === this.props.selectedValue &&
+							item.value === this.props.langId &&
 							item.currencyId === this.props.selectedCurrencyId
 						) {
 							icon = _group;
@@ -129,8 +129,7 @@ export class Dropdown extends Component {
 									item.value,
 									item.currencyId,
 									getNewLanguagePath(item.value)
-								)}
-							>
+								)}>
 								{item.displayText}
 							</button>
 						);
@@ -140,21 +139,25 @@ export class Dropdown extends Component {
 		));
 
 		const selected = (
-			<button className={`flag ${icon}`}>
-				{/* {defLangDisplayText[this.props.selectedValue]} */}
+			<button
+				style={{ whiteSpace: "nowrap" }}
+				className={`flag ${icon} arrow`}>
+				{this.props?.selectedValue && this.props.selectedValue}
 			</button>
 		);
 
 		return (
 			<div
-				className={`${this.props.className}${
-					this.state.isOpen ? " active" : ""
-				}`}
+				className={this.props.className}
 				ref={this.wrapper}
-				onClick={this.clickDropdown}
-			>
+				onClick={this.clickDropdown}>
 				{selected}
-				<div className={this.props.subClassName}>{rows}</div>
+				<div
+					className={`${this.props.subClassName} ${
+						this.state.isOpen ? " active" : ""
+					}`}>
+					{rows}
+				</div>
 			</div>
 		);
 	}
@@ -172,6 +175,7 @@ Dropdown.propTypes = {
 	subClassName: PropTypes.string.isRequired,
 	mainKey: PropTypes.string.isRequired,
 	selectedValue: PropTypes.string.isRequired,
+	langId: PropTypes.string.isRequired,
 	isLogin: PropTypes.bool.isRequired,
 	defLangGroupCountry: PropTypes.objectOf(PropTypes.any).isRequired,
 	defLangGroup: PropTypes.objectOf(PropTypes.array).isRequired,

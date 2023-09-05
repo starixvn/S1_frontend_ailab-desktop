@@ -5,6 +5,7 @@ import React, {
 	useEffect,
 	useRef
 } from "react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import moment from "moment";
@@ -143,12 +144,20 @@ class Dropdown extends Component {
 
 		return (
 			<div
-				className={`wallet icon icon-balance${
-					this.state.isOpen ? " active" : ""
-				}`}
+				className={classNames("home-balance", {
+					active: this.state.isOpen
+				})}
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
-				<span>
+				<a className="wallet"> {this.props.i18n("lbl_Balance")} </a>
+
+				<div className="balance-money">
+					<ReloadSpin
+						className="icon-spinner"
+						btnActive={false}
+						func={this.props.RefreshAllWallets}
+					/>
+
 					{`${
 						this.props.currencyId === 51
 							? "VNĐ"
@@ -156,20 +165,19 @@ class Dropdown extends Component {
 									`Currency_${this.props.currencyId}`
 							  )
 					} ${isHideBalance ? "" : balance}`}
-				</span>
-				<button
-					aria-label="HandleDisplayBalance"
-					value={!isHideBalance}
-					onClick={_handleIsHideBalance}
-					className={`icon icon-${isHideBalance ? "plus" : "minus"}`}
-				/>
 
-				<ReloadSpin
-					btnActive={false}
-					func={this.props.RefreshAllWallets}
-				/>
+					<button
+						aria-label="HandleDisplayBalance"
+						value={!isHideBalance}
+						onClick={_handleIsHideBalance}
+						className={classNames({
+							"icon-plus": !isHideBalance,
+							"icon-minus": isHideBalance
+						})}
+					/>
+				</div>
 
-				<div className="submenu">
+				<div className="balance-submenu">
 					<div className="balance">
 						<span>
 							{`${this.props.i18n(
@@ -243,8 +251,8 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet, _isConvert }) => {
 			</div>
 			{bonusWallets.map(item => {
 				return (
-					<div key={`header-bonuswallet-${item.tpId}`}>
-						<div>
+					<React.Fragment key={`header-bonuswallet-${item.tpId}`}>
+						<div className="bouns">
 							<span>
 								{i18n(
 									`lbl_BonusWallet_${item.promoCategoryId}`
@@ -256,7 +264,7 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet, _isConvert }) => {
 							turnover={item.turnover}
 							rollover={item.rollover}
 						/>
-					</div>
+					</React.Fragment>
 				);
 			})}
 		</div>

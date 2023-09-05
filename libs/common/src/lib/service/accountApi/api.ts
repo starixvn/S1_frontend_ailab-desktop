@@ -75,6 +75,21 @@ export const accountApi = rootApi.injectEndpoints({
 				url: "Account/getReferralCode",
 				method: "POST"
 			})
+		}),
+		getCustVIPProgress: builder.query<
+			IAxiosResponse<{
+				currentVipLevel: null | number;
+				upDeposit: null | number;
+				actualDeposit: null | number;
+				downDeposit: null | number;
+				downTurnover: null | number;
+			}>,
+			null
+		>({
+			query: () => ({
+				url: "Account/GetCustVIPProgress",
+				method: "POST"
+			})
 		})
 	})
 });
@@ -83,5 +98,6 @@ export const {
 	useLazyGetRefFriendDetailQuery,
 	useLazyGetReferralSettingDetailQuery,
 	useGetReferralSummaryV2Query,
-	useGetReferralCodeQuery
+	useGetReferralCodeQuery,
+	useGetCustVIPProgressQuery
 } = accountApi;

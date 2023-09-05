@@ -1,17 +1,23 @@
-import React, { memo, useEffect, useRef, useState } from "react";
+import React, { memo, useContext, useEffect, useRef, useState } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
 import Swiper from "react-id-swiper";
+import { userInfoContext } from "../common/context";
 import { SetPathParameter } from "../common/swipperBanner";
 import path from "../../router";
 import { api_hotEvent_GetDataList } from "../../service/api/hotevent";
 
-const EventSwipper = memo(({ langId }) => {
+const EventSwipper = memo(() => {
+	const { userInfo } = useContext(userInfoContext);
+	const { langId } = userInfo ?? {};
+	const [showNavigation, setShowNavigation] = useState(false);
+	const [rebuildOnUpdate, setRebuildOnUpdate] = useState(false);
 	const [banner, setBanner] = useState([]);
 	const timeRef = useRef(null);
 	const getHotEventDataList = () => {
+		setRebuildOnUpdate(true);
 		api_hotEvent_GetDataList({ langId }).then(
 			res => {
 				const { errorCode, data } = res.data;
@@ -23,6 +29,7 @@ const EventSwipper = memo(({ langId }) => {
 				// errorPopBox();
 			}
 		);
+		setTimeout(() => setRebuildOnUpdate(false), 3000);
 	};
 
 	useEffect(() => {
@@ -81,38 +88,39 @@ const EventSwipper = memo(({ langId }) => {
 	});
 
 	const defSwipperConfig = {
-		slidesPerView: 2,
-		spaceBetween: 5,
-		// centeredSlides: true,
-		loop: true,
-		autoplay: {
-			delay: 2500,
-			disableOnInteraction: false
+		slidesPerView: 4.1,
+		spaceBetween: 10,
+		rebuildOnUpdate,
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev"
 		},
-		// autoplay: false,
-		// pagination: {
-		// 	el: ".swiper-pagination",
-		// 	clickable: true
-		// },
-		rebuildOnUpdate: true,
-		containerClass: "swiper-container matchesSwiper"
+		renderPrevButton: () => (
+			<div
+				style={{ opacity: showNavigation ? 1 : 0.2 }}
+				className="swiper-button-prev"
+			/>
+		),
+		renderNextButton: () => (
+			<div
+				style={{ opacity: showNavigation ? 1 : 0.2 }}
+				className="swiper-button-next"
+			/>
+		)
 	};
 
-	const params = {
-		...defSwipperConfig
-	};
-
-	return rows && rows.length > 0 ? <Swiper {...params}>{rows}</Swiper> : null;
+	return rows && rows.length > 0 ? (
+		<div
+			className="hotmatchswiper"
+			onMouseOver={() => setShowNavigation(true)}
+			onMouseOut={() => setShowNavigation(false)}
+			onFocus={() => 0}
+			onBlur={() => 0}
+		>
+			<Swiper {...defSwipperConfig}>{rows}</Swiper>
+		</div>
+	) : null;
 });
-
-EventSwipper.defaultProps = {
-	currencyId: null
-};
-
-EventSwipper.propTypes = {
-	langId: PropTypes.string.isRequired,
-	currencyId: PropTypes.number
-};
 
 const HotEventContent = ({
 	battleTime,
@@ -142,48 +150,39 @@ const HotEventContent = ({
 
 	return (
 		<div className="swiper-slide">
-			<div className="hotevent">
-				<img src={backgroundPic} alt="hotevent-bg-img" />
-
-				<div className="team" onClick={OnClickEvent}>
-					<div className="gamename">{sportLeaguesTitle}</div>
+			<div className="hotmatch-item">
+				<div className="hotmatch-item-title">
+					<p>{sportLeaguesTitle}</p>
 					<div>
-						<div className="teamL">
-							<div>
-								<img src={homeTeamPic} alt={homeTeamName} />
-							</div>
+						{date}
+						<div>{time}</div>
+					</div>
+				</div>
+				<div className="hotmatch-item-center">
+					<div className="team-content">
+						<div className="team-item">
+							<img src={homeTeamPic} alt="" />
 							<div>{homeTeamName}</div>
-
-							<div>{homeTeamHandicap}</div>
 						</div>
-						<div className="btnGroup">
-							<button className="orange">
-								{t("lbl_BetNow")}
-							</button>
-						</div>
-						<div className="teamR">
-							<div>
-								<img src={awayTeamPic} alt={awayTeamName} />
-							</div>
-							<div> {awayTeamName}</div>
-							<div>{awayTeamHandicap}</div>
+						<div className="odds">
+							<span>{homeTeamHandicap}</span>
+							<span>{homeOdds}</span>
 						</div>
 					</div>
-					<div className="odds">
-						<div>
-							<div>{homeOdds}</div>
-							<div>{t("lbl_Home_HomeTeam")}</div>
+					<div className="team-content">
+						<div className="team-item">
+							<img src={awayTeamPic} alt="" />
+							<div>{awayTeamName}</div>
 						</div>
-						<div>
-							<div>{date}</div>
-							<div>{time}</div>
-						</div>
-						<div>
-							<div>{awayOdds}</div>
-							<div>{t("lbl_Home_AwayTeam")}</div>
+						<div className="odds">
+							<span>{awayTeamHandicap}</span>
+							<span>{awayOdds}</span>
 						</div>
 					</div>
 				</div>
+				<button className="bet-btn" onClick={OnClickEvent}>
+					{t("lbl_BetNow")}{" "}
+				</button>
 			</div>
 		</div>
 	);

@@ -119,8 +119,7 @@ export const useGetBanner = ({ langId, ImgFolder, currencyId }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -142,8 +141,7 @@ export const useGetBanner = ({ langId, ImgFolder, currencyId }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}
-								>
+									}}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -229,8 +227,7 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 										: config.openURL
 							  }${redirectLink}`
 							: `/${userInfo.langId}${redirectLink}`
-					}
-				>
+					}>
 					<img
 						src={b.bannerPCUrl}
 						className="banner"
@@ -243,8 +240,7 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 		return (
 			<button
 				key={`${userInfo.langId}-${bIdx}`}
-				onClick={() => handleClick(b)}
-			>
+				onClick={() => handleClick(b)}>
 				<img
 					src={b.bannerPCUrl}
 					className="banner"
@@ -277,7 +273,11 @@ const defSwipperConfig = {
 		delay: 5000,
 		disableOnInteraction: false
 	},
-	rebuildOnUpdate: true
+	rebuildOnUpdate: true,
+	pagination: {
+		el: ".swiper-pagination",
+		clickable: true
+	}
 };
 
 export const Autoplay = ({ Rows, className }) => {
@@ -308,6 +308,7 @@ export const AutoPlayWithBtn = ({ Rows, className }) => {
 			nextEl: ".swiper-button-next",
 			prevEl: ".swiper-button-prev"
 		},
+
 		getSwiper: obj => {
 			ref.current = obj;
 		},
