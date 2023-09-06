@@ -201,6 +201,84 @@ header input:focus-within {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
+.header > div .splogo {
+  position: absolute;
+  right: -68px;
+  bottom: 45px;
+  width: 55px;
+  height: 55px;
+  background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+  -webkit-animation: splogo 3.5s ease-in-out infinite;
+          animation: splogo 3.5s ease-in-out infinite;
+}
+@-webkit-keyframes splogo {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0.1;
+  }
+  5% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  45% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  50% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0;
+  }
+  51% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0.1;
+  }
+  56% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  95% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0;
+  }
+}
+@keyframes splogo {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0.1;
+  }
+  5% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  45% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  50% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0;
+  }
+  51% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0.1;
+  }
+  56% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  95% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0;
+  }
+}
 .header > div.menu {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -260,6 +338,22 @@ header input:focus-within {
   width: 112px;
   height: 60px;
   background: url(https://banner.0814media.net/desktop/img/event/worldcup/xs-logo.png) center no-repeat;
+}
+.header > div.menu > div > a.rewardsbtn::before,
+.header > div.menu > div > button.rewardsbtn::before {
+  display: block;
+  content: "";
+  width: 45px;
+  height: 45px;
+  background: url(https://banner.0814media.net/desktop/img/88rewards_w.png) center top/cover;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.header > div.menu > div > a.rewardsbtn:hover::before,
+.header > div.menu > div > button.rewardsbtn:hover::before {
+  background: url(https://banner.0814media.net/desktop/img/88rewards.png) center top/cover;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 .header > div.menu > div > a.cryptobtn::before,
 .header > div.menu > div > button.cryptobtn::before {

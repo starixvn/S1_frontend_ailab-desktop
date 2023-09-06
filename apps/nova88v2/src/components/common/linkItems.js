@@ -176,7 +176,8 @@ export default ({
 						onClick={isInMaintain ? () => null : showLogin}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
-						onFocus={() => 0}>
+						onFocus={() => 0}
+					>
 						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
 					</button>
@@ -218,7 +219,8 @@ export default ({
 													setPopBox({
 														isOpen: false
 													});
-												}}>
+												}}
+											>
 												{t("lbl_Close")}
 											</button>
 										</div>
@@ -236,7 +238,8 @@ export default ({
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						onClick={onClickHandler}
-						onFocus={() => 0}>
+						onFocus={() => 0}
+					>
 						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
 					</a>
@@ -249,7 +252,8 @@ export default ({
 						key={key}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
-						onFocus={() => 0}>
+						onFocus={() => 0}
+					>
 						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
 					</button>
@@ -294,7 +298,8 @@ export default ({
 						className={_className}
 						onClick={
 							isInMaintain ? () => null : showLinkOptionsPopBox
-						}>
+						}
+					>
 						{displayText}
 					</button>
 				);
@@ -315,7 +320,8 @@ export default ({
 					key={key}
 					to={_url}
 					className={_className}
-					onMouseOver={_showSubMenu.bind(this, key)}>
+					onMouseOver={_showSubMenu.bind(this, key)}
+				>
 					<div className={iconStrings}>{iconContent}</div>
 					{displayText}
 				</Link>
@@ -324,7 +330,8 @@ export default ({
 					key={key}
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}
-					onFocus={() => 0}>
+					onFocus={() => 0}
+				>
 					<div className={iconStrings}>{iconContent}</div>
 					{displayText}
 				</button>
@@ -343,18 +350,37 @@ export default ({
 					key={key}
 					to={`/${langId}/${_path}`}
 					onMouseOver={_showSubMenu.bind(this, key)}
-					className={_className}>
+					className={_className}
+				>
 					<div className={iconStrings}>{iconContent}</div>
 					{displayText}
 				</Link>
 			);
 		}
+
+		// href 另開新視窗
+		if (m.href && isAllowCurrencies(m)) {
+			return (
+				<a
+					key={key}
+					href={m.href}
+					target="_blank"
+					className={_className}
+					rel="noreferrer"
+				>
+					<div className={iconStrings}>{iconContent}</div>
+					{displayText}
+				</a>
+			);
+		}
+
 		return isAllowCurrencies(m) ? (
 			<button
 				key={key}
 				onMouseOver={_showSubMenu.bind(this, key)}
 				className={_className}
-				onFocus={() => 0}>
+				onFocus={() => 0}
+			>
 				<div className={iconStrings}>{iconContent}</div>
 				{displayText}
 			</button>

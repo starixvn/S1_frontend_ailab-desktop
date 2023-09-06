@@ -20,8 +20,6 @@ import LanguageDropDown from "./header.langDropdown";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
-import { langAndCurrMapping } from "../common/common";
-import allowedCurrencyList from "../../datas/allowedCurrencyList";
 import { angPaoEventPeriod } from "../../pages/angpao";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 
@@ -32,9 +30,6 @@ export default () => {
 	const { allMaintainList } = useContext(maintainListContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { isRoot } = useContext(isRootContext);
-
-	const currencyId =
-		userInfo.currencyId ?? langAndCurrMapping[userInfo.langId];
 
 	const handleLogout = () => {
 		LOGOUT(() => {
@@ -133,20 +128,7 @@ export default () => {
 							/>
 						</>
 					)}
-
-					{allowedCurrencyList.rewards.includes(currencyId) && (
-						<a
-							className="rewardsLogo"
-							target="_blank"
-							href={`${config.openURL}/rewards/`}
-							rel="noreferrer"
-						>
-							<img
-								src={`${bannerImgUrl}/desktop/img/88rewards.png`}
-								alt="Rewards"
-							/>
-						</a>
-					)}
+					<a className="splogo" />
 
 					{/* 僅限過年期間顯示 */}
 					{isDateRange(angPaoEventPeriod) && (

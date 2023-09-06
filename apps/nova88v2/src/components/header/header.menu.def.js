@@ -9,6 +9,7 @@ import {
 import { defCurrencyList } from "../common/common";
 import { getLeaderBoardSupportCurrencyId } from "../leaderBoard/leaderBoard.def";
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
+import config from "../../config";
 
 // PP 移除時間
 const ppDestroyDate = "2023-02-28 23:00:00";
@@ -403,16 +404,10 @@ export const defMenuLinks = {
 		className: "icon icon-mobile",
 		path: path.appDownload.root
 	},
-	cryptoSports: {
-		className: "cryptobtn",
-		menuType: defMenuType.entPage,
-		productInfo: { ...productList.cryptoSports },
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.sports_cryptoSports
-			})
-		]
+	rewards: {
+		className: "rewardsbtn",
+		allowCurrencies: allowedCurrencyList.rewards,
+		href: `${config.openURL}/rewards/`
 	},
 	sports: {
 		displayKey: "lbl_Sports",
