@@ -105,3 +105,5 @@ export const api_site_GetSocialChannel = ({
 
 export const api_site_GetRecaptchaInfo = () =>
 	siteRequest.post("/GetRecaptchaInfo");
+
+export const api_site_GetIpCountry = () => siteRequest.post("/GetIpCountry");
