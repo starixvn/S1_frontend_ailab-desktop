@@ -20,7 +20,7 @@ import {
 import defPopBoxType from "../common/defPopBoxType";
 
 import { api_account_GetWalletInfo } from "../../service/api/account";
-import { defBannerType } from "../../service/api/site";
+import { defBannerType, api_site_GetIpCountry } from "../../service/api/site";
 import SwipperBanner from "../common/swipperBanner";
 import Marquee from "./marquee";
 import path from "../../router";
@@ -185,7 +185,70 @@ const IndexPage = () => {
 			});
 		};
 
-		const popUpStack = [displayDepositPopup, displayPromotionPopup];
+		// * 期限六個月移除 上PRD 時需更新
+		const expiredDisclaimerForVndDate = new Date(2024, 3, 13);
+		const disclaimerForVnd = async () => {
+			const nowDate = new Date();
+			if (nowDate > expiredDisclaimerForVndDate) {
+				openNextPopUp();
+				return;
+			}
+
+			const cookieName = "disclaimerForVnd";
+			const { data: { data: ipCountryData = {} } = {} } =
+				await api_site_GetIpCountry();
+			// * 如果未登入 or 當日觸發過 則直接進入下一個彈窗
+			if (
+				// * 等同於lodash isEmpty
+				Object.keys(ipCountryData).length === 0 ||
+				ipCountryData.code !== "VN" ||
+				readCookie(cookieName) === "1"
+			) {
+				openNextPopUp();
+				return;
+			}
+			const showLang =
+				ipCountryData.code === "VN" && userInfo.langId === "vn"
+					? "vn"
+					: "en";
+
+			setCookie(cookieName, "1", 1);
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Modal,
+				content: (
+					<div className="pop vnpop">
+						<div className="vninfopop active">
+							<div className="vninfopop-inner">
+								<img
+									src={`https://banner.0814media.net/desktop/img/disclaimer-vnd-currency-popup-${showLang}.png`}
+									alt=""
+								/>
+								<button
+									className="popgoto"
+									onClick={() => setPopBox({ isOpen: false })}
+								>
+									{/* 這裡只有 vn en 語系 故不用i18n  */}
+									JoinNow
+								</button>
+								<img
+									onClick={() => setPopBox({ isOpen: false })}
+									src="https://banner.0814media.net/desktop/img/promosBackPopup/delet.png"
+									alt=""
+									className="closepop"
+								/>
+							</div>
+						</div>
+					</div>
+				)
+			});
+		};
+
+		const popUpStack = [
+			displayDepositPopup,
+			displayPromotionPopup,
+			disclaimerForVnd
+		];
 
 		const openNextPopUp = () => {
 			if (popUpStack.length) {

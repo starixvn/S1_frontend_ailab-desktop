@@ -5330,6 +5330,7 @@ input[type=file] {
   max-height: calc(100% - 160px);
   overflow-y: auto;
   @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
 }
 #popup .pop.photo img {
   max-width: 800px;
@@ -6051,6 +6052,159 @@ input[type=file] {
   }
 }
 #popup .pop.promosbackpopup {
+  overflow-y: unset;
+}
+#popup .pop .vninfopop {
+  background: transparent;
+  padding-top: unset;
+  border-radius: unset;
+  display: none;
+}
+#popup .pop .vninfopop.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#popup .pop .vninfopop-inner {
+  width: 100%;
+  margin-bottom: 200px;
+  position: relative;
+  -webkit-animation: vninfopop-inner 1.5s ease-in-out;
+          animation: vninfopop-inner 1.5s ease-in-out;
+}
+#popup .pop .vninfopop-inner::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 30px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(30, 93, 170)), color-stop(74%, rgb(17, 49, 88)));
+  background: linear-gradient(180deg, rgb(30, 93, 170) 0%, rgb(17, 49, 88) 74%);
+  border-radius: 0 0 30px 30px;
+}
+@-webkit-keyframes vninfopop-inner {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  50% {
+    -webkit-transform: scale(1.05, 1.05);
+            transform: scale(1.05, 1.05);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+@keyframes vninfopop-inner {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  50% {
+    -webkit-transform: scale(1.05, 1.05);
+            transform: scale(1.05, 1.05);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+#popup .pop .vninfopop .popgoto {
+  color: #fff;
+  min-width: 150px;
+  background: #113158;
+  padding: 10px 0px;
+  border-radius: 26px;
+  -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 14px;
+  position: absolute;
+  left: calc(50% - 5px);
+  bottom: calc(50% - 25px);
+  -webkit-animation: popgoto 2s ease-in-out;
+          animation: popgoto 2s ease-in-out;
+}
+#popup .pop .vninfopop .popgoto:hover {
+  background: #ff5e00;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@-webkit-keyframes popgoto {
+  0% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+  }
+  75% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+  }
+  88% {
+    opacity: 1;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    opacity: 1;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+@keyframes popgoto {
+  0% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+  }
+  75% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+  }
+  88% {
+    opacity: 1;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    opacity: 1;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+#popup .pop .vninfopop .closepop {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0.7;
+  -webkit-animation: closepop 2.3s ease-in-out;
+          animation: closepop 2.3s ease-in-out;
+}
+#popup .pop .vninfopop .closepop:hover {
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@keyframes closepop {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  88% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#popup .pop.vnpop {
   overflow-y: unset;
 }
 
