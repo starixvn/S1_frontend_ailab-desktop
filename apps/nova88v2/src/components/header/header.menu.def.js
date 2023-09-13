@@ -1003,6 +1003,17 @@ export const defMenuLinks = {
 				...productList.casino_CQ9
 			},
 			{
+				keyName: "slot_PNG",
+				icon: "icon icon-png",
+				displayText: "Play' n GO",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "casino.png",
+				listBgImgUrl: "slotListHover.png",
+				// parameter: { ...productList.casino_PNG },
+				parameter: { provider: "png" },
+				...productList.casino_PNG
+			},
+			{
 				keyName: "slot_GPI",
 				icon: "icon icon-GPI",
 				displayText: "Game Play",

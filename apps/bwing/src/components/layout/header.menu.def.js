@@ -432,6 +432,14 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.CQ9.name }
 			},
 			{
+				...defCasinoProviders.PNG,
+				className: "PNG",
+				icon: "icon icon-png",
+				displayText: "Play' n GO",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.PNG.name }
+			},
+			{
 				...defCasinoProviders.GPI,
 				className: "GPI",
 				icon: "icon icon-GPI",

@@ -544,6 +544,17 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/cq9-icon.png`
 			},
 			{
+				...defCasinoProviders.PNG,
+				className: "PNG",
+				icon: "icon icon-png",
+				displayText: "Play' n GO",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.PNG.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/png.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/png-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/png-icon.png`
+			},
+			{
 				...defCasinoProviders.GPI,
 				className: "GPI",
 				icon: "icon icon-GPI",
