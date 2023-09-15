@@ -129,7 +129,7 @@ export default () => {
 						</>
 					)}
 
-					{/* <a className="splogo" /> */}
+					<a className="splogo" />
 
 					{/* 僅限過年期間顯示 */}
 					{isDateRange(angPaoEventPeriod) && (
