@@ -544,15 +544,26 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/cq9-icon.png`
 			},
 			{
+				...defCasinoProviders.CQ9,
+				className: "CQ9",
+				icon: "icon icon-cq9",
+				displayText: "CQ9",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.CQ9.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/cq9.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/cq9-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/cq9-icon.png`
+			},
+			{
 				...defCasinoProviders.PNG,
 				className: "PNG",
 				icon: "icon icon-png",
 				displayText: "Play' n GO",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.PNG.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/png.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/png-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/png-icon.png`
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playngo.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playngo-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/playngo-icon.png`
 			},
 			{
 				...defCasinoProviders.GPI,

@@ -433,7 +433,7 @@ export const defMenuLinks = {
 			},
 			{
 				...defCasinoProviders.PNG,
-				className: "PNG",
+				className: "PlaynGo",
 				icon: "icon icon-png",
 				displayText: "Play' n GO",
 				menuType: defMenuType.Link,

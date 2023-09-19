@@ -193,7 +193,7 @@ export default {
 		tpId: 16,
 		tpGameType: 29
 	},
-	casino_PLAYNGO: {
+	casino_PNG: {
 		tpId: 54,
 		tpGameType: 105
 	},
