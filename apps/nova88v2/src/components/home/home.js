@@ -40,6 +40,8 @@ import AppDownload from "./4.0/AppDownload";
 import HonorablePartner from "./4.0/HonorablePartner";
 import OfficialPartner from "./4.0/OfficialPartner";
 import { defTpGameType } from "../../datas/productList";
+import usePopBox from "../hook/usePopBox";
+import { defDeviceType } from "../../service/api/base";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
