@@ -11,8 +11,10 @@ import paths from "../../../router";
 const VipLevel = ({ isVipLevelHighest }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useAuth();
-	const { data: { data: custVIPProgress } = {} } =
-		useGetCustVIPProgressQuery(null);
+	const { data: { data: custVIPProgress } = {} } = useGetCustVIPProgressQuery(
+		null,
+		{ refetchOnMountOrArgChange: true }
+	);
 	const currentVipLevelImgUrl =
 		HEADER_VIP_CLUB_IMG_URL_LIST[custVIPProgress?.currentVipLevel - 1];
 
