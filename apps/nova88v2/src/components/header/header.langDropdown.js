@@ -61,7 +61,7 @@ export const defLangGroups = {
 			currencyId: defCurrencyList.INR
 		},
 		{
-			displayText: "Hindi",
+			displayText: "हिंदी",
 			value: "hi",
 			currencyId: defCurrencyList.INR
 		}
@@ -116,13 +116,13 @@ export const defLangGroups = {
 	]
 };
 
-const getLangs = (langKey, isLogin) => {
+export const getLangs = (langKey, isLogin) => {
 	return isLogin && langKey
 		? { [langKey]: defLangGroups[langKey] }
 		: defLangGroups;
 };
 
-const currencyToLangKey = {
+export const currencyToLangKey = {
 	2: "ch",
 	3: "gb",
 	4: "th",
@@ -134,7 +134,7 @@ const currencyToLangKey = {
 	74: "bd"
 };
 
-const defLangGroupCountry = {
+export const defLangGroupCountry = {
 	ch: "Malaysia",
 	th: "Thailand",
 	id: "Indonesia",
@@ -174,7 +174,7 @@ export default () => {
 				subClassName="countryList"
 				defLangGroup={_defLangGroup}
 				defLangGroupCountry={defLangGroupCountry}
-				selectedValue={userInfo.langId}
+				langId={userInfo.langId}
 				selectedCurrencyId={userInfo.currencyId}
 				isLogin={userInfo.isLogin}
 				isMountedRef={isMountedRef}

@@ -43,6 +43,14 @@
 	"lbl_LiveCasinoInfo3": "ตัวแทนถ่ายทอดสดในเอเชียและยุโรป!",
 	"lbl_InaccessibleWithoutPermission": "ไม่สามารถเข้าถึงได้โดยไม่ได้รับอนุญาต",
 	"lbl_Recently_Viewed": "เข้าชมล่าสุด",
+	"Label_Home_HonorablePartner": "ដៃគូកិត្តិយស",
+	"Label_Home_OurOfficialPartnerOf": "ដៃគូផ្លូវការរបស់យើងនៃ",
+	"Label_Home_StartWinning": "ចាប់ផ្តើមឈ្នះ",
+	"Label_Home_StartWinningDescription": "ចាប់ផ្តើមការឈ្នះរបស់អ្នកពីហ្គេមដែលអ្នកចូលចិត្ត",
+	"Label_Home_GetReward": "ទទួល​បាន​រង្វាន់",
+	"Label_Home_GetRewardDescription": "ទាមទារប្រាក់រង្វាន់របស់អ្នក",
+	"Label_Home_SimpleReferral": "การอ้างอิงสุดง่าย",
+	"Label_Home_SimpleReferralDescription": "ចែករំលែកតំណយោងរបស់អ្នក រីករាយនឹងរង្វាន់ដ៏អស្ចារ្យ",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Odds",
@@ -158,6 +166,7 @@
 	"msg_changePswSuccessHint": "สมาชิกสามารถใช้รหัสผ่านใหม่เมื่อเข้าล็อคอินในครั้งถัดไป",
 	"lbl_Profile": "ข้อมูลส่วนตัว",
 	"lbl_JoinNow": "สมัครเลย",
+	"lbl_Register": "สมัครสมาชิก",
 	"lbl_Login": "เข้าสู่ระบบ",
 	"lbl_Logout": "ออกจากระบบ",
 	"lbl_LastLogin": "การเข้าระบบครั้งสุดท้าย",
@@ -872,9 +881,17 @@
 	"lbl_Diamond_Club": "ไดมอนด์ คลับ",
 	"lbl_Nova_Club": "โนวา คลับ",
 	"lbl_Club": "Club",
+	"Label_Vip_Vintage": "วินเทจ",
+	"Label_Vip_Silver": "ซิลเวอร์",
+	"Label_Vip_Gold": "โกลด์",
+	"Label_Vip_Titanium": "ไททาเนียม",
+	"Label_Vip_Diamond": "ไดมอนด์",
+	"Label_Vip_Nova": "โนวา",
 	"lbl_Vip_LastUpdated": "ล่าสุดเมื่อวันที่",
 	"lbl_DAILY_WITHDRAWAL_LIMITATION": "ยอดถอนสูงสุดต่อวัน",
 	"lbl_DAILY_TRANSACTIONS_COUNT": "จำนวนธุรกรรมรายวัน",
+	"Label_Vip_NextMilestone": "Next Milestone",
+	"Label_Vip_ReachedTheHighestLevel": "Next Milestone",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL": "ฟุตบอล",
@@ -1026,6 +1043,9 @@
 	"lbl_DownloadAppStep3": "คุณจะเปลี่ยนเส้นทางไปที่ 'Mini Puzzle Game' บน AppStore แทนแอป 'Nova88'",
 	"lbl_DownloadAppStep3-1": "คลิก 'Get' เพื่อติดตั้งแอป 'Mini Puzzle Game'",
 	"lbl_DownloadAppStep4": "เปิด 'Mini Puzzle Game' เพื่อเปิดแอป 'Nova88'",
+	"Label_AppDownload_Title": "បញ្ចេញថាមពលនៃកម្មវិធី NOVA <span>88</span> នៅចុងម្រាមដៃរបស់អ្នក!",
+	"Label_AppDownload_SubTitle": "ចុះឈ្មោះថ្ងៃនេះ ដើម្បីទទួលបានរង្វាន់ឥតឈប់ឈរ ការផ្សព្វផ្សាយ និងរង្វាន់ឥតគិតថ្លៃជាច្រើន",
+	"Label_AppDownload_Instructions": "សេចក្តីណែនាំ",
 
 	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promos": "โปรโมชั่น",
@@ -1162,5 +1182,6 @@
 	"Label_Referral_ShareDescription": "แชร์ลิงก์/รหัสเฉพาะของคุณ เพื่อเชิญเพื่อนของคุณ",
 	"Label_Referral_Recharge": "เพื่อนของคุณเติมเงินสำเร็จแล้ว",
 	"Label_Referral_RewardsDescription": "รับรางวัลของคุณ",
-	"Label_Referral_ShareAcrossSocialMedia": "แชร์ผ่านโซเชียลมีเดีย"
+	"Label_Referral_ShareAcrossSocialMedia": "แชร์ผ่านโซเชียลมีเดีย",
+	"Label_Home_JoinDescription": "กรอกข้อมูลเพื่อเข้าสู่ระบบ"
 }

@@ -12,7 +12,6 @@ const Layout = ({
 	children,
 	showHeader = true,
 	showFooter = false,
-	isFullFooter,
 	goTopBtn
 }) => {
 	const isMountedRef = useRef(null);
@@ -28,7 +27,7 @@ const Layout = ({
 		<Provider store={store}>
 			{showHeader ? <Header /> : null}
 			{children}
-			{showFooter ? <Footer isFullFooter={isFullFooter} /> : null}
+			{showFooter ? <Footer /> : null}
 			<PopBox />
 			<Loading />
 			{goTopBtn ? <GoTopBtn /> : null}
@@ -39,7 +38,6 @@ const Layout = ({
 Layout.defaultProps = {
 	showHeader: true,
 	showFooter: false,
-	isFullFooter: false,
 	goTopBtn: true
 };
 
@@ -47,7 +45,6 @@ Layout.propTypes = {
 	children: PropTypes.node.isRequired,
 	showHeader: PropTypes.bool,
 	showFooter: PropTypes.bool,
-	isFullFooter: PropTypes.bool,
 	goTopBtn: PropTypes.bool
 };
 

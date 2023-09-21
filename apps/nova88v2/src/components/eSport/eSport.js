@@ -95,7 +95,7 @@ const Esport = () => {
 				filterByAuth,
 				customSort,
 				subMenu: defMenu
-			} = defMenuLinks.eSports;
+			} = defMenuLinks.esports;
 
 			let menu = sortGameMenu({
 				customSort,

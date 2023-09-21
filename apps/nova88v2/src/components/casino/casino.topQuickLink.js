@@ -42,8 +42,7 @@ const TopQuickLink = ({
 						  }&tpGameType=${
 								defSlotTpGameType[_item?.tpName]?.tpGameType
 						  }`
-				}
-			>
+				}>
 				<img
 					src={`${bannerImgUrl}/desktop/img/venderlogo/${_srcImg}.png`}
 					alt={_item.tpName}
@@ -63,8 +62,7 @@ const TopQuickLink = ({
 									? "active"
 									: ""
 							}
-							to={`/${langId}/${_item.openPath}`}
-						>
+							to={`/${langId}/${_item.openPath}`}>
 							{content}
 						</Link>
 					) : (
@@ -87,8 +85,7 @@ const TopQuickLink = ({
 							)}
 							onMouseOut={handleOnMouseOverImg.bind(this, "")}
 							onBlur={() => 0}
-							onFocus={() => 0}
-						>
+							onFocus={() => 0}>
 							{content}
 						</button>
 					)}
@@ -106,11 +103,11 @@ const TopQuickLink = ({
 	return (
 		<div className="partnerSelect">
 			<Swiper
+				className="swiper-container"
 				key={initialSlide}
 				initialSlide={initialSlide}
 				navigation={true}
-				{...params}
-			>
+				{...params}>
 				{Rows}
 			</Swiper>
 		</div>

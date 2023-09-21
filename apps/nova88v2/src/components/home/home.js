@@ -1,6 +1,6 @@
+import { navigate } from "gatsby";
 import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, navigate } from "gatsby";
 import { isDateRange } from "@ailab-desktop/common";
 import { AngpaoFloatLink } from "@ailab-desktop/components";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
@@ -14,8 +14,7 @@ import {
 	readCookie,
 	setCookie,
 	deleteCookie,
-	getUrlParameter,
-	defCurrencyList
+	getUrlParameter
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 
@@ -26,21 +25,23 @@ import Marquee from "./marquee";
 import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoList from "./promoList";
-import HomeJackpot from "./jackpot";
-import HotGameList from "./hotGameList";
 import MysteryBoxLink from "./mysteryBoxLink";
-import EventSwipper from "./eventSwipper";
-import IndexCenterBanner from "./indexCenterBanner";
-import { HomeNews } from "./homeNews";
-import LatestVideo from "./latestVideo";
 import QuickdownloadLink from "./quickdownloadLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { angpaoAllowedCurrencies, angPaoEventPeriod } from "../../pages/angpao";
-import LiveCasino from "./liveCasino";
-import { bannerImgUrl } from "../../config";
-import RecentlyViewedGameList from "./recentlyViewedGameList";
-import { defDeviceType } from "../../service/api/base";
+import LiveCasino from "./Casino";
+import WelcomeInfo from "./WelcomeInfo";
+import HotMatch from "./HotMatch";
+import { defMenuType } from "../header/header.menu.def";
+import { getUrl } from "../common/linkItems";
+import { GET_OPEN_RULE, OPEN_IN_BLANK } from "../../service/enterPage";
+import HotGame from "./4.0/HotGame";
+import AppDownload from "./4.0/AppDownload";
+import HonorablePartner from "./4.0/HonorablePartner";
+import OfficialPartner from "./4.0/OfficialPartner";
+import { defTpGameType } from "../../datas/productList";
 import usePopBox from "../hook/usePopBox";
+import { defDeviceType } from "../../service/api/base";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
@@ -48,8 +49,60 @@ const IndexPage = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { setIsRoot } = useContext(isRootContext);
 	const { closePopBox } = usePopBox();
+
 	const isMountedRef = useRef(null);
-	const { allMaintainList } = useContext(maintainListContext);
+	const { allMaintainList: maintainList } = useContext(maintainListContext);
+
+	// Nova 4.0 首頁各靜態路徑共用的點擊事件
+	const handleEntryClick = (item, checkLogin = false) => {
+		// * 維護彈窗
+		const isInMaintain = maintainList?.some(
+			mt =>
+				mt.tpId === item.tpId &&
+				(mt.tpGameType === item.tpGameType ||
+					mt.tpGameType === defTpGameType.All)
+		);
+		const showLogin = () => {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
+		};
+
+		if ((checkLogin || item.needLogin) && !userInfo.isLogin) {
+			showLogin();
+			return;
+		}
+
+		if (isInMaintain) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.UnderMaintain,
+				clickClose: () => {
+					setPopBox({ isOpen: false });
+				}
+			});
+			return;
+		}
+
+		if (item.menuType === defMenuType.Link) {
+			if (item.parameter) {
+				navigate(
+					getUrl(`${userInfo.langId}/${item.path}`, item.parameter)
+				);
+			} else {
+				navigate(`/${userInfo.langId}/${item.path}`);
+			}
+		}
+		if (item.menuType === defMenuType.entPage) {
+			const rule = GET_OPEN_RULE(
+				userInfo.langId,
+				item?.tpId,
+				item?.gameId
+			);
+			OPEN_IN_BLANK(rule.entPageUrl, rule.windowKey);
+		}
+	};
 
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
 	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
@@ -159,8 +212,7 @@ const IndexPage = () => {
 												navigate(
 													`/${path.promotion.root}?bonusCode=${bonusCode}`
 												);
-											}}
-										>
+											}}>
 											{t("lbl_ClaimNow")}
 										</button>
 
@@ -226,8 +278,9 @@ const IndexPage = () => {
 								/>
 								<button
 									className="popgoto"
-									onClick={() => setPopBox({ isOpen: false })}
-								>
+									onClick={() =>
+										setPopBox({ isOpen: false })
+									}>
 									{/* 這裡只有 vn en 語系 故不用i18n  */}
 									JoinNow
 								</button>
@@ -274,8 +327,7 @@ const IndexPage = () => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								setPopBox({ isOpen: false });
-							}}
-						>
+							}}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -286,57 +338,32 @@ const IndexPage = () => {
 
 	return (
 		<main>
-			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 			<Marquee />
-			<div className="projpot">
-				<PromoList t={t} userInfo={userInfo} />
-			</div>
-			<div className="liveVideo">
-				<LatestVideo />
-				<div>
-					<div className="moduleTitle">
-						{t("lbl_UPCOMING_MATCHES")}
-					</div>
-					<EventSwipper
-						langId={userInfo.langId}
-						currencyId={userInfo.currencyId}
-					/>
-					{userInfo.currencyId === defCurrencyList.BDT ? (
-						<div className="jpotModule">
-							<div className="moduleTitle">{t("lbl_Slots")}</div>
-							<Link
-								className="slotsbox"
-								to={`/${userInfo.langId}/${path.casino.root}`}
-							>
-								<img
-									src={`${bannerImgUrl}/img/indexslots_bg_${userInfo.langId}.jpg`}
-									alt="slot-bg"
-								/>
-								<img
-									src={`${bannerImgUrl}/img/indexslots_items.png`}
-									alt="slot-item"
-								/>
-							</Link>
-						</div>
-					) : (
-						<HomeJackpot t={t} userInfo={userInfo} />
-					)}
-				</div>
-			</div>
-			<HotGameList
-				t={t}
-				userInfo={userInfo}
-				maintainList={allMaintainList}
+			<SwipperBanner
+				ImgFolder={[defBannerType.Promotions]}
+				className="homebanner"
 			/>
-			{userInfo.isLogin && <RecentlyViewedGameList />}
-			<div className="newsVideo">
-				<HomeNews t={t} userInfo={userInfo} />
+			{/* 未啟用 */}
+			{/* <TeachingBar /> */}
+			<WelcomeInfo handleGameClick={handleEntryClick} />
+			<PromoList userInfo={userInfo} />
+			<HotMatch handleGameClick={handleEntryClick} />
+			<LiveCasino handleGameClick={handleEntryClick} />
+			<HotGame />
+			<AppDownload />
+			<HonorablePartner />
+			<OfficialPartner />
 
-				<LiveCasino />
-			</div>
-			<IndexCenterBanner langId={userInfo.langId} />
-			<SideBarQuickLink />
-			<QuickdownloadLink t={t} />
+			{/* {userInfo.isLogin && <RecentlyViewedGameList />} */}
+			{/* <div className="newsVideo"> */}
+			{/*	<HomeNews t={t} userInfo={userInfo} /> */}
+
+			{/*	<LiveCasino /> */}
+			{/* </div> */}
+
+			{/* 新版本用不到，但有機率市場會想要回來 */}
+			{/* <SideBarQuickLink /> */}
+			{/* <QuickdownloadLink t={t} /> */}
 
 			{/* 僅限過年期間不顯示 */}
 			{!isDateRange(angPaoEventPeriod) && (

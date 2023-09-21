@@ -86,8 +86,7 @@ export default () => {
 				<div
 					className={classNames("logo", {
 						dragon: isDateRange(dragonBoatFestivalEventPeriod)
-					})}
-				>
+					})}>
 					<Link
 						to={`/${userInfo.langId}`}
 						onClick={reload}
@@ -95,8 +94,7 @@ export default () => {
 							dragonlogo: isDateRange(
 								dragonBoatFestivalEventPeriod
 							)
-						})}
-					>
+						})}>
 						{/* moon festival event period */}
 						{isDateRange(moonFestivalEventPeriod) ? (
 							<img
@@ -107,15 +105,12 @@ export default () => {
 							/>
 						) : (
 							<img
-								src={`${bannerImgUrl}/desktop/img/${
-									userInfo.langId === "cs"
-										? "logo_cs"
-										: "logo_en"
-								}.png`}
+								src={`${bannerImgUrl}/desktop/img/4.0/logo_w.png`}
 								alt={config.siteName}
 							/>
 						)}
 					</Link>
+					<a className="splogo" />
 					{isDateRange(dragonBoatFestivalEventPeriod) && (
 						<>
 							<img
@@ -144,16 +139,9 @@ export default () => {
 				</div>
 				<div className="function">
 					<Functions />
-					<LanguageDropDown />
-					{userInfo.isLogin ? null : (
-						<Link
-							to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-							className="forgot"
-						>
-							{t("lbl_ForgetPassword")}
-						</Link>
-					)}
-					<LogoutButton />
+					{!userInfo.isLogin && <LanguageDropDown />}
+
+					{!userInfo.isLogin && <LogoutButton />}
 				</div>
 				<Menu
 					productTpIds={productTpIds}

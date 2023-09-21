@@ -237,7 +237,8 @@ export const currencyIdToCurrency = {
 	15: "IDR",
 	61: "INR",
 	74: "BDT",
-	51: "VND"
+	51: "VND",
+	72: "KHUSD"
 };
 
 export const defCountryList = {
