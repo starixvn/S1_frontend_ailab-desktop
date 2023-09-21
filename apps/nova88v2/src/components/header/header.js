@@ -3,6 +3,7 @@ import { Link, navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import {
 	dragonBoatFestivalEventPeriod,
+	moonFestivalEventPeriod,
 	isDateRange
 } from "@ailab-desktop/common";
 import classNames from "classnames";
@@ -96,10 +97,11 @@ export default () => {
 							)
 						})}
 					>
-						{isDateRange(dragonBoatFestivalEventPeriod) ? (
+						{/* moon festival event period */}
+						{isDateRange(moonFestivalEventPeriod) ? (
 							<img
-								src={`${bannerImgUrl}/desktop/img/dragon-logo${
-									userInfo.langId === "cs" ? "_cs" : ""
+								src={`${bannerImgUrl}/desktop/img/mid-autumn-logo${
+									userInfo.langId === "cs" ? "-cs" : "-en"
 								}.png`}
 								alt={config.siteName}
 							/>
