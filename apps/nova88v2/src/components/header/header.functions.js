@@ -2,27 +2,21 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, navigate } from "gatsby";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import classNames from "classnames";
 import {
 	userInfoContext,
 	popBoxContext,
 	msgCountContext
 } from "../common/context";
 import path from "../../router";
-import DropdownHeader from "../common/dropdown.headerLink";
 import Wallet from "./header.wallet";
-import {
-	defEventIcon,
-	defEventPeriod,
-	showEventIcon
-} from "../common/eventIcon";
 import { LOGIN } from "../../service/auth";
 import { setCookie } from "../common/common";
 import { SiteInfo } from "../../config";
 import { HeaderLogin } from "./header.login";
 import usePopBox from "../hook/usePopBox";
+import { HEADER_VIP_CLUB_IMG_URL_LIST } from "../vip/vip.def";
+import ProfileInfo from "./profile-info";
 import MsgPopup from "./msgPopup";
-import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -147,101 +141,43 @@ BeforeLogin.propTypes = {
 	t: PropTypes.func.isRequired
 };
 
-const defCashierLinks = [
-	{
-		displayKey: "lbl_TransferFunds",
-		href: path.transferFunds.root,
-		allowCurrencies: allowedCurrencyList.transferFunds
-	},
-	{
-		displayKey: "lbl_Withdrawal",
-		href: path.withdrawal.root
-	},
-	{
-		displayKey: "lbl_History",
-		href: path.history.root
-	},
-	{
-		displayKey: "lbl_Deposit",
-		href: path.deposit.root,
-		className: "solid-btn"
-	}
-];
-
 const AfterLogin = ({ t, userInfo, msgCount }) => {
-	const defSettingLinks = [
-		{
-			displayKey: "lbl_Profile",
-			href: path.profile.root
-		},
-		{
-			displayKey: "lbl_BankInfo",
-			href: path.bankInfo.root,
-			allowCurrencies: allowedCurrencyList.bankCard
-		},
-		{
-			displayKey: "lbl_CryptoWallet",
-			href: path.cryptoWallet.root
-		},
-		{
-			displayKey: "lbl_ReferFriends",
-			href: path.referral.root,
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.referral
-				})
-			]
-		},
-		{
-			displayKey: "lbl_ChangePassword",
-			href: path.changePassword.root
-		}
-	];
-
-	const navMenu = defCashierLinks
-		.filter(item =>
-			item.allowCurrencies
-				? item.allowCurrencies.includes(userInfo.currencyId)
-				: true
-		)
-		.map(item => (
-			<Link
-				key={item.displayKey}
-				to={`/${userInfo.langId}/${item.href}`}
-				className={classNames(item.className)}
-			>
-				<span>{t(item.displayKey)}</span>
-			</Link>
-		));
-
-	const filteredSettingLinks = defSettingLinks.filter(
-		el =>
-			!el?.allowCurrencies ||
-			el?.allowCurrencies.includes(userInfo.currencyId)
-	);
-
+	const vipClubImgUrl = HEADER_VIP_CLUB_IMG_URL_LIST[userInfo.userLevel - 1];
 	return (
 		<>
-			{navMenu}
-			<Wallet i18n={t} />
-			<DropdownHeader
-				mainKey="header-settingLink"
-				langId={userInfo.langId}
-				userLevel={userInfo.userLevel}
-				className={`memberfile${
-					userInfo.userLevel ? "" : " icon icon-member"
-				}`}
-				subClassName="submenu"
-				i18n={t}
-				options={filteredSettingLinks}
-				placeholder={userInfo.userName}
-			/>
-			<Link
-				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
-				to={`/${userInfo.langId}/${path.message.root}`}
-			>
+			{/* // * 幣別開放且擁有路徑 */}
+			{vipClubImgUrl && (
+				<Link
+					className="memberinfo"
+					to={`/${userInfo.langId}/${path.profile.root}`}
+				>
+					<img src={vipClubImgUrl} alt="img-vip" />
+				</Link>
+			)}
+
+			<ProfileInfo />
+
+			<div className="message active">
+				<Link to={`/${userInfo.langId}/${path.message.root}`}>
+					<img
+						src="https://banner.0814media.net/desktop/img/4.0/message.png"
+						alt=""
+					/>
+				</Link>
+				{msgCount > 0 && <div className="message-text" />}
+
 				<MsgPopup userInfo={userInfo} />
+			</div>
+
+			<div className="line" />
+
+			<Wallet i18n={t} />
+
+			<Link
+				to={`/${userInfo.langId}/${path.deposit.root}`}
+				className="deposit-btn"
+			>
+				{t("lbl_Deposit")}
 			</Link>
 		</>
 	);

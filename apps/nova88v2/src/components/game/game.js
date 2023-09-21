@@ -95,7 +95,7 @@ const Game = () => {
 				filterByAuth,
 				customSort,
 				subMenu: defMenu
-			} = defMenuLinks.games;
+			} = defMenuLinks.game;
 
 			const menu = sortGameMenu({
 				customSort,

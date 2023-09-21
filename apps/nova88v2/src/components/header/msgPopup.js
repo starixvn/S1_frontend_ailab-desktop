@@ -17,8 +17,7 @@ export default function Component({ userInfo }) {
 			onClick={e => {
 				e.preventDefault();
 				e.stopPropagation();
-			}}
-		>
+			}}>
 			<div
 				onClick={() => {
 					navigate(`/${userInfo.langId}/${path.message.root}`, {
@@ -28,8 +27,7 @@ export default function Component({ userInfo }) {
 							popupShowed: false
 						}
 					});
-				}}
-			>
+				}}>
 				{popUp.popupMessage}
 			</div>
 

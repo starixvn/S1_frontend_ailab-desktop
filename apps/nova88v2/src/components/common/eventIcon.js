@@ -1,8 +1,8 @@
 export const defEventIcon = {
 	new: "icon icon-new",
 	live: "live",
-	new_header: "icon icon-star-full",
-	hot: "icon icon-mediafire"
+	new_header: "icon",
+	hot: "icon mediafire"
 };
 
 export const defEventPeriod = {

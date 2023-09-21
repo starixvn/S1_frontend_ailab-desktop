@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "@reach/router";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
+import { CurrenciesEnum } from "@ailab-desktop/common";
 import * as ct from "./context";
 import { defaultLang } from "../../i18n/config";
 import {
@@ -71,7 +72,7 @@ const getDefaultCurrencyId = () => {
 	if (cookieCurrencyId) {
 		result = Number(cookieCurrencyId);
 	}
-	return result;
+	return result ?? CurrenciesEnum.MY;
 };
 
 export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
@@ -94,7 +95,6 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		typeof window !== `undefined` ? window.location.pathname : null
 	);
 	const [correctPath, setCorrectPath] = useState(false);
-	const [redirectPath, setRedirectPath] = useState(null);
 
 	const { errorPopBox } = usePopBox(setPopBox);
 	const walletInfo = useGetWalletInfo({
@@ -175,7 +175,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}>
+									}}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -195,7 +196,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}>
+									}}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -267,7 +269,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}>
+									}}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -308,7 +311,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -391,7 +395,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 																setPopBox({
 																	isOpen: false
 																});
-															}}>
+															}}
+														>
 															{t("lbl_Close")}
 														</button>
 													</div>
@@ -411,7 +416,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 											className="btn-check"
 											onClick={() => {
 												setPopBox({ isOpen: false });
-											}}>
+											}}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -431,7 +437,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 											className="btn-check"
 											onClick={() => {
 												setPopBox({ isOpen: false });
-											}}>
+											}}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -464,7 +471,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 												setPopBox({
 													isOpen: false
 												});
-											}}>
+											}}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -490,7 +498,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}>
+										}}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -510,7 +519,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}>
+										}}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -610,7 +620,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}>
+										}}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -630,7 +641,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}>
+										}}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -665,25 +677,41 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 			<ct.maintainListContext.Provider value={{ allMaintainList }}>
 				<ct.productTpIdsContext.Provider value={{ productTpIds }}>
 					<ct.productTpGameTypeSettingListContext.Provider
-						value={{ tpGameTypeSettingList }}>
+						value={{ tpGameTypeSettingList }}
+					>
 						<ct.userInfoContext.Provider
-							value={{ userInfo, setUserInfo }}>
+							value={{
+								userInfo: {
+									...userInfo,
+									currencyName: t(
+										`Currency_${userInfo.currencyId}`
+									)
+								},
+								setUserInfo
+							}}
+						>
+							{/* currencyName: t(`Label_General_Currency_${originUserInfo.currencyId}`), */}
 							<ct.walletInfoContext.Provider
 								value={{
 									...walletInfo.state,
 									dispatch: walletInfo.dispatch
-								}}>
+								}}
+							>
 								<ct.msgCountContext.Provider
-									value={{ msgCount, setMsgCount }}>
+									value={{ msgCount, setMsgCount }}
+								>
 									<ct.popBoxContext.Provider
-										value={{ popBox, setPopBox }}>
+										value={{ popBox, setPopBox }}
+									>
 										<ct.loadingContext.Provider
-											value={{ loading, setLoading }}>
+											value={{ loading, setLoading }}
+										>
 											<ct.isRootContext.Provider
 												value={{
 													isRoot,
 													setIsRoot
-												}}>
+												}}
+											>
 												<ThirdPartyJS />
 
 												{children}

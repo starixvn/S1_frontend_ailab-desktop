@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
@@ -6,6 +7,7 @@ import { bannerImgUrl } from "../../config";
 import { defTpGameType } from "../../datas/productList";
 import { popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
+import { defEventIcon } from "../common/eventIcon";
 
 const SubMenuMultiple = ({
 	menuKey,
@@ -49,16 +51,6 @@ const SubMenuMultiple = ({
 	let className = subMenuItem.className || "";
 	let style = {};
 
-	if (subMenuItem.eventIcons) {
-		let iconStrings = "";
-		for (let i = 0; i < subMenuItem.eventIcons.length; i++) {
-			if (subMenuItem.eventIcons[i] !== "") {
-				iconStrings += ` ${subMenuItem.eventIcons[i]}`;
-			}
-		}
-		className += ` icon${iconStrings}`;
-	}
-
 	if (isInMaintain) {
 		className += ` active`;
 		style = { pointerEvents: "none" };
@@ -66,9 +58,15 @@ const SubMenuMultiple = ({
 
 	const pathLink = subMenuItem.path || defMenuLinks[menuKey].path;
 
+	// * 4.0 單一圖片來源
+	const npmImg = `${process.env.REACT_APP_BANNER_URL}/desktop/img/4.0/${
+		menuKey === "home" ? "" : "dropdown/"
+	}${menuKey === "home" ? "" : `${menuKey}/`}${subMenuItem?.listNpcImgUrl}`;
+
 	const content = (
 		<>
-			<img
+			{/* // * nova88 3.0 的多圖層渲染元件，註解留存 */}
+			{/* <img
 				className="ListBG-left"
 				alt="ListBG-left"
 				src={SubMenuListBGLeftImg}
@@ -90,7 +88,15 @@ const SubMenuMultiple = ({
 			<ImgsBgRender
 				className="List-bg"
 				listImgUrl={subMenuItem.listBgImgUrl}
-			/>
+			/> */}
+
+			{subMenuItem?.eventIcons?.includes(defEventIcon.new) && (
+				<div className="new-icon">NEW</div>
+			)}
+
+			{subMenuItem?.listNpcImgUrl && (
+				<img className="List-npc" src={npmImg} alt="" />
+			)}
 			<span>{displayText}</span>
 			<div className="under">{t("lbl_underMaintenance")}</div>
 		</>
@@ -244,31 +250,8 @@ const SubMenuMultiple = ({
 							betType: subMenuItem?.betType
 					  })
 			}>
-			<img
-				className="ListBG-left"
-				alt="ListBG-left"
-				src={SubMenuListBGLeftImg}
-			/>
-			<img
-				className="ListBG-right"
-				alt="ListBG-right"
-				src={SubMenuListBGRightImg}
-			/>
-			<img
-				className="ListBG-center"
-				alt="ListBG-center"
-				src={SubMenuListBGCenterImg}
-			/>
-			<ImgsNpcRender
-				className="List-npc"
-				listImgUrl={subMenuItem.listNpcImgUrl}
-			/>
-			<ImgsBgRender
-				className="List-bg"
-				listImgUrl={subMenuItem.listBgImgUrl}
-			/>
-			<span>{displayText}</span>
-			<div className="under">{t("lbl_underMaintenance")}</div>
+			{/* // nova88 4.0 改為 單圖渲染方式  */}
+			{content}
 		</button>
 	);
 };
