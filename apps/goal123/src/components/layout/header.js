@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import {
 	dragonBoatFestivalEventPeriod,
-	moonFestivalEventPeriod,
 	isDateRange
 } from "@ailab-desktop/common";
 import classNames from "classnames";
@@ -45,11 +44,7 @@ export default () => {
 				>
 					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
-							src={`${bannerImgUrl}/desktop/img/${
-								isDateRange(moonFestivalEventPeriod)
-									? "mid-autumn-logo"
-									: "logo"
-							}.png`}
+							src={`${bannerImgUrl}/desktop/img/logo.png`}
 							alt={config.siteName}
 						/>
 					</Link>
