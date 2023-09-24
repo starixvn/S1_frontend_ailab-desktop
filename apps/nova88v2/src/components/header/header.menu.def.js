@@ -1012,7 +1012,7 @@ export const defMenuLinks = {
 				icon: "icon icon-png",
 				displayText: "Play' n GO",
 				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotPlayngo.png",
+				listNpcImgUrl: "slotplayngo.png",
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_PNG },
 				parameter: { provider: "png" },
