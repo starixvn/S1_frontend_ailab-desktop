@@ -174,6 +174,12 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.SPRIBE.name },
 		imgName: "spribe"
+	},
+	{
+		...defCasinoProviders.Endorphina,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.Endorphina.name },
+		imgName: "endorphina"
 	}
 ];
 

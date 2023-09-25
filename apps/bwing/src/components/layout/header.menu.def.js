@@ -330,11 +330,18 @@ export const defMenuLinks = {
 				className: "APnew",
 				displayText: "AdvantPlay",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.AdvantPlay.name },
+				parameter: { provider: defCasinoProviders.AdvantPlay.name }
+			},
+			{
+				...defCasinoProviders.Endorphina,
+				className: "Endorphina",
+				displayText: "Endorphina",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.Endorphina.name },
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.ap_mini_game
+						period: defEventPeriod.slot_endorphina
 					})
 				]
 			},

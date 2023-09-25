@@ -49,7 +49,8 @@ export const defEventPeriod = {
 	ap_mini_game: { end: "2024/03/10 12:00:00" },
 	TFGaming: { end: "2023/06/30 12:00:00" },
 	slot_nextspin: { end: "2023/08/12 22:59:59" },
-	IM: { end: "2023/09/28 23:59:59" }
+	IM: { end: "2023/09/28 23:59:59" },
+	slot_endorphina: { end: "2023/10/25 23:59:59" }
 };
 
 export const showEventIcon = ({ icon, period }) => {
