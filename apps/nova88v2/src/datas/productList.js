@@ -21,12 +21,7 @@ export const defDeepLinkId = {
 };
 
 export const defSlotTpGameType = {
-	Saba: {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
-		tpGameType: 4,
-		name: "saba"
-	},
+	Saba: { tpId: 41, tpGameType: 4, name: "saba" },
 	PP: { tpId: 5, tpGameType: 7, name: "pragmatic-play" },
 	GPI: { tpId: 6, tpGameType: 11, name: "gpi" },
 	Joker: { tpId: 9, tpGameType: 13, name: "joker" },
@@ -47,7 +42,8 @@ export const defSlotTpGameType = {
 	Habanero: { tpId: 40, tpGameType: 68, name: "habanero" },
 	Skywind: { tpId: 43, tpGameType: 82, name: "skywind" },
 	Nextspin: { tpId: 50, tpGameType: 99, name: "nextspin" },
-	SPRIBE: { tpId: 53, tpGameType: 104, name: "spribe" }
+	SPRIBE: { tpId: 53, tpGameType: 104, name: "spribe" },
+	END: { tpId: 49, tpGameType: 98, name: "Endorphina" }
 };
 
 export default {
@@ -269,6 +265,10 @@ export default {
 	casino_SPRIBE: {
 		tpId: 53,
 		tpGameType: 104
+	},
+	casino_Endorphina: {
+		tpId: 49,
+		tpGameType: 98
 	},
 
 	/* === 3. live casino === */
@@ -581,8 +581,7 @@ export default {
 
 	/* === 9. event === */
 	"world-cup": {
-		// tpId: 1,
-		tpId: 41, // seamless wallet
+		tpId: 41,
 		gameId: 2002,
 		tpGameType: 1
 	}
