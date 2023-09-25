@@ -175,44 +175,13 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.SPRIBE.name },
 		imgName: "spribe"
+	},
+	{
+		...defCasinoProviders.Endorphina,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.Endorphina.name },
+		imgName: "endorphina"
 	}
-	// {
-	// 	...productList.liveCasino_Allbet,
-	// 	imgName: "ab"
-	// },
-	// {
-	// 	...defCasinoProviders.GPI,
-	// 	path: path.casino.root,
-	// 	parameter: { provider: defCasinoProviders.GPI.name },
-	// 	imgName: "gp"
-	// },
-	// {
-	// 	...productList.liveCasino_DG,
-	// 	imgName: "dg"
-	// },
-	// {
-	// 	...productList.liveCasino_SA,
-	// 	imgName: "sa"
-	// },
-	// {
-	// 	...productList.liveCasino_eBET,
-	// 	imgName: "eb"
-	// },
-	// {
-	// 	...productList.liveCasino_WM,
-	// 	imgName: "wm"
-	// },
-
-	// {
-	// 	...productList.liveCasino_One789,
-	// 	imgName: "one789"
-	// },
-	// {
-	// 	...defCasinoProviders.ICG,
-	// 	path: path.casino.root,
-	// 	parameter: { provider: defCasinoProviders.ICG.name },
-	// 	imgName: "icg"
-	// }
 ];
 
 const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {

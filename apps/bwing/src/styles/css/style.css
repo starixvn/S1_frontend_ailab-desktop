@@ -947,6 +947,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList .APnew .img {
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .NE .img {
   background: url(https://banner.bw88.io/desktop/img/slot/ne.png) no-repeat center/auto 100%;
 }
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .Endorphina .img {
+  background: url(https://banner.bw88.io/desktop/img/slot/endorphina.png) no-repeat center/auto 100%;
+}
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .RED .img {
   background: url(https://banner.bw88.io/desktop/img/slot/red.png) no-repeat center/auto 100%;
 }
@@ -1977,6 +1980,14 @@ footer > div .platformGroup button.sk {
 footer > div .platformGroup a.sk:hover,
 footer > div .platformGroup button.sk:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/sk-a.png) no-repeat center;
+}
+footer > div .platformGroup a.endorphina,
+footer > div .platformGroup button.endorphina {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/endorphina.png) no-repeat center;
+}
+footer > div .platformGroup a.endorphina:hover,
+footer > div .platformGroup button.endorphina:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/endorphina-a.png) no-repeat center;
 }
 footer > div .platformGroup a.mg,
 footer > div .platformGroup button.mg {

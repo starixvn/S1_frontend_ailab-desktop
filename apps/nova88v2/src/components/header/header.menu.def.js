@@ -861,11 +861,20 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_AdvantPlay },
 				parameter: { provider: "advant-play" },
-				...productList.casino_AdvantPlay,
+				...productList.casino_AdvantPlay
+			},
+			{
+				keyName: "slot_Endorphina",
+				displayText: "Endorphina",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotEndorphina.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { provider: "endorphina" },
+				...productList.casino_Endorphina,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.ap_mini_game
+						period: defEventPeriod.slot_endorphina
 					})
 				]
 			},

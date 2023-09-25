@@ -424,11 +424,20 @@ export const defMenuLinks = langId => ({
 				parameter: { provider: defCasinoProviders.AdvantPlay.name },
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/apnew.png`,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/apnew-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ap-icon.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ap-icon.png`
+			},
+			{
+				...defCasinoProviders.Endorphina,
+				displayText: "Endorphina",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.Endorphina.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/endorphina.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/endorphina-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/endorphina-icon.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.ap_mini_game
+						period: defEventPeriod.slot_endorphina
 					})
 				]
 			},
