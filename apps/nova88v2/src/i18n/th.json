@@ -165,7 +165,7 @@
 	"msg_changePswUpdateSuccess": "การอัพเดทสำเร็จเรียบร้อยแล้ว!",
 	"msg_changePswSuccessHint": "สมาชิกสามารถใช้รหัสผ่านใหม่เมื่อเข้าล็อคอินในครั้งถัดไป",
 	"lbl_Profile": "ข้อมูลส่วนตัว",
-	"lbl_JoinNow": "สมัครเลย",
+	"lbl_JoinNow": "พันธมิตร",
 	"lbl_Register": "สมัครสมาชิก",
 	"lbl_Login": "เข้าสู่ระบบ",
 	"lbl_Logout": "ออกจากระบบ",
