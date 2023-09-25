@@ -145,7 +145,7 @@ const Vip = () => {
 			);
 		};
 		getVipBanner();
-	}, []);
+	}, [userInfo.currencyId]);
 
 	return (
 		<main className="vip">
