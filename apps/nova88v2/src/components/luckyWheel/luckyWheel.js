@@ -29,8 +29,7 @@ const LuckyWheel = () => {
 	const { errorPopBox, setPopBox, closePopBox } = usePopBox();
 
 	const currencyId = useMemo(
-		() => userInfo?.currencyId ?? getCurrencyCode(userInfo.langId),
-		[userInfo.currencyId, userInfo.langId]
+		() => userInfo?.currencyId ?? getCurrencyCode(userInfo.langId)
 	);
 
 	const isPassCurrencyIdPermission = CURRENCY_PERMISSION.includes(currencyId);
