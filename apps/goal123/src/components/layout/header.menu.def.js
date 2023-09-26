@@ -552,7 +552,13 @@ export const defMenuLinks = langId => ({
 				parameter: { provider: defCasinoProviders.PNG.name },
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playngo.png`,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playngo-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/playngo-icon.png`
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/playngo-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.PNG
+					})
+				]
 			},
 			{
 				...defCasinoProviders.GPI,

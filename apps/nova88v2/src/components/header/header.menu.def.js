@@ -1016,7 +1016,13 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_PNG },
 				parameter: { provider: "png" },
-				...productList.casino_PNG
+				...productList.casino_PNG,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.PNG
+					})
+				]
 			},
 			{
 				keyName: "slot_GPI",
