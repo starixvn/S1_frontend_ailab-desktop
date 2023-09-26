@@ -61,18 +61,18 @@ BeforeLogin.propTypes = {
 };
 
 const defCashierLinks = [
-	{
-		displayKey: "lbl_TransferFunds",
-		href: path.transferFunds.root
-	},
+	// {
+	// 	displayKey: "lbl_TransferFunds",
+	// 	href: path.transferFunds.root
+	// },
 	{
 		displayKey: "lbl_Withdrawal",
 		href: path.withdrawal.root
 	},
-	{
-		displayKey: "lbl_TransferHistory",
-		href: path.transferHistory.root
-	},
+	// {
+	// 	displayKey: "lbl_TransferHistory",
+	// 	href: path.transferHistory.root
+	// },
 	{
 		displayKey: "lbl_FinancialLog",
 		href: path.financial.root

@@ -9,10 +9,10 @@ export const defLeftMenu = {
 				path: path.deposit.root,
 				displayKey: "lbl_Deposit"
 			},
-			transferFunds: {
-				path: path.transferFunds.root,
-				displayKey: "lbl_TransferFunds"
-			},
+			// transferFunds: {
+			// 	path: path.transferFunds.root,
+			// 	displayKey: "lbl_TransferFunds"
+			// },
 			withdrawal: {
 				path: path.withdrawal.root,
 				displayKey: "lbl_Withdrawal"
@@ -26,10 +26,10 @@ export const defLeftMenu = {
 				path: path.depositHistory.root,
 				displayKey: "lbl_DepositHistory"
 			},
-			transferHistory: {
-				path: path.transferHistory.root,
-				displayKey: "lbl_TransferHistory"
-			},
+			// transferHistory: {
+			// 	path: path.transferHistory.root,
+			// 	displayKey: "lbl_TransferHistory"
+			// },
 			withdrawalHistory: {
 				path: path.withdrawalHistory.root,
 				displayKey: "lbl_WithdrawalHistory"
