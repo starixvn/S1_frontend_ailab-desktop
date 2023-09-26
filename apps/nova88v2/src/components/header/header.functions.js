@@ -101,6 +101,7 @@ const BeforeLogin = ({ t }) => {
 			}).then(res => {
 				if (res.errorCode === 0) {
 					setCookie(SiteInfo.langCookie, res.userData.langId);
+					setCookie(SiteInfo.currencyCookie, res.userData.currencyId);
 					setUserInfo(() => ({
 						...res.userData,
 						isLogin: res.isLogin
