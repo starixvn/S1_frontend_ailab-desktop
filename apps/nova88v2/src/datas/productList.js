@@ -431,6 +431,18 @@ export default {
 		name: "CQ9_Oneshot_Fishing",
 		tpGameType: 44
 	},
+	Fishing_Zombie_Party: {
+		gameId: "F-ZP01",
+		tpId: 10,
+		name: "Fishing_Zombie_Party",
+		tpGameType: 31
+	},
+	Fishing_Alien_Hunter: {
+		gameId: "F-AH01",
+		tpId: 10,
+		name: "Fishing_Alien_Hunter",
+		tpGameType: 31
+	},
 	Skywind_Ocean_Ruler: {
 		gameId: "sw_or",
 		tpId: 43,

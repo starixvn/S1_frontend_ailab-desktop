@@ -174,6 +174,28 @@ const allowedCurrencyList = {
 	oneShot: [defCurrencyList.INR, defCurrencyList.VND],
 	tyrantAndProncess: [defCurrencyList.INR],
 	fishingOfSaviors: [defCurrencyList.INR],
+	zombieParty: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.KHM,
+		defCurrencyList.IDR,
+		defCurrencyList.INR,
+		defCurrencyList.BDT,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.VND
+	],
+	alienHunter: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.KHM,
+		defCurrencyList.IDR,
+		defCurrencyList.INR,
+		defCurrencyList.BDT,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.VND
+	],
 
 	// lottery
 	indo4d: [defCurrencyList.IDR],
