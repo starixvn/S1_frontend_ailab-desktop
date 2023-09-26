@@ -59,18 +59,18 @@ const BeforeLogin = () => {
 };
 
 const defCashierLinks = [
-	{
-		displayKey: "lbl_TransferFunds",
-		href: path.transferFunds.root
-	},
+	// {
+	// 	displayKey: "lbl_TransferFunds",
+	// 	href: path.transferFunds.root
+	// },
 	{
 		displayKey: "lbl_Withdrawal",
 		href: path.withdrawal.root
 	},
-	{
-		displayKey: "lbl_TransferHistory",
-		href: path.transferHistory.root
-	},
+	// {
+	// 	displayKey: "lbl_TransferHistory",
+	// 	href: path.transferHistory.root
+	// },
 	{
 		displayKey: "lbl_FinancialLog",
 		href: path.financial.root
@@ -160,11 +160,11 @@ const AfterLogin = () => {
 	return (
 		<>
 			<div className="btnGroup">
-				<Link
+				{/* <Link
 					to={`/${userInfo.langId}/${path.transferFunds.root}`}
 					className="blue">
 					{t("lbl_TransferFunds").toUpperCase()}
-				</Link>
+				</Link> */}
 				<Link
 					to={`/${userInfo.langId}/${path.deposit.root}`}
 					className="orange">
