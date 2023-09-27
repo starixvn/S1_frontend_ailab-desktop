@@ -5271,10 +5271,6 @@ input[type=file] {
 .infoModule > button.icon-arrow-left2:before {
   margin-left: 0;
 }
-.infoModule .inputBox-white {
-  width: 300px;
-  margin: 0 0 0 1028px;
-}
 
 .inside-title {
   padding: 0 20px 15px 20px;
