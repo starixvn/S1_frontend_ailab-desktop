@@ -33,6 +33,10 @@ export const defNav = {
 		key: "tableAndCards",
 		displayKey: "lbl_TableAndCards"
 	},
+	Arcade: {
+		key: "arcade",
+		displayKey: "lbl_Arcade"
+	},
 	BuyFeaturesGames: {
 		key: "buyFeaturesGames",
 		displayKey: "lbl_BuyFeaturesGames"
