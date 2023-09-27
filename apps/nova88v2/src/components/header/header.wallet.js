@@ -204,9 +204,9 @@ class Dropdown extends Component {
 
 					<div className="btnGroup">
 						<Link
-							to={`/${this.props.langId}/${path.deposit.root}`}
+							to={`/${this.props.langId}/${path.withdrawal.root}`}
 							className="orange">
-							{this.props.i18n("lbl_Deposit")}
+							{this.props.i18n("lbl_Withdrawal")}
 						</Link>
 						{allowedCurrencyList.transferFunds.includes(
 							this.props.currencyId
@@ -264,6 +264,7 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet, _isConvert }) => {
 							turnover={item.turnover}
 							rollover={item.rollover}
 						/>
+						walletBalance
 					</React.Fragment>
 				);
 			})}
