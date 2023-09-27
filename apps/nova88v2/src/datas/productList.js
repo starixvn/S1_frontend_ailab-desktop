@@ -43,7 +43,8 @@ export const defSlotTpGameType = {
 	Skywind: { tpId: 43, tpGameType: 82, name: "skywind" },
 	Nextspin: { tpId: 50, tpGameType: 99, name: "nextspin" },
 	SPRIBE: { tpId: 53, tpGameType: 104, name: "spribe" },
-	END: { tpId: 49, tpGameType: 98, name: "Endorphina" }
+	END: { tpId: 49, tpGameType: 98, name: "Endorphina" },
+	FaChai: { tpId: 55, tpGameType: 106, name: "FaChai" }
 };
 
 export default {
@@ -269,6 +270,10 @@ export default {
 	casino_Endorphina: {
 		tpId: 49,
 		tpGameType: 98
+	},
+	casino_FaChai: {
+		tpId: 55,
+		tpGameType: 106
 	},
 
 	/* === 3. live casino === */

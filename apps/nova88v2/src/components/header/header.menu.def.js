@@ -885,13 +885,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "slotNextspin.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { provider: "nextspin" },
-				...productList.casino_Nextspin,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.slot_nextspin
-					})
-				]
+				...productList.casino_Nextspin
 			},
 			{
 				keyName: "slot_PG",
@@ -903,6 +897,21 @@ export const defMenuLinks = {
 				// parameter: { ...productList.casino_PG },
 				parameter: { provider: "pg" },
 				...productList.casino_PG
+			},
+			{
+				keyName: "slot_FaChai",
+				displayText: "Fa Chai",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotPG.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { provider: "FaChai" },
+				...productList.casino_FaChai,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_fachai
+					})
+				]
 			},
 			{
 				keyName: "slot_MGPSW",

@@ -448,13 +448,7 @@ export const defMenuLinks = langId => ({
 				parameter: { provider: defCasinoProviders.Nextspin.name },
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/nextspin.png`,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/nextspin-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/nextspin-icon.png`,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.slot_nextspin
-					})
-				]
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/nextspin-icon.png`
 			},
 			{
 				...defCasinoProviders.PG,
@@ -466,6 +460,23 @@ export const defMenuLinks = langId => ({
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pg.png`,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pg-item.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pg-icon.png`
+			},
+			{
+				...defCasinoProviders.FaChai,
+				className: "PG",
+				icon: "icon icon-PG",
+				displayText: "Fa Chai",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.FaChai.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pg.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pg-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pg-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_fachai
+					})
+				]
 			},
 			{
 				...defCasinoProviders.MGPSW,

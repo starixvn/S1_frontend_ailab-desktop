@@ -367,14 +367,22 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.PG.name }
 			},
 			{
-				...defCasinoProviders.MGPSW,
-				className: "MG",
+				...defCasinoProviders.FaChai,
+				className: "PG",
+				icon: "icon icon-PG",
+				displayText: "Fa Chai",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.FaChai.name },
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.mgpsw
+						period: defEventPeriod.slot_fachai
 					})
-				],
+				]
+			},
+			{
+				...defCasinoProviders.MGPSW,
+				className: "MG",
 				icon: "icon icon-mg",
 				displayText: "Microgaming",
 				menuType: defMenuType.Link,
