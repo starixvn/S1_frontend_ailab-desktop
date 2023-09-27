@@ -599,6 +599,7 @@ export default () => {
 		}
 	};
 	const handleProviderChange = provider => {
+		editSearchField("searchText", "");
 		let noSelect = false;
 		if (tpGameTypeSettingList && tpGameTypeSettingList.length > 0) {
 			tpGameTypeSettingList.forEach(settingItem => {

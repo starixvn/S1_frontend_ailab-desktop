@@ -104,9 +104,6 @@ const IndexPage = () => {
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
 	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
 
-	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
-	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
-
 	useEffect(() => {
 		isMountedRef.current = true;
 		setIsRoot(true);
