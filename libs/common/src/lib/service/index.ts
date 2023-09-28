@@ -3,3 +3,7 @@ export * from "./baseApi";
 export * from "./rootApi";
 export * from "./authApi";
 export * from "./promotionApi";
+export * from "./accountApi";
+export * from "./hotGameApi";
+export * from "./player";
+export * from "./gameApi";

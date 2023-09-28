@@ -1,6 +1,11 @@
+import classNames from "classnames";
 import React, { useState, useRef, useEffect } from "react";
 
-export default ({ func, btnDisabled = false }) => {
+export default ({
+	func,
+	btnDisabled = false,
+	className = "icon icon-spinner11"
+}) => {
 	const [spin, setSpin] = useState(false);
 	const isMountedRef = useRef(null);
 
@@ -29,7 +34,9 @@ export default ({ func, btnDisabled = false }) => {
 			disabled={btnDisabled}
 			aria-label="clickSpin"
 			onClick={clickSpin}
-			className={`icon icon-spinner11${spin ? " active" : ""}`}
+			className={classNames(className, {
+				active: spin
+			})}
 		/>
 	);
 };

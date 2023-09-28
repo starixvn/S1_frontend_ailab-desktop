@@ -28,7 +28,7 @@ const CashBackInfo = ({ cashBackDetails, t }) => {
 			</td>
 			<td>
 				{number_format({
-					number: Math.abs(info.lossAmount),
+					number: info.lossAmount,
 					...formatRule
 				})}
 			</td>

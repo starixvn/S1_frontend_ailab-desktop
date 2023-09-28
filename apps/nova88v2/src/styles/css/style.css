@@ -3,6 +3,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -64,6 +65,10 @@ img {
   height: auto;
 }
 
+button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
 button[disabled] {
   background: #e2e2e2 !important;
   color: #b2b2b2 !important;
@@ -98,9 +103,10 @@ html {
   width: 100%;
   background: #ffffff;
   font-size: 14px;
-  font-family: "Microsoft YaHei", sans-serif;
+  font-family: "Poppins", sans-serif;
   color: white;
   height: 100%;
+  font-weight: 500;
 }
 
 #___gatsby,
@@ -110,9 +116,9 @@ html {
 
 header {
   position: fixed;
-  background: white;
+  background: #0A1B38;
   width: 100%;
-  height: 120px;
+  height: 115px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -127,9 +133,8 @@ header input {
   border: 1px solid #7591C1;
   border-radius: 5px;
   padding: 0 5px;
-  color: #5574A7;
+  color: white;
   width: 120px;
-  font-size: 14px;
 }
 header input::-webkit-input-placeholder {
   color: #5574A7;
@@ -151,29 +156,14 @@ header input::placeholder {
   color: #5574A7;
   text-align: center;
 }
+header input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #0A1B38 inset;
+          box-shadow: 0 0 0px 1000px #0A1B38 inset;
+  -webkit-text-fill-color: white;
+}
 header input:focus-within {
   border: 1px solid #7591C1;
   outline: #7591C1;
-}
-
-.logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-}
-.logo a {
-  -ms-flex-item-align: center;
-      align-self: center;
-}
-.logo a:first-child {
-  background: #112240;
-  padding: 15px;
-  border-radius: 0 0 10px 10px;
-  margin-top: -24px;
 }
 
 .header {
@@ -185,33 +175,17 @@ header input:focus-within {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.header > div a.rewardsLogo {
-  margin: 0 0 20px 30px;
-  position: absolute;
-  right: -86px;
-}
-.header > div a.rewardsLogo img {
-  width: 65px;
-  -webkit-filter: drop-shadow(1px 1px 0 #868686);
-          filter: drop-shadow(1px 1px 0 #868686);
-}
-.header > div a.rewardsLogo:hover {
-  -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
 .header > div.menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  margin: 120px 0 0 0;
-  background: #112240;
+  margin: 115px 0 0 0;
   height: 60px;
   left: 0;
-  text-transform: uppercase;
   width: 100%;
+  background: white;
+  border-bottom: 1px solid #EFEFEF;
 }
 .header > div.menu > div {
   width: 1400px;
@@ -223,10 +197,12 @@ header input:focus-within {
           align-items: center;
   margin: auto;
   height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .header > div.menu > div > a,
 .header > div.menu > div > button {
-  font-family: Microsoft YaHei, sans-serif;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
@@ -237,9 +213,9 @@ header input:focus-within {
       -ms-flex-align: center;
           align-items: center;
   padding-left: 0;
-  padding-right: 30px;
-  font-size: 14px;
-  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0A1B38;
   height: 100%;
   position: relative;
   -webkit-box-pack: center;
@@ -253,6 +229,14 @@ header input:focus-within {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.header > div.menu > div > a.reward::before,
+.header > div.menu > div > button.reward::before {
+  content: "";
+  display: block;
+  width: 45px;
+  height: 45px;
+  background: url(https://banner.0814media.net/desktop/img/88rewards.png) no-repeat center/cover;
+}
 .header > div.menu > div > a.eventbtn::before,
 .header > div.menu > div > button.eventbtn::before {
   display: block;
@@ -260,6 +244,22 @@ header input:focus-within {
   width: 112px;
   height: 60px;
   background: url(https://banner.0814media.net/desktop/img/event/worldcup/xs-logo.png) center no-repeat;
+}
+.header > div.menu > div > a.rewardsbtn::before,
+.header > div.menu > div > button.rewardsbtn::before {
+  display: block;
+  content: "";
+  width: 45px;
+  height: 45px;
+  background: url(https://banner.0814media.net/desktop/img/88rewards_w.png) center top/cover;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.header > div.menu > div > a.rewardsbtn:hover::before,
+.header > div.menu > div > button.rewardsbtn:hover::before {
+  background: url(https://banner.0814media.net/desktop/img/88rewards.png) center top/cover;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 .header > div.menu > div > a.cryptobtn::before,
 .header > div.menu > div > button.cryptobtn::before {
@@ -286,11 +286,11 @@ header input:focus-within {
   content: "";
   display: block;
   background: #FF5E00;
-  width: calc(100% - 30px);
+  width: calc(100% - 3px);
   height: 3px;
   position: absolute;
   bottom: 0;
-  z-index: 9;
+  z-index: 2;
   display: none;
 }
 .header > div.menu > div > a:hover, .header > div.menu > div > a.active,
@@ -312,10 +312,10 @@ header input:focus-within {
 .header > div.menu > div > a div.icon,
 .header > div.menu > div > button div.icon {
   position: absolute;
-  top: -4px;
-  background: #f77900;
-  font-size: 12px;
-  padding: 0 8px 2px 6px;
+  top: -1px;
+  background: #FF7600;
+  font-size: 13px;
+  padding: 1px 12px 0;
   font-weight: bold;
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
@@ -326,26 +326,12 @@ header input:focus-within {
       -ms-flex-align: center;
           align-items: center;
   color: white;
-  border-radius: 3px;
+  border-radius: 0 0 10px 10px;
 }
 .header > div.menu > div > a div.icon.icon-new,
 .header > div.menu > div > button div.icon.icon-new {
   left: 0;
   top: 0;
-}
-.header > div.menu > div > a div.icon.icon-new:before,
-.header > div.menu > div > button div.icon.icon-new:before {
-  -webkit-animation: none;
-          animation: none;
-  background: #f77900;
-  border-radius: 0;
-  left: 0;
-  top: 0;
-  right: unset;
-  width: 45px;
-  padding: 2px 0 3px 5px;
-  color: #fff;
-  font-size: 13px;
 }
 .header > div.menu > div > a div.icon.icon-new:after,
 .header > div.menu > div > button div.icon.icon-new:after {
@@ -368,8 +354,6 @@ header input:focus-within {
   margin: 0 2px 0 0;
   font-weight: normal;
   color: white;
-  -webkit-animation: star 1s 1s infinite linear;
-          animation: star 1s 1s infinite linear;
 }
 @-webkit-keyframes star {
   0% {
@@ -405,74 +389,19 @@ header input:focus-within {
     color: #cf0404;
   }
 }
-.header > div.menu > div > a div.icon:after,
-.header > div.menu > div > button div.icon:after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 10px 10px 0;
-  border-color: transparent #af5600 transparent transparent;
-  position: absolute;
-  background: transparent;
-  bottom: 0;
-  left: 2px;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-}
-.header > div.menu > div > a div.icon-mediafire,
-.header > div.menu > div > button div.icon-mediafire {
+.header > div.menu > div > a div.icon.mediafire,
+.header > div.menu > div > button div.icon.mediafire {
   background: #cf0404;
-  padding: 0 6px 2px 3px;
+  padding: 0 7px 1px 5px;
 }
-.header > div.menu > div > a div.icon-mediafire:before,
-.header > div.menu > div > button div.icon-mediafire:before {
-  font-size: 18px;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  margin: -7px 1px 0;
-  -webkit-animation: fire 1s 1s infinite linear;
-          animation: fire 1s 1s infinite linear;
+.header > div.menu > div > a div.icon.mediafire:before,
+.header > div.menu > div > button div.icon.mediafire:before {
+  display: block;
+  content: "";
+  height: 15px;
+  width: 15px;
   z-index: 1;
-}
-@-webkit-keyframes fire {
-  0% {
-    -webkit-transform: rotate(90deg) scale(1, 1);
-            transform: rotate(90deg) scale(1, 1);
-    color: white;
-  }
-  50% {
-    -webkit-transform: rotate(90deg) scale(1.2);
-            transform: rotate(90deg) scale(1.2);
-    color: #f77900;
-  }
-  100% {
-    -webkit-transform: rotate(90deg) scale(1, 1);
-            transform: rotate(90deg) scale(1, 1);
-    color: white;
-  }
-}
-@keyframes fire {
-  0% {
-    -webkit-transform: rotate(90deg) scale(1, 1);
-            transform: rotate(90deg) scale(1, 1);
-    color: white;
-  }
-  50% {
-    -webkit-transform: rotate(90deg) scale(1.2);
-            transform: rotate(90deg) scale(1.2);
-    color: #f77900;
-  }
-  100% {
-    -webkit-transform: rotate(90deg) scale(1, 1);
-            transform: rotate(90deg) scale(1, 1);
-    color: white;
-  }
-}
-.header > div.menu > div > a div.icon-mediafire:after,
-.header > div.menu > div > button div.icon-mediafire:after {
-  border-color: transparent #750202 transparent transparent;
+  background: url(https://banner.0814media.net/desktop/img/4.0/icon-fire.png) no-repeat center/cover;
 }
 .header > div.menu > div > a div.live,
 .header > div.menu > div > button div.live {
@@ -483,7 +412,7 @@ header input:focus-within {
 .header > div.menu > div > a div.live:before,
 .header > div.menu > div > button div.live:before {
   content: "Live";
-  font-family: "Microsoft YaHei", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
 }
 .header > div.menu > div > a div.live i,
@@ -543,20 +472,25 @@ header input:focus-within {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
 }
+.header > div.menu > div > a.reward img,
+.header > div.menu > div > button.reward img {
+  width: 50px;
+}
 .header > div.menu .subMenu-Wrapper-new {
   position: absolute;
   width: 100%;
   left: 0;
   top: 59px;
-  background: white;
+  background: rgba(255, 255, 255, 0.8509803922);
   z-index: -1;
   border-bottom: 1px solid #ccc;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
 }
 .header > div.menu .subMenu-Wrapper-new .icon:before {
   font-size: 30px;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList,
-.header > div.menu .subMenu-Wrapper-new .appList,
 .header > div.menu .subMenu-Wrapper-new .sportsList,
 .header > div.menu .subMenu-Wrapper-new .exchangeList,
 .header > div.menu .subMenu-Wrapper-new .eSportsList,
@@ -584,9 +518,10 @@ header input:focus-within {
   -ms-flex-flow: wrap;
       flex-flow: wrap;
   height: 0;
+  width: 1400px;
+  position: relative;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList.maintenance,
-.header > div.menu .subMenu-Wrapper-new .appList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .sportsList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .exchangeList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .eSportsList.maintenance,
@@ -608,8 +543,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a,
 .header > div.menu .subMenu-Wrapper-new .homeList button,
-.header > div.menu .subMenu-Wrapper-new .appList a,
-.header > div.menu .subMenu-Wrapper-new .appList button,
 .header > div.menu .subMenu-Wrapper-new .sportsList a,
 .header > div.menu .subMenu-Wrapper-new .sportsList button,
 .header > div.menu .subMenu-Wrapper-new .exchangeList a,
@@ -643,8 +576,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .cryptoList a,
 .header > div.menu .subMenu-Wrapper-new .cryptoList button {
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 210px;
-          flex: 1 1 210px;
+      -ms-flex: 1 1 155px;
+          flex: 1 1 155px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -658,11 +591,11 @@ header input:focus-within {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  height: 200px;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
+  height: 185px;
+  -webkit-transition: 0s;
+  transition: 0s;
   color: white;
-  max-width: 210px;
+  max-width: 155px;
   position: relative;
   text-transform: initial;
   margin: 0 10px 5px;
@@ -671,8 +604,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a .under,
 .header > div.menu .subMenu-Wrapper-new .homeList button .under,
-.header > div.menu .subMenu-Wrapper-new .appList a .under,
-.header > div.menu .subMenu-Wrapper-new .appList button .under,
 .header > div.menu .subMenu-Wrapper-new .sportsList a .under,
 .header > div.menu .subMenu-Wrapper-new .sportsList button .under,
 .header > div.menu .subMenu-Wrapper-new .exchangeList a .under,
@@ -715,8 +646,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a.active,
 .header > div.menu .subMenu-Wrapper-new .homeList button.active,
-.header > div.menu .subMenu-Wrapper-new .appList a.active,
-.header > div.menu .subMenu-Wrapper-new .appList button.active,
 .header > div.menu .subMenu-Wrapper-new .sportsList a.active,
 .header > div.menu .subMenu-Wrapper-new .sportsList button.active,
 .header > div.menu .subMenu-Wrapper-new .exchangeList a.active,
@@ -754,8 +683,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a.active .under,
 .header > div.menu .subMenu-Wrapper-new .homeList button.active .under,
-.header > div.menu .subMenu-Wrapper-new .appList a.active .under,
-.header > div.menu .subMenu-Wrapper-new .appList button.active .under,
 .header > div.menu .subMenu-Wrapper-new .sportsList a.active .under,
 .header > div.menu .subMenu-Wrapper-new .sportsList button.active .under,
 .header > div.menu .subMenu-Wrapper-new .exchangeList a.active .under,
@@ -792,8 +719,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a .live:before,
 .header > div.menu .subMenu-Wrapper-new .homeList button .live:before,
-.header > div.menu .subMenu-Wrapper-new .appList a .live:before,
-.header > div.menu .subMenu-Wrapper-new .appList button .live:before,
 .header > div.menu .subMenu-Wrapper-new .sportsList a .live:before,
 .header > div.menu .subMenu-Wrapper-new .sportsList button .live:before,
 .header > div.menu .subMenu-Wrapper-new .exchangeList a .live:before,
@@ -833,8 +758,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a img,
 .header > div.menu .subMenu-Wrapper-new .homeList button img,
-.header > div.menu .subMenu-Wrapper-new .appList a img,
-.header > div.menu .subMenu-Wrapper-new .appList button img,
 .header > div.menu .subMenu-Wrapper-new .sportsList a img,
 .header > div.menu .subMenu-Wrapper-new .sportsList button img,
 .header > div.menu .subMenu-Wrapper-new .exchangeList a img,
@@ -867,15 +790,13 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList button img,
 .header > div.menu .subMenu-Wrapper-new .cryptoList a img,
 .header > div.menu .subMenu-Wrapper-new .cryptoList button img {
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   position: absolute;
   width: 150px;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .homeList button img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .appList a img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .appList button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .sportsList a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .sportsList button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .exchangeList a img.List-npc,
@@ -910,208 +831,10 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .cryptoList button img.List-npc {
   z-index: 1;
   margin: 0 0 -30px -30px;
-}
-.header > div.menu .subMenu-Wrapper-new .homeList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .homeList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .appList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .appList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .sportsList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .sportsList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .exchangeList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .exchangeList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .eSportsList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .eSportsList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .casinoList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .casinoList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .pokerList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .pokerList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .tableList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .tableList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .gameList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .gameList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .fishList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .fishList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .promoList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .promoList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .tvList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .tvList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .vipList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .vipList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .sponsorList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .sponsorList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .rankingList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .rankingList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .eventList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .eventList button img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .cryptoList a img.ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button img.ListBG-left {
-  width: 77px;
-  left: 10px;
-  top: -30px;
-}
-.header > div.menu .subMenu-Wrapper-new .homeList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .homeList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .appList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .appList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .sportsList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .sportsList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .exchangeList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .exchangeList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .eSportsList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .eSportsList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .casinoList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .casinoList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .pokerList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .pokerList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .tableList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .tableList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .gameList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .gameList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .fishList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .fishList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .promoList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .promoList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .tvList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .tvList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .vipList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .vipList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .sponsorList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .sponsorList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .rankingList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .rankingList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .eventList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .eventList button img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .cryptoList a img.ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button img.ListBG-right {
-  width: 92px;
-  right: 5px;
-  bottom: -30px;
-}
-.header > div.menu .subMenu-Wrapper-new .homeList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .homeList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .appList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .appList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .sportsList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .sportsList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .exchangeList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .exchangeList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .eSportsList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .eSportsList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .casinoList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .casinoList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .pokerList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .pokerList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .tableList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .tableList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .gameList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .gameList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .fishList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .fishList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .promoList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .promoList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .tvList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .tvList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .vipList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .vipList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .sponsorList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .sponsorList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .rankingList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .rankingList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .eventList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .eventList button img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .cryptoList a img.ListBG-center,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button img.ListBG-center {
-  opacity: 0;
-}
-.header > div.menu .subMenu-Wrapper-new .homeList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .homeList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .appList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .appList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .sportsList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .sportsList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .exchangeList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .exchangeList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .eSportsList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .eSportsList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .casinoList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .casinoList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .pokerList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .pokerList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .tableList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .tableList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .gameList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .gameList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .fishList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .fishList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .promoList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .promoList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .tvList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .tvList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .vipList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .vipList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .sponsorList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .sponsorList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .rankingList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .rankingList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .eventList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .eventList button img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .cryptoList a img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button img.List-bg {
-  z-index: 0;
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-.header > div.menu .subMenu-Wrapper-new .homeList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .homeList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .appList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .appList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .sportsList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .sportsList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .exchangeList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .exchangeList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .eSportsList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .eSportsList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .casinoList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .casinoList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .pokerList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .pokerList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .tableList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .tableList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .gameList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .gameList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .fishList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .fishList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .promoList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .promoList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .tvList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .tvList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .vipList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .vipList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .sponsorList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .sponsorList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .rankingList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .rankingList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .eventList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .eventList button img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .cryptoList a img.List-bg + .List-bg,
-.header > div.menu .subMenu-Wrapper-new .cryptoList button img.List-bg + .List-bg {
-  z-index: 1;
-  left: 0;
+  border-radius: 20px;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a:hover img,
 .header > div.menu .subMenu-Wrapper-new .homeList button:hover img,
-.header > div.menu .subMenu-Wrapper-new .appList a:hover img,
-.header > div.menu .subMenu-Wrapper-new .appList button:hover img,
 .header > div.menu .subMenu-Wrapper-new .sportsList a:hover img,
 .header > div.menu .subMenu-Wrapper-new .sportsList button:hover img,
 .header > div.menu .subMenu-Wrapper-new .exchangeList a:hover img,
@@ -1150,8 +873,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .homeList button:hover img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .appList a:hover img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .appList button:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .sportsList a:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .sportsList button:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .exchangeList a:hover img.List-npc,
@@ -1188,8 +909,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .homeList button:hover img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .appList a:hover img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .appList button:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .sportsList a:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .sportsList button:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .exchangeList a:hover img.List-bg,
@@ -1228,8 +947,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a > span,
 .header > div.menu .subMenu-Wrapper-new .homeList button > span,
-.header > div.menu .subMenu-Wrapper-new .appList a > span,
-.header > div.menu .subMenu-Wrapper-new .appList button > span,
 .header > div.menu .subMenu-Wrapper-new .sportsList a > span,
 .header > div.menu .subMenu-Wrapper-new .sportsList button > span,
 .header > div.menu .subMenu-Wrapper-new .exchangeList a > span,
@@ -1266,8 +983,6 @@ header input:focus-within {
   font-size: 16px;
   width: 150px;
   height: 25px;
-  font-style: italic;
-  background: url(https://banner.0814media.net/desktop/img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
   -webkit-transition: 0.6s;
   transition: 0.6s;
   left: 10px;
@@ -1277,14 +992,12 @@ header input:focus-within {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  padding: 0 30px;
   line-height: 25px;
-  color: #7591C1;
+  color: #0A1B38;
+  font-size: 14px;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList a.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .homeList button.icon-new:before,
-.header > div.menu .subMenu-Wrapper-new .appList a.icon-new:before,
-.header > div.menu .subMenu-Wrapper-new .appList button.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .sportsList a.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .sportsList button.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .exchangeList a.icon-new:before,
@@ -1322,9 +1035,9 @@ header input:focus-within {
   bottom: 30px;
   z-index: 2;
   background: #f77900;
-  padding: 2px 3px 3px 5px;
+  padding: 10px;
   color: white;
-  border-radius: 5px;
+  border-radius: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1338,7 +1051,6 @@ header input:focus-within {
           animation: none;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList.active,
-.header > div.menu .subMenu-Wrapper-new .appList.active,
 .header > div.menu .subMenu-Wrapper-new .sportsList.active,
 .header > div.menu .subMenu-Wrapper-new .exchangeList.active,
 .header > div.menu .subMenu-Wrapper-new .eSportsList.active,
@@ -1361,8 +1073,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .homeList.active a,
 .header > div.menu .subMenu-Wrapper-new .homeList.active button,
-.header > div.menu .subMenu-Wrapper-new .appList.active a,
-.header > div.menu .subMenu-Wrapper-new .appList.active button,
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a,
 .header > div.menu .subMenu-Wrapper-new .sportsList.active button,
 .header > div.menu .subMenu-Wrapper-new .exchangeList.active a,
@@ -1408,8 +1118,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .homeList.active a img,
 .header > div.menu .subMenu-Wrapper-new .homeList.active button img,
-.header > div.menu .subMenu-Wrapper-new .appList.active a img,
-.header > div.menu .subMenu-Wrapper-new .appList.active button img,
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a img,
 .header > div.menu .subMenu-Wrapper-new .sportsList.active button img,
 .header > div.menu .subMenu-Wrapper-new .exchangeList.active a img,
@@ -1448,8 +1156,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .homeList.active a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .homeList.active button img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .appList.active a img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .appList.active button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .sportsList.active button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .exchangeList.active a img.List-npc,
@@ -1482,94 +1188,10 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .eventList.active button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .cryptoList.active a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .cryptoList.active button img.List-npc {
-  margin-bottom: 0;
-}
-.header > div.menu .subMenu-Wrapper-new .homeList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .homeList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .appList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .appList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .sportsList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .sportsList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .exchangeList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .exchangeList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .eSportsList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .eSportsList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .casinoList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .casinoList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .pokerList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .pokerList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .tableList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .tableList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .gameList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .gameList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .fishList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .fishList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .promoList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .promoList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .tvList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .tvList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .vipList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .vipList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .sponsorList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .sponsorList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .rankingList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .rankingList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .eventList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .eventList.active button .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active a .ListBG-left,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active button .ListBG-left {
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-  left: 0;
-  top: 0;
-}
-.header > div.menu .subMenu-Wrapper-new .homeList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .homeList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .appList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .appList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .sportsList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .sportsList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .exchangeList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .exchangeList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .eSportsList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .eSportsList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .casinoList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .casinoList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .livecasinoList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .pokerList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .pokerList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .tableList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .tableList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .gameList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .gameList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .fishList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .fishList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .promoList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .promoList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .tvList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .tvList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .vipList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .vipList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .sponsorList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .sponsorList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .rankingList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .rankingList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .eventList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .eventList.active button .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active a .ListBG-right,
-.header > div.menu .subMenu-Wrapper-new .cryptoList.active button .ListBG-right {
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-  right: 0;
-  bottom: 0;
+  margin-bottom: 20px;
 }
 .header > div.menu .subMenu-Wrapper-new .homeList.active a > span,
 .header > div.menu .subMenu-Wrapper-new .homeList.active button > span,
-.header > div.menu .subMenu-Wrapper-new .appList.active a > span,
-.header > div.menu .subMenu-Wrapper-new .appList.active button > span,
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a > span,
 .header > div.menu .subMenu-Wrapper-new .sportsList.active button > span,
 .header > div.menu .subMenu-Wrapper-new .exchangeList.active a > span,
@@ -1607,6 +1229,43 @@ header input:focus-within {
   left: 0;
   bottom: 0;
 }
+.header > div.menu .subMenu-Wrapper-new .homeList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .sportsList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .exchangeList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .eSportsList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .casinoList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .livecasinoList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .pokerList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .tableList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .gameList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .fishList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .promoList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .tvList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .vipList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .sponsorList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .rankingList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .eventList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .cryptoList .new-icon {
+  background: #FF7600;
+  border-radius: 50px;
+  font-size: 12px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3px;
+  z-index: 2;
+}
 .header > div.menu .subMenu-Wrapper-new > div:not(.homeList):not(.sportsList):not(.livecasinoList):not(.exchangeList):not(.gameList):not(.tvList):not(.tableList):not(.sponsorList) img.List-bg {
   z-index: 1;
   margin-left: -70px;
@@ -1618,7 +1277,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .pokerList,
 .header > div.menu .subMenu-Wrapper-new .vipList,
 .header > div.menu .subMenu-Wrapper-new .rankingList,
-.header > div.menu .subMenu-Wrapper-new .appList,
 .header > div.menu .subMenu-Wrapper-new .promoList,
 .header > div.menu .subMenu-Wrapper-new .eventList {
   background: url(https://banner.0814media.net/desktop/img/poker.jpg) no-repeat center/auto;
@@ -1627,7 +1285,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .pokerList > div,
 .header > div.menu .subMenu-Wrapper-new .vipList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
-.header > div.menu .subMenu-Wrapper-new .appList > div,
 .header > div.menu .subMenu-Wrapper-new .promoList > div,
 .header > div.menu .subMenu-Wrapper-new .eventList > div {
   width: 50%;
@@ -1650,7 +1307,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .pokerList > div > div:nth-child(2),
 .header > div.menu .subMenu-Wrapper-new .vipList > div > div:nth-child(2),
 .header > div.menu .subMenu-Wrapper-new .rankingList > div > div:nth-child(2),
-.header > div.menu .subMenu-Wrapper-new .appList > div > div:nth-child(2),
 .header > div.menu .subMenu-Wrapper-new .promoList > div > div:nth-child(2),
 .header > div.menu .subMenu-Wrapper-new .eventList > div > div:nth-child(2) {
   font-weight: bold;
@@ -1658,7 +1314,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .pokerList > div > div:last-child,
 .header > div.menu .subMenu-Wrapper-new .vipList > div > div:last-child,
 .header > div.menu .subMenu-Wrapper-new .rankingList > div > div:last-child,
-.header > div.menu .subMenu-Wrapper-new .appList > div > div:last-child,
 .header > div.menu .subMenu-Wrapper-new .promoList > div > div:last-child,
 .header > div.menu .subMenu-Wrapper-new .eventList > div > div:last-child {
   color: #CDAE8E;
@@ -1667,7 +1322,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .pokerList > div > div.btnGroup,
 .header > div.menu .subMenu-Wrapper-new .vipList > div > div.btnGroup,
 .header > div.menu .subMenu-Wrapper-new .rankingList > div > div.btnGroup,
-.header > div.menu .subMenu-Wrapper-new .appList > div > div.btnGroup,
 .header > div.menu .subMenu-Wrapper-new .promoList > div > div.btnGroup,
 .header > div.menu .subMenu-Wrapper-new .eventList > div > div.btnGroup {
   margin: 15px 0;
@@ -1678,8 +1332,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .vipList > div > div.btnGroup a,
 .header > div.menu .subMenu-Wrapper-new .rankingList > div > div.btnGroup button,
 .header > div.menu .subMenu-Wrapper-new .rankingList > div > div.btnGroup a,
-.header > div.menu .subMenu-Wrapper-new .appList > div > div.btnGroup button,
-.header > div.menu .subMenu-Wrapper-new .appList > div > div.btnGroup a,
 .header > div.menu .subMenu-Wrapper-new .promoList > div > div.btnGroup button,
 .header > div.menu .subMenu-Wrapper-new .promoList > div > div.btnGroup a,
 .header > div.menu .subMenu-Wrapper-new .eventList > div > div.btnGroup button,
@@ -1719,31 +1371,31 @@ header input:focus-within {
   display: none;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-en.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.en {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-en.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.cs {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-cs.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-cs.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.my {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-my.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-my.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.th {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-th.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-th.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.id {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-id.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-id.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.hi {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-hi.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-hi.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.bd {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-bd.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-bd.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList.vn {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-vn.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
   -webkit-box-pack: center;
@@ -1754,125 +1406,23 @@ header input:focus-within {
   font-weight: bold;
   font-size: 24px;
 }
-.header > div.menu .subMenu-Wrapper-new .appList {
-  background: url(https://banner.0814media.net/desktop/img/appdownload_bg.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .appList > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-  margin: 0 70px 0 880px;
-  font-weight: bold;
-  padding: 15px 0;
-  height: auto;
-}
-.header > div.menu .subMenu-Wrapper-new .appList > div > div.appListQrcode {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.header > div.menu .subMenu-Wrapper-new .appList > div > div.appListQrcode > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.header > div.menu .subMenu-Wrapper-new .appList > div > div.appListQrcode > div img {
-  width: 100px;
-  height: 100px;
-}
-.header > div.menu .subMenu-Wrapper-new .appList > div > div.txt-orange {
-  font-size: 24px;
-}
-.header > div.menu .subMenu-Wrapper-new .appList > div > div:not(.txt-orange) {
-  color: #1a2e56;
-  font-size: 18px;
-}
-.header > div.menu .subMenu-Wrapper-new .eventList {
-  background: url(https://banner.0814media.net/desktop/img/event/worldcup/eventbanner.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .eventList > div {
-  width: auto;
-  height: 214px;
-  margin: 0 auto;
-  padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  pointer-events: all;
-}
-.header > div.menu .subMenu-Wrapper-new .eventList > div img {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList {
-  width: 100%;
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_en.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList::before {
-  display: block;
-  content: "";
-  height: 210px;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.en {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_en.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.th {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_th.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.id {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_id.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.cs {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_cs.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.vn {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_vn.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_en_um.jpg);
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.en {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_en_um.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.en {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_vn_um.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.th {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_th_um.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.id {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_id_um.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.cs {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_cs_um.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.vn {
-  background: url(https://banner.0814media.net/desktop/img/cryptosports_vn_um.jpg) no-repeat center/auto;
-}
 .header > div.menu .subMenu-Wrapper-new .vipList.en {
-  background: url(https://banner.0814media.net/desktop/img/vipdropdown.png) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-en.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.my {
-  background: url(https://banner.0814media.net/desktop/img/vipdropdown-my.png) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-my.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.cs {
-  background: url(https://banner.0814media.net/desktop/img/vipdropdown-cs.png) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-cs.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.id {
-  background: url(https://banner.0814media.net/desktop/img/vipdropdown-id.png) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-id.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.th {
-  background: url(https://banner.0814media.net/desktop/img/vipdropdown-th.png) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-th.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList.vn {
-  background: url(https://banner.0814media.net/desktop/img/vipdropdown-vn.png) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/vipdropdown-vn.png) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .vipList > div {
   margin: 0 auto 0 100px;
@@ -1885,22 +1435,22 @@ header input:focus-within {
   background: url(https://image.0814media.net/SiteSkin/img/leaderboardbanner-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.en {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-en.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-en.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.my {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-my.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-my.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.cs {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-cs.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-cs.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.th {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-th.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-th.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-id.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-id.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.vn {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-vn.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-vn.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList > div,
 .header > div.menu .subMenu-Wrapper-new .rankingList > a {
@@ -1917,180 +1467,112 @@ header input:focus-within {
   font-size: 16px;
 }
 .header > div.function {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
-  z-index: 3;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
   position: relative;
-  padding: 10px;
 }
-.header > div.function .forgot {
+.header > div.function .username {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header > div.function input {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  width: 150px;
+  background: none;
+  border: 2px solid white;
+  border-radius: 50px;
+  padding: 3.5px 0 3.5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  position: absolute;
-  bottom: 22px;
-  left: 10px;
-  font-size: 13px;
-  margin: 0;
-  min-height: unset;
-}
-.header > div.function .forgot span {
-  text-decoration: underline;
-  margin-left: 4px;
-}
-.header > div.function input {
-  border-radius: 30px;
+  margin: 0 15px 0 0;
 }
 .header > div.function input::-webkit-input-placeholder {
+  color: #D1D1D1;
   text-align: left;
-  padding-left: 5px;
-  font-size: 13px;
+  padding-left: 15px;
 }
 .header > div.function input::-moz-placeholder {
+  color: #D1D1D1;
   text-align: left;
-  padding-left: 5px;
-  font-size: 13px;
+  padding-left: 15px;
 }
 .header > div.function input:-ms-input-placeholder {
+  color: #D1D1D1;
   text-align: left;
-  padding-left: 5px;
-  font-size: 13px;
+  padding-left: 15px;
 }
 .header > div.function input::-ms-input-placeholder {
+  color: #D1D1D1;
   text-align: left;
-  padding-left: 5px;
-  font-size: 13px;
+  padding-left: 15px;
 }
 .header > div.function input::placeholder {
+  color: #D1D1D1;
   text-align: left;
-  padding-left: 5px;
-  font-size: 13px;
+  padding-left: 15px;
 }
-.header > div.function > a:nth-child(-n+5):not(.login):not(.join):not(.login-line):not(.icon-mobile) {
-  color: #112240;
-  margin-right: 11px;
-}
-.header > div.function > a:nth-child(-n+5):not(.login):not(.join):not(.login-line):not(.icon-mobile):before {
-  content: "...";
-  font-size: 20px;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-.header > div.function > a.solid-btn span {
-  background: #112240;
-  padding: 5px;
-  border-radius: 5px;
-  text-transform: uppercase;
+.header > div.function .login, .header > div.function .join, .header > div.function .line-login {
+  padding: 10px 0;
+  border-radius: 50px;
   color: white;
-  min-width: 70px;
-  text-align: center;
-}
-.header > div.function > div,
-.header > div.function > a,
-.header > div.function > button {
+  width: 110px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 35px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  white-space: nowrap;
+}
+.header > div.function .login {
+  background: #648DD6;
+  margin-right: 15px;
+}
+.header > div.function .join {
+  background: #FF7600;
+}
+.header > div.function .line-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #51cb33;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 6px;
-  color: #112240;
-  cursor: pointer;
-  position: relative;
+  margin-left: 15px;
 }
-.header > div.function > div.icon-icon32px_Funds-transfer:before,
-.header > div.function > a.icon-icon32px_Funds-transfer:before,
-.header > div.function > button.icon-icon32px_Funds-transfer:before {
-  margin-top: -14px;
-  font-size: 34px;
+.header > div.function .line-login img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }
-.header > div.function > div[class=join], .header > div.function > div[class=login], .header > div.function > div[class=login-line],
-.header > div.function > a[class=join],
-.header > div.function > a[class=login],
-.header > div.function > a[class=login-line],
-.header > div.function > button[class=join],
-.header > div.function > button[class=login],
-.header > div.function > button[class=login-line] {
-  color: white;
-  background: #FF5E00;
-  border-radius: 35px;
-  white-space: nowrap;
-  min-width: 100px;
-  min-height: 30px;
-  letter-spacing: 1px;
-  margin-right: 10px;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-  font-family: "Microsoft YaHei", sans-serif;
-  font-weight: bold;
-  border: 1px solid transparent;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 0 5px;
+.header > div.function .forgot {
+  position: absolute;
+  bottom: -26px;
+  left: 7px;
+  color: #D1D1D1;
+  font-size: 10px;
+  font-weight: 400;
+  width: 340px;
 }
-.header > div.function > div[class=join]:hover, .header > div.function > div[class=login]:hover, .header > div.function > div[class=login-line]:hover,
-.header > div.function > a[class=join]:hover,
-.header > div.function > a[class=login]:hover,
-.header > div.function > a[class=login-line]:hover,
-.header > div.function > button[class=join]:hover,
-.header > div.function > button[class=login]:hover,
-.header > div.function > button[class=login-line]:hover {
-  color: #f77900;
-  border-color: #f77900;
-  background: transparent;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
+.header > div.function .country {
+  margin-left: 30px;
 }
-.header > div.function > div[class=login],
-.header > div.function > a[class=login],
-.header > div.function > button[class=login] {
-  background: #113158;
-}
-.header > div.function > div[class=login]:hover,
-.header > div.function > a[class=login]:hover,
-.header > div.function > button[class=login]:hover {
-  color: #113158;
-  border-color: #113158;
-}
-.header > div.function > div[class=login-line],
-.header > div.function > a[class=login-line],
-.header > div.function > button[class=login-line] {
-  background: #51CB33;
-}
-.header > div.function > div[class=login-line] .icon,
-.header > div.function > a[class=login-line] .icon,
-.header > div.function > button[class=login-line] .icon {
-  font-size: 18px;
-}
-.header > div.function > div[class=login-line]:hover,
-.header > div.function > a[class=login-line]:hover,
-.header > div.function > button[class=login-line]:hover {
-  color: #51CB33;
-  border-color: #51CB33;
-}
-.header > div.function > div:before,
-.header > div.function > a:before,
-.header > div.function > button:before {
-  font-size: 24px;
-}
-.header > div.function > div .countryList,
-.header > div.function > a .countryList,
-.header > div.function > button .countryList {
+.header > div.function .countryList {
   display: none;
   position: absolute;
   margin-top: 40px;
@@ -2098,23 +1580,16 @@ header input:focus-within {
   border-radius: 15px;
   padding: 0 20px;
   right: 0;
-  top: 0;
-  border: 1px solid rgba(30, 133, 236, 0.5);
+  top: 55px;
+  border: 1px solid white;
+  z-index: 2;
+  -webkit-box-shadow: 0 0 10px rgba(10, 27, 56, 0.6196078431);
+          box-shadow: 0 0 10px rgba(10, 27, 56, 0.6196078431);
 }
-.header > div.function > div .countryList .countryName,
-.header > div.function > a .countryList .countryName,
-.header > div.function > button .countryList .countryName {
+.header > div.function .countryList .countryName {
   font-weight: bold;
 }
-.header > div.function > div .countryList button,
-.header > div.function > div .countryList a,
-.header > div.function > div .countryList div,
-.header > div.function > a .countryList button,
-.header > div.function > a .countryList a,
-.header > div.function > a .countryList div,
-.header > div.function > button .countryList button,
-.header > div.function > button .countryList a,
-.header > div.function > button .countryList div {
+.header > div.function .countryList button, .header > div.function .countryList a, .header > div.function .countryList div {
   margin: 10px 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2122,89 +1597,115 @@ header input:focus-within {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #112240;
+  color: #0A1B38;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row;
           flex-flow: row;
 }
-.header > div.function > div .countryList button button,
-.header > div.function > div .countryList a button,
-.header > div.function > div .countryList div button,
-.header > div.function > a .countryList button button,
-.header > div.function > a .countryList a button,
-.header > div.function > a .countryList div button,
-.header > div.function > button .countryList button button,
-.header > div.function > button .countryList a button,
-.header > div.function > button .countryList div button {
+.header > div.function .countryList button button, .header > div.function .countryList a button, .header > div.function .countryList div button {
   border-right: 1px solid #5574A7;
   padding: 0 5px;
 }
-.header > div.function > div .countryList button button:last-child,
-.header > div.function > div .countryList a button:last-child,
-.header > div.function > div .countryList div button:last-child,
-.header > div.function > a .countryList button button:last-child,
-.header > div.function > a .countryList a button:last-child,
-.header > div.function > a .countryList div button:last-child,
-.header > div.function > button .countryList button button:last-child,
-.header > div.function > button .countryList a button:last-child,
-.header > div.function > button .countryList div button:last-child {
+.header > div.function .countryList button button:last-child, .header > div.function .countryList a button:last-child, .header > div.function .countryList div button:last-child {
   border-right: 0;
   padding: 0 0 0 5px;
 }
-.header > div.function > div .countryList button button:hover,
-.header > div.function > div .countryList a button:hover,
-.header > div.function > div .countryList div button:hover,
-.header > div.function > a .countryList button button:hover,
-.header > div.function > a .countryList a button:hover,
-.header > div.function > a .countryList div button:hover,
-.header > div.function > button .countryList button button:hover,
-.header > div.function > button .countryList a button:hover,
-.header > div.function > button .countryList div button:hover {
+.header > div.function .countryList button button:hover, .header > div.function .countryList a button:hover, .header > div.function .countryList div button:hover {
   color: #f77900;
 }
-.header > div.function > div.active .countryList,
-.header > div.function > a.active .countryList,
-.header > div.function > button.active .countryList {
+.header > div.function .countryList.active {
   display: block;
 }
-.header > div.function > div .flag:before,
-.header > div.function > a .flag:before,
-.header > div.function > button .flag:before {
-  border: 0.5px solid #cfcfcf;
-  width: 28px;
-  height: 28px;
-  line-height: 28px;
+.header > div.function .flag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.header > div.function .icon-email {
-  font-size: 24px;
+.header > div.function .flag img {
+  width: 15px;
+  margin-left: 3px;
+}
+.header > div.function .flag:before {
+  border: 2px solid white;
+  width: 35px;
+  height: 35px;
+  line-height: 26px;
+}
+.header > div.function .memberinfo {
+  width: 60px;
+  margin-right: 5px;
+}
+.header > div.function .grade {
+  margin-right: 10px;
+}
+.header > div.function .grade-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+}
+.header > div.function .grade-text::after {
+  content: "";
+  display: block;
+  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) no-repeat center center/cover;
+  width: 12px;
+  height: 14px;
+  margin-left: 5px;
+}
+.header > div.function .grade-color {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header > div.function .grade-color .dots {
+  width: 15px;
+  height: 15px;
+  background: #E8AE37;
+  border-radius: 50px;
+  margin-right: 4px;
+}
+.header > div.function .grade.vintage .dots {
+  background: #c8600b;
+}
+.header > div.function .grade.silver .dots {
+  background: #cacaca;
+}
+.header > div.function .grade.gold .dots {
+  background: #ce9b0a;
+}
+.header > div.function .grade.titanium .dots {
+  background: #828282;
+}
+.header > div.function .grade.diamond .dots {
+  background: #63cde0;
+}
+.header > div.function .grade.nova .dots {
+  background: #d4d4d4;
+}
+.header > div.function .grade.active .home-profile {
+  display: block;
+}
+.header > div.function .message {
   position: relative;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-  color: #112240;
-  position: relative;
+  display: none;
 }
-.header > div.function .icon-email.active:after {
-  content: "●";
-  position: absolute;
-  font-size: 14px;
-  color: #f77900;
-  right: 5px;
-  top: 0;
+.header > div.function .message img {
+  width: 75%;
 }
-.header > div.function .icon-email .msgPop {
+.header > div.function .message-text {
   position: absolute;
-  font-size: 12px;
-  bottom: 0;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-  right: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#f77900), to(#f55c00));
-  background: linear-gradient(to bottom, #f77900, #f55c00);
-  padding: 10px 10px 10px 15px;
-  text-align: center;
-  border-radius: 3px;
+  top: -4px;
+  right: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2214,20 +1715,40 @@ header input:focus-within {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: white;
-  font-weight: bold;
-  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  background: red;
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
 }
-.header > div.function .icon-email .msgPop > div {
+.header > div.function .message .msgPop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 1px;
+  left: -10px;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  background: #FF7600;
+  padding: 6px 12px 6px 15px;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  z-index: 1;
+  -webkit-box-shadow: 0 0 3px #797979;
+          box-shadow: 0 0 3px #797979;
+}
+.header > div.function .message .msgPop div {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 150px;
 }
-.header > div.function .icon-email .msgPop button {
-  background: white;
-  color: #f77900;
+.header > div.function .message .msgPop button {
+  border: 1px solid white;
+  color: #fff;
   width: 18px;
   height: 18px;
   border-radius: 100%;
@@ -2243,258 +1764,137 @@ header input:focus-within {
   font-size: 12px;
   margin: 0 0 0 10px;
 }
-.header > div.function .icon-email .msgPop button::before {
+.header > div.function .message .msgPop button::before {
   -webkit-transform: scale(0.7);
           transform: scale(0.7);
 }
-.header > div.function .icon-email .msgPop:after {
-  border-color: transparent transparent #f77900;
+.header > div.function .message .msgPop::after {
+  border-color: transparent transparent #FF7600;
   border-style: solid solid solid solid;
   border-width: 8px;
   top: 1px;
   content: "";
   height: 0;
-  right: 10px;
   position: absolute;
   width: 0;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
 }
-.header > div.function .icon-exit {
-  color: #112240;
-}
-.header > div.function .memberfile > .vipAnimation {
-  width: 35px;
-  height: 35px;
-  left: 0;
-}
-.header > div.function .memberfile > .vipAnimation > div, .header > div.function .memberfile > .vipAnimation:before, .header > div.function .memberfile > .vipAnimation:after {
-  background: #203769;
-}
-.header > div.function .memberfile > a {
-  width: 33px;
-  margin-right: 5px;
-  margin-left: 2px;
-  z-index: 1;
-  position: relative;
-}
-.header > div.function .memberfile > a:hover:before {
-  content: "$";
-  font-size: 12px;
-  font-weight: bold;
+.header > div.function .message.active {
   display: block;
-  position: absolute;
-  background: #fab617;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-  border-radius: 100%;
-  margin: auto;
-  top: 0;
-  right: 0;
-  -webkit-animation: bounce 0.4s cubic-bezier(0.5, 0.2, 0.8, 0.8) infinite alternate;
-          animation: bounce 0.4s cubic-bezier(0.5, 0.2, 0.8, 0.8) infinite alternate;
-  z-index: 2;
-  -webkit-transform: scale(0.8) translateX(70%);
-          transform: scale(0.8) translateX(70%);
 }
-@-webkit-keyframes bounce {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: 10px;
-  }
+.header > div.function .line {
+  border-right: 1px solid white;
+  height: 40px;
+  margin: 0 10px;
 }
-@keyframes bounce {
-  0% {
-    top: 0;
-  }
-  100% {
-    top: 10px;
-  }
-}
-.header > div.function .memberfile > a img {
-  -webkit-animation: vipimg 2.5s infinite ease-in-out;
-          animation: vipimg 2.5s infinite ease-in-out;
-}
-@-webkit-keyframes vipimg {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-@keyframes vipimg {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-.header > div.function .wallet,
-.header > div.function .memberfile {
-  position: relative;
-}
-.header > div.function .wallet button,
-.header > div.function .memberfile button {
-  color: #112240;
-  font-size: 14px;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-  white-space: nowrap;
-}
-.header > div.function .wallet .submenu,
-.header > div.function .memberfile .submenu {
-  display: none;
-  position: absolute;
-  margin-top: 40px;
-  background: white;
-  border-radius: 15px;
-  padding: 20px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  right: 0;
-  text-align: left;
-  line-height: 30px;
-  white-space: nowrap;
-  top: 0;
-  z-index: 1;
-  border: 1px solid rgba(30, 133, 236, 0.5);
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-}
-.header > div.function .wallet .submenu > a,
-.header > div.function .memberfile .submenu > a {
-  color: #5574A7;
-}
-.header > div.function .wallet .submenu a,
-.header > div.function .memberfile .submenu a {
-  position: relative;
-}
-.header > div.function .wallet .submenu a:hover,
-.header > div.function .memberfile .submenu a:hover {
-  color: #1E85EC;
-}
-.header > div.function .wallet .submenu a:hover.icon-exit span,
-.header > div.function .memberfile .submenu a:hover.icon-exit span {
-  background: #1E85EC;
-  color: white;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-.header > div.function .wallet .submenu a.icon-new:before,
-.header > div.function .memberfile .submenu a.icon-new:before {
-  position: unset;
-  float: right;
-  margin-left: 10px;
-}
-.header > div.function .wallet .submenu .icon-exit,
-.header > div.function .memberfile .submenu .icon-exit {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-}
-.header > div.function .wallet .submenu .icon-exit:before,
-.header > div.function .memberfile .submenu .icon-exit:before {
-  color: #1E85EC;
-}
-.header > div.function .wallet .submenu .icon-exit span,
-.header > div.function .memberfile .submenu .icon-exit span {
-  padding: 0 5px;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-.header > div.function .wallet.active > button, .header > div.function .wallet.active:before, .header > div.function .wallet.active:after,
-.header > div.function .memberfile.active > button,
-.header > div.function .memberfile.active:before,
-.header > div.function .memberfile.active:after {
-  color: #5574A7;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-.header > div.function .wallet.active .submenu,
-.header > div.function .memberfile.active .submenu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.header > div.function .wallet.active:after,
-.header > div.function .memberfile.active:after {
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-.header > div.function .wallet:after,
-.header > div.function .memberfile:after {
-  font-family: "icomoon";
-  content: "\e954";
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  color: #112240;
-  font-size: 18px;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-.header > div.function .wallet:before,
-.header > div.function .memberfile:before {
-  font-size: 18px;
-}
-.header > div.function .wallet .icon-plus,
-.header > div.function .wallet .icon-minus,
-.header > div.function .wallet .icon-spinner11 {
-  background: #112240;
-  border-radius: 30px;
+.header > div.function .home-balance .wallet {
+  color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 18px;
-  height: 18px;
-  margin-left: 3px;
 }
-.header > div.function .wallet .icon-plus:before,
-.header > div.function .wallet .icon-minus:before,
-.header > div.function .wallet .icon-spinner11:before {
-  color: white;
+.header > div.function .home-balance .wallet::after {
+  content: "";
+  display: block;
+  background: url(https://banner.0814media.net/desktop/img/4.0/down-1.png) no-repeat center/cover;
+  width: 12px;
+  height: 14px;
+  margin-left: 5px;
 }
-.header > div.function .wallet .icon-spinner11 {
-  background: #FF5E00;
+.header > div.function .home-balance .icon-spinner::before {
+  content: "";
+  display: block;
+  background: url(https://banner.0814media.net/desktop/img/4.0/refresh-1.png) no-repeat center/cover;
+  width: 15px;
+  height: 15px;
+  margin-right: 2px;
 }
-.header > div.function .wallet .icon-spinner11::before {
-  font-size: 10px;
+.header > div.function .home-balance .icon-spinner.active {
+  -webkit-animation: rotate 0.5s linear 2;
+          animation: rotate 0.5s linear 2;
 }
-.header > div.function .wallet .submenu div {
+.header > div.function .home-balance .icon-plus::before {
+  cursor: pointer;
+  content: "";
+  display: block;
+  background: url(https://banner.0814media.net/desktop/img/4.0/plus.png) no-repeat center/cover;
+  width: 15px;
+  height: 15px;
+  margin-left: 2px;
+}
+.header > div.function .home-balance .icon-minus::before {
+  cursor: pointer;
+  content: "";
+  display: block;
+  background: url(https://banner.0814media.net/desktop/img/4.0/minus.png) no-repeat center/cover;
+  width: 15px;
+  height: 15px;
+  margin-left: 2px;
+}
+.header > div.function .home-balance .balance-money {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header > div.function .home-balance .balance-submenu {
+  display: none;
+  background: #FFF;
+  position: absolute;
+  top: 95px;
+  right: 20px;
+  z-index: 3;
+  color: #0A1B38;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 12px;
+  width: 300px;
+  -webkit-box-shadow: 0 0 10px rgba(10, 27, 56, 0.6196078431);
+          box-shadow: 0 0 10px rgba(10, 27, 56, 0.6196078431);
+}
+.header > div.function .home-balance .balance-submenu .balance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 16px;
+  padding: 0 8px;
+  margin-bottom: 10px;
+}
+.header > div.function .home-balance .balance-submenu .balance span:nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header > div.function .home-balance .balance-submenu .balance .refresh-icon {
+  margin-left: 2px;
+}
+.header > div.function .home-balance .balance-submenu .balance .refresh-icon::after {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/4.0/refresh_w.png) no-repeat center/cover;
+  width: 16px;
+  height: 16px;
+}
+.header > div.function .home-balance .balance-submenu .walletBalance {
+  background: #cdcdcd;
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.header > div.function .home-balance .balance-submenu .walletBalance .walletName {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2502,89 +1902,589 @@ header input:focus-within {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.header > div.function .wallet .submenu div.balance {
-  font-weight: bold;
+.header > div.function .home-balance .balance-submenu .walletBalance .bouns {
+  font-size: 13px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 10px;
 }
-.header > div.function .wallet .submenu div.balance button {
-  font-size: 12px;
-  margin-left: 5px;
-  border-radius: 100%;
-  width: 20px;
-  height: 20px;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+.header > div.function .home-balance .balance-submenu .walletBalance .percentage {
+  font-size: 13px;
+}
+.header > div.function .home-balance .balance-submenu .btnGroup {
+  margin: 20px 0;
+}
+.header > div.function .home-balance .balance-submenu .btnGroup a:nth-child(2) {
+  margin-left: 10px;
+}
+.header > div.function .home-balance .balance-submenu .btnGroup .orange {
+  font-size: 14px;
+  background: #0A1B38;
+  margin: 0;
+}
+.header > div.function .home-balance .balance-submenu .btnGroup .orange:hover {
+  background: #FF7600;
+}
+.header > div.function .home-balance .balance-submenu .loginLog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.header > div.function .home-balance .balance-submenu .transactionLog {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5px;
+}
+.header > div.function .home-balance.active .balance-submenu {
+  display: block;
+}
+.header > div.function .deposit-btn {
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: 5px;
-  background: #5574A7;
-  color: white;
+  background: #FF7600;
+  width: 125px;
+  height: 48px;
+  border-radius: 50px;
+  margin-left: 10px;
+  color: #fff;
 }
-.header > div.function .wallet .submenu div.walletBalance {
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.logo a {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.splogo {
+  position: absolute;
+  right: -75px;
+  bottom: 30px;
+  width: 60px;
+  height: 60px;
+  background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+  -webkit-animation: splogo 3.5s ease-in-out infinite;
+          animation: splogo 3.5s ease-in-out infinite;
+}
+
+@-webkit-keyframes splogo {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0.1;
+  }
+  5% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  45% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  50% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0;
+  }
+  51% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0.1;
+  }
+  56% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  95% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0;
+  }
+}
+
+@keyframes splogo {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0.1;
+  }
+  5% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  45% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 1;
+  }
+  50% {
+    background: url(https://banner.0814media.net/desktop/img/sp-sevilla.png) center/cover;
+    opacity: 0;
+  }
+  51% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0.1;
+  }
+  56% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  95% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 1;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/sp-inter-milan.png) center/cover;
+    opacity: 0;
+  }
+}
+.home-profile {
+  background: #F9F9F9;
+  position: absolute;
+  z-index: 3;
+  border-radius: 20px;
+  right: 257px;
+  top: 95px;
+  display: none;
+  -webkit-box-shadow: 0 0 10px rgba(10, 27, 56, 0.6196078431);
+          box-shadow: 0 0 10px rgba(10, 27, 56, 0.6196078431);
+  width: 282px;
+}
+.home-profile .home-profile-top {
+  background: #EFEFEF;
+  padding: 20px;
+  border-radius: 20px 20px 0 0;
+  color: #0A1B38;
+}
+.home-profile .home-profile-top > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5px;
+}
+.home-profile .home-profile-top > div:first-child span {
+  color: #FF7600;
+  font-size: 16px;
+}
+.home-profile .home-profile-top .vip-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5px;
+}
+.home-profile .home-profile-top .vip-img img {
+  width: 75px;
+}
+.home-profile .home-profile-top .vip-img img:nth-child(2) {
+  width: 90px;
+}
+.home-profile .home-profile-top .progress {
+  width: 242px;
+  height: 6px;
+  background: #FFF;
+  border-radius: 50px;
+}
+.home-profile .home-profile-top .progress .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #cdcdcd), to(#FF7600));
+  background: linear-gradient(90deg, #cdcdcd 10%, #FF7600);
+  height: 6px;
+  border-radius: 50px;
+}
+.home-profile .home-profile-top .progress-number {
+  font-size: 10px;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+.home-profile .home-profile-top .progress-number a {
+  color: #CBCBCB;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 5px;
+}
+.home-profile .home-profile-top .progress-number a::after {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/4.0/right-4.png) no-repeat center/cover;
+  width: 12px;
+  height: 12px;
+}
+.home-profile .home-profile-bottom {
+  padding: 20px;
+}
+.home-profile .home-profile-bottom a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0A1B38;
+  margin-bottom: 15px;
+}
+.home-profile .home-profile-bottom a img {
+  width: 30px;
+  margin-right: 10px;
+}
+.home-profile .home-profile-bottom .home-profile-country .flag {
+  margin: 0;
+  height: 40px;
+}
+.home-profile .home-profile-bottom .home-profile-country .flag::before {
+  border: 1px solid #0A1B38;
+  width: 25px;
+  height: 25px;
+  margin: 0 13px 0 0;
+}
+.home-profile .home-profile-bottom .home-profile-country .flag.arrow.flag {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.home-profile .home-profile-bottom .home-profile-country .flag.arrow::after {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/4.0/down-2.png) no-repeat center/cover;
+  width: 15px;
+  height: 15px;
+  margin-left: 90px;
+}
+.home-profile .home-profile-bottom .home-profile-country .countryList {
+  position: unset;
+  background: none;
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 0;
+  margin-top: 20px;
+}
+.home-profile .home-profile-bottom .home-profile-country .countryList .countryName {
+  font-weight: 600;
+}
+.home-profile .home-profile-bottom .logout-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #FF7600;
+  margin-top: 15px;
+}
+.home-profile .home-profile-bottom .logout-btn img {
+  width: 25px;
+  margin: 0 15px 0 3px;
+}
+.home-profile.active {
+  display: block;
+}
+.home-profile.highest .home-profile-top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  background: rgba(30, 133, 236, 0.3);
-  border-radius: 5px;
-  padding: 4px 8px;
-  line-height: 20px;
-  font-size: 12px;
-  margin-top: 5px;
-  position: relative;
-  border: 1px solid rgba(30, 133, 236, 0.5);
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.header > div.function .wallet .submenu div.walletBalance .walletName {
-  font-weight: bold;
-  font-size: 13px;
+.home-profile.highest .home-profile-top .vip-img img {
+  width: 85px;
 }
-.header > div.function .wallet .submenu div.walletBalance .walletName + div {
-  border-top: 1px solid #5574A7;
-  padding-top: 5px;
-  margin-top: 10px;
+.home-profile.highest .home-profile-top .highest-text {
+  color: #0A1B38;
+  margin-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-.header > div.function .wallet .submenu div.walletBalance .walletName ~ div {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+.home-profile.highest .home-profile-top .highest-text::after {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/4.0/right-5.png) no-repeat center/cover;
+  width: 15px;
+  height: 15px;
+  margin-left: 5px;
 }
-.header > div.function .wallet .submenu div.walletBalance .walletName ~ div > div {
-  font-weight: bold;
-}
-.header > div.function .wallet .submenu div.walletBalance button {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  margin-top: -8px;
-}
-.header > div.function .wallet .submenu div.btnGroup {
-  margin: 20px 0 10px;
-}
-.header > div.function .wallet .submenu div.btnGroup a {
-  font-size: 13px;
-  padding: 0;
-}
-.header > div.function .wallet .submenu div.btnGroup a:hover {
-  color: white;
-}
-.header > div.function .wallet .submenu div.loginLog, .header > div.function .wallet .submenu div.transactionLog {
-  font-size: 12px;
-}
-.header > div.function .wallet .submenu div.loginLog span, .header > div.function .wallet .submenu div.transactionLog span {
-  height: 20px;
+
+.swiper-container {
+  position: relative !important;
 }
 
 main {
-  padding-top: 180px;
+  padding-top: 176px;
   min-width: 1400px;
+}
+main .home-marquee {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 calc((100% - 1400px) / 2);
+  background: #EFEFEF;
+}
+main .home-marquee #Marquee {
+  position: relative;
+  background: #EFEFEF;
+  color: #0A1B38;
+  overflow: hidden;
+}
+main .home-marquee #Marquee .marquee-box {
+  overflow: hidden;
+  width: 1293px;
+  height: 55px;
+  margin: auto;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+main .home-marquee #Marquee .marquee-box::before {
+  display: block;
+  content: "NEW";
+  background: #FF7600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  color: white;
+  z-index: 1;
+}
+main .home-marquee #Marquee .marquee-box:after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 60px;
+  height: 55px;
+  background: #EFEFEF;
+}
+main .home-marquee #Marquee .marquee-run {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  padding-left: 50px;
+  white-space: nowrap;
+}
+main .home-marquee #Marquee .marquee-run button {
+  margin-right: 10px;
+}
+main .home-marquee .livechat-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #EFEFEF;
+  width: 107px;
+  height: 55px;
+  padding-left: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+main .home-marquee .livechat-btn img {
+  width: 20px;
+  margin-right: 5px;
+}
+main .teachingbar {
+  width: 1400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+main .teachingbar > div {
+  width: 467px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 8px 20px 8px 30px;
+}
+main .teachingbar > div div {
+  width: 200px;
+  color: #0A1B38;
+}
+main .teachingbar > div .play-btn {
+  margin-left: 45px;
+  width: 65px;
+}
+main .teachingbar-deposit {
+  background: #F5F5F5;
+  border-radius: 20px 0 0 20px;
+}
+main .teachingbar-deposit-icon {
+  width: 75px;
+}
+main .teachingbar-deposit div {
+  margin-left: 8px;
+}
+main .teachingbar-withdrawal {
+  background: #EFEFEF;
+}
+main .teachingbar-withdrawal-icon {
+  width: 80px;
+}
+main .teachingbar-withdrawal div {
+  margin-left: 10px;
+}
+main .teachingbar-faq {
+  background: #F5F5F5;
+  border-radius: 0 20px 20px 0;
+}
+main .teachingbar-faq-icon {
+  width: 85px !important;
+}
+main .teachingbar-faq div {
+  margin-left: 2px;
+}
+main .welcomeinfo {
+  width: 1400px;
+  margin: 30px auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+main .welcomeinfo-content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main .welcomeinfo-content img {
+  width: 330px;
+  border-radius: 0 0 20px 20px;
+}
+main .welcomeinfo-content-text {
+  position: absolute;
+  bottom: 50px;
+  text-align: center;
+  font-size: 20px;
+  height: 75px;
+  width: 200px;
+}
+main .welcomeinfo-content-text span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 12px;
+  color: #B4B4B4;
+}
+main .welcomeinfo-content .welcome-btn {
+  position: absolute;
+  background: #407AEB;
+  color: white;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  bottom: 0;
+  border-radius: 20px 20px 0 0;
+  padding: 0 40px;
+}
+main .welcomeinfo-content.join .welcomeinfo-content-text {
+  color: #407AEB;
+}
+main .welcomeinfo-content.join .welcome-btn {
+  background: #407AEB;
+}
+main .welcomeinfo-content.winning {
+  color: #47B452;
+}
+main .welcomeinfo-content.winning .welcome-btn {
+  background: #47B452;
+}
+main .welcomeinfo-content.reward {
+  color: #F84646;
+}
+main .welcomeinfo-content.reward .welcome-btn {
+  background: #F84646;
+}
+main .welcomeinfo-content.referral {
+  color: #C67AF4;
+}
+main .welcomeinfo-content.referral .welcome-btn {
+  background: #C67AF4;
 }
 main section {
   display: -webkit-box;
@@ -2595,7 +2495,7 @@ main section {
   max-width: 1400px;
 }
 main section.inside {
-  padding-top: 50px;
+  padding-top: 15px;
 }
 main section.inside > div:not(.important) {
   margin: unset;
@@ -2617,9 +2517,806 @@ main section .btnGroup:not(.historyTag) {
       -ms-flex-pack: center;
           justify-content: center;
 }
+main .maintitle {
+  color: #0A1B38;
+  font-size: 20px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 1400px;
+  margin: 60px auto 0;
+  position: relative;
+}
+main .maintitle::after {
+  display: block;
+  content: "";
+  height: 5px;
+  width: 115px;
+  background: #001942;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 6% 100%);
+          clip-path: polygon(0 0, 100% 0%, 100% 100%, 6% 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #FF7600), to(#FFFFFF));
+  background: linear-gradient(90deg, #FF7600 10%, #FFFFFF);
+  margin-left: 10px;
+}
+main .maintitle a {
+  position: absolute;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0A1B38;
+  font-size: 16px;
+}
+main .maintitle a::after {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/4.0/right-3.png) no-repeat center/cover;
+  width: 17px;
+  height: 17px;
+  margin-left: 6px;
+}
+main .promosswiper {
+  width: 1490px;
+  margin: 40px auto;
+  position: relative;
+  overflow: hidden;
+  padding: 25px 0;
+}
+main .promosswiper .swiper-container {
+  overflow: unset;
+}
+main .promosswiper .swiper-slide {
+  -webkit-transform: scale(0.82);
+          transform: scale(0.82);
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 20px;
+}
+main .promosswiper .swiper-slide-active {
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
+}
+main .promosswiper .promos-item img {
+  width: 650px;
+}
+main .promosswiper .swiper-button-next {
+  background-image: url(https://banner.0814media.net/desktop/img/4.0/right-1.png);
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  right: 430px;
+  left: unset;
+  z-index: 1;
+}
+main .promosswiper .swiper-button-next::after {
+  font-size: 0;
+}
+main .promosswiper .swiper-button-prev {
+  background-image: url(https://banner.0814media.net/desktop/img/4.0/left-1.png);
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  left: 430px;
+  right: unset;
+  z-index: 1;
+}
+main .promosswiper .swiper-button-prev::after {
+  font-size: 0;
+}
+
+.hotmatch {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #fff), color-stop(20%, #172F5D), to(#04070E));
+  background: linear-gradient(180deg, #fff 10%, #172F5D 20%, #04070E);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  padding: 340px 0 80px;
+}
+.hotmatch::after {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/4.0/hotmatch-bg.png) no-repeat center/cover;
+  width: 100%;
+  height: 1000px;
+  margin-top: -20px;
+  position: absolute;
+  top: 20px;
+  right: 0;
+}
+.hotmatch .hotmatch-top {
+  font-size: 90px;
+  font-weight: 700;
+  width: 1400px;
+}
+.hotmatch .hotmatch-top img {
+  width: 190px;
+}
+.hotmatch .hotmatch-wrapper {
+  width: 1400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 1;
+}
+.hotmatch .swiper-container {
+  width: 1400px;
+  overflow: hidden;
+  position: unset !important;
+}
+.hotmatch .swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.hotmatch .hotmatchswiper {
+  position: relative;
+}
+.hotmatch .hotmatch-item {
+  background: white;
+  border-radius: 20px;
+}
+.hotmatch .hotmatch-item .hotmatch-item-title {
+  color: #001942;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px 20px 0;
+  position: relative;
+  margin-bottom: 8px;
+}
+.hotmatch .hotmatch-item .hotmatch-item-title p {
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 150px;
+}
+.hotmatch .hotmatch-item .hotmatch-item-title > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+}
+.hotmatch .hotmatch-item .hotmatch-item-title > div div {
+  margin-left: 10px;
+}
+.hotmatch .hotmatch-item .hotmatch-item-title::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 80px;
+  height: 4px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 3% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 3% 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #ff7600), to(#fff));
+  background: linear-gradient(90deg, #ff7600 10%, #fff);
+  top: 40px;
+}
+.hotmatch .hotmatch-item .hotmatch-item-center {
+  padding: 0 15px;
+}
+.hotmatch .hotmatch-item .hotmatch-item-center .team-content {
+  color: #001942;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.hotmatch .hotmatch-item .hotmatch-item-center .team-content .team-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+.hotmatch .hotmatch-item .hotmatch-item-center .team-content .team-item img {
+  padding: 4px;
+  width: 35px;
+  border: 2px solid #D1D1D1;
+  border-radius: 50px;
+  margin-right: 8px;
+}
+.hotmatch .hotmatch-item .hotmatch-item-center .team-content .team-item div {
+  width: 130px;
+  word-wrap: break-word;
+  font-size: 13px;
+}
+.hotmatch .hotmatch-item .hotmatch-item-center .team-content .odds {
+  font-weight: 600;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #EFEFEF;
+  width: 88px;
+  height: 30px;
+  border-radius: 50px;
+  padding: 0 15px;
+  margin-top: 5px;
+  font-size: 12px;
+}
+.hotmatch .hotmatch-item .hotmatch-item-center .team-content .odds span:nth-child(2) {
+  color: #407AEB;
+}
+.hotmatch .hotmatch-item .bet-btn {
+  background: #FF7600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 40px;
+  width: 333px;
+  border-radius: 0 0 20px 20px;
+  margin-top: 10px;
+  color: white;
+}
+.hotmatch .swiper-button-next {
+  background-image: url(https://banner.0814media.net/desktop/img/4.0/right-1.png);
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  right: -19px;
+  left: unset;
+}
+.hotmatch .swiper-button-next::after {
+  font-size: 0;
+  overflow: visible;
+}
+.hotmatch .swiper-button-prev {
+  background-image: url(https://banner.0814media.net/desktop/img/4.0/left-1.png);
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  left: -19px;
+  right: unset;
+  z-index: 1;
+}
+.hotmatch .swiper-button-prev::after {
+  font-size: 0;
+}
+.hotmatch .hotsports {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1400px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 30px auto 0;
+}
+.hotmatch .hotsports .hotsports-item {
+  position: relative;
+}
+.hotmatch .hotsports .hotsports-item img {
+  width: 451px;
+}
+
+.all-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+  background: -webkit-gradient(linear, right top, left top, color-stop(20%, #0B1D3B), to(#1E3E77));
+  background: linear-gradient(-90deg, #0B1D3B 20%, #1E3E77);
+  width: 110px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 15px;
+  border-radius: 50px;
+  color: white;
+}
+
+.mainlivecasino {
+  width: 1400px;
+  margin: 95px auto 0;
+}
+.mainlivecasino .maintitle {
+  margin-bottom: 6px;
+}
+.mainlivecasino .livecasino-bn {
+  position: relative;
+}
+.mainlivecasino .livecasino-bn img {
+  margin-top: -85px;
+}
+.mainlivecasino .livecasino-bn .all-btn {
+  width: 170px;
+  padding: 18px 0;
+  bottom: 25px;
+  left: 340px;
+  font-size: 20px;
+}
+.mainlivecasino .main-livecasino-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 30px;
+}
+.mainlivecasino .main-livecasino-item .hotlivecasino {
+  position: relative;
+}
+.mainlivecasino .main-livecasino-item .hotlivecasino img {
+  width: 451px;
+}
+
+.hotgame {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(20%, #1E3E77), to(#0B1D3B));
+  background: linear-gradient(-180deg, #1E3E77 20%, #0B1D3B);
+  margin-top: 80px;
+  padding-bottom: 70px;
+}
+.hotgame .maintitle {
+  color: white;
+}
+.hotgame .maintitle::after {
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #FF7600), to(#11284f));
+  background: linear-gradient(90deg, #FF7600 10%, #11284f);
+}
+.hotgame .maintitle:nth-child(1) {
+  padding: 70px 0 6px;
+  margin: 0 auto;
+}
+.hotgame .maintitle:nth-child(1)::after {
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, #FF7600), to(#1e3e77));
+  background: linear-gradient(90deg, #FF7600 10%, #1e3e77);
+}
+.hotgame .maintitle a {
+  color: white;
+}
+.hotgame .hotgame-content {
+  width: 1400px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.hotgame .hotgame-content .hotgame-content-item:nth-child(1) {
+  position: relative;
+  margin-top: -20px;
+}
+.hotgame .hotgame-content .hotgame-content-item:nth-child(1) .all-btn {
+  width: 170px;
+  padding: 18px 0;
+  bottom: 75px;
+  right: 100px;
+  font-size: 20px;
+}
+.hotgame .hotgame-content .left-bn {
+  width: 804px;
+}
+.hotgame .hotgame-content .right-bn {
+  width: 574px;
+  border-radius: 20px;
+  margin-top: 28px;
+}
+.hotgame .hotgame-content .hotgameswiper {
+  margin-top: 25px;
+  width: 574px;
+  position: relative;
+}
+.hotgame .hotgame-content .hotgameswiper .swiper-container {
+  overflow: hidden;
+  position: unset !important;
+}
+.hotgame .hotgame-content .hotgameswiper .swiper-slide .hotgame-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.hotgame .hotgame-content .hotgameswiper .swiper-slide .hotgame-item img {
+  width: 100%;
+  border-radius: 20px;
+}
+.hotgame .hotgame-content .hotgameswiper .swiper-slide .hotgame-item span {
+  font-size: 15px;
+  margin-top: 5px;
+  color: white;
+}
+.hotgame .hotgame-content .hotgameswiper .swiper-button-next {
+  background-image: url(https://banner.0814media.net/desktop/img/4.0/right-1.png);
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  right: -17px;
+  left: unset;
+  z-index: 1;
+}
+.hotgame .hotgame-content .hotgameswiper .swiper-button-next::after {
+  font-size: 0;
+}
+.hotgame .hotgame-content .hotgameswiper .swiper-button-prev {
+  background-image: url(https://banner.0814media.net/desktop/img/4.0/left-1.png);
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  right: unset;
+  left: -17px;
+  z-index: 1;
+}
+.hotgame .hotgame-content .hotgameswiper .swiper-button-prev::after {
+  font-size: 0;
+}
+.hotgame .jackpotswiper {
+  width: 1400px;
+  margin: 35px auto 0;
+  position: relative;
+}
+.hotgame .jackpotswiper .swiper-container {
+  overflow: hidden;
+  position: unset !important;
+}
+.hotgame .jackpotswiper .jackpot-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+.hotgame .jackpotswiper .jackpot-item img {
+  width: 100%;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.hotgame .jackpotswiper .swiper-button-next {
+  background-image: url(https://banner.0814media.net/desktop/img/4.0/right-1.png);
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  right: -17px;
+  left: unset;
+  top: 95px;
+  z-index: 1;
+}
+.hotgame .jackpotswiper .swiper-button-next::after {
+  font-size: 0;
+}
+.hotgame .jackpotswiper .swiper-button-prev {
+  background-image: url(https://banner.0814media.net/desktop/img/4.0/left-1.png);
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  top: 95px;
+  right: unset;
+  left: -17px;
+  z-index: 1;
+}
+.hotgame .jackpotswiper .swiper-button-prev::after {
+  font-size: 0;
+}
+
+.appdownload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1400px;
+  margin: 60px auto 25px;
+}
+.appdownload .appdownload-text {
+  color: #0A1B38;
+  margin-top: 60px;
+  width: 800px;
+}
+.appdownload .appdownload-text > div {
+  margin-bottom: 15px;
+}
+.appdownload .appdownload-text > div:nth-child(1) {
+  font-size: 20px;
+}
+.appdownload .appdownload-text > div:nth-child(2) {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 51px;
+  margin-bottom: 25px;
+}
+.appdownload .appdownload-text span {
+  color: #FF7600;
+}
+.appdownload .app-qrcode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 60px;
+}
+.appdownload .app-qrcode .app-qrcode-item {
+  text-align: center;
+  color: #FF7600;
+  margin-left: 15px;
+}
+.appdownload .app-qrcode .app-qrcode-item img {
+  width: 122px;
+}
+.appdownload .app-qrcode .app-qrcode-item div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #FF7600;
+  border-radius: 50px;
+  padding: 5px;
+  margin: 5px;
+}
+.appdownload .app-qrcode .app-qrcode-item div img {
+  width: 20px;
+  height: 20px;
+}
+.appdownload .app-qrcode .app-qrcode-item a {
+  margin-top: 5px;
+  color: #0066CC;
+}
+.appdownload .player {
+  width: 623px;
+}
+
+.partner-title {
+  color: #0A1B38;
+  width: 1400px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 33px;
+}
+.partner-title::before {
+  display: block;
+  content: "";
+  border-top: 1px solid #D1D1D1;
+  width: 400px;
+  margin-top: 27px;
+}
+.partner-title::after {
+  display: block;
+  content: "";
+  border-top: 1px solid #D1D1D1;
+  width: 400px;
+  margin-top: 27px;
+}
+
+.partner-logo {
+  width: 1400px;
+  margin: 40px auto 70px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 17px;
+}
+.partner-logo img {
+  background: #F9F9F9;
+  width: 156px;
+  border-radius: 20px;
+  padding: 0 15px;
+}
+
+.officialpartner {
+  width: 1400px;
+  margin: 40px auto 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.officialpartner img {
+  width: 458px;
+  margin-right: 15px;
+}
+
+.footer-top {
+  width: 1400px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 30px 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 0.2px solid rgba(255, 255, 255, 0.2588235294);
+}
+.footer-top .social-media a {
+  margin: 0;
+}
+.footer-top a {
+  color: white;
+  margin-right: 50px;
+}
+.footer-top > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.footer-top > div img {
+  width: 50px;
+  margin-left: 8px;
+}
+
+.footer-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1400px;
+  margin: 50px auto 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 0.2px solid rgba(255, 255, 255, 0.2588235294);
+  padding-bottom: 50px;
+}
+.footer-center .footer-center-item .game-license {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer-center .footer-center-item .game-license > div {
+  width: 65px;
+  margin: 15px 10px 0 0;
+}
+.footer-center .footer-center-item .game-license .icon-aware {
+  width: 115px;
+}
+.footer-center .footer-center-item:first-child .footer-center-title:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer-center .footer-center-item:first-child .footer-center-title:first-child::after {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/4.0/license-tick.png) no-repeat center/cover;
+  height: 20px;
+  width: 20px;
+  margin-left: 8px;
+}
+.footer-center .footer-center-item:nth-child(2) {
+  margin-left: 220px;
+}
+.footer-center .footer-center-item:nth-child(2) .footer-icon img {
+  margin: 15px 10px 0 0;
+}
+.footer-center .footer-center-item .footer-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer-center .footer-center-item .footer-icon img {
+  width: 50px;
+  margin: 15px 20px 0 0;
+}
+.footer-center .footer-center-item .footer-icon .icon-aware {
+  width: 129px;
+  height: 25px;
+}
+
+.footer-bottom {
+  padding: 25px 0;
+  background: #132546;
+}
+.footer-bottom > div {
+  width: 1400px;
+  margin: 0 auto;
+}
+.footer-bottom p {
+  font-size: 12px;
+  display: contents;
+  margin-top: 0;
+  font-weight: 400;
+  color: #bfbfbf;
+}
+.footer-bottom h1 {
+  padding: 16px 0 8px;
+  font-size: 16px;
+}
+.footer-bottom .footer-btn {
+  color: #FF7600;
+  text-decoration: underline;
+  margin-left: 5px;
+}
+.footer-bottom .footer-btn img {
+  width: 15px;
+}
+
+.footer-hideinfo .footer-btn {
+  margin: 0;
+}
 
 footer {
-  background: #112240;
+  background: #0A1B38;
   min-width: 1400px;
 }
 footer .platform,
@@ -2633,8 +3330,10 @@ footer .sfp {
   padding: 25px 0;
 }
 footer .copyright {
-  background: #7591C1;
-  padding: 20px calc((100% - 1400px) / 2);
+  width: 1400px;
+  margin: 0 auto;
+  background: #0A1B38;
+  padding: 40px 0;
   font-size: 14px;
   text-align: left;
   display: -webkit-box;
@@ -2643,49 +3342,6 @@ footer .copyright {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-footer .copyright a,
-footer .copyright button {
-  border-right: 1px solid #7591C1;
-  padding: 0 10px;
-  font-weight: bold;
-  color: white;
-  position: relative;
-}
-footer .copyright a::after,
-footer .copyright button::after {
-  content: "";
-  display: block;
-  width: 1px;
-  height: 15px;
-  background: #fff;
-  position: absolute;
-  right: -1.25px;
-  top: calc(50% - 7.5px);
-}
-footer .copyright a:nth-child(1),
-footer .copyright button:nth-child(1) {
-  padding-left: 0;
-}
-footer .copyright span {
-  float: right;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0 0 auto auto;
-}
-footer .copyright span span {
-  border-radius: 25px;
-  border: 1px solid white;
-  padding: 1px;
-  width: 25px;
-  line-height: 25px;
-  font-size: 12px;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
 }
 footer .platform > div {
   width: 100%;
@@ -3801,7 +4457,7 @@ input[type=file] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: "Microsoft YaHei", sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 0 5px;
   font-size: 13px;
   color: #5574A7;
@@ -3858,91 +4514,15 @@ input[type=file] {
   width: 30px;
 }
 
-#Marquee {
-  background: #112240;
-  position: relative;
-  overflow: hidden;
-}
-#Marquee .marquee-box {
-  overflow: hidden;
-  max-width: 1400px;
-  height: 40px;
-  margin: auto;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-#Marquee .marquee-box.icon:before {
-  width: 35px;
-  color: white;
-  background: #112240 url(https://banner.0814media.net/desktop/img/homepage/megaphone.png) no-repeat left center/auto 65%;
-  z-index: 1;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0;
-  font-size: 28px;
-  content: "";
-}
-#Marquee .marquee-box .marquee-run {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
-  padding-left: 40px;
-}
-#Marquee .marquee-box .marquee-run button {
-  color: white;
-  text-align: left;
-  font-size: 14px;
-  white-space: nowrap;
-  margin-right: 10px;
-  font-weight: bold;
-}
-#Marquee .mq-btn {
-  position: absolute;
-  right: 0;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #212121;
-  display: none;
-}
-#Marquee .mq-btn button {
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
-  border: 1px solid #1E85EC;
-  margin: 5px;
-}
-#Marquee .mq-btn button.active {
-  background: #1E85EC;
-}
-
 .eventLink {
   position: fixed;
   left: 10px;
-  bottom: 5%;
+  bottom: 3px;
   z-index: 3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 150px;
 }
 .eventLink--top {
   margin: 0 0 20px 10px;
@@ -3961,8 +4541,8 @@ input[type=file] {
   height: 20px;
   color: white;
   position: absolute;
-  left: 10px;
-  top: -20px;
+  left: 5px;
+  top: -15px;
   font-size: 14px;
   font-weight: bold;
   z-index: 4;
@@ -5236,6 +5816,7 @@ input[type=file] {
   max-height: calc(100% - 160px);
   overflow-y: auto;
   @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
 }
 #popup .pop.photo img {
   max-width: 800px;
@@ -5959,6 +6540,159 @@ input[type=file] {
 #popup .pop.promosbackpopup {
   overflow-y: unset;
 }
+#popup .pop .vninfopop {
+  background: transparent;
+  padding-top: unset;
+  border-radius: unset;
+  display: none;
+}
+#popup .pop .vninfopop.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#popup .pop .vninfopop-inner {
+  width: 100%;
+  margin-bottom: 200px;
+  position: relative;
+  -webkit-animation: vninfopop-inner 1.5s ease-in-out;
+          animation: vninfopop-inner 1.5s ease-in-out;
+}
+#popup .pop .vninfopop-inner::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 30px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(30, 93, 170)), color-stop(74%, rgb(17, 49, 88)));
+  background: linear-gradient(180deg, rgb(30, 93, 170) 0%, rgb(17, 49, 88) 74%);
+  border-radius: 0 0 30px 30px;
+}
+@-webkit-keyframes vninfopop-inner {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  50% {
+    -webkit-transform: scale(1.05, 1.05);
+            transform: scale(1.05, 1.05);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+@keyframes vninfopop-inner {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  50% {
+    -webkit-transform: scale(1.05, 1.05);
+            transform: scale(1.05, 1.05);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+#popup .pop .vninfopop .popgoto {
+  color: #fff;
+  min-width: 150px;
+  background: #113158;
+  padding: 10px 0px;
+  border-radius: 26px;
+  -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 14px;
+  position: absolute;
+  left: calc(50% - 5px);
+  bottom: calc(50% - 25px);
+  -webkit-animation: popgoto 2s ease-in-out;
+          animation: popgoto 2s ease-in-out;
+}
+#popup .pop .vninfopop .popgoto:hover {
+  background: #ff5e00;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@-webkit-keyframes popgoto {
+  0% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+  }
+  75% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+  }
+  88% {
+    opacity: 1;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    opacity: 1;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+@keyframes popgoto {
+  0% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+  }
+  75% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+  }
+  88% {
+    opacity: 1;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    opacity: 1;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+#popup .pop .vninfopop .closepop {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0.7;
+  -webkit-animation: closepop 2.3s ease-in-out;
+          animation: closepop 2.3s ease-in-out;
+}
+#popup .pop .vninfopop .closepop:hover {
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@keyframes closepop {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  88% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#popup .pop.vnpop {
+  overflow-y: unset;
+}
 
 .Submit,
 .poker,
@@ -6423,9 +7157,34 @@ input[type=file] {
   font-weight: normal;
 }
 
-.swiper-container,
-.swiper {
-  position: relative !important;
+.homebanner .swiper-container {
+  position: relative;
+}
+.homebanner .swiper-container .swiper-pagination {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  bottom: 30px;
+  right: unset;
+  left: 20px !important;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.homebanner .swiper-container .swiper-pagination .swiper-pagination-bullet {
+  height: 7px;
+  width: 15px;
+  background: rgba(165, 165, 165, 0.445);
+  margin: 0 4px;
+}
+.homebanner .swiper-container .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
 }
 
 .walletModule {
@@ -7826,6 +8585,7 @@ input[type=file] {
   background: #1e1c17 url(https://banner.0814media.net/desktop/img/livecasino/livecasino-bg01.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
+  padding-top: 176px;
 }
 
 .slotList,
@@ -8536,6 +9296,15 @@ article p {
   color: #b2b2b2;
 }
 .rdt .inputBox, .rdt .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .rdt .inputBox-event, .rdt .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .rdt .inputBox-event, .rdt .inputBox-org, .rdt .inputBox-white, .rdt .inputBox-blue {
+  width: 100%;
+}
+
+.react-datepicker-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.react-datepicker-wrapper input {
   width: 100%;
 }
 
@@ -10229,7 +10998,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .statement > div div.btnGroup button,
 .statement > div div.btnGroup a {
-  font: normal bold 13px/1 "Microsoft YaHei", sans-serif;
+  font: normal bold 13px/1 "Poppins", sans-serif;
   min-width: auto;
   max-width: 80px;
   padding: 8px 5px;
@@ -10318,6 +11087,246 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .refbanner {
   width: calc(100% - 160px);
   margin: 20px auto 10px;
+}
+
+.rightModule .refer {
+  margin: 0 auto 10px;
+  line-height: 1.2;
+  position: relative;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(56%, rgba(255, 255, 255, 0.1)), color-stop(94%, rgb(228, 244, 255)));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 56%, rgb(228, 244, 255) 94%);
+}
+.rightModule .refer-topbanner {
+  border-radius: 5px 5px 60px 60px;
+  cursor: pointer;
+}
+.rightModule .refer .title {
+  font-size: 20px;
+  text-align: center;
+  padding: 30px 0 25px 0;
+  position: relative;
+}
+.rightModule .refer-history {
+  display: inline-block;
+  font-size: 14px;
+  background: #fff;
+  padding: 5px 15px;
+  color: #7591C1;
+  border: 2px solid #7591C1;
+  border-radius: 20px;
+  position: absolute;
+  right: 100px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.rightModule .refer-history::after {
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/icon-right.svg) no-repeat center/12px 12px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 2px 0 0 12px;
+}
+.rightModule .refer-history:hover {
+  color: #F77900;
+  border: 2px solid #F77900;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.rightModule .refer-history:hover::after {
+  background: url(https://banner.0814media.net/desktop/img/icon-right-1.svg) no-repeat center/12px 12px;
+}
+.rightModule .refer .subtitle {
+  color: #112240;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.rightModule .refer .referstatus {
+  border-radius: 50px 50px 0px 0px;
+  background: white;
+  text-align: center;
+  padding: 0 0 40px 0;
+  width: calc(100% - 140px);
+  margin: -100px auto 0;
+  position: relative;
+}
+.rightModule .refer .referstatus-item {
+  color: #777;
+  font-size: 14px;
+  padding: 0 80px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-align: center;
+}
+.rightModule .refer .referstatus-item .card {
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+  background: #FBFBFB;
+  -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-height: 130px;
+  padding-top: 10px;
+  margin-top: unset;
+}
+.rightModule .refer .referstatus-item .card:first-child {
+  margin-right: 20px;
+}
+.rightModule .refer .referstatus-item div {
+  font-size: 25px;
+  font-weight: bold;
+  color: #F77900;
+  margin-top: 30.2px;
+}
+.rightModule .refer .referstatus-item div span {
+  margin-right: 8px;
+}
+.rightModule .refer .referinfo {
+  width: calc(100% - 300px);
+  padding: 0 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 10px auto 50px;
+}
+.rightModule .refer .referinfo-left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-right: 20px;
+  text-align: left;
+}
+.rightModule .refer .referinfo-left .subtitle {
+  margin-bottom: 2px;
+}
+.rightModule .refer .referinfo-step {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 1.2;
+  margin-bottom: 55px;
+}
+.rightModule .refer .referinfo-step .icon {
+  width: 70px;
+  height: 70px;
+  position: relative;
+}
+.rightModule .refer .referinfo-step .icon::after {
+  content: "";
+  display: block;
+  background: url(https://banner.0814media.net/desktop/img/refer-dashLine.svg) no-repeat center;
+  padding: 5px 0px;
+  width: 3px;
+  height: 45px;
+  position: absolute;
+  top: 70px;
+  left: calc(50% - 1.5px);
+}
+.rightModule .refer .referinfo-step:last-child .icon::after {
+  display: none;
+}
+.rightModule .refer .referinfo-step > div:last-child {
+  margin-left: 10px;
+}
+.rightModule .refer .referinfo p {
+  color: #777;
+  font-size: 13px;
+}
+.rightModule .refer .referinfo-right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.rightModule .refer .referinfo-list {
+  margin-bottom: 20px;
+  padding: 0 30px;
+}
+.rightModule .refer .referinfo-list .inputcopy {
+  position: relative;
+}
+.rightModule .refer .referinfo-list .inputcopy input {
+  width: calc(100% - 24px);
+  border-radius: 20px;
+  border: 1px solid #bababa;
+  padding: 10px 12px;
+  display: block;
+  color: #777;
+  font-size: 13px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.rightModule .refer .referinfo-list .inputcopy input:focus-visible {
+  border: 1px solid #bababa;
+}
+.rightModule .refer .referinfo-list .inputcopy::after {
+  content: "";
+  display: inline-block;
+  background: url(https://banner.0814media.net/desktop/img/icon-copy.svg) no-repeat center/20px 20px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  bottom: calc(50% - 10px);
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.rightModule .refer .referinfo-list .inputcopy:hover::after {
+  background: url(https://banner.0814media.net/desktop/img/icon-copy-1.svg) no-repeat center/20px 20px;
+}
+.rightModule .refer .referinfo-list-qr {
+  width: 90px;
+  padding: 2px;
+  border: 1px solid rgba(180, 180, 180, 0.9333333333);
+  border-radius: 3px;
+}
+.rightModule .refer .referinfo-share {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.rightModule .refer .referinfo-share img {
+  width: 25px;
+  margin-right: 15px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .referralModule {
@@ -10425,6 +11434,36 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .list.refhistory .btnGroup a {
   padding: 0;
+}
+.list.refhistory .listHeader div:nth-child(2), .list.refhistory .listBody div:nth-child(2) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
+}
+.list.refhistory .listHeader div:nth-child(3), .list.refhistory .listHeader div:nth-child(4), .list.refhistory .listBody div:nth-child(3), .list.refhistory .listBody div:nth-child(4) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 220px;
+          flex: 0 0 220px;
+}
+.list.refhistory .listHeader div:last-child, .list.refhistory .listBody div:last-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+.list.refhistory .listHeader div:last-child a, .list.refhistory .listBody div:last-child a {
+  text-decoration: underline;
+  color: #7591C1;
+}
+.list.refhistory .listHeader div:last-child a:hover, .list.refhistory .listBody div:last-child a:hover {
+  color: #1a2e56;
+}
+.list.refhistory + .btnGroup {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.list.refhistory + .btnGroup button {
+  margin: 0 auto;
 }
 
 .qrcode {
@@ -10585,6 +11624,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .vip {
   min-width: 1400px;
+  padding-top: 176px;
 }
 .vip .swiper-container {
   width: 100%;
@@ -11641,46 +12681,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .upload_new .checkBankSlip ul {
   width: 100%;
-}
-
-.moduleTitle {
-  background: url(https://banner.0814media.net/desktop/img/homepage/titlebg.png) no-repeat;
-  margin: 30px auto 15px;
-  padding: 0 0 0 25px;
-  line-height: 2.5;
-  font-size: 18px;
-  font-weight: bold;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 1400px;
-  height: 55px;
-  z-index: 1;
-  position: relative;
-}
-.moduleTitle > a {
-  margin: auto 55px auto auto;
-  color: #7591C1;
-  position: relative;
-}
-.moduleTitle > a::after {
-  content: "";
-  background: url(https://banner.0814media.net/desktop/img/homepage/more.png) no-repeat;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  right: -25px;
-  top: 15px;
-}
-.moduleTitle > a:hover {
-  color: #f77900;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-.moduleTitle > a:hover::after {
-  right: -30px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
 }
 
 .hotGame,
@@ -13072,7 +14072,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: "Microsoft YaHei", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 .quickLinkNew1.active,
 .quickLinkNew2.active,
@@ -13796,27 +14796,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   white-space: nowrap;
 }
 
-.projpot {
-  width: 1400px;
-  margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.projpot .promos {
-  float: left;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  margin-left: 0;
-  margin: 50px auto 50px 0;
-}
-.projpot .promos .moduleTitle {
-  width: 100%;
-}
-.projpot .promos .swiper-container .swiper-wrapper > div {
-  max-width: 280px;
+.slots-lobby .inside {
+  padding-top: 15px;
 }
 
 .jpotModule {
@@ -14169,9 +15150,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: rgba(210, 226, 249, 0.5);
   border-radius: 5px;
 }
-.partnerSelect .swiper-container,
-.partnerSelect .swiper {
-  padding: 0 40px;
+.partnerSelect .swiper-container {
+  position: relative;
 }
 .partnerSelect .swiper-container .swiper-button-next,
 .partnerSelect .swiper-container .swiper-button-prev,
@@ -14292,6 +15272,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: #84eff9 url(https://banner.0814media.net/desktop/img/fishing/fishbg.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
+  padding-top: 176px;
 }
 .fishinginside .inside {
   padding: 35px calc((100% - 1400px) / 2) 100px;
@@ -14377,6 +15358,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: relative;
   background: #020321 url(https://banner.0814media.net/desktop/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
+  padding-top: 176px;
 }
 .lotteryinside .inside {
   padding: 35px calc((100% - 1400px) / 2) 100px;
@@ -14487,10 +15469,122 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   left: 54px;
 }
 
+.esport {
+  margin-top: 50px;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.esport-item {
+  text-align: center;
+  margin: 10px 30px;
+  cursor: pointer;
+  position: relative;
+}
+.esport-item img {
+  width: 250px;
+  margin: 0 auto;
+}
+.esport-item .under {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background: #555;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+.esport-item .under + div {
+  font-size: 12px;
+}
+.esport-item.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.esport-item.active .under {
+  display: block;
+}
+.esport-item .icon-mediafire,
+.esport-item .icon-new {
+  background: #cf0404;
+  position: absolute;
+  top: 20px;
+  left: -10px;
+  padding: 3px;
+  border-radius: 5px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+.esport-item .icon-mediafire:before,
+.esport-item .icon-new:before {
+  position: unset;
+  color: white;
+  font-weight: normal;
+}
+.esport-item .icon-mediafire::after,
+.esport-item .icon-new::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 21px 10px;
+  border-color: transparent transparent transparent #cf0404;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 54px;
+}
+.esport-item .icon-new {
+  background: #f77900;
+}
+.esport-item .icon-new::after {
+  border-color: transparent transparent transparent #f77900;
+  left: 54px;
+}
+.esport-name {
+  color: #70ddfc;
+  font-weight: bold;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+}
+
 .esportinside {
   position: relative;
   background: #131419 url(https://banner.0814media.net/desktop/img/esport/esportsbg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
+  padding-top: 176px;
 }
 .esportinside .bannerInfo .text img {
   width: auto;
@@ -14723,18 +15817,21 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: relative;
   background: #3e132e url(https://banner.0814media.net/desktop/img/game/gamebg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
+  padding-top: 176px;
 }
 .gameinside .inside .rightModule {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .gameinside .inside .rightModule .gameItem {
   text-align: center;
-  margin: 0 20px;
+  margin: 0px 20px 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14828,7 +15925,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .app {
   min-width: auto;
-  padding: 180px 0 10vw 0;
+  padding: 176px 0 10vw 0;
   background: url(https://banner.0814media.net/desktop/img/app/appbg.jpg) no-repeat top center/cover;
 }
 .appHeader {
@@ -17054,7 +18151,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .proListNew > div > .promoInfo > div.btnGroup button,
 .proListNew > div > .promoInfo > div.btnGroup a {
   margin: 0 10px 0 0;
-  font: bold 13px "Microsoft YaHei", sans-serif;
+  font: bold 13px "Poppins", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -17243,6 +18340,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .wheelEvent {
   min-width: auto;
   @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@900&display=swap");
+  padding-top: 176px;
 }
 .wheelEvent .eventPage {
   min-width: 100%;
@@ -17477,14 +18575,14 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin-bottom: 5px;
 }
 .wheelEvent .eventPage .info .title div:not(.title) {
-  font-family: "Microsoft YaHei", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
   font-size: 15px;
   margin-bottom: 0;
   line-height: 30px;
 }
 .wheelEvent .eventPage .info > div li {
-  font-family: "Microsoft YaHei", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: normal;
   font-size: 16px;
   margin-bottom: 0;
@@ -20403,4 +21501,16 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin: 5px auto;
   padding-top: 10px;
   border-top: 1px dotted #1E85EC;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }/*# sourceMappingURL=style.css.map */

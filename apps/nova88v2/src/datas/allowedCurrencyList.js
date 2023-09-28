@@ -53,7 +53,8 @@ const allowedCurrencyList = {
 		defCurrencyList.IDR,
 		defCurrencyList.INR,
 		defCurrencyList.KHM,
-		defCurrencyList.VND
+		defCurrencyList.VND,
+		defCurrencyList.CNY
 	],
 	eWallet: [
 		defCurrencyList.IDR,
@@ -125,6 +126,16 @@ const allowedCurrencyList = {
 		defCurrencyList.INR,
 		defCurrencyList.VND
 	],
+	spaceman: [
+		defCurrencyList.MYR,
+		defCurrencyList.IDR,
+		defCurrencyList.THB,
+		defCurrencyList.BDT,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.KHM,
+		defCurrencyList.VND
+	],
 
 	// fishing
 	fishingGod: [defCurrencyList.INR, defCurrencyList.VND],
@@ -174,6 +185,19 @@ const allowedCurrencyList = {
 		defCurrencyList.BDT,
 		defCurrencyList.CNY,
 		defCurrencyList.USD
+	],
+
+	// other products
+
+	// slot & game
+	SPRIBE: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.INR,
+		defCurrencyList.USD,
+		defCurrencyList.CNY,
+		defCurrencyList.KHM
 	]
 };
 

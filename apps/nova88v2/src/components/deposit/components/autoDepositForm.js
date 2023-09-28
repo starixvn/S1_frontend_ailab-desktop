@@ -84,7 +84,8 @@ const AutoDepositForm = ({
 									item.sysId === sysIdForRecord
 										? "active"
 										: ""
-								}>
+								}
+							>
 								<div>
 									<img
 										src={`${paymentImgUrl}/square/${bankLogo}`}
@@ -134,7 +135,6 @@ const AutoDepositForm = ({
 							isAmount={true}
 							placeholder={placeHolderText}
 							onKeyDown={onInputboxKeyDown}
-							format={userInfo.currencyId === defCurrencyList.IDR}
 						/>
 
 						<ShortcutAmountList

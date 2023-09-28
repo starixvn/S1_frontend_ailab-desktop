@@ -9,6 +9,7 @@ import {
 import { defCurrencyList } from "../common/common";
 import { getLeaderBoardSupportCurrencyId } from "../leaderBoard/leaderBoard.def";
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
+import config from "../../config";
 
 // PP 移除時間
 const ppDestroyDate = "2023-02-28 23:00:00";
@@ -123,17 +124,18 @@ const defSortSlot = {
 		slot_PG: 4,
 		slot_MGPSW: 5,
 		slot_JI: 6,
-		slot_JOKER: 7,
-		slot_RedTiger: 8,
-		slot_NetEnt: 9,
-		slot_CQ9: 10,
-		slot_GPI: 11,
-		slot_YGG: 12,
-		slot_AMB: 13,
-		slot_Habanero: 14,
-		slot_SimplePlay: 15,
-		slot_Skywind: 16,
-		slot_PT: 17
+		slot_SPRIBE: 7,
+		slot_JOKER: 8,
+		slot_RedTiger: 9,
+		slot_NetEnt: 10,
+		slot_CQ9: 11,
+		slot_GPI: 12,
+		slot_YGG: 13,
+		slot_AMB: 14,
+		slot_Habanero: 15,
+		slot_SimplePlay: 16,
+		slot_Skywind: 17,
+		slot_PT: 18
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -144,17 +146,18 @@ const defSortSlot = {
 		slot_PG: 4,
 		slot_MGPSW: 5,
 		slot_JI: 6,
-		slot_JOKER: 7,
-		slot_RedTiger: 8,
-		slot_NetEnt: 9,
-		slot_CQ9: 10,
-		slot_GPI: 11,
-		slot_YGG: 12,
-		slot_AMB: 13,
-		slot_Habanero: 14,
-		slot_SimplePlay: 15,
-		slot_Skywind: 16,
-		slot_PT: 17
+		slot_SPRIBE: 7,
+		slot_JOKER: 8,
+		slot_RedTiger: 9,
+		slot_NetEnt: 10,
+		slot_CQ9: 11,
+		slot_GPI: 12,
+		slot_YGG: 13,
+		slot_AMB: 14,
+		slot_Habanero: 15,
+		slot_SimplePlay: 16,
+		slot_Skywind: 17,
+		slot_PT: 18
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -165,17 +168,18 @@ const defSortSlot = {
 		slot_PG: 4,
 		slot_MGPSW: 5,
 		slot_JI: 6,
-		slot_JOKER: 7,
-		slot_RedTiger: 8,
-		slot_NetEnt: 9,
-		slot_CQ9: 10,
-		slot_GPI: 11,
-		slot_YGG: 12,
-		slot_AMB: 13,
-		slot_Habanero: 14,
-		slot_SimplePlay: 15,
-		slot_Skywind: 16,
-		slot_PT: 17
+		slot_SPRIBE: 7,
+		slot_JOKER: 8,
+		slot_RedTiger: 9,
+		slot_NetEnt: 10,
+		slot_CQ9: 11,
+		slot_GPI: 12,
+		slot_YGG: 13,
+		slot_AMB: 14,
+		slot_Habanero: 15,
+		slot_SimplePlay: 16,
+		slot_Skywind: 17,
+		slot_PT: 18
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -186,17 +190,18 @@ const defSortSlot = {
 		slot_PG: 4,
 		slot_MGPSW: 5,
 		slot_JI: 6,
-		slot_JOKER: 7,
-		slot_RedTiger: 8,
-		slot_NetEnt: 9,
-		slot_CQ9: 10,
-		slot_GPI: 11,
-		slot_YGG: 12,
-		slot_AMB: 13,
-		slot_Habanero: 14,
-		slot_SimplePlay: 15,
-		slot_Skywind: 16,
-		slot_PT: 17
+		slot_SPRIBE: 7,
+		slot_JOKER: 8,
+		slot_RedTiger: 9,
+		slot_NetEnt: 10,
+		slot_CQ9: 11,
+		slot_GPI: 12,
+		slot_YGG: 13,
+		slot_AMB: 14,
+		slot_Habanero: 15,
+		slot_SimplePlay: 16,
+		slot_Skywind: 17,
+		slot_PT: 18
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -334,11 +339,11 @@ export const defSubListClassName = {
 	appDownload: "appList",
 	sports: "sportsList",
 	exchange: "exchangeList",
-	eSports: "eSportsList",
+	esports: "eSportsList",
 	slot: "casinoList",
 	casino: "livecasinoList",
 	poker: "pokerList",
-	games: "tableList",
+	game: "tableList",
 	lottery: "gameList",
 	fishing: "fishList",
 	promotion: "promoList",
@@ -395,20 +400,10 @@ export const defMenuLinks = {
 			}
 		]
 	},
-	appDownload: {
-		className: "icon icon-mobile",
-		path: path.appDownload.root
-	},
-	cryptoSports: {
-		className: "cryptobtn",
-		menuType: defMenuType.entPage,
-		productInfo: { ...productList.cryptoSports },
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.sports_cryptoSports
-			})
-		]
+	rewards: {
+		className: "reward",
+		allowCurrencies: allowedCurrencyList.rewards,
+		href: `${config.openURL}/rewards/`
 	},
 	sports: {
 		displayKey: "lbl_Sports",
@@ -544,70 +539,88 @@ export const defMenuLinks = {
 			}
 		]
 	},
-	eSports: {
+	esports: {
 		displayKey: "lbl_eSports",
 		className: "eSportsbtn",
 		path: path.eSport.root,
 		subMenu: [
 			{
-				displayKey: "lbl_All",
-				listNpcImgUrl: "esportALL.png",
+				displayText: "Saba",
+				listNpcImgUrl: "esportSABA.png",
 				listBgImgUrl: "eSportsListHover.png",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.eSportAll },
 				...productList.eSportAll,
 				lobbyPage: {
-					bgImg: "esposts-all.png",
-					hoverBgImg: "esposts-alla.png"
+					bgImg: "esposts-saba.png",
+					hoverBgImg: "esposts-sabaa.png"
 				}
 			},
+			// {
+			// 	displayKey: "lbl_Dota2",
+			// 	listNpcImgUrl: "esportDOTA2.png",
+			// 	listBgImgUrl: "eSportsListHover.png",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.eSport_DOTA2 },
+			// 	...productList.eSport_DOTA2,
+			// 	lobbyPage: {
+			// 		bgImg: "esposts-dota.png",
+			// 		hoverBgImg: "esposts-dotaa.png"
+			// 	}
+			// },
+			// {
+			// 	displayKey: "lbl_LOL",
+			// 	listNpcImgUrl: "esportLOL.png",
+			// 	listBgImgUrl: "eSportsListHover.png",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.eSport_LOL },
+			// 	...productList.eSport_LOL,
+			// 	lobbyPage: {
+			// 		bgImg: "esposts-lol.png",
+			// 		hoverBgImg: "esposts-lola.png"
+			// 	}
+			// },
+			// {
+			// 	displayKey: "lbl_CSGO",
+			// 	listNpcImgUrl: "esportCS.png",
+			// 	listBgImgUrl: "eSportsListHover.png",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.eSport_CSGO },
+			// 	...productList.eSport_CSGO,
+			// 	lobbyPage: {
+			// 		bgImg: "esposts-cs.png",
+			// 		hoverBgImg: "esposts-csa.png"
+			// 	}
+			// },
+			// {
+			// 	displayKey: "lbl_Kog",
+			// 	listNpcImgUrl: "esportKOG.png",
+			// 	listBgImgUrl: "eSportsListHover.png",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.eSport_KOG },
+			// 	...productList.eSport_KOG,
+			// 	lobbyPage: {
+			// 		bgImg: "esposts-kog.png",
+			// 		hoverBgImg: "esposts-koga.png"
+			// 	}
+			// },
 			{
-				displayKey: "lbl_Dota2",
-				listNpcImgUrl: "esportDOTA2.png",
+				displayText: "IM E-Sports",
+				listNpcImgUrl: "esportInplayMatrix.png",
 				listBgImgUrl: "eSportsListHover.png",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.eSport_DOTA2 },
-				...productList.eSport_DOTA2,
+				parameter: { ...productList.eSport_IM },
+				...productList.eSport_IM,
 				lobbyPage: {
-					bgImg: "esposts-dota.png",
-					hoverBgImg: "esposts-dotaa.png"
-				}
-			},
-			{
-				displayKey: "lbl_LOL",
-				listNpcImgUrl: "esportLOL.png",
-				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.eSport_LOL },
-				...productList.eSport_LOL,
-				lobbyPage: {
-					bgImg: "esposts-lol.png",
-					hoverBgImg: "esposts-lola.png"
-				}
-			},
-			{
-				displayKey: "lbl_CSGO",
-				listNpcImgUrl: "esportCS.png",
-				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.eSport_CSGO },
-				...productList.eSport_CSGO,
-				lobbyPage: {
-					bgImg: "esposts-cs.png",
-					hoverBgImg: "esposts-csa.png"
-				}
-			},
-			{
-				displayKey: "lbl_Kog",
-				listNpcImgUrl: "esportKOG.png",
-				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.eSport_KOG },
-				...productList.eSport_KOG,
-				lobbyPage: {
-					bgImg: "esposts-kog.png",
-					hoverBgImg: "esposts-koga.png"
-				}
+					bgImg: "esposts-inplaymatrix.png",
+					hoverBgImg: "esposts-inplaymatrixa.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
 			}
 		]
 	},
@@ -801,7 +814,7 @@ export const defMenuLinks = {
 				className: "liveAG",
 				icon: "icon icon-AG",
 				displayText: "Asia Gaming",
-				listNpcImgUrl: "casino-AG.png",
+				listNpcImgUrl: "casino-ag.png",
 				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_AG,
@@ -844,7 +857,7 @@ export const defMenuLinks = {
 				keyName: "slot_AdvantPlay",
 				displayText: "AdvantPlay",
 				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotapnew.png",
+				listNpcImgUrl: "slotap.png",
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_AdvantPlay },
 				parameter: { provider: "advant-play" },
@@ -907,13 +920,23 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_JILI },
 				parameter: { provider: "jili" },
+				...productList.casino_JILI
+			},
+			{
+				keyName: "slot_SPRIBE",
+				displayText: "SPRIBE",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotSPRIBE.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { provider: "spribe" },
+				...productList.casino_SPRIBE,
+				allowCurrencies: allowedCurrencyList.SPRIBE,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.casino_ji
+						period: defEventPeriod.IM
 					})
-				],
-				...productList.casino_JILI
+				]
 			},
 			{
 				keyName: "slot_JOKER",
@@ -1105,7 +1128,7 @@ export const defMenuLinks = {
 	// 	className: "pokerbtn",
 	// 	allowCurrencies: allowedCurrencyList.oneGame
 	// },
-	games: {
+	game: {
 		displayKey: "lbl_Games",
 		path: path.game.root,
 		filterByAuth: true,
@@ -1162,7 +1185,6 @@ export const defMenuLinks = {
 				},
 				allowCurrencies: allowedCurrencyList.vGaming
 			},
-
 			{
 				keyName: "games_kingMaker",
 				className: "fsgw",
@@ -1175,6 +1197,133 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgImg: "gamekim.png",
 					hoverBgImg: "gamekima.png"
+				}
+			},
+			{
+				keyName: "games_im_aviator",
+				className: "fsgw",
+				listNpcImgUrl: "gameSpribeAviator.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Aviator",
+				menuType: defMenuType.entPage,
+				...productList.games_im_avaitor,
+				parameter: { ...productList.games_im_avaitor },
+				lobbyPage: {
+					bgImg: "gamespribe-aciator.png",
+					hoverBgImg: "gamespribe-aciatora.png"
+				},
+				allowCurrencies: allowedCurrencyList.SPRIBE,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				keyName: "games_im_mines",
+				className: "fsgw",
+				listNpcImgUrl: "gameSpribeMines.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Mines",
+				menuType: defMenuType.entPage,
+				...productList.games_im_mines,
+				parameter: { ...productList.games_im_mines },
+				lobbyPage: {
+					bgImg: "gamespribe-mines.png",
+					hoverBgImg: "gamespribe-minesa.png"
+				},
+				allowCurrencies: allowedCurrencyList.SPRIBE,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				keyName: "games_im_goal",
+				className: "fsgw",
+				listNpcImgUrl: "gameSpribeGoal.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Goal",
+				menuType: defMenuType.entPage,
+				...productList.games_im_goal,
+				parameter: { ...productList.games_im_goal },
+				lobbyPage: {
+					bgImg: "gamespribe-goal.png",
+					hoverBgImg: "gamespribe-goala.png"
+				},
+				allowCurrencies: allowedCurrencyList.SPRIBE,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				keyName: "games_im_dice",
+				className: "fsgw",
+				listNpcImgUrl: "gameSpribeDice.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Dice",
+				menuType: defMenuType.entPage,
+				...productList.games_im_dice,
+				parameter: { ...productList.games_im_dice },
+				lobbyPage: {
+					bgImg: "gamespribe-dice.png",
+					hoverBgImg: "gamespribe-dicea.png"
+				},
+				allowCurrencies: allowedCurrencyList.SPRIBE,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				keyName: "games_Spaceman",
+				className: "fsgw",
+				listNpcImgUrl: "pp.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Spaceman",
+				menuType: defMenuType.entPage,
+				...productList.games_Spaceman,
+				parameter: { ...productList.games_Spaceman },
+				lobbyPage: {
+					bgImg: "gamepp.png",
+					hoverBgImg: "gameppa.png"
+				},
+				allowCurrencies: allowedCurrencyList.spaceman
+			},
+			{
+				keyName: "games_Crash",
+				className: "fsgw",
+				listNpcImgUrl: "ap.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Crash",
+				menuType: defMenuType.entPage,
+				...productList.games_Crash,
+				parameter: { ...productList.games_Crash },
+				lobbyPage: {
+					bgImg: "gameap.png",
+					hoverBgImg: "gameapa.png"
+				}
+			},
+			{
+				keyName: "games_GoRush",
+				className: "fsgw",
+				listNpcImgUrl: "jili.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Go Rush",
+				menuType: defMenuType.entPage,
+				...productList.games_GoRush,
+				parameter: { ...productList.games_GoRush },
+				lobbyPage: {
+					bgImg: "gamejili.png",
+					hoverBgImg: "gamejilia.png"
 				}
 			}
 		]

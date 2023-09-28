@@ -3,6 +3,7 @@ import { Link, navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import {
 	dragonBoatFestivalEventPeriod,
+	moonFestivalEventPeriod,
 	isDateRange
 } from "@ailab-desktop/common";
 import classNames from "classnames";
@@ -20,8 +21,6 @@ import LanguageDropDown from "./header.langDropdown";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
-import { langAndCurrMapping } from "../common/common";
-import allowedCurrencyList from "../../datas/allowedCurrencyList";
 import { angPaoEventPeriod } from "../../pages/angpao";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 
@@ -32,9 +31,6 @@ export default () => {
 	const { allMaintainList } = useContext(maintainListContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { isRoot } = useContext(isRootContext);
-
-	const currencyId =
-		userInfo.currencyId ?? langAndCurrMapping[userInfo.langId];
 
 	const handleLogout = () => {
 		LOGOUT(() => {
@@ -90,8 +86,7 @@ export default () => {
 				<div
 					className={classNames("logo", {
 						dragon: isDateRange(dragonBoatFestivalEventPeriod)
-					})}
-				>
+					})}>
 					<Link
 						to={`/${userInfo.langId}`}
 						onClick={reload}
@@ -99,26 +94,23 @@ export default () => {
 							dragonlogo: isDateRange(
 								dragonBoatFestivalEventPeriod
 							)
-						})}
-					>
-						{isDateRange(dragonBoatFestivalEventPeriod) ? (
+						})}>
+						{/* moon festival event period */}
+						{isDateRange(moonFestivalEventPeriod) ? (
 							<img
-								src={`${bannerImgUrl}/desktop/img/dragon-logo${
-									userInfo.langId === "cs" ? "_cs" : ""
+								src={`${bannerImgUrl}/desktop/img/mid-autumn-logo${
+									userInfo.langId === "cs" ? "-cs" : "-en"
 								}.png`}
 								alt={config.siteName}
 							/>
 						) : (
 							<img
-								src={`${bannerImgUrl}/desktop/img/${
-									userInfo.langId === "cs"
-										? "logo_cs"
-										: "logo_en"
-								}.png`}
+								src={`${bannerImgUrl}/desktop/img/4.0/logo_w.png`}
 								alt={config.siteName}
 							/>
 						)}
 					</Link>
+					<a className="splogo" />
 					{isDateRange(dragonBoatFestivalEventPeriod) && (
 						<>
 							<img
@@ -134,19 +126,7 @@ export default () => {
 						</>
 					)}
 
-					{allowedCurrencyList.rewards.includes(currencyId) && (
-						<a
-							className="rewardsLogo"
-							target="_blank"
-							href={`${config.openURL}/rewards/`}
-							rel="noreferrer"
-						>
-							<img
-								src={`${bannerImgUrl}/desktop/img/88rewards.png`}
-								alt="Rewards"
-							/>
-						</a>
-					)}
+					<a className="splogo" />
 
 					{/* 僅限過年期間顯示 */}
 					{isDateRange(angPaoEventPeriod) && (
@@ -159,16 +139,9 @@ export default () => {
 				</div>
 				<div className="function">
 					<Functions />
-					<LanguageDropDown />
-					{userInfo.isLogin ? null : (
-						<Link
-							to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-							className="forgot"
-						>
-							{t("lbl_ForgetPassword")}
-						</Link>
-					)}
-					<LogoutButton />
+					{!userInfo.isLogin && <LanguageDropDown />}
+
+					{!userInfo.isLogin && <LogoutButton />}
 				</div>
 				<Menu
 					productTpIds={productTpIds}

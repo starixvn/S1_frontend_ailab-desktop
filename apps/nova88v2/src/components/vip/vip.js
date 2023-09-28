@@ -34,12 +34,9 @@ const Vip = () => {
 	});
 	const currencyName = currencyIdToCurrency[userInfo?.currencyId];
 
-	let bannerLangId = userInfo.langId;
-	if (userInfo.langId === "en") {
-		bannerLangId = "";
-	}
-
-	const rows = defbanner(bannerLangId).map(item => {
+	const rows = defbanner(
+		["en", "cs"].includes(userInfo.langId) ? userInfo.langId : "en"
+	).map(item => {
 		const upBonus = vipBanner?.vipBannerData?.find(
 			vip => vip.level === item.level
 		)?.upBonus;

@@ -53,6 +53,39 @@ export const defbanner = langId => [
 	}
 ];
 
+export const HEADER_VIP_LEVEL_INFO_LIST = [
+	{
+		displayKey: "Label_Vip_Vintage",
+		dotClassName: "vintage",
+		level: 1
+	},
+	{
+		displayKey: "Label_Vip_Silver",
+		dotClassName: "silver",
+		level: 2
+	},
+	{
+		displayKey: "Label_Vip_Gold",
+		dotClassName: "gold",
+		level: 3
+	},
+	{
+		displayKey: "Label_Vip_Titanium",
+		dotClassName: "titanium",
+		level: 4
+	},
+	{
+		displayKey: "Label_Vip_Diamond",
+		dotClassName: "diamond",
+		level: 5
+	},
+	{
+		displayKey: "Label_Vip_Nova",
+		dotClassName: "nova",
+		level: 6
+	}
+];
+
 export const defPageClubImg = [
 	{
 		url: `${bannerImgUrl}/desktop/img/vip1.png`,
@@ -84,4 +117,13 @@ export const defPageClubImg = [
 		displayKey: "lbl_Nova_Club",
 		alt: "vip06"
 	}
+];
+
+export const HEADER_VIP_CLUB_IMG_URL_LIST = [
+	`https://banner.0814media.net/desktop/img/4.0/header-vintage.png`,
+	`https://banner.0814media.net/desktop/img/4.0/header-silver.png`,
+	`https://banner.0814media.net/desktop/img/4.0/header-gold.png`,
+	`https://banner.0814media.net/desktop/img/4.0/header-titanium.png`,
+	`https://banner.0814media.net/desktop/img/4.0/header-diamond.png`,
+	`https://banner.0814media.net/desktop/img/4.0/header-nova.png`
 ];

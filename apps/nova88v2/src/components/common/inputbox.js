@@ -21,7 +21,6 @@ const InputBox = ({
 	_isConvert,
 	readOnly,
 	isTipHide,
-	format,
 	isShowPaste,
 	handlePaste,
 	pasteCol
@@ -82,7 +81,7 @@ const InputBox = ({
 					/>
 
 					{!!tooltip && <div className="description">{tooltip}</div>}
-					{format && "('000)"}
+
 					{checked !== undefined && (
 						<div className="iconModule">
 							{!!_isConvert && <i>('000)</i>}
@@ -113,7 +112,7 @@ const InputBox = ({
 					/>
 
 					{!!tooltip && <div className="description">{tooltip}</div>}
-					{format && "('000)"}
+
 					{checked !== undefined && (
 						<div className="iconModule">
 							{!!_isConvert && <i>('000)</i>}
@@ -148,7 +147,6 @@ InputBox.defaultProps = {
 	onChange: null,
 	_isConvert: null,
 	readOnly: false,
-	format: false,
 	isTipHide: false,
 	isShowPaste: false,
 	handlePaste: null,
@@ -174,7 +172,6 @@ InputBox.propTypes = {
 	placeholder: PropTypes.string,
 	onChange: PropTypes.func,
 	_isConvert: PropTypes.bool,
-	format: PropTypes.bool,
 	isTipHide: PropTypes.bool,
 	isShowPaste: PropTypes.bool,
 	handlePaste: PropTypes.func,

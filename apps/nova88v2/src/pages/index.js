@@ -8,7 +8,7 @@ import PromotionWrapper from "../components/promotion/promotion.wrapper";
 const IndexPage = ({ location }) => (
 	<Wrapper>
 		<PromotionWrapper>
-			<Layout showFooter={true} isFullFooter={true}>
+			<Layout showFooter={true}>
 				<Content location={location} />
 			</Layout>
 		</PromotionWrapper>

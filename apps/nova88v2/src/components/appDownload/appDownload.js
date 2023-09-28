@@ -61,7 +61,7 @@ const AppDownload = () => {
 									target="_blank"
 									rel="noreferrer"
 								>
-									{/* <button>{t("lbl_DOWNLOAD")}</button> */}
+									<button>{t("lbl_DOWNLOAD")}</button>
 								</a>
 							</div>
 						</div>

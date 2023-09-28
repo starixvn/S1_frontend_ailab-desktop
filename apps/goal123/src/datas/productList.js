@@ -113,6 +113,11 @@ export default {
 		tpId: 45,
 		tpGameType: 87
 	},
+	sports_IM: {
+		tpId: 52,
+		tpGameType: 103,
+		gameId: "IMSB"
+	},
 
 	// esport
 
@@ -162,6 +167,11 @@ export default {
 		tpId: 48,
 		gameId: 0,
 		tpGameType: 97
+	},
+	eSport_IM: {
+		tpId: 52,
+		gameId: "ESPORTSBULL",
+		tpGameType: 102
 	},
 
 	/* === 3. live casino === */
@@ -421,6 +431,41 @@ export default {
 		tpId: 41, // seamless wallet,
 		gameId: 237,
 		tpGameType: 83
+	},
+	IM_Avaitor: {
+		tpId: 53,
+		gameId: "imgame12001",
+		tpGameType: 104
+	},
+	IM_Mines: {
+		tpId: 53,
+		gameId: "imgame12002",
+		tpGameType: 104
+	},
+	IM_Goal: {
+		tpId: 53,
+		gameId: "imgame12003",
+		tpGameType: 104
+	},
+	IM_Dice: {
+		tpId: 53,
+		gameId: "imgame12004",
+		tpGameType: 104
+	},
+	Spaceman: {
+		tpId: 5,
+		tpGameType: 7,
+		gameId: 1302
+	},
+	Crash: {
+		tpId: 39,
+		tpGameType: 67,
+		gameId: "Crash"
+	},
+	GoRush: {
+		tpId: 32,
+		tpGameType: 53,
+		gameId: 224
 	}
 };
 
@@ -520,6 +565,11 @@ export const defCasinoProviders = {
 		tpId: 50,
 		name: "Nextspin",
 		tpGameType: 99
+	},
+	SPRIBE: {
+		tpId: 53,
+		name: "spribe",
+		tpGameType: 104
 	}
 };
 
@@ -549,5 +599,6 @@ export const defSlotTpGameType = {
 	SimplePlay: { tpId: 44, tpGameType: 86, name: "simple-play" },
 	Habanero: { tpId: 40, tpGameType: 68, name: "habanero" },
 	Skywind: { tpId: 43, tpGameType: 82, name: "skywind" },
-	Nextspin: { tpId: 50, tpGameType: 99, name: "nextspin" }
+	Nextspin: { tpId: 50, tpGameType: 99, name: "nextspin" },
+	SPRIBE: { tpId: 53, tpGameType: 104, name: "spribe" }
 };
