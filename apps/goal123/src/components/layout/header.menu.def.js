@@ -859,6 +859,62 @@ export const defMenuLinks = langId => ({
 		path: path.fishing.root,
 		subMenu: [
 			{
+				...productList.fishing_SG,
+				className: "fsg",
+				displayKey: "lbl_FishingSG1",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing_SG },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishinggod.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishinggod-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/sg-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/fishing/fishinggod.png`,
+					providerImg: "sp"
+				}
+			},
+			{
+				...productList.fishing_SGW,
+				className: "fsgw",
+				displayKey: "lbl_FishingSG2",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing_SGW },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishingwar.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishingwar-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/sg-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/fishing/fishingwar.png`,
+					providerImg: "sp"
+				}
+			},
+			{
+				...productList.fishing_Zombie_Party,
+				className: "fsgw",
+				displayKey: "lbl_Fishing_Zombie_Party",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing_Zombie_Party },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/zombieparty.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/zombieparty-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/sg-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/fishing/zombieparty.png`,
+					providerImg: "sp"
+				}
+			},
+			{
+				...productList.fishing_Alien_Hunter,
+				className: "fsgw",
+				displayKey: "lbl_Fishing_Alien_Hunter",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing_Alien_Hunter },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/alienhunter.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/alienhunter-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/sg-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/fishing/alienhunter.png`,
+					providerImg: "sp"
+				}
+			},
+			{
 				...productList.CQ9_Paradise,
 				className: "paradise",
 				eventIcons: [
@@ -878,19 +934,6 @@ export const defMenuLinks = langId => ({
 					providerImg: "cq9"
 				}
 			},
-			// {
-			// 	...productList.CQ9_LuckyFishing,
-			// 	className: "luckyfishing",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.cq9
-			// 		})
-			// 	],
-			// 	displayKey: "lbl_Lucky_Fishing",
-			// 	menuType: defMenuType.entPage,
-			// 	parameter: { ...productList.CQ9_Lucky_Fishing }
-			// },
 			{
 				...productList.CQ9_Oneshot_Fishing,
 				className: "oneshotfishing",
@@ -905,6 +948,33 @@ export const defMenuLinks = langId => ({
 					providerImg: "cq9"
 				}
 			},
+			{
+				...productList.fishing,
+				className: "fgg",
+				displayKey: "lbl_FishingGG",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishingworld.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishingworld-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/gg-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/fishing/fishingworld.png`,
+					providerImg: "gg"
+				}
+			}
+			// {
+			// 	...productList.CQ9_LuckyFishing,
+			// 	className: "luckyfishing",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.cq9
+			// 		})
+			// 	],
+			// 	displayKey: "lbl_Lucky_Fishing",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.CQ9_Lucky_Fishing }
+			// },
 			// {
 			// 	...productList.Skywind_Ocean_Ruler,
 			// 	eventIcons: [
@@ -969,7 +1039,6 @@ export const defMenuLinks = langId => ({
 			// 	menuType: defMenuType.entPage,
 			// 	parameter: { ...productList.CQ9_Thunder_Fighter }
 			// },
-
 			// {
 			// 	...productList.ICG_DRAGONBALL_FISHING,
 			// 	className: "fdb",
@@ -1034,48 +1103,6 @@ export const defMenuLinks = langId => ({
 			// 		providerImg: "icg"
 			// 	}
 			// },
-			{
-				...productList.fishing,
-				className: "fgg",
-				displayKey: "lbl_FishingGG",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.fishing },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishingworld.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishingworld-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/gg-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/fishingworld.png`,
-					providerImg: "gg"
-				}
-			},
-			{
-				...productList.fishing_SG,
-				className: "fsg",
-				displayKey: "lbl_FishingSG1",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.fishing_SG },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishinggod.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishinggod-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/sg-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/fishinggod.png`,
-					providerImg: "sp"
-				}
-			},
-			{
-				...productList.fishing_SGW,
-				className: "fsgw",
-				displayKey: "lbl_FishingSG2",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.fishing_SGW },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishingwar.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishingwar-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/sg-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/fishingwar.png`,
-					providerImg: "sp"
-				}
-			}
 		]
 	},
 	lottery: {

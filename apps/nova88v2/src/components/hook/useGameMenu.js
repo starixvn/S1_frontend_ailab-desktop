@@ -20,11 +20,9 @@ const useGameMenu = ({ productTpIds }) => {
 		checkBeforeLogin
 	}) => {
 		let newMenu = defMenu;
-
 		const _currencyId = userInfo.currencyId
 			? userInfo.currencyId
 			: getCurrencyCode(userInfo.langId);
-
 		const haveToCheckTpId = productTpIds?.length > 0 && filterByAuth;
 
 		newMenu = newMenu.filter(s => {
