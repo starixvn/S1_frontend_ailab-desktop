@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, navigate } from "gatsby";
+import { navigate } from "gatsby";
 import i18next from "i18next";
 import { isDateRange } from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
@@ -12,47 +12,45 @@ import {
 	isRootContext,
 	maintainListContext
 } from "../common/context";
-import {
-	number_format,
-	readCookie,
-	setCookie,
-	deleteCookie
-} from "../common/common";
+import { readCookie, setCookie, deleteCookie } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import { defPopBoxType } from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
-import MysteryBoxLink from "./mysteryBoxLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import SwipperBanner from "../common/swipperBanner";
 import Marquee from "./marquee";
-import EventSwipper from "./eventSwipper";
-import WinnerBoard from "./winnerBoard";
 import Jackpot from "./jackpot";
-import MainGame from "./maingame";
-import Streaming from "./streaming";
-import HotGameList from "./hotGameList";
-import TandC from "../../service/t_and_c";
-import SideBarQuickLink from "./sideBarQuickLink";
-import AppDownload from "./appDownload";
+import SideBarContactUs from "./sideBarContactUs";
+import SideBarDownload from "./sideBarDownload";
 import { defBannerType } from "../../service/api/site";
 import useGetVideo from "../streaming/hook";
 import { bannerImgUrl } from "../../config";
-import { defEventPeriod } from "../common/eventIcon";
-import Fireworks from "../specialEffects/fireworks";
 import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
 import { angPaoEventPeriod } from "../../pages/angpao";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { defMenuLinks } from "../layout/header.menu.def";
-import RecentlyViewedGameList from "./recentlyViewedGameList";
 import { defDeviceType } from "../../service/api/base";
+import HotGames from "./hotGame";
+import HotPromotion from "./hotPromotion";
+import { isExpiry } from "../promotion/promotion.common";
+import { api_promotion_GetPromotionListV2 } from "../../service/api/promotion";
+import { api_hotEvent_GetDataList } from "../../service/api/hotEvent";
+import HomeMatch from "./homeMatch";
+import TopWinner from "./topWinner";
+import FavoriteSlots from "./favoriteSlots";
+import { api_HotGame_GetDataList } from "../../service/api/hotGame";
+import RecentlyViewed from "./recentlyViewed";
+import { api_game_GetRecentlyViewed } from "../../service/api/game";
+import HomeDownLoad from "./homeDownLoad";
+import LiveSports from "./liveSports";
+import News from "./news";
+import { api_news_GetNews } from "../../service/api/news";
 
-function Home() {
+const Home = () => {
 	const { t } = useTranslation();
-
 	const { setPopBox, errorPopBox, closePopBox } = usePopBox();
-
 	const isMountedRef = useRef(null);
-
+	const timeRef = useRef(null);
 	const { userInfo } = useContext(userInfoContext);
 	const { setIsRoot } = useContext(isRootContext);
 	const { allMaintainList } = useContext(maintainListContext);
@@ -64,21 +62,20 @@ function Home() {
 		langId: userInfo.langId,
 		isMounted: isMountedRef.current
 	});
-
-	const [winnerList, setWinnerList] = useState([]);
 	const [displayVgaming, setDisplayVgaming] = useState(true);
-
-	const isEvent = isDateRange(
-		defEventPeriod.newYear.start,
-		defEventPeriod.newYear.end
+	const [promotionList, setPromotionList] = useState([]);
+	const filterPromotionList = promotionList.filter(
+		item =>
+			!isExpiry({
+				...item,
+				isLogin: userInfo.isLogin
+			})
 	);
-
-	const openLoginPopBox = () => {
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.Login
-		});
-	};
+	const [hotEventList, setHotEventList] = useState([]);
+	const [leaderBoardList, setLeaderBoardList] = useState([]);
+	const [hotGameList, setHotGameList] = useState([]);
+	const [recentlyViewedGames, setRecentlyViewedGames] = useState([]);
+	const [news, setNews] = useState([]);
 
 	const mainGameNavigate = ({ tpId, gameId, isInMaintain }) => {
 		if (isInMaintain) return;
@@ -88,9 +85,192 @@ function Home() {
 			langId: userInfo.langId,
 			tpId,
 			gameId,
-			loginCallback: openLoginPopBox
+			loginCallback: () =>
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Login,
+					customLayout: true
+				})
 		});
 	};
+
+	const getPromotionList = async () => {
+		try {
+			const {
+				data: { data }
+			} = await api_promotion_GetPromotionListV2({
+				langId: userInfo.langId
+			});
+			setPromotionList(data ?? []);
+		} catch (error) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+		}
+	};
+
+	const getHotEventList = async () => {
+		try {
+			const {
+				data: { data }
+			} = await api_hotEvent_GetDataList({
+				langId: userInfo.langId
+			});
+			setHotEventList(data ?? []);
+		} catch (error) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+		}
+	};
+
+	const getLeaderBoardList = async () => {
+		try {
+			const res = await api_events_GetLeaderboardList({
+				lBCategoryId: 0,
+				TopNum: 10,
+				BeforeDays: 0,
+				EventCode: "202104"
+			});
+			setLeaderBoardList(res.data.data ?? []);
+		} catch (error) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+		}
+	};
+
+	const getHotGameList = async () => {
+		try {
+			const res = await api_HotGame_GetDataList(userInfo.langId);
+			setHotGameList(res.data.data.HotGame ?? []);
+		} catch (error) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+		}
+	};
+
+	const getRecentlyViewedGames = async () => {
+		try {
+			const res = await api_game_GetRecentlyViewed({
+				currencyId: userInfo.currencyId
+			});
+			if (res.data.errorCode === 0) {
+				const { recentlyViewedList } = res.data.data;
+				setRecentlyViewedGames(recentlyViewedList ?? []);
+			}
+		} catch (error) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+		}
+	};
+
+	const getNews = async () => {
+		try {
+			const res = await api_news_GetNews({
+				langId: userInfo.langId,
+				PageNumber: 1,
+				PageSize: 2,
+				currencyId: userInfo.currencyId
+			});
+			setNews(res.data.data ?? []);
+		} catch (error) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+		}
+	};
+
+	useEffect(() => {
+		getPromotionList();
+		getHotEventList();
+		getLeaderBoardList();
+		getHotGameList();
+		getRecentlyViewedGames();
+		getNews();
+
+		timeRef.current = setInterval(() => {
+			getHotEventList();
+		}, 60000);
+
+		return () => {
+			clearInterval(timeRef.current);
+		};
+	}, []);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -100,10 +280,6 @@ function Home() {
 			setIsRoot(false);
 		};
 	});
-
-	useEffect(() => {
-		getTopWinnners();
-	}, []);
 
 	useEffect(() => {
 		const displayAnnouncePopup = () => {
@@ -238,8 +414,11 @@ function Home() {
 													navigate(
 														`/${path.promotion.root}?bonusCode=${bonusCode}`
 													);
-												}}>
-												{t("lbl_Promotion_ClaimNow")}
+												}}
+											>
+												{t(
+													"promotion.lbl_promo_claim_now"
+												)}
 											</button>
 
 											<img
@@ -295,7 +474,8 @@ function Home() {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								closePopBox();
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -304,186 +484,46 @@ function Home() {
 		}
 	}, []);
 
-	const getTopWinnners = () => {
-		const payload = {
-			lBCategoryId: 0,
-			TopNum: 10,
-			BeforeDays: 0,
-			EventCode: "202104"
-		};
-
-		api_events_GetLeaderboardList(payload).then(
-			res => {
-				if (!isMountedRef.current) return;
-				if (res.data.errorCode === 0) {
-					setWinnerList(res.data.data);
-				} else {
-					errorPopBox(
-						res.data.message || "error",
-						res.data.errorCode
-					);
-				}
-			},
-			() => {
-				if (!isMountedRef.current) return;
-				errorPopBox();
-			}
-		);
-	};
-
 	return (
 		<>
-			{isEvent && <Fireworks />}
-			<MysteryBoxLink
-				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
-				langId={userInfo.langId}
-			/>
-
 			<main className="home">
-				<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
-
+				<div className="fullbanner">
+					<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
+				</div>
 				<Marquee />
-
-				<section>
-					<div className="offers">
-						<EventSwipper langId={userInfo.langId} />
-					</div>
-
-					<div className="area2">
-						<Jackpot t={t} userInfo={userInfo} />
-
-						<WinnerBoard
-							t={t}
-							number_format={number_format}
-							winnerList={winnerList}
-						/>
-
-						<Streaming
-							videoList={videoList}
-							t={t}
-							langId={userInfo.langId}
-						/>
-					</div>
-
-					<MainGame
-						t={t}
-						userInfo={userInfo}
-						setPopBox={setPopBox}
-						allMaintainList={allMaintainList}
+				<div className="wrapper">
+					<HotGames maintainList={allMaintainList} />
+					<HotPromotion promotionList={filterPromotionList} />
+					<HomeMatch
+						hotEventList={hotEventList}
+						maintainList={allMaintainList}
 					/>
-
-					<HotGameList
-						t={t}
-						userInfo={userInfo}
-						setPopBox={setPopBox}
-						allMaintainList={allMaintainList}
+					<TopWinner leaderBoardList={leaderBoardList} />
+					<Jackpot t={t} userInfo={userInfo} />
+					<FavoriteSlots
+						hotGameList={hotGameList}
+						maintainList={allMaintainList}
 					/>
-					{userInfo.isLogin && <RecentlyViewedGameList />}
-				</section>
-
-				<section className={isEvent ? "newyear" : ""}>
-					<div className="guide">
-						<div className="guidelist">
-							<div className="title">{t("lbl_UserGuide")}</div>
-							<ul>
-								<li>
-									<div className="icon" />
-									<Link
-										to={`${bannerImgUrl}/Static/images/How_To_Deposit.mp4`}
-										target="_blank">
-										{t("lbl_HowToDepoist")}
-									</Link>
-								</li>
-								<li>
-									<div className="icon withdrawal" />
-									<Link
-										to={`/${userInfo.langId}/${path.howToWithdraw.root}`}>
-										{t("lbl_HowToWithdraw")}
-									</Link>
-								</li>
-								<li>
-									<div className="icon play" />
-									<Link
-										to={`/${userInfo.langId}/${path.howToPlay.root}`}>
-										{t("lbl_HowToPlay")}
-									</Link>
-								</li>
-								<li>
-									<div className="icon faq" />
-									<a href={TandC(userInfo.langId).FAQ}>
-										{t("lbl_FAQ")}
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div className="exGroup">
-							<div className="title">{t("lbl_Superiority")}</div>
-							<div className="exGroupBox">
-								<div className="left">
-									<div className="ex">
-										<img
-											src={`${bannerImgUrl}/desktop/img/timeIcon.png`}
-											alt="imgTimeIcon"
-										/>
-										<ul>
-											<li>
-												{t("lbl_ExcellentCustomerCare")}
-											</li>
-											<li>
-												{t(
-													"lbl_ExcellentCustomerCareDesc"
-												)}
-											</li>
-										</ul>
-									</div>
-									<div className="ex">
-										<img
-											src={`${bannerImgUrl}/desktop/img/gameIcon.png`}
-											alt="imgGameIcon"
-										/>
-										<ul>
-											<li>{t("lbl_ExtensiveGames")}</li>
-											<li>
-												{t("lbl_ExtensiveGamesDesc")}
-											</li>
-										</ul>
-									</div>
-								</div>
-								<div className="right">
-									<div className="ex">
-										<h1>{t("lbl_Deposit_Average")}</h1>
-										<p>01</p>
-										<h1>
-											{String(
-												t("lbl_Minutes")
-											).toUpperCase()}
-										</h1>
-									</div>
-									<div className="ex">
-										<h1>{t("lbl_Withdrawal_Average")}</h1>
-										<p>05</p>
-										<h1>
-											{String(
-												t("lbl_Minutes")
-											).toUpperCase()}
-										</h1>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+					{userInfo.isLogin && (
+						<RecentlyViewed
+							recentlyViewedGames={recentlyViewedGames}
+						/>
+					)}
+					<HomeDownLoad />
+					<LiveSports videoList={videoList} />
+					<News news={news} />
+				</div>
 			</main>
 			{/* vgaming Home 點擊入口 */}
 			{displayVgaming && (
 				<div className="eventLink vgaming">
 					<button
 						style={{ zIndex: 50 }}
-						className="icon icon-close"
+						className="icon-close-primary"
 						onClick={() => setDisplayVgaming(false)}
 					/>
 					<img
-						src={`${bannerImgUrl}/desktop/img/vgaming.gif`}
+						src={`${bannerImgUrl}/desktop/img/4.0/vgaming.gif`}
 						alt="vgaming-link"
 						onClick={() =>
 							mainGameNavigate(
@@ -506,11 +546,11 @@ function Home() {
 			{isDateRange(angPaoEventPeriod) &&
 				["en", "vn"].includes(i18next.language) && <AngpaoFloatLink />}
 
-			<SideBarQuickLink />
+			<SideBarContactUs />
 
-			<AppDownload langId={userInfo.langId} />
+			<SideBarDownload langId={userInfo.langId} />
 		</>
 	);
-}
+};
 
 export default Home;

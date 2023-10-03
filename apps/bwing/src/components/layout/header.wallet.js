@@ -135,9 +135,7 @@ class Dropdown extends Component {
 
 		return (
 			<div
-				className={`wallet icon icon-balance${
-					this.state.isOpen ? " active" : ""
-				}`}
+				className="walletbtn icon-wallet"
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
 				<button>
@@ -148,65 +146,68 @@ class Dropdown extends Component {
 					aria-label="HandleDisplayBalance"
 					value={!isHideBalance}
 					onClick={_handleIsHideBalance}
-					className={`icon icon-eye${
-						isHideBalance ? "-blocked" : ""
+					className={`${
+						isHideBalance ? "icon-unvisible" : "icon-visible"
 					}`}
 				/>
 
-				<ReloadSpin func={this.props.RefreshAllWallets} />
-
-				<i className="icon icon-arrow_drop_down" />
-				<div className="submenu">
-					<div className="balance">
-						<span>
-							{this.props.currencyId === 51 ? "VNĐ" : "$"}
-						</span>
-						<span>
-							{balance}
+				{this.state.isOpen && (
+					<div className="wallet-info">
+						<div className="turnover">
+							<div>
+								<span>
+									{this.props.currencyId === 51 ? "VND" : "$"}
+								</span>
+								<span>{balance}</span>
+							</div>
 							<ReloadSpin func={this.props.RefreshAllWallets} />
-						</span>
-					</div>
+						</div>
 
-					<BonusWalletRows
-						bonusWallets={bonusWallets}
-						i18n={this.props.i18n}
-						mainWallet={mainWallet}
-						_isConvert={this.props._isConvert}
-					/>
+						<BonusWalletRows
+							bonusWallets={bonusWallets}
+							i18n={this.props.i18n}
+							mainWallet={mainWallet}
+							_isConvert={this.props._isConvert}
+						/>
 
-					{tpWalletRows}
+						{tpWalletRows}
 
-					<div className="btnGroup">
-						<Link
-							to={`/${this.props.langId}/${path.deposit.root}`}
-							className="blue">
-							{this.props.i18n("lbl_Deposit").toUpperCase()}
-						</Link>
-						{/* <Link
+						<div className="btnGroup">
+							<Link
+								to={`/${this.props.langId}/${path.deposit.root}`}
+								className="blue">
+								{this.props.i18n("lbl_Deposit").toUpperCase()}
+							</Link>
+							{/* <Link
 							to={`/${this.props.langId}/${path.transferFunds.root}`}
 							className="blue">
 							{this.props.i18n("lbl_TransferFunds").toUpperCase()}
 						</Link> */}
+						</div>
+						<div className="loginLog">
+							<span>{this.props.i18n("lbl_LastLogin")}</span>
+							<span>
+								{this.props.lastLogin
+									? moment(this.props.lastLogin).format(
+											"l LTS"
+									  )
+									: null}
+							</span>
+						</div>
+						<div className="transactionLog">
+							<span>
+								{this.props.i18n("lbl_LastTransaction")}
+							</span>
+							<span>
+								{mainWallet.lastTransaction
+									? moment(mainWallet.lastTransaction).format(
+											"l LTS"
+									  )
+									: null}
+							</span>
+						</div>
 					</div>
-					<div className="loginLog">
-						<span>{this.props.i18n("lbl_LastLogin")}</span>
-						<span>
-							{this.props.lastLogin
-								? moment(this.props.lastLogin).format("l LTS")
-								: null}
-						</span>
-					</div>
-					<div className="transactionLog">
-						<span>{this.props.i18n("lbl_LastTransaction")}</span>
-						<span>
-							{mainWallet.lastTransaction
-								? moment(mainWallet.lastTransaction).format(
-										"l LTS"
-								  )
-								: null}
-						</span>
-					</div>
-				</div>
+				)}
 			</div>
 		);
 	}
@@ -221,10 +222,10 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet }) => {
 			</div>
 			{bonusWallets.map(item => {
 				return (
-					<div
-						className="walletProgerss"
-						key={`header-bonuswallet-${item.tpId}`}>
-						<div>
+					<>
+						<div
+							className="walletName"
+							key={`header-bonuswallet-${item.tpId}`}>
 							<span>
 								{i18n(
 									`lbl_BonusWallet_${item.promoCategoryId}`
@@ -236,7 +237,7 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet }) => {
 							turnover={item.turnover}
 							rollover={item.rollover}
 						/>
-					</div>
+					</>
 				);
 			})}
 		</div>

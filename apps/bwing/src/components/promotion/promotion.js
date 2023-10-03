@@ -137,8 +137,7 @@ export default () => {
 	const promotionStaticRows = staticList.map(p => {
 		return (
 			<div
-				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-			>
+				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
 				<img
 					src={p.imgUrl?.[userInfo.langId]}
 					alt={p.title?.[userInfo.langId] ?? "static promotions"}
@@ -162,8 +161,7 @@ export default () => {
 						url: p.bannerLink?.[userInfo.langId],
 						bonusCode: p.bonusCode
 					})}
-					className="btnGroup"
-				>
+					className="btnGroup">
 					<button className="blueBorder">{t("lbl_Details")}</button>
 				</div>
 			</div>
@@ -230,8 +228,8 @@ export default () => {
 	return loading ? (
 		<Loading />
 	) : (
-		<div className="infoModule">
-			<div className="inside-title">
+		<>
+			<div className="lobby-title">
 				<span>{t("lbl_Promotion_list")}</span>
 			</div>
 
@@ -264,7 +262,7 @@ export default () => {
 					afterJoinCallBack={getPromotionListV2}
 				/>
 			)}
-		</div>
+		</>
 	);
 };
 

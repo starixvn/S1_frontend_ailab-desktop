@@ -1,160 +1,83 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
-import { Link } from "gatsby";
+import { useLocation } from "@reach/router";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import path from "../router";
-import { userInfoContext, popBoxContext } from "../components/common/context";
 import { api_news_GetNews } from "../service/api/news";
-import { Pagination } from "../components/common/pagination";
-import Loading from "../components/common/loading";
-import { defPopBoxType } from "../components/common/defPopBoxType";
-import { getCurrencyCode } from "../components/common/common";
+import { userInfoContext } from "../components/common/context";
 
 export default () => {
 	return (
 		<Wrapper>
 			<Layout showFooter={true}>
-				<main>
-					<section className="inside">
-						<div className="rightModule">
-							<Content />
+				<main className="lobby news">
+					<div className="wrapper mt-5">
+						<div className="col-12">
+							<NewsPage />
 						</div>
-					</section>
+					</div>
 				</main>
 			</Layout>
 		</Wrapper>
 	);
 };
 
-const Content = () => {
+const NewsPage = () => {
 	const { t } = useTranslation();
+	const location = useLocation();
+	const searchParams = new URLSearchParams(location.search);
+	const paramsNewsId = searchParams.get("newsId");
 	const { userInfo } = useContext(userInfoContext);
-	const { setPopBox } = useContext(popBoxContext);
-	const [getNews, setGetNews] = useState();
-	const [processing, setProcessing] = useState(false);
-	const [pagination, setPagination] = useState({
-		totalPages: 0,
-		currentPage: 1
-	});
-	const [loading, setLoading] = useState(true);
-	const isMountedRef = useRef(null);
-	const currencyId = userInfo.currencyId ?? getCurrencyCode(userInfo.langId);
+	const [news, setNews] = useState([]);
 
-	useEffect(() => {
-		isMountedRef.current = true;
-		return () => {
-			isMountedRef.current = false;
-		};
-	});
-
-	useEffect(() => {
-		GetNews(1);
-	}, []);
-
-	const ClickClose = () => {
-		setPopBox({ isOpen: false });
+	const newObject = () => {
+		return news?.find(newObj => newObj?.newsId === Number(paramsNewsId));
 	};
 
-	const GetNews = pageNumber => {
-		api_news_GetNews({
-			langId: userInfo.langId,
-			PageNumber: pageNumber,
-			PageSize: 15,
-			currencyId
-		}).then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						setGetNews(res.data.data);
-						setPagination(prev => ({
-							...prev,
-							totalPages: res.data.totalPages
-						}));
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: `[${res.data.errorCode}] ${res.data.message}`,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}
-									>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
-					setLoading(false);
-				}
-			},
-			() => {
-				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClickClose}
-								>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
-					setLoading(false);
-				}
-			}
-		);
-	};
+	const { title, imageURL, content } = newObject() || {};
 
-	const clickPageNumber = page => {
-		if (!processing) {
-			setProcessing(true);
-			setPagination(prev => ({ ...prev, currentPage: page }));
-			GetNews(page);
+	const getNews = async () => {
+		try {
+			const res = await api_news_GetNews({
+				langId: userInfo.langId,
+				PageNumber: 1,
+				PageSize: 2,
+				currencyId: userInfo.currencyId
+			});
+			setNews(res.data.data);
+		} catch (error) {
+			setPopBox({
+				isOpen: true,
+				content: t("msg_ApiServerError")
+			});
 		}
 	};
 
-	const arr = getNews?.map(item => {
-		return (
-			<div key={`News-${item.newsId}`}>
-				<img src={item.imageURL} alt={item.title} />
-				<div className="txt-darkBlue">{item.title}</div>
-				<div className="txt-gray">{item.content}</div>
-				<div className="btnGroup">
-					<Link
-						className="blue"
-						to={`/${userInfo.langId}/${path.news.root}/${path.news.sub.newsInfo.root}?newsId=${item.newsId}`}
-					>
-						{t("lbl_Details")}
-					</Link>
+	useEffect(() => {
+		if (!paramsNewsId) {
+			navigate("/");
+		}
+	}, []);
+
+	useEffect(() => {
+		getNews();
+	}, [userInfo?.langId]);
+
+	return (
+		<div className="lobby-news">
+			<Link to="/" className="back">
+				<i className="icon-arrow-left" />
+				{t("lbl_back")}
+			</Link>
+
+			<div className="lobby-news-title">{title}</div>
+			<div className="lobby-news-bottom">
+				<div className="lobby-news-content">{content}</div>
+				<div className="lobby-news-img">
+					<img src={imageURL} alt={title} />
 				</div>
 			</div>
-		);
-	});
-
-	return loading ? (
-		<Loading />
-	) : (
-		<div className="infoModule">
-			<div className="inside-title icon icon-newspaper">
-				<span>{t("lbl_News")}</span>
-			</div>
-			<div className="newsList">{arr}</div>
-			{pagination.totalPages !== 0 ? (
-				<Pagination
-					totalPages={pagination.totalPages}
-					currentPage={pagination.currentPage}
-					clickPageNumber={clickPageNumber}
-				/>
-			) : null}
 		</div>
 	);
 };

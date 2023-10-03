@@ -9,23 +9,20 @@ const Nav = ({ categoryList, activeCategory, onChange, t, isProcessing }) => {
 		_key = _key.charAt(0).toUpperCase() + _key.slice(1);
 		const _nav = defNav[_key];
 		return (
-			<button
+			<div
 				key={`casino-nav-${Object.keys(item)[0]}`}
-				className={
-					activeCategory === Object.keys(item)[0]
-						? "btn-check"
-						: "blueBorder"
-				}
+				className={`slots-category-item ${
+					activeCategory === Object.keys(item)[0] ? "active" : ""
+				}`}
 				onClick={() => {
 					!isProcessing && onChange(Object.keys(item)[0]);
-				}}
-			>
+				}}>
 				{t(_nav.displayKey)}
-			</button>
+			</div>
 		);
 	});
 
-	return <div className="btnGroup promoType">{rows}</div>;
+	return <div className="slots-category-menu">{rows}</div>;
 };
 export default Nav;
 Nav.propTypes = {

@@ -1,7 +1,6 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
-import { bannerImgUrl } from "../../config";
 import useGetVideo from "./hook";
 import Filter from "./streaming.filter";
 import { StreamingModule } from "./streaming.row";
@@ -9,9 +8,8 @@ import StreamingNodata from "./streaming.nodata";
 
 const Streaming = () => {
 	const isMountedRef = useRef(null);
-	const { t } = useTranslation();
-
 	const { userInfo } = useContext(userInfoContext);
+	const { t } = useTranslation();
 
 	const { selCategory, handleSelectCategory } = useGetVideo({
 		langId: userInfo.langId,
@@ -28,53 +26,48 @@ const Streaming = () => {
 	const active = selCategory.datas?.length > 0;
 
 	return (
-		<main>
-			<section className="inside">
-				<div className="liveleftMenu">
+		<main className="lobby livesports">
+			<div className="wrapper ">
+				<div className="col-2">
 					<Filter
 						handleSelect={handleSelectCategory}
 						selected={selCategory.type}
 					/>
 				</div>
-
-				<div className="liverightModule">
-					<div className="liveArea">
-						<div className="topImg" />
-						<div className="title">
+				<div className="col-9">
+					<div className="lobby-livesports">
+						<div className="name txt-left mb-3">
 							{String(t("lbl_Live_Sports")).toUpperCase()}
 						</div>
-						<div className="livelist">
-							<StreamingNodata
-								t={t}
-								className={`notv ${active ? "" : "active"}`}
-							/>
 
-							<div className={`opentv ${active ? "active" : ""}`}>
-								{selCategory.datas?.map((v, vidx) => (
-									<StreamingModule
-										key={`home-streaming-${v.type}-${vidx}`}
-										t={t}
-										langId={userInfo.langId}
-										isStreamingPage={true}
-										tpId={selCategory.tpId}
-										gameId={selCategory.gameId}
-										isLogin={userInfo.isLogin}
-										actStatus={userInfo.actStatus}
-										{...v}
-									/>
-								))}
-							</div>
+						<div className="lobby-livesports-block">
+							{selCategory.datas &&
+							selCategory.datas.length > 0 ? (
+								selCategory.datas.map(v => {
+									return (
+										<StreamingModule
+											key={`home-streaming-${v.id}`}
+											t={t}
+											langId={userInfo.langId}
+											isStreamingPage={true}
+											tpId={selCategory.tpId}
+											gameId={selCategory.gameId}
+											isLogin={userInfo.isLogin}
+											actStatus={userInfo.actStatus}
+											{...v}
+										/>
+									);
+								})
+							) : (
+								<StreamingNodata
+									t={t}
+									className={`notv ${active ? "" : "active"}`}
+								/>
+							)}
 						</div>
 					</div>
 				</div>
-
-				<div className="liveImg">
-					<img
-						src={`${bannerImgUrl}/desktop/img/liveimg.png`}
-						alt=""
-					/>
-				</div>
-			</section>
+			</div>
 		</main>
 	);
 };

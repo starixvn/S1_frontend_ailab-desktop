@@ -5,7 +5,7 @@ const useClickOutside = handler => {
 
 	useEffect(() => {
 		const eventHandler = event => {
-			if (!domRef.current.contains(event.target)) {
+			if (domRef.current && !domRef.current.contains(event.target)) {
 				handler();
 			}
 		};
@@ -15,7 +15,7 @@ const useClickOutside = handler => {
 			document.removeEventListener("mousedown", eventHandler);
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [handler]);
 
 	return domRef;
 };

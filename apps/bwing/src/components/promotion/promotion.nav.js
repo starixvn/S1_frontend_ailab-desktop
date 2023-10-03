@@ -4,38 +4,31 @@ import { defFilterType } from "./promotion.def";
 const defPromoNavs = [
 	{
 		displayKey: "lbl_Promotion_All",
-		value: defFilterType.all,
-		className: "blueBorder"
+		value: defFilterType.all
 	},
 	{
 		displayKey: "lbl_NewMember",
-		value: defFilterType.firstDeposit,
-		className: "blueBorder"
+		value: defFilterType.firstDeposit
 	},
 	{
 		displayKey: "lbl_Special",
-		value: defFilterType.other,
-		className: "blueBorder"
+		value: defFilterType.other
 	},
 	{
 		displayKey: "lbl_Sportsbook",
-		value: defFilterType.sportsbook,
-		className: "blueBorder"
+		value: defFilterType.sportsbook
 	},
 	{
 		displayKey: "lbl_Casino",
-		value: defFilterType.liveCasino,
-		className: "blueBorder"
+		value: defFilterType.liveCasino
 	},
 	{
 		displayKey: "lbl_Promotion_Slot",
-		value: defFilterType.slots,
-		className: "blueBorder"
+		value: defFilterType.slots
 	},
 	{
 		displayKey: "lbl_PromoCode",
-		value: defFilterType.specialBonus,
-		className: "blueBorder"
+		value: defFilterType.specialBonus
 	}
 ];
 
@@ -64,21 +57,17 @@ export default ({
 
 	return (
 		<>
-			<div className="quickSelect">
-				<div className="btnGroup promoType">
+			<div className="lobby-category">
+				<div className="lobby-category-menu">
 					{defPromoNavsFormat.map(item => (
-						<button
+						<div
 							key={`promo-nav-${item.displayKey}`}
-							className={
-								item.value === selected
-									? item.selectedClass
-										? item.selectedClass
-										: "blueGradient"
-									: item.className
-							}
+							className={`lobby-category-item ${
+								item.value === selected ? "active" : ""
+							}`}
 							onClick={() => onClick(item.value)}>
 							{t(item.displayKey).toUpperCase()}
-						</button>
+						</div>
 					))}
 				</div>
 			</div>

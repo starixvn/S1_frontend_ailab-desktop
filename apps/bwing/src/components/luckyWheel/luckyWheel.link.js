@@ -11,8 +11,7 @@ const isInPeriod = isDateRange(startDate, endDate);
 
 const LuckyWheelLink = ({ langId, type }) => {
 	const [display, setDisplay] = useState(true);
-	const [homeImgOnLoad, setHomeImgOnLoad] = useState(false);
-	const [homeImgWOnLoad, sethomeImgWOnLoad] = useState(false);
+	const [homeImgOnLoad, setHomeImgOnLoad] = useState(true);
 
 	if (!isInPeriod || !display) return null;
 
@@ -24,37 +23,29 @@ const LuckyWheelLink = ({ langId, type }) => {
 			>
 				<img
 					alt="angpao-header-link"
-					src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/event/wheel/eventlink-top.png`}
+					src={`${process.env.REACT_APP_BANNER_URL}/desktop/h5/img/4.0/luckywheel.gif`}
 				/>
 			</Link>
 		);
 
 	return (
-		<div className="mywheel">
-			{homeImgOnLoad && homeImgWOnLoad && (
-				<div
+		homeImgOnLoad && (
+			<div className="mywheel">
+				<button
 					style={{ zIndex: 50 }}
-					className="mywheelClose"
+					className="icon-close-primary"
 					onClick={() => setDisplay(false)}
-				>
-					X
-				</div>
-			)}
-			<Link to={`/${langId}/${path.luckyWheel.root}`}>
-				<img
-					className="mywheelImg"
-					src={`${bannerImgUrl}/desktop/img/luckybox/homeImg.png`}
-					onLoad={() => setHomeImgOnLoad(true)}
-					alt="home-wheel-img"
 				/>
-				<img
-					className="mywheelImgw"
-					src={`${bannerImgUrl}/desktop/img/luckybox/homeImg-w.png`}
-					onLoad={() => sethomeImgWOnLoad(true)}
-					alt="home-wheel-img-w"
-				/>
-			</Link>
-		</div>
+				<Link to={`/${langId}/${path.luckyWheel.root}`}>
+					<img
+						className="mywheelImg"
+						src={`${bannerImgUrl}/desktop/img/4.0/luckywheel.gif`}
+						onLoad={() => setHomeImgOnLoad(true)}
+						alt="home-wheel-img"
+					/>
+				</Link>
+			</div>
+		)
 	);
 };
 

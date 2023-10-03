@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import ProcessBar from "./promotion.processBar";
-import { isArrayNotEmpty, getStampStyle } from "./promotion.common";
+import { isArrayNotEmpty, getStampStyle, isClaimed } from "./promotion.common";
 import PromotionJoinButton from "./promotion.joinButton";
 import { defPromotionType, defFilterType } from "./promotion.def";
 import { useHandlePromotionInfo } from "./promotionInfo.popbox";
@@ -39,35 +39,43 @@ const PromotionList = ({
 		const isDisplay =
 			moment.unix(p.displayFrom).subtract(timezone).diff(moment()) <= 0 &&
 			moment.unix(p.displayTo).subtract(timezone).diff(moment()) >= 0;
+		const isBeClaimed = isClaimed(p);
 
 		return (
 			isDisplay && (
 				<div
 					key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
 					className={promoDisplayStyle}>
-					<div className="promoImg">
+					<div className="lobby-promotion-img">
 						<img src={p.banner} alt={p.title} />
 					</div>
 
-					<div className="promoInfo">
-						<div className="txt-blue15">{p.title}</div>
-						<div>{p.description}</div>
+					<div className="lobby-promotion-info">
+						<div className="lobby-promotion-data">
+							<div className="title">{p.title}</div>
+							<div className="subtitle">{p.description}</div>
+							{!isBeClaimed && (
+								<div className="time">
+									{t("lbl_RemainingTime")}
+									<span>{getExpiryTime(t, p)}</span>
+								</div>
+							)}
 
-						{/* <PromoRule
-						t={t}
-						promotionInfo={p}
-						currencyId={currencyId}
-						langId={userInfo.langId}
-					/> */}
+							<ProcessBar
+								{...p}
+								t={t}
+								currencyId={currencyId}
+								RefreshProcessBar={refreshProcessBar.bind(
+									this,
+									p
+								)}
+							/>
+						</div>
 
-						<ProcessBar
-							{...p}
-							t={t}
-							currencyId={currencyId}
-							RefreshProcessBar={refreshProcessBar.bind(this, p)}
-						/>
-
-						<div className="btnGroup">
+						<div
+							className={`btn-group ${
+								isBeClaimed ? "btnclaimed" : ""
+							}`}>
 							<PromotionJoinButton
 								promotionInfo={p}
 								userInfo={userInfo}
@@ -86,7 +94,7 @@ const PromotionList = ({
 								</a>
 							) : (
 								<button
-									className="btn-check"
+									className="btn-secondary"
 									onClick={clickMoreInfo.bind(
 										this,
 										userInfo.langId,
@@ -96,18 +104,6 @@ const PromotionList = ({
 								</button>
 							)}
 						</div>
-					</div>
-					<div className="remain">
-						<div className="icon icon-icon32px_time">
-							{t("lbl_RemainingTime")}
-							<div>{getExpiryTime(t, p)}</div>
-						</div>
-						{/* <PromoRule
-						promotionInfo={p}
-						t={t}
-						currencyId={currencyId}
-						langId={userInfo.langId}
-					/> */}
 					</div>
 				</div>
 			)
@@ -121,7 +117,7 @@ const PromotionList = ({
 		(isArrayNotEmpty(staticPromotions) && filter === defFilterType.all)
 	)
 		return (
-			<div className="proListnew">
+			<div className="lobby-promotion">
 				{rows}
 				{filter === defFilterType.all ? staticPromotions : null}
 			</div>
