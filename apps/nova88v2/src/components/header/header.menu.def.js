@@ -351,7 +351,6 @@ export const defSubListClassName = {
 	vip: "vipList",
 	ranking: "rankingList",
 	sponsor: "homeList",
-	worldCup: "eventList",
 	cryptoSports: "cryptoList"
 };
 

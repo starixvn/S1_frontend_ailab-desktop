@@ -61,7 +61,7 @@ export const PromoPopBox = ({ data, closePopBox, t }) => {
 					<div className="btnGroup">
 						{data?.promotionType === defPromotionType.other ? (
 							<button className="red" onClick={openLiveChat}>
-								{t("promotion.lbl_promo_apply_now")}
+								{t("lbl_Promotion_ApplyNow")}
 							</button>
 						) : (
 							<PromotionJoinButton

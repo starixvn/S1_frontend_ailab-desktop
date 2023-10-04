@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useContext, useMemo } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import {
@@ -39,13 +39,13 @@ const LuckyWheel = () => {
 				<div className="pop goldbox_pop wheel_pop">
 					<button className="icon icon-close" onClick={closePopBox} />
 					<div className="title">
-						{t("luckyWheel.lbl_popboxTitle1")}
+						{t("lbl_LuckyWheel_popboxTitle1")}
 					</div>
 
-					{`${t("luckyWheel.lbl_congratulations")}!`}
+					{`${t("lbl_LuckyWheel_congratulations")}!`}
 
 					<div className="content">
-						{t("luckyWheel.lbl_popboxDescription1", {
+						{t("lbl_LuckyWheel_popboxDescription1", {
 							prizeName
 						})}
 					</div>
@@ -57,10 +57,10 @@ const LuckyWheel = () => {
 				<div className="pop goldbox_pop wheel_pop">
 					<button className="icon icon-close" onClick={closePopBox} />
 					<div className="title">
-						{t("luckyWheel.lbl_popboxTitle1")}
+						{t("lbl_LuckyWheel_popboxTitle1")}
 					</div>
 					<div className="content">
-						{t("luckyWheel.lbl_popboxDescription2", {
+						{t("lbl_LuckyWheel_popboxDescription2", {
 							prizeName
 						})}
 					</div>

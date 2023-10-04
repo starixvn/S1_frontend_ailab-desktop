@@ -58,10 +58,10 @@ const LuckyWheel = () => {
 						/>
 
 						<div className="title">
-							{t("luckyWheel.lbl_popboxTitle")}
+							{t("lbl_LuckyWheel_popboxTitle")}
 						</div>
 						<div>
-							{t("luckyWheel.lbl_popboxDescription1", {
+							{t("lbl_LuckyWheel_popboxDescription1", {
 								prizeName
 							})}
 						</div>
@@ -85,10 +85,10 @@ const LuckyWheel = () => {
 						/>
 
 						<div className="title">
-							{t("luckyWheel.lbl_popboxTitle")}
+							{t("lbl_LuckyWheel_popboxTitle")}
 						</div>
 						<div>
-							{t("luckyWheel.lbl_popboxDescription2", {
+							{t("lbl_LuckyWheel_popboxDescription2", {
 								prizeName
 							})}
 						</div>

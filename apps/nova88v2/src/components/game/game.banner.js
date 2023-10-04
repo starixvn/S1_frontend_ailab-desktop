@@ -11,9 +11,9 @@ const GameBanner = ({ t }) => {
 			/>
 			<div className="bannerInfo">
 				<div className="text">
-					<div>{t("games.lbl_bannerSubTitle")}</div>
-					<div>{t("games.lbl_bannerTitle1")}</div>
-					<div>{t("games.lbl_bannerTitle2")}</div>
+					<div>{t("lbl_Games_BannerSubTitle")}</div>
+					<div>{t("lbl_Games_BannerTitle1")}</div>
+					<div>{t("lbl_Games_BannerTitle2")}</div>
 				</div>
 
 				<div className="animation">
