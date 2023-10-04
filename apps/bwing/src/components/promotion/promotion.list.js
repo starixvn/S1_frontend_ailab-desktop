@@ -44,8 +44,7 @@ const PromotionList = ({
 			isDisplay && (
 				<div
 					key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-					className={promoDisplayStyle}
-				>
+					className={promoDisplayStyle}>
 					<div className="promoImg">
 						<img src={p.banner} alt={p.title} />
 					</div>
@@ -82,11 +81,8 @@ const PromotionList = ({
 									href={p.promotionLink}
 									target="_blank"
 									rel="noreferrer"
-									className="btn-check"
-								>
-									{t(
-										"promotion.lbl_promo_more_info"
-									).toUpperCase()}
+									className="btn-check">
+									{t("lbl_Promotion_MoreInfo").toUpperCase()}
 								</a>
 							) : (
 								<button
@@ -95,9 +91,8 @@ const PromotionList = ({
 										this,
 										userInfo.langId,
 										p.bonusCode
-									)}
-								>
-									{t("promotion.lbl_promo_more_info")}
+									)}>
+									{t("lbl_Promotion_MoreInfo")}
 								</button>
 							)}
 						</div>

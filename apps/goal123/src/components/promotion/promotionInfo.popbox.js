@@ -174,7 +174,7 @@ const PromotionInfo = ({
 						{promotionInfo.promotionType ===
 						defPromotionType.other ? (
 							<button className="red" onClick={openLiveChat}>
-								{t("promotion.lbl_promo_apply_now")}
+								{t("lbl_Promotion_ApplyNow")}
 							</button>
 						) : (
 							<PromotionJoinButton
@@ -193,7 +193,7 @@ const PromotionInfo = ({
 							<Link
 								className="btn-check"
 								to={`/${userInfo.langId}/${path.promotion.root}`}>
-								{t("promotion.lbl_promo_all_promos")}
+								{t("lbl_Promotion_AllPromos")}
 							</Link>
 						)}
 					</div>

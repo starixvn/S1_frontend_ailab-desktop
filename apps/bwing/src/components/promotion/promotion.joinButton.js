@@ -154,7 +154,7 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 		moment.unix(promotionInfo.periodTo).diff(Date.now()) < 0 ? null : (
 		<button className="orange" onClick={onJoinPromotion}>
 			{promotionInfo.promotionType === defPromotionType.cashback
-				? t("promotion.lbl_promo_claim_now")?.toUpperCase()
+				? t("lbl_Promotion_ClaimNow")?.toUpperCase()
 				: t("lbl_PromoJoinNow")?.toUpperCase()}
 		</button>
 	);

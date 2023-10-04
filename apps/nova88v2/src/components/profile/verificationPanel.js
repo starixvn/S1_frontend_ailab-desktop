@@ -149,13 +149,13 @@ const VerificationPanel = ({
 							onClick={clickLineBinding}>
 							<i className="icon icon-line-bold" />
 							{isLineBinding
-								? t("lineRegister.lbl_Connected")
-								: t("lineRegister.lbl_Connect")}
+								? t("lbl_LineRegister_Connected")
+								: t("lbl_LineRegister_Connect")}
 						</button>
 					</div>
 					{!isLineBinding && (
 						<div className="txt-line">
-							{t("lineRegister.lbl_LinkLineAccount")}
+							{t("lbl_LineRegister_LinkLineAccount")}
 						</div>
 					)}
 				</>

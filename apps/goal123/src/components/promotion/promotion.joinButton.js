@@ -169,7 +169,7 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 	return (
 		<button className="yellow" onClick={onJoinPromotion}>
 			{promotionInfo.promotionType === defPromotionType.cashback
-				? t("promotion.lbl_promo_claim_now")?.toUpperCase()
+				? t("lbl_Promotion_ClaimNow")?.toUpperCase()
 				: t("lbl_PromoJoinNow")?.toUpperCase()}
 		</button>
 	);

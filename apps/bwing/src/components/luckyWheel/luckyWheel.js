@@ -44,12 +44,12 @@ const LuckyWheel = () => {
 						/>
 
 						<div className="title">
-							{t("luckyWheel.lbl_popboxTitle1")}
+							{t("lbl_LuckyWheel_popboxTitle1")}
 						</div>
 
-						<div>{t("luckyWheel.lbl_congratulations")}!</div>
+						<div>{t("lbl_LuckyWheel_congratulations")}!</div>
 
-						{`${t("luckyWheel.lbl_popboxDescription1", {
+						{`${t("lbl_LuckyWheel_popboxDescription1", {
 							prizeName
 						})}`}
 
@@ -65,10 +65,10 @@ const LuckyWheel = () => {
 							onClick={closePopBox}
 						/>
 						<div className="title">
-							{t("luckyWheel.lbl_popboxTitle1")}
+							{t("lbl_LuckyWheel_popboxTitle1")}
 						</div>
 
-						{`${t("luckyWheel.lbl_popboxDescription2", {
+						{`${t("lbl_LuckyWheel_popboxDescription2", {
 							prizeName
 						})}`}
 
