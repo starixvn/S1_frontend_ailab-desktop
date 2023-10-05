@@ -1378,6 +1378,12 @@ export const defMenuLinks = {
 					bgImg: "fishzp.png",
 					hoverBgImg: "fishzpa.png"
 				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.fishing_Zombie_Party
+					})
+				],
 				allowCurrencies: allowedCurrencyList.zombieParty
 			},
 			{
@@ -1393,6 +1399,12 @@ export const defMenuLinks = {
 					bgImg: "fishah.png",
 					hoverBgImg: "fishaha.png"
 				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.fishing_Alien_Hunter
+					})
+				],
 				allowCurrencies: allowedCurrencyList.alienHunter
 			},
 			{
