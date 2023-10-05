@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const { uniq } = require("lodash");
+const { uniq, compact, map } = require("lodash");
 const { extractSheets } = require("spreadsheet-to-json");
 const { SHEET_URL_ID } = require("./sheet");
 const auth = require("../ailab-resources-385807-220772b7ea81.json");
@@ -33,6 +33,7 @@ const readFileAndCheckForString = filePath => {
 		return fileContent;
 	} catch (err) {
 		console.error(`${filePath}讀取錯誤：`, err);
+		return "";
 	}
 };
 
@@ -60,13 +61,17 @@ const readFileAndCheckForString = filePath => {
 // 	return keys;
 // };
 
+// * 只支援單選
+const arg = process.argv.slice(2)[0];
+const site = `${arg}-desktop`;
+const sheetsToExtract = [site];
 const filePattern = /\.(js|ts)$/i; // * 匹配以 .js 或 .ts 结尾的文件
 
 const findUnusedKey = async keys => {
 	// * 所有 *.js、*.ts 檔案
 	const foundFiles = [];
-	findFiles("apps/nova88v2/src/components", filePattern, foundFiles);
-	findFiles("apps/nova88v2/src/pages", filePattern, foundFiles);
+	findFiles(`apps/${arg}/src/components`, filePattern, foundFiles);
+	findFiles(`apps/${arg}/src/pages`, filePattern, foundFiles);
 
 	// * 將所有內容接在一起
 	const contents = foundFiles
@@ -74,15 +79,11 @@ const findUnusedKey = async keys => {
 		.join("");
 
 	// * 找到未用過的翻譯
+
 	const unusedKey = keys.filter(key => !contents.match(`"${key}"`));
 
 	console.table(unusedKey);
 };
-
-// * 只支援單選
-const arg = process.argv.slice(2)[0];
-const site = `${arg}-desktop`;
-const sheetsToExtract = [site];
 
 extractSheets(
 	{
@@ -94,7 +95,7 @@ extractSheets(
 		if (err) throw err;
 
 		const result = [...data[site]];
-		const keys = result.map(item => item.key);
+		const keys = compact(map(result, item => item.key));
 
 		findUnusedKey(keys);
 	}
