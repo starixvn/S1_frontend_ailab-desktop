@@ -722,6 +722,46 @@ export const defMenuLinks = {
 		path: path.fishing.root,
 		subMenu: [
 			{
+				...productList.fishing_SG,
+				className: "fs-god",
+				displayKey: "lbl_FishingSG1",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing_SG },
+				lobbyPage: {
+					bgClass: "fish-god"
+				}
+			},
+			{
+				...productList.fishing,
+				className: "fs-world",
+				displayKey: "lbl_FishingGG",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing },
+				lobbyPage: {
+					bgClass: "fish-world"
+				}
+			},
+			{
+				...productList.fishing_Zombie_Party,
+				className: "fs-zp",
+				displayKey: "lbl_Fishing_Zombie_Party",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing_Zombie_Party },
+				lobbyPage: {
+					bgClass: "fish-zp"
+				}
+			},
+			{
+				...productList.fishing_Alien_Hunter,
+				className: "fs-ah",
+				displayKey: "lbl_Fishing_Alien_Hunter",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing_Alien_Hunter },
+				lobbyPage: {
+					bgClass: "fish-ah"
+				}
+			},
+			{
 				...productList.CQ9_Paradise,
 				className: "fs-paradise",
 				displayKey: "lbl_Paradise",
@@ -741,6 +781,16 @@ export const defMenuLinks = {
 					bgClass: "fish-of"
 				}
 			},
+			{
+				...productList.fishing_SGW,
+				className: "fs-war",
+				displayKey: "lbl_FishingSG2",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing_SGW },
+				lobbyPage: {
+					bgClass: "fish-wrd"
+				}
+			}
 			// {
 			// 	...productList.Skywind_Ocean_Ruler,
 			// 	className: "fs-or",
@@ -817,36 +867,6 @@ export const defMenuLinks = {
 			// 		bgClass: "fish-ttsatp"
 			// 	}
 			// },
-			{
-				...productList.fishing,
-				className: "fs-world",
-				displayKey: "lbl_FishingGG",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.fishing },
-				lobbyPage: {
-					bgClass: "fish-world"
-				}
-			},
-			{
-				...productList.fishing_SG,
-				className: "fs-god",
-				displayKey: "lbl_FishingSG1",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.fishing_SG },
-				lobbyPage: {
-					bgClass: "fish-god"
-				}
-			},
-			{
-				...productList.fishing_SGW,
-				className: "fs-war",
-				displayKey: "lbl_FishingSG2",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.fishing_SGW },
-				lobbyPage: {
-					bgClass: "fish-wrd"
-				}
-			}
 			// {
 			// 	...productList.CQ9_LuckyFishing,
 			// 	className: "fsluckey",
