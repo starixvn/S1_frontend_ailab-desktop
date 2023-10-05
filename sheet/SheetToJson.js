@@ -34,13 +34,11 @@ const getContents = data => {
 	return contents;
 };
 
-// * 只支援單選 ex: node sheetSort.js nova88v2
+// * 複選 ex: node sheetSort.js nova88v2
 const args = process.argv.slice(2);
-
 const sheetsToExtract = args.map(site => `${site}-desktop`);
 
 // * 同步 google sheet 版本，可選指定 tab
-
 extractSheets(
 	{
 		spreadsheetKey: SHEET_URL_ID,
