@@ -66,8 +66,7 @@ const PromotionList = ({
 			isDisplay && (
 				<div
 					className={_isClaimed ? "active" : ""}
-					key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-				>
+					key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
 					<div className={promoDisplayStyle} />
 					<div className="promoImg">
 						<img src={p.banner} alt={p.title} />
@@ -98,9 +97,8 @@ const PromotionList = ({
 									href={p.promotionLink}
 									target="_blank"
 									rel="noreferrer"
-									className="btn-check"
-								>
-									{t("promotion.lbl_promo_more_info")}
+									className="btn-check">
+									{t("lbl_Promotion_MoreInfo")}
 								</a>
 							) : (
 								<button
@@ -109,9 +107,8 @@ const PromotionList = ({
 										this,
 										userInfo.langId,
 										p.bonusCode
-									)}
-								>
-									{t("promotion.lbl_promo_more_info")}
+									)}>
+									{t("lbl_Promotion_MoreInfo")}
 								</button>
 							)}
 						</div>

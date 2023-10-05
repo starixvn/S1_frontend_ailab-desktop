@@ -7,7 +7,7 @@ const LuckyWheelTitle = ({ t, langId }) => {
 
 	return (
 		<div className={className}>
-			<div className="eventTitle">{t("luckyWheel.lbl_title")}</div>
+			<div className="eventTitle">{t("lbl_LuckyWheel_title")}</div>
 		</div>
 	);
 };

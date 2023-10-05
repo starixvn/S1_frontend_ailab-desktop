@@ -267,6 +267,18 @@ export default {
 		name: "fishing_SGW",
 		tpGameType: 31
 	},
+	fishing_Zombie_Party: {
+		gameId: "F-ZP01",
+		tpId: 10,
+		name: "fishing_Zombie_Party",
+		tpGameType: 31
+	},
+	fishing_Alien_Hunter: {
+		gameId: "F-AH01",
+		tpId: 10,
+		name: "fishing_Alien_Hunter",
+		tpGameType: 31
+	},
 	ICG_DRAGONBALL_FISHING: {
 		gameId: "cmf0001",
 		tpId: 24,

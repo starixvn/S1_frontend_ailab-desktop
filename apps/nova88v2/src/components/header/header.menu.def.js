@@ -230,56 +230,48 @@ const defSortSlot = {
 
 const defSortFishing = {
 	[defCurrencyList.THB]: {
-		fishing_SGW_WAR: 1,
-		fishing_CQ9_PARADISE: 2,
-		fishing_GGYL_WORLD: 3,
-		Skywind_Ocean_Ruler: 4,
-		Skywind_Cai_Shen_Da_Hai: 5,
-		fishing_ICG_DRAGONBALL: 6,
+		fishing_SG: 1,
+		fishing_SGW_WAR: 2,
+		fishing_Zombie_Party: 3,
+		fishing_Alien_Hunter: 4,
+		fishing_CQ9_PARADISE: 5,
+		fishing_GGYL_WORLD: 6,
 		fishing_Haiba: 7,
 		fishing_Hunting_Happy_Fish_5: 8,
 		fishing_Hunting_Monster_Awaken: 9,
-		fishing_SG: 10,
-		fishing_CQ9_ONESHOT: 11,
-		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 12,
-		ICG_FISHING_OF_SAVIORS: 13
+		fishing_CQ9_ONESHOT: 10
 	},
 	[defCurrencyList.MYR]: {
 		fishing_SGW_WAR: 1,
-		fishing_CQ9_PARADISE: 2,
-		fishing_GGYL_WORLD: 3,
-		Skywind_Ocean_Ruler: 4,
-		Skywind_Cai_Shen_Da_Hai: 5,
-		fishing_ICG_DRAGONBALL: 6,
-		fishing_Haiba: 7,
-		fishing_Hunting_Happy_Fish_5: 8,
-		fishing_Hunting_Monster_Awaken: 9
+		fishing_Zombie_Party: 2,
+		fishing_Alien_Hunter: 3,
+		fishing_CQ9_PARADISE: 4,
+		fishing_GGYL_WORLD: 5,
+		fishing_Haiba: 6,
+		fishing_Hunting_Happy_Fish_5: 7,
+		fishing_Hunting_Monster_Awaken: 8
 	},
 	[defCurrencyList.IDR]: {
 		fishing_SGW_WAR: 1,
-		fishing_CQ9_PARADISE: 2,
-		fishing_GGYL_WORLD: 3,
-		Skywind_Ocean_Ruler: 4,
-		Skywind_Cai_Shen_Da_Hai: 5,
-		fishing_ICG_DRAGONBALL: 6,
-		fishing_Haiba: 7,
-		fishing_Hunting_Happy_Fish_5: 8,
-		fishing_Hunting_Monster_Awaken: 9
+		fishing_Zombie_Party: 2,
+		fishing_Alien_Hunter: 3,
+		fishing_CQ9_PARADISE: 4,
+		fishing_GGYL_WORLD: 5,
+		fishing_Haiba: 6,
+		fishing_Hunting_Happy_Fish_5: 7,
+		fishing_Hunting_Monster_Awaken: 8
 	},
 	[defCurrencyList.INR]: {
-		fishing_SGW_WAR: 1,
-		fishing_CQ9_PARADISE: 2,
-		fishing_GGYL_WORLD: 3,
-		Skywind_Ocean_Ruler: 4,
-		Skywind_Cai_Shen_Da_Hai: 5,
-		fishing_ICG_DRAGONBALL: 6,
+		fishing_SG: 1,
+		fishing_SGW_WAR: 2,
+		fishing_Zombie_Party: 3,
+		fishing_Alien_Hunter: 4,
+		fishing_CQ9_PARADISE: 5,
+		fishing_GGYL_WORLD: 6,
 		fishing_Haiba: 7,
 		fishing_Hunting_Happy_Fish_5: 8,
 		fishing_Hunting_Monster_Awaken: 9,
-		fishing_SG: 10,
-		fishing_CQ9_ONESHOT: 11,
-		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 12,
-		ICG_FISHING_OF_SAVIORS: 13
+		fishing_CQ9_ONESHOT: 10
 	}
 };
 
@@ -351,7 +343,6 @@ export const defSubListClassName = {
 	vip: "vipList",
 	ranking: "rankingList",
 	sponsor: "homeList",
-	worldCup: "eventList",
 	cryptoSports: "cryptoList"
 };
 
@@ -1346,6 +1337,93 @@ export const defMenuLinks = {
 		customSort: defSortFishing,
 		subMenu: [
 			{
+				keyName: "fishing_SG",
+				className: "fsg",
+				displayKey: "lbl_FishingSG1",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "fishSG.png",
+				listBgImgUrl: "fishListHover.png",
+				...productList.fishing_SG,
+				parameter: { ...productList.fishing_SG },
+				lobbyPage: {
+					bgImg: "fishfg.png",
+					hoverBgImg: "fishfga.png"
+				},
+				allowCurrencies: allowedCurrencyList.fishingGod
+			},
+			{
+				keyName: "fishing_SGW_WAR",
+				className: "fsgw",
+				displayKey: "lbl_FishingSG2",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "fishSGwar.png",
+				listBgImgUrl: "fishListHover.png",
+				...productList.fishing_SGW,
+				parameter: { ...productList.fishing_SGW },
+				lobbyPage: {
+					bgImg: "fishfw.png",
+					hoverBgImg: "fishfwa.png"
+				}
+			},
+			{
+				keyName: "fishing_Zombie_Party",
+				className: "fsgw",
+				displayKey: "lbl_Fishing_Zombie_Party",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "fishzp.png",
+				listBgImgUrl: "fishListHover.png",
+				...productList.Fishing_Zombie_Party,
+				parameter: { ...productList.Fishing_Zombie_Party },
+				lobbyPage: {
+					bgImg: "fishzp.png",
+					hoverBgImg: "fishzpa.png"
+				},
+				allowCurrencies: allowedCurrencyList.zombieParty
+			},
+			{
+				keyName: "fishing_Alien_Hunter",
+				className: "fsgw",
+				displayKey: "lbl_Fishing_Alien_Hunter",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "fishah.png",
+				listBgImgUrl: "fishListHover.png",
+				...productList.Fishing_Alien_Hunter,
+				parameter: { ...productList.Fishing_Alien_Hunter },
+				lobbyPage: {
+					bgImg: "fishah.png",
+					hoverBgImg: "fishaha.png"
+				},
+				allowCurrencies: allowedCurrencyList.alienHunter
+			},
+			{
+				keyName: "fishing_CQ9_PARADISE",
+				className: "fsgw",
+				listNpcImgUrl: "paradise.png",
+				listBgImgUrl: "fishListHover.png",
+				displayKey: "lbl_Paradise",
+				menuType: defMenuType.entPage,
+				...productList.CQ9_Paradise,
+				parameter: { ...productList.CQ9_Paradise },
+				lobbyPage: {
+					bgImg: "fishpd.png",
+					hoverBgImg: "fishpda.png"
+				}
+			},
+			{
+				keyName: "fishing_GGYL_WORLD",
+				className: "fgg",
+				displayKey: "lbl_FishingGG",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "fishGG.png",
+				listBgImgUrl: "fishListHover.png",
+				...productList.fishing,
+				parameter: { ...productList.fishing },
+				lobbyPage: {
+					bgImg: "fishgg.png",
+					hoverBgImg: "fishgga.png"
+				}
+			},
+			{
 				keyName: "fishing_Haiba",
 				displayKey: "lbl_Fishing_Haiba",
 				listNpcImgUrl: "hb.png",
@@ -1400,33 +1478,20 @@ export const defMenuLinks = {
 				allowCurrencies: allowedCurrencyList.monsterAwaken
 			},
 			{
-				keyName: "fishing_CQ9_PARADISE",
-				className: "fsgw",
-				listNpcImgUrl: "paradise.png",
-				listBgImgUrl: "fishListHover.png",
-				displayKey: "lbl_Paradise",
+				keyName: "fishing_CQ9_ONESHOT",
+				className: "fsg",
+				displayKey: "lbl_Oneshot_Fishing",
 				menuType: defMenuType.entPage,
-				...productList.CQ9_Paradise,
-				parameter: { ...productList.CQ9_Paradise },
-				lobbyPage: {
-					bgImg: "fishpd.png",
-					hoverBgImg: "fishpda.png"
-				}
-			},
-			{
-				keyName: "fishing_GGYL_WORLD",
-				className: "fgg",
-				displayKey: "lbl_FishingGG",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishGG.png",
+				listNpcImgUrl: "oneshotfishing.png",
 				listBgImgUrl: "fishListHover.png",
-				...productList.fishing,
-				parameter: { ...productList.fishing },
+				...productList.CQ9_Oneshot_Fishing,
+				parameter: { ...productList.CQ9_Oneshot_Fishing },
 				lobbyPage: {
-					bgImg: "fishgg.png",
-					hoverBgImg: "fishgga.png"
-				}
-			},
+					bgImg: "fishof.png",
+					hoverBgImg: "fishofa.png"
+				},
+				allowCurrencies: allowedCurrencyList.oneShot
+			}
 			// {
 			// 	keyName: "Skywind_Ocean_Ruler",
 			// 	displayKey: "Skywind_Ocean_Ruler",
@@ -1465,50 +1530,6 @@ export const defMenuLinks = {
 			// 		})
 			// 	]
 			// },
-			{
-				keyName: "fishing_SGW_WAR",
-				className: "fsgw",
-				displayKey: "lbl_FishingSG2",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishSGwar.png",
-				listBgImgUrl: "fishListHover.png",
-				...productList.fishing_SGW,
-				parameter: { ...productList.fishing_SGW },
-				lobbyPage: {
-					bgImg: "fishfw.png",
-					hoverBgImg: "fishfwa.png"
-				}
-			},
-			{
-				keyName: "fishing_SG",
-				className: "fsg",
-				displayKey: "lbl_FishingSG1",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishSG.png",
-				listBgImgUrl: "fishListHover.png",
-				...productList.fishing_SG,
-				parameter: { ...productList.fishing_SG },
-				lobbyPage: {
-					bgImg: "fishfg.png",
-					hoverBgImg: "fishfga.png"
-				},
-				allowCurrencies: allowedCurrencyList.fishingGod
-			},
-			{
-				keyName: "fishing_CQ9_ONESHOT",
-				className: "fsg",
-				displayKey: "lbl_Oneshot_Fishing",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "oneshotfishing.png",
-				listBgImgUrl: "fishListHover.png",
-				...productList.CQ9_Oneshot_Fishing,
-				parameter: { ...productList.CQ9_Oneshot_Fishing },
-				lobbyPage: {
-					bgImg: "fishof.png",
-					hoverBgImg: "fishofa.png"
-				},
-				allowCurrencies: allowedCurrencyList.oneShot
-			}
 			// {
 			// 	keyName: "fishing_ICG_THE_TYRANT_AND_THE_PRINCESS",
 			// 	className: "fsg",

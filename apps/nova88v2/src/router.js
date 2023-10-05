@@ -161,9 +161,7 @@ export default {
 	mega888: {
 		root: "mega888"
 	},
-	worldCup: {
-		root: "world-cup"
-	},
+
 	rebateExclude: {
 		root: "rebateExclude"
 	}
