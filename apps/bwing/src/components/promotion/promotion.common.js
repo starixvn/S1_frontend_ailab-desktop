@@ -110,10 +110,10 @@ export const checkPromotion = ({ promotionInfo, userInfo, setPopBox, t }) => {
 };
 
 const defPromoDisplayStyle = {
-	default: "",
-	new: "new",
-	expired: "expired",
-	claimed: "claimed active"
+	default: "lobby-promotion-item",
+	new: "lobby-promotion-item tag-new",
+	expired: "lobby-promotion-item expired",
+	claimed: "lobby-promotion-item tag-claimed"
 };
 
 export const getStampStyle = (filter, promotionInfo) => {

@@ -1,3 +1,14 @@
+.icon-arrow-left::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 10px;
+  margin: 0 5px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  cursor: pointer;
+  background: url(https://banner.bw88.io/desktop/img/4.0/icon-arrow.svg) center/cover;
+}
 .icon-dropdown-arrow-primary::before {
   content: "";
   display: block;

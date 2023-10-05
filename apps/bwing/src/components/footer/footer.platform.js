@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import path from "../../router";
@@ -9,6 +9,7 @@ import productList, {
 import { popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
+import { bannerImgUrl } from "../../config";
 
 const defPlatform = [
 	{
@@ -135,7 +136,7 @@ const defPlatform = [
 	},
 	{
 		...productList.liveCasino_EVO,
-		imgName: "ev"
+		imgName: "evo"
 	},
 	{
 		...defCasinoProviders.Habanero,
@@ -147,7 +148,7 @@ const defPlatform = [
 		...defCasinoProviders.SimplePlay,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.SimplePlay.name },
-		imgName: "sp"
+		imgName: "simpleplay"
 	},
 	{
 		...defCasinoProviders.Skywind,
@@ -164,12 +165,9 @@ const defPlatform = [
 	{
 		...productList.eSport_IM,
 		path: path.sportsIM.root,
-		imgName: "imsports"
+		imgName: "im-sports"
 	},
-	{
-		...productList.eSport_IM,
-		imgName: "imesports"
-	},
+
 	{
 		...defCasinoProviders.SPRIBE,
 		path: path.casino.root,
@@ -183,6 +181,30 @@ const defPlatform = [
 		imgName: "endorphina"
 	}
 ];
+
+const ImageWithHover = ({ bannerImgUrl: url, imgName }) => {
+	const [isHovered, setIsHovered] = useState(false);
+	const imgUrl = `${url}/desktop/img/partherNew/${imgName}${
+		isHovered ? "-a" : ""
+	}.png`;
+	return (
+		<img
+			src={imgUrl}
+			alt={imgName}
+			onMouseEnter={() => setIsHovered(true)}
+			onMouseLeave={() => setIsHovered(false)}
+		/>
+	);
+};
+ImageWithHover.defaultProps = {
+	bannerImgUrl: "",
+	imgName: ""
+};
+
+ImageWithHover.propTypes = {
+	bannerImgUrl: PropTypes.string,
+	imgName: PropTypes.string
+};
 
 const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 	const { setPopBox } = useContext(popBoxContext);
@@ -242,21 +264,23 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 				(item.tpGameType === p.tpGameType ||
 					item.tpGameType === defTpGameType.All)
 		);
-
 		return (
 			<button
 				key={key}
-				className={p.imgName}
 				onClick={ClickItem.bind(this, {
 					...p,
 					urlParams: _urlParams,
 					isInMaintain
-				})}
-			/>
+				})}>
+				<ImageWithHover
+					bannerImgUrl={bannerImgUrl}
+					imgName={p.imgName}
+				/>
+			</button>
 		);
 	});
 
-	return <div className="platformGroup">{rows}</div>;
+	return <div>{rows}</div>;
 };
 
 Platform.defaultProps = {

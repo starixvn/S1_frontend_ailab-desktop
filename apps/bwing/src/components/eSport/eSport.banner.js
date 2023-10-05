@@ -3,27 +3,11 @@ import { bannerImgUrl } from "../../config";
 
 const EsportBanner = () => {
 	return (
-		<div className="lobbybanner">
+		<div className="lobby-banner">
 			<img
-				src={`${bannerImgUrl}/desktop/img/esportslobby/esportbanner.jpg`}
-				alt="esportBanner-img"
+				src={`${bannerImgUrl}/desktop/img/4.0/lobby-banner-esports.jpg`}
+				alt="esport-banner-img"
 			/>
-
-			<div className="ball1">
-				<img
-					className="ballImg"
-					alt="ballImg1"
-					src={`${bannerImgUrl}/desktop/img/esportslobby/gem1.png`}
-				/>
-			</div>
-
-			<div className="ball1 ball2">
-				<img
-					className="ballImg"
-					alt="ballImg2"
-					src={`${bannerImgUrl}/desktop/img/esportslobby/gem2.png`}
-				/>
-			</div>
 		</div>
 	);
 };

@@ -11,15 +11,26 @@ import { isDateRange } from "./common";
 import { eventPeriodIdpd } from "../../datas/eventDef";
 import { bannerImgUrl } from "../../config";
 import useShieldCheck from "../hook/useShieldCheck";
+import { defPopBoxType } from "./defPopBoxType";
 
 const initValue = {
-	username: "",
+	userName: "",
 	password: ""
 };
 
-const initTip = {
-	username: { checked: null, msg: "" },
-	password: { checked: null, msg: "" }
+const initStatus = {
+	userName: {
+		checked: null,
+		msg: "",
+		hint: "lbl_UsernameTooltip",
+		isShowHint: false
+	},
+	password: {
+		checked: null,
+		msg: "",
+		hint: "lbl_PasswordTooltip",
+		isShowHint: false
+	}
 };
 
 const LoginPanel = () => {
@@ -27,8 +38,8 @@ const LoginPanel = () => {
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const [userValue, setUserValue] = useState(initValue);
 	const { setPopBox } = useContext(popBoxContext);
-	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
+	const [inputStatus, setInputStatus] = useState(initStatus);
 	const isMountedRef = useRef(null);
 	const isInPeriodEvent = isDateRange(
 		eventPeriodIdpd.startDate,
@@ -53,18 +64,11 @@ const LoginPanel = () => {
 	};
 
 	const clickInfo = col => {
-		let _msg =
-			col === "username" ? t("msg_UsernameReq") : t("msg_PasswordReq");
-
-		if (tip[col].msg === _msg) {
-			_msg = "";
-		}
-
-		setTip(prev => ({
+		setInputStatus(prev => ({
 			...prev,
 			[col]: {
-				checked: tip[col].checked,
-				msg: _msg
+				...prev[col],
+				isShowHint: !inputStatus[col].isShowHint
 			}
 		}));
 	};
@@ -72,7 +76,7 @@ const LoginPanel = () => {
 	const EditField = (col, e) => {
 		let val = e.target.value;
 
-		if (col === "username") {
+		if (col === "userName") {
 			val = val.replace(/[\W_]/g, "");
 		}
 
@@ -87,37 +91,33 @@ const LoginPanel = () => {
 
 		if (val === "") {
 			msg =
-				col === "username"
+				col === "userName"
 					? t("msg_UsernameReq")
 					: t("msg_PasswordReq");
 			checked = false;
-		} else if (col === "username" && (val.length < 6 || val.length > 18)) {
+		} else if (col === "userName" && (val.length < 6 || val.length > 18)) {
 			checked = false;
 			msg = t("msg_UsernameLength");
 		}
 
-		setTip(prev => {
-			return {
-				...prev,
-				[col]: {
-					checked,
-					msg
-				}
-			};
-		});
+		setInputStatus(prev => ({
+			...prev,
+			[col]: {
+				checked,
+				msg
+			}
+		}));
 		return checked;
 	};
 
 	const handleLogin = async e => {
 		e.preventDefault();
-
-		const checkUsername = checkValue("username", userValue.username);
+		const checkUsername = checkValue("userName", userValue.userName);
 		const checkPassword = checkValue("password", userValue.password);
 		const checkAll = checkUsername && checkPassword;
-
 		if (checkAll) {
 			await LOGIN({
-				userName: userValue.username,
+				userName: userValue.userName,
 				password: userValue.password,
 				langId: userInfo.langId
 			}).then(res => {
@@ -130,6 +130,7 @@ const LoginPanel = () => {
 						setPopBox({ isOpen: false });
 						navigate(`/${userInfo.langId}`);
 						saveShieldData();
+						setInputStatus(initStatus);
 					}
 				} else if (
 					res.errorCode === 1101 ||
@@ -137,27 +138,27 @@ const LoginPanel = () => {
 					res.errorCode === 9000
 				) {
 					if (isMountedRef.current) {
-						setTip(prev => {
-							return {
-								...prev,
-								username: {
-									checked: false,
-									msg: res.message
-								}
-							};
-						});
+						setInputStatus(prev => ({
+							...prev,
+							userName: {
+								checked: false,
+								msg: res.message,
+								hint: "lbl_UsernameTooltip",
+								isShowHint: false
+							}
+						}));
 					}
 				} else if (res.errorCode === 1001) {
 					if (isMountedRef.current) {
-						setTip(prev => {
-							return {
-								...prev,
-								password: {
-									checked: false,
-									msg: res.message
-								}
-							};
-						});
+						setInputStatus(prev => ({
+							...prev,
+							password: {
+								checked: false,
+								msg: res.message,
+								hint: "lbl_PasswordTooltip",
+								isShowHint: false
+							}
+						}));
 					}
 				}
 			});
@@ -169,11 +170,15 @@ const LoginPanel = () => {
 	};
 
 	const openJoin = () => {
-		setPopBox({ isOpen: false });
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.Join,
+			customLayout: true
+		});
 	};
 
 	return (
-		<div className="loginpop">
+		<div className="login-module popup active">
 			<LoginForm
 				t={t}
 				clickCancel={clickCancel}
@@ -185,10 +190,10 @@ const LoginPanel = () => {
 				EditField={EditField}
 				checkValue={checkValue}
 				clickInfo={clickInfo}
-				tip={tip}
 				showPsw={showPsw}
 				showPswHandler={showPswHandler}
 				isInPeriodEvent={isInPeriodEvent}
+				inputStatus={inputStatus}
 			/>
 		</div>
 	);
@@ -206,18 +211,80 @@ export const LoginForm = ({
 	EditField,
 	checkValue,
 	clickInfo,
-	tip,
 	showPsw,
-	showPswHandler
+	showPswHandler,
+	inputStatus
 }) => {
 	return (
-		<>
-			<div className="icon icon-close" onClick={clickCancel} />
-			<div className="loginModule">
+		<div>
+			<button className="icon-close-primary" onClick={clickCancel} />
+			<div className="left">
 				<img
-					src={`${bannerImgUrl}/desktop/img/loginBanner-new.jpg`}
-					alt="loginBanner"
+					className="login-logo"
+					src={`${bannerImgUrl}/desktop/img/4.0/logo.png`}
+					alt="login-logo"
 				/>
+				<img
+					className="login-banner"
+					src={`${bannerImgUrl}/desktop/img/4.0/loginjoin-banner.png`}
+					alt="login-banner"
+				/>
+				<div className="join-bottominfo">
+					{t("lbl_PoweredBy")} Bong88
+				</div>
+			</div>
+			<div className="right">
+				<div className="login-title">{t("lbl_Login")}</div>
+
+				<Inputbox
+					placeholder={t("lbl_Username")}
+					value={userValue.userName}
+					onChange={e => EditField("userName", e)}
+					onBlur={() => checkValue("userName", userValue.userName)}
+					clickInfo={() => clickInfo("userName")}
+					checked={inputStatus.userName.checked}
+					tip={inputStatus.userName.msg}
+					warningIcon="icon-warning"
+					border={false}
+					icon="icon-profile"
+					hint={inputStatus.userName.hint}
+					isShowHint={inputStatus.userName.isShowHint}
+				/>
+
+				<InputboxPSW
+					// icon="icon-key txt-blue12"
+					inputType={`${!showPsw ? "password" : "text"}`}
+					placeholder={t("lbl_Password")}
+					value={userValue.password}
+					onChange={e => EditField("password", e)}
+					onBlur={() => checkValue("password", userValue.password)}
+					showPsw={showPsw}
+					showPswHandler={showPswHandler}
+					checked={inputStatus.password.checked}
+					clickInfo={() => clickInfo("password")}
+					tip={inputStatus.password.msg}
+					border={false}
+					icon="icon-profile"
+					hint={inputStatus.password.hint}
+					isShowHint={inputStatus.password.isShowHint}
+				/>
+				<Link
+					className="login-forget"
+					to={`/${userInfo.langId}/${path.forgetPassword.root}`}>
+					{t("lbl_ForgetPassword")}
+				</Link>
+				<div className="btn-group">
+					<button className="btn-primary" onClick={handleLogin}>
+						{t("lbl_Login")}
+					</button>
+				</div>
+				<div className="login-message">
+					{t("lbl_DontHaveAccount")}
+					<a onClick={openJoin}>{t("lbl_JoinNow")}</a>
+				</div>
+			</div>
+			{/*
+			<div className="loginModule">
 				<div className="loginFunction">
 					<span className="title">{t("lbl_Login")}</span>
 					<div className="noAccount">
@@ -288,7 +355,8 @@ export const LoginForm = ({
 					</form>
 				</div>
 			</div>
-		</>
+			*/}
+		</div>
 	);
 };
 
@@ -302,7 +370,7 @@ LoginForm.propTypes = {
 	EditField: PropTypes.func.isRequired,
 	checkValue: PropTypes.func.isRequired,
 	clickInfo: PropTypes.func.isRequired,
-	tip: PropTypes.objectOf(PropTypes.any).isRequired,
 	showPsw: PropTypes.bool.isRequired,
-	showPswHandler: PropTypes.func.isRequired
+	showPswHandler: PropTypes.func.isRequired,
+	inputStatus: PropTypes.objectOf(PropTypes.any).isRequired
 };

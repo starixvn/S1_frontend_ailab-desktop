@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import { defTpGameType } from "../../datas/productList";
 
-const EsportList = ({ t, subMenu, allMaintainList, clickItem }) => {
+const EsportList = ({ subMenu, allMaintainList, clickItem }) => {
 	if (subMenu.length <= 0) return null;
 
 	return subMenu.map(subMenuItem => {
@@ -16,17 +17,16 @@ const EsportList = ({ t, subMenu, allMaintainList, clickItem }) => {
 		return (
 			<EsportListItem
 				key={subMenuItem.displayKey}
-				t={t}
 				isInMaintain={isInMaintain}
 				clickItem={clickItem}
 				subMenuItem={subMenuItem}
+				img={subMenuItem.img}
 			/>
 		);
 	});
 };
 
 EsportList.propTypes = {
-	t: PropTypes.func.isRequired,
 	allMaintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
 	clickItem: PropTypes.func.isRequired
@@ -34,25 +34,44 @@ EsportList.propTypes = {
 
 export default EsportList;
 
-const EsportListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
+const EsportListItem = ({ subMenuItem, isInMaintain, clickItem }) => {
 	const {
 		displayText,
 		displayKey,
 		tpId,
 		gameId,
-		_class,
 		tpGameType,
-		betType
+		betType,
+		lobbyImg
 	} = subMenuItem;
 
+	const { t } = useTranslation();
 	const _displayText = displayText || t(displayKey);
+	const baseLobbyUrl = "https://banner.bw88.io/desktop/img/4.0/lobby/esports";
+	const _className = `lobby-products-items${isInMaintain ? " maintain" : ""}`;
 
-	const _className = [_class, isInMaintain && "under"]
-		.filter(Boolean)
-		.join(" ");
+	let _iconClassName = "";
+	if (subMenuItem.eventIcons) {
+		let iconStrings = "";
+		for (let i = 0; i < subMenuItem.eventIcons.length; i++) {
+			if (subMenuItem.eventIcons[i] !== "") {
+				iconStrings += `${subMenuItem.eventIcons[i]}`;
+			}
+		}
+		_iconClassName = `${iconStrings}`;
+	}
+
+	let showIcon = null;
+	if (_iconClassName.length > 0) {
+		if (_iconClassName === "tag-new") {
+			showIcon = "tag-new-pop";
+		} else {
+			showIcon = _iconClassName;
+		}
+	}
 
 	return (
-		<div
+		<a
 			className={_className}
 			onClick={() =>
 				clickItem({
@@ -65,20 +84,17 @@ const EsportListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
 			}
 		>
 			{isInMaintain && (
-				<div className="underBtn">{t("lbl_underMaintenance")}</div>
+				<div className="tag-maintain">{t("lbl_underMaintenance")}</div>
 			)}
+			{showIcon && <div className={showIcon} />}
 
-			{subMenuItem?.eventIcons?.length > 0 && (
-				<div className={`icon ${subMenuItem.eventIcons[0]}`} />
-			)}
-
-			<p>{_displayText}</p>
-		</div>
+			<img src={`${baseLobbyUrl}/${lobbyImg}`} alt="" />
+			<div className="name">{_displayText}</div>
+		</a>
 	);
 };
 
 EsportListItem.propTypes = {
-	t: PropTypes.func.isRequired,
 	isInMaintain: PropTypes.bool.isRequired,
 	clickItem: PropTypes.func.isRequired,
 	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired

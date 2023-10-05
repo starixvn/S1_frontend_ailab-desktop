@@ -13,7 +13,6 @@ import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 import CashBackInfo from "./cashBackInfo";
 import path from "../../router";
-import { getStampStyle } from "./promotion.common";
 
 export const useHandlePromotionInfo = ({ showAllPromosBtn = false }) => {
 	const { t } = useTranslation();
@@ -158,26 +157,32 @@ const PromotionInfo = ({
 
 	if (promotionInfo === null) return null;
 
-	const promoDisplayStyle = getStampStyle(filterType, promotionInfo);
-
 	return (
-		<div className="promotionsInfo">
-			<div className={promoDisplayStyle} />
-			<div className="icon icon-close" onClick={closePromoPopBox} />
-			<img src={promotionInfo.banner} alt="promotionDetailData_banner" />
-			<div className="proData">
-				<div className="proDataTitle">
-					<div className="txt-blue15">
-						{promotionInfo.title}
-						<div className="txt-white">
+		<div className="promotionpop-inner">
+			<div className="promotionpop-title">{t("lbl_Promotion_list")}</div>
+			<div className="icon-close-primary" onClick={closePromoPopBox} />
+			<div className="promotionpop-list">
+				<div className="promotionpop-banner">
+					<img
+						src={promotionInfo.banner}
+						alt="promotionDetailData_banner"
+					/>
+				</div>
+				<div className="promotionpop-caption">
+					<div className="promotionpop-caption-item">
+						<div className="title">{promotionInfo.title}</div>
+						<div className="subtitle">
 							{promotionInfo.description}
 						</div>
 					</div>
-					<div className="btnGroup">
+					<div className="btn-group">
 						{promotionInfo.promotionType ===
 						defPromotionType.other ? (
-							<button className="red" onClick={openLiveChat}>
-								{t("lbl_Promotion_ApplyNow")}
+							<button
+								className="btn-primary"
+								onClick={openLiveChat}
+							>
+								{t("promotion.lbl_promo_apply_now")}
 							</button>
 						) : (
 							<PromotionJoinButton
@@ -194,9 +199,10 @@ const PromotionInfo = ({
 						)}
 						{showAllPromosBtn && (
 							<Link
-								className="btn-check"
-								to={`/${userInfo.langId}/${path.promotion.root}`}>
-								{t("lbl_Promotion_AllPromos")}
+								className="btn-primary"
+								to={`/${userInfo.langId}/${path.promotion.root}`}
+							>
+								{t("promotion.lbl_promo_all_promos")}
 							</Link>
 						)}
 					</div>
@@ -247,10 +253,9 @@ const PromotionInfo = ({
 					t={t}
 					currencyId={userInfo.currencyId}
 					langId={userInfo.langId}
-					isTable={true}
 				/>
 				<div
-					className="proDataBody"
+					className="promotionpop-content"
 					dangerouslySetInnerHTML={{
 						__html: promotionInfo.details
 					}}
@@ -276,10 +281,10 @@ PromotionInfo.propTypes = {
 };
 
 export default () => {
-	const { promoBox, setPromoBox } = useContext(promoPopBox);
 	const { popBox } = useContext(popBoxContext);
+	const { promoBox, setPromoBox } = useContext(promoPopBox);
 
-	if (promoBox.promotionInfo === null) return null;
+	if (promoBox.content === null) return null;
 
 	const { isOpen: openPromoPopBox } = promoBox;
 
@@ -289,13 +294,12 @@ export default () => {
 	};
 
 	return (
-		<div className={`promoInfoPop${openPromoPopBox ? " active" : ""}`}>
-			<div
-				onClick={closePromoPopBox}
-				className={`promoInfoPopMask${
-					popBox.isOpen || !openPromoPopBox ? "" : " active"
-				}`}
-			/>
+		<div
+			onClick={closePromoPopBox}
+			className={`popup promotionpop ${
+				popBox.isOpen || !openPromoPopBox ? "" : "active"
+			}`}
+		>
 			{promoBox.content}
 		</div>
 	);
@@ -327,7 +331,8 @@ const DepositSlip = ({ promotionInfo, t, isSpecialType, currencyId }) => {
 				<div className="depositSlipList">
 					{refList?.map(item => (
 						<div
-							key={`promotion-deposit-record-${bonusCode}-${item.depositId}`}>
+							key={`promotion-deposit-record-${bonusCode}-${item.depositId}`}
+						>
 							<div>{item.depositId}</div>
 							<div>
 								{number_format({

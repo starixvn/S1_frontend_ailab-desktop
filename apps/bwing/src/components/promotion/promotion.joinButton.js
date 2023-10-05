@@ -152,7 +152,7 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 		promotionInfo.beenUsed ||
 		moment.unix(promotionInfo.periodFrom).diff(Date.now()) > 0 ||
 		moment.unix(promotionInfo.periodTo).diff(Date.now()) < 0 ? null : (
-		<button className="orange" onClick={onJoinPromotion}>
+		<button className="btn-primary" onClick={onJoinPromotion}>
 			{promotionInfo.promotionType === defPromotionType.cashback
 				? t("lbl_Promotion_ClaimNow")?.toUpperCase()
 				: t("lbl_PromoJoinNow")?.toUpperCase()}

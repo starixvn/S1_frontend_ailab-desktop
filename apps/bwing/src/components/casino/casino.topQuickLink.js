@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import PropTypes from "prop-types";
@@ -18,19 +18,14 @@ const TopQuickLink = ({
 	slidesPerViewNum
 }) => {
 	const { userInfo } = useContext(userInfoContext);
-	const [hoverImg, setHoverImg] = useState(null);
-	const handleOnMouseOverImg = imgName => {
-		setHoverImg(`${imgName}`);
-	};
 
 	const dataRows =
 		lobbyImgList.length > slidesPerViewNum
 			? lobbyImgList
 			: [...lobbyImgList, ...lobbyImgList];
-
 	const Rows = dataRows.map((_item, idx) => {
 		const _srcImg =
-			hoverImg === _item.tpName || activeProvider.tpId === _item.tpId
+			activeProvider.tpId === _item.tpId
 				? `${_item.imgName}a`
 				: _item.imgName;
 
@@ -44,71 +39,52 @@ const TopQuickLink = ({
 						  }&tpGameType=${
 								defSlotTpGameType[_item?.tpName]?.tpGameType
 						  }`
-				}
-			>
+				}>
 				<img
 					src={`${bannerImgUrl}/desktop/img/partnerlogo/${_srcImg}.png`}
 					alt={_item.tpName}
 				/>
-				<div>{_item.displayText}</div>
 			</Link>
 		);
 
 		return (
 			// eslint-disable-next-line react/no-array-index-key
 			<SwiperSlide key={`slot-swiper-${_item.tpId}-${idx}`}>
-				<div className="swiper-slide">
-					{_item.openPath ? (
-						<Link
-							className={
-								activeProvider.tpId === _item.tpId
-									? "active"
-									: ""
-							}
-							to={`/${langId}/${_item.openPath}`}
-						>
-							{content}
-						</Link>
-					) : (
-						<button
-							onClick={() =>
-								onChange(_item === activeProvider ? "" : _item)
-							}
-							className={
-								activeProvider.tpId === _item.tpId
-									? "active"
-									: ""
-							}
-							onMouseOver={handleOnMouseOverImg.bind(
-								this,
-								_item.tpName
-							)}
-							onMouseOut={handleOnMouseOverImg.bind(this, "")}
-							onBlur={() => 0}
-							onFocus={() => 0}
-						>
-							{content}
-						</button>
-					)}
-				</div>
+				{_item.openPath ? (
+					<div
+						className={`slots-vender-item ${
+							activeProvider.tpId === _item.tpId ? "active" : ""
+						}`}
+						to={`/${langId}/${_item.openPath}`}>
+						{content}
+					</div>
+				) : (
+					<div
+						onClick={() =>
+							onChange(_item === activeProvider ? "" : _item)
+						}
+						className={`slots-vender-item ${
+							activeProvider.tpId === _item.tpId ? "active" : ""
+						}`}>
+						{content}
+					</div>
+				)}
 			</SwiperSlide>
 		);
 	});
 
 	const params = {
 		spaceBetween: 0,
-		slidesPerView: slidesPerViewNum,
-		loop: true
+		slidesPerView: slidesPerViewNum
 	};
 
 	return (
-		<div className="partnerSelect">
+		<div className="slots-vender-bar">
 			<Swiper
 				key={initialSlide}
 				initialSlide={initialSlide}
 				navigation={true}
-				{...params}
-			>
+				{...params}>
 				{Rows}
 			</Swiper>
 		</div>

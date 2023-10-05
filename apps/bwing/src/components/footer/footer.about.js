@@ -1,11 +1,9 @@
 import React from "react";
-import { Link } from "gatsby";
-import path from "../../router";
 import TandC from "../../service/t_and_c";
 import { siteInfo } from "../../config";
 
 export default ({ langId, t, hideSiteMap = false }) => (
-	<div>
+	<div className="footer-sitemap-item">
 		<span className="title">{t("lbl_AboutSite")}</span>
 		<div>
 			<a

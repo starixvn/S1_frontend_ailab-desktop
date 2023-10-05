@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
+import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import Nav from "./casino.nav";
 import SearchBox from "./casino.searchBox";
@@ -14,11 +15,9 @@ import {
 import { defPopBoxType } from "../common/defPopBoxType";
 import { defRowsPerPage, defSearchColumn } from "./casino.def";
 import TopQuickLink from "./casino.topQuickLink";
-import CasinoJackpot from "./casino.jackpot";
 import SwipperBanner from "../common/swipperBanner";
 import { api_game_GetSlotGamePage } from "../../service/api/game";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
-import { defSpecialSetting, useGotoGame } from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
 import {
 	defCasinoProviders,
@@ -53,14 +52,15 @@ export default () => {
 	const { allMaintainList } = useContext(maintainListContext);
 	const [isProcessing, setIsProcessing] = useState(false);
 	const { loading, setLoading } = useContext(loadingContext);
-	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { throttle } = useDelayFunc();
 	const urlTpId = getUrlParameter("tpId");
 	const urlProvider = getUrlParameter("provider");
+	const urlJackpotPage = getUrlParameter("page");
 	const urlProviderTpId = Object.values(defCasinoProviders).find(
 		el => el.name.toUpperCase() === urlProvider.toUpperCase()
 	)?.tpId;
-	const slidesPerViewNum = 9;
+
+	const slidesPerViewNum = 7.2;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -73,15 +73,10 @@ export default () => {
 		if (urlProviderTpId || urlTpId) {
 			const activeTpId = urlProviderTpId ?? urlTpId;
 			const targetProvider = providerList.find(
-				provider => provider.tpId === activeTpId
+				provider => provider.tpId === Number(activeTpId)
 			);
-
 			if (targetProvider) {
-				setActiveProvider(
-					targetProvider.tpId === activeProvider.tpId
-						? {}
-						: targetProvider
-				);
+				setActiveProvider(targetProvider);
 			}
 		}
 	}, [urlProviderTpId, urlTpId]);
@@ -155,7 +150,7 @@ export default () => {
 	}, [favoriteStr]);
 
 	useEffect(() => {
-		if (activeProvider.index) {
+		if (activeProvider.index !== undefined) {
 			const newInitialSlide =
 				Object.keys(activeProvider).length === 0
 					? slidesPerViewNum
@@ -372,6 +367,7 @@ export default () => {
 											providerObj.tpId ===
 											Number(activeTpId)
 									);
+
 									Object.assign(_activeProvider, {
 										index
 									});
@@ -413,9 +409,15 @@ export default () => {
 						resultList.push({ [item[0]]: item[1] })
 					);
 					setCategoryList(resultList);
-					setActiveCategory(
-						activeCategory ?? Object.keys(resultList[1])[0]
-					);
+					if (urlJackpotPage && urlJackpotPage === "jackpot") {
+						setActiveCategory("jackpot");
+						navigate(window.location.pathname, { replace: true });
+					} else {
+						setActiveCategory(
+							activeCategory ?? Object.keys(resultList[1])[0]
+						);
+					}
+
 					setIsProcessing(false);
 				} else {
 					setPopBox({
@@ -553,14 +555,15 @@ export default () => {
 	};
 
 	return loading ? null : (
-		<section>
-			<div className="rightModule">
-				<div className="infoModule">
-					<SwipperBanner
-						ImgFolder={[defBannerType.Slots]}
-						openInBlank={true}
-					/>
-					<CasinoJackpot t={t} userInfo={userInfo} />
+		<>
+			<div className="lobby-banner">
+				<SwipperBanner
+					ImgFolder={[defBannerType.Slots]}
+					openInBlank={true}
+				/>
+			</div>
+			<div className="wrapper">
+				<div className="col-12">
 					<TopQuickLink
 						lobbyImgList={providerList}
 						activeProvider={activeProvider}
@@ -569,9 +572,7 @@ export default () => {
 						initialSlide={initialSlide}
 						slidesPerViewNum={slidesPerViewNum}
 					/>
-					<div
-						className="quickSelect CasinoSelect gameBtn
-						">
+					<div className="slots-category">
 						<Nav
 							categoryList={categoryList}
 							activeCategory={activeCategory}
@@ -585,6 +586,8 @@ export default () => {
 							editSearchField={editSearchField}
 						/>
 					</div>
+				</div>
+				<div className="col-12">
 					<GameList
 						t={t}
 						imgUrl={imgUrl}
@@ -608,6 +611,6 @@ export default () => {
 					/>
 				</div>
 			</div>
-		</section>
+		</>
 	);
 };

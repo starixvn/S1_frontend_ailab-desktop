@@ -3,25 +3,11 @@ import { bannerImgUrl } from "../../config";
 
 const FishingBanner = () => {
 	return (
-		<div className="lobbybanner">
+		<div className="lobby-banner">
 			<img
-				src={`${bannerImgUrl}/desktop/img/fishinglobby/fishing-banner.jpg`}
-				alt="bannerImg"
+				src={`${bannerImgUrl}/desktop/img/4.0/lobby-banner-fishing.jpg`}
+				alt="fishing-banner-img"
 			/>
-			<div className="ball1">
-				<img
-					className="ballImg"
-					src={`${bannerImgUrl}/desktop/img/fishinglobby/money1.png`}
-					alt="money2Img"
-				/>
-			</div>
-			<div className="ball1 ball2">
-				<img
-					className="ballImg"
-					src={`${bannerImgUrl}/desktop/img/fishinglobby/money2.png`}
-					alt="money2Img"
-				/>
-			</div>
 		</div>
 	);
 };

@@ -45,31 +45,27 @@ const Games = () => {
 		if (subMenu && productTpIds?.length > 0) {
 			subMenu = subMenu.filter(s => productTpIds.includes(s.tpId));
 		}
-
 		return subMenu;
 	};
 
 	const subMenu = getSubMenu();
 
 	return (
-		<section>
-			<div className="rightModule">
-				<div className="infoModule">
-					<GamesBanner langId={userInfo.langId} />
-
-					<div className="gameslobbyList">
-						<div className="gameslobbyitem">
-							<GameList
-								t={t}
-								subMenu={subMenu}
-								allMaintainList={allMaintainList}
-								clickItem={clickItem}
-							/>
-						</div>
+		<>
+			<GamesBanner langId={userInfo.langId} />
+			<div className="wrapper mt-5">
+				<div className="col-12">
+					<div className="lobby-products">
+						<GameList
+							t={t}
+							subMenu={subMenu}
+							allMaintainList={allMaintainList}
+							clickItem={clickItem}
+						/>
 					</div>
 				</div>
 			</div>
-		</section>
+		</>
 	);
 };
 

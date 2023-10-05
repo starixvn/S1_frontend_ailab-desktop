@@ -7,7 +7,7 @@ export default () => {
 	return (
 		<Wrapper>
 			<Layout showFooter={true}>
-				<main className="livelobby">
+				<main className="lobby casino">
 					<Livecasino />
 				</main>
 			</Layout>

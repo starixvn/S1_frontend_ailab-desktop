@@ -23,13 +23,13 @@ export const defChannelName = {
 };
 
 export const channelIcon = {
-	Youtube: "icon icon-youtube",
-	Telegram: "icon icon-Telegram",
-	Facebook: "icon icon-facebook",
+	Youtube: " icon-youtube",
+	Telegram: "icon-telegram",
+	Facebook: "icon-facebook",
 	Twitter: "icon icon-twitter",
-	Skype: "icon icon-contactUS6",
-	Zalo: "icon icon-zalo",
-	Tiktok: "icon icon-tiktok",
+	Skype: "icon-skype",
+	Zalo: "icon-zalo",
+	Tiktok: "icon-tiktok",
 	Livechat: "icon icon-chat"
 };
 

@@ -10,7 +10,7 @@ export default ({ onClickClose }) => {
 	return (
 		<div className="pop">
 			<div className="friend active">
-				<button className="icon icon-close" onClick={onClickClose} />
+				<button className="icon-close-primary" onClick={onClickClose} />
 				<a
 					target="_blank"
 					rel="noopener noreferrer"

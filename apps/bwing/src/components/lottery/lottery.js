@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useTranslation } from "react-i18next";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { defMenuLinks } from "../layout/header.menu.def";
 import {
@@ -13,7 +12,6 @@ import LotteryBanner from "./lottery.banner";
 import LotteryList from "./lottery.list";
 
 const Games = () => {
-	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
@@ -52,14 +50,12 @@ const Games = () => {
 	const subMenu = getSubMenu();
 
 	return (
-		<section>
-			<div className="rightModule">
-				<div className="infoModule">
-					<LotteryBanner langId={userInfo.langId} />
-
-					<div className="lotterylobbyList">
+		<>
+			<LotteryBanner langId={userInfo.langId} />
+			<div className="wrapper mt-5">
+				<div className="col-12">
+					<div className="lobby-products">
 						<LotteryList
-							t={t}
 							subMenu={subMenu}
 							allMaintainList={allMaintainList}
 							clickItem={clickItem}
@@ -67,7 +63,7 @@ const Games = () => {
 					</div>
 				</div>
 			</div>
-		</section>
+		</>
 	);
 };
 

@@ -3,7 +3,7 @@ import TandC from "../../service/t_and_c";
 
 export default ({ langId, t }) => {
 	return (
-		<div>
+		<div className="footer-sitemap-item">
 			<span className="title">{t("lbl_OurPolicies")}</span>
 			<div>
 				<a

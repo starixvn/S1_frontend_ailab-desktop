@@ -1,58 +1,114 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 const InputBox = props => {
+	const { t } = useTranslation();
 	const checkfailed = !props.checked && props.checked !== null;
 	let checkIcon = null;
-	// if (props.checked === null) {
-	// 	checkIcon = (
-	// 		<i
-	// 			className="icon icon-information-solid"
-	// 			onClick={props.clickInfo}
-	// 		/>
-	// 	);
-	// }
+	if (props.checked === null) {
+		checkIcon = (
+			<i
+				className={`icon ${
+					props.border ? "icon-information-solid" : "icon-info"
+				}`}
+				onClick={props.clickInfo}
+			/>
+		);
+	}
 	if (props.checked) {
-		checkIcon = <i className="icon icon-checkmark" />;
+		checkIcon = (
+			<i
+				className={`icon ${
+					props.border ? "icon-checkmark" : "icon-check"
+				}`}
+			/>
+		);
 	} else if (checkfailed) {
-		checkIcon = <i className="icon icon-cross" />;
+		checkIcon = (
+			<i
+				className={`icon ${props.border ? "icon-cross" : "icon-error"}`}
+			/>
+		);
 	}
 
 	return (
 		<>
-			<div className={`inputBox-blue${checkfailed ? " error" : ""}`}>
-				{props.icon ? <i className={`icon ${props.icon}`} /> : null}
-				{props.title ? (
-					<i className="txt-blue12">{props.title}</i>
-				) : null}
-				<input
-					type={props.inputType ?? "text"}
-					placeholder={props.placeholder}
-					onFocus={props.onFocus}
-					onBlur={props.onBlur}
-					onChange={props.onChange}
-					value={
-						props.value === null || props.value === undefined
-							? ""
-							: props.value
-					}
-					max={props.max ? props.max : null}
-				/>
-				<div className="iconModule">
-					{props.showPsw || props.inputType === "password" ? (
+			{props.border ? (
+				<div className={`inputBox-blue${checkfailed ? " error" : ""}`}>
+					{props.icon ? <i className={`icon ${props.icon}`} /> : null}
+					{props.title ? (
+						<i className="txt-blue12">{props.title}</i>
+					) : null}
+					<input
+						type={props.inputType ?? "text"}
+						placeholder={props.placeholder}
+						onFocus={props.onFocus}
+						onBlur={props.onBlur}
+						onChange={props.onChange}
+						value={
+							props.value === null || props.value === undefined
+								? ""
+								: props.value
+						}
+						max={props.max ? props.max : null}
+					/>
+					<div className="iconModule">
+						{props.showPsw || props.inputType === "password" ? (
+							<i
+								className={`icon ${
+									!props.showPsw
+										? "icon-eye-blocked"
+										: "icon-eye"
+								}`}
+								onClick={props.showPswHandler}
+							/>
+						) : null}
+
+						{props.checked !== undefined ? checkIcon : null}
+					</div>
+				</div>
+			) : (
+				<div className="inputbox-group">
+					<div className="inputbox-item">
+						<i className="icon-password" />
+						<input
+							type={props.inputType ?? "text"}
+							placeholder={props.placeholder}
+							onFocus={props.onFocus}
+							onBlur={props.onBlur}
+							onChange={props.onChange}
+							value={
+								props.value === null ||
+								props.value === undefined
+									? ""
+									: props.value
+							}
+							max={props.max ? props.max : null}
+						/>
 						<i
 							className={`icon ${
-								!props.showPsw ? "icon-eye-blocked" : "icon-eye"
+								!props.showPsw
+									? "icon-unvisible"
+									: "icon-visible"
 							}`}
 							onClick={props.showPswHandler}
 						/>
-					) : null}
-					{props.checked !== undefined ? (
-						<div className="iconModule">{checkIcon}</div>
-					) : null}
+						{props.checked !== undefined ? checkIcon : null}
+						{props.isShowHint && (
+							<div className="inputbox-tip-popup">
+								{t(props.hint)}
+							</div>
+						)}
+					</div>
 				</div>
-			</div>
-			{props.tip ? <div className="tip active">{props.tip}</div> : null}
+			)}
+			{props.tip && props.border ? (
+				<div className="tip active">{props.tip}</div>
+			) : null}
+			{props.tip && !props.border ? (
+				<div className="inputbox-tip">{props.tip}</div>
+			) : null}
 		</>
 	);
 };
@@ -66,16 +122,19 @@ InputBox.defaultProps = {
 	inputType: "text",
 	max: null,
 	onBlur: null,
-	// clickInfo: null,
+	clickInfo: null,
 	placeholder: "",
 	onChange: () => null,
 	onFocus: () => null,
 	showPsw: null,
-	showPswHandler: () => null
+	showPswHandler: () => null,
+	border: true,
+	hint: "",
+	isShowHint: false
 };
 
 InputBox.propTypes = {
-	// clickInfo: PropTypes.func,
+	clickInfo: PropTypes.func,
 	tip: PropTypes.string,
 	max: PropTypes.number,
 	value: PropTypes.string,
@@ -88,7 +147,10 @@ InputBox.propTypes = {
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
 	showPsw: PropTypes.bool,
-	showPswHandler: PropTypes.func
+	showPswHandler: PropTypes.func,
+	border: PropTypes.bool,
+	hint: PropTypes.string,
+	isShowHint: PropTypes.bool
 };
 
 export default InputBox;

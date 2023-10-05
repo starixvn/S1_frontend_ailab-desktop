@@ -15,13 +15,17 @@ export const defMenuType = {
 
 export const defMenuLinks = {
 	cryptoSports: {
-		className: "cryptobtn",
+		className: "icon-app-white",
 		menuType: defMenuType.entPage,
 		productInfo: { ...productList.cryptoSports }
 	},
+	home: {
+		className: "icon-home-white",
+		path: path.home.root
+	},
 	sports: {
-		productInfo: productList.soccer,
-		// path: path.sports.root,
+		// productInfo: productList.soccer,
+		path: path["sports-lobby"].root,
 		displayKey: "lbl_Sports",
 		subMenu: [
 			{
@@ -34,14 +38,16 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.sports_cryptoSports
 					})
-				]
+				],
+				img: "sports/crypto.png"
 			},
 			{
 				...productList.sportSaba,
 				subPath: path.sports.root,
 				className: "sabaSport",
 				displayKey: "lbl_Saba_Sport",
-				parameter: { ...productList.sportSaba }
+				parameter: { ...productList.sportSaba },
+				img: "sports/saba.png"
 			},
 			{
 				...productList.sportSbo,
@@ -55,14 +61,16 @@ export const defMenuLinks = {
 				],
 				displayText: "SBOBET",
 				parameter: { ...productList.sportSbo },
-				afterLogin: true
+				afterLogin: true,
+				img: "sports/sbo.png"
 			},
 			{
 				...productList.sportBti,
 				subPath: path.sportBti.root,
 				className: "btiSport",
 				displayKey: "lbl_Bti_Sport",
-				parameter: { ...productList.sportBti }
+				parameter: { ...productList.sportBti },
+				img: "sports/bti.png"
 			},
 			{
 				...productList.sports_IM,
@@ -75,7 +83,8 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.IM
 					})
-				]
+				],
+				img: "sports/im.png"
 			},
 			{
 				...productList.virtualSports,
@@ -88,7 +97,8 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.sports_virtualSports
 					})
-				]
+				],
+				img: "sports/virtual.png"
 			}
 		]
 	},
@@ -103,16 +113,27 @@ export const defMenuLinks = {
 	games: {
 		displayKey: "lbl_Games",
 		path: path.games.root,
-		className: "game icon",
+		className: "gamesbtn",
 		subDivClass1: "ballR1",
 		subDivClass2: "ballR1 ballG1",
 		subMenu: [
 			{
 				...productList.KingMaker,
 				className: "kingmaker",
+				lobbyImg: "km.png",
 				displayKey: "lbl_King_Maker",
 				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "kingmaker" }
+				lobbyPage: { bgClass: "kingmaker" },
+				img: "games/km.png"
+			},
+			{
+				...productList.V8_Poker,
+				className: "v8",
+				displayKey: "lbl_V8Poker",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "v8pork" },
+				lobbyImg: "v8.png",
+				img: "games/v8.png"
 			},
 			{
 				...productList.sabaClub,
@@ -121,8 +142,108 @@ export const defMenuLinks = {
 				displayKey: "lbl_Vgaming",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.sabaClub },
-				lobbyPage: { bgClass: "vgaming" }
+				lobbyPage: { bgClass: "vgaming" },
+				lobbyImg: "vgaming.png",
+				img: "games/vgaming.png"
 			},
+			{
+				...productList.tableGame,
+				path: path.sports.root,
+				className: "tablegame",
+				displayKey: "lbl_tableGame",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.tableGame },
+				lobbyPage: { bgClass: "tablegame" },
+				lobbyImg: "tablegame.png",
+				img: "games/tablegame.png"
+			},
+			{
+				...productList.IM_Avaitor,
+				className: "aviator",
+				lobbyImg: "aviator.png",
+				displayText: "Avaitor",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "spribe aviator" },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				],
+				img: "games/aviator.png"
+			},
+			{
+				...productList.IM_Mines,
+				className: "mines",
+				lobbyImg: "mines.png",
+				displayText: "Mines",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "spribe mines" },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				],
+				img: "games/mines.png"
+			},
+			{
+				...productList.IM_Goal,
+				className: "goal",
+				lobbyImg: "goal.png",
+				displayText: "Goal",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "spribe goal" },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				],
+				img: "games/goal.png"
+			},
+			{
+				...productList.IM_Dice,
+				className: "dice",
+				lobbyImg: "dice.png",
+				displayText: "Dice",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "spribe dice" },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.IM
+					})
+				],
+				img: "games/dice.png"
+			},
+			{
+				...productList.Spaceman,
+				className: "spaceman",
+				lobbyImg: "pp.png",
+				displayText: "Spaceman",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "spaceman" },
+				img: "games/pp.png"
+			},
+			{
+				...productList.Crash,
+				className: "crash",
+				lobbyImg: "ap.png",
+				displayText: "Crash",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "crash" },
+				img: "games/ap.png"
+			},
+			{
+				...productList.GoRush,
+				className: "gorush",
+				lobbyImg: "jili.png",
+				displayText: "Go Rush",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "gorush" },
+				img: "games/jili.png"
+			}
 			// {
 			// 	...productList.MaxGame,
 			// 	className: "maxgame",
@@ -136,95 +257,7 @@ export const defMenuLinks = {
 			// 		})
 			// 	]
 			// },
-			{
-				...productList.V8_Poker,
-				className: "v8",
-				displayKey: "lbl_V8Poker",
-				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "v8pork" }
-			},
-			{
-				...productList.tableGame,
-				path: path.sports.root,
-				className: "tablegame",
-				displayKey: "lbl_tableGame",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.tableGame },
-				lobbyPage: { bgClass: "tablegame" }
-			},
-			{
-				...productList.IM_Avaitor,
-				className: "aviator",
-				displayText: "Avaitor",
-				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "spribe aviator" },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.IM
-					})
-				]
-			},
-			{
-				...productList.IM_Mines,
-				className: "mines",
-				displayText: "Mines",
-				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "spribe mines" },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.IM
-					})
-				]
-			},
-			{
-				...productList.IM_Goal,
-				className: "goal",
-				displayText: "Goal",
-				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "spribe goal" },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.IM
-					})
-				]
-			},
-			{
-				...productList.IM_Dice,
-				className: "dice",
-				displayText: "Dice",
-				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "spribe dice" },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.IM
-					})
-				]
-			},
-			{
-				...productList.Spaceman,
-				className: "spaceman",
-				displayText: "Spaceman",
-				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "spaceman" }
-			},
-			{
-				...productList.Crash,
-				className: "crash",
-				displayText: "Crash",
-				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "crash" }
-			},
-			{
-				...productList.GoRush,
-				className: "gorush",
-				displayText: "Go Rush",
-				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "gorush" }
-			}
+
 			// {
 			// 	...productList.virtualGame,
 			// 	path: path.sports.root,
@@ -266,13 +299,16 @@ export const defMenuLinks = {
 				...productList.eSport,
 				_class: "saba",
 				className: "saba",
+				lobbyImg: "saba.png",
 				displayKey: "lbl_Saba",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				img: "esports/saba.png"
 			},
 			{
 				...productList.eSport_IM,
 				_class: "Inplaymatrix",
 				className: "inplaymatrix",
+				lobbyImg: `im.png`,
 				displayText: "IM E-Sports",
 				menuType: defMenuType.entPage,
 				eventIcons: [
@@ -280,14 +316,17 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.IM
 					})
-				]
+				],
+				img: "esports/im.png"
 			},
 			{
 				...productList.eSport_TFGaming,
 				_class: "tfg",
 				className: "tfg",
+				lobbyImg: `tfgaming.png`,
 				displayKey: "lbl_TFGaming",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				img: "esports/tfgaming.png"
 			}
 			// {
 			// 	...productList.eSport_LeagueOfLegends,
@@ -304,9 +343,9 @@ export const defMenuLinks = {
 		]
 	},
 	casino: {
-		path: path.casino.root,
+		path: path["casino-lobby"].root,
 		displayKey: "lbl_Slots",
-		className: "casinobtn",
+		className: "slotsbtn",
 		subDivClass1: "light light-slot",
 		subMenu: [
 			{
@@ -315,7 +354,8 @@ export const defMenuLinks = {
 				icon: "icon icon-PP",
 				displayText: "Pragmatic Play",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PP.name }
+				parameter: { provider: defCasinoProviders.PP.name },
+				img: "slots/pp.png"
 			},
 			{
 				...defCasinoProviders.SG,
@@ -323,14 +363,16 @@ export const defMenuLinks = {
 				icon: "icon icon-SG",
 				displayText: "Spadegaming",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.SG.name }
+				parameter: { provider: defCasinoProviders.SG.name },
+				img: "slots/sg.png"
 			},
 			{
 				...defCasinoProviders.AdvantPlay,
 				className: "APnew",
 				displayText: "AdvantPlay",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.AdvantPlay.name }
+				parameter: { provider: defCasinoProviders.AdvantPlay.name },
+				img: "slots/ap.png"
 			},
 			{
 				...defCasinoProviders.Endorphina,
@@ -343,7 +385,8 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.slot_endorphina
 					})
-				]
+				],
+				img: "slots/end.png"
 			},
 			{
 				...defCasinoProviders.Nextspin,
@@ -356,7 +399,8 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.slot_nextspin
 					})
-				]
+				],
+				img: "slots/nextspin.png"
 			},
 			{
 				...defCasinoProviders.PG,
@@ -364,7 +408,8 @@ export const defMenuLinks = {
 				icon: "icon icon-PG",
 				displayText: "PG Soft",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PG.name }
+				parameter: { provider: defCasinoProviders.PG.name },
+				img: "slots/pg.png"
 			},
 			{
 				...defCasinoProviders.MGPSW,
@@ -378,7 +423,8 @@ export const defMenuLinks = {
 				icon: "icon icon-mg",
 				displayText: "Microgaming",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.MGPSW.name }
+				parameter: { provider: defCasinoProviders.MGPSW.name },
+				img: "slots/mg.png"
 			},
 			{
 				...defCasinoProviders.JILI,
@@ -386,7 +432,8 @@ export const defMenuLinks = {
 				icon: "icon icon-jili",
 				displayText: "JILI",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.JILI.name }
+				parameter: { provider: defCasinoProviders.JILI.name },
+				img: "slots/jili.png"
 			},
 			{
 				...defCasinoProviders.SPRIBE,
@@ -400,7 +447,8 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.IM
 					})
-				]
+				],
+				img: "slots/spribe.png"
 			},
 			{
 				...defCasinoProviders.RedTiger,
@@ -413,14 +461,16 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.casino_RedTiger
 					})
-				]
+				],
+				img: "slots/redtiger.png"
 			},
 			{
 				...defCasinoProviders.NetEnt,
 				className: "NE",
 				displayText: "NetEnt",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.NetEnt.name }
+				parameter: { provider: defCasinoProviders.NetEnt.name },
+				img: "slots/netent.png"
 			},
 			{
 				...defCasinoProviders.CQ9,
@@ -429,7 +479,8 @@ export const defMenuLinks = {
 				icon: "icon icon-cq9",
 				displayText: "CQ9",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.CQ9.name }
+				parameter: { provider: defCasinoProviders.CQ9.name },
+				img: "slots/cq9.png"
 			},
 			{
 				...defCasinoProviders.GPI,
@@ -437,7 +488,8 @@ export const defMenuLinks = {
 				icon: "icon icon-GPI",
 				displayText: "Game Play",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.GPI.name }
+				parameter: { provider: defCasinoProviders.GPI.name },
+				img: "slots/gpi.png"
 			},
 			{
 				...defCasinoProviders.YGG,
@@ -445,14 +497,16 @@ export const defMenuLinks = {
 				icon: "icon icon-YGG",
 				displayText: "YGGDrassil",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.YGG.name }
+				parameter: { provider: defCasinoProviders.YGG.name },
+				img: "slots/ygg.png"
 			},
 			{
 				...defCasinoProviders.Habanero,
 				className: "HO",
 				displayText: "Habanero",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.Habanero.name }
+				parameter: { provider: defCasinoProviders.Habanero.name },
+				img: "slots/hb.png"
 			},
 			{
 				...defCasinoProviders.SimplePlay,
@@ -465,7 +519,8 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.casino_SimplePlay
 					})
-				]
+				],
+				img: "slots/simpleplay.png"
 			},
 			{
 				...defCasinoProviders.Skywind,
@@ -478,17 +533,19 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.skywind
 					})
-				]
+				],
+				img: "slots/skywind.png"
 			},
-			// 新的 PlayTech (Seamless Wallet)
 			{
 				...defCasinoProviders.PlayTech,
 				className: "PT",
 				icon: "icon icon-pt",
 				displayText: "PlayTech",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PlayTech.name }
+				parameter: { provider: defCasinoProviders.PlayTech.name },
+				img: "slots/pt.png"
 			}
+
 			// {
 			// 	...defCasinoProviders.AstroTech,
 			// 	className: "ICG",
@@ -522,47 +579,51 @@ export const defMenuLinks = {
 			{
 				...productList.liveCasino_PP,
 				className: "livePP",
+				lobbyImg: "pp.png",
 				icon: "icon icon-PP",
 				displayText: "Pragmatic Play",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-pp"
-				}
+				},
+				img: "livecasino/pp.png"
 			},
-			{
-				...productList.liveCasino_BG,
-				className: "liveBG",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.liveCasino_BG
-					})
-				],
-				icon: "icon icon-BG",
-				displayText: "Big Gaming",
-				menuType: defMenuType.entPage,
-				lobbyPage: {
-					bgClass: "live-bg"
-				}
-			},
-			{
-				...productList.liveCasino_YeeBet,
-				className: "liveYB",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.yee_bet
-					})
-				],
-				displayText: "YEEBET",
-				menuType: defMenuType.entPage,
-				lobbyPage: {
-					bgClass: "live-yb"
-				}
-			},
+			// {
+			// 	...productList.liveCasino_BG,
+			// 	className: "liveBG",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.liveCasino_BG
+			// 		})
+			// 	],
+			// 	icon: "icon icon-BG",
+			// 	displayText: "Big Gaming",
+			// 	menuType: defMenuType.entPage,
+			// 	lobbyPage: {
+			// 		bgClass: "live-bg"
+			// 	},
+			// },
+
+			// {
+			// 	...productList.liveCasino_YeeBet,
+			// 	className: "liveYB",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.yee_bet
+			// 		})
+			// 	],
+			// 	displayText: "YEEBET",
+			// 	menuType: defMenuType.entPage,
+			// 	lobbyPage: {
+			// 		bgClass: "live-yb"
+			// 	}
+			// },
 			{
 				...productList.liveCasino_Skywind,
 				className: "liveSK",
+				lobbyImg: "skywind.png",
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -573,21 +634,25 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-sk"
-				}
+				},
+				img: "livecasino/skywind.png"
 			},
 			{
 				...productList.liveCasino_MG,
 				className: "liveMG",
+				lobbyImg: "mg.png",
 				icon: "icon icon-mg",
 				displayText: "Microgaming",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-mg"
-				}
+				},
+				img: "livecasino/mg.png"
 			},
 			{
 				...productList.liveCasino_EVO,
 				className: "liveEvo",
+				lobbyImg: "evo.png",
 				displayText: "Evolution Gaming",
 				menuType: defMenuType.entPage,
 				eventIcons: [
@@ -598,97 +663,113 @@ export const defMenuLinks = {
 				],
 				lobbyPage: {
 					bgClass: "live-evo"
-				}
+				},
+				img: "livecasino/evo.png"
 			},
-			// 新的 PlayTech (Seamless Wallet)
 			{
 				...productList.liveCasino_PlayTech,
 				className: "livePT",
+				lobbyImg: "pt.png",
 				icon: "icon icon-pt",
 				displayText: "PlayTech",
 				lobbyPage: {
 					bgClass: "live-pt"
-				}
+				},
+				img: "livecasino/pt.png"
 			},
 			{
 				...productList.liveCasino_n2live,
 				className: "liven2live",
+				lobbyImg: "n2.png",
 				icon: "icon icon-N2LIVE",
 				displayText: "n2-LIVE",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-n2"
-				}
+				},
+				img: "livecasino/n2.png"
 			},
 			{
 				...productList.liveCasino_One789,
 				className: "live789",
+				lobbyImg: "789.png",
 				icon: "icon icon-one789",
 				displayKey: "lbl_liveCasino_789SeDie",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-789"
-				}
+				},
+				img: "livecasino/789.png"
 			},
 			{
 				gameId: 20,
 				tpId: 20,
 				className: "liveWM",
+				lobbyImg: "wm.png",
 				icon: "icon icon-WM",
 				displayText: "WM Casino",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-wm"
 				},
-				tpGameType: 32
+				tpGameType: 32,
+				img: "livecasino/wm.png"
 			},
 			{
 				gameId: 4,
 				tpId: 4,
 				className: "liveDG",
+				lobbyImg: "dg.png",
 				icon: "icon icon-DG",
 				displayText: "Dream Gaming",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-dg"
 				},
-				tpGameType: 10
+				tpGameType: 10,
+				img: "livecasino/dg.png"
 			},
 			{
 				gameId: 12,
 				tpId: 12,
 				className: "liveALL",
+				lobbyImg: "ab.png",
 				icon: "icon icon-AB",
 				displayText: "Allbet",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-ab"
 				},
-				tpGameType: 6
+				tpGameType: 6,
+				img: "livecasino/ab.png"
 			},
 			{
 				gameId: 3,
 				tpId: 3,
 				className: "liveAG",
+				lobbyImg: "ag.png",
 				icon: "icon icon-AG",
 				displayText: "Asia Gaming",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-ag"
 				},
-				tpGameType: 8
+				tpGameType: 8,
+				img: "livecasino/ag.png"
 			},
 			{
 				gameId: 2,
 				tpId: 2,
 				className: "liveSA",
+				lobbyImg: "sa.png",
 				icon: "icon icon-SA",
 				displayText: "SA Gaming",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-sa"
 				},
-				tpGameType: 9
+				tpGameType: 9,
+				img: "livecasino/sa.png"
 			},
 			{
 				gameId: 15,
@@ -700,19 +781,23 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgClass: "live-ae"
 				},
-				tpGameType: 18
+				lobbyImg: "sexy.png",
+				tpGameType: 18,
+				img: "livecasino/sexy.png"
 			},
 			{
 				gameId: 18,
 				tpId: 18,
 				className: "liveEB",
+				lobbyImg: "eb.png",
 				icon: "icon icon-EB",
 				displayText: "eBET",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-ebet"
 				},
-				tpGameType: 28
+				tpGameType: 28,
+				img: "livecasino/eb.png"
 			}
 		]
 	},
@@ -724,12 +809,14 @@ export const defMenuLinks = {
 			{
 				...productList.fishing_SG,
 				className: "fs-god",
+				lobbyImg: "fg.png",
 				displayKey: "lbl_FishingSG1",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.fishing_SG },
 				lobbyPage: {
 					bgClass: "fish-god"
-				}
+				},
+				img: "fishing/fg.png"
 			},
 			{
 				...productList.fishing,
@@ -739,7 +826,9 @@ export const defMenuLinks = {
 				parameter: { ...productList.fishing },
 				lobbyPage: {
 					bgClass: "fish-world"
-				}
+				},
+				lobbyImg: "fo.png",
+				img: "fishing/fo.png"
 			},
 			{
 				...productList.fishing_Zombie_Party,
@@ -755,7 +844,9 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.fishing_Zombie_Party
 					})
-				]
+				],
+				lobbyImg: "zp.png",
+				img: "fishing/zp.png"
 			},
 			{
 				...productList.fishing_Alien_Hunter,
@@ -771,38 +862,47 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.fishing_Alien_Hunter
 					})
-				]
+				],
+				lobbyImg: "ah.png",
+				img: "fishing/ah.png"
 			},
 			{
 				...productList.CQ9_Paradise,
 				className: "fs-paradise",
+				lobbyImg: "pd.png",
 				displayKey: "lbl_Paradise",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.CQ9_Paradise },
 				lobbyPage: {
 					bgClass: "fish-paradise"
-				}
+				},
+				img: "fishing/pd.png"
 			},
 			{
 				...productList.CQ9_Oneshot_Fishing,
 				className: "fs-Oneshot",
+				lobbyImg: "os.png",
 				displayKey: "lbl_Oneshot_Fishing",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.CQ9_Oneshot_Fishing },
 				lobbyPage: {
 					bgClass: "fish-of"
-				}
+				},
+				img: "fishing/os.png"
 			},
 			{
 				...productList.fishing_SGW,
 				className: "fs-war",
+				lobbyImg: "fw.png",
 				displayKey: "lbl_FishingSG2",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.fishing_SGW },
 				lobbyPage: {
 					bgClass: "fish-wrd"
-				}
+				},
+				img: "fishing/fw.png"
 			}
+
 			// {
 			// 	...productList.Skywind_Ocean_Ruler,
 			// 	className: "fs-or",
@@ -879,6 +979,7 @@ export const defMenuLinks = {
 			// 		bgClass: "fish-ttsatp"
 			// 	}
 			// },
+
 			// {
 			// 	...productList.CQ9_LuckyFishing,
 			// 	className: "fsluckey",
@@ -924,6 +1025,70 @@ export const defMenuLinks = {
 		displayKey: "lbl_Lottery",
 		path: path.lottery.root,
 		subMenu: [
+			// {
+			// 	...productList.GPI_VNLottery,
+			// 	className: "vn",
+			// 	lobbyImg: `${baseImgUrl}/desktop/img/4.0/lobby/livecasino/sg.png`,
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.GPI_Lottery
+			// 		})
+			// 	],
+			// 	displayKey: "GPI_VNLottery",
+			// 	menuType: defMenuType.entPage,
+			// 	lobbyPage: { bgClass: "vn" }
+			// },
+			// {
+			// 	...productList.tcg,
+			// 	className: "tcg",
+			// 	lobbyImg: `${baseImgUrl}/desktop/img/4.0/lobby/livecasino/sg.png`,
+			// 	displayKey: "lbl_TcGame",
+			// 	menuType: defMenuType.entPage,
+			// 	lobbyPage: { bgClass: "tcg" }
+			// },
+			{
+				...productList.One789_lottery,
+				path: path.sports.root,
+				className: "traditional",
+				lobbyImg: "789.png",
+				displayKey: "lbl_TraditionalLottery",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.One789_lottery },
+				lobbyPage: { bgClass: "traditional" },
+				img: "lottery/789.png"
+			},
+			{
+				...productList.tcg,
+				className: "tcg",
+				displayKey: "lbl_TcGame",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "tcg" },
+				lobbyImg: "tcg.png",
+				img: "lottery/tcg.png"
+			},
+			{
+				...productList.keno,
+				path: path.sports.root,
+				className: "keno",
+				lobbyImg: "keno.png",
+				displayKey: "lbl_Keno",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.keno },
+				lobbyPage: { bgClass: "keno" },
+				img: "lottery/keno.png"
+			},
+			{
+				...productList.lottery,
+				path: path.sports.root,
+				className: "lottery",
+				lobbyImg: "lottery.png",
+				displayKey: "lbl_Lottery",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.lottery },
+				lobbyPage: { bgClass: "lottery" },
+				img: "lottery/lottery.png"
+			},
 			{
 				...productList.GPI_VNLottery,
 				className: "vn",
@@ -935,24 +1100,10 @@ export const defMenuLinks = {
 				],
 				displayKey: "GPI_VNLottery",
 				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "vn" }
-			},
-			{
-				...productList.tcg,
-				className: "tcg",
-				displayKey: "lbl_TcGame",
-				menuType: defMenuType.entPage,
-				lobbyPage: { bgClass: "tcg" }
-			},
-			{
-				...productList.One789_lottery,
-				path: path.sports.root,
-				className: "traditional",
-				displayKey: "lbl_TraditionalLottery",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.One789_lottery },
-				lobbyPage: { bgClass: "traditional" }
-			},
+				lobbyPage: { bgClass: "vn" },
+				lobbyImg: "vn-lottery.png",
+				img: "lottery/vn-lottery.png"
+			}
 			// {
 			// 	...productList.One789_lottery_789,
 			// 	path: path.sports.root,
@@ -962,24 +1113,6 @@ export const defMenuLinks = {
 			// 	parameter: { ...productList.One789_lottery_789 },
 			// 	lobbyPage: { bgClass: "lottery789" }
 			// },
-			{
-				...productList.keno,
-				path: path.sports.root,
-				className: "keno",
-				displayKey: "lbl_Keno",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.keno },
-				lobbyPage: { bgClass: "keno" }
-			},
-			{
-				...productList.lottery,
-				path: path.sports.root,
-				className: "lottery",
-				displayKey: "lbl_Lottery",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.lottery },
-				lobbyPage: { bgClass: "lottery" }
-			}
 		]
 	},
 	vip: {
@@ -1019,11 +1152,11 @@ export const defMenuLinks = {
 };
 
 export const defSubListClassName = {
-	sports: "sportsList",
-	casino: "casinoList",
-	liveCasino: "livecasinoList",
-	games: "gameList",
-	fishing: "fishList",
-	lottery: "lotteryList",
-	eSport: "esportList"
+	sports: "sports",
+	casino: "slots",
+	liveCasino: "livecasino",
+	games: "game",
+	fishing: "fish",
+	lottery: "lottery",
+	eSport: "esport"
 };
