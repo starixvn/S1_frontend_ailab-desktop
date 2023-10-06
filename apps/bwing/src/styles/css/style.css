@@ -947,6 +947,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList .APnew .img {
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .NE .img {
   background: url(https://banner.bw88.io/desktop/img/slot/ne.png) no-repeat center/auto 100%;
 }
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .Endorphina .img {
+  background: url(https://banner.bw88.io/desktop/img/slot/endorphina.png) no-repeat center/auto 100%;
+}
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .RED .img {
   background: url(https://banner.bw88.io/desktop/img/slot/red.png) no-repeat center/auto 100%;
 }
@@ -1983,6 +1986,14 @@ footer > div .platformGroup button.sk {
 footer > div .platformGroup a.sk:hover,
 footer > div .platformGroup button.sk:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/sk-a.png) no-repeat center;
+}
+footer > div .platformGroup a.endorphina,
+footer > div .platformGroup button.endorphina {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/endorphina.png) no-repeat center;
+}
+footer > div .platformGroup a.endorphina:hover,
+footer > div .platformGroup button.endorphina:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/endorphina-a.png) no-repeat center;
 }
 footer > div .platformGroup a.mg,
 footer > div .platformGroup button.mg {
@@ -7356,7 +7367,7 @@ main > .swiper-container .swiper-slide {
 }
 .promoInfoPop .promotionsInfo {
   width: 820px;
-  background: #070e22;
+  background: #eff5ff;
   margin: 9vw auto;
   border-radius: 5px;
   border: 1px solid #64789b;
@@ -7386,6 +7397,7 @@ main > .swiper-container .swiper-slide {
   font-size: 20px;
 }
 .promoInfoPop .promotionsInfo .proData .proDataTitle .txt-blue15 .txt-white {
+  color: #64789b;
   font-weight: normal;
   font-size: 16px;
 }
@@ -8903,7 +8915,7 @@ iframe {
   color: #56ceff;
 }
 .progressBarModule .turnover span {
-  color: white;
+  color: #64789b;
 }
 .progressBarModule .turnover button,
 .progressBarModule .turnover a {
@@ -9427,7 +9439,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   width: -moz-max-content;
   width: max-content;
   border-radius: 10px;
-  color: white;
+  color: #64789b;
 }
 
 .uploadBox {
