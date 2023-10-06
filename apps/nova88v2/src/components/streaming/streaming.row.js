@@ -38,7 +38,7 @@ export const StreamingModule = ({
 				);
 			} else if (isLogin) {
 				if (actStatus === 1) {
-					errorPopBox(t("streaming.lbl_please_make_deposit"));
+					errorPopBox(t("lbl_Streaming_MakeDeposit"));
 				} else {
 					window.open(
 						`${config.openURL}/${langId}/liveStreamingEntPage?ch=${channel}`,

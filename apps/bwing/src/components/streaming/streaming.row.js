@@ -33,7 +33,7 @@ export const StreamingModule = ({
 			if (!isLogin) return navigate(`/${langId}/${path.join.root}`);
 
 			if (actStatus === 1)
-				return errorPopBox(t("streaming.lbl_please_make_deposit"));
+				return errorPopBox(t("lbl_Streaming_MakeDeposit"));
 
 			if (clickBtn) {
 				const gameName = Object.values(productList).find(item => {

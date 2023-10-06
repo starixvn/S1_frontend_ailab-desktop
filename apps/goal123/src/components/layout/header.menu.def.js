@@ -898,7 +898,13 @@ export const defMenuLinks = langId => ({
 				lobbyPage: {
 					bgImg: `${bannerImgUrl}/desktop/img/fishing/zombieparty.png`,
 					providerImg: "sp"
-				}
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.fishing_Zombie_Party
+					})
+				]
 			},
 			{
 				...productList.fishing_Alien_Hunter,
@@ -912,7 +918,13 @@ export const defMenuLinks = langId => ({
 				lobbyPage: {
 					bgImg: `${bannerImgUrl}/desktop/img/fishing/alienhunter.png`,
 					providerImg: "sp"
-				}
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.fishing_Alien_Hunter
+					})
+				]
 			},
 			{
 				...productList.CQ9_Paradise,

@@ -90,10 +90,10 @@ const SpeedPage = () => {
 
 	const setHomeAlert = url =>
 		// eslint-disable-next-line no-alert
-		alert(t("speed.lbl_AddFavoriteTip", { url }), t("speed.lbl_ClickOk"));
+		alert(t("lbl_Speed_AddFavoriteTip", { url }), t("lbl_Speed_ClickOk"));
 
 	// eslint-disable-next-line no-alert
-	const addFavoriteAlert = () => alert(t("speed.lbl_AddFavoriteFail"));
+	const addFavoriteAlert = () => alert(t("lbl_Speed_AddFavoriteFail"));
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -154,7 +154,7 @@ const SpeedContent = ({
 						</li>
 						<li>
 							<button onClick={() => addFavoriteAlert()}>
-								{t("speed.lbl_AddToFavorite")}
+								{t("lbl_Speed_AddToFavorite")}
 							</button>
 						</li>
 						<li>
@@ -162,7 +162,7 @@ const SpeedContent = ({
 								onClick={() =>
 									setHomeAlert(window.location.href)
 								}>
-								{t("speed.lbl_SetHomePage")}
+								{t("lbl_Speed_SetHomePage")}
 							</button>
 						</li>
 					</ul>
@@ -172,7 +172,7 @@ const SpeedContent = ({
 					<div className="moduleBg " />
 					<div className="top">
 						<div>
-							<div>{t("speed.lbl_CurrentIp")}</div>
+							<div>{t("lbl_Speed_CurrentIp")}</div>
 							<div>{ipaddress}</div>
 						</div>
 
@@ -185,12 +185,12 @@ const SpeedContent = ({
 								src={`${bannerImgUrl}/desktop/img/check_speed/start.png`}
 								alt="check-speed-startImg"
 							/>
-							<div>{t("speed.lbl_Refresh")}</div>
+							<div>{t("lbl_Speed_Refresh")}</div>
 						</button>
 					</div>
 					<div className="bottom">
 						<div className="left">
-							<div>{t("speed.lbl_DomainListTip")}</div>
+							<div>{t("lbl_Speed_DomainListTip")}</div>
 							<div>
 								{domainList.map(item => (
 									<SpeedItem
@@ -203,26 +203,26 @@ const SpeedContent = ({
 							</div>
 						</div>
 						<div className="right">
-							<div>{t("speed.lbl_TipTitle")}</div>
+							<div>{t("lbl_Speed_TipTitle")}</div>
 							<div>
-								<div>{t("speed.lbl_StepTitle")}</div>
+								<div>{t("lbl_Speed_StepTitle")}</div>
 								<ul>
 									<li>
-										<div>{t("speed.lbl_OpenIE")}：</div>
-										<div>{t("speed.lbl_OpenIESteps")}</div>
+										<div>{t("lbl_Speed_OpenIE")}：</div>
+										<div>{t("lbl_Speed_OpenIESteps")}</div>
 									</li>
 									<li>
-										<div>{t("speed.lbl_Tip1")}</div>
-										<div>{t("speed.lbl_Tip2")}</div>
+										<div>{t("lbl_Speed_Tip1")}</div>
+										<div>{t("lbl_Speed_Tip2")}</div>
 									</li>
 									<li>
-										<div>{t("speed.lbl_Tip3")}</div>
-										<div>{t("speed.lbl_Tip4")}</div>
+										<div>{t("lbl_Speed_Tip3")}</div>
+										<div>{t("lbl_Speed_Tip4")}</div>
 									</li>
 								</ul>
 
 								<button onClick={() => hardReloadPage()}>
-									{t("speed.lbl_ClearCache")}
+									{t("lbl_Speed_ClearCache")}
 								</button>
 							</div>
 						</div>
@@ -258,12 +258,12 @@ const SpeedItem = ({ t, domainName, respondingTime }) => {
 				/>
 				<div>{domainName}</div>
 
-				<a href={domainName}>{t("speed.lbl_EnterWebsite")}</a>
+				<a href={domainName}>{t("lbl_Speed_EnterWebsite")}</a>
 			</div>
 
 			{respondingTime !== RESPOND_ERROR && (
 				<div key={`${domainName}-time`} className="time">
-					{t("speed.lbl_ResponseTime")}
+					{t("lbl_Speed_ResponseTime")}
 					<span>{respondingTime * 1000}</span>
 				</div>
 			)}

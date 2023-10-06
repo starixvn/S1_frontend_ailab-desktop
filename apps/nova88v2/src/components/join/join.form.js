@@ -48,16 +48,15 @@ const JoinForm = ({
 			!lineUserId && (
 				<>
 					<div className="register-line">
-						{t("lineRegister.lbl_RegisterWithLine")} ID
+						{t("lbl_LineRegister_RegisterWithLine")} ID
 						<div className="btnGroup">
 							<button
 								className="btn-line"
 								onClick={e => {
 									handleLineRegister(e);
-								}}
-							>
+								}}>
 								<i className="icon icon-line-bold" />
-								{t("lineRegister.lbl_RegisterWithLine")}
+								{t("lbl_LineRegister_RegisterWithLine")}
 							</button>
 						</div>
 					</div>
@@ -141,8 +140,7 @@ const JoinForm = ({
 			<div
 				className={`inputBox-blue${
 					tip.currency.msg !== "" ? " error" : ""
-				}`}
-			>
+				}`}>
 				<Dropdown
 					defaultOption={defaultOption}
 					mainKey="join_currency"
@@ -172,8 +170,7 @@ const JoinForm = ({
 							!tip.phone.checked && tip.phone.msg !== ""
 								? " error"
 								: ""
-						}`}
-					>
+						}`}>
 						<AreaCodeDropdown
 							defaultOption={_areaCode}
 							options={areaCodeList}
@@ -245,8 +242,7 @@ const JoinForm = ({
 				className="txt-blue"
 				target="_blank"
 				rel="noreferrer"
-				href={tandCTerms}
-			>
+				href={tandCTerms}>
 				{t("lbl_sign_up_terms_center")}
 			</a>
 
@@ -362,8 +358,7 @@ export const AreaCodeDropdown = ({
 		<div
 			key={`item-${item.displayText}`}
 			className="dropdown-item"
-			onClick={e => selectItem(e, { idx: i, item })}
-		>
+			onClick={e => selectItem(e, { idx: i, item })}>
 			{item.displayText}
 		</div>
 	));

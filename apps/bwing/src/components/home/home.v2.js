@@ -238,11 +238,8 @@ function Home() {
 													navigate(
 														`/${path.promotion.root}?bonusCode=${bonusCode}`
 													);
-												}}
-											>
-												{t(
-													"promotion.lbl_promo_claim_now"
-												)}
+												}}>
+												{t("lbl_Promotion_ClaimNow")}
 											</button>
 
 											<img
@@ -298,8 +295,7 @@ function Home() {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								closePopBox();
-							}}
-						>
+							}}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -394,24 +390,21 @@ function Home() {
 									<div className="icon" />
 									<Link
 										to={`${bannerImgUrl}/Static/images/How_To_Deposit.mp4`}
-										target="_blank"
-									>
+										target="_blank">
 										{t("lbl_HowToDepoist")}
 									</Link>
 								</li>
 								<li>
 									<div className="icon withdrawal" />
 									<Link
-										to={`/${userInfo.langId}/${path.howToWithdraw.root}`}
-									>
+										to={`/${userInfo.langId}/${path.howToWithdraw.root}`}>
 										{t("lbl_HowToWithdraw")}
 									</Link>
 								</li>
 								<li>
 									<div className="icon play" />
 									<Link
-										to={`/${userInfo.langId}/${path.howToPlay.root}`}
-									>
+										to={`/${userInfo.langId}/${path.howToPlay.root}`}>
 										{t("lbl_HowToPlay")}
 									</Link>
 								</li>

@@ -749,7 +749,13 @@ export const defMenuLinks = {
 				parameter: { ...productList.fishing_Zombie_Party },
 				lobbyPage: {
 					bgClass: "fish-zp"
-				}
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.fishing_Zombie_Party
+					})
+				]
 			},
 			{
 				...productList.fishing_Alien_Hunter,
@@ -759,7 +765,13 @@ export const defMenuLinks = {
 				parameter: { ...productList.fishing_Alien_Hunter },
 				lobbyPage: {
 					bgClass: "fish-ah"
-				}
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.fishing_Alien_Hunter
+					})
+				]
 			},
 			{
 				...productList.CQ9_Paradise,

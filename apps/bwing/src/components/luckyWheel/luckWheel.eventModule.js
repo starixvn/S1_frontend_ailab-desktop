@@ -17,37 +17,37 @@ const LuckWheelEventModule = ({
 				<div className="moduleCenter">
 					<div>
 						<div className="tag">
-							{t("luckyWheel.lbl_conditions")}
+							{t("lbl_LuckyWheel_conditions")}
 						</div>
 						<div className="title txt-yellow2">
-							{t("luckyWheel.lbl_eventTitle")}
+							{t("lbl_LuckyWheel_eventTitle")}
 						</div>
 						<div>
 							{`${t("lbl_Start")}: ${
 								eventPeriod.startDate
 							} GMT+07:00`}
 						</div>
-						<div>{t("luckyWheel.lbl_memberEligibility")}</div>
+						<div>{t("lbl_LuckyWheel_memberEligibility")}</div>
 						<div>
-							{t("luckyWheel.lbl_MinDeposit", {
+							{t("lbl_LuckyWheel_MinDeposit", {
 								amount: "50,000"
 							})}
 						</div>
 						<div className="txt-yellow2">
-							{t("luckyWheel.lbl_otherConditions")}
+							{t("lbl_LuckyWheel_otherConditions")}
 						</div>
-						<div>{t("luckyWheel.lbl_otherConditions1")}</div>
-						<div>{t("luckyWheel.lbl_otherConditions2")}</div>
-						<div>{t("luckyWheel.lbl_otherConditions3")}</div>
-						<div>{t("luckyWheel.lbl_otherConditions4")}</div>
-						<div>{t("luckyWheel.lbl_otherConditions5")}</div>
+						<div>{t("lbl_LuckyWheel_otherConditions1")}</div>
+						<div>{t("lbl_LuckyWheel_otherConditions2")}</div>
+						<div>{t("lbl_LuckyWheel_otherConditions3")}</div>
+						<div>{t("lbl_LuckyWheel_otherConditions4")}</div>
+						<div>{t("lbl_LuckyWheel_otherConditions5")}</div>
 					</div>
 				</div>
 
 				{isLogin && (
 					<div className="moduleCenter">
 						<div className="tag">
-							{t("luckyWheel.lbl_eventSubTitle")}
+							{t("lbl_LuckyWheel_eventSubTitle")}
 						</div>
 
 						{custDrawPrizeList.length ? (
