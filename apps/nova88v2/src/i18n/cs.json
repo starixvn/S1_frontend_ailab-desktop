@@ -283,7 +283,7 @@
   "lbl_DepositType3": "银行卡",
   "lbl_DepositType4": "加密货币",
   "lbl_DepositType5": "",
-  "lbl_DepositType6": "",
+  "lbl_DepositType6": "QR Pay",
   "lbl_DepositType7": "Auto Deposit",
   "lbl_DepositType8": "Crypto Wallet",
   "lbl_Deposit_DragonPayPop_AccountName": "户口名字",
