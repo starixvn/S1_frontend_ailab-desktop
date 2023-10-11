@@ -4,7 +4,8 @@ import { userInfoContext } from "../common/context";
 import {
 	getCurrencyCode,
 	capitalizeFirstLetter,
-	currencyIdToCurrency
+	currencyIdToCurrency,
+	numFormatToDigits
 } from "../common/common";
 import { AutoPlayWithBtn } from "../common/swipperBanner";
 import { defbanner, defPageClubImg, allowCurrencies } from "./vip.def";
@@ -33,6 +34,15 @@ const Vip = () => {
 		t
 	});
 	const currencyName = currencyIdToCurrency[userInfo?.currencyId];
+
+	// * 因 GetVipBanner response 裡有參雜 string number 故須額外判斷與顯示
+	const number_format_excludeString = input => {
+		if (!isNaN(Number(input))) {
+			return numFormatToDigits(Number(input), 0);
+		}
+
+		return input;
+	};
 
 	const rows = defbanner(
 		["en", "cs"].includes(userInfo.langId) ? userInfo.langId : "en"
@@ -63,7 +73,9 @@ const Vip = () => {
 							? null
 							: currencyName}{" "}
 						{upDeposit
-							? upDeposit.split(".")[0]
+							? number_format_excludeString(
+									upDeposit.split(".")[0]
+							  )
 							: t("lbl_Vip_NoRestrictions")}
 					</span>
 					{upBonus && (
@@ -74,7 +86,11 @@ const Vip = () => {
 								{item.level === 1 || item.level === 6
 									? null
 									: currencyName}{" "}
-								{upBonus ? upBonus.split(".")[0] : null}
+								{upBonus
+									? number_format_excludeString(
+											upBonus.split(".")[0]
+									  )
+									: null}
 							</span>
 						</div>
 					)}
@@ -158,6 +174,7 @@ const Vip = () => {
 				langId={userInfo.langId}
 				userInfo={userInfo}
 				vipBanner={vipBanner}
+				number_format_excludeString={number_format_excludeString}
 			/>
 
 			<VipBottom langId={userInfo.langId} isLogin={userInfo.isLogin} />
