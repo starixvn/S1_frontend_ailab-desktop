@@ -907,7 +907,7 @@ export const defMenuLinks = {
 				keyName: "slot_FaChai",
 				displayText: "Fa Chai",
 				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotPG.png",
+				listNpcImgUrl: "slotfachai.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { provider: "FaChai" },
 				...productList.casino_FaChai,
