@@ -961,6 +961,23 @@ export const defMenuLinks = {
 				allowCurrencies: allowedCurrencyList.slotJoker
 			},
 			{
+				keyName: "slot_PEGASUS",
+				icon: "icon icon-PRGASUS",
+				displayText: "Pegasus",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotpegasus.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_PEGASUS },
+				...productList.casino_PEGASUS,
+				allowCurrencies: allowedCurrencyList.slotJoker,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_Pegasus
+					})
+				]
+			},
+			{
 				keyName: "slot_RedTiger",
 				displayText: "Red Tiger",
 				menuType: defMenuType.Link,

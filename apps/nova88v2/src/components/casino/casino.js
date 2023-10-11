@@ -584,7 +584,7 @@ export default () => {
 				(item.tpGameType ===
 					Object.values(defSlotTpGameType).find(
 						obj => obj.tpId === g.tpId
-					).tpGameType ||
+					)?.tpGameType ||
 					item.tpGameType === defTpGameType.All)
 		);
 

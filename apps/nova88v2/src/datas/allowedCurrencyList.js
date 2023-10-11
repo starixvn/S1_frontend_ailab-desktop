@@ -103,6 +103,7 @@ const allowedCurrencyList = {
 		defCurrencyList.CNY,
 		defCurrencyList.USD
 	],
+	slotPrgasus: [defCurrencyList.MYR],
 	casino_WM: [
 		defCurrencyList.MYR,
 		defCurrencyList.USD,
