@@ -180,6 +180,12 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.Endorphina.name },
 		imgName: "endorphina"
+	},
+	{
+		...defCasinoProviders.PNG,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.PNG.name },
+		imgName: "png"
 	}
 ];
 

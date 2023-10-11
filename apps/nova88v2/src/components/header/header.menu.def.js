@@ -129,13 +129,14 @@ const defSortSlot = {
 		slot_RedTiger: 9,
 		slot_NetEnt: 10,
 		slot_CQ9: 11,
-		slot_GPI: 12,
-		slot_YGG: 13,
-		slot_AMB: 14,
-		slot_Habanero: 15,
-		slot_SimplePlay: 16,
-		slot_Skywind: 17,
-		slot_PT: 18
+		slot_PNG: 12,
+		slot_GPI: 13,
+		slot_YGG: 14,
+		slot_AMB: 15,
+		slot_Habanero: 16,
+		slot_SimplePlay: 17,
+		slot_Skywind: 18,
+		slot_PT: 19
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -151,13 +152,14 @@ const defSortSlot = {
 		slot_RedTiger: 9,
 		slot_NetEnt: 10,
 		slot_CQ9: 11,
-		slot_GPI: 12,
-		slot_YGG: 13,
-		slot_AMB: 14,
-		slot_Habanero: 15,
-		slot_SimplePlay: 16,
-		slot_Skywind: 17,
-		slot_PT: 18
+		slot_PNG: 12,
+		slot_GPI: 13,
+		slot_YGG: 14,
+		slot_AMB: 15,
+		slot_Habanero: 16,
+		slot_SimplePlay: 17,
+		slot_Skywind: 18,
+		slot_PT: 19
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -173,13 +175,14 @@ const defSortSlot = {
 		slot_RedTiger: 9,
 		slot_NetEnt: 10,
 		slot_CQ9: 11,
-		slot_GPI: 12,
-		slot_YGG: 13,
-		slot_AMB: 14,
-		slot_Habanero: 15,
-		slot_SimplePlay: 16,
-		slot_Skywind: 17,
-		slot_PT: 18
+		slot_PNG: 12,
+		slot_GPI: 13,
+		slot_YGG: 14,
+		slot_AMB: 15,
+		slot_Habanero: 16,
+		slot_SimplePlay: 17,
+		slot_Skywind: 18,
+		slot_PT: 19
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -195,13 +198,14 @@ const defSortSlot = {
 		slot_RedTiger: 9,
 		slot_NetEnt: 10,
 		slot_CQ9: 11,
-		slot_GPI: 12,
-		slot_YGG: 13,
-		slot_AMB: 14,
-		slot_Habanero: 15,
-		slot_SimplePlay: 16,
-		slot_Skywind: 17,
-		slot_PT: 18
+		slot_PNG: 12,
+		slot_GPI: 13,
+		slot_YGG: 14,
+		slot_AMB: 15,
+		slot_Habanero: 16,
+		slot_SimplePlay: 17,
+		slot_Skywind: 18,
+		slot_PT: 19
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -216,13 +220,14 @@ const defSortSlot = {
 		slot_RedTiger: 8,
 		slot_NetEnt: 9,
 		slot_CQ9: 10,
-		slot_GPI: 11,
-		slot_YGG: 12,
-		slot_AMB: 13,
-		slot_Habanero: 14,
-		slot_SimplePlay: 15,
-		slot_Skywind: 16,
-		slot_PT: 17
+		slot_PNG: 11,
+		slot_GPI: 12,
+		slot_YGG: 13,
+		slot_AMB: 14,
+		slot_Habanero: 15,
+		slot_SimplePlay: 16,
+		slot_Skywind: 17,
+		slot_PT: 18
 		// slot_ICG: 17,
 		// slot_OW: 18
 	}
@@ -992,6 +997,23 @@ export const defMenuLinks = {
 				// parameter: { ...productList.casino_CQ9 },
 				parameter: { provider: "cq9" },
 				...productList.casino_CQ9
+			},
+			{
+				keyName: "slot_PNG",
+				icon: "icon icon-png",
+				displayText: "Play' n GO",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotplayngo.png",
+				listBgImgUrl: "slotListHover.png",
+				// parameter: { ...productList.casino_PNG },
+				parameter: { provider: "png" },
+				...productList.casino_PNG,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.PNG
+					})
+				]
 			},
 			{
 				keyName: "slot_GPI",

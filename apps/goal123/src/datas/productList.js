@@ -486,6 +486,12 @@ export const defCasinoProviders = {
 		name: "CQ9",
 		tpGameType: 29
 	},
+	PNG: {
+		tpId: 54,
+		name: "PNG",
+		tpGameType: 105
+	},
+
 	// AstroTech: {
 	// 	tpId: 24,
 	// 	name: "AstroTech",
@@ -561,6 +567,7 @@ export const defSlotTpGameType = {
 	SG: { tpId: 10, tpGameType: 15, name: "spadegaming" },
 	PG: { tpId: 14, tpGameType: 17, name: "pg" },
 	CQ9: { tpId: 16, tpGameType: 29, name: "cq9" },
+	PNG: { tpId: 54, tpGameType: 105, name: "png" },
 	// Iconic: { tpId: 24, tpGameType: 39, name: "astro-tech" },
 	// 新的 Playtech (seamless wallet)
 	PlayTech: { tpId: 51, tpGameType: 100, name: "playtech" },
