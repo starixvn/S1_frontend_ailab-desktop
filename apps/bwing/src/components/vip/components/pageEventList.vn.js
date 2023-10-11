@@ -1,9 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import { numFormatToDigits } from "../../common/common";
 
 const PageEventListVn = ({ currencyId, vipBanner }) => {
 	const { t } = useTranslation();
+
+	// * 因 GetVipBanner response 裡有參雜 string number 故須額外判斷與顯示
+	const number_format_excludeString = input => {
+		if (!isNaN(Number(input))) {
+			return numFormatToDigits(Number(input), 0);
+		}
+
+		return input;
+	};
 
 	return (
 		<table className="eventList">
@@ -62,13 +72,17 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 				<tr>
 					<td>{t("lbl_Vip_Daily_Limit")}</td>
 					{vipBanner?.vipBannerData?.map(item => (
-						<td>{item?.withdrawalMax.split(".")[0]}</td>
+						<td>
+							{number_format_excludeString(
+								item?.withdrawalMax.split(".")[0]
+							)}
+						</td>
 					))}
 				</tr>
 				<tr>
 					<td>{t("lbl_DAILY_TRANSACTIONS_COUNT")}</td>
 					{vipBanner?.vipBannerData?.map(item => (
-						<td>{item?.times}</td>
+						<td>{number_format_excludeString(item?.times)}</td>
 					))}
 				</tr>
 				<tr className="title">
@@ -84,7 +98,11 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 					<td>{t("lbl_Vip_Tier_UpGrade_Bonus")}</td>
 					{vipBanner?.vipBannerData?.map(item => (
 						<td>
-							{item?.upBonus ? item?.upBonus.split(".")[0] : null}
+							{item?.upBonus
+								? number_format_excludeString(
+										item?.upBonus.split(".")[0]
+								  )
+								: null}
 						</td>
 					))}
 				</tr>
@@ -149,7 +167,9 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 					{vipBanner?.vipBannerData?.map(item => (
 						<td>
 							{item?.upDeposit
-								? item?.upDeposit.split(".")[0]
+								? number_format_excludeString(
+										item?.upDeposit.split(".")[0]
+								  )
 								: null}
 						</td>
 					))}
@@ -171,7 +191,9 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 						<td>
 							{item?.downDeposit &&
 							Number(item?.downDeposit) !== 0
-								? item?.downDeposit.split(".")[0]
+								? number_format_excludeString(
+										item?.downDeposit.split(".")[0]
+								  )
 								: null}
 						</td>
 					))}
@@ -184,7 +206,9 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 						<td>
 							{item?.downTurnover &&
 							Number(item?.downTurnover) !== 0
-								? item?.downTurnover.split(".")[0]
+								? number_format_excludeString(
+										item?.downTurnover.split(".")[0]
+								  )
 								: null}
 						</td>
 					))}
