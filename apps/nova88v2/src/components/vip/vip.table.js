@@ -10,7 +10,8 @@ const VipTable = ({
 	currencyId,
 	langId,
 	userInfo,
-	vipBanner
+	vipBanner,
+	number_format_excludeString
 }) => {
 	return (
 		<div className="vipPage">
@@ -49,7 +50,11 @@ const VipTable = ({
 			</table>
 
 			{vipBanner && (
-				<TableInfo currencyId={currencyId} vipBanner={vipBanner} />
+				<TableInfo
+					currencyId={currencyId}
+					vipBanner={vipBanner}
+					number_format_excludeString={number_format_excludeString}
+				/>
 			)}
 		</div>
 	);
@@ -61,7 +66,8 @@ VipTable.propTypes = {
 	currencyId: PropTypes.number.isRequired,
 	langId: PropTypes.string.isRequired,
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	vipBanner: PropTypes.arrayOf(PropTypes.any).isRequired
+	vipBanner: PropTypes.arrayOf(PropTypes.any).isRequired,
+	number_format_excludeString: PropTypes.func.isRequired
 };
 
 export default VipTable;
