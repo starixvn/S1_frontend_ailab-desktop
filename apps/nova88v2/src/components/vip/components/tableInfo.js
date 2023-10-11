@@ -1,19 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { capitalizeFirstLetter, numFormatToDigits } from "../../common/common";
+import { capitalizeFirstLetter } from "../../common/common";
 
-const TableInfo = ({ currencyId, vipBanner }) => {
+const TableInfo = ({ currencyId, vipBanner, number_format_excludeString }) => {
 	const { t } = useTranslation();
-
-	// * 因 GetVipBanner response 裡有參雜 string number 故須額外判斷與顯示
-	const number_format_excludeString = input => {
-		if (!isNaN(Number(input))) {
-			return numFormatToDigits(Number(input), 0);
-		}
-
-		return input;
-	};
 
 	return (
 		<table className="eventList">
@@ -279,7 +270,8 @@ const TableInfo = ({ currencyId, vipBanner }) => {
 
 TableInfo.propTypes = {
 	currencyId: PropTypes.number.isRequired,
-	vipBanner: PropTypes.arrayOf(PropTypes.any).isRequired
+	vipBanner: PropTypes.arrayOf(PropTypes.any).isRequired,
+	number_format_excludeString: PropTypes.func.isRequired
 };
 
 export default TableInfo;
