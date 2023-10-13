@@ -3,7 +3,7 @@ import path from "../../router";
 export const defMetaData = {
 	[path.home.root]: {
 		en: {
-			title: `Ivorysport | Ivorysport Slot | Ivorysport Casino | Ivorysport Bet`,
+			title: `Ivorysport | Ivorysport Bet`,
 			description: `Ivorysport is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
 			keyword: `Asia Most Trusted Sportsbook, Live Casino, Slot Games, SABA Sports, Online Casino, Online Betting`
 		},
