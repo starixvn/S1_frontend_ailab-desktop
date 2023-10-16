@@ -2759,7 +2759,7 @@ main .promosswiper .swiper-button-prev::after {
 .hotmatch .hotmatch-item .hotmatch-item-center .team-content .team-item img {
   padding: 4px;
   width: 35px;
-  border: 2px solid #D1D1D1;
+  border: 2px solid #140a0a;
   border-radius: 50px;
   margin-right: 8px;
 }
@@ -2767,6 +2767,10 @@ main .promosswiper .swiper-button-prev::after {
   width: 130px;
   word-wrap: break-word;
   font-size: 13px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .hotmatch .hotmatch-item .hotmatch-item-center .team-content .odds {
   font-weight: 600;
