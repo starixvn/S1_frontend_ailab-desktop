@@ -2767,6 +2767,10 @@ main .promosswiper .swiper-button-prev::after {
   width: 130px;
   word-wrap: break-word;
   font-size: 13px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .hotmatch .hotmatch-item .hotmatch-item-center .team-content .odds {
   font-weight: 600;
