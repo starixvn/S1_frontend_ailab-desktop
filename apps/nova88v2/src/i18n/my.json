@@ -1091,5 +1091,6 @@
   "msg_changePswSuccess": "Kemas kini berjaya! Anda boleh gunakan kata laluan baru apabila anda log masuk lain kali.",
   "msg_changePswSuccessHint": "Anda boleh gunakan kata laluan baru apabila anda log masuk lain kali.",
   "msg_changePswUpdateSuccess": "Kemas kini berjaya!",
-  "msg_loggedout": "Anda telah berjaya log keluar!!"
+  "msg_loggedout": "Anda telah berjaya log keluar!!",
+  "lbl_V8Poker": "V8Poker"
 }

@@ -1091,5 +1091,6 @@
   "msg_changePswSuccess": "Pembaruan selesai! Harap gunakan kata sandi baru saat Anda masuk kembali.",
   "msg_changePswSuccessHint": "Harap gunakan kata sandi baru saat Anda masuk kembali.",
   "msg_changePswUpdateSuccess": "Pembaruan selesai!",
-  "msg_loggedout": "Anda telah berhasil logout"
+  "msg_loggedout": "Anda telah berhasil logout",
+  "lbl_V8Poker": "V8Poker"
 }
