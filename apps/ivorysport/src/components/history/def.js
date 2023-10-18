@@ -29,10 +29,10 @@ export const defHistoryIdList = {
 };
 
 export const defHistoryNav = [
-	{
-		displayKey: "lbl_Transfer",
-		id: defHistoryIdList.transferId
-	},
+	// {
+	// 	displayKey: "lbl_Transfer",
+	// 	id: defHistoryIdList.transferId
+	// },
 	{
 		displayKey: "lbl_Deposit",
 		id: defHistoryIdList.depositId
@@ -238,7 +238,8 @@ export const defColumns = ({
 									item.refId,
 									item.depositTime,
 									item.depositReceipt
-								)}>
+								)}
+							>
 								{t("lbl_SubmitProof")}
 							</button>
 							<button
@@ -248,7 +249,8 @@ export const defColumns = ({
 										keepData,
 										transId: item.transId
 									})
-								}>
+								}
+							>
 								{t("lbl_Cancel")}
 							</button>
 						</>
@@ -343,7 +345,8 @@ export const defColumns = ({
 									activateWithdrawalCancelConfirmModal(
 										item.transId
 									)
-								}>
+								}
+							>
 								{t("lbl_Cancel")}
 							</button>
 						</div>
