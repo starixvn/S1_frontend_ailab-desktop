@@ -622,6 +622,24 @@ export const defMenuLinks = {
 						period: defEventPeriod.IM
 					})
 				]
+			},
+			{
+				displayText: "TFGaming",
+				listNpcImgUrl: "esportTFG.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.TFGaming },
+				...productList.TFGaming,
+				lobbyPage: {
+					bgImg: "esposts-tfg.png",
+					hoverBgImg: "esposts-tfga.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.TFGaming
+					})
+				]
 			}
 		]
 	},
