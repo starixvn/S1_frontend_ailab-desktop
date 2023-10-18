@@ -542,6 +542,11 @@ export default {
 		tpId: 11,
 		tpGameType: 52
 	},
+	games_V8Poker: {
+		tpId: 25,
+		tpGameType: 47,
+		gameId: 0
+	},
 	games_MPoker: {
 		tpId: 35,
 		tpGameType: 60

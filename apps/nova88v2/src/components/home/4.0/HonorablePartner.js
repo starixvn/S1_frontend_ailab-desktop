@@ -209,6 +209,21 @@ const HonorablePartner = () => {
 				path: paths.casino.root,
 				parameter: { ...productList.casino_Endorphina },
 				imgName: "end"
+			},
+			{
+				...productList.games_V8Poker,
+				imgName: "v8",
+				allowCurrencies: [
+					defCurrencyList.MYR,
+					defCurrencyList.USD,
+					defCurrencyList.THB,
+					defCurrencyList.IDR,
+					defCurrencyList.INR,
+					defCurrencyList.CNY,
+					defCurrencyList.KHM,
+					defCurrencyList.VND,
+					defCurrencyList.USDT
+				]
 			}
 		];
 

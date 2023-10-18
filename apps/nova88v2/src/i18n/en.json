@@ -1091,5 +1091,6 @@
   "msg_changePswSuccess": "The update is successful! You can use the new password when you login in next time.",
   "msg_changePswSuccessHint": "You can use the new password when you login in next time.",
   "msg_changePswUpdateSuccess": "The update is successful!",
-  "msg_loggedout": "You have successfully logged out!!"
+  "msg_loggedout": "You have successfully logged out!!",
+  "lbl_V8Poker": "V8Poker"
 }

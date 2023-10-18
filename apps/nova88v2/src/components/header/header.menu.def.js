@@ -1200,6 +1200,27 @@ export const defMenuLinks = {
 				}
 			},
 			{
+				keyName: "games_V8Poker",
+				className: "fsgw",
+				listNpcImgUrl: "v8.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayKey: "lbl_V8Poker",
+				menuType: defMenuType.entPage,
+				...productList.games_V8Poker,
+				parameter: { ...productList.games_V8Poker },
+				lobbyPage: {
+					bgImg: "gamev8.png",
+					hoverBgImg: "gamev8a.png"
+				},
+				allowCurrencies: allowedCurrencyList.V8Poker,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.V8Poker
+					})
+				]
+			},
+			{
 				keyName: "games_im_aviator",
 				className: "fsgw",
 				listNpcImgUrl: "gameSpribeAviator.png",
