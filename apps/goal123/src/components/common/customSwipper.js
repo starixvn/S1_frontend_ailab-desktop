@@ -24,7 +24,6 @@ import path from "../../router";
 import productList from "../../datas/productList";
 import { defPopBoxType } from "./popBox";
 import usePopBox from "../hook/usePopBox";
-import { useGotoGame } from "../hook/useGotoGame";
 
 const NeedLoginRoute = [];
 
@@ -251,12 +250,6 @@ export const BannerSwipper = ({
 	});
 	const { setPopBox } = useContext(popBoxContext);
 
-	const { handleGoToGame } = useGotoGame({
-		isLogin: userInfo.isLogin,
-		langId: userInfo.langId,
-		autoGetData: false
-	});
-
 	const handleClick = ({
 		tpId,
 		gameId,
@@ -265,15 +258,6 @@ export const BannerSwipper = ({
 		bannerLink,
 		tpGameType
 	}) => {
-		if (Number(tpId) === productList.liveCasino_PlayTech.tpId)
-			return handleGoToGame({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId: Number(tpId),
-				gameId,
-				tpGameType
-			});
-
 		// tpId 1 等於saba
 		if (actionMode === defBannerActionMode.GoToGame && Number(tpId) === 1) {
 			window.location.href = `${window.location.origin}/${userInfo.langId}/sports?provider=saba&type=soccer`;
