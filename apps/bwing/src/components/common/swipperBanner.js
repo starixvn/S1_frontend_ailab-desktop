@@ -18,7 +18,6 @@ import path from "../../router";
 import productList from "../../datas/productList";
 import { defPopBoxType } from "./defPopBoxType";
 import usePopBox from "../hook/usePopBox";
-import { useGotoGame } from "../hook/useGotoGame";
 
 const NeedLoginRoute = [];
 
@@ -143,12 +142,6 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 	const { banner } = useGetBanner({ langId: userInfo.langId, ImgFolder });
 	const { setPopBox } = useContext(popBoxContext);
 
-	const { handleGoToGame } = useGotoGame({
-		isLogin: userInfo.isLogin,
-		langId: userInfo.langId,
-		autoGetData: false
-	});
-
 	const handleClick = ({
 		tpId,
 		gameId,
@@ -157,15 +150,6 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 		bannerLink,
 		tpGameType
 	}) => {
-		if (Number(tpId) === productList.liveCasino_PlayTech.tpId)
-			return handleGoToGame({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId: Number(tpId),
-				gameId,
-				tpGameType
-			});
-
 		// tpId 1 等於saba
 		if (actionMode === defBannerActionMode.GoToGame && Number(tpId) === 1) {
 			window.location.href = `${window.location.origin}/${userInfo.langId}/sports?provider=saba&type=soccer`;
