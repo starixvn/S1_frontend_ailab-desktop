@@ -265,7 +265,7 @@ export const BannerSwipper = ({
 		bannerLink,
 		tpGameType
 	}) => {
-		if (Number(tpId) === productList.liveCasino_PT.tpId)
+		if (Number(tpId) === productList.liveCasino_PlayTech.tpId)
 			return handleGoToGame({
 				isLogin: userInfo.isLogin,
 				langId: userInfo.langId,
