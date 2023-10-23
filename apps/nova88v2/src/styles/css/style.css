@@ -2495,7 +2495,7 @@ main section {
   max-width: 1400px;
 }
 main section.inside {
-  padding-top: 15px;
+  padding-top: 40px;
 }
 main section.inside > div:not(.important) {
   margin: unset;
@@ -2767,6 +2767,10 @@ main .promosswiper .swiper-button-prev::after {
   width: 130px;
   word-wrap: break-word;
   font-size: 13px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .hotmatch .hotmatch-item .hotmatch-item-center .team-content .odds {
   font-weight: 600;
@@ -5270,10 +5274,6 @@ input[type=file] {
 }
 .infoModule > button.icon-arrow-left2:before {
   margin-left: 0;
-}
-.infoModule .inputBox-white {
-  width: 300px;
-  margin: 0 0 0 1028px;
 }
 
 .inside-title {
