@@ -18,6 +18,7 @@ import CryptoCard from "./withdrawal.set.card.crypto";
 import path from "../../router";
 import ECard from "./withdrawal.set.card.E";
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
+import { WITHDRAWAL_BLOCK_SETTING_TYPE } from "./withdrawal.defStep";
 
 const CardPanel = ({
 	dispatch,
@@ -283,22 +284,36 @@ const CardPanel = ({
 			)
 		});
 	};
+
+	// * 從後台 Payment GateWay 設定的開關
+	const displayBankCard = state.withdrawalSettingTypeList?.find(
+		item => item.type === WITHDRAWAL_BLOCK_SETTING_TYPE.BankCard
+	)?.status;
+	const displayEWallet = state.withdrawalSettingTypeList?.find(
+		item => item.type === WITHDRAWAL_BLOCK_SETTING_TYPE.EWallet
+	)?.status;
+	const displayCrypto = state.withdrawalSettingTypeList?.find(
+		item => item.type === WITHDRAWAL_BLOCK_SETTING_TYPE.Crypto
+	)?.status;
+
 	return (
 		<>
-			{allowedCurrencyList.bankCard.includes(userInfo.currencyId) && (
-				<BankCard
-					t={t}
-					state={state}
-					defPanel={defPanel}
-					custBankInfo={custBankInfo}
-					addBankAccount={addBankAccount}
-					selectAccount={selectAccount}
-					delAccount={delAccount}
-					isIfscRequired={isIfscRequired}
-				/>
-			)}
+			{allowedCurrencyList.bankCard.includes(userInfo.currencyId) &&
+				displayBankCard && (
+					<BankCard
+						t={t}
+						state={state}
+						defPanel={defPanel}
+						custBankInfo={custBankInfo}
+						addBankAccount={addBankAccount}
+						selectAccount={selectAccount}
+						delAccount={delAccount}
+						isIfscRequired={isIfscRequired}
+					/>
+				)}
 			{allowedCurrencyList.eWallet.includes(userInfo.currencyId) &&
-				state.eWalletStatus && (
+				state.eWalletStatus &&
+				displayEWallet && (
 					<ECard
 						t={t}
 						state={state}
@@ -309,16 +324,18 @@ const CardPanel = ({
 						delAccount={delEWallet}
 					/>
 				)}
-			<CryptoCard
-				userInfo={userInfo}
-				t={t}
-				state={state}
-				custBankInfo={custBankInfo}
-				selectAccount={selectAccount}
-				addCryptoWallet={addCryptoWallet}
-				GetCustBankInfo={GetCustBankInfo}
-				defPanel={defPanel}
-			/>
+			{displayCrypto && (
+				<CryptoCard
+					userInfo={userInfo}
+					t={t}
+					state={state}
+					custBankInfo={custBankInfo}
+					selectAccount={selectAccount}
+					addCryptoWallet={addCryptoWallet}
+					GetCustBankInfo={GetCustBankInfo}
+					defPanel={defPanel}
+				/>
+			)}
 		</>
 	);
 };

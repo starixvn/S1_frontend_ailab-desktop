@@ -1,8 +1,6 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { paymentImgUrl } from "../../config";
-import { userInfoContext } from "../common/context";
-import { defCurrencyList } from "../common/common";
 
 const BankCard = ({
 	t,
@@ -15,7 +13,6 @@ const BankCard = ({
 	isIfscRequired
 }) => {
 	const isMountedRef = useRef(null);
-	const { userInfo } = useContext(userInfoContext);
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -52,7 +49,8 @@ const BankCard = ({
 				{(!bankArr || bankArr.length < 3) && (
 					<div
 						className="addBankName noBank"
-						onClick={addBankAccount}>
+						onClick={addBankAccount}
+					>
 						<div className="icon icon-plus" />
 						<div>{t("lbl_AddBankAccount")}</div>
 					</div>

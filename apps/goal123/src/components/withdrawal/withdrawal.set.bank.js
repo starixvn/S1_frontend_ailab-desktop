@@ -29,6 +29,7 @@ import usePopBox from "../hook/usePopBox";
 import { getAmountTip, isConvert, checkAmount } from "../common/common";
 import EWalletInfoCard from "./withdrawal.set.eWallet";
 import AddEWallet from "./addEWallet";
+import { WITHDRAWAL_BLOCK_SETTING_TYPE } from "./defStep";
 
 import path from "../../router";
 
@@ -68,7 +69,8 @@ const Main = ({
 	getWithdrawalInfoRecent,
 	getWithdrawalAvailableBalance,
 	getWithdrawalLimit,
-	getKycStatus
+	getKycStatus,
+	withdrawalSettingTypeList
 }) => {
 	const { t } = useTranslation();
 	const { setPopBox, errorPopBox } = usePopBox();
@@ -108,6 +110,18 @@ const Main = ({
 	const [currentEWalletDetail, setCurrentEWalletDetail] = useState(
 		INIT_E_WALLET_INFO_DETAIL
 	);
+
+	// * 從後台 Payment GateWay 設定的開關
+	const displayBankCard = withdrawalSettingTypeList?.find(
+		item => item.type === WITHDRAWAL_BLOCK_SETTING_TYPE.BankCard
+	)?.status;
+	const displayEWallet = withdrawalSettingTypeList?.find(
+		item => item.type === WITHDRAWAL_BLOCK_SETTING_TYPE.EWallet
+	)?.status;
+	const displayCrypto = withdrawalSettingTypeList?.find(
+		item => item.type === WITHDRAWAL_BLOCK_SETTING_TYPE.Crypto
+	)?.status;
+
 	const onChangeExchangeInfo = ({ exchangeRate, exchangeAmount }) => {
 		setExchangeInfo({ exchangeRate, exchangeAmount });
 	};
@@ -131,14 +145,8 @@ const Main = ({
 		return limit;
 	};
 
-	const {
-		withdrawalMin,
-		withdrawalMax,
-		unlimited,
-		eWalletStatus,
-		eWalletWithdrawalAvailableAmount,
-		eWalletWithdrawalMin
-	} = getWithdrawalMinMaxLimit();
+	const { withdrawalMin, withdrawalMax, unlimited } =
+		getWithdrawalMinMaxLimit();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -319,13 +327,13 @@ const Main = ({
 			: Number(_amount);
 
 		const _withdrawalMin = currentEWalletDetail.eWalletName
-			? eWalletWithdrawalMin
+			? withdrawalLimit?.eWalletWithdrawalMin
 			: withdrawalMin;
 
 		if (
 			!unlimited &&
 			currentEWalletDetail.eWalletName &&
-			real_amount > eWalletWithdrawalAvailableAmount
+			real_amount > withdrawalLimit?.eWalletWithdrawalAvailableAmount
 		) {
 			result = {
 				status: 2,
@@ -809,13 +817,15 @@ const Main = ({
 	const placeholder = () => {
 		if (currentEWalletDetail.eWalletName) {
 			return `${t("lbl_MinMaxAmount")} ${
-				_isConvert ? eWalletWithdrawalMin / 1000 : eWalletWithdrawalMin
+				_isConvert
+					? withdrawalLimit?.eWalletWithdrawalMin / 1000
+					: withdrawalLimit?.eWalletWithdrawalMin
 			} / ${
 				unlimited
 					? t("lbl_Unlimited")
 					: _isConvert
-					? eWalletWithdrawalAvailableAmount / 1000
-					: eWalletWithdrawalAvailableAmount
+					? withdrawalLimit?.eWalletWithdrawalAvailableAmount / 1000
+					: withdrawalLimit?.eWalletWithdrawalAvailableAmount
 			}`;
 		}
 	};
@@ -840,25 +850,31 @@ const Main = ({
 						/>
 					</div>
 
-					<div className="walletModule">
-						<div className="addBank">
-							<BankInfoCard
-								datas={custBankInfo.bankInfoDetail}
-								updateCustBankInfo={getCustBankInfo}
-								onChangeBankInfo={onChangeBankInfo}
-								currentBankInfoDetail={currentBankInfoDetail}
-								_isConvert={_isConvert}
-								isShowConfirmPage={showConfirmPage}
-								balanceData={balanceData}
-							/>
-							<AddBankAccount
-								bankInfoDetail={custBankInfo?.bankInfoDetail}
-								updateCustBankInfo={getCustBankInfo}
-							/>
+					{displayBankCard && (
+						<div className="walletModule">
+							<div className="addBank">
+								<BankInfoCard
+									datas={custBankInfo.bankInfoDetail}
+									updateCustBankInfo={getCustBankInfo}
+									onChangeBankInfo={onChangeBankInfo}
+									currentBankInfoDetail={
+										currentBankInfoDetail
+									}
+									_isConvert={_isConvert}
+									isShowConfirmPage={showConfirmPage}
+									balanceData={balanceData}
+								/>
+								<AddBankAccount
+									bankInfoDetail={
+										custBankInfo?.bankInfoDetail
+									}
+									updateCustBankInfo={getCustBankInfo}
+								/>
+							</div>
 						</div>
-					</div>
+					)}
 
-					{Boolean(eWalletStatus) && (
+					{Boolean(withdrawalLimit?.eWalletStatus) && displayEWallet && (
 						<div className="walletModule">
 							<div className="addBank">
 								<EWalletInfoCard
@@ -877,19 +893,21 @@ const Main = ({
 						</div>
 					)}
 
-					<div className="walletModule">
-						<div className="addBank">
-							<Crypto
-								datas={custBankInfo.uSDTDetail}
-								currentUSDTDetail={currentUSDTDetail}
-								hideDeleteIcon={showConfirmPage}
-								onChangeUSDTInfo={onChangeUSDTInfo}
-								updateCustBankInfo={getCustBankInfo}
-								deleteCryptoHandler={deleteCryptoHandler}
-								amount={amountValue}
-							/>
+					{displayCrypto && (
+						<div className="walletModule">
+							<div className="addBank">
+								<Crypto
+									datas={custBankInfo.uSDTDetail}
+									currentUSDTDetail={currentUSDTDetail}
+									hideDeleteIcon={showConfirmPage}
+									onChangeUSDTInfo={onChangeUSDTInfo}
+									updateCustBankInfo={getCustBankInfo}
+									deleteCryptoHandler={deleteCryptoHandler}
+									amount={amountValue}
+								/>
+							</div>
 						</div>
-					</div>
+					)}
 
 					<div className="subModuleList">
 						<div className="subModule">
@@ -1005,7 +1023,8 @@ Main.propTypes = {
 	getWithdrawalLimit: PropTypes.func,
 	getWithdrawalInfoRecent: PropTypes.func,
 	getWithdrawalAvailableBalance: PropTypes.func,
-	getKycStatus: PropTypes.func
+	getKycStatus: PropTypes.func,
+	withdrawalSettingTypeList: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default Main;
