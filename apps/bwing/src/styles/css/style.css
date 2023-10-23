@@ -995,6 +995,9 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList .CQ9 .img {
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .CQ9 .icon-cq9:before {
   font-size: 16px;
 }
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .PlaynGo .img {
+  background: url(https://banner.bw88.io/desktop/img/slot/playngo.png) no-repeat center/auto 100%;
+}
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .ICG .img {
   background: url(https://banner.bw88.io/desktop/img/slot/icg.png) no-repeat center/auto 100%;
 }
@@ -2154,6 +2157,14 @@ footer > div .platformGroup button.spribe {
 footer > div .platformGroup a.spribe:hover,
 footer > div .platformGroup button.spribe:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/spribea.png) no-repeat center;
+}
+footer > div .platformGroup a.png,
+footer > div .platformGroup button.png {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/png.png) no-repeat center;
+}
+footer > div .platformGroup a.png:hover,
+footer > div .platformGroup button.png:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/png-a.png) no-repeat center;
 }
 footer > div .powered {
   width: 100%;
