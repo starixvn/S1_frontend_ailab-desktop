@@ -8921,6 +8921,120 @@ form {
   text-align: left;
 }
 
+.search-container {
+  position: relative;
+  display: inline-block;
+  height: 55px;
+  width: 55px;
+  vertical-align: bottom;
+  -webkit-box-flex: 0 !important;
+      -ms-flex: none !important;
+          flex: none !important;
+  margin: 0 !important;
+}
+.search-container .button {
+  display: inline-block;
+  background: white;
+  font-size: 14px;
+  padding: 0 32px 0 32px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.search-container .button .button:hover {
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  background-color: white;
+  color: #5574A7;
+}
+.search-container .mglass {
+  display: inline-block;
+  pointer-events: none;
+  color: #5574A7;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.search-container .searchbutton {
+  position: absolute;
+  font-size: 22px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.search-container .closebutton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.search-container .closebutton img {
+  width: 20px;
+  height: 20px;
+}
+.search-container .search:focus + .searchbutton {
+  transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  background-color: white;
+  color: black;
+}
+.search-container .search {
+  position: absolute;
+  left: 49px; /* Button width-1px (Not 50px/100% because that will sometimes show a 1px line between the search box and button) */
+  background-color: white;
+  outline: none;
+  border: none;
+  padding: 0;
+  width: 0;
+  height: 100%;
+  z-index: 10;
+  transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+}
+.search-container .search:focus {
+  width: 205px;
+  padding: 0 16px 0 0;
+}
+.search-container .expandright {
+  left: auto;
+  right: 49px; /* Button width-1px */
+}
+.search-container .expandright:focus {
+  padding: 0 0 0 16px;
+}
+.search-container input::-webkit-input-placeholder {
+  color: #5574A7;
+}
+.search-container input::-moz-placeholder {
+  color: #5574A7;
+}
+.search-container input:-ms-input-placeholder {
+  color: #5574A7;
+}
+.search-container input::-ms-input-placeholder {
+  color: #5574A7;
+}
+.search-container input::placeholder {
+  color: #5574A7;
+}
+
 .slotList .icon-new,
 .livecasino .icon-new,
 .fishingList .icon-new {
@@ -15154,7 +15268,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .partnerSelect {
   overflow: hidden;
   width: calc(100% - 100px);
-  margin: 10px auto;
+  margin: 20px auto 10px;
   background: rgba(210, 226, 249, 0.5);
   border-radius: 5px;
 }
@@ -16823,7 +16937,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin-bottom: 15px;
 }
 .slotJpot ~ .infoModule {
-  padding-top: 10px;
+  padding-top: 20px;
 }
 .slotJpot .jpot {
   width: 100%;
