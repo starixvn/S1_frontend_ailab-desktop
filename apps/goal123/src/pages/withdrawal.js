@@ -13,7 +13,8 @@ import { api_account_GetWithdrawalAvailableBalance } from "../service/api/accoun
 import {
 	api_payment_KycCheck,
 	api_payment_GetWithdrawalInfoRecent,
-	api_payment_GetWithdrawalLimit
+	api_payment_GetWithdrawalLimit,
+	api_payment_GetWithdrawalBlockSetting
 } from "../service/api/payment";
 
 export default () => (
@@ -40,7 +41,9 @@ const Content = () => {
 	const [kycStatus, setKycStatus] = useState("");
 	const [recentData, setRecentData] = useState([]);
 	const [uSDTWithdrawalLimit, setUSDTWithdrawalLimit] = useState([]);
-
+	const [withdrawalSettingTypeList, setWithdrawalSettingTypeList] = useState(
+		[]
+	);
 	const [withdrawalLimit, setWithdrawalLimit] = useState({});
 
 	const { setPopBox } = useContext(popBoxContext);
@@ -61,7 +64,8 @@ const Content = () => {
 				getKycStatus(),
 				getWithdrawalAvailableBalance(),
 				getWithdrawalInfoRecent(),
-				getWithdrawalLimit()
+				getWithdrawalLimit(),
+				getWithdrawalBlockSetting()
 			]);
 			setLoading(false);
 		}
@@ -273,6 +277,51 @@ const Content = () => {
 			}
 		);
 
+	const getWithdrawalBlockSetting = async () => {
+		await api_payment_GetWithdrawalBlockSetting().then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						setWithdrawalSettingTypeList(res.data.data);
+					} else {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={closePopBox}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: t("msg_ApiServerError"),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-cancel"
+									onClick={closePopBox}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+				}
+			}
+		);
+	};
+
 	if (loading) return <Loading />;
 
 	return (
@@ -293,6 +342,7 @@ const Content = () => {
 					getWithdrawalAvailableBalance={
 						getWithdrawalAvailableBalance
 					}
+					withdrawalSettingTypeList={withdrawalSettingTypeList}
 				/>
 			</div>
 			<RecentHistory
