@@ -381,7 +381,9 @@ const Main = ({
 	};
 
 	const toConfirmPage = () => {
-		if (status.checked) {
+		if (currentBankInfoDetail.disabled) {
+			errorPopBox(t("lbl_SelectBank_Required"));
+		} else if (status.checked) {
 			let availableAccount;
 			if (currentBankInfoDetail.accountNo) {
 				availableAccount = custBankInfo.bankInfoDetail.find(

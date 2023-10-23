@@ -43,7 +43,8 @@ const BankInfoCard = ({
 						className="btn-cancel"
 						onClick={() => {
 							deleteCard(sysId, accountNo);
-						}}>
+						}}
+					>
 						{t("lbl_Yes")}
 					</button>
 					<button className="btn-check" onClick={ClickCancel}>
@@ -80,7 +81,8 @@ const BankInfoCard = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickCancel}>
+										onClick={ClickCancel}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -100,7 +102,8 @@ const BankInfoCard = ({
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickCancel}>
+									onClick={ClickCancel}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -117,7 +120,13 @@ const BankInfoCard = ({
 		const checkKey = `${key}-check`;
 
 		return (
-			<div className="addBankName" key={key}>
+			<div
+				className={`addBankName ${item?.disabled ? "pending" : ""}`}
+				key={key}
+			>
+				{item?.disabled && (
+					<div className="mask">{t("lbl_underMaintenance")}</div>
+				)}
 				<div className="addBankInfo">
 					<div className="bankName">
 						<img
@@ -133,7 +142,8 @@ const BankInfoCard = ({
 							checked={
 								currentBankInfoDetail.sysId === item.sysId &&
 								currentBankInfoDetail.accountNo ===
-									item.accountNo
+									item.accountNo &&
+								!item.disabled
 							}
 							onChange={checkInput.bind(
 								this,
@@ -142,6 +152,7 @@ const BankInfoCard = ({
 								item.bankName
 							)}
 							id={checkKey}
+							disabled={item.disabled}
 						/>
 						<label
 							htmlFor={checkKey}
