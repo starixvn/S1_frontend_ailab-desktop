@@ -111,6 +111,7 @@ const Main = ({
 	const [currentBankInfoDetail, setCurrentBankInfoDetail] = useState(
 		INIT_BANK_INFO_DETAIL
 	);
+
 	const [currentEWalletDetail, setCurrentEWalletDetail] = useState(
 		INIT_E_WALLET_INFO_DETAIL
 	);
@@ -390,7 +391,9 @@ const Main = ({
 	};
 
 	const toConfirmPage = () => {
-		if (status.checked) {
+		if (currentBankInfoDetail.disabled) {
+			errorPopBox(t("lbl_SelectBank_Required"));
+		} else if (status.checked) {
 			let availableAccount;
 			if (currentBankInfoDetail.accountNo) {
 				availableAccount = custBankInfo.bankInfoDetail.find(
@@ -405,7 +408,6 @@ const Main = ({
 					el => el.accountNo === currentEWalletDetail.accountNo
 				);
 			}
-
 			if (
 				!availableAccount ||
 				(!currentBankInfoDetail.accountNo &&

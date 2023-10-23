@@ -26,7 +26,8 @@ const BankCard = ({
 		const _key = `withdrawal-bankCard-${item.accountNo}-${item.sysId}`;
 		const _checked =
 			item.accountNo === state.selectedAccount?.accountNo &&
-			item.bankName === state.selectedAccount?.bankName;
+			item.bankName === state.selectedAccount?.bankName &&
+			!item.disabled;
 		return (
 			<BankCardLayout
 				key={_key}
@@ -38,6 +39,7 @@ const BankCard = ({
 				delAccount={delAccount.bind(this, item.accountNo, item.sysId)}
 				hideDelBtn={state.panel === defPanel.confirm}
 				isIfscRequired={isIfscRequired}
+				disabled={item.disabled}
 			/>
 		);
 	});
@@ -49,8 +51,7 @@ const BankCard = ({
 				{(!bankArr || bankArr.length < 3) && (
 					<div
 						className="addBankName noBank"
-						onClick={addBankAccount}
-					>
+						onClick={addBankAccount}>
 						<div className="icon icon-plus" />
 						<div>{t("lbl_AddBankAccount")}</div>
 					</div>
@@ -72,11 +73,15 @@ const BankCardLayout = ({
 	checked,
 	delAccount,
 	hideDelBtn,
-	isIfscRequired
+	isIfscRequired,
+	disabled
 }) => {
 	const bankLogo = String(bankInfo.bankLogo).toLowerCase();
 	return (
-		<div className="addBankName">
+		<div className={`addBankName ${disabled ? "pending" : ""}`}>
+			{disabled && (
+				<div className="mask">{t("lbl_underMaintenance")}</div>
+			)}
 			<div className="addBankInfo">
 				<div className="bankName">
 					<img src={`${paymentImgUrl}/square/${bankLogo}`} alt="" />
@@ -105,6 +110,7 @@ const BankCardLayout = ({
 						id={checkKey}
 						onChange={selectAccount}
 						checked={checked}
+						disabled={disabled}
 					/>
 					<label
 						htmlFor={checkKey}
@@ -142,7 +148,8 @@ BankCardLayout.propTypes = {
 	checked: PropTypes.bool.isRequired,
 	hideDelBtn: PropTypes.bool.isRequired,
 	delAccount: PropTypes.func.isRequired,
-	isIfscRequired: PropTypes.bool.isRequired
+	isIfscRequired: PropTypes.bool.isRequired,
+	disabled: PropTypes.bool.isRequired
 };
 
 export default BankCard;
