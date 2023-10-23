@@ -2495,7 +2495,7 @@ main section {
   max-width: 1400px;
 }
 main section.inside {
-  padding-top: 15px;
+  padding-top: 40px;
 }
 main section.inside > div:not(.important) {
   margin: unset;
