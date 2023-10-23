@@ -12,7 +12,8 @@ export const defActionType = {
 	SET_KYC_DATA: "SET_KYC_DATA",
 	SET_LOADING: "SET_LOADING",
 	SET_WITHDRAWAL_AMOUNT_LIMIT: "SET_WITHDRAWAL_AMOUNT_LIMIT",
-	SET_WITHDRAWAL_TYPE: "SET_WITHDRAWAL_TYPE"
+	SET_WITHDRAWAL_TYPE: "SET_WITHDRAWAL_TYPE",
+	GET_WITHDRAWAL_SETTING_TYPE: "GET_WITHDRAWAL_SETTING_TYPE"
 };
 
 export const defPanel = {
@@ -36,7 +37,8 @@ export const initState = {
 	maxTimes: 0,
 	withdrawalTimes: 0,
 	eWalletWithdrawalMin: 0,
-	eWalletStatus: false
+	eWalletStatus: false,
+	withdrawalSettingTypeList: []
 };
 
 export function reducer(state, action) {
@@ -125,6 +127,12 @@ export function reducer(state, action) {
 				eWalletStatus: action.eWalletStatus,
 				eWalletWithdrawalAvailableAmount:
 					action.eWalletWithdrawalAvailableAmount
+			};
+
+		case defActionType.GET_WITHDRAWAL_SETTING_TYPE:
+			return {
+				...state,
+				withdrawalSettingTypeList: action.withdrawalSettingTypeList
 			};
 
 		default:

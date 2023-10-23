@@ -262,3 +262,6 @@ export const api_payment_GetLoadCardPayGroupList = () =>
 
 export const api_payment_GetLoadCardPayInfoList = GroupId =>
 	paymentRequest.post("/GetLoadCardPayInfoList", { GroupId });
+
+export const api_payment_GetWithdrawalBlockSetting = () =>
+	paymentRequest.post("/GetWithdrawalBlockSetting");

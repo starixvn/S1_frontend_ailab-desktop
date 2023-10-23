@@ -14,7 +14,8 @@ import { api_account_GetWithdrawalAvailableBalance } from "../../service/api/acc
 import {
 	api_payment_GetWithdrawalInfoRecent,
 	api_payment_KycCheck,
-	api_payment_GetWithdrawalLimit
+	api_payment_GetWithdrawalLimit,
+	api_payment_GetWithdrawalBlockSetting
 } from "../../service/api/payment";
 import { initState, reducer, defActionType } from "./withdrawal.reducer";
 import RecentHistory from "./withdrawal.recentHistory";
@@ -101,7 +102,8 @@ export default () => {
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}
+							>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>
@@ -174,6 +176,31 @@ export default () => {
 		);
 	};
 
+	const GetWithdrawalBlockSetting = async () => {
+		await api_payment_GetWithdrawalBlockSetting().then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						dispatch({
+							type: defActionType.GET_WITHDRAWAL_SETTING_TYPE,
+							withdrawalSettingTypeList: res.data.data
+						});
+					} else {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
+			}
+		);
+	};
+
 	const KycCheck = async () => {
 		await api_payment_KycCheck().then(
 			res => {
@@ -210,6 +237,7 @@ export default () => {
 		await GetWithdrawalAvailableBalance();
 		await GetWithdrawalInfoRecent();
 		await KycCheck();
+		await GetWithdrawalBlockSetting();
 	};
 
 	const restoreAll = async () => {
@@ -222,6 +250,10 @@ export default () => {
 		setLoading(false);
 	};
 
+	useEffect(() => {
+		GetWithdrawalBlockSetting();
+	}, []);
+
 	return (
 		!loading && (
 			<div className="rightModule">
@@ -232,7 +264,8 @@ export default () => {
 						</span>
 						<button
 							onClick={restoreAll}
-							className="icon icon-history">
+							className="icon icon-history"
+						>
 							<span>{t("lbl_RestoreAll")}</span>
 						</button>
 					</div>

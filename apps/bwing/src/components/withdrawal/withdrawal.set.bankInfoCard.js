@@ -89,7 +89,10 @@ const BankInfoCard = props => {
 		const key = `withdrawal-banklist-${item.sysId}-${item.accountNo}`;
 		const checkKey = `${key}-check`;
 		return (
-			<div className="addBankName" key={key}>
+			<div
+				className={`addBankName ${item?.disabled ? "pending" : ""}`}
+				key={key}>
+				{item?.disabled && <div className="mask" />}
 				<div className="addBankInfo">
 					<div className="bankName">
 						<img
@@ -118,7 +121,8 @@ const BankInfoCard = props => {
 									currentBankInfoDetail.sysId ===
 										item.sysId &&
 									currentBankInfoDetail.accountNo ===
-										item.accountNo
+										item.accountNo &&
+									!item.disabled
 								}
 								onChange={checkInput.bind(
 									this,
@@ -127,6 +131,7 @@ const BankInfoCard = props => {
 									item.bankName
 								)}
 								id={checkKey}
+								disabled={item.disabled}
 							/>
 							<label
 								htmlFor={checkKey}

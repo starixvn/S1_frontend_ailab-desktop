@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
 import { popBoxContext, userInfoContext } from "./context";
 import { defPopBoxType } from "./defPopBoxType";
-import config, { cloudImgUrl } from "../../config";
+import config from "../../config";
 import Dropdown from "./dropdown";
 import Inputbox from "./inputbox";
 
@@ -91,7 +91,7 @@ const PopBox = ({
 
 		const isDuplicateBank = bankInfoDetail?.find(
 			_selectBank =>
-				bankInfoItem(_selectBank).id === userValue.bankId &&
+				bankInfoItem(_selectBank)?.id === userValue.bankId &&
 				_selectBank.accountNo === val
 		);
 		if (userInfo.accountName !== null && userInfo.accountName !== "") {
@@ -160,7 +160,8 @@ const PopBox = ({
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={ClickCancel}>
+											onClick={ClickCancel}
+										>
 											OK
 										</button>
 									</div>
@@ -175,7 +176,8 @@ const PopBox = ({
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -194,7 +196,8 @@ const PopBox = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -234,7 +237,8 @@ const PopBox = ({
 						</div>
 						<div
 							className="iconModule"
-							onClick={clickInfo.bind(this, "realName_after")}>
+							onClick={clickInfo.bind(this, "realName_after")}
+						>
 							<i className="icon icon-information-solid" />
 						</div>
 					</div>

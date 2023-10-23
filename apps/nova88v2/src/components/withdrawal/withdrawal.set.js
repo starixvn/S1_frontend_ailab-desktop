@@ -59,7 +59,8 @@ const MainPanel = ({
 							bankName: _preAccInfo.bankName,
 							accountNo: _preAccInfo.accountNo,
 							sysId: _preAccInfo.sysId,
-							ifscCode: _preAccInfo.ifscCode
+							ifscCode: _preAccInfo.ifscCode,
+							disabled: _preAccInfo.disabled
 					  }
 					: {
 							usdtAddress: _preUsdtAccInfo.usdtAddress,
@@ -70,7 +71,7 @@ const MainPanel = ({
 					  };
 				dispatch({
 					type: defActionType.SELECT_ACCOUNT,
-					selectedAccount: _selectInfo,
+					selectedAccount: _selectInfo.disabled ? {} : _selectInfo,
 					withdrawalType: _preUsdtAccInfo?.usdtAddress
 						? WITHDRAWAL_TYPE.USDT
 						: WITHDRAWAL_TYPE.BANK
@@ -117,8 +118,7 @@ const MainPanel = ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClosePopBox}
-									>
+										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -141,8 +141,7 @@ const MainPanel = ({
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClosePopBox}
-								>
+									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -224,8 +223,7 @@ const MainPanel = ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClosePopBox}
-									>
+										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -248,8 +246,7 @@ const MainPanel = ({
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClosePopBox}
-								>
+									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
