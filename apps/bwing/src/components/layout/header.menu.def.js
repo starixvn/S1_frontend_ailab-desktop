@@ -492,18 +492,22 @@ export const defMenuLinks = {
 				img: "slots/cq9.png"
 			},
 			{
-				...defCasinoProviders.PNG,
-				className: "PlaynGo",
+				keyName: "slot_PNG",
 				icon: "icon icon-png",
 				displayText: "Play' n GO",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PNG.name },
+				listNpcImgUrl: "slotplayngo.png",
+				listBgImgUrl: "slotListHover.png",
+				// parameter: { ...productList.casino_PNG },
+				parameter: { provider: "png" },
+				...defCasinoProviders.PNG,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
 						period: defEventPeriod.PNG
 					})
-				]
+				],
+				img: "slots/png.png"
 			},
 			{
 				...defCasinoProviders.GPI,
