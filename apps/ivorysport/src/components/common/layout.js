@@ -24,6 +24,9 @@ const Layout = ({
 		};
 	});
 
+	// * 由於沒有接客服，因此直接導去 SKYPE 對話
+	const skypeLiveChatID = "skype:live:.cid.107160064a80f075?chat";
+
 	return (
 		<Provider store={store}>
 			{showHeader ? <Header /> : null}
@@ -32,6 +35,18 @@ const Layout = ({
 			<PopBox />
 			<Loading />
 			{goTopBtn ? <GoTopBtn /> : null}
+
+			<a
+				href={skypeLiveChatID}
+				target="_blank"
+				className="contact-icon"
+				rel="noreferrer"
+			>
+				<img
+					src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/skype-icon.png`}
+					alt=""
+				/>
+			</a>
 		</Provider>
 	);
 };
