@@ -10993,6 +10993,24 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-weight: bold;
 }
 
+.contact-icon {
+  position: fixed;
+  bottom: 200px;
+  right: 80px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  z-index: 2;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.contact-icon:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
 .addressModule {
   display: -webkit-box;
   display: -ms-flexbox;
