@@ -1,29 +1,24 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../config";
 
-const FishingBanner = () => {
+const FishingBanner = ({ langId }) => {
 	return (
-		<div className="lobbybanner">
+		<div className="lobby-banner">
 			<img
-				src={`${bannerImgUrl}/desktop/img/fishinglobby/fishing-banner.jpg`}
-				alt="bannerImg"
+				src={`${bannerImgUrl}/desktop/img/4.0/lobby-banner-fishing-${langId}.jpg`}
+				alt="fishing-banner-img"
 			/>
-			<div className="ball1">
-				<img
-					className="ballImg"
-					src={`${bannerImgUrl}/desktop/img/fishinglobby/money1.png`}
-					alt="money2Img"
-				/>
-			</div>
-			<div className="ball1 ball2">
-				<img
-					className="ballImg"
-					src={`${bannerImgUrl}/desktop/img/fishinglobby/money2.png`}
-					alt="money2Img"
-				/>
-			</div>
 		</div>
 	);
+};
+
+FishingBanner.defaultProps = {
+	langId: "en"
+};
+
+FishingBanner.propTypes = {
+	langId: PropTypes.string
 };
 
 export default FishingBanner;

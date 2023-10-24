@@ -7,6 +7,7 @@ import VipPage from "./vip.page";
 import { defbanner, defPageClubImg } from "./vip.def";
 import { currencyCode } from "../../datas/countryCode";
 import { api_account_GetVipBanner } from "../../service/api/site";
+import { bannerImgUrl } from "../../config";
 
 const Vip = () => {
 	const { t } = useTranslation();
@@ -28,6 +29,23 @@ const Vip = () => {
 		en: <InfoEn />,
 		vn: <InfoVn />
 	}[userInfo.langId];
+
+	const showTopVipBanner = () => {
+		if (userInfo.langId === "vn") {
+			return (
+				<img
+					src={`${bannerImgUrl}/desktop/img/4.0/vip/vip-banner-vn.jpg`}
+					alt="top-vn-banner"
+				/>
+			);
+		}
+		return (
+			<img
+				src={`${bannerImgUrl}/desktop/img/4.0/vip/vip-banner-en.png`}
+				alt="top-en-banner"
+			/>
+		);
+	};
 
 	useEffect(() => {
 		const getVipBanner = async () => {
@@ -51,17 +69,30 @@ const Vip = () => {
 
 	return (
 		<main className="vip">
-			<AutoPlayWithBtn Rows={rows} />
+			<div className="fullbanner">{showTopVipBanner()}</div>
+			<div className="wrapper">
+				<div className="col-12">{vipInfo}</div>
+			</div>
 
-			{vipInfo}
+			<div className="wrapper wrapper-banner">
+				<div className="col-12">
+					<div className="vip-banner">
+						<AutoPlayWithBtn Rows={rows} />
+					</div>
+				</div>
+			</div>
 
-			<VipPage
-				pageClubImg={defPageClubImg}
-				t={t}
-				currencyId={_currencyId}
-				langId={userInfo.langId}
-				vipBanner={vipBanner}
-			/>
+			<div className="wrapper">
+				<div className="col-12">
+					<VipPage
+						pageClubImg={defPageClubImg}
+						t={t}
+						currencyId={_currencyId}
+						langId={userInfo.langId}
+						vipBanner={vipBanner}
+					/>
+				</div>
+			</div>
 		</main>
 	);
 };

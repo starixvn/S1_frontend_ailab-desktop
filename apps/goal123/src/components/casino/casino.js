@@ -61,7 +61,6 @@ export default () => {
 		el => el.name.toUpperCase() === urlProvider.toUpperCase()
 	)?.tpId;
 	const slidesPerViewNum = 9;
-	console.log("urlProviderTpId", urlProviderTpId);
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -155,7 +154,7 @@ export default () => {
 	}, [favoriteStr]);
 
 	useEffect(() => {
-		if (activeProvider.index) {
+		if (activeProvider.index !== undefined) {
 			const newInitialSlide =
 				Object.keys(activeProvider).length === 0
 					? slidesPerViewNum

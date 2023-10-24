@@ -165,7 +165,7 @@ export default () => {
 	}, [favoriteStr]);
 
 	useEffect(() => {
-		if (activeProvider.index) {
+		if (activeProvider.index !== undefined) {
 			const newInitialSlide =
 				Object.keys(activeProvider).length === 0
 					? slidesPerViewNum

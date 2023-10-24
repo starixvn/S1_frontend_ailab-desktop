@@ -1,7 +1,7 @@
 export const defEventIcon = {
-	new: "icon-newicon",
-	live: "liveIcon",
-	hot: "icon-hoticon"
+	new: "tag-new",
+	live: "tag-live",
+	hot: "tag-hot"
 };
 
 export const defEventPeriod = {
@@ -51,10 +51,10 @@ export const defEventPeriod = {
 	slot_nextspin: { end: "2023/08/12 22:59:59" },
 	IM: { end: "2023/09/28 23:59:59" },
 	slot_endorphina: { end: "2023/10/25 23:59:59" },
-	PNG: { end: "2023/11/05 23:59:59" },
+	slot_fachai: { end: "2023/12/31 23:59:59" },
 	fishing_Zombie_Party: { end: "2023/11/05 23:59:59" },
 	fishing_Alien_Hunter: { end: "2023/11/05 23:59:59" },
-	slot_fachai: { end: "2023/12/31 23:59:59" }
+	PNG: { end: "2023/11/05 23:59:59" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

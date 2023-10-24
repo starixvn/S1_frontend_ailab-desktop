@@ -1,21 +1,12 @@
 import React from "react";
-import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import moment from "moment";
-import path from "../../router";
-import { bannerImgUrl } from "../../config";
 import PageEventListVn from "./components/pageEventList.vn";
 
 const VipPage = ({ pageClubImg, currencyId, t, langId, vipBanner }) => {
-	const programImgs = {
-		en: `${bannerImgUrl}/desktop/img/vip/en/vip_program_en.png`,
-		vn: `${bannerImgUrl}/desktop/img/vip/vn/vip_program_vn.png`
-	};
-
 	return (
-		<>
-			<div className="vipPage">
-				<table className="medal">
+		<div className="vip-table">
+				<table className="vip-medal">
 					<tbody>
 						<tr>
 							<td>
@@ -48,16 +39,6 @@ const VipPage = ({ pageClubImg, currencyId, t, langId, vipBanner }) => {
 					vipBanner={vipBanner}
 				/>
 			</div>
-
-			{langId ? (
-				<Link to={`/${langId}/${path.join.root}`}>
-					<img
-						src={programImgs[langId]}
-						alt={`vip-program-${langId}`}
-					/>
-				</Link>
-			) : null}
-		</>
 	);
 };
 

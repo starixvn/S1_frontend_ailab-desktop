@@ -7249,6 +7249,9 @@ input[type=file] {
 .walletModule .addBank .addBankName.active .addBankInfo .checkbox label:before {
   display: block;
 }
+.walletModule .addBank .addBankName .mask {
+  display: none;
+}
 .walletModule .addBank .addBankName.pending {
   position: relative;
 }
@@ -7256,12 +7259,22 @@ input[type=file] {
   position: absolute;
   top: 0;
   left: 0;
-  display: block;
-  background: rgba(40, 73, 133, 0.6);
+  background: rgba(40, 73, 133, 0.8);
   width: 100%;
   height: 100%;
   border-radius: 5px;
   z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  font-size: 13px;
 }
 .walletModule > .walletType {
   width: 100%;

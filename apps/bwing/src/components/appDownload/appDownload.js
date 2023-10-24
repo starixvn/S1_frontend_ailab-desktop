@@ -24,7 +24,7 @@ const AppDownload = () => {
 				<Link to={`/${userInfo.langId}`}>
 					<img
 						className="logo"
-						src={`${bannerImgUrl}/desktop/img/logo.png`}
+						src={`${bannerImgUrl}/desktop/img/4.0/logo.png`}
 						alt="img_applogo"
 					/>
 				</Link>

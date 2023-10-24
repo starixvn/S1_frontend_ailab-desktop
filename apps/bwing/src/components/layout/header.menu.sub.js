@@ -8,11 +8,10 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { useGotoGame } from "../hook/useGotoGame";
 import productList, { defTpGameType } from "../../datas/productList";
+import { bannerImgUrl } from "../../config";
 
 const SubMenu = ({
 	listClassName,
-	subDivClass1,
-	subDivClass2,
 	subItems,
 	menuKey,
 	mainUrl,
@@ -71,7 +70,6 @@ const SubMenu = ({
 	const rows = subItems?.map(s => {
 		const displayText = s.displayText ? s.displayText : t(s.displayKey);
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
-		let _className = s.className ? s.className : "";
 
 		const isInMaintain = maintainList?.some(
 			item =>
@@ -79,10 +77,6 @@ const SubMenu = ({
 				(item.tpGameType === s.tpGameType ||
 					item.tpGameType === defTpGameType.All)
 		);
-
-		if (isInMaintain) {
-			_className += ` under`;
-		}
 
 		let params = null;
 		if (s.parameter) {
@@ -106,10 +100,10 @@ const SubMenu = ({
 
 		let showIcon = null;
 		if (_iconClassName.length > 0) {
-			if (_iconClassName === "icon-newicon") {
-				showIcon = <div className="newimg" />;
+			if (_iconClassName === "tag-new") {
+				showIcon = "tag-new-pop";
 			} else {
-				showIcon = <i className={`${_iconClassName}`} />;
+				showIcon = _iconClassName;
 			}
 		}
 
@@ -126,17 +120,19 @@ const SubMenu = ({
 			return (
 				<a
 					key={key}
-					className={_className}
-					href={`/${userInfo.langId}/${mainUrl}${_urlParams}`}
-				>
-					{showIcon}
-					<div className="img">
-						{subDivClass1 ? <div className="subDivClass1" /> : null}
-						{subDivClass2 ? <div className="subDivClass1" /> : null}
-					</div>
-					<span>{displayText}</span>
+					className={isInMaintain ? "maintain" : ""}
+					href={`/${userInfo.langId}/${
+						menuKey === "casino" ? menuKey : mainUrl
+					}${_urlParams}`}>
+					<div className={showIcon ?? ""} />
+					<img
+						src={`${bannerImgUrl}/desktop/img/4.0/dropdown/${s.img}`}
+						alt=""
+					/>
+
+					<div className="title">{displayText}</div>
 					{isInMaintain ? (
-						<div className="underBtn">
+						<div className="tag-maintain">
 							{t("lbl_underMaintenance")}
 						</div>
 					) : null}
@@ -144,9 +140,8 @@ const SubMenu = ({
 			);
 		}
 		return (
-			<button
+			<a
 				key={key}
-				className={_className}
 				onClick={ClickItem.bind(
 					this,
 					s.tpId,
@@ -157,17 +152,21 @@ const SubMenu = ({
 					s.tpGameType,
 					s?.afterLogin
 				)}
-			>
-				{showIcon}
-				<div className="img">
-					{subDivClass1 ? <div className="subDivClass1" /> : null}
-					{subDivClass2 ? <div className="subDivClass1" /> : null}
-				</div>
-				<span>{displayText}</span>
+				className={isInMaintain ? "maintain" : ""}>
+				<div className={showIcon ?? ""} />
+
+				<img
+					src={`${bannerImgUrl}/desktop/img/4.0/dropdown/${s.img}`}
+					alt=""
+				/>
+
+				<div className="title">{displayText}</div>
 				{isInMaintain ? (
-					<div className="underBtn">{t("lbl_underMaintenance")}</div>
+					<div className="tag-maintain">
+						{t("lbl_underMaintenance")}
+					</div>
 				) : null}
-			</button>
+			</a>
 		);
 	});
 
@@ -182,8 +181,6 @@ SubMenu.defaultProps = {
 
 SubMenu.propTypes = {
 	listClassName: PropTypes.string.isRequired,
-	subDivClass1: PropTypes.string.isRequired,
-	subDivClass2: PropTypes.string.isRequired,
 	subItems: PropTypes.arrayOf(PropTypes.any).isRequired,
 	menuKey: PropTypes.string.isRequired,
 	mainUrl: PropTypes.string,

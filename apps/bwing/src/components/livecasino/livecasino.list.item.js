@@ -1,15 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import { defTpGameType } from "../../datas/productList";
 
-const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
-	const {
-		tpId,
-		gameId,
-		menuType,
-		lobbyPage: { bgClass },
-		tpGameType
-	} = subMenuItem;
+const LiveCasinoListItem = ({ clickItem, subMenuItem, maintainList }) => {
+	const { tpId, gameId, menuType, lobbyImg, tpGameType } = subMenuItem;
+	const { t } = useTranslation();
 
 	const isInMaintain = maintainList?.some(
 		item =>
@@ -18,9 +14,33 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 				item.tpGameType === defTpGameType.All)
 	);
 
+	const _className = `lobby-products-items${isInMaintain ? " maintain" : ""}`;
+	const baseLobbyUrl =
+		"https://banner.bw88.io/desktop/img/4.0/lobby/livecasino";
+
+	let _iconClassName = "";
+	if (subMenuItem.eventIcons) {
+		let iconStrings = "";
+		for (let i = 0; i < subMenuItem.eventIcons.length; i++) {
+			if (subMenuItem.eventIcons[i] !== "") {
+				iconStrings += `${subMenuItem.eventIcons[i]}`;
+			}
+		}
+		_iconClassName = `${iconStrings}`;
+	}
+
+	let showIcon = null;
+	if (_iconClassName.length > 0) {
+		if (_iconClassName === "tag-new") {
+			showIcon = "tag-new-pop";
+		} else {
+			showIcon = _iconClassName;
+		}
+	}
+
 	return (
-		<div
-			className={`${bgClass} ${isInMaintain ? " under" : ""}`}
+		<a
+			className={_className}
 			onClick={() =>
 				clickItem({
 					tpId,
@@ -29,21 +49,21 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 					isInMaintain,
 					tpGameType
 				})
-			}>
-			{subMenuItem?.eventIcons?.length > 0 && (
-				<i className={`icon ${subMenuItem.eventIcons[0]}`} />
+			}
+		>
+			{isInMaintain && (
+				<div className="tag-maintain">{t("lbl_underMaintenance")}</div>
 			)}
-			{isInMaintain ? (
-				<div className="underBtn">{t("lbl_underMaintenance")}</div>
-			) : null}
-		</div>
+			{showIcon && <div className={showIcon} />}
+			<img src={`${baseLobbyUrl}/${lobbyImg}`} alt="" />
+			{/* <div className="name">{_displayText}</div> */}
+		</a>
 	);
 };
 
 export default LiveCasinoListItem;
 
 LiveCasinoListItem.propTypes = {
-	t: PropTypes.func.isRequired,
 	clickItem: PropTypes.func.isRequired,
 	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
 	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
