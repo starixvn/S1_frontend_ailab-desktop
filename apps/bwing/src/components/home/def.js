@@ -37,7 +37,8 @@ export const HOT_GAME_LIST = [
 		displayKey: "lbl_SEDIE",
 		category: "sedie",
 		...productList.liveCasino_One789,
-		menuType: defMenuType.entPage
+		menuType: defMenuType.entPage,
+		icon: "tag-live"
 	},
 	{
 		displayKey: "lbl_Keno",
@@ -53,7 +54,8 @@ export const HOT_GAME_LIST = [
 		category: "lottery",
 		...productList.One789_lottery,
 		menuType: defMenuType.LinkOrBtn,
-		parameter: { ...productList.One789_lottery }
+		parameter: { ...productList.One789_lottery },
+		icon: "tag-live"
 	}
 ];
 
