@@ -2,23 +2,20 @@ import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "@reach/router";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
-import { CurrenciesEnum } from "@ailab-desktop/common";
 import * as ct from "./context";
-import { defaultLang } from "../../i18n/config";
 import {
 	getUrlParameter,
 	setCookie,
 	deleteCookie,
 	readCookie,
-	defCurrencyList,
 	setLocalStorage,
-	langAndCurrMapping,
 	memberType
 } from "./common";
 import {
 	api_site_CheckSignIn,
 	api_site_GetTpMaintainList,
-	api_site_GetTpIds
+	api_site_GetTpIds,
+	api_site_GetIpCountry
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import {
@@ -28,12 +25,7 @@ import {
 } from "../../service/api/account";
 import defPopBoxType from "./defPopBoxType";
 import useInterval from "../hook/useInterval";
-import {
-	GET_LANG_ID,
-	isVaildLang,
-	getNewLanguagePath,
-	siteDefLangId
-} from "../../service/language";
+import { isVaildLang, siteDefLangId } from "../../service/language";
 import { SiteInfo } from "../../config";
 import useGetWalletInfo from "./wrapper.walletInfo";
 // import SEO, { useGetSEODatas } from "../seo/seo";
@@ -42,41 +34,13 @@ import usePopBox from "../hook/usePopBox";
 import { api_lineLogin_LineCallback } from "../../service/api/lineLogin";
 import path from "../../router";
 import { defType } from "../hook/useHandleLineLogin";
+import defCountryCode, { currencyCode } from "../../datas/countryCode";
+import { defLangGroups } from "../header/header.langDropdown";
 
-const defaultPathLang = () => {
-	const urlLang =
-		typeof document === `undefined`
-			? ""
-			: window.location.pathname.split("/")?.[1];
-	const cookieLang = readCookie(SiteInfo.langCookie);
-	const _defaultLang = GET_LANG_ID();
-
-	let result = _defaultLang;
-	if (isVaildLang(urlLang)) {
-		result = urlLang;
-	} else if (isVaildLang(cookieLang)) {
-		result = cookieLang;
-	}
-	return result;
-};
-
-const getDefaultCurrencyId = () => {
-	let result = defCurrencyList.MYR;
-
-	const langId = defaultPathLang();
-	if (langId !== "en" && langId !== "cs") {
-		result = langAndCurrMapping[langId];
-	}
-
-	const cookieCurrencyId = readCookie(SiteInfo.currencyCookie);
-	if (cookieCurrencyId) {
-		result = Number(cookieCurrencyId);
-	}
-	return result ?? CurrenciesEnum.MY;
-};
+const flatLangList = Object.values(defLangGroups).flatMap(item => item);
 
 export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 	const location = useLocation();
 	const [popBox, setPopBox] = useState({
 		isOpen: false,
@@ -87,14 +51,10 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const [userInfo, setUserInfo] = useState({
 		isLogin: null,
 		userName: null,
-		langId: defaultPathLang(),
-		currencyId: getDefaultCurrencyId()
+		defaultLang: "en",
+		langId: "en",
+		currencyId: null
 	});
-
-	const [currentPath] = useState(
-		typeof window !== `undefined` ? window.location.pathname : null
-	);
-	const [correctPath, setCorrectPath] = useState(false);
 
 	const { errorPopBox } = usePopBox(setPopBox);
 	const walletInfo = useGetWalletInfo({
@@ -109,6 +69,10 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const [allMaintainList, setAllMaintainList] = useState([]);
 
 	const isMountedRef = useRef(null);
+
+	const pathLang =
+		typeof window !== `undefined` &&
+		window.location.pathname.split("/")?.[1];
 
 	// const { SEODatas } = useGetSEODatas({ getFromAPI: true });
 
@@ -175,8 +139,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}
-								>
+									}}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -196,8 +159,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}
-								>
+									}}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -269,8 +231,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}
-								>
+									}}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -281,67 +242,65 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		}
 	}, []);
 
+	// * checkSignIn
 	useEffect(() => {
-		api_site_CheckSignIn()
-			.then(
-				res => res.data.errorCode === 0,
-				() => setCorrectPath(true)
-			)
-			.then(isLogin => {
-				if (userInfo.kickout) {
-					if (userInfo.willLogout) {
+		api_site_CheckSignIn().then(({ data: { errorCode } = {} }) => {
+			const isLogin = errorCode === 0;
+
+			if (userInfo.kickout) {
+				if (userInfo.willLogout) {
+					setUserInfo(prevS => ({
+						...prevS,
+						kickout: false,
+						willLogout: false
+					}));
+				} else {
+					const ClickClose = () => {
+						setPopBox({ isOpen: false });
 						setUserInfo(prevS => ({
 							...prevS,
-							kickout: false,
-							willLogout: false
+							kickout: false
 						}));
-					} else {
-						const ClickClose = () => {
-							setPopBox({ isOpen: false });
-							setUserInfo(prevS => ({
-								...prevS,
-								kickout: false
-							}));
-						};
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.LogoutHint,
-							content: t("msg_ForceLogedout"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClickClose}
-									>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
-				} else if (
-					isMountedRef.current &&
-					((afterLogin && !isLogin) || (isLogin && onlyBeforeLogin))
+					};
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.LogoutHint,
+						content: t("msg_ForceLogedout"),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={ClickClose}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+				}
+			} else if (
+				isMountedRef.current &&
+				((afterLogin && !isLogin) || (isLogin && onlyBeforeLogin))
+			) {
+				if (
+					localStorage.getItem(
+						`${userInfo.userName}-doNotRedirect`
+					) === "1"
 				) {
-					if (
-						localStorage.getItem(
-							`${userInfo.userName}-doNotRedirect`
-						) === "1"
-					) {
-						localStorage.removeItem(
-							`${userInfo.userName}-doNotRedirect`
-						);
-					} else {
-						navigate(`/${userInfo.langId}`);
-					}
+					localStorage.removeItem(
+						`${userInfo.userName}-doNotRedirect`
+					);
+				} else {
+					navigate(`/${userInfo.langId}`);
 				}
-				if (isLogin !== userInfo.isLogin && isMountedRef.current) {
-					setUserInfo(prevState => ({
-						...prevState,
-						isLogin
-					}));
-				}
-			});
+			}
+
+			if (isLogin !== userInfo.isLogin && isMountedRef.current) {
+				setUserInfo(prevState => ({
+					...prevState,
+					isLogin
+				}));
+			}
+		});
 	}, [
 		userInfo.isLogin,
 		userInfo.kickout,
@@ -350,6 +309,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		setPopBox
 	]);
 
+	// * 登入後，取得必要資訊
 	useEffect(() => {
 		if (userInfo.isLogin) {
 			if (!userInfo.regTime) {
@@ -364,10 +324,12 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 							setUserInfo(prevState => ({
 								...prevState,
 								...data,
+								currencyId: data.currencyId,
 								langId: isVaildLang(data.langId)
 									? data.langId
 									: siteDefLangId
 							}));
+
 							data.isResetPwd &&
 								setPopBox({
 									isOpen: true,
@@ -395,8 +357,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 																setPopBox({
 																	isOpen: false
 																});
-															}}
-														>
+															}}>
 															{t("lbl_Close")}
 														</button>
 													</div>
@@ -416,8 +377,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 											className="btn-check"
 											onClick={() => {
 												setPopBox({ isOpen: false });
-											}}
-										>
+											}}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -437,8 +397,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 											className="btn-check"
 											onClick={() => {
 												setPopBox({ isOpen: false });
-											}}
-										>
+											}}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -471,8 +430,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 												setPopBox({
 													isOpen: false
 												});
-											}}
-										>
+											}}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -498,8 +456,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -519,8 +476,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -549,30 +505,82 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		}
 	}, [userInfo.isLogin, userInfo.regTime]);
 
+	// * 登入前 => 設定登入前的默認語系與幣別
 	useEffect(() => {
-		if (userInfo.isLogin !== null) {
-			if (typeof window !== `undefined`) {
-				const pathLang = window.location.pathname.split("/")?.[1];
-				const currentLang = isVaildLang(userInfo.langId)
-					? userInfo.langId
-					: GET_LANG_ID();
+		const getDefaultCurrencyId = async () => {
+			const getCurrencyIdByUserIp = async () => {
+				let currencyIdByUserIp;
+				try {
+					const {
+						data: {
+							data: { code }
+						}
+					} = await api_site_GetIpCountry();
 
-				if (!pathLang && currentLang !== defaultLang) {
-					navigate(`/${currentLang}`);
-				} else if (pathLang !== "" && pathLang !== currentLang) {
-					setUserInfo(prevState => ({
-						...prevState,
-						langId: currentLang
-					}));
+					currencyIdByUserIp = currencyCode[code];
 
-					const newPathArr = getNewLanguagePath(currentLang);
-					navigate(newPathArr);
-				} else {
-					setCorrectPath(true);
+					return currencyIdByUserIp;
+				} catch (error) {
+					// eslint-disable-next-line no-console
+					console.error(error);
 				}
+
+				return currencyIdByUserIp;
+			};
+
+			// * cookie 幣別
+			const currencyIdByCookie = readCookie(SiteInfo.currencyCookie);
+
+			// * 使用者當前 ip 幣別
+			const currencyIdByUserIp = await getCurrencyIdByUserIp();
+			// * 默認幣別
+			const defaultCurrencyId = currencyCode.USD;
+
+			const currencyId =
+				currencyIdByCookie || currencyIdByUserIp || defaultCurrencyId;
+
+			return Number(currencyId);
+		};
+
+		const initCurrencyIdAndLanguage = async () => {
+			// * 取得默認幣別
+			const defaultCurrencyId = await getDefaultCurrencyId();
+			// * 透過幣別取得默認語系
+			const defaultLangId = String(
+				defCountryCode[defaultCurrencyId]
+			).toLowerCase();
+
+			let langIdByPath;
+			let currencyIdByPath;
+
+			if (pathLang) {
+				const result = flatLangList.find(
+					({ value, currencyId }) =>
+						currencyId === defaultCurrencyId && value === pathLang
+				);
+
+				langIdByPath = result?.value;
+				currencyIdByPath = result?.currencyId;
 			}
+			setUserInfo(prev => ({
+				...prev,
+				langId: langIdByPath || defaultLangId,
+				currencyId: currencyIdByPath || defaultCurrencyId
+			}));
+		};
+
+		// * null 不能進來，所以不使用 falsey
+		if (userInfo.isLogin === false) {
+			initCurrencyIdAndLanguage();
 		}
-	}, [currentPath, i18n.language, userInfo.langId, userInfo.isLogin]);
+	}, [userInfo.isLogin]);
+
+	// * 補語系 url
+	useEffect(() => {
+		if (!pathLang) {
+			navigate(`/${userInfo.langId}`);
+		}
+	}, [pathLang, userInfo.langId]);
 
 	useEffect(() => {
 		const AffId = getUrlParameter("AffId");
@@ -620,8 +628,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -641,8 +648,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -672,13 +678,19 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		userInfo.isLogin ? 10000 : null
 	);
 
-	const content = correctPath ? (
+	// * checkSign 後，`登出狀態` 及 `登入後並拿到資訊` 才渲染畫面
+	const correctPath =
+		userInfo.isLogin === false ||
+		(userInfo.isLogin && userInfo.accountName);
+
+	if (!correctPath) return null;
+
+	return (
 		<ct.popUpMsgContext.Provider value={{ setPopUp, popUp }}>
 			<ct.maintainListContext.Provider value={{ allMaintainList }}>
 				<ct.productTpIdsContext.Provider value={{ productTpIds }}>
 					<ct.productTpGameTypeSettingListContext.Provider
-						value={{ tpGameTypeSettingList }}
-					>
+						value={{ tpGameTypeSettingList }}>
 						<ct.userInfoContext.Provider
 							value={{
 								userInfo: {
@@ -688,30 +700,24 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									)
 								},
 								setUserInfo
-							}}
-						>
+							}}>
 							{/* currencyName: t(`Label_General_Currency_${originUserInfo.currencyId}`), */}
 							<ct.walletInfoContext.Provider
 								value={{
 									...walletInfo.state,
 									dispatch: walletInfo.dispatch
-								}}
-							>
+								}}>
 								<ct.msgCountContext.Provider
-									value={{ msgCount, setMsgCount }}
-								>
+									value={{ msgCount, setMsgCount }}>
 									<ct.popBoxContext.Provider
-										value={{ popBox, setPopBox }}
-									>
+										value={{ popBox, setPopBox }}>
 										<ct.loadingContext.Provider
-											value={{ loading, setLoading }}
-										>
+											value={{ loading, setLoading }}>
 											<ct.isRootContext.Provider
 												value={{
 													isRoot,
 													setIsRoot
-												}}
-											>
+												}}>
 												<ThirdPartyJS />
 
 												{children}
@@ -725,9 +731,5 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				</ct.productTpIdsContext.Provider>
 			</ct.maintainListContext.Provider>
 		</ct.popUpMsgContext.Provider>
-	) : (
-		<ThirdPartyJS />
 	);
-
-	return content;
 };
