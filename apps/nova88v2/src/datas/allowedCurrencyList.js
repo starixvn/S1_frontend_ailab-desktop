@@ -221,7 +221,8 @@ const allowedCurrencyList = {
 		defCurrencyList.INR,
 		defCurrencyList.USD,
 		defCurrencyList.CNY,
-		defCurrencyList.KHM
+		defCurrencyList.KHM,
+		defCurrencyList.VND
 	]
 };
 
