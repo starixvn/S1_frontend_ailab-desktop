@@ -23,10 +23,8 @@ import { defBannerType, api_site_GetIpCountry } from "../../service/api/site";
 import SwipperBanner from "../common/swipperBanner";
 import Marquee from "./marquee";
 import path from "../../router";
-import SideBarQuickLink from "./sideBarQuickLink";
 import PromoList from "./promoList";
 import MysteryBoxLink from "./mysteryBoxLink";
-import QuickdownloadLink from "./quickdownloadLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { angpaoAllowedCurrencies, angPaoEventPeriod } from "../../pages/angpao";
 import LiveCasino from "./Casino";
@@ -172,7 +170,6 @@ const IndexPage = () => {
 
 		const displayPromotionPopup = () => {
 			const cookieName = `popUpPromotion${userInfo.userName}`;
-
 			// * 如果未登入 or 當日觸發過 則直接進入下一個彈窗
 			if (
 				!userInfo.isLogin ||
@@ -212,7 +209,8 @@ const IndexPage = () => {
 												navigate(
 													`/${path.promotion.root}?bonusCode=${bonusCode}`
 												);
-											}}>
+											}}
+										>
 											{t("lbl_ClaimNow")}
 										</button>
 
@@ -235,6 +233,51 @@ const IndexPage = () => {
 					openNextPopUp();
 				}
 			});
+		};
+
+		const displaySponsorshipPopup = () => {
+			if (new Date() > new Date(2023, 12, 31)) {
+				openNextPopUp();
+				return;
+			}
+			const cookieName = `Sponsorship${userInfo.userName}`;
+			if (
+				!userInfo.isLogin &&
+				// * 多判斷是否有 accountName 防止 setCookie 紀錄 Guest 狀態時的資料
+				!userInfo.accountName &&
+				readCookie(cookieName) !== "1"
+			) {
+				setCookie(cookieName, "1", 1);
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Modal,
+					content: (
+						<div className="pop sponsorpop">
+							<div className="sponsor active">
+								<div className="sponsor-content">
+									<img
+										src={`${
+											process.env.REACT_APP_BANNER_URL
+										}/desktop/img/sponsorpop-${
+											userInfo?.langId || "en"
+										}.png`}
+										alt="img-sponsorpop"
+									/>
+									<img
+										src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/promosBackPopup/delet.png`}
+										alt=""
+										className="closepop"
+										onClick={() => {
+											closePopBox();
+											openNextPopUp();
+										}}
+									/>
+								</div>
+							</div>
+						</div>
+					)
+				});
+			}
 		};
 
 		// * 期限六個月移除 上PRD 時需更新
@@ -278,9 +321,8 @@ const IndexPage = () => {
 								/>
 								<button
 									className="popgoto"
-									onClick={() =>
-										setPopBox({ isOpen: false })
-									}>
+									onClick={() => setPopBox({ isOpen: false })}
+								>
 									{/* 這裡只有 vn en 語系 故不用i18n  */}
 									JoinNow
 								</button>
@@ -299,6 +341,7 @@ const IndexPage = () => {
 
 		const popUpStack = [
 			displayDepositPopup,
+			displaySponsorshipPopup,
 			displayPromotionPopup,
 			disclaimerForVnd
 		];
@@ -327,7 +370,8 @@ const IndexPage = () => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
