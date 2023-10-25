@@ -216,6 +216,24 @@
   margin: 0 5px;
   cursor: pointer;
 }
+.icon-livechat::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url(https://banner.bw88.io/desktop/img/4.0/icon-livechat.svg) center/cover;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.icon-twitter::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url(https://banner.bw88.io/desktop/img/4.0/icon-twitter.svg) center/cover;
+  margin: 0 5px;
+  cursor: pointer;
+}
 .icon-telegram::before {
   content: "";
   display: block;

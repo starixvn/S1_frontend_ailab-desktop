@@ -505,6 +505,11 @@ export const defCasinoProviders = {
 		name: "CQ9",
 		tpGameType: 29
 	},
+	PNG: {
+		tpId: 54,
+		name: "PNG",
+		tpGameType: 105
+	},
 	// AstroTech: {
 	// 	tpId: 24,
 	// 	name: "AstroTech",
@@ -567,5 +572,10 @@ export const defCasinoProviders = {
 		tpId: 49,
 		name: "Endorphina",
 		tpGameType: 98
+	},
+	FaChai: {
+		tpId: 55,
+		name: "FaChai",
+		tpGameType: 106
 	}
 };
