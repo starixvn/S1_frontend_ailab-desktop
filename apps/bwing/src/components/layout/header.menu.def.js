@@ -621,38 +621,41 @@ export const defMenuLinks = {
 				},
 				img: "livecasino/pp.png"
 			},
-			// {
-			// 	...productList.liveCasino_BG,
-			// 	className: "liveBG",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.liveCasino_BG
-			// 		})
-			// 	],
-			// 	icon: "icon icon-BG",
-			// 	displayText: "Big Gaming",
-			// 	menuType: defMenuType.entPage,
-			// 	lobbyPage: {
-			// 		bgClass: "live-bg"
-			// 	},
-			// },
-
-			// {
-			// 	...productList.liveCasino_YeeBet,
-			// 	className: "liveYB",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.yee_bet
-			// 		})
-			// 	],
-			// 	displayText: "YEEBET",
-			// 	menuType: defMenuType.entPage,
-			// 	lobbyPage: {
-			// 		bgClass: "live-yb"
-			// 	}
-			// },
+			{
+				...productList.liveCasino_BG,
+				className: "liveBG",
+				lobbyImg: "bg.png",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_BG
+					})
+				],
+				icon: "icon icon-BG",
+				displayText: "Big Gaming",
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-bg"
+				},
+				img: "livecasino/bg.png"
+			},
+			{
+				...productList.liveCasino_YeeBet,
+				className: "liveYB",
+				lobbyImg: "yeebet.png",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.yee_bet
+					})
+				],
+				displayText: "YEEBET",
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-yb"
+				},
+				img: "livecasino/yeebet.png"
+			},
 			{
 				...productList.liveCasino_Skywind,
 				className: "liveSK",

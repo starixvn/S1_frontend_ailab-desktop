@@ -887,6 +887,10 @@ img {
   margin-left: 60px !important;
 }
 
+.css-1muhx5h {
+  background-color: #1C317B;
+}
+
 button {
   font-family: "Bai Jamjuree", sans-serif;
 }
@@ -17722,13 +17726,13 @@ input + .iconModule i.icon.icon-checkmark:before {
   right: 80px;
   width: 40px;
   height: 40px;
-  background: rgba(86, 206, 255, 0.8);
+  background: #F38C00;
   border-radius: 100%;
   z-index: 1;
-  color: #070e22;
+  color: #fff;
   font-weight: bold;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  -webkit-box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.5);
+          box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.5);
 }
 
 .snow {
