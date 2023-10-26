@@ -6,7 +6,13 @@ import { popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 
 export const defSpecialSetting = {
-	playTech: defCasinoProviders.PlayTech.tpId
+	playTech: defCasinoProviders.PlayTech.tpId,
+	PG: defCasinoProviders.PG.tpId
+};
+
+export const defLoginGameType = {
+	returlGameUrl: 1,
+	returnHtml: 2
 };
 
 const playTechLaunchGame = (client, game, mode, openType) => {
@@ -89,7 +95,8 @@ export const useGotoGame = ({
 			tpId: _tpId,
 			gameId: _gameId,
 			isFun: _isFun,
-			tpGameType
+			tpGameType,
+			loginGameType
 		}) => {
 			if (_isLogin) {
 				api_tp_GotoGame({
@@ -99,11 +106,12 @@ export const useGotoGame = ({
 					fun: _isFun ? "1" : "0",
 					gameType:
 						_tpId === defSpecialSetting.playTech ? "slots" : "",
-					tpGameType: String(tpGameType)
+					tpGameType: String(tpGameType),
+					loginGameType: String(loginGameType)
 				}).then(
 					async res => {
 						if (res.data.errorCode === 0 && res.data.message) {
-							const result = JSON.parse(res.data.message);
+							const result = res.data.message;
 
 							if (_tpId === defSpecialSetting.playTech) {
 								const {
@@ -137,6 +145,16 @@ export const useGotoGame = ({
 									iapiLogin(username, password, 1, lang);
 								} else {
 									launchGameWithFunMode({ ...result });
+								}
+							} else if (_tpId === defSpecialSetting.PG) {
+								if (
+									loginGameType ===
+									defLoginGameType.returnHtml
+								) {
+									const newWindow = window.open();
+									newWindow.document.write(res.data.message);
+								} else {
+									window.open(res.data.message);
 								}
 							} else {
 								setData(() => result);
