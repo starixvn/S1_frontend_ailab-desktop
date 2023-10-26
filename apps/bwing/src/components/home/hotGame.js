@@ -134,7 +134,6 @@ const HotGames = ({ maintainList }) => {
 				<a
 					className="home-hotgame-left"
 					onClick={() => handleHotGameClick({ ...HOT_GAME_LIST[0] })}>
-					<i className="tag-live" />
 					<img
 						src={`${bannerImgUrl}/desktop/img/4.0/hotgames/${HOT_GAME_LIST[0].category}.png`}
 						alt=""
@@ -145,11 +144,12 @@ const HotGames = ({ maintainList }) => {
 				</a>
 				<div className="home-hotgame-right">
 					{HOT_GAME_LIST.slice(1).map(
-						({ displayKey, category, ...rest }) => (
+						({ displayKey, category, icon, ...rest }) => (
 							<a
 								className="home-hotgame-item"
 								key={`${displayKey}_${category}`}
 								onClick={() => handleHotGameClick({ ...rest })}>
+								{icon && <i className={icon} />}
 								<img
 									src={`${bannerImgUrl}/desktop/img/4.0/hotgames/${category}.png`}
 									alt=""

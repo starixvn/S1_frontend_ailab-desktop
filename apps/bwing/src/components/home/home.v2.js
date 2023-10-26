@@ -105,7 +105,18 @@ const Home = () => {
 		} catch (error) {
 			setPopBox({
 				isOpen: true,
-				content: t("msg_ApiServerError")
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
 			});
 		}
 	};
@@ -121,7 +132,18 @@ const Home = () => {
 		} catch (error) {
 			setPopBox({
 				isOpen: true,
-				content: t("msg_ApiServerError")
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
 			});
 		}
 	};
@@ -138,7 +160,18 @@ const Home = () => {
 		} catch (error) {
 			setPopBox({
 				isOpen: true,
-				content: t("msg_ApiServerError")
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
 			});
 		}
 	};
@@ -150,7 +183,18 @@ const Home = () => {
 		} catch (error) {
 			setPopBox({
 				isOpen: true,
-				content: t("msg_ApiServerError")
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
 			});
 		}
 	};
@@ -167,7 +211,18 @@ const Home = () => {
 		} catch (error) {
 			setPopBox({
 				isOpen: true,
-				content: t("msg_ApiServerError")
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
 			});
 		}
 	};
@@ -184,7 +239,18 @@ const Home = () => {
 		} catch (error) {
 			setPopBox({
 				isOpen: true,
-				content: t("msg_ApiServerError")
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
 			});
 		}
 	};

@@ -47,6 +47,7 @@ export const defEventPeriod = {
 	GPI_Lottery: { end: "2023/02/11 11:00:00" },
 	yee_bet: { start: "2023/02/10 12:00:00" },
 	ap_mini_game: { end: "2024/03/10 12:00:00" },
+	liveCasino_BG: { end: "2023/12/31 22:59:59" },
 	TFGaming: { end: "2023/06/30 12:00:00" },
 	slot_nextspin: { end: "2023/08/12 22:59:59" },
 	IM: { end: "2023/09/28 23:59:59" },

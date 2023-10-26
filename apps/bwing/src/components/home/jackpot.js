@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import path from "../../router";
 import { getCurrencyCode } from "../common/common";
 import useJackPotTick from "../hook/useJackPotTick";
+import useInterval from "../hook/useInterval";
 
 const Jackpot = ({ t, userInfo }) => {
 	const currencyId = userInfo.currencyId ?? getCurrencyCode(userInfo.langId);
 	const { isJackPotLoaded } = useJackPotTick({ currencyId });
+	const jackpotRef = useRef(null);
+	const [jackpotNum, setJackpotNum] = useState(null);
+
+	useInterval(() => {
+		if (jackpotRef.current) {
+			const text = document.getElementById("jpot-id").innerText;
+			const num = text.replace(/\.\d*/, "");
+			setJackpotNum(num);
+		}
+	}, 100);
 
 	return (
 		<div className={`col-6 mb-6 ${!isJackPotLoaded ? "maintain" : ""}`}>
@@ -19,12 +30,18 @@ const Jackpot = ({ t, userInfo }) => {
 						navigate(
 							`/${userInfo.langId}/${path.casino.root}?page=jackpot`
 						)
-					}>
+					}
+				>
 					<button>{t("lbl_PlayNow")}</button>
 				</div>
 				<div className="home-jackpot-number">
 					<div>
-						<span id="jpot-id" />
+						<span
+							id="jpot-id"
+							ref={jackpotRef}
+							style={{ display: "none" }}
+						/>
+						{jackpotNum && <span>{jackpotNum}</span>}
 					</div>
 				</div>
 
