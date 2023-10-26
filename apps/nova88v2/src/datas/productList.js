@@ -30,6 +30,7 @@ export const defSlotTpGameType = {
 	SG: { tpId: 10, tpGameType: 15, name: "spadegaming" },
 	PG: { tpId: 14, tpGameType: 17, name: "pg" },
 	CQ9: { tpId: 16, tpGameType: 29, name: "cq9" },
+	PNG: { tpId: 54, tpGameType: 105, name: "png" },
 	// Iconic: { tpId: 24, tpGameType: 39, name: "astro-tech" },
 	// 新的 PlayTech (Seamless Wallet)
 	PlayTech: { tpId: 51, tpGameType: 100, name: "playtech" },
@@ -191,6 +192,10 @@ export default {
 	casino_CQ9: {
 		tpId: 16,
 		tpGameType: 29
+	},
+	casino_PNG: {
+		tpId: 54,
+		tpGameType: 105
 	},
 	casino_GPI: {
 		tpId: 6,
