@@ -7,7 +7,13 @@ import defPopBoxType from "../common/defPopBoxType";
 
 export const defSpecialSetting = {
 	playTech: productList.casino_PlayTech.tpId,
-	sports_9w: productList._9WSports.tpId
+	sports_9w: productList._9WSports.tpId,
+	PG: productList.casino_PG.tpId
+};
+
+export const defLoginGameType = {
+	returlGameUrl: 1,
+	returnHtml: 2
 };
 
 const playTechLaunchGame = (client, game, mode, openType) => {
@@ -105,7 +111,8 @@ export const useGotoGame = ({
 			tpId: _tpId,
 			gameId: _gameId,
 			isFun: _isFun,
-			tpGameType
+			tpGameType,
+			loginGameType
 		}) => {
 			let returnData = "";
 			if (_isLogin) {
@@ -117,11 +124,12 @@ export const useGotoGame = ({
 						fun: _isFun ? "1" : "0",
 						gameType:
 							_tpId === defSpecialSetting.playTech ? "slots" : "",
-						tpGameType: String(tpGameType)
+						tpGameType: String(tpGameType),
+						loginGameType: String(loginGameType)
 					});
 
 					if (res.data.errorCode === 0 && res.data.message) {
-						const result = JSON.parse(res.data.message);
+						const result = res.data.message;
 						setData(() => result);
 						if (_tpId === defSpecialSetting.playTech) {
 							const {
@@ -160,7 +168,14 @@ export const useGotoGame = ({
 								launchGameWithFunMode({ ...result });
 							}
 						} else if (_tpId === defSpecialSetting.sports_9w) {
-							returnData = result;
+							returnData = JSON.parse(result);
+						} else if (_tpId === defSpecialSetting.PG) {
+							if (loginGameType === defLoginGameType.returnHtml) {
+								const newWindow = window.open();
+								newWindow.document.write(res.data.message);
+							} else {
+								window.open(res.data.message);
+							}
 						}
 					} else if (
 						res.data.errorCode === 3000 &&
