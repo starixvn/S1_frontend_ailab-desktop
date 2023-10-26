@@ -49,6 +49,8 @@ const HonorablePartner = () => {
 			loginCallback,
 			tpGameType
 		});
+
+		return null;
 	};
 
 	// * 透過條件過濾資料
@@ -203,6 +205,12 @@ const HonorablePartner = () => {
 				path: paths.casino.root,
 				parameter: { ...productList.casino_SPRIBE },
 				imgName: "spribe"
+			},
+			{
+				...productList.casino_PNG,
+				path: paths.casino.root,
+				parameter: { ...productList.casino_PNG },
+				imgName: "png"
 			},
 			{
 				...productList.casino_Endorphina,
