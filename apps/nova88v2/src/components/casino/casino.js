@@ -19,7 +19,11 @@ import TopQuickLink from "./casino.topQuickLink";
 import CasinoJackpot from "./casino.jackpot";
 import { api_game_GetSlotGamePage } from "../../service/api/game";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
-import { defSpecialSetting, useGotoGame } from "../hook/useGotoGame";
+import {
+	defSpecialSetting,
+	defLoginGameType,
+	useGotoGame
+} from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
 import {
 	defCategory,
@@ -57,7 +61,11 @@ export default () => {
 	);
 	const [isProcessing, setIsProcessing] = useState(false);
 	const { loading, setLoading } = useContext(loadingContext);
-	const { handleGoToGame } = useGotoGame({ autoGetData: false });
+	const { handleGoToGame } = useGotoGame({
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId,
+		autoGetData: false
+	});
 	const { throttle } = useDelayFunc();
 	const urlTpId = getUrlParameter("tpId");
 	const urlProvider = getUrlParameter("provider");
@@ -533,17 +541,18 @@ export default () => {
 						gameId,
 						isFree,
 						langId: userInfo.langId,
-						// execFunction:
-						// 	tpId === defSpecialSetting.playTech
-						// 		? handleGoToGame.bind(this, {
-						// 				langId: userInfo.langId,
-						// 				tpId,
-						// 				gameId,
-						// 				isFun: isFree,
-						// 				tpGameType
-						// 		  })
-						// 		: null,
-						tpGameType
+						execFunction:
+							tpId === defSpecialSetting.PG
+								? handleGoToGame.bind(this, {
+										langId: userInfo.langId,
+										tpId,
+										gameId,
+										isFun: isFree,
+										tpGameType,
+										loginGameType:
+											defLoginGameType.returnHtml
+								  })
+								: null
 					}),
 				delay
 			);
