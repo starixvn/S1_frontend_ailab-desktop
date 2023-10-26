@@ -7,9 +7,13 @@ import { defCategory } from "../../datas/productList";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { SET_CASINO_ENTER_PAGE, SET_ENTER_PAGE } from "../../service/enterPage";
 import useDelayFunc from "../hook/useDelayFunc";
+import {
+	defSpecialSetting,
+	useGotoGame,
+	defLoginGameType
+} from "../hook/useGotoGame";
 import { defMenuLinks, defMenuType } from "../layout/header.menu.def";
 import { defPopBoxType } from "../common/defPopBoxType";
-import { defSpecialSetting, useGotoGame } from "../hook/useGotoGame";
 
 const RecentlyViewed = ({ recentlyViewedGames }) => {
 	const { t } = useTranslation();
@@ -105,13 +109,15 @@ const RecentlyViewed = ({ recentlyViewedGames }) => {
 							isFree: false,
 							langId: userInfo.langId,
 							execFunction:
-								selectedTpId === defSpecialSetting.playTech
+								selectedTpId === defSpecialSetting.PG
 									? handleGoToGame.bind(this, {
 											langId: userInfo.langId,
 											tpId: selectedTpId,
 											gameId: selectedGameId,
 											isFun: false,
-											tpGameType: selectedTpGameType
+											tpGameType: selectedTpGameType,
+											loginGameType:
+												defLoginGameType.returnHtml
 									  })
 									: null,
 							tpGameType: selectedTpGameType

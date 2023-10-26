@@ -18,7 +18,11 @@ import CasinoJackpot from "./casino.jackpot";
 import { BannerSwipper } from "../common/customSwipper";
 import { api_game_GetSlotGamePage } from "../../service/api/game";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
-import { defSpecialSetting, useGotoGame } from "../hook/useGotoGame";
+import {
+	defSpecialSetting,
+	defLoginGameType,
+	useGotoGame
+} from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
 import {
 	defCasinoProviders,
@@ -480,16 +484,18 @@ export default () => {
 						gameId,
 						isFree,
 						langId: userInfo.langId,
-						// execFunction:
-						// 	tpId === defSpecialSetting.playTech
-						// 		? handleGoToGame.bind(this, {
-						// 				langId: userInfo.langId,
-						// 				tpId,
-						// 				gameId,
-						// 				isFun: isFree,
-						// 				tpGameType
-						// 		  })
-						// 		: null,
+						execFunction:
+							tpId === defSpecialSetting.PG
+								? handleGoToGame.bind(this, {
+										langId: userInfo.langId,
+										tpId,
+										gameId,
+										isFun: isFree,
+										tpGameType,
+										loginGameType:
+											defLoginGameType.returnHtml
+								  })
+								: null,
 						tpGameType
 					}),
 				delay

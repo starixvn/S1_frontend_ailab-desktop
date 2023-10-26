@@ -5821,6 +5821,7 @@ input[type=file] {
   overflow-y: auto;
   @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap");
   @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&display=swap");
 }
 #popup .pop.photo img {
   max-width: 800px;
@@ -6696,6 +6697,108 @@ input[type=file] {
 }
 #popup .pop.vnpop {
   overflow-y: unset;
+}
+#popup .pop .sponsor {
+  background: transparent;
+  padding-top: unset;
+  border-radius: unset;
+  display: none;
+}
+#popup .pop .sponsor.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#popup .pop .sponsor-content {
+  -webkit-animation: sponsor-content 0.3s linear 0.2s backwards;
+          animation: sponsor-content 0.3s linear 0.2s backwards;
+}
+@-webkit-keyframes sponsor-content {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.95) translateY(1em);
+            transform: scale(0.95) translateY(1em);
+  }
+}
+@keyframes sponsor-content {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.95) translateY(1em);
+            transform: scale(0.95) translateY(1em);
+  }
+}
+#popup .pop .sponsor .popgoto {
+  color: #fff;
+  min-width: 150px;
+  background: #113158;
+  padding: 10px 0px;
+  border-radius: 26px;
+  -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 14px;
+  position: absolute;
+  left: calc(50% - 5px);
+  bottom: calc(50% - 25px);
+  -webkit-animation: popgoto 2s ease-in-out;
+          animation: popgoto 2s ease-in-out;
+}
+#popup .pop .sponsor .popgoto:hover {
+  background: #ff5e00;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@keyframes popgoto {
+  0% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+  }
+  75% {
+    opacity: 0;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0);
+  }
+  88% {
+    opacity: 1;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    opacity: 1;
+    -webkit-box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+#popup .pop .sponsor .closepop {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0.7;
+  -webkit-animation: closepop 2s ease-in-out;
+          animation: closepop 2s ease-in-out;
+}
+#popup .pop .sponsor .closepop:hover {
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@keyframes closepop {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  88% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .Submit,

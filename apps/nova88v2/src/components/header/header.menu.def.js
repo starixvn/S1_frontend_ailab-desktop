@@ -151,17 +151,18 @@ const defSortSlot = {
 		slot_JI: 7,
 		slot_SPRIBE: 8,
 		slot_JOKER: 9,
-		slot_RedTiger: 10,
-		slot_NetEnt: 1,
-		slot_CQ9: 12,
-		slot_PNG: 13,
-		slot_GPI: 14,
-		slot_YGG: 15,
-		slot_AMB: 16,
-		slot_Habanero: 17,
-		slot_SimplePlay: 18,
-		slot_Skywind: 19,
-		slot_PT: 20
+		slot_PEGASUS: 10,
+		slot_RedTiger: 11,
+		slot_NetEnt: 12,
+		slot_CQ9: 13,
+		slot_PNG: 14,
+		slot_GPI: 15,
+		slot_YGG: 16,
+		slot_AMB: 17,
+		slot_Habanero: 18,
+		slot_SimplePlay: 19,
+		slot_Skywind: 20,
+		slot_PT: 21
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -202,13 +203,14 @@ const defSortSlot = {
 		slot_RedTiger: 10,
 		slot_NetEnt: 11,
 		slot_CQ9: 12,
-		slot_GPI: 13,
-		slot_YGG: 14,
-		slot_AMB: 15,
-		slot_Habanero: 16,
-		slot_SimplePlay: 17,
-		slot_Skywind: 18,
-		slot_PT: 19
+		slot_PNG: 13,
+		slot_GPI: 14,
+		slot_YGG: 15,
+		slot_AMB: 16,
+		slot_Habanero: 17,
+		slot_SimplePlay: 18,
+		slot_Skywind: 19,
+		slot_PT: 20
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -968,6 +970,23 @@ export const defMenuLinks = {
 				parameter: { provider: "joker" },
 				...productList.casino_JOKER,
 				allowCurrencies: allowedCurrencyList.slotJoker
+			},
+			{
+				keyName: "slot_PEGASUS",
+				icon: "icon icon-PRGASUS",
+				displayText: "Pegasus",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotpegasus.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_PEGASUS },
+				...productList.casino_PEGASUS,
+				allowCurrencies: allowedCurrencyList.slotJoker,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_Pegasus
+					})
+				]
 			},
 			{
 				keyName: "slot_RedTiger",

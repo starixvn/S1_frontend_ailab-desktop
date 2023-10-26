@@ -5,7 +5,11 @@ import { Navigation } from "swiper";
 import { useTranslation } from "react-i18next";
 import { popBoxContext, userInfoContext } from "../../common/context";
 import usePopBox from "../../hook/usePopBox";
-import { defSpecialSetting, useGotoGame } from "../../hook/useGotoGame";
+import {
+	defSpecialSetting,
+	defLoginGameType,
+	useGotoGame
+} from "../../hook/useGotoGame";
 import { defMenuLinks, defMenuType } from "../../layout/header.menu.def";
 import { defPopBoxType } from "../../common/popBox";
 import {
@@ -116,13 +120,15 @@ const RecentlyViewedGameList = () => {
 							isFree: false,
 							langId: userInfo.langId,
 							execFunction:
-								selectedTpId === defSpecialSetting.playTech
+								selectedTpId === defSpecialSetting.PG
 									? handleGoToGame.bind(this, {
 											langId: userInfo.langId,
 											tpId: selectedTpId,
 											gameId: selectedGameId,
 											isFun: false,
-											tpGameType: selectedTpGameType
+											tpGameType: selectedTpGameType,
+											loginGameType:
+												defLoginGameType.returnHtml
 									  })
 									: null,
 							tpGameType: selectedTpGameType

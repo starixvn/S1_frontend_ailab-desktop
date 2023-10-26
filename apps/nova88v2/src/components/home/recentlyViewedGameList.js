@@ -7,7 +7,11 @@ import { api_game_GetRecentlyViewed } from "../../service/api/game";
 import { popBoxContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
 import { defMenuLinks, defMenuType } from "../header/header.menu.def";
-import { defSpecialSetting, useGotoGame } from "../hook/useGotoGame";
+import {
+	defSpecialSetting,
+	defLoginGameType,
+	useGotoGame
+} from "../hook/useGotoGame";
 import {
 	Open9WSports,
 	SET_CASINO_ENTER_PAGE,
@@ -132,13 +136,15 @@ const RecentlyViewedGameList = () => {
 							isFree: false,
 							langId: userInfo.langId,
 							execFunction:
-								selectedTpId === defSpecialSetting.playTech
+								selectedTpId === defSpecialSetting.PG
 									? handleGoToGame.bind(this, {
 											langId: userInfo.langId,
 											tpId: selectedTpId,
 											gameId: selectedGameId,
 											isFun: false,
-											tpGameType: selectedTpGameType
+											tpGameType: selectedTpGameType,
+											loginGameType:
+												defLoginGameType.returnHtml
 									  })
 									: null,
 							tpGameType: selectedTpGameType

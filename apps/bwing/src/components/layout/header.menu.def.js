@@ -525,6 +525,20 @@ export const defMenuLinks = {
 				img: "slots/png.png"
 			},
 			{
+				...defCasinoProviders.PNG,
+				className: "PlaynGo",
+				icon: "icon icon-png",
+				displayText: "Play' n GO",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.PNG.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.PNG
+					})
+				]
+			},
+			{
 				...defCasinoProviders.GPI,
 				className: "GPI",
 				icon: "icon icon-GPI",
