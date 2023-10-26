@@ -1,8 +1,8 @@
-export default {
-	2: "MY",
+export const defLangByIp = {
+	2: "EN",
 	4: "TH",
 	13: "CS",
-	3: "CS",
+	3: "EN",
 	15: "ID",
 	51: "VN",
 	72: "KH",

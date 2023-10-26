@@ -34,7 +34,7 @@ import usePopBox from "../hook/usePopBox";
 import { api_lineLogin_LineCallback } from "../../service/api/lineLogin";
 import path from "../../router";
 import { defType } from "../hook/useHandleLineLogin";
-import defCountryCode, { currencyCode } from "../../datas/countryCode";
+import { defLangByIp, currencyCode } from "../../datas/countryCode";
 import { defLangGroups } from "../header/header.langDropdown";
 
 const flatLangList = Object.values(defLangGroups).flatMap(item => item);
@@ -52,7 +52,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		isLogin: null,
 		userName: null,
 		defaultLang: "en",
-		langId: "en",
+		langId: null, // * 初始不給，有值才渲染內容
 		currencyId: null
 	});
 
@@ -533,6 +533,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 			// * 使用者當前 ip 幣別
 			const currencyIdByUserIp = await getCurrencyIdByUserIp();
+
 			// * 默認幣別
 			const defaultCurrencyId = currencyCode.USD;
 
@@ -545,9 +546,10 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		const initCurrencyIdAndLanguage = async () => {
 			// * 取得默認幣別
 			const defaultCurrencyId = await getDefaultCurrencyId();
+
 			// * 透過幣別取得默認語系
 			const defaultLangId = String(
-				defCountryCode[defaultCurrencyId]
+				defLangByIp[defaultCurrencyId]
 			).toLowerCase();
 
 			let langIdByPath;
@@ -562,6 +564,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				langIdByPath = result?.value;
 				currencyIdByPath = result?.currencyId;
 			}
+
 			setUserInfo(prev => ({
 				...prev,
 				langId: langIdByPath || defaultLangId,
@@ -577,10 +580,10 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	// * 補語系 url
 	useEffect(() => {
-		if (!pathLang) {
+		if (userInfo.langId && userInfo.langId !== pathLang) {
 			navigate(`/${userInfo.langId}`);
 		}
-	}, [pathLang, userInfo.langId]);
+	}, [pathLang, userInfo.langId, userInfo.isLogin]);
 
 	useEffect(() => {
 		const AffId = getUrlParameter("AffId");
@@ -679,9 +682,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	);
 
 	// * checkSign 後，`登出狀態` 及 `登入後並拿到資訊` 才渲染畫面
-	const correctPath =
-		userInfo.isLogin === false ||
-		(userInfo.isLogin && userInfo.accountName);
+	const correctPath = !!pathLang && userInfo.langId;
 
 	if (!correctPath) return null;
 
