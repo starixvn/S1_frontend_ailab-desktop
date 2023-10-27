@@ -45,7 +45,6 @@ import HomeDownLoad from "./homeDownLoad";
 import LiveSports from "./liveSports";
 import News from "./news";
 import { api_news_GetNews } from "../../service/api/news";
-import { defCategoryId } from "../promotion/promotion.def";
 
 const Home = () => {
 	const { t } = useTranslation();
@@ -67,8 +66,6 @@ const Home = () => {
 	const [promotionList, setPromotionList] = useState([]);
 	const filterPromotionList = promotionList.filter(
 		item =>
-			(item.categoryId === defCategoryId.SabaSports ||
-				item.categoryId === defCategoryId.SBSW) &&
 			!isExpiry({
 				...item,
 				isLogin: userInfo.isLogin
