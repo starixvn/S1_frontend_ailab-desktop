@@ -82,8 +82,10 @@ const AccountPanel = ({
 				message = t("msg_NeedAccountNo");
 				checked = false;
 			} else if (isNaN(val)) {
-				message = t("msg_AccountWrongFormat");
-				checked = false;
+				// * 將 patten 由 數字 改為 數字與英文，因此下面這段用不到
+				// * 之後可刪除
+				// message = t("msg_AccountWrongFormat");
+				// checked = false;
 			} else if (isDuplicateBank) {
 				message = t("lbl_Prohibited_Duplicate_Bank_Account");
 				checked = false;
@@ -106,7 +108,8 @@ const AccountPanel = ({
 
 		let regex = null;
 		if (_col === "accountNumber") {
-			regex = /^[0-9]+$/;
+			// * 使用者反應有銀行的開頭為 T,eg: T0793686868，因此從原本只限數字改為開放數字及英文
+			regex = /^[a-zA-Z0-9]+$/;
 		}
 
 		if (val === "" || regex === null || (regex && regex.test(val))) {
@@ -143,7 +146,8 @@ const AccountPanel = ({
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -163,7 +167,8 @@ const AccountPanel = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -197,7 +202,8 @@ const AccountPanel = ({
 				<div className="subModule">
 					<form
 						className="subModuleBody column"
-						onSubmit={clickSubmit}>
+						onSubmit={clickSubmit}
+					>
 						<div>
 							<div className="bankName">
 								<img
