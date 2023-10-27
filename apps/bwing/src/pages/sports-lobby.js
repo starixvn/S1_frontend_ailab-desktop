@@ -13,6 +13,7 @@ import { api_hotEvent_GetDataList } from "../service/api/hotEvent";
 import { api_promotion_GetPromotionListV2 } from "../service/api/promotion";
 import usePopBox from "../components/hook/usePopBox";
 import PromotionWrapper from "../components/promotion/promotion.wrapper";
+import { defCategoryId } from "../components/promotion/promotion.def";
 
 export default () => (
 	<Wrapper>
@@ -34,6 +35,8 @@ const Content = () => {
 	const [promotionList, setPromotionList] = useState([]);
 	const filterPromotionList = promotionList.filter(
 		item =>
+			(item.categoryId === defCategoryId.SabaSports ||
+				item.categoryId === defCategoryId.SBSW) &&
 			!isExpiry({
 				...item,
 				isLogin: userInfo.isLogin
