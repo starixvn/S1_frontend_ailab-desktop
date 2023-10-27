@@ -76,7 +76,7 @@ const AccountPanel = ({
 	const editField = (_col, e) => {
 		let val = e.target.value;
 		if (_col === defColumn.accountNumber) {
-			val = val.replace(/[^0-9]+/g, "");
+			val = val.replace(/[^a-zA-Z0-9]+/g, "");
 		} else if (_col === defColumn.ifscCode) {
 			val = val.replace(/[\W_]/g, "");
 		} else {
@@ -110,8 +110,10 @@ const AccountPanel = ({
 				message = t("msg_NeedAccountNo");
 				checked = false;
 			} else if (isNaN(val)) {
-				message = t("msg_AccountWrongFormat");
-				checked = false;
+				// * 從 :79 行將 patten 由 數字 改為 數字與英文，因此下面這段用不到
+				// * 之後可刪除
+				// message = t("msg_AccountWrongFormat");
+				// checked = false;
 			} else if (isDuplicateBank) {
 				message = t("lbl_Prohibited_Duplicate_Bank_Account");
 				checked = false;
