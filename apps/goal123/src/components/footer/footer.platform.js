@@ -182,6 +182,12 @@ const defPlatform = [
 		imgName: "endorphina"
 	},
 	{
+		...defCasinoProviders.FaChai,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.FaChai.name },
+		imgName: "fachai"
+	},
+	{
 		...defCasinoProviders.PNG,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.PNG.name },

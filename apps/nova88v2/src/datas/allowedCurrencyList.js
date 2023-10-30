@@ -103,6 +103,15 @@ const allowedCurrencyList = {
 		defCurrencyList.CNY,
 		defCurrencyList.USD
 	],
+	slot_FaChai: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.INR,
+		defCurrencyList.BDT,
+		defCurrencyList.USD,
+		defCurrencyList.VND
+	],
 	casino_WM: [
 		defCurrencyList.MYR,
 		defCurrencyList.USD,
