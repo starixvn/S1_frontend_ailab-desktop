@@ -552,7 +552,8 @@ export default () => {
 										loginGameType:
 											defLoginGameType.returnHtml
 								  })
-								: null
+								: null,
+						tpGameType
 					}),
 				delay
 			);
