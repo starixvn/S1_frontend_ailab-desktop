@@ -130,14 +130,14 @@ const defSortSlot = {
 		slot_RedTiger: 10,
 		slot_NetEnt: 11,
 		slot_CQ9: 12,
-		slot_PNG: 14,
-		slot_GPI: 15,
-		slot_YGG: 16,
-		slot_AMB: 17,
-		slot_Habanero: 18,
-		slot_SimplePlay: 19,
-		slot_Skywind: 20,
-		slot_PT: 21
+		slot_PNG: 13,
+		slot_GPI: 14,
+		slot_YGG: 15,
+		slot_AMB: 16,
+		slot_Habanero: 17,
+		slot_SimplePlay: 18,
+		slot_Skywind: 19,
+		slot_PT: 20
 		// slot_ICG: 17,
 		// slot_OW: 18
 	},
@@ -886,13 +886,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "slotNextspin.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { provider: "nextspin" },
-				...productList.casino_Nextspin,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.slot_nextspin
-					})
-				]
+				...productList.casino_Nextspin
 			},
 			{
 				keyName: "slot_PG",
@@ -904,6 +898,22 @@ export const defMenuLinks = {
 				// parameter: { ...productList.casino_PG },
 				parameter: { provider: "pg" },
 				...productList.casino_PG
+			},
+			{
+				keyName: "slot_FaChai",
+				displayText: "Fa Chai",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotfachai.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { provider: "FaChai" },
+				...productList.casino_FaChai,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_fachai
+					})
+				],
+				allowCurrencies: allowedCurrencyList.slot_FaChai
 			},
 			{
 				keyName: "slot_MGPSW",
