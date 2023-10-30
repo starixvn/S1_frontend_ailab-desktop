@@ -5,8 +5,9 @@ import MainMenu from "./header.menu.main";
 export default class Panel extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { menuKey: "" };
+		this.state = { menuKey: ""};
 		this.wrapper = createRef(null);
+		this.mainMenuRef = createRef(null);
 		this.timerId = null;
 	}
 
@@ -36,8 +37,7 @@ export default class Panel extends Component {
 
 	handleMoveToOutside = e => {
 		this.clearTimer();
-
-		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
+		if (this.wrapper.current && !this.wrapper.current.contains(e.target) && !this.mainMenuRef.current) {
 			this.setState({ menuKey: "" });
 			this.timerId = null;
 		}
@@ -60,7 +60,7 @@ export default class Panel extends Component {
 	render() {
 		return (
 			<div className="menu">
-				<div>
+				<div ref={this.mainMenuRef}>
 					<MainMenu
 						showSubMenu={this.showSubMenu}
 						currentMenuKey={this.state.menuKey}
@@ -72,6 +72,7 @@ export default class Panel extends Component {
 						ref={this.wrapper}
 						onClick={this.closeSubMenu}>
 						<SubMenu
+							showSubMenu={this.showSubMenu}
 							maintainList={this.props.maintainList}
 							currentMenuKey={this.state.menuKey}
 							productTpIds={this.props.productTpIds}
