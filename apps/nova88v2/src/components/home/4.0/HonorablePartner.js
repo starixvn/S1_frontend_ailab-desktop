@@ -217,6 +217,12 @@ const HonorablePartner = () => {
 				path: paths.casino.root,
 				parameter: { ...productList.casino_Endorphina },
 				imgName: "end"
+			},
+			{
+				...productList.casino_FaChai,
+				path: paths.casino.root,
+				parameter: { ...productList.casino_FaChai },
+				imgName: "fachai"
 			}
 		];
 
