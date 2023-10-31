@@ -10,7 +10,7 @@ const News = ({ news }) => {
 	const { userInfo } = useContext(userInfoContext);
 
 	return (
-		<div className="col-7 ml-4">
+		<div className="col-7 ml-3">
 			<div className="home-title">
 				<i className="icon-news" />
 				{t("lbl_SiteNews")}
