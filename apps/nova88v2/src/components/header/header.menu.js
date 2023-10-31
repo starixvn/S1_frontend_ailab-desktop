@@ -7,8 +7,6 @@ export default class Panel extends Component {
 		super(props);
 		this.state = { menuKey: ""};
 		this.wrapper = createRef(null);
-		this.mainMenuRef = createRef(null);
-		this.timerId = null;
 	}
 
 	UNSAFE_componentWillMount() {
@@ -31,36 +29,26 @@ export default class Panel extends Component {
 		}
 	}
 
-	componentWillUnmount() {
-		this.clearTimer();
-	}
 
 	handleMoveToOutside = e => {
-		this.clearTimer();
-		if (this.wrapper.current && !this.wrapper.current.contains(e.target) && !this.mainMenuRef.current) {
+		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
 			this.setState({ menuKey: "" });
-			this.timerId = null;
 		}
 	};
 
 	showSubMenu = col => {
-		this.timerId = setTimeout(() => {
-			this.setState({ menuKey: col });
-		}, 350);
+		this.setState({ menuKey: col });
 	};
 
 	closeSubMenu = () => {
 		this.setState({ menuKey: "" });
 	};
 
-	clearTimer = () => {
-		clearTimeout(this.timerId);
-	};
 
 	render() {
 		return (
 			<div className="menu">
-				<div ref={this.mainMenuRef}>
+				<div>
 					<MainMenu
 						showSubMenu={this.showSubMenu}
 						currentMenuKey={this.state.menuKey}
