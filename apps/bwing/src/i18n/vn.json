@@ -418,6 +418,7 @@
   "lbl_Paradise": "Paradise",
   "lbl_Passport": "Hộ chiếu",
   "lbl_Password": "Mật khẩu",
+  "lbl_PasswordNote": "Vui lòng xác nhận mật khẩu",
   "lbl_PasswordTooltip": "Mật khẩu phải có 6-15 ký tự.",
   "lbl_Paste": "",
   "lbl_PaymentDetails": "Thông tin thanh toán",

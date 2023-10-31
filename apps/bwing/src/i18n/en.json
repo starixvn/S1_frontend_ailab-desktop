@@ -418,6 +418,7 @@
   "lbl_Paradise": "Paradise",
   "lbl_Passport": "Passport",
   "lbl_Password": "Password",
+  "lbl_PasswordNote": "Please enter your password again.",
   "lbl_PasswordTooltip": "Password must be 6-15 characters only.",
   "lbl_Paste": "Paste",
   "lbl_PaymentDetails": "Payment Details",
