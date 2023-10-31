@@ -66,7 +66,7 @@ export const PromoPopBox = ({ data, closePopBox, t }) => {
 								className="btn-primary"
 								onClick={openLiveChat}
 							>
-								{t("promotion.lbl_promo_apply_now")}
+								{t("lbl_Promotion_ApplyNow")}
 							</button>
 						) : (
 							<PromotionJoinButton
