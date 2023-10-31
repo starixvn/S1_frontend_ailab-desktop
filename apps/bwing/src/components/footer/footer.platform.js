@@ -178,7 +178,13 @@ const defPlatform = [
 		...defCasinoProviders.Endorphina,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.Endorphina.name },
-		imgName: "endorphina"
+		imgName: "es"
+	},
+	{
+		...defCasinoProviders.eBET,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.eBET.name },
+		imgName: "we"
 	}
 ];
 
@@ -271,7 +277,8 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 					...p,
 					urlParams: _urlParams,
 					isInMaintain
-				})}>
+				})}
+			>
 				<ImageWithHover
 					bannerImgUrl={bannerImgUrl}
 					imgName={p.imgName}
