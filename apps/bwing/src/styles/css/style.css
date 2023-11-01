@@ -4450,7 +4450,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
       -ms-flex-align: center;
           align-items: center;
 }
-.join-module > div, .login-module > div {
+.join-module > div, .join-module form, .login-module > div, .login-module form {
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4462,14 +4462,14 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
       -ms-flex-pack: center;
           justify-content: center;
   background: #fff;
-  padding: 35px 50px 35px 20px;
+  padding: 35px;
   max-width: 930px;
   border-radius: 20px;
   position: relative;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.join-module > div > div, .login-module > div > div {
+.join-module > div > div, .join-module form > div, .login-module > div > div, .login-module form > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -4495,7 +4495,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-right: 40px;
+  margin-right: 20px;
 }
 .join-module .btn-group, .login-module .btn-group {
   width: 250px;
