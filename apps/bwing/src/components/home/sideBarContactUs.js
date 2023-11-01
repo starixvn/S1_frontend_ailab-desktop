@@ -21,7 +21,7 @@ export const SideBarContactUs = () => {
 		.map(el => {
 			return (
 				el.linkType === defLinkType.qrCode && (
-					<li>
+					<li key={el.id}>
 						<a
 							key={`sidebar-link-${el.channelName}`}
 							href={el.link}
