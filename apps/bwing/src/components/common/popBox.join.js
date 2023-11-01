@@ -795,7 +795,7 @@ const Join = () => {
 							onChange={() => checkboxHandler("agreeCheck")}
 						/>
 						<label htmlFor="checkbox1" />
-						<div>{t("lbl_SighUpTerms")}</div>
+						<div>{t("lbl_SignUpTerms")}</div>
 					</div>
 					<div className="btn-group">
 						<button className="btn-primary" onClick={clickSubmit}>
