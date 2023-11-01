@@ -753,7 +753,7 @@ img {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 1520px;
+  width: 1350px;
   margin: auto;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1975,7 +1975,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 }
 
 #Marquee {
-  max-width: 1520px;
+  max-width: 1320px;
   height: 40px;
   padding: 10px 20px;
   margin: 20px auto;
@@ -2039,7 +2039,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 }
 
 .home {
-  min-width: 1520px;
+  min-width: 1320px;
 }
 .home-title {
   display: -webkit-box;
@@ -2087,8 +2087,8 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 }
 .home-hotgame-left .subtitle {
   position: absolute;
-  bottom: 25px;
-  left: 50%;
+  bottom: 20px;
+  left: 52%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   color: #fff;
@@ -2120,9 +2120,9 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 }
 .home-hotgame-item {
   position: relative;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 240px;
-          flex: 0 0 240px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 206px;
+          flex: 1 0 206px;
   margin-right: 24px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -2137,7 +2137,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 }
 .home-hotgame-item .subtitle {
   position: absolute;
-  bottom: 12px;
+  bottom: 8px;
   left: 50%;
   width: 230px;
   overflow: hidden;
@@ -2294,7 +2294,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   border-radius: 5px;
 }
 .home-match-odds a span, .home-match-odds button span {
-  font-size: 20px;
+  font-size: 18px;
   -webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
           filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
 }
@@ -2345,7 +2345,6 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
           transform: rotate(180deg);
 }
 .home-topwinner {
-  width: 700px;
   color: #fff;
   background: #1A2C5E;
   border-radius: 20px;
@@ -2616,7 +2615,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 .home-livesports {
   font-family: "Montserrat", sans-serif;
   background: #D0DEEF;
-  height: 635px;
+  height: 572px;
   overflow-y: auto;
   margin-right: 20px;
 }
@@ -2632,7 +2631,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 }
 .home-livesports-item {
   background: url(https://banner.bw88.io/desktop/img/4.0/live-bg.png) center/cover;
-  width: 625px;
+  width: 540px;
   height: 240px;
   margin-bottom: 15px;
   display: -webkit-box;
@@ -2654,7 +2653,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   -webkit-line-clamp: 1;
   margin: 15px auto 0 auto;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   width: 450px;
   padding-left: 30px;
   text-align: center;
@@ -2697,7 +2696,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   font-size: 18px;
 }
 .home-livesports-team .name {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 500;
   width: 200px;
   display: -webkit-box;
@@ -2710,7 +2709,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 .home-livesports-score {
   position: absolute;
   bottom: 20px;
-  left: 50%;
+  left: 50.5%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   width: 139px;
@@ -2746,7 +2745,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   position: relative;
   width: 100%;
   overflow: hidden;
-  height: 308px;
+  height: 275px;
   border-radius: 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -2769,7 +2768,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   border-radius: 20px;
   padding: 10px;
   background: rgba(0, 0, 0, 0.7);
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
   position: absolute;
   bottom: 0;
@@ -2783,7 +2782,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 15px 50px;
+  padding: 10px 20px;
 }
 .home-news-info span {
   width: 65%;
@@ -2796,7 +2795,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 .home-news-info a, .home-news-info button {
   width: 35%;
   color: #fff;
-  font-size: 18px;
+  font-size: 14px;
   text-align: right;
   font-family: "Montserrat", sans-serif;
 }
@@ -3936,7 +3935,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   position: relative;
 }
 .maintain .tag-maintain {
-  width: 100%;
+  width: calc(100% - 20px);
   text-align: center;
   font-size: 18px;
   font-weight: 500;
@@ -5485,7 +5484,7 @@ input[type=file] {
 }
 
 footer {
-  min-width: 1520px;
+  min-width: 1320px;
   background: #1C317B;
   color: #fff;
 }
@@ -5495,8 +5494,8 @@ footer .footer-content {
   line-height: 24px;
 }
 footer .footer-information {
-  margin-top: -45px;
-  margin-bottom: 30px;
+  width: 1400px;
+  margin: -45px auto 30px;
   position: relative;
   z-index: 2;
 }
@@ -5525,7 +5524,7 @@ footer .footer-information-item {
       -ms-flex-align: center;
           align-items: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
   margin-top: -40px;
   color: #fff;
 }
@@ -9954,7 +9953,7 @@ main > .swiper-container .swiper-slide {
 }
 .announcement pre,
 .personal pre {
-  color: #fff;
+  color: #1C317B;
 }
 .announcement .list > div,
 .personal .list > div {

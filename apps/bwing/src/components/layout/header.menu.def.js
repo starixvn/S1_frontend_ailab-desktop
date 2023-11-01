@@ -377,7 +377,7 @@ export const defMenuLinks = {
 			{
 				...defCasinoProviders.Endorphina,
 				className: "Endorphina",
-				displayText: "Endorphina",
+				displayText: "ES",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.Endorphina.name },
 				eventIcons: [
@@ -386,7 +386,7 @@ export const defMenuLinks = {
 						period: defEventPeriod.slot_endorphina
 					})
 				],
-				img: "slots/end.png"
+				img: "slots/es.png"
 			},
 			{
 				...defCasinoProviders.Nextspin,
@@ -834,15 +834,15 @@ export const defMenuLinks = {
 				gameId: 18,
 				tpId: 18,
 				className: "liveEB",
-				lobbyImg: "eb.png",
+				lobbyImg: "we.png",
 				icon: "icon icon-EB",
-				displayText: "eBET",
+				displayText: "WE",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-ebet"
 				},
 				tpGameType: 28,
-				img: "livecasino/eb.png"
+				img: "livecasino/we.png"
 			}
 		]
 	},
