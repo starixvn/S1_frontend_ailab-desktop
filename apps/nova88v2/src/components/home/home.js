@@ -390,7 +390,7 @@ const IndexPage = () => {
 			{/* <TeachingBar /> */}
 			<WelcomeInfo handleGameClick={handleEntryClick} />
 			<PromoList userInfo={userInfo} />
-			{/* <HotMatch handleGameClick={handleEntryClick} /> */}
+			<HotMatch handleGameClick={handleEntryClick} />
 			<LiveCasino handleGameClick={handleEntryClick} />
 			<HotGame />
 			<AppDownload />
