@@ -2686,10 +2686,10 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
           align-items: center;
 }
 .home-livesports-team.left {
-  left: 20px;
+  left: 10px;
 }
 .home-livesports-team.right {
-  right: 20px;
+  right: 10px;
 }
 .home-livesports-team > div:first-child {
   margin-bottom: 25px;
@@ -2698,7 +2698,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 .home-livesports-team .name {
   font-size: 22px;
   font-weight: 500;
-  width: 200px;
+  width: 175px;
   display: -webkit-box;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
