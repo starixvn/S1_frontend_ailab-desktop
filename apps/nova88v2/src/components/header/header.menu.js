@@ -3,9 +3,17 @@ import SubMenu from "./header.menu.sub";
 import MainMenu from "./header.menu.main";
 
 export default class Panel extends Component {
+	showSubMenu = col => {
+		this.setState({ menuKey: col });
+	};
+
+	closeSubMenu = () => {
+		this.setState({ menuKey: "" });
+	};
+
 	constructor(props) {
 		super(props);
-		this.state = { menuKey: ""};
+		this.state = { menuKey: "" };
 		this.wrapper = createRef(null);
 	}
 
@@ -29,25 +37,13 @@ export default class Panel extends Component {
 		}
 	}
 
-
-	handleMoveToOutside = e => {
-		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
-			this.setState({ menuKey: "" });
-		}
-	};
-
-	showSubMenu = col => {
-		this.setState({ menuKey: col });
-	};
-
-	closeSubMenu = () => {
-		this.setState({ menuKey: "" });
-	};
-
-
 	render() {
 		return (
-			<div className="menu">
+			<div
+				className="menu"
+				onMouseLeave={() => {
+					this.setState({ menuKey: "" });
+				}}>
 				<div>
 					<MainMenu
 						showSubMenu={this.showSubMenu}
@@ -57,8 +53,8 @@ export default class Panel extends Component {
 
 					<div
 						className="subMenu-Wrapper-new"
-						ref={this.wrapper}
-						onClick={this.closeSubMenu}>
+						onClick={this.closeSubMenu}
+						ref={this.wrapper}>
 						<SubMenu
 							showSubMenu={this.showSubMenu}
 							maintainList={this.props.maintainList}
