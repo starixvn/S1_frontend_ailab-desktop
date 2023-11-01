@@ -2686,10 +2686,10 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
           align-items: center;
 }
 .home-livesports-team.left {
-  left: 20px;
+  left: 10px;
 }
 .home-livesports-team.right {
-  right: 20px;
+  right: 10px;
 }
 .home-livesports-team > div:first-child {
   margin-bottom: 25px;
@@ -2698,7 +2698,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 .home-livesports-team .name {
   font-size: 22px;
   font-weight: 500;
-  width: 200px;
+  width: 175px;
   display: -webkit-box;
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
@@ -4450,7 +4450,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
       -ms-flex-align: center;
           align-items: center;
 }
-.join-module > div, .login-module > div {
+.join-module > form, .login-module > form {
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4462,14 +4462,14 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
       -ms-flex-pack: center;
           justify-content: center;
   background: #fff;
-  padding: 35px 50px 35px 20px;
+  padding: 35px;
   max-width: 930px;
   border-radius: 20px;
   position: relative;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.join-module > div > div, .login-module > div > div {
+.join-module > form > div, .login-module > form > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;

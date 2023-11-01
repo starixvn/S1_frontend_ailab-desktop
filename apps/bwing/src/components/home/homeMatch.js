@@ -104,7 +104,7 @@ const HomeMatch = ({ hotEventList, maintainList, classNameType }) => {
 			const item1 = array[i] || {};
 			const item2 = array[i + 1] || {};
 			const combineItem = (
-				<div>
+				<div key={item1.matchId}>
 					<div className="home-match-item">
 						<div className="home-match-league">
 							{item1.sportLeaguesTitle}
