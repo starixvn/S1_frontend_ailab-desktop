@@ -18,6 +18,7 @@ export const defEventPeriod = {
 	casino_MGPSW: { end: "2021/08/22 11:00:00" },
 	lottery_tcg: { end: "2021/09/11 11:00:00" },
 	Games_MPoker: { end: "2022/01/28 11:00:00" },
+	casino_Pegasus: { end: "2023/11/15 23:59:59" },
 	casino_RedTiger: { end: "2021/12/15 11:00:00" },
 	casino_NetEnt: { end: "2021/12/15 11:00:00" },
 	casino_AdvantPlay: { end: "2022/02/25 11:00:00" },
