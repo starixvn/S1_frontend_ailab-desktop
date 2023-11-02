@@ -45,7 +45,8 @@ export const defSlotTpGameType = {
 	Nextspin: { tpId: 50, tpGameType: 99, name: "nextspin" },
 	SPRIBE: { tpId: 53, tpGameType: 104, name: "spribe" },
 	END: { tpId: 49, tpGameType: 98, name: "Endorphina" },
-	FaChai: { tpId: 55, tpGameType: 106, name: "FaChai" }
+	FaChai: { tpId: 55, tpGameType: 106, name: "FaChai" },
+	PEGASUS: { tpId: 56, tpGameType: 107, name: "PEGASUS" }
 };
 
 export default {
@@ -189,6 +190,10 @@ export default {
 	casino_JOKER: {
 		tpId: 9,
 		tpGameType: 13
+	},
+	casino_PEGASUS: {
+		tpId: 56,
+		tpGameType: 107
 	},
 	casino_CQ9: {
 		tpId: 16,
