@@ -5366,15 +5366,15 @@ input[type=file] {
   border-collapse: separate;
 }
 .vip-medal {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .vip-medal tr td {
-  font-size: 18px;
+  font-size: 17px;
   width: 11%;
   text-align: center;
   font-family: "Bai Jamjuree", sans-serif;
   font-weight: 700;
-  line-height: 0.45;
+  line-height: 1;
 }
 .vip-medal tr td:first-child {
   width: 26%;
