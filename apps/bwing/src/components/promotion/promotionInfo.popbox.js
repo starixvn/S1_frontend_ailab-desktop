@@ -282,20 +282,14 @@ PromotionInfo.propTypes = {
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
-	const { promoBox, setPromoBox } = useContext(promoPopBox);
+	const { promoBox } = useContext(promoPopBox);
 
 	if (promoBox.content === null) return null;
 
 	const { isOpen: openPromoPopBox } = promoBox;
 
-	const closePromoPopBox = () => {
-		setPromoBox(prev => ({ ...prev, isOpen: false }));
-		window.history.replaceState({}, "", `${window.location.pathname}`);
-	};
-
 	return (
 		<div
-			onClick={closePromoPopBox}
 			className={`popup promotionpop ${
 				popBox.isOpen || !openPromoPopBox ? "" : "active"
 			}`}
