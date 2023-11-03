@@ -441,6 +441,21 @@ export const defMenuLinks = {
 				],
 				img: "slots/fachai.png"
 			},
+			// * bwing 改版中，因此先不做(目前沒有圖)
+			// {
+			// 	...defCasinoProviders.FaChai,
+			// 	className: "",
+			// 	icon: "",
+			// 	displayText: "Fa Chai",
+			// 	menuType: defMenuType.Link,
+			// 	parameter: { provider: defCasinoProviders.FaChai.name },
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.slot_fachai
+			// 		})
+			// 	]
+			// },
 			{
 				...defCasinoProviders.MGPSW,
 				className: "MG",

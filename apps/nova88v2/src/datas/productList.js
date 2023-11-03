@@ -171,6 +171,11 @@ export default {
 		gameId: "ESPORTSBULL",
 		tpGameType: 102
 	},
+	TFGaming: {
+		tpId: 48,
+		gameId: 0,
+		tpGameType: 97
+	},
 
 	/* === 2.  slot === */
 

@@ -208,8 +208,7 @@ const IndexPage = () => {
 												navigate(
 													`/${path.promotion.root}?bonusCode=${bonusCode}`
 												);
-											}}
-										>
+											}}>
 											{t("lbl_ClaimNow")}
 										</button>
 
@@ -320,8 +319,9 @@ const IndexPage = () => {
 								/>
 								<button
 									className="popgoto"
-									onClick={() => setPopBox({ isOpen: false })}
-								>
+									onClick={() =>
+										setPopBox({ isOpen: false })
+									}>
 									{/* 這裡只有 vn en 語系 故不用i18n  */}
 									JoinNow
 								</button>
@@ -340,7 +340,7 @@ const IndexPage = () => {
 
 		const popUpStack = [
 			displayDepositPopup,
-			displaySponsorshipPopup,
+			// displaySponsorshipPopup,
 			displayPromotionPopup,
 			disclaimerForVnd
 		];
@@ -369,8 +369,7 @@ const IndexPage = () => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								setPopBox({ isOpen: false });
-							}}
-						>
+							}}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -395,7 +394,7 @@ const IndexPage = () => {
 			<HotGame />
 			<AppDownload />
 			<HonorablePartner />
-			<OfficialPartner />
+			{/* <OfficialPartner /> */}
 
 			{/* {userInfo.isLogin && <RecentlyViewedGameList />} */}
 			{/* <div className="newsVideo"> */}
