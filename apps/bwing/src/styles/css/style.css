@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -4116,7 +4116,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   margin: 15px 0 30px;
   border: 2px solid #F38C00;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 16px;
   background: #FFE5C1;
 }
 .promotionpop-info-item {
@@ -4133,11 +4133,14 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 }
 .promotionpop-info-item div {
   text-align: center;
-  padding: 20px 0px;
+  padding: 8px 0px;
 }
 .promotionpop-info-item div:first-child {
   border-bottom: 2px solid #F38C00;
   font-weight: 700;
+}
+.promotionpop-content {
+  font-size: 16px;
 }
 .promotionpop .cashBack {
   padding: 20px 0;
@@ -4450,7 +4453,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
       -ms-flex-align: center;
           align-items: center;
 }
-.join-module > form, .login-module > form {
+.join-module > div, .join-module form, .login-module > div, .login-module form {
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4469,7 +4472,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.join-module > form > div, .login-module > form > div {
+.join-module > div > div, .join-module form > div, .login-module > div > div, .login-module form > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -4495,7 +4498,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-right: 40px;
+  margin-right: 20px;
 }
 .join-module .btn-group, .login-module .btn-group {
   width: 250px;
@@ -5363,15 +5366,15 @@ input[type=file] {
   border-collapse: separate;
 }
 .vip-medal {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 .vip-medal tr td {
-  font-size: 18px;
+  font-size: 17px;
   width: 11%;
   text-align: center;
   font-family: "Bai Jamjuree", sans-serif;
   font-weight: 700;
-  line-height: 0.45;
+  line-height: 1;
 }
 .vip-medal tr td:first-child {
   width: 26%;
