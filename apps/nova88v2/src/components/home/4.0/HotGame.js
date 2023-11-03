@@ -361,9 +361,9 @@ const HotGame = () => {
 						<Swiper {...jackpotSwiperConfig}>
 							{jackpot.map(
 								({ tpId, gameId, imgName, gameName }) => {
-									const brandTpName = providerList.find(
+									const brandTpName = providerList?.find(
 										obj => obj.tpId === tpId
-									).tpName;
+									)?.tpName;
 									const imgUrl = `https://img.0814media.net/${brandTpName}/${
 										imgName[userInfo.langId] || imgName.en
 									}`;
