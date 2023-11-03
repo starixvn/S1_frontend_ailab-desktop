@@ -44,8 +44,10 @@ const PromotionList = ({
 	const rows = promoList?.map(p => {
 		const _isClaimed = isClaimed(p);
 		const _isNew = _isClaimed ? false : isNew(p);
+		// 此段 expired 顯示邏輯因市場需求調整 先隱藏處理 如果後來需求有做調整在打開
 		const _isExpired =
-			(filter === defFilterType.specialBonus && !p.canJoin) || p.beenUsed;
+			// (filter === defFilterType.specialBonus && !p.canJoin) ||
+			p.beenUsed;
 		const timezone = moment().format("Z");
 		const isDisplay =
 			moment.unix(p.displayFrom).subtract(timezone).diff(moment()) <= 0 &&
@@ -72,7 +74,8 @@ const PromotionList = ({
 			isDisplay && (
 				<div
 					key={`promotionList-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-					className={eventClass}>
+					className={eventClass}
+				>
 					<div className={promoDisplayStyle} />
 
 					<div className="promoImg">
@@ -104,7 +107,8 @@ const PromotionList = ({
 									href={p.promotionLink}
 									target="_blank"
 									rel="noreferrer"
-									className="btn-check">
+									className="btn-check"
+								>
 									{t("lbl_Promotion_MoreInfo")}
 								</a>
 							) : (
@@ -114,7 +118,8 @@ const PromotionList = ({
 										this,
 										userInfo.langId,
 										p.bonusCode
-									)}>
+									)}
+								>
 									{t("lbl_Promotion_MoreInfo")}
 								</button>
 							)}
