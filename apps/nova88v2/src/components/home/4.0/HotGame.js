@@ -45,7 +45,8 @@ const HotGame = () => {
 	const { data: hotGame = [] } = useGetHotGameListQuery(
 		{
 			deviceType: defDeviceType.Desktop,
-			currencyId: userInfo.currencyId
+			currencyId: userInfo.currencyId,
+			langId: userInfo.langId
 		},
 		{
 			selectFromResult: response => {
