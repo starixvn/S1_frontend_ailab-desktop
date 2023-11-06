@@ -17,7 +17,7 @@ const useGetVideo = ({ langId }) => {
 		api_video_GetLiveStreamingList(langId).then(
 			res => {
 				if (res.data.errorCode === 0) {
-					setVideoList(res.data.data);
+					setVideoList(res.data.data ?? []);
 
 					setSelCategory(prev => ({
 						...prev,
