@@ -178,7 +178,7 @@ const Home = () => {
 
 	const getHotGameList = async () => {
 		try {
-			const res = await api_HotGame_GetDataList();
+			const res = await api_HotGame_GetDataList(userInfo.langId);
 			setHotGameList(res.data.data.HotGame ?? []);
 		} catch (error) {
 			setPopBox({

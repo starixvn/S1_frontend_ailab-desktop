@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/
+/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -2137,7 +2137,8 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 }
 .home-hotgame-item .subtitle {
   position: absolute;
-  bottom: 8px;
+  bottom: 0;
+  line-height: 2;
   left: 50%;
   width: 230px;
   overflow: hidden;
@@ -2222,7 +2223,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   height: 214px;
   border-radius: 20px;
   font-size: 20px;
-  padding: 20px 10px 0 10px;
+  padding: 15px 10px 0 10px;
   margin-bottom: 50px;
 }
 .home-match-item:first-child {
@@ -2246,6 +2247,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   text-align: center;
+  line-height: 1.75;
 }
 .home-match-content {
   display: -webkit-box;
@@ -2658,6 +2660,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   padding-left: 30px;
   text-align: center;
   text-transform: uppercase;
+  line-height: 1.5;
 }
 .home-livesports-content {
   display: -webkit-box;
