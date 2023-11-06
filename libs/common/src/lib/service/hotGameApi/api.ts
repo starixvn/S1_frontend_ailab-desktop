@@ -24,10 +24,11 @@ export const hotGameApi = rootApi.injectEndpoints({
 			{
 				currencyId: number;
 				deviceType: number;
+				langId: string;
 			}
 		>({
-			query: data => ({
-				url: hotGameApiUrl.getHotGameList,
+			query: ({ langId, ...data }) => ({
+				url: `${hotGameApiUrl.getHotGameList}/${langId}`,
 				method: "POST",
 				data
 			})
