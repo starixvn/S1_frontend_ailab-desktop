@@ -1,8 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import useClickOutside from "../hook/useClickOutSide";
 
 const InputBox = props => {
+	const ref = useClickOutside(() => {
+		props.setActiveInfo(null);
+	});
 	const { t } = useTranslation();
 	const checkfailed = !props.checked && props.checked !== null;
 	let checkIcon = null;
@@ -95,8 +99,8 @@ const InputBox = props => {
 							onClick={props.showPswHandler}
 						/>
 						{props.checked !== undefined ? checkIcon : null}
-						{props.isShowHint && (
-							<div className="inputbox-tip-popup">
+						{props.activeInfo === props.hint && (
+							<div className="inputbox-tip-popup" ref={ref}>
 								{t(props.hint)}
 							</div>
 						)}
@@ -130,7 +134,8 @@ InputBox.defaultProps = {
 	showPswHandler: () => null,
 	border: true,
 	hint: "",
-	isShowHint: false
+	activeInfo: "",
+	setActiveInfo: null
 };
 
 InputBox.propTypes = {
@@ -150,7 +155,8 @@ InputBox.propTypes = {
 	showPswHandler: PropTypes.func,
 	border: PropTypes.bool,
 	hint: PropTypes.string,
-	isShowHint: PropTypes.bool
+	activeInfo: PropTypes.string,
+	setActiveInfo: PropTypes.func
 };
 
 export default InputBox;

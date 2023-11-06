@@ -15,6 +15,7 @@ import MsgPopup from "./msgPopup";
 import useShieldCheck from "../hook/useShieldCheck";
 import LanguageDropDown from "./header.langDropdown";
 import { defPageClubImg } from "../vip/vip.def";
+import useClickOutside from "../hook/useClickOutSide";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -80,6 +81,7 @@ const AfterLogin = () => {
 	const { t } = useTranslation();
 	const { deleteShieldData } = useShieldCheck();
 	const [isOpenSideMenu, setIsOpenSideMenu] = useState(false);
+	const ref = useClickOutside(() => setIsOpenSideMenu(false));
 
 	const handleLogout = () => {
 		LOGOUT(() => {
@@ -165,7 +167,7 @@ const AfterLogin = () => {
 				})}`}
 				onClick={() => setIsOpenSideMenu(!isOpenSideMenu)}>
 				{isOpenSideMenu && (
-					<div className="sidemenu-content">
+					<div className="sidemenu-content" ref={ref}>
 						<div
 							className="sidemenu-item"
 							onClick={() =>
