@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import useClickOutside from "../hook/useClickOutSide";
 
 const InputBox = ({
 	value,
@@ -28,8 +29,12 @@ const InputBox = ({
 	ShowTipImgAction,
 	border,
 	hint,
-	isShowHint
+	activeInfo,
+	setActiveInfo
 }) => {
+	const ref = useClickOutside(() => {
+		setActiveInfo(null);
+	});
 	const [isShowPasteText, setIsShowPasteText] = useState(false);
 	const { t } = useTranslation();
 	const showCheckIcon = () => {
@@ -150,8 +155,10 @@ const InputBox = ({
 						{_isConvert ? "('000)" : null}
 						{checked !== undefined ? showCheckIcon() : null}
 
-						{isShowHint && (
-							<div className="inputbox-tip-popup">{t(hint)}</div>
+						{activeInfo === hint && (
+							<div ref={ref} className="inputbox-tip-popup">
+								{t(hint)}
+							</div>
 						)}
 					</div>
 				</div>
@@ -207,7 +214,8 @@ InputBox.defaultProps = {
 	ShowTipImgAction: null,
 	border: true,
 	hint: "",
-	isShowHint: false
+	activeInfo: "",
+	setActiveInfo: null
 };
 
 InputBox.propTypes = {
@@ -237,7 +245,8 @@ InputBox.propTypes = {
 	ShowTipImgAction: PropTypes.func,
 	border: PropTypes.bool,
 	hint: PropTypes.string,
-	isShowHint: PropTypes.bool
+	activeInfo: PropTypes.string,
+	setActiveInfo: PropTypes.func
 };
 
 export default InputBox;

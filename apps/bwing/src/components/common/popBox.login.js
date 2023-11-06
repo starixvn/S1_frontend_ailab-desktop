@@ -22,14 +22,12 @@ const initStatus = {
 	userName: {
 		checked: null,
 		msg: "",
-		hint: "lbl_UsernameTooltip",
-		isShowHint: false
+		hint: "lbl_UsernameTooltip"
 	},
 	password: {
 		checked: null,
 		msg: "",
-		hint: "lbl_PasswordTooltip",
-		isShowHint: false
+		hint: "lbl_PasswordTooltip"
 	}
 };
 
@@ -40,6 +38,8 @@ const LoginPanel = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const [showPsw, setShowPsw] = useState(false);
 	const [inputStatus, setInputStatus] = useState(initStatus);
+	const [activeInfo, setActiveInfo] = useState(null);
+
 	const isMountedRef = useRef(null);
 	const isInPeriodEvent = isDateRange(
 		eventPeriodIdpd.startDate,
@@ -64,13 +64,7 @@ const LoginPanel = () => {
 	};
 
 	const clickInfo = col => {
-		setInputStatus(prev => ({
-			...prev,
-			[col]: {
-				...prev[col],
-				isShowHint: !inputStatus[col].isShowHint
-			}
-		}));
+		setActiveInfo(inputStatus[col].hint);
 	};
 
 	const EditField = (col, e) => {
@@ -131,6 +125,7 @@ const LoginPanel = () => {
 						navigate(`/${userInfo.langId}`);
 						saveShieldData();
 						setInputStatus(initStatus);
+						setActiveInfo(null);
 					}
 				} else if (
 					res.errorCode === 1101 ||
@@ -143,10 +138,10 @@ const LoginPanel = () => {
 							userName: {
 								checked: false,
 								msg: res.message,
-								hint: "lbl_UsernameTooltip",
-								isShowHint: false
+								hint: "lbl_UsernameTooltip"
 							}
 						}));
+						setActiveInfo(null);
 					}
 				} else if (res.errorCode === 1001) {
 					if (isMountedRef.current) {
@@ -155,10 +150,10 @@ const LoginPanel = () => {
 							password: {
 								checked: false,
 								msg: res.message,
-								hint: "lbl_PasswordTooltip",
-								isShowHint: false
+								hint: "lbl_PasswordTooltip"
 							}
 						}));
+						setActiveInfo(null);
 					}
 				}
 			});
@@ -176,7 +171,6 @@ const LoginPanel = () => {
 			customLayout: true
 		});
 	};
-
 	return (
 		<div className="login-module popup active">
 			<LoginForm
@@ -194,6 +188,8 @@ const LoginPanel = () => {
 				showPswHandler={showPswHandler}
 				isInPeriodEvent={isInPeriodEvent}
 				inputStatus={inputStatus}
+				activeInfo={activeInfo}
+				setActiveInfo={setActiveInfo}
 			/>
 		</div>
 	);
@@ -213,7 +209,9 @@ export const LoginForm = ({
 	clickInfo,
 	showPsw,
 	showPswHandler,
-	inputStatus
+	inputStatus,
+	activeInfo,
+	setActiveInfo
 }) => {
 	return (
 		<form onSubmit={handleLogin}>
@@ -252,7 +250,8 @@ export const LoginForm = ({
 					border={false}
 					icon="icon-profile"
 					hint={inputStatus.userName.hint}
-					isShowHint={inputStatus.userName.isShowHint}
+					activeInfo={activeInfo}
+					setActiveInfo={setActiveInfo}
 				/>
 
 				<InputboxPSW
@@ -270,12 +269,12 @@ export const LoginForm = ({
 					border={false}
 					icon="icon-profile"
 					hint={inputStatus.password.hint}
-					isShowHint={inputStatus.password.isShowHint}
+					activeInfo={activeInfo}
+					setActiveInfo={setActiveInfo}
 				/>
 				<Link
 					className="login-forget"
-					to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-				>
+					to={`/${userInfo.langId}/${path.forgetPassword.root}`}>
 					{t("lbl_ForgetPassword")}
 				</Link>
 				<div className="btn-group">
@@ -304,5 +303,7 @@ LoginForm.propTypes = {
 	clickInfo: PropTypes.func.isRequired,
 	showPsw: PropTypes.bool.isRequired,
 	showPswHandler: PropTypes.func.isRequired,
-	inputStatus: PropTypes.objectOf(PropTypes.any).isRequired
+	inputStatus: PropTypes.objectOf(PropTypes.any).isRequired,
+	activeInfo: PropTypes.string.isRequired,
+	setActiveInfo: PropTypes.func.isRequired
 };

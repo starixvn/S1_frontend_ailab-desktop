@@ -10,6 +10,7 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
 import { api_account_GetRefFriendList } from "../../service/api/account";
 import ReferralDetail from "./referralDetail";
+import Loading from "../common/loading";
 
 const initPagination = {
 	totalPages: 0,
@@ -62,6 +63,7 @@ const ReferralHistory = () => {
 	const [pagination, setPagination] = useState(initPagination);
 	const isMountedRef = useRef(null);
 	const [selectedStep, setSelectedStep] = useState(1);
+	const [loading, setLoading] = useState(false);
 
 	const _pageSize = 10;
 
@@ -129,7 +131,7 @@ const ReferralHistory = () => {
 		const clickClose = () => {
 			setPopBox({ isOpen: false });
 		};
-
+		setLoading(true);
 		api_account_GetRefFriendList({
 			...transactionData,
 			PageNumber: pageNumber,
@@ -159,6 +161,7 @@ const ReferralHistory = () => {
 					});
 				}
 				setProcessing(false);
+				setLoading(false);
 			}
 		});
 	};
@@ -177,7 +180,9 @@ const ReferralHistory = () => {
 		);
 	});
 
-	return (
+	return loading ? (
+		<Loading />
+	) : (
 		<div className="infoModule">
 			<div className="inside-title icon icon-icon32px_History">
 				<span>{t("lbl_ReferralHistory")}</span>

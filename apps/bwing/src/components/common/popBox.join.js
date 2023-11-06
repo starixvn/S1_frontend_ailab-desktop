@@ -38,38 +38,32 @@ const initStatus = {
 	userName: {
 		checked: null,
 		msg: "",
-		hint: "lbl_UsernameTooltip",
-		isShowHint: false
+		hint: "lbl_UsernameTooltip"
 	},
 	password: {
 		checked: null,
 		msg: "",
-		hint: "lbl_PasswordTooltip",
-		isShowHint: false
+		hint: "lbl_PasswordTooltip"
 	},
 	confirmPwd: {
 		checked: null,
 		msg: "",
-		hint: "lbl_PasswordNote",
-		isShowHint: false
+		hint: "lbl_PasswordNote"
 	},
 	realName: {
 		checked: null,
 		msg: "",
-		hint: "lbl_RemindForName",
-		isShowHint: false
+		hint: "lbl_RemindForName"
 	},
 	phone: {
 		checked: null,
 		msg: "",
-		hint: "lbl_PhoneTooltip",
-		isShowHint: false
+		hint: "lbl_PhoneTooltip"
 	},
 	email: {
 		checked: null,
 		msg: "",
-		hint: "lbl_EmailToolTip",
-		isShowHint: false
+		hint: "lbl_EmailToolTip"
 	},
 	currency: {
 		checked: null,
@@ -78,8 +72,7 @@ const initStatus = {
 	affiliate: {
 		checked: null,
 		msg: "",
-		hint: "lbl_Please_enter_Affiliate_ID",
-		isShowHint: false
+		hint: "lbl_Please_enter_Affiliate_ID"
 	},
 	agreeCheck: {
 		checked: null,
@@ -112,6 +105,7 @@ const Join = () => {
 	const [showConfirmPsw, setShowConfirmPsw] = useState(false);
 	const [siteCurrency, setSiteCurrency] = useState([]);
 	const [reCaptchaToken, setReCaptchaToken] = useState("");
+	const [activeInfo, setActiveInfo] = useState(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const isMountedRef = useRef(null);
 
@@ -221,13 +215,7 @@ const Join = () => {
 	};
 
 	const clickInfo = col => {
-		setInputStatus(prev => ({
-			...prev,
-			[col]: {
-				...prev[col],
-				isShowHint: !inputStatus[col].isShowHint
-			}
-		}));
+		setActiveInfo(inputStatus[col].hint);
 	};
 
 	const EditField = (col, e) => {
@@ -677,7 +665,8 @@ const Join = () => {
 						border={false}
 						icon="icon-profile"
 						hint={inputStatus.userName.hint}
-						isShowHint={inputStatus.userName.isShowHint}
+						activeInfo={activeInfo}
+						setActiveInfo={setActiveInfo}
 					/>
 
 					<InputboxPSW
@@ -695,7 +684,8 @@ const Join = () => {
 						tip={inputStatus.password.msg}
 						border={false}
 						hint={inputStatus.password.hint}
-						isShowHint={inputStatus.password.isShowHint}
+						activeInfo={activeInfo}
+						setActiveInfo={setActiveInfo}
 					/>
 					<InputboxPSW
 						inputType={`${!showConfirmPsw ? "password" : "text"}`}
@@ -714,7 +704,8 @@ const Join = () => {
 						tip={inputStatus.confirmPwd.msg}
 						border={false}
 						hint={inputStatus.confirmPwd.hint}
-						isShowHint={inputStatus.confirmPwd.isShowHint}
+						activeInfo={activeInfo}
+						setActiveInfo={setActiveInfo}
 					/>
 					<Inputbox
 						placeholder={t("lbl_RealName")}
@@ -729,7 +720,8 @@ const Join = () => {
 						border={false}
 						icon="icon-profile"
 						hint={inputStatus.realName.hint}
-						isShowHint={inputStatus.realName.isShowHint}
+						activeInfo={activeInfo}
+						setActiveInfo={setActiveInfo}
 					/>
 					<Inputbox
 						areaCode={_areaCode}
@@ -743,7 +735,8 @@ const Join = () => {
 						border={false}
 						icon="icon-phone"
 						hint={inputStatus.phone.hint}
-						isShowHint={inputStatus.phone.isShowHint}
+						activeInfo={activeInfo}
+						setActiveInfo={setActiveInfo}
 					/>
 					<Inputbox
 						placeholder={t("lbl_Email")}
@@ -756,7 +749,8 @@ const Join = () => {
 						border={false}
 						icon="icon-email"
 						hint={inputStatus.email.hint}
-						isShowHint={inputStatus.email.isShowHint}
+						activeInfo={activeInfo}
+						setActiveInfo={setActiveInfo}
 					/>
 					<Inputbox
 						placeholder={t("lbl_Affiliate_ID")}
@@ -772,7 +766,8 @@ const Join = () => {
 						border={false}
 						icon="icon-affiliate"
 						hint={inputStatus.affiliate.hint}
-						isShowHint={inputStatus.affiliate.isShowHint}
+						activeInfo={activeInfo}
+						setActiveInfo={setActiveInfo}
 					/>
 					<ReCAPTCHA
 						class="g-recaptcha"
