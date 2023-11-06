@@ -510,7 +510,7 @@ const Join = () => {
 				UserName: userValue.userName,
 				RealName: userValue.realName,
 				Userpwd: userValue.password,
-				CurrencyId: siteCurrency[userValue.currency].id,
+				CurrencyId: siteCurrency[userValue.currency]?.id,
 				PhoneNo: userValue.phone,
 				Email: userValue.email,
 				UserLang: defaultLangId,
