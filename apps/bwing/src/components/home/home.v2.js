@@ -101,7 +101,7 @@ const Home = () => {
 			} = await api_promotion_GetPromotionListV2({
 				langId: userInfo.langId
 			});
-			setPromotionList(data);
+			setPromotionList(data || []);
 		} catch (error) {
 			setPopBox({
 				isOpen: true,
