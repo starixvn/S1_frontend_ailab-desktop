@@ -14,11 +14,11 @@ export const defMenuType = {
 };
 
 export const defMenuLinks = {
-	cryptoSports: {
-		className: "icon-app-white",
-		menuType: defMenuType.entPage,
-		productInfo: { ...productList.cryptoSports }
-	},
+	// cryptoSports: {
+	// 	className: "icon-app-white",
+	// 	menuType: defMenuType.entPage,
+	// 	productInfo: { ...productList.cryptoSports }
+	// },
 	home: {
 		className: "icon-home-white",
 		path: path.home.root
