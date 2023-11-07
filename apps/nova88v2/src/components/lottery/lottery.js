@@ -97,13 +97,15 @@ const Lottery = () => {
 			const {
 				filterByAuth,
 				customSort,
-				subMenu: defMenu
+				subMenu: defMenu,
+				checkBeforeLogin
 			} = defMenuLinks.lottery;
 
 			let menu = sortGameMenu({
 				customSort,
 				filterByAuth,
-				defMenu
+				defMenu,
+				checkBeforeLogin
 			});
 
 			menu = menu.map(s => {

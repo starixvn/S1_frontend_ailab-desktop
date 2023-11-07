@@ -113,6 +113,106 @@ const allowedCurrencyList = {
 		defCurrencyList.USD,
 		defCurrencyList.VND
 	],
+	slot_SimplePlay: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.BDT,
+		defCurrencyList.USD,
+		defCurrencyList.INR,
+		defCurrencyList.VND,
+		defCurrencyList.KHM
+	],
+	slot_MGPSW: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.BDT,
+		defCurrencyList.USD,
+		defCurrencyList.INR,
+		defCurrencyList.VND,
+		defCurrencyList.KHM
+	],
+	slotPGSoft: [
+		defCurrencyList.IDR,
+		defCurrencyList.THB,
+		defCurrencyList.BDT,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.KHM,
+		defCurrencyList.INR,
+		defCurrencyList.VND
+	],
+	slot_SkyWind: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.INR,
+		defCurrencyList.VND,
+		defCurrencyList.KHM
+	],
+	liveCasino_N2: [
+		defCurrencyList.IDR,
+		defCurrencyList.THB,
+		defCurrencyList.BDT,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.KHM,
+		defCurrencyList.INR,
+		defCurrencyList.VND
+	],
+	liveCasino_DG: [
+		defCurrencyList.MYR,
+		defCurrencyList.IDR,
+		defCurrencyList.THB,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.KHM,
+		defCurrencyList.INR,
+		defCurrencyList.VND
+	],
+	liveCasinoPlayTech: [
+		defCurrencyList.MYR,
+		defCurrencyList.IDR,
+		defCurrencyList.THB,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.KHM,
+		defCurrencyList.INR,
+		defCurrencyList.VND
+	],
+	liveCasino_AG: [
+		defCurrencyList.MYR,
+		defCurrencyList.IDR,
+		defCurrencyList.THB,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.KHM,
+		defCurrencyList.INR,
+		defCurrencyList.VND
+	],
+	casinoSA: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.BDT,
+		defCurrencyList.USD,
+		defCurrencyList.INR,
+		defCurrencyList.VND,
+		defCurrencyList.KHM
+	],
+	casino_MGPSW: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.BDT,
+		defCurrencyList.USD,
+		defCurrencyList.INR,
+		defCurrencyList.VND,
+		defCurrencyList.KHM
+	],
 	casino_WM: [
 		defCurrencyList.MYR,
 		defCurrencyList.USD,
@@ -121,6 +221,15 @@ const allowedCurrencyList = {
 		defCurrencyList.IDR,
 		defCurrencyList.INR,
 		defCurrencyList.KHM,
+		defCurrencyList.VND
+	],
+	casino_SkyWind: [
+		defCurrencyList.MYR,
+		defCurrencyList.IDR,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.KHM,
+		defCurrencyList.INR,
 		defCurrencyList.VND
 	],
 
@@ -233,6 +342,16 @@ const allowedCurrencyList = {
 		defCurrencyList.CNY,
 		defCurrencyList.KHM,
 		defCurrencyList.VND
+	],
+	slotPlayTech: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.INR,
+		defCurrencyList.VND,
+		defCurrencyList.KHM
 	],
 	V8Poker: [
 		defCurrencyList.MYR,

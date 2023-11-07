@@ -62,7 +62,8 @@ const Esport = () => {
 							className="btn-check"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -94,13 +95,15 @@ const Esport = () => {
 			const {
 				filterByAuth,
 				customSort,
-				subMenu: defMenu
+				subMenu: defMenu,
+				checkBeforeLogin
 			} = defMenuLinks.esports;
 
 			let menu = sortGameMenu({
 				customSort,
 				filterByAuth,
-				defMenu
+				defMenu,
+				checkBeforeLogin
 			});
 
 			menu = menu.map(s => {

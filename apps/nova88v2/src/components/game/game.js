@@ -63,7 +63,8 @@ const Game = () => {
 							className="btn-check"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -94,13 +95,15 @@ const Game = () => {
 			const {
 				filterByAuth,
 				customSort,
-				subMenu: defMenu
+				subMenu: defMenu,
+				checkBeforeLogin
 			} = defMenuLinks.game;
 
 			const menu = sortGameMenu({
 				customSort,
 				filterByAuth,
-				defMenu
+				defMenu,
+				checkBeforeLogin
 			});
 
 			return menu;

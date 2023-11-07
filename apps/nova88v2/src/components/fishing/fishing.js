@@ -60,7 +60,8 @@ const Fishing = () => {
 							className="btn-check"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -90,13 +91,15 @@ const Fishing = () => {
 			const {
 				filterByAuth,
 				customSort,
-				subMenu: defMenu
+				subMenu: defMenu,
+				checkBeforeLogin
 			} = defMenuLinks.fishing;
 
 			const menu = sortGameMenu({
 				customSort,
 				filterByAuth,
-				defMenu
+				defMenu,
+				checkBeforeLogin
 			});
 
 			return menu;

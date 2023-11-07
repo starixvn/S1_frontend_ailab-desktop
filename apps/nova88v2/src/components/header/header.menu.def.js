@@ -67,8 +67,7 @@ const defSortCasino = {
 		casino_ALBET: 9,
 		casino_AG: 10,
 		casino_WM: 11,
-		casino_EBET: 12,
-		casino_N2LIVE: 13
+		casino_EBET: 12
 	},
 	[defCurrencyList.IDR]: {
 		casino_PP: 1,
@@ -361,6 +360,7 @@ export const defMenuLinks = {
 	home: {
 		className: "icon icon-home",
 		path: path.home.root,
+		checkBeforeLogin: true,
 		subMenu: [
 			{
 				displayKey: "lbl_Vip",
@@ -405,7 +405,8 @@ export const defMenuLinks = {
 	rewards: {
 		className: "reward",
 		allowCurrencies: allowedCurrencyList.rewards,
-		href: `${config.openURL}/rewards/`
+		href: `${config.openURL}/rewards/`,
+		checkBeforeLogin: true
 	},
 	sports: {
 		displayKey: "lbl_Sports",
@@ -418,6 +419,7 @@ export const defMenuLinks = {
 			...productList.sports
 		},
 		filterByAuth: true,
+		checkBeforeLogin: true,
 		customSort: defSortSports,
 		subMenu: [
 			{
@@ -521,6 +523,7 @@ export const defMenuLinks = {
 	exchange: {
 		displayKey: "lbl_Exchange",
 		className: "exchange",
+		checkBeforeLogin: true,
 		allowCurrencies: allowedCurrencyList.exchange,
 		subMenu: [
 			{
@@ -545,6 +548,7 @@ export const defMenuLinks = {
 		displayKey: "lbl_eSports",
 		className: "eSportsbtn",
 		path: path.eSport.root,
+		checkBeforeLogin: true,
 		subMenu: [
 			{
 				displayText: "Saba",
@@ -711,7 +715,8 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-SK.png",
 				listBgImgUrl: ["skbg.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				lobbyPage: { npcImg: "casino_sk" }
+				lobbyPage: { npcImg: "casino_sk" },
+				allowCurrencies: allowedCurrencyList.casino_SkyWind
 			},
 			{
 				keyName: "casino_MG",
@@ -726,7 +731,8 @@ export const defMenuLinks = {
 						period: defEventPeriod.liveCasino_mg
 					})
 				],
-				lobbyPage: { npcImg: "casino_mg" }
+				lobbyPage: { npcImg: "casino_mg" },
+				allowCurrencies: allowedCurrencyList.casino_MGPSW
 			},
 			{
 				keyName: "casino_EVO",
@@ -750,7 +756,8 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-pt.png",
 				listBgImgUrl: ["ptbg.png", "livecasinListHover.png"],
 				...productList.liveCasino_PlayTech,
-				lobbyPage: { npcImg: "casino_pt" }
+				lobbyPage: { npcImg: "casino_pt" },
+				allowCurrencies: allowedCurrencyList.liveCasinoPlayTech
 			},
 			{
 				keyName: "casino_N2LIVE",
@@ -758,6 +765,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-n2.png",
 				listBgImgUrl: ["n2bg.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
+				allowCurrencies: allowedCurrencyList.liveCasino_N2,
 				...productList.liveCasino_N2,
 				lobbyPage: { npcImg: "casino_n2" }
 			},
@@ -805,7 +813,8 @@ export const defMenuLinks = {
 				listBgImgUrl: ["saBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_SA,
-				lobbyPage: { npcImg: "casino_sa" }
+				lobbyPage: { npcImg: "casino_sa" },
+				allowCurrencies: allowedCurrencyList.casinoSA
 			},
 			{
 				keyName: "casino_AE",
@@ -827,7 +836,8 @@ export const defMenuLinks = {
 				listBgImgUrl: ["dgBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_DG,
-				lobbyPage: { npcImg: "casino_dg" }
+				lobbyPage: { npcImg: "casino_dg" },
+				allowCurrencies: allowedCurrencyList.liveCasino_DG
 			},
 			{
 				keyName: "casino_AG",
@@ -838,7 +848,8 @@ export const defMenuLinks = {
 				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_AG,
-				lobbyPage: { npcImg: "casino_ag" }
+				lobbyPage: { npcImg: "casino_ag" },
+				allowCurrencies: allowedCurrencyList.liveCasino_AG
 			}
 		]
 	},
@@ -916,7 +927,8 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_PG },
 				parameter: { provider: "pg" },
-				...productList.casino_PG
+				...productList.casino_PG,
+				allowCurrencies: allowedCurrencyList.slotPGSoft
 			},
 			{
 				keyName: "slot_FaChai",
@@ -948,7 +960,8 @@ export const defMenuLinks = {
 						period: defEventPeriod.casino_MGPSW
 					})
 				],
-				...productList.casino_MGPSW
+				...productList.casino_MGPSW,
+				allowCurrencies: allowedCurrencyList.slot_MGPSW
 			},
 			{
 				keyName: "slot_JI",
@@ -1136,7 +1149,8 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.casino_SimplePlay
 					})
-				]
+				],
+				allowCurrencies: allowedCurrencyList.slot_SimplePlay
 			},
 			{
 				keyName: "slot_Skywind",
@@ -1152,7 +1166,8 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.skywind
 					})
-				]
+				],
+				allowCurrencies: allowedCurrencyList.slot_SkyWind
 			},
 			// 新的 PlayTech (Seamless Wallet)
 			{
@@ -1163,7 +1178,8 @@ export const defMenuLinks = {
 				listNpcImgUrl: "slotpt.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { provider: "playtech" },
-				...productList.casino_PlayTech
+				...productList.casino_PlayTech,
+				allowCurrencies: allowedCurrencyList.slotPlayTech
 			}
 			// {
 			// 	keyName: "slot_Mega888",
@@ -1206,6 +1222,7 @@ export const defMenuLinks = {
 		path: path.game.root,
 		filterByAuth: true,
 		customSort: defSortGames,
+		checkBeforeLogin: true,
 		subMenu: [
 			{
 				keyName: "games_MPoker",
@@ -1819,6 +1836,7 @@ export const defMenuLinks = {
 	promotion: {
 		displayKey: "lbl_Promos",
 		path: path.promotion.root,
+		checkBeforeLogin: true,
 		eventIcons: [
 			showEventIcon({
 				icon: defEventIcon.hot,
@@ -1829,6 +1847,7 @@ export const defMenuLinks = {
 	vip: {
 		displayKey: "lbl_Vip",
 		path: path.vip.root,
+		checkBeforeLogin: true,
 		allowCurrencies: allowedCurrencyList.VIP
 	},
 	// sponsor: {
@@ -1874,6 +1893,7 @@ export const defMenuLinks = {
 	ranking: {
 		displayKey: "lbl_Leaderboard",
 		path: path.leaderBoard.root,
+		checkBeforeLogin: true,
 		allowCurrencies: [...getLeaderBoardSupportCurrencyId()]
 	}
 };

@@ -69,7 +69,8 @@ export default () => {
 							className="btn-check"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -111,13 +112,15 @@ export default () => {
 			const {
 				filterByAuth,
 				customSort,
-				subMenu: defMenu
+				subMenu: defMenu,
+				checkBeforeLogin
 			} = defMenuLinks.casino;
 
 			const menu = sortGameMenu({
 				customSort,
 				filterByAuth,
-				defMenu
+				defMenu,
+				checkBeforeLogin
 			}).filter(subMenuItem => subMenuItem?.lobbyPage);
 
 			return menu;
