@@ -16,23 +16,26 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 	};
 
 	return (
-		<table className="eventList">
+		<table className="vip-list">
 			<tbody>
-				<tr className="title">
+				<tr className="title title-head">
 					{/* <!--icon設計中,只要是class="icon icon-nova88"都會在過完年更改class名稱--> */}
-					<td className="icon icon-nova88">
+					<td className="emphasize">
 						{t("lbl_Vip_Service_Support")}
 					</td>
-					<td colSpan="6">{t("lbl_Vip_Tier")}</td>
+					{vipBanner?.vipBannerData?.map(item => {
+						return (
+							<td>{item?.levelName ? item?.levelName : "-"}</td>
+						);
+					})}
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Deposit_Priority")}</td>
 					{vipBanner?.vipBannerData?.map(item => (
 						<td>
-							{item?.depositPriority ? (
-								<i className="icon icon-checkmark" />
-							) : null}{" "}
-							{item?.depositPriority}
+							{item?.depositPriority
+								? item?.depositPriority
+								: "-"}
 						</td>
 					))}
 				</tr>
@@ -40,10 +43,9 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 					<td>{t("lbl_Vip_WithDrawal_Priority")}</td>
 					{vipBanner?.vipBannerData?.map(item => (
 						<td>
-							{item?.withdrawalPriority ? (
-								<i className="icon icon-checkmark" />
-							) : null}{" "}
-							{item?.withdrawalPriority}
+							{item?.withdrawalPriority
+								? item?.withdrawalPriority
+								: "-"}
 						</td>
 					))}
 				</tr>
@@ -51,10 +53,7 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 					<td>{t("lbl_Vip_Service_Support_At_Date")}</td>
 					{vipBanner?.vipBannerData?.map(item => (
 						<td>
-							{item?.serviceSupport ? (
-								<i className="icon icon-checkmark" />
-							) : null}{" "}
-							{item?.serviceSupport}
+							{item?.serviceSupport ? item?.serviceSupport : "-"}
 						</td>
 					))}
 				</tr>
@@ -86,13 +85,18 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 					))}
 				</tr>
 				<tr className="title">
-					<td className="icon icon-nova88">
+					<td className="emphasize">
 						{t("lbl_Vip_Exclusive_Bonus")}{" "}
 						<span className="txt-orange">
 							({t(`Currency_${currencyId}`)})
 						</span>
 					</td>
-					<td colSpan="6" />
+					<td />
+					<td />
+					<td />
+					<td />
+					<td />
+					<td />
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Tier_UpGrade_Bonus")}</td>
@@ -102,15 +106,18 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 								? number_format_excludeString(
 										item?.upBonus.split(".")[0]
 								  )
-								: null}
+								: "-"}
 						</td>
 					))}
 				</tr>
 				<tr className="title">
-					<td className="icon icon-nova88">
-						{t("lbl_Vip_Special_Rebate")}
-					</td>
-					<td colSpan="6" />
+					<td className="emphasize">{t("lbl_Vip_Special_Rebate")}</td>
+					<td />
+					<td />
+					<td />
+					<td />
+					<td />
+					<td />
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Sport_Rebate")}</td>
@@ -137,10 +144,15 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 					))}
 				</tr>
 				<tr className="title">
-					<td className="icon icon-nova88">
+					<td className="emphasize">
 						{t("lbl_Vip_Referral_bonus_Program")}
 					</td>
-					<td colSpan="6" />
+					<td />
+					<td />
+					<td />
+					<td />
+					<td />
+					<td />
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Referral_bonus")}</td>
@@ -154,13 +166,18 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 					))}
 				</tr>
 				<tr className="title">
-					<td className="icon icon-nova88">
-						{t("lbl_Vip_Tire_Upgrade_Requirement")}{" "}
+					<td className="emphasize">
+						{t("lbl_Vip_Tire_Upgrade_Requirement")}
 						<span className="txt-orange">
 							({t(`Currency_${currencyId}`)})
 						</span>
 					</td>
-					<td colSpan="6" />
+					<td />
+					<td />
+					<td />
+					<td />
+					<td />
+					<td />
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Monthly_Minimum_Deposit")}</td>
@@ -170,18 +187,23 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 								? number_format_excludeString(
 										item?.upDeposit.split(".")[0]
 								  )
-								: null}
+								: "-"}
 						</td>
 					))}
 				</tr>
 				<tr className="title">
-					<td className="icon icon-nova88">
+					<td className="emphasize">
 						{t("lbl_Vip_Tier_Maintenance_Requirement")}{" "}
 						<span className="txt-orange">
 							({t(`Currency_${currencyId}`)})
 						</span>
 					</td>
-					<td colSpan="6" />
+					<td />
+					<td />
+					<td />
+					<td />
+					<td />
+					<td />
 				</tr>
 				<tr>
 					<td>
@@ -194,7 +216,7 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 								? number_format_excludeString(
 										item?.downDeposit.split(".")[0]
 								  )
-								: null}
+								: "-"}
 						</td>
 					))}
 				</tr>
@@ -209,14 +231,20 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 								? number_format_excludeString(
 										item?.downTurnover.split(".")[0]
 								  )
-								: null}
+								: "-"}
 						</td>
 					))}
 				</tr>
-				<tr className="lastTd">
-					<td>{t("lbl_Vip_Ranking_Validity_Membership_renewal")}</td>
+				<tr className="last">
+					<td className="emphasize">
+						{t("lbl_Vip_Ranking_Validity_Membership_renewal")}
+					</td>
 					{vipBanner?.vipBannerData?.map(item => (
-						<td>{item?.rankingValidityMembershipRenewal}</td>
+						<td>
+							{item?.rankingValidityMembershipRenewal
+								? item?.rankingValidityMembershipRenewal
+								: "-"}
+						</td>
 					))}
 				</tr>
 			</tbody>

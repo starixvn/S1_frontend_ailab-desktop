@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useTranslation } from "react-i18next";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { defMenuLinks } from "../layout/header.menu.def";
 import {
@@ -13,7 +12,6 @@ import EsportBanner from "./eSport.banner";
 import EsportList from "./eSport.list";
 
 const Esport = () => {
-	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
@@ -42,25 +40,21 @@ const Esport = () => {
 
 	const getSubMenu = () => {
 		let { subMenu } = defMenuLinks.eSport;
-
 		if (subMenu && productTpIds?.length > 0) {
 			subMenu = subMenu.filter(s => productTpIds.includes(s.tpId));
 		}
-
 		return subMenu;
 	};
 
 	const subMenu = getSubMenu();
 
 	return (
-		<section>
-			<div className="rightModule">
-				<div className="infoModule">
-					<EsportBanner langId={userInfo.langId} />
-
-					<div className="esportlobbyList">
+		<>
+			<EsportBanner langId={userInfo.langId} />
+			<div className="wrapper mt-5">
+				<div className="col-12">
+					<div className="lobby-products">
 						<EsportList
-							t={t}
 							subMenu={subMenu}
 							allMaintainList={allMaintainList}
 							clickItem={clickItem}
@@ -68,7 +62,7 @@ const Esport = () => {
 					</div>
 				</div>
 			</div>
-		</section>
+		</>
 	);
 };
 

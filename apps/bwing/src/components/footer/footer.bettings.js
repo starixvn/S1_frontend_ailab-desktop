@@ -4,7 +4,7 @@ import LinkItems from "../common/linkItems";
 
 export default ({ t, langId, isLogin, productTpIds }) => {
 	return (
-		<div>
+		<div className="footer-sitemap-item">
 			<span className="title">{t("lbl_SportsBetting")}</span>
 			<div>
 				<LinkItems

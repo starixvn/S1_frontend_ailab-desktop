@@ -54,7 +54,7 @@ const PromotionList = ({
 		if (_isClaimed) {
 			promoDisplayStyle = defPromoDisplayStyle.claimed;
 		} else if (
-			(filter === defFilterType.specialBonus && !p.canJoin) ||
+			// (filter === defFilterType.specialBonus && !p.canJoin) ||
 			p.beenUsed
 		) {
 			promoDisplayStyle = defPromoDisplayStyle.expired;
@@ -66,7 +66,9 @@ const PromotionList = ({
 			isDisplay && (
 				<div
 					className={_isClaimed ? "active" : ""}
-					key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
+					key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
+				>
+					{/* 此段 classname 的expired 與設計對不上 先隱藏的 expired 的邏輯 */}
 					<div className={promoDisplayStyle} />
 					<div className="promoImg">
 						<img src={p.banner} alt={p.title} />
@@ -97,7 +99,8 @@ const PromotionList = ({
 									href={p.promotionLink}
 									target="_blank"
 									rel="noreferrer"
-									className="btn-check">
+									className="btn-check"
+								>
 									{t("lbl_Promotion_MoreInfo")}
 								</a>
 							) : (
@@ -107,7 +110,8 @@ const PromotionList = ({
 										this,
 										userInfo.langId,
 										p.bonusCode
-									)}>
+									)}
+								>
 									{t("lbl_Promotion_MoreInfo")}
 								</button>
 							)}

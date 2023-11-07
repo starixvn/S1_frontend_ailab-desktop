@@ -21,8 +21,8 @@ export default () => {
 		return (
 			<DropdownHeader
 				mainKey="header-langList"
-				className="country"
-				subClassName="countryList"
+				className="countrybtn"
+				// subClassName="countryList"
 				selectedValue={userInfo.langId}
 				isLogin={userInfo.isLogin}
 				errorPopBox={errorPopBox}

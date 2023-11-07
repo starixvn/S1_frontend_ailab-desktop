@@ -7,7 +7,7 @@ export default () => {
 	return (
 		<Wrapper>
 			<Layout showFooter={true}>
-				<main className="esportlobby">
+				<main className="lobby esports">
 					<Esport />
 				</main>
 			</Layout>

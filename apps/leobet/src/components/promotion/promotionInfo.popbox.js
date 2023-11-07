@@ -175,7 +175,7 @@ const PromotionInfo = ({
 						{promotionInfo.promotionType ===
 						defPromotionType.other ? (
 							<button className="red" onClick={openLiveChat}>
-								{t("promotion.lbl_promo_apply_now")}
+								{t("lbl_Promotion_ApplyNow")}
 							</button>
 						) : (
 							<PromotionJoinButton
@@ -193,7 +193,8 @@ const PromotionInfo = ({
 						{showAllPromosBtn && (
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.promotion.root}`}>
+								to={`/${userInfo.langId}/${path.promotion.root}`}
+							>
 								{t("promotion.lbl_promo_all_promos")}
 							</Link>
 						)}
@@ -324,7 +325,8 @@ const DepositSlip = ({ promotionInfo, t, isSpecialType, currencyId }) => {
 				<div className="depositSlipList">
 					{refList?.map(item => (
 						<div
-							key={`promotion-deposit-record-${bonusCode}-${item.depositId}`}>
+							key={`promotion-deposit-record-${bonusCode}-${item.depositId}`}
+						>
 							<div>{item.depositId}</div>
 							<div>
 								{number_format(

@@ -72,7 +72,7 @@ export default ({
 
 		const arrowIcon =
 			m.subMenu && m.subMenu.length > 0 ? (
-				<i className="icon icon-arrow_drop_down" />
+				<i className="icon icon-dropdown-arrow-white" />
 			) : null;
 
 		let _className = m.className ? m.className : "";
@@ -153,7 +153,6 @@ export default ({
 				return (
 					<a
 						key={elemKey}
-						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						onClick={OPEN_IN_BLANK.bind(
 							this,
@@ -161,6 +160,7 @@ export default ({
 							rule.windowKey
 						)}
 						onFocus={() => 0}>
+						<i className={_className} />
 						{displayText}
 						{arrowIcon}
 					</a>
@@ -208,8 +208,8 @@ export default ({
 				<Link
 					key={elemKey}
 					to={`/${langId}/${_path}`}
-					onMouseOver={_showSubMenu.bind(this, key)}
-					className={_className}>
+					onMouseOver={_showSubMenu.bind(this, key)}>
+					<i className={_className} />
 					{displayText}
 					{arrowIcon}
 				</Link>

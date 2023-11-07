@@ -47,7 +47,7 @@ const getCurrencyName = ({ langId, currencyId, t }) => {
 		: t(`Currency_${langAndCurrMapping[_langMappingCurr]}`);
 };
 
-const PromoRule = ({ promotionInfo, t, currencyId, langId, isTable }) => {
+const PromoRule = ({ promotionInfo, t, currencyId, langId }) => {
 	const {
 		rollOver,
 		promotionType,
@@ -72,116 +72,86 @@ const PromoRule = ({ promotionInfo, t, currencyId, langId, isTable }) => {
 
 	if (tierAmountList?.length > 0) {
 		const redepositList = tierAmountList.map(el => (
-			<div key={el.requiredAmount}>
-				<div>{numberWithCurrency(el.requiredAmount, currencyName)}</div>
-				<div>
-					{isPercentage
-						? `${el.bonus}%`
-						: numberWithCurrency(el.bonus, currencyName)}
+			<div className="promotionpop-info" key={el.requiredAmount}>
+				<div className="promotionpop-info-item">
+					<div>{t("lbl_Promotion_Min_Deposit")}</div>
+					<div>
+						{numberWithCurrency(el.requiredAmount, currencyName)}
+					</div>
+				</div>
+				<div className="promotionpop-info-item">
+					<div>{t("lbl_Promotion_Bonus")}</div>
+					<div>
+						{isPercentage
+							? `${el.bonus}%`
+							: numberWithCurrency(el.bonus, currencyName)}
+					</div>
 				</div>
 				{isPercentage && (
-					<div>{numberWithCurrency(el.maxBonus, currencyName)}</div>
+					<div className="promotionpop-info-item">
+						<div>{t("lbl_MaxBonusAmount")}</div>
+						<div>
+							{numberWithCurrency(el.maxBonus, currencyName)}
+						</div>
+					</div>
 				)}
-				<div> {el.rollOver}X</div>
+				<div className="promotionpop-info-item">
+					<div>{t("lbl_RollOver")}</div>
+					<div>{el.rollOver}X</div>
+				</div>
 			</div>
 		));
 
 		return (
 			<>
-				<div className="remainingTime">
-					<div>
+				<div className="promotionpop-info">
+					<div className="promotionpop-info-item">
 						<div>{t("lbl_RemainingTime")}</div>
 						<div>{displayExpiryTime}</div>
 					</div>
 				</div>
-				<div className="rolloverListNew">
-					<div>
-						<div>{t("lbl_Promotion_Min_Deposit")}</div>
-						<div>{t("lbl_Promotion_Bonus")}</div>
-						{isPercentage && <div>{t("lbl_MaxBonusAmount")}</div>}
-						<div>{t("lbl_RollOver")}</div>
-					</div>
-					{redepositList}
-				</div>
+				{redepositList}
 			</>
 		);
 	}
 
-	if (isTable) {
-		return (
-			<div className="rolloverList">
-				{!isStaticOrRebate && displayMinAmount && (
-					<div>
-						<div>{t("lbl_Promotion_Min_Deposit")}</div>
-						<div>
-							{numberWithCurrency(requiredAmount, currencyName)}
-						</div>
-					</div>
-				)}
-
-				{!isStaticOrRebate && (
-					<div>
-						<div>{t("lbl_Promotion_Bonus")}</div>
-						<div>
-							{isPercentage
-								? `${bonus}%`
-								: numberWithCurrency(bonus, currencyName)}
-						</div>
-					</div>
-				)}
-
-				{isPercentage && !isStaticOrRebate && (
-					<div>
-						<div>{t("lbl_MaxBonusAmount")}</div>
-						<div>{numberWithCurrency(maxBonus, currencyName)}</div>
-					</div>
-				)}
-
-				<div>
-					<div>{t("lbl_RollOver").toUpperCase()}</div>
-					<div>{rollOver}X</div>
-				</div>
-
-				<div>
-					<div>{t("lbl_RemainingTime").toUpperCase()}</div>
-					<div>{displayExpiryTime}</div>
-				</div>
-			</div>
-		);
-	}
-
 	return (
-		<div className="rollover">
+		<div className="promotionpop-info">
 			{!isStaticOrRebate && displayMinAmount && (
-				<div className="icon icon-coin-dollar">
-					{t("lbl_Promotion_Min_Deposit")}
-					<span>
+				<div className="promotionpop-info-item">
+					<div>{t("lbl_Promotion_Min_Deposit")}</div>
+					<div>
 						{numberWithCurrency(requiredAmount, currencyName)}
-					</span>
+					</div>
 				</div>
 			)}
 
 			{!isStaticOrRebate && (
-				<div className="icon icon-coin-dollar">
-					{t("lbl_Promotion_Bonus")}
-					<span>
+				<div className="promotionpop-info-item">
+					<div>{t("lbl_Promotion_Bonus")}</div>
+					<div>
 						{isPercentage
 							? `${bonus}%`
 							: numberWithCurrency(bonus, currencyName)}
-					</span>
+					</div>
 				</div>
 			)}
 
 			{isPercentage && !isStaticOrRebate && (
-				<div className="icon icon-coin-dollar">
-					{t("lbl_MaxBonusAmount")}
-					<span>{numberWithCurrency(maxBonus, currencyName)}</span>
+				<div className="promotionpop-info-item">
+					<div>{t("lbl_MaxBonusAmount")}</div>
+					<div>{numberWithCurrency(maxBonus, currencyName)}</div>
 				</div>
 			)}
 
-			<div className="icon icon-icon32px_">
-				{t("lbl_RollOver").toUpperCase()}
-				<span>{rollOver}X</span>
+			<div className="promotionpop-info-item">
+				<div>{t("lbl_RollOver").toUpperCase()}</div>
+				<div>{rollOver}X</div>
+			</div>
+
+			<div className="promotionpop-info-item">
+				<div>{t("lbl_RemainingTime").toUpperCase()}</div>
+				<div>{displayExpiryTime}</div>
 			</div>
 		</div>
 	);
@@ -190,7 +160,6 @@ const PromoRule = ({ promotionInfo, t, currencyId, langId, isTable }) => {
 PromoRule.defaultProps = {
 	promotionInfo: null,
 	currencyId: null,
-	isTable: null,
 	langId: null
 };
 
@@ -198,7 +167,6 @@ PromoRule.propTypes = {
 	t: PropTypes.func.isRequired,
 	promotionInfo: PropTypes.objectOf(PropTypes.any),
 	currencyId: PropTypes.number,
-	isTable: PropTypes.bool,
 	langId: PropTypes.string
 };
 
