@@ -53,7 +53,8 @@ export const defEventPeriod = {
 	fishing_Zombie_Party: { end: "2023/11/05 23:59:59" },
 	fishing_Alien_Hunter: { end: "2023/11/05 23:59:59" },
 	slot_fachai: { end: "2023/12/31 23:59:59" },
-	TFGaming: { end: "2023/11/20 23:59:59" }
+	TFGaming: { end: "2023/11/20 23:59:59" },
+	V8Poker: { end: "2023/11/20 23:59:59" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

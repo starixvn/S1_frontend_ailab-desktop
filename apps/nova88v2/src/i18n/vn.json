@@ -1091,5 +1091,6 @@
   "msg_changePswSuccess": "Cập nhật thành công mật khẩu! Bạn có thể sử dụng mật khẩu mới ở lần đăng nhập tiếp theo. ",
   "msg_changePswSuccessHint": "Bạn có thể sử dụng mật khẩu mới khi đăng nhập vào lần sau.",
   "msg_changePswUpdateSuccess": "Cập nhật thành công",
-  "msg_loggedout": "Bạn đã đăng xuất thành công!"
+  "msg_loggedout": "Bạn đã đăng xuất thành công!",
+  "lbl_V8Poker": "V8Poker"
 }

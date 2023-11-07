@@ -233,6 +233,21 @@ const HonorablePartner = () => {
 			{
 				...productList.TFGaming,
 				imgName: "tfg"
+			},
+			{
+				...productList.games_V8Poker,
+				imgName: "v8",
+				allowCurrencies: [
+					defCurrencyList.MYR,
+					defCurrencyList.USD,
+					defCurrencyList.THB,
+					defCurrencyList.IDR,
+					defCurrencyList.INR,
+					defCurrencyList.CNY,
+					defCurrencyList.KHM,
+					defCurrencyList.VND,
+					defCurrencyList.USDT
+				]
 			}
 		];
 

@@ -1091,5 +1091,6 @@
   "msg_changePswSuccess": "अद्यतन सफल है! जब आप अगली बार लॉगिन करेंगे तो आप नए पासवर्ड का उपयोग कर सकते हैं।",
   "msg_changePswSuccessHint": "जब आप अगली बार लॉगिन करेंगे तो आप नए पासवर्ड का उपयोग कर सकते हैं।",
   "msg_changePswUpdateSuccess": "अद्यतन सफल है!",
-  "msg_loggedout": "आप सफलता पूर्वक बाहर आ गए हैं!!"
+  "msg_loggedout": "आप सफलता पूर्वक बाहर आ गए हैं!!",
+  "lbl_V8Poker": "V8Poker"
 }

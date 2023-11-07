@@ -1091,5 +1091,6 @@
   "msg_changePswSuccess": "更新成功！下次登录时请使用新密码。",
   "msg_changePswSuccessHint": "下次登录时请使用新密码。",
   "msg_changePswUpdateSuccess": "更新成功！",
-  "msg_loggedout": "您已成功登出！"
+  "msg_loggedout": "您已成功登出！",
+  "lbl_V8Poker": "V8Poker"
 }
