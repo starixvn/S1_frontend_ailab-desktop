@@ -187,16 +187,16 @@ const defPlatform = [
 		imgName: "es"
 	},
 	{
-		...defCasinoProviders.eBET,
-		path: path.casino.root,
-		parameter: { provider: defCasinoProviders.eBET.name },
-		imgName: "we"
-	},
-	{
 		...defCasinoProviders.FaChai,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.FaChai.name },
 		imgName: "fachai"
+	},
+	{
+		...defCasinoProviders.eBET,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.eBET.name },
+		imgName: "we"
 	}
 ];
 
@@ -289,7 +289,8 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 					...p,
 					urlParams: _urlParams,
 					isInMaintain
-				})}>
+				})}
+			>
 				<ImageWithHover
 					bannerImgUrl={bannerImgUrl}
 					imgName={p.imgName}

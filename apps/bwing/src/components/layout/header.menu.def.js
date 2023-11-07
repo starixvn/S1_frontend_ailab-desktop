@@ -14,11 +14,11 @@ export const defMenuType = {
 };
 
 export const defMenuLinks = {
-	cryptoSports: {
-		className: "icon-app-white",
-		menuType: defMenuType.entPage,
-		productInfo: { ...productList.cryptoSports }
-	},
+	// cryptoSports: {
+	// 	className: "icon-app-white",
+	// 	menuType: defMenuType.entPage,
+	// 	productInfo: { ...productList.cryptoSports }
+	// },
 	home: {
 		className: "icon-home-white",
 		path: path.home.root
@@ -411,21 +411,6 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.PG.name },
 				img: "slots/pg.png"
 			},
-			// * bwing 改版中，因此先不做(目前沒有圖)
-			// {
-			// 	...defCasinoProviders.FaChai,
-			// 	className: "",
-			// 	icon: "",
-			// 	displayText: "Fa Chai",
-			// 	menuType: defMenuType.Link,
-			// 	parameter: { provider: defCasinoProviders.FaChai.name },
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.slot_fachai
-			// 		})
-			// 	]
-			// },
 			{
 				...defCasinoProviders.FaChai,
 				className: "",
