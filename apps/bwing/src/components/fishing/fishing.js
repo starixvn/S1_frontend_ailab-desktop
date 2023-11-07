@@ -39,6 +39,8 @@ const Fishing = () => {
 			loginCallback,
 			tpGameType
 		});
+
+		return true;
 	};
 
 	const getSubMenu = () => {
@@ -56,9 +58,9 @@ const Fishing = () => {
 	return (
 		<>
 			<FishingBanner langId={userInfo.langId} />
-			<section className="inside">
-				<div className="rightModule">
-					<div className="infoModule">
+			<div className="wrapper mt-5">
+				<div className="col-12">
+					<div className="lobby-products">
 						<FishingList
 							subMenu={subMenu}
 							clickItem={clickItem}
@@ -67,7 +69,7 @@ const Fishing = () => {
 						/>
 					</div>
 				</div>
-			</section>
+			</div>
 		</>
 	);
 };

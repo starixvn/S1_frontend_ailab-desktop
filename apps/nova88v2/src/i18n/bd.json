@@ -92,7 +92,7 @@
   "lbl_AllProvider": "সমস্ত প্ল্যাটফর্ম",
   "lbl_Ambassador": "রাষ্ট্রদূত",
   "lbl_Amount": "পরিমাণ",
-  "lbl_AmountTooltip": "পরিমাণ ০ এর কম হতে পারে না।",
+  "lbl_AmountTooltip": "পরিমাণ {0} এর কম হতে পারে না।",
   "lbl_Android": "অ্যান্ড্রয়েড",
   "lbl_AngPow_AlreadyDrawn": "",
   "lbl_AngPow_Awards": "",

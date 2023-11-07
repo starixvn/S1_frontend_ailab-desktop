@@ -39,7 +39,8 @@ const BankInfoCard = props => {
 						className="btn-cancel"
 						onClick={() => {
 							deleteCard(sysId, accountNo);
-						}}>
+						}}
+					>
 						{t("lbl_Yes")}
 					</button>
 					<button className="btn-check" onClick={ClickCancel}>
@@ -91,8 +92,11 @@ const BankInfoCard = props => {
 		return (
 			<div
 				className={`addBankName ${item?.disabled ? "pending" : ""}`}
-				key={key}>
-				{item?.disabled && <div className="mask" />}
+				key={key}
+			>
+				{item?.disabled && (
+					<div className="mask">{t("lbl_underMaintenance")}</div>
+				)}
 				<div className="addBankInfo">
 					<div className="bankName">
 						<img

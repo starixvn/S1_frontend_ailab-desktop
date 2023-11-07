@@ -37,7 +37,7 @@ function SEO({ description, lang, meta, title }) {
 			((splitPath.length === 2 ||
 				(splitPath.length === 3 && splitPath[2] === "")) &&
 				site.siteMetadata.supportedLanguages.includes(splitPath[1])))
-			? "index indexNew"
+			? "index "
 			: "";
 
 	return (
@@ -57,7 +57,7 @@ function SEO({ description, lang, meta, title }) {
 					{
 						rel: "icon",
 						type: "image/png",
-						href: `${bannerImgUrl}/desktop/img/favicon.ico`
+						href: `${bannerImgUrl}/desktop/img/4.0/favicon.ico`
 					}
 				]}
 				meta={[

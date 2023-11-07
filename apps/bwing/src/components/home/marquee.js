@@ -194,17 +194,16 @@ class Marquee extends Component {
 
 	render() {
 		const arr = this.state.datas.map(item => (
-			<button
+			<a
 				key={`announcement-${item.id}`}
 				style={{ paddingLeft: "2rem" }}
 				onClick={this.ClickMarquee}
 				onMouseOver={this.MarqueeOnMouseOver}
 				onMouseOut={this.MarqueeOnMouseOut}
 				onFocus={() => 0}
-				onBlur={() => 0}
-			>
+				onBlur={() => 0}>
 				{item.subject}
-			</button>
+			</a>
 		));
 
 		const style = this.state.pos === null ? {} : { left: this.state.pos };
@@ -212,14 +211,12 @@ class Marquee extends Component {
 			return (
 				<div id="Marquee">
 					<div
-						className="marquee-box icon icon-marquee"
-						ref={this.marquee}
-					>
+						className="marquee-box icon-speaker"
+						ref={this.marquee}>
 						<div
 							className="marquee-run"
 							ref={this.content}
-							style={style}
-						>
+							style={style}>
 							{arr}
 						</div>
 					</div>

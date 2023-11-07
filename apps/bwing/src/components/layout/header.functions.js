@@ -1,24 +1,21 @@
-import React, { useContext, lazy, Suspense } from "react";
+import React, { useContext, lazy, Suspense, useState } from "react";
 import { Link, navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
-
+import classNames from "classnames";
 import {
 	userInfoContext,
 	popBoxContext,
 	msgCountContext
 } from "../common/context";
 import path from "../../router";
-import DropdownHeader, { defElemType } from "../common/dropdown.headerLink";
 import { LOGOUT } from "../../service/auth";
 import { defPopBoxType } from "../common/defPopBoxType";
-import {
-	defEventIcon,
-	defEventPeriod,
-	showEventIcon
-} from "../common/eventIcon";
 
 import MsgPopup from "./msgPopup";
 import useShieldCheck from "../hook/useShieldCheck";
+import LanguageDropDown from "./header.langDropdown";
+import { defPageClubImg } from "../vip/vip.def";
+import useClickOutside from "../hook/useClickOutSide";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -36,7 +33,10 @@ const BeforeLogin = () => {
 	const { userInfo } = useContext(userInfoContext);
 
 	const clickJoin = () => {
-		navigate(`/${userInfo.langId}/${path.join.root}`);
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.Join
+		});
 	};
 
 	const clickLogin = () => {
@@ -47,70 +47,30 @@ const BeforeLogin = () => {
 	};
 
 	return (
-		<div className="btnGroup">
-			<button className="blue login" onClick={clickLogin}>
-				{t("lbl_Login")?.toUpperCase()}
-			</button>
-			<button className="orange join" onClick={clickJoin}>
-				{t("lbl_JoinNow")?.toUpperCase()}
-			</button>
-		</div>
+		<>
+			<a
+				target="_blank"
+				rel="noopener noreferrer"
+				className="downloadbtn "
+				href={`/${userInfo.langId}/${path.appDownload.root}`}>
+				{t("lbl_APP_DOWNLOAD")}
+			</a>
+			<LanguageDropDown />
+			<div className="btnGroup">
+				<button className="blue btn-round login" onClick={clickLogin}>
+					{t("lbl_Login")?.toUpperCase()}
+				</button>
+				<button className="orange btn-round join" onClick={clickJoin}>
+					{t("lbl_JoinNow")?.toUpperCase()}
+				</button>
+				<Link
+					to={`/${userInfo.langId}/${path.forgetPassword.root}`}
+					className="forgetbtn">
+					{t("lbl_ForgetPsw")}？
+				</Link>
+			</div>
+		</>
 	);
-};
-
-const defCashierLinks = [
-	// {
-	// 	displayKey: "lbl_TransferFunds",
-	// 	href: path.transferFunds.root
-	// },
-	{
-		displayKey: "lbl_Withdrawal",
-		href: path.withdrawal.root
-	},
-	// {
-	// 	displayKey: "lbl_TransferHistory",
-	// 	href: path.transferHistory.root
-	// },
-	{
-		displayKey: "lbl_FinancialLog",
-		href: path.financial.root
-	}
-];
-
-const defSettingLinks = ({ logoutFunc }) => {
-	return [
-		{
-			displayKey: "lbl_Profile",
-			href: path.profile.root
-		},
-		{
-			displayKey: "lbl_BankInfo",
-			href: path.bankInfo.root
-		},
-		{
-			displayKey: "lbl_CryptoWallet",
-			href: path.cryptoWallet.root
-		},
-		{
-			displayKey: "lbl_ReferFriends",
-			href: path.referral.root,
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.referral
-				})
-			]
-		},
-		{
-			displayKey: "lbl_ChangePassword",
-			href: path.changePassword.root
-		},
-		{
-			displayKey: "lbl_Logout",
-			href: logoutFunc,
-			elemType: defElemType.btn
-		}
-	];
 };
 
 const Wallet = lazy(() => import("./header.wallet"));
@@ -120,6 +80,8 @@ const AfterLogin = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { t } = useTranslation();
 	const { deleteShieldData } = useShieldCheck();
+	const [isOpenSideMenu, setIsOpenSideMenu] = useState(false);
+	const ref = useClickOutside(() => setIsOpenSideMenu(false));
 
 	const handleLogout = () => {
 		LOGOUT(() => {
@@ -157,6 +119,10 @@ const AfterLogin = () => {
 		});
 	};
 
+	const userLevelImgInfo = userInfo.userLevel
+		? defPageClubImg[userInfo.userLevel - 1]
+		: null;
+
 	return (
 		<>
 			<div className="btnGroup">
@@ -165,45 +131,99 @@ const AfterLogin = () => {
 					className="blue">
 					{t("lbl_TransferFunds").toUpperCase()}
 				</Link> */}
-				<Link
-					to={`/${userInfo.langId}/${path.deposit.root}`}
-					className="orange">
+				<button
+					onClick={() =>
+						navigate(`/${userInfo.langId}/${path.deposit.root}`)
+					}
+					className="orange btn-retangle">
 					{t("lbl_Deposit").toUpperCase()}
-				</Link>
+				</button>
 			</div>
-
-			{/* <Wallet langId={userInfo.langId} i18n={t} /> */}
+			<div className="memberbtn">
+				<img
+					onClick={() =>
+						navigate(`/${userInfo.langId}/${path.profile.root}`)
+					}
+					src={userLevelImgInfo?.img}
+					alt={userLevelImgInfo?.alt}
+				/>
+				<button>{userInfo.userName}</button>
+			</div>
 			<Suspense fallback={<></>}>
 				<Wallet langId={userInfo.langId} i18n={t} />
 			</Suspense>
 
-			<DropdownHeader
-				mainKey="header-cashierLink"
-				langId={userInfo.langId}
-				className="cashier icon icon-library"
-				subClassName="submenu"
-				i18n={t}
-				options={defCashierLinks}
-				placeholder={t("lbl_Cashier")}
-			/>
-
-			<DropdownHeader
-				mainKey="header-settingLink"
-				langId={userInfo.langId}
-				userLevel={userInfo.userLevel}
-				className={`memberfile${
-					userInfo.userLevel ? "" : " icon icon-member"
-				}`}
-				subClassName="submenu"
-				i18n={t}
-				options={defSettingLinks({ logoutFunc: handleLogout })}
-				placeholder={userInfo.userName}
-			/>
 			<Link
-				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
+				className={`messagebtn icon-message ${
+					msgCount > 0 ? "active" : ""
+				}`}
 				to={`/${userInfo.langId}/${path.message.root}`}>
+				{msgCount > 0 && <div className="number">{msgCount}</div>}
 				<MsgPopup userInfo={userInfo} />
 			</Link>
+			<div
+				className={`sidemenubtn icon-menu ${classNames({
+					active: msgCount > 0 && !isOpenSideMenu
+				})}`}
+				onClick={() => setIsOpenSideMenu(!isOpenSideMenu)}>
+				{isOpenSideMenu && (
+					<div className="sidemenu-content" ref={ref}>
+						<div
+							className="sidemenu-item"
+							onClick={() =>
+								navigate(
+									`/${userInfo.langId}/${path.profile.root}`
+								)
+							}>
+							{t("lbl_Profile")}
+						</div>
+						<div
+							className="sidemenu-item"
+							onClick={() =>
+								navigate(
+									`/${userInfo.langId}/${path.deposit.root}`
+								)
+							}>
+							{t("lbl_Deposit")}
+						</div>
+						<div
+							className="sidemenu-item"
+							onClick={() =>
+								navigate(
+									`/${userInfo.langId}/${path.withdrawal.root}`
+								)
+							}>
+							{t("lbl_Withdrawal")}
+						</div>
+						<div
+							className="sidemenu-item"
+							onClick={() =>
+								navigate(
+									`/${userInfo.langId}/${path.depositHistory.root}`
+								)
+							}>
+							{t("lbl_History")}
+						</div>
+						<div
+							className={`sidemenu-item ${classNames({
+								active: msgCount > 0
+							})}`}
+							onClick={() =>
+								navigate(
+									`/${userInfo.langId}/${path.message.root}`
+								)
+							}>
+							{t("lbl_Message")}
+						</div>
+						<div className="sidemenu-item" onClick={handleLogout}>
+							{t("lbl_Logout")}
+						</div>
+						<div className="sidemenu-item">
+							<LanguageDropDown />
+						</div>
+					</div>
+				)}
+			</div>
 		</>
 	);
 };

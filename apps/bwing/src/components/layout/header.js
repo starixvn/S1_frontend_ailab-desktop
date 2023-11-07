@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Link } from "gatsby";
-import { useTranslation } from "react-i18next";
 import {
 	dragonBoatFestivalEventPeriod,
 	isDateRange
@@ -15,14 +14,11 @@ import {
 import Menu from "./header.menu";
 import config, { bannerImgUrl } from "../../config";
 import Functions from "./header.functions";
-import LanguageDropDown from "./header.langDropdown";
-import path from "../../router";
 import { defEventPeriod } from "../common/eventIcon";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { angPaoEventPeriod } from "../../pages/angpao";
 
 export default () => {
-	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
@@ -41,12 +37,11 @@ export default () => {
 
 	return (
 		<header className={isEvent ? "newyear" : ""}>
-			<div className="header">
+			<div className="header-content">
 				<div
 					className={classNames("logo", {
 						dragon: isDateRange(dragonBoatFestivalEventPeriod)
-					})}
-				>
+					})}>
 					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
 							className={classNames({
@@ -54,7 +49,7 @@ export default () => {
 									dragonBoatFestivalEventPeriod
 								)
 							})}
-							src={`${bannerImgUrl}/desktop/img/logo.png`}
+							src={`${bannerImgUrl}/desktop/img/4.0/logo.png`}
 							alt={config.siteName}
 						/>
 					</Link>
@@ -67,22 +62,13 @@ export default () => {
 						/>
 					)}
 				</div>
+				<div className="function">
+					<Functions />
+				</div>
 				<Menu
 					productTpIds={productTpIds}
 					maintainList={allMaintainList}
 				/>
-				<div className="function">
-					<a
-						target="_blank"
-						rel="noopener noreferrer"
-						className="downloadBtn icon icon-mobile"
-						href={`/${userInfo.langId}/${path.appDownload.root}`}
-					>
-						{t("lbl_APP_DOWNLOAD")}
-					</a>
-					<LanguageDropDown />
-					<Functions />
-				</div>
 			</div>
 		</header>
 	);

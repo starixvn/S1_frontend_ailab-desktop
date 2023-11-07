@@ -41,7 +41,7 @@ export default ({ referralCode, t, langId }) => {
 	return (
 		<div className="refLink">
 			<div className="title">{t("lbl_Your_link_invite")}</div>
-			<div className="refBox mt-2">
+			<div className="refBox">
 				{/* <div style={{ display: "none" }}>
 					<span id="ref_code">{referralCode}</span>
 					<button

@@ -31,8 +31,8 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const refStepBanner =
 		userInfo.langId === "en"
-			? `${bannerImgUrl}/desktop/img/refbanner.png`
-			: `${bannerImgUrl}/desktop/img/refbanner_${userInfo.langId}.png`;
+			? `${bannerImgUrl}/desktop/img/4.0/refbanner.png`
+			: `${bannerImgUrl}/desktop/img/4.0/refbanner-${userInfo.langId}.png`;
 	const [referralSum, setReferralSum] = useState({
 		conditionCount: 0,
 		amountCount: 0,

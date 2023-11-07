@@ -9,12 +9,12 @@ export default () => {
 		<Wrapper>
 			<PromotionWrapper>
 				<Layout showFooter={true}>
-					<main>
-						<section className="inside">
-							<div className="rightModule">
+					<main className="lobby promotion">
+						<div className="wrapper">
+							<div className="col-12">
 								<Content />
 							</div>
-						</section>
+						</div>
 					</main>
 				</Layout>
 			</PromotionWrapper>

@@ -23,13 +23,12 @@ export default () => {
 	};
 
 	return (
-		<div className={`promoInfoPop${openPromoPopBox ? " active" : ""}`}>
-			<div
-				onClick={closePopBox}
-				className={`promoInfoPopMask${
-					popBox.isOpen || !openPromoPopBox ? "" : " active"
-				}`}
-			/>
+		<div
+			onClick={closePopBox}
+			className={`popup promotionpop ${
+				popBox.isOpen || !openPromoPopBox ? "" : "active"
+			}`}
+		>
 			{worldCupBox.content}
 		</div>
 	);
@@ -49,18 +48,24 @@ export const PromoPopBox = ({ data, closePopBox, t }) => {
 	};
 
 	return (
-		<div className="promotionsInfo">
-			<div className="icon icon-close" onClick={closePopBox} />
-			<img src={data?.banner} alt="banner" />
-			<div className="proData">
-				<div className="proDataTitle">
-					<div className="txt-blue15">
-						{data?.title}
-						<div className="txt-white">{data?.description}</div>
+		<div className="promotionpop-inner">
+			<div className="promotionpop-title"> </div>
+			<div className="icon-close-primary" onClick={closePopBox} />
+			<div className="promotionpop-list">
+				<div className="promotionpop-banner">
+					<img src={data?.banner} alt="banner" />
+				</div>
+				<div className="promotionpop-caption">
+					<div className="promotionpop-caption-item">
+						<div className="title">{data?.title}</div>
+						<div className="subtitle">{data?.description}</div>
 					</div>
-					<div className="btnGroup">
+					<div className="btn-group">
 						{data?.promotionType === defPromotionType.other ? (
-							<button className="red" onClick={openLiveChat}>
+							<button
+								className="btn-primary"
+								onClick={openLiveChat}
+							>
 								{t("lbl_Promotion_ApplyNow")}
 							</button>
 						) : (
@@ -78,20 +83,19 @@ export const PromoPopBox = ({ data, closePopBox, t }) => {
 						)}
 					</div>
 				</div>
-				<PromoRule
-					promotionInfo={data}
-					t={t}
-					currencyId={_currencyId}
-					langId={userInfo?.langId ?? siteDefLangId}
-					isTable={true}
-				/>
-				<div
-					className="proDataBody"
-					dangerouslySetInnerHTML={{
-						__html: data?.details
-					}}
-				/>
 			</div>
+			<PromoRule
+				promotionInfo={data}
+				t={t}
+				currencyId={_currencyId}
+				langId={userInfo?.langId ?? siteDefLangId}
+			/>
+			<div
+				className="proDataBody"
+				dangerouslySetInnerHTML={{
+					__html: data?.details
+				}}
+			/>
 		</div>
 	);
 };
