@@ -6,7 +6,6 @@ export default ({ children }) => {
 	const [promoBox, setPromoBox] = useState({
 		isOpen: false
 	});
-
 	return (
 		<promoPopBox.Provider value={{ promoBox, setPromoBox }}>
 			{children}

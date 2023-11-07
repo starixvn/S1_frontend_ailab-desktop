@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import { bannerImgUrl } from "../../config";
 
-const StreamingNodata = ({ className, t }) => {
+const StreamingNodata = ({ className }) => {
+	const { t } = useTranslation();
 	return (
 		<div className={`notv ${className}`}>
 			<img
@@ -24,6 +26,5 @@ StreamingNodata.defaultProps = {
 };
 
 StreamingNodata.propTypes = {
-	className: PropTypes.string,
-	t: PropTypes.func.isRequired
+	className: PropTypes.string
 };

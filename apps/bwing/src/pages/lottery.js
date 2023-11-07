@@ -6,7 +6,7 @@ import Lottery from "../components/lottery/lottery";
 export default () => (
 	<Wrapper>
 		<Layout showFooter={true}>
-			<main className="lotterylobby">
+			<main className="lobby lottery">
 				<Lottery />
 			</main>
 		</Layout>

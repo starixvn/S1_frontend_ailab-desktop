@@ -17,8 +17,14 @@ export default {
 	sports: {
 		root: "sports"
 	},
+	"sports-lobby": {
+		root: "sports-lobby"
+	},
 	casino: {
 		root: "casino"
+	},
+	"casino-lobby": {
+		root: "casino-lobby"
 	},
 	fishing: {
 		root: "fishing"

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import useClickOutside from "../hook/useClickOutSide";
 
 const InputBox = ({
 	value,
@@ -25,15 +26,24 @@ const InputBox = ({
 	isShowPaste,
 	toHandlePaste,
 	pasteCol,
-	ShowTipImgAction
+	ShowTipImgAction,
+	border,
+	hint,
+	activeInfo,
+	setActiveInfo
 }) => {
+	const ref = useClickOutside(() => {
+		setActiveInfo(null);
+	});
 	const [isShowPasteText, setIsShowPasteText] = useState(false);
 	const { t } = useTranslation();
 	const showCheckIcon = () => {
 		if (checked === null && clickInfo) {
 			return (
 				<i
-					className="icon icon-information-solid"
+					className={`icon ${
+						border ? "icon-information-solid" : "icon-info"
+					}`}
 					onClick={
 						ShowTipImgAction !== null ? ShowTipImgAction : clickInfo
 					}
@@ -42,10 +52,18 @@ const InputBox = ({
 		}
 
 		if (checked === true) {
-			return <i className="icon icon-checkmark" />;
+			return (
+				<i
+					className={`icon ${
+						border ? "icon-checkmark" : "icon-check"
+					}`}
+				/>
+			);
 		}
 		if (checked === false) {
-			return <i className="icon icon-cross" />;
+			return (
+				<i className={`icon ${border ? "icon-cross" : "icon-error"}`} />
+			);
 		}
 		if (checked === "loading") {
 			return <i className="icon icon-spinner11" />;
@@ -76,35 +94,76 @@ const InputBox = ({
 
 	return (
 		<>
-			<div className={inputBoxClass()}>
-				{prefix}
+			{border ? (
+				<div className={inputBoxClass()}>
+					{prefix}
 
-				{!!icon && <i className={`icon ${icon}`} />}
+					{!!icon && <i className={`icon ${icon}`} />}
 
-				{!!title && <i className="txt-blue12">{title}</i>}
+					{!!title && <i className="txt-blue12">{title}</i>}
 
-				{areaCode && <>{areaCode} &nbsp;</>}
+					{areaCode && <>{areaCode} &nbsp;</>}
 
-				<input
-					data-testid="input"
-					type={inputType}
-					value={value ?? ""}
-					className={`${
-						_isConvert || textRight ? "text-right" : ""
-					} input`}
-					placeholder={placeholder}
-					onBlur={onBlur}
-					onChange={onChange}
-					max={max}
-					readOnly={readOnly}
-					onKeyPress={onKeyPress}
-				/>
+					<input
+						data-testid="input"
+						type={inputType}
+						value={value ?? ""}
+						className={`${
+							_isConvert || textRight ? "text-right" : ""
+						} input`}
+						placeholder={placeholder}
+						onBlur={onBlur}
+						onChange={onChange}
+						max={max}
+						readOnly={readOnly}
+						onKeyPress={onKeyPress}
+					/>
 
-				<div className="iconModule">
-					{_isConvert ? "('000)" : null}
-					{checked !== undefined ? showCheckIcon() : null}
+					<div className="iconModule">
+						{_isConvert ? "('000)" : null}
+						{checked !== undefined ? showCheckIcon() : null}
+					</div>
 				</div>
-			</div>
+			) : (
+				<div className="inputbox-group">
+					<div className="inputbox-item">
+						{prefix}
+
+						{!!icon && <i className={icon} />}
+
+						{!!title && <i className="txt-blue12">{title}</i>}
+
+						{areaCode && (
+							<div className="countrycode">{areaCode}</div>
+						)}
+
+						<input
+							data-testid="input"
+							type={inputType}
+							value={value ?? ""}
+							className={`${
+								_isConvert || textRight ? "text-right" : ""
+							} input`}
+							placeholder={placeholder}
+							onBlur={onBlur}
+							onChange={onChange}
+							max={max}
+							readOnly={readOnly}
+							onKeyPress={onKeyPress}
+						/>
+
+						{_isConvert ? "('000)" : null}
+						{checked !== undefined ? showCheckIcon() : null}
+
+						{activeInfo === hint && (
+							<div ref={ref} className="inputbox-tip-popup">
+								{t(hint)}
+							</div>
+						)}
+					</div>
+				</div>
+			)}
+
 			{isShowPaste && (
 				<div
 					onMouseEnter={() => {
@@ -112,8 +171,7 @@ const InputBox = ({
 					}}
 					onMouseLeave={() => {
 						setIsShowPasteText(false);
-					}}
-				>
+					}}>
 					{isShowPasteText ? (
 						<span onClick={handlePaste}>{t("lbl_Paste")}</span>
 					) : (
@@ -121,8 +179,10 @@ const InputBox = ({
 					)}
 				</div>
 			)}
-			{inputType !== "date" && (
+			{inputType !== "date" && border ? (
 				<div className={tip ? "tip active" : ""}>{tip}</div>
+			) : (
+				<div className={tip ? "inputbox-tip" : ""}>{tip}</div>
 			)}
 		</>
 	);
@@ -151,7 +211,11 @@ InputBox.defaultProps = {
 	textRight: "",
 	prefix: null,
 	isShowPaste: false,
-	ShowTipImgAction: null
+	ShowTipImgAction: null,
+	border: true,
+	hint: "",
+	activeInfo: "",
+	setActiveInfo: null
 };
 
 InputBox.propTypes = {
@@ -178,7 +242,11 @@ InputBox.propTypes = {
 	isShowPaste: PropTypes.bool,
 	toHandlePaste: PropTypes.func,
 	pasteCol: PropTypes.string,
-	ShowTipImgAction: PropTypes.func
+	ShowTipImgAction: PropTypes.func,
+	border: PropTypes.bool,
+	hint: PropTypes.string,
+	activeInfo: PropTypes.string,
+	setActiveInfo: PropTypes.func
 };
 
 export default InputBox;

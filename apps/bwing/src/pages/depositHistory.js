@@ -69,6 +69,7 @@ const Content = () => {
 	};
 
 	const GetDepositInfoHistory = (transactionData, pageNumber) => {
+		setLoading(true);
 		api_payment_GetDepositInfoHistory({
 			...transactionData,
 			PageNumber: pageNumber
@@ -90,8 +91,7 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -99,6 +99,7 @@ const Content = () => {
 						});
 					}
 					setProcessing(false);
+					setLoading(false);
 				}
 			},
 			() => {
@@ -111,14 +112,14 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}
-								>
+									onClick={ClickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
 						)
 					});
 					setProcessing(false);
+					setLoading(false);
 				}
 			}
 		);
@@ -261,8 +262,7 @@ const Content = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}
-										>
+											onClick={ClickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -282,8 +282,7 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>

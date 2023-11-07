@@ -14,18 +14,19 @@ const Panel = ({ handleSelect, selected }) => {
 	const quickSelectArr = Object.values(defStreamingCategory).map(item => {
 		return (
 			// eslint-disable-next-line jsx-a11y/anchor-is-valid
-			<a
-				className={`menuSelect${
+			<div
+				className={`lobby-sportsmenu-item${
 					item.type === selected ? " active" : ""
 				}`}
 				key={`menuSelect-${item.displayKey}`}
-				onClick={clickQuickSelect.bind(this, item.type)}>
+				onClick={clickQuickSelect.bind(this, item.type)}
+			>
 				<span>{t(item.displayKey) ?? item.displayKey}</span>
-			</a>
+			</div>
 		);
 	});
 
-	return <div className="menuModule">{quickSelectArr}</div>;
+	return <div className="lobby-sportsmenu txt-left">{quickSelectArr}</div>;
 };
 
 Panel.propTypes = {

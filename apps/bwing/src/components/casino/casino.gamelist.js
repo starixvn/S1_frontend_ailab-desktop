@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useInView } from "../hook/useInView";
+import usePopBox from "../hook/usePopBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 
 const GameList = ({
 	displayGames,
@@ -20,8 +22,8 @@ const GameList = ({
 	favoriteStr,
 	activeProvider
 }) => {
+	const { setPopBox } = usePopBox();
 	const inViewRef = useInView(() => onLoadMore());
-	let _imgUrl = "";
 	const rows =
 		displayGames &&
 		displayGames
@@ -52,97 +54,128 @@ const GameList = ({
 				const brandTpName = providerList.find(
 					obj => obj.tpId === g.tpId
 				).tpName;
-				const gameProviderName = providerList.find(
-					obj => obj.tpId === g.tpId
-				).gameImgDisplayText;
 
-				_imgUrl = `${imgUrl}/${brandTpName}/${imgName}`;
+				const imageUrl = `${imgUrl}/${brandTpName}/${imgName}`;
 
 				const _style = {
 					pointerEvents: getIsInMaintain(g) ? "none" : "auto"
 				};
 
+				const openSlotProductPopBox = () => {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.Modal,
+						content: (
+							<div id="popup" className="popup slotspop active">
+								<div className="slotspop-item">
+									<button
+										className="icon-close-slots"
+										onClick={() =>
+											setPopBox({ isOpen: false })
+										}
+									/>
+									<div className="slotspop-img">
+										<img
+											src={imageUrl}
+											alt="slot-game-img"
+										/>
+										<div className="slotspop-btn">
+											<button
+												onClick={() =>
+													onClickPlay({
+														tpId: g.tpId,
+														gameId: g.gameId,
+														isFree: false,
+														delay: 5000,
+														isInMaintain:
+															getIsInMaintain(g),
+														tpGameType:
+															getTpGameType(g)
+																.tpGameType
+													})
+												}>
+												{t("lbl_Play")}
+											</button>
+											{g.playFree ? (
+												<button
+													onClick={() =>
+														onClickPlay({
+															tpId: g.tpId,
+															gameId: g.gameId,
+															isFree: true,
+															delay: 0,
+															isInMaintain:
+																getIsInMaintain(
+																	g
+																),
+															tpGameType:
+																getTpGameType(g)
+																	.tpGameType
+														})
+													}>
+													{t("lbl_Demo")}
+												</button>
+											) : null}
+										</div>
+									</div>
+									<div className="slotspop-name">
+										<span>{gameDisplayName}</span>
+									</div>
+								</div>
+							</div>
+						)
+					});
+				};
+
+				const slotProductItemStyle = () => {
+					if (getIsInMaintain(g)) {
+						if (activeCategory === "new") {
+							return "tag-new maintain";
+						}
+
+						return "maintain";
+					}
+
+					if (activeCategory === "new") {
+						return "tag-new";
+					}
+					return "";
+				};
+
 				return (
 					<div
-						className={getIsInMaintain(g) ? "under" : ""}
+						className={`slots-products-item ${slotProductItemStyle()}`}
 						style={_style}
 						key={`casino-game-${g.tpId}-${g.gameId}`}
-					>
+						onClick={openSlotProductPopBox}>
+						<button
+							className={`${
+								isFavorite
+									? "icon-fav-solid"
+									: "icon-fav-outline"
+							}`}
+							onClick={onSetFavorite?.bind(
+								this,
+								g.tpId,
+								g.gameId
+							)}
+						/>
+
+						<img alt="Casino_tpInfo" src={imageUrl} />
+
+						<div className="name" onClick={openSlotProductPopBox}>
+							<span>{gameDisplayName}</span>
+						</div>
 						{getIsInMaintain(g) ? (
-							<div className="underBtn">
+							<div className="tag-maintain">
 								{t("lbl_underMaintenance")}
 							</div>
 						) : null}
-						<div className="brand">
-							<span>{gameProviderName}</span>
-						</div>
-
-						<div
-							className={`icon ${
-								activeCategory === "new" ? "icon-new" : ""
-							}`}
-						/>
-
-						<img alt="Casino_tpInfo" src={_imgUrl} />
-
-						<div className="txt-blue15">
-							<div>{gameDisplayName}</div>
-							<div
-								onClick={onSetFavorite?.bind(
-									this,
-									g.tpId,
-									g.gameId
-								)}
-								className={`icon icon-star-full${
-									isFavorite ? " active" : ""
-								}`}
-							/>
-						</div>
-						<div className="btnGroupBg">
-							<div className="btnGroup">
-								<button
-									className="orange"
-									onClick={() =>
-										onClickPlay({
-											tpId: g.tpId,
-											gameId: g.gameId,
-											isFree: false,
-											delay: 5000,
-											isInMaintain: getIsInMaintain(g),
-											tpGameType:
-												getTpGameType(g).tpGameType
-										})
-									}
-								>
-									{t("lbl_Play")}
-								</button>
-
-								{g.playFree ? (
-									<button
-										className="blueBorder"
-										onClick={() =>
-											onClickPlay({
-												tpId: g.tpId,
-												gameId: g.gameId,
-												isFree: true,
-												delay: 0,
-												isInMaintain:
-													getIsInMaintain(g),
-												tpGameType:
-													getTpGameType(g).tpGameType
-											})
-										}
-									>
-										{t("lbl_Demo")}
-									</button>
-								) : null}
-							</div>
-						</div>
 					</div>
 				);
 			});
 	return rows && rows.length > 0 ? (
-		<div className="slotList">
+		<div className="slots-products">
 			{rows}
 			<span ref={inViewRef} />
 		</div>

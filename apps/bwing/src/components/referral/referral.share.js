@@ -76,7 +76,7 @@ const SharePanel = ({ t, currencyId, referralSettingData }) => {
 							})}
 						</span>
 					</div>
-					<button className="more" onClick={getReferralDetail}>
+					<button className="moreBtn" onClick={getReferralDetail}>
 						{t("lbl_MoreDetails")}
 					</button>
 				</div>

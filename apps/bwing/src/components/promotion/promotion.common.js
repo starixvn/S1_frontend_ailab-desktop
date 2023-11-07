@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { Link } from "gatsby";
-import { promoStatus, defPromotionType, defFilterType } from "./promotion.def";
+import { promoStatus, defPromotionType } from "./promotion.def";
 import { defPopBoxType } from "../common/defPopBoxType";
 import path from "../../router";
 import { number_format } from "../common/common";
@@ -72,7 +72,8 @@ export const checkPromotion = ({ promotionInfo, userInfo, setPopBox, t }) => {
 				<div className="btnGroup">
 					<Link
 						className="btn-check"
-						to={`/${langId}/${path.profile.root}?prevPage=${path.promotion.root}&BonusCode=${bonusCode}`}>
+						to={`/${langId}/${path.profile.root}?prevPage=${path.promotion.root}&BonusCode=${bonusCode}`}
+					>
 						{t("lbl_UpdatePersonalDetail")}
 					</Link>
 				</div>
@@ -98,7 +99,8 @@ export const checkPromotion = ({ promotionInfo, userInfo, setPopBox, t }) => {
 					<Link
 						to={`/${langId}/${path.deposit.root}`}
 						type="button"
-						className="btn-check">
+						className="btn-check"
+					>
 						{t("lbl_DepositNow")}
 					</Link>
 				</div>
@@ -110,10 +112,10 @@ export const checkPromotion = ({ promotionInfo, userInfo, setPopBox, t }) => {
 };
 
 const defPromoDisplayStyle = {
-	default: "",
-	new: "new",
-	expired: "expired",
-	claimed: "claimed active"
+	default: "lobby-promotion-item",
+	new: "lobby-promotion-item tag-new",
+	expired: "lobby-promotion-item expired",
+	claimed: "lobby-promotion-item tag-claimed"
 };
 
 export const getStampStyle = (filter, promotionInfo) => {
@@ -125,7 +127,8 @@ export const getStampStyle = (filter, promotionInfo) => {
 	if (_isClaimed) {
 		promoDisplayStyle = defPromoDisplayStyle.claimed;
 	} else if (
-		(filter === defFilterType.specialBonus && !promotionInfo.canJoin) ||
+		// 此段 expired 顯示邏輯因市場需求調整 先隱藏處理 如果後來需求有做調整在打開
+		// (filter === defFilterType.specialBonus && !promotionInfo.canJoin) ||
 		promotionInfo.beenUsed
 	) {
 		promoDisplayStyle = defPromoDisplayStyle.expired;
