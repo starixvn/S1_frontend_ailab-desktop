@@ -4480,6 +4480,9 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
       -ms-flex: 1;
           flex: 1;
 }
+.join-module .icon-affiliate::before, .join-module .icon-phone::before, .join-module .icon-email::before, .login-module .icon-affiliate::before, .login-module .icon-phone::before, .login-module .icon-email::before {
+  content: "";
+}
 .join-module .icon-close-primary, .login-module .icon-close-primary {
   position: absolute;
   top: -12px;
