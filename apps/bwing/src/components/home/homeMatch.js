@@ -229,7 +229,7 @@ const HomeMatch = ({ hotEventList, maintainList, classNameType }) => {
 			<div className="col-8">
 				<div className="home-sports">
 					<Swiper {...sportsSwiperParams}>
-						{SPORT_LIST.map(
+						{SPORT_LIST[userInfo.langId].map(
 							({
 								displayText,
 								img,
