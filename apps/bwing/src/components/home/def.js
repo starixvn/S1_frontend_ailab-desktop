@@ -59,80 +59,156 @@ export const HOT_GAME_LIST = [
 	}
 ];
 
-export const SPORT_LIST = [
-	{
-		displayText: "SBOBET",
-		img: `${bannerImgUrl}/h5/img/4.0/sbobet.png`,
-		...productList.sportSbo,
-		subPath: path.sportSbo.root,
-		className: "sbobet",
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.sportSbo
-			})
-		],
-		parameter: { ...productList.sportSbo },
-		afterLogin: true
-	},
-	{
-		img: `${bannerImgUrl}/h5/img/4.0/cryptosports.png`,
-		...productList.cryptoSports,
-		className: "cryptosport",
-		displayKey: "lbl_cryptoSports",
-		parameter: { ...productList.cryptoSports },
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.sports_cryptoSports
-			})
-		]
-	},
-	{
-		displayKey: "lbl_SabaSport",
-		img: `${bannerImgUrl}/h5/img/4.0/sabasport.png`,
-		...productList.sportSaba,
-		subPath: path.sports.root,
-		className: "sabaSport",
-		parameter: { ...productList.sportSaba }
-	},
-	{
-		displayKey: "lbl_BTISport",
-		img: `${bannerImgUrl}/h5/img/4.0/btisport.png`,
-		...productList.sportBti,
-		subPath: path.sportBti.root,
-		className: "btiSport",
-		parameter: { ...productList.sportBti }
-	},
-	{
-		displayKey: "lbl_VirtualSports",
-		img: `${bannerImgUrl}/h5/img/4.0/virtualsport.png`,
-		...productList.virtualSports,
-		subPath: path.sports.root,
-		className: "virtual",
-		parameter: { ...productList.virtualSports },
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.sports_virtualSports
-			})
-		]
-	},
-	{
-		displayText: "IM Sports",
-		img: `${bannerImgUrl}/h5/img/4.0/inplaymatrix.png`,
-		...productList.sports_IM,
-		subPath: path.sportsIM.root,
-		className: "InplayMatrix",
-		parameter: { ...productList.sports_IM },
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.IM
-			})
-		]
-	}
-];
+export const SPORT_LIST = {
+	en: [
+		{
+			displayText: "SBOBET",
+			img: `${bannerImgUrl}/desktop/img/4.0/sbo.png`,
+			...productList.sportSbo,
+			subPath: path.sportSbo.root,
+			className: "sbobet",
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.sportSbo
+				})
+			],
+			parameter: { ...productList.sportSbo },
+			afterLogin: true
+		},
+		{
+			img: `${bannerImgUrl}/desktop/img/4.0/crypto.png`,
+			...productList.cryptoSports,
+			className: "cryptosport",
+			displayKey: "lbl_cryptoSports",
+			parameter: { ...productList.cryptoSports },
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.sports_cryptoSports
+				})
+			]
+		},
+		{
+			displayKey: "lbl_SabaSport",
+			img: `${bannerImgUrl}/desktop/img/4.0/saba.png`,
+			...productList.sportSaba,
+			subPath: path.sports.root,
+			className: "sabaSport",
+			parameter: { ...productList.sportSaba }
+		},
+		{
+			displayKey: "lbl_BTISport",
+			img: `${bannerImgUrl}/desktop/img/4.0/bti.png`,
+			...productList.sportBti,
+			subPath: path.sportBti.root,
+			className: "btiSport",
+			parameter: { ...productList.sportBti }
+		},
+		{
+			displayKey: "lbl_VirtualSports",
+			img: `${bannerImgUrl}/desktop/img/4.0/virtual.png`,
+			...productList.virtualSports,
+			subPath: path.sports.root,
+			className: "virtual",
+			parameter: { ...productList.virtualSports },
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.sports_virtualSports
+				})
+			]
+		},
+		{
+			displayText: "IM Sports",
+			img: `${bannerImgUrl}/desktop/img/4.0/im.png`,
+			...productList.sports_IM,
+			subPath: path.sportsIM.root,
+			className: "InplayMatrix",
+			parameter: { ...productList.sports_IM },
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.IM
+				})
+			]
+		}
+	],
+	vn: [
+		{
+			displayText: "SBOBET",
+			img: `${bannerImgUrl}/desktop/img/4.0/sbo-vn.png`,
+			...productList.sportSbo,
+			subPath: path.sportSbo.root,
+			className: "sbobet",
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.sportSbo
+				})
+			],
+			parameter: { ...productList.sportSbo },
+			afterLogin: true
+		},
+		{
+			img: `${bannerImgUrl}/desktop/img/4.0/crypto-vn.png`,
+			...productList.cryptoSports,
+			className: "cryptosport",
+			displayKey: "lbl_cryptoSports",
+			parameter: { ...productList.cryptoSports },
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.sports_cryptoSports
+				})
+			]
+		},
+		{
+			displayKey: "lbl_SabaSport",
+			img: `${bannerImgUrl}/desktop/img/4.0/saba-vn.png`,
+			...productList.sportSaba,
+			subPath: path.sports.root,
+			className: "sabaSport",
+			parameter: { ...productList.sportSaba }
+		},
+		{
+			displayKey: "lbl_BTISport",
+			img: `${bannerImgUrl}/desktop/img/4.0/bti-vn.png`,
+			...productList.sportBti,
+			subPath: path.sportBti.root,
+			className: "btiSport",
+			parameter: { ...productList.sportBti }
+		},
+		{
+			displayKey: "lbl_VirtualSports",
+			img: `${bannerImgUrl}/desktop/img/4.0/virtual-vn.png`,
+			...productList.virtualSports,
+			subPath: path.sports.root,
+			className: "virtual",
+			parameter: { ...productList.virtualSports },
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.sports_virtualSports
+				})
+			]
+		},
+		{
+			displayText: "IM Sports",
+			img: `${bannerImgUrl}/desktop/img/4.0/im-vn.png`,
+			...productList.sports_IM,
+			subPath: path.sportsIM.root,
+			className: "InplayMatrix",
+			parameter: { ...productList.sports_IM },
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.IM
+				})
+			]
+		}
+	]
+};
 
 export const rankMap = {
 	1: "1st",
