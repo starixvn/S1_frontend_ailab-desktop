@@ -241,7 +241,7 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 		}
 
 		return (
-			<button
+			<div
 				key={`${userInfo.langId}-${bIdx}`}
 				onClick={() => handleClick(b)}
 			>
@@ -250,7 +250,7 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 					className="banner"
 					alt={b.bannerName ?? ""}
 				/>
-			</button>
+			</div>
 		);
 	});
 	return <Autoplay Rows={rows} className={className} />;

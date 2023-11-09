@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import Nav from "./casino.nav";
-import SearchBox from "./casino.searchBox";
 import GameList from "./casino.gamelist";
 import { defBannerType } from "../../service/api/site";
 import { api_account_SetFavoriteGame } from "../../service/api/account";
@@ -16,7 +15,6 @@ import defPopBoxType from "../common/defPopBoxType";
 import { defRowsPerPage, defSearchColumn } from "./casino.def";
 import SwipperBanner from "../common/swipperBanner";
 import TopQuickLink from "./casino.topQuickLink";
-import CasinoJackpot from "./casino.jackpot";
 import { api_game_GetSlotGamePage } from "../../service/api/game";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import {
@@ -31,6 +29,7 @@ import {
 	defTpGameType
 } from "../../datas/productList";
 import { getUrlParameter } from "../common/common";
+import { SearchBox } from "./casino.searchBox";
 
 export default () => {
 	const { t } = useTranslation();
@@ -72,115 +71,6 @@ export default () => {
 	const urlProviderTpId = Object.values(defSlotTpGameType).find(
 		el => el.name.toUpperCase() === urlProvider.toUpperCase()
 	)?.tpId;
-	const slidesPerViewNum = 9;
-
-	useEffect(() => {
-		isMountedRef.current = true;
-		return () => {
-			isMountedRef.current = false;
-		};
-	});
-
-	useEffect(() => {
-		if (Object.keys(activeProvider).length > 0) {
-			const filterList = allCategoryList.filter(
-				obj =>
-					Object.keys(obj)[0] === "myFavorite" ||
-					Object.values(obj)[0].filter(
-						i => i.tpId === activeProvider.tpId
-					).length > 0
-			);
-			const miniItem = allCategoryList.find(
-				obj => Object.keys(obj)[0] === "mini"
-			);
-
-			if (
-				miniItem &&
-				Object.values(miniItem)[0].some(
-					({ tpId }) => tpId === activeProvider.tpId
-				)
-			) {
-				filterList.splice(2, 0, miniItem);
-				filterList.pop();
-			}
-
-			let totalData = [];
-			filterList.forEach(item => {
-				if (Object.keys(item)[0] === "all") {
-					totalData = Object.values(item)[0].filter(
-						i => i.tpId === activeProvider.tpId
-					);
-				}
-			});
-
-			if (totalData.length > 0) {
-				setCategoryList(filterList);
-				setActiveCategory("all");
-			} else {
-				setCategoryList([]);
-				setActiveCategory(null);
-			}
-		} else if (
-			Object.keys(activeProvider).length === 0 &&
-			tpGameTypeSettingList &&
-			tpGameTypeSettingList.length > 0
-		) {
-			const uniqueTpIds = Array.from(
-				new Set(
-					tpGameTypeSettingList.map(item => {
-						if (item.categoryId === defCategory.Slots) {
-							return item.tpId;
-						}
-					})
-				)
-			);
-			const unLimitTpGameTypeList = allCategoryList.filter(
-				categoryObj => {
-					const found = Object.values(categoryObj)[0].find(
-						({ tpId }) => !uniqueTpIds.includes(tpId)
-					);
-					return found !== undefined;
-				}
-			);
-			setCategoryList(unLimitTpGameTypeList);
-		} else {
-			setCategoryList(allCategoryList);
-		}
-	}, [activeProvider]);
-
-	useEffect(() => {
-		setLoading(true);
-		!isProcessing && getSlotData();
-		if (!userInfo.isLogin) {
-			localStorage.setItem("favorite", "");
-			setFavoriteStr("");
-		}
-	}, [userInfo.isLogin]);
-
-	useEffect(() => {
-		onChangeCategory(activeCategory);
-	}, [activeCategory, activeProvider]);
-
-	useEffect(() => {
-		if (
-			!(
-				Object.keys(activeProvider).length === 0 &&
-				activeCategory === "all"
-			)
-		) {
-			onChangeCategory(activeCategory);
-		}
-	}, [favoriteStr]);
-
-	useEffect(() => {
-		if (activeProvider.index !== undefined) {
-			const newInitialSlide =
-				Object.keys(activeProvider).length === 0
-					? slidesPerViewNum
-					: activeProvider.index - 2;
-			setInitialSlide(newInitialSlide);
-		}
-	}, [activeProvider]);
 
 	const loadMore = () => {
 		if (allGames && pageInfo.totalPages > pageInfo.currentPage) {
@@ -202,14 +92,13 @@ export default () => {
 			item => Object.keys(item)[0] === categoryName
 		);
 		if (categoryName === "myFavorite") {
-			const storageStr = favoriteStr ?? "";
-			const storageList = storageStr.split("&") ?? [];
+			const storageList = (favoriteStr || "").split("&");
 			_displayGames = allGames.filter(item =>
 				storageList.includes(`${item.tpId}_${item.gameId}`)
 			);
 		} else if (
 			categoryName === "all" &&
-			Object.keys(activeProvider).length === 0
+			!Object.keys(activeProvider).length
 		) {
 			_displayGames = randomArray(_displayGames[0]?.[activeCategory]);
 		} else {
@@ -233,11 +122,13 @@ export default () => {
 		) {
 			const uniqueTpIds = Array.from(
 				new Set(
-					tpGameTypeSettingList.map(item => {
-						if (item.categoryId === defCategory.Slots) {
-							return item.tpId;
-						}
-					})
+					tpGameTypeSettingList
+						.map(item =>
+							item.categoryId === defCategory.Slots
+								? item.tpId
+								: null
+						)
+						.filter(Boolean)
 				)
 			);
 			_displayGames = _displayGames.filter(
@@ -297,7 +188,8 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}>
+											onClick={clickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -317,7 +209,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}>
+										onClick={clickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -486,7 +379,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -505,7 +399,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -629,7 +524,8 @@ export default () => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}>
+									}}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -644,64 +540,147 @@ export default () => {
 		}
 	};
 
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
+		if (Object.keys(activeProvider).length > 0) {
+			const filterList = allCategoryList.filter(
+				obj =>
+					Object.keys(obj)[0] === "myFavorite" ||
+					Object.values(obj)[0].filter(
+						i => i.tpId === activeProvider.tpId
+					).length > 0
+			);
+			const miniItem = allCategoryList.find(
+				obj => Object.keys(obj)[0] === "mini"
+			);
+
+			if (
+				miniItem &&
+				Object.values(miniItem)[0].some(
+					({ tpId }) => tpId === activeProvider.tpId
+				)
+			) {
+				filterList.splice(2, 0, miniItem);
+				filterList.pop();
+			}
+
+			let totalData = [];
+			filterList.forEach(item => {
+				if (Object.keys(item)[0] === "all") {
+					totalData = Object.values(item)[0].filter(
+						i => i.tpId === activeProvider.tpId
+					);
+				}
+			});
+
+			if (totalData.length > 0) {
+				setCategoryList(filterList);
+				setActiveCategory("all");
+			} else {
+				setCategoryList([]);
+				setActiveCategory(null);
+			}
+		} else if (
+			!Object.keys(activeProvider).length &&
+			tpGameTypeSettingList &&
+			tpGameTypeSettingList.length > 0
+		) {
+			const uniqueTpIds = Array.from(
+				new Set(
+					tpGameTypeSettingList
+						.filter(item => item.categoryId === defCategory.Slots)
+						.map(item => item.tpId)
+				)
+			);
+			const unLimitTpGameTypeList = allCategoryList.filter(
+				categoryObj => {
+					const found = Object.values(categoryObj)[0].find(
+						({ tpId }) => !uniqueTpIds.includes(tpId)
+					);
+					return found !== undefined;
+				}
+			);
+			setCategoryList(unLimitTpGameTypeList);
+		} else {
+			setCategoryList(allCategoryList);
+		}
+	}, [activeProvider]);
+
+	useEffect(() => {
+		setLoading(true);
+		!isProcessing && getSlotData();
+		if (!userInfo.isLogin) {
+			localStorage.setItem("favorite", "");
+			setFavoriteStr("");
+		}
+	}, [userInfo.isLogin]);
+
+	useEffect(() => {
+		onChangeCategory(activeCategory);
+	}, [activeCategory, activeProvider]);
+
+	useEffect(() => {
+		if (
+			!(!Object.keys(activeProvider).length && activeCategory === "all")
+		) {
+			onChangeCategory(activeCategory);
+		}
+	}, [favoriteStr]);
+
 	return loading ? null : (
 		<>
-			<SwipperBanner
-				ImgFolder={[defBannerType.Slots]}
-				openInBlank={true}
-			/>
-			<section className="inside">
-				<div className="rightModule">
-					<CasinoJackpot t={t} userInfo={userInfo} />
-
-					<div className="infoModule">
-						<TopQuickLink
-							lobbyImgList={providerList}
-							activeProvider={activeProvider}
-							onChange={handleProviderChange}
-							langId={userInfo.langId}
-							initialSlide={initialSlide}
-							slidesPerViewNum={slidesPerViewNum}
-						/>
-						<div className="casinoSelect">
-							<Nav
-								categoryList={categoryList}
-								activeCategory={activeCategory}
-								onChange={handleCategoryChange}
-								t={t}
-								isProcessing={isProcessing}
-								memberType={userInfo.memberType}
-							/>
-							<SearchBox
-								t={t}
-								searchInfo={searchInfo}
-								editSearchField={editSearchField}
-							/>
-						</div>
-						<GameList
-							t={t}
-							imgUrl={imgUrl}
-							displayGames={displayGames}
-							providerList={providerList}
-							activeProvider={activeProvider}
-							langId={userInfo.langId}
-							currentPage={pageInfo.currentPage}
-							onSetFavorite={isProcessing ? null : onSetFavorite}
-							onLoadMore={loadMore}
-							searchText={searchInfo.searchText}
-							isProcessing={isProcessing}
-							onClickPlay={onClickPlay}
-							filterJudge={filterJudge}
-							startIdx={startIdx}
-							endIdx={endIdx}
-							getIsInMaintain={getIsInMaintain}
-							getTpGameType={getTpGameType}
-							activeCategory={activeCategory}
-							favoriteStr={favoriteStr ?? ""}
-						/>
-					</div>
+			<div className="lobby-banner">
+				<SwipperBanner
+					ImgFolder={[defBannerType.Slots]}
+					openInBlank={true}
+					className="swiper-casino"
+				/>
+			</div>
+			<div className="lobby-content slots">
+				<div className="top">
+					<SearchBox
+						searchInfo={searchInfo}
+						editSearchField={editSearchField}
+					/>
+					<TopQuickLink
+						lobbyImgList={providerList}
+						activeProvider={activeProvider}
+						onChange={handleProviderChange}
+					/>
 				</div>
-			</section>
+				<Nav
+					categoryList={categoryList}
+					activeCategory={activeCategory}
+					onChange={handleCategoryChange}
+					isProcessing={isProcessing}
+					memberType={userInfo.memberType}
+				/>
+				<GameList
+					imgUrl={imgUrl}
+					displayGames={displayGames}
+					providerList={providerList}
+					activeProvider={activeProvider}
+					currentPage={pageInfo.currentPage}
+					onSetFavorite={isProcessing ? null : onSetFavorite}
+					onLoadMore={loadMore}
+					searchText={searchInfo.searchText}
+					isProcessing={isProcessing}
+					onClickPlay={onClickPlay}
+					filterJudge={filterJudge}
+					startIdx={startIdx}
+					endIdx={endIdx}
+					getIsInMaintain={getIsInMaintain}
+					getTpGameType={getTpGameType}
+					activeCategory={activeCategory}
+					favoriteStr={favoriteStr ?? ""}
+				/>
+			</div>
 		</>
 	);
 };
