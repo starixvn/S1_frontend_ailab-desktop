@@ -7,6 +7,8 @@ import { defSlotTpGameType, defTpGameType } from "../../datas/productList";
 import { api_game_GetSlotGamePage } from "../../service/api/game";
 import { langAndCurrMapping } from "../common/common";
 import { defMenuLinks } from "../layout/header.menu.def";
+import SwipperBanner from "../common/swipperBanner";
+import { defBannerType } from "../../service/api/site";
 
 const CasinoLobby = () => {
 	const { t } = useTranslation();
@@ -66,9 +68,9 @@ const CasinoLobby = () => {
 	return (
 		<>
 			<div className="lobby-banner">
-				<img
-					src={`${bannerImgUrl}/desktop/img/4.0/lobby-banner-slots.jpg`}
-					alt="slots-banner-img"
+				<SwipperBanner
+					ImgFolder={[defBannerType.Slots]}
+					openInBlank={true}
 				/>
 			</div>
 			<div className="wrapper mt-5">
@@ -90,8 +92,7 @@ const CasinoLobby = () => {
 										item?.openPath
 											? `/${userInfo.langId}/${item?.openPath}`
 											: `/${userInfo.langId}/casino?tpId=${item.tpId}`
-									}
-								>
+									}>
 									{target?.showIcon && (
 										<div className={target.showIcon} />
 									)}
