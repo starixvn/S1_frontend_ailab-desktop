@@ -416,9 +416,7 @@ const Home = () => {
 													);
 												}}
 											>
-												{t(
-													"promotion.lbl_promo_claim_now"
-												)}
+												{t("lbl_Promotion_ClaimNow")}
 											</button>
 
 											<img
