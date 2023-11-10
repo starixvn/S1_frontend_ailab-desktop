@@ -139,14 +139,12 @@ const AfterLogin = () => {
 					{t("lbl_Deposit").toUpperCase()}
 				</button>
 			</div>
-			<div className="memberbtn">
-				<img
-					onClick={() =>
-						navigate(`/${userInfo.langId}/${path.profile.root}`)
-					}
-					src={userLevelImgInfo?.img}
-					alt={userLevelImgInfo?.alt}
-				/>
+			<div
+				className="memberbtn"
+				onClick={() =>
+					navigate(`/${userInfo.langId}/${path.profile.root}`)
+				}>
+				<img src={userLevelImgInfo?.img} alt={userLevelImgInfo?.alt} />
 				<button>{userInfo.userName}</button>
 			</div>
 			<Suspense fallback={<></>}>
