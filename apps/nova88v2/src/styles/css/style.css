@@ -21729,7 +21729,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .lobby {
-  padding-top: 176px;
+  padding-top: 113px;
 }
 .lobby-banner {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 62%, 25% 100%, 0 64%);
@@ -21814,6 +21814,15 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           transform: translateY(-100%);
   visibility: visible;
   opacity: 1;
+}
+.lobby-content.slots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .lobby-content.slots .top {
   -webkit-box-shadow: 0 0 10px #eeeeee;
@@ -21950,18 +21959,18 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 .lobby-content.slots .slots-list-item {
   margin-top: 40px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(20% - 47px);
+          flex: 0 0 calc(20% - 47px);
 }
 .lobby-content.slots .slots-list-item .img-wrapper {
   position: relative;
   overflow: hidden;
   border-radius: 25px;
+  z-index: 2;
 }
 .lobby-content.slots .slots-list-item .img-wrapper img {
   width: 220px;
@@ -22024,7 +22033,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  z-index: -1;
 }
 .lobby-content.slots .slots-list-item .details > div:first-child {
   border: 1px solid #DCDCDC;
@@ -22035,7 +22043,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .lobby-content.slots .slots-list-item .details > div:last-child {
   position: absolute;
-  right: 18px;
+  right: 30px;
   bottom: 20px;
 }
 .lobby-content.slots .slots-list-item .details > div:last-child img {

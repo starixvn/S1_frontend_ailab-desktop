@@ -88,31 +88,26 @@ export default () => {
 	const randomArray = array => array.sort(() => Math.random() - 0.5);
 
 	const onChangeCategory = categoryName => {
-		let _displayGames = categoryList.filter(
-			item => Object.keys(item)[0] === categoryName
-		);
+		let _displayGames;
 		if (categoryName === "myFavorite") {
 			const storageList = (favoriteStr || "").split("&");
 			_displayGames = allGames.filter(item =>
 				storageList.includes(`${item.tpId}_${item.gameId}`)
 			);
-		} else if (
-			categoryName === "all" &&
-			!Object.keys(activeProvider).length
-		) {
-			_displayGames = randomArray(_displayGames[0]?.[activeCategory]);
 		} else {
-			_displayGames = _displayGames[0]?.[activeCategory];
+			const targetCategoryList = categoryList.find(
+				item => Object.keys(item)[0] === categoryName
+			);
+			_displayGames =
+				categoryName === "all" && !Object.keys(activeProvider).length
+					? randomArray(targetCategoryList?.[activeCategory])
+					: targetCategoryList?.[activeCategory];
 		}
-		const _totalPages =
-			_displayGames?.length === 0
-				? 1
-				: Math.ceil(_displayGames?.length / defRowsPerPage);
+		const _totalPages = _displayGames?.length
+			? Math.ceil(_displayGames?.length / defRowsPerPage)
+			: 1;
 
-		const _currentPage =
-			pageInfo.currentPage > _totalPages
-				? _totalPages
-				: pageInfo.currentPage;
+		const _currentPage = Math.min(pageInfo.currentPage, _totalPages);
 
 		if (
 			tpGameTypeSettingList &&
@@ -123,12 +118,8 @@ export default () => {
 			const uniqueTpIds = Array.from(
 				new Set(
 					tpGameTypeSettingList
-						.map(item =>
-							item.categoryId === defCategory.Slots
-								? item.tpId
-								: null
-						)
-						.filter(Boolean)
+						.filter(item => item.categoryId === defCategory.Slots)
+						.map(item => item.tpId)
 				)
 			);
 			_displayGames = _displayGames.filter(
@@ -145,32 +136,21 @@ export default () => {
 
 	const onSetFavorite = (tpId, gameId) => {
 		const key = `${tpId}_${gameId}`;
-		const storageStr = favoriteStr ?? "";
-		const storageList = storageStr.split("&") ?? [];
-
-		const handleIsFavorite = () => storageList?.includes(key);
-		const _isFavorite = handleIsFavorite();
+		const storageStr = favoriteStr || "";
+		const storageList = storageStr.split("&").filter(str => !!str);
+		const _isFavorite = storageList.includes(key);
 		const isRemove = _isFavorite;
-		const storageFavList = storageStr
-			.split("&")
-			.filter(str => !(str === ""));
 		let filterList;
 		if (_isFavorite) {
-			filterList = storageFavList.filter(item => item !== key);
+			filterList = storageList.filter(item => item !== key);
 			localStorage.setItem("favorite", filterList.join("&"));
 			setFavoriteStr(filterList.join("&"));
 		} else {
 			localStorage.setItem(
 				"favorite",
-				`${storageStr ?? ""}${
-					storageStr === "" ? "" : "&"
-				}${tpId}_${gameId}`
+				`${storageStr ?? ""}${storageStr ? "&" : ""}${key}`
 			);
-			setFavoriteStr(
-				`${storageStr ?? ""}${
-					storageStr === "" ? "" : "&"
-				}${tpId}_${gameId}`
-			);
+			setFavoriteStr(`${storageStr ?? ""}${storageStr ? "&" : ""}${key}`);
 		}
 		if (userInfo.isLogin) {
 			setIsProcessing(true);
@@ -223,14 +203,13 @@ export default () => {
 	};
 
 	const editSearchField = (column, value) => {
-		if (column === defSearchColumn.searchText) {
-			setSearchInfo(prevS => ({ ...prevS, [column]: value }));
-		} else {
-			setSearchInfo(prevS => ({
-				...prevS,
-				[column]: { idx: value, value: tpOptions[value].id }
-			}));
-		}
+		setSearchInfo(prev => ({
+			...prev,
+			[column]:
+				column === defSearchColumn.searchText
+					? value
+					: { idx: value, value: tpOptions[value].id }
+		}));
 	};
 	const getSlotData = async () => {
 		setIsProcessing(true);
@@ -505,38 +484,37 @@ export default () => {
 	};
 	const handleProviderChange = provider => {
 		editSearchField("searchText", "");
-		let noSelect = false;
 		if (tpGameTypeSettingList && tpGameTypeSettingList.length > 0) {
-			tpGameTypeSettingList.forEach(settingItem => {
-				if (settingItem.tpId === provider.tpId && settingItem.noPlay) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.Success,
-						icon: "icon icon-bell",
-						description: (
-							<div style={{ color: "red" }}>
-								{t("lbl_InaccessibleWithoutPermission")}
-							</div>
-						),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-check"
-									onClick={() => {
-										setPopBox({ isOpen: false });
-									}}
-								>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
-					noSelect = true;
-				}
-			});
-		}
-		if (!isProcessing && !noSelect) {
-			setActiveProvider(provider);
+			const hasNoPlayPermission = tpGameTypeSettingList.some(
+				settingItem =>
+					settingItem.tpId === provider.tpId && settingItem.noPlay
+			);
+			if (hasNoPlayPermission) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Success,
+					icon: "icon icon-bell",
+					description: (
+						<div style={{ color: "red" }}>
+							{t("lbl_InaccessibleWithoutPermission")}
+						</div>
+					),
+					btnBar: (
+						<div className="btnGroup">
+							<button
+								className="btn-check"
+								onClick={() => {
+									setPopBox({ isOpen: false });
+								}}
+							>
+								{t("lbl_Close")}
+							</button>
+						</div>
+					)
+				});
+			}
+		} else {
+			!isProcessing && setActiveProvider(provider);
 		}
 	};
 

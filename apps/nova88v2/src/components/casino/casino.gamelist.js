@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { useInView } from "../hook/useInView";
 import { userInfoContext } from "../common/context";
@@ -67,12 +66,8 @@ const GameList = ({
 
 				return (
 					<div
-						className={classNames(
-							"slots-list-item "
-							// 	{
-							// 	active: getIsInMaintain(g)
-							// }
-						)}
+						onClick={() => onSetFavorite(g.tpId, g.gameId)}
+						className="slots-list-item "
 						style={_style}
 						key={`casino-game-${g.tpId}-${g.gameId}`}
 					>
@@ -131,69 +126,6 @@ const GameList = ({
 								/>
 							</div>
 						</div>
-						{/*
-					<div className="brand">
-							<span>{gameProviderName}</span>
-						</div>
-
-						<div
-							className={`icon ${
-								activeCategory === "new" ? "icon-new" : ""
-							}`}
-						/>
-
-						<img alt="Casino_tpInfo" src={_imgUrl} />
-
-						<div className="txt-darkBlue">
-							<div>{gameDisplayName}</div>
-							<div
-								onClick={onSetFavorite?.bind(
-									this,
-									g.tpId,
-									g.gameId
-								)}
-								className={`icon icon-star-full${
-									isFavorite ? " active" : ""
-								}`}
-							/>
-						</div>
-
-						<div className="btnGroup">
-							<button
-								className="blue"
-								onClick={() =>
-									onClickPlay({
-										tpId: g.tpId,
-										gameId: g.gameId,
-										isFree: false,
-										delay: 5000,
-										isInMaintain: getIsInMaintain(g),
-										tpGameType: getTpGameType(g).tpGameType
-									})
-								}>
-								{t("lbl_Play")}
-							</button>
-
-							{g.playFree ? (
-								<button
-									className="blue"
-									onClick={() =>
-										onClickPlay({
-											tpId: g.tpId,
-											gameId: g.gameId,
-											isFree: true,
-											delay: 0,
-											isInMaintain: getIsInMaintain(g),
-											tpGameType:
-												getTpGameType(g).tpGameType
-										})
-									}>
-									{t("lbl_Demo")}
-								</button>
-							) : null}
-						</div>
-						<div className="under">{t("lbl_underMaintenance")}</div>
-					*/}
 					</div>
 				);
 			});
@@ -203,9 +135,6 @@ const GameList = ({
 			<span ref={inViewRef} />
 		</div>
 	) : null;
-	// <div className="nodata icon icon-nodata">
-	// 	<div>{t("lbl_NoData")}</div>
-	// </div>
 };
 
 GameList.defaultProps = {
