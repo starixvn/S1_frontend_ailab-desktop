@@ -59,7 +59,7 @@ export const defMenuLinks = {
 						period: defEventPeriod.sportSbo
 					})
 				],
-				displayText: "SBOBET",
+				displayKey: "lbl_Sbobet",
 				parameter: { ...productList.sportSbo },
 				afterLogin: true,
 				img: "sports/sbo.png"
@@ -76,7 +76,7 @@ export const defMenuLinks = {
 				...productList.sports_IM,
 				subPath: path.sportsIM.root,
 				className: "InplayMatrix",
-				displayText: "IM Sports",
+				displayKey: "lbl_IM_Sports",
 				parameter: { ...productList.sports_IM },
 				eventIcons: [
 					showEventIcon({

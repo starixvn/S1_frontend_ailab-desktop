@@ -649,7 +649,6 @@ export default () => {
 			<SwipperBanner
 				ImgFolder={[defBannerType.Slots]}
 				openInBlank={true}
-				className="swiper-casino"
 			/>
 			<section className="inside">
 				<div className="rightModule">
