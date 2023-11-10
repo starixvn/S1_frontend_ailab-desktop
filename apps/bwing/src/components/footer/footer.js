@@ -37,7 +37,8 @@ export default () => {
 			href={el.link}
 			className={channelIcon[el.channelName]}
 			target="_blank"
-			rel="noreferrer">
+			rel="noreferrer"
+		>
 			{el.channelName}
 		</a>
 	));
@@ -50,36 +51,42 @@ export default () => {
 						<Link
 							className="footer-information-item"
 							to={`${bannerImgUrl}/Static/images/How_To_Deposit.mp4`}
-							target="_blank">
+							target="_blank"
+						>
 							<img
-								src="https://banner.bw88.io/desktop/img/4.0/footer/how-deposit.png"
+								src={`${bannerImgUrl}/desktop/img/4.0/footer/how-deposit.png`}
 								alt=""
 							/>
 							{t("lbl_HowToDepoist")}
 						</Link>
 						<Link
 							className="footer-information-item"
-							to={`/${userInfo.langId}/${path.howToWithdraw.root}`}>
+							to={`/${userInfo.langId}/${path.howToWithdraw.root}`}
+						>
 							<img
-								src="https://banner.bw88.io/desktop/img/4.0/footer/how-withdraw.png"
+								src={`${bannerImgUrl}/desktop/img/4.0/footer/how-withdraw.png`}
 								alt=""
 							/>
 							{t("lbl_HowToWithdraw")}
 						</Link>
 						<Link
 							className="footer-information-item"
-							to={`/${userInfo.langId}/${path.howToPlay.root}`}>
+							to={`/${userInfo.langId}/${path.howToPlay.root}`}
+						>
 							<img
-								src="https://banner.bw88.io/desktop/img/4.0/footer/how-play.png"
+								src={`${bannerImgUrl}/desktop/img/4.0/footer/how-play.png`}
 								alt=""
 							/>
 							{t("lbl_HowToPlay")}
 						</Link>
 						<a
 							href={TandC(userInfo.langId).FAQ}
-							className="footer-information-item">
+							target="_blank"
+							rel="noreferrer"
+							className="footer-information-item"
+						>
 							<img
-								src="https://banner.bw88.io/desktop/img/4.0/footer/how-faqs.png"
+								src={`${bannerImgUrl}/desktop/img/4.0/footer/how-faqs.png`}
 								alt=""
 							/>
 							{t("lbl_FAQ")}
