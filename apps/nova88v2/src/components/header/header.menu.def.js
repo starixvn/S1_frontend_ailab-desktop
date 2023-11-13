@@ -778,12 +778,12 @@ export const defMenuLinks = {
 				keyName: "casino_EBET",
 				className: "liveEB",
 				icon: "icon icon-EB",
-				displayText: "eBET",
-				listNpcImgUrl: "casino-EB.png",
+				displayText: "WE",
+				listNpcImgUrl: "casino-we.png",
 				listBgImgUrl: ["ebBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_eBET,
-				lobbyPage: { npcImg: "casino_eb" }
+				lobbyPage: { npcImg: "casino_we" }
 			},
 			{
 				keyName: "casino_SA",
@@ -877,9 +877,9 @@ export const defMenuLinks = {
 			},
 			{
 				keyName: "slot_Endorphina",
-				displayText: "Endorphina",
+				displayText: "ES",
 				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotEndorphina.png",
+				listNpcImgUrl: "slotEs.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { provider: "endorphina" },
 				...productList.casino_Endorphina,
@@ -1085,9 +1085,9 @@ export const defMenuLinks = {
 			{
 				keyName: "slot_AMB",
 				icon: "icon icon-AMB",
-				displayText: "AMBSlot",
+				displayText: "Askmeslot",
 				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotam.png",
+				listNpcImgUrl: "slotAskMe.png",
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_AMB },
 				parameter: { provider: "amb" },
