@@ -71,6 +71,14 @@ const GameList = ({
 						style={_style}
 						key={`casino-game-${g.tpId}-${g.gameId}`}
 					>
+						{getIsInMaintain(g) && (
+							<div className="under">
+								{t("lbl_underMaintenance")}
+							</div>
+						)}
+						{activeCategory === "new" && (
+							<div className="new-icon">{t("lbl_New")}</div>
+						)}
 						<div className="img-wrapper">
 							<img src={_imgUrl} alt="" />
 							<div className="btn-container">
@@ -134,7 +142,15 @@ const GameList = ({
 			{rows}
 			<span ref={inViewRef} />
 		</div>
-	) : null;
+	) : (
+		<div className="nodata">
+			<img
+				src={`${bannerImgUrl}/desktop/img/4.0/nodata-icon.png`}
+				alt=""
+			/>
+			<div>{t("lbl_NoData")}</div>
+		</div>
+	);
 };
 
 GameList.defaultProps = {

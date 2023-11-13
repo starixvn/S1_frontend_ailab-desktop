@@ -51,6 +51,7 @@ export default () => {
 	const [favoriteStr, setFavoriteStr] = useState(
 		localStorage.getItem("favorite")
 	);
+	const [isActiveDropdown, setIsActiveDropdown] = useState(false);
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -518,6 +519,20 @@ export default () => {
 		}
 	};
 
+	const onToggleDropdown = () => {
+		setIsActiveDropdown(prev => !prev);
+	};
+
+	useEffect(() => {
+		// 當指定廠牌不在頁面上時,展開下拉
+		if (
+			urlProviderTpId &&
+			providerList.findIndex(({ tpId }) => tpId === urlProviderTpId) > 5
+		) {
+			setIsActiveDropdown(true);
+		}
+	}, [providerList.length]);
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -629,7 +644,9 @@ export default () => {
 					<TopQuickLink
 						lobbyImgList={providerList}
 						activeProvider={activeProvider}
+						isActiveDropdown={isActiveDropdown}
 						onChange={handleProviderChange}
+						onToggleDropdown={onToggleDropdown}
 					/>
 				</div>
 				<Nav

@@ -21760,6 +21760,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           align-items: center;
   font-weight: 500;
   margin: 0 10px 20px;
+  position: relative;
 }
 .lobby-content-item .img-wrapper {
   position: relative;
@@ -21770,7 +21771,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 260px;
 }
 .lobby-content-item .img-wrapper .btn-container {
-  background: url(../img/4.0/lobby-hover.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/4.0/lobby-hover.png) no-repeat center/cover;
   position: absolute;
   z-index: 2;
   width: 260px;
@@ -21814,6 +21815,33 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           transform: translateY(-100%);
   visibility: visible;
   opacity: 1;
+}
+.lobby-content-item.under::before {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/4.0/lobby-under.png) no-repeat center/cover;
+  width: 260px;
+  height: 260px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  border-radius: 25px;
+}
+.lobby-content-item.under .under-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+  font-size: 16px;
+  text-shadow: 0 0 4px white;
+}
+.lobby-content-item.under .img-wrapper img {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
 }
 .lobby-content.slots {
   display: -webkit-box;
@@ -21905,6 +21933,29 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(33, 76, 152)), to(rgb(17, 34, 64)));
   background: linear-gradient(180deg, rgb(33, 76, 152) 0%, rgb(17, 34, 64) 100%);
 }
+.lobby-content.slots .top .provider-list-item.under {
+  position: relative;
+}
+.lobby-content.slots .top .provider-list-item.under::after {
+  position: absolute;
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/4.0/lobby-slots/under.png) no-repeat center/cover;
+  height: 40px;
+  width: 40px;
+  right: 75px;
+}
+.lobby-content.slots .top .provider-list-item.under::before {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6509803922);
+  display: block;
+  content: "";
+  width: 100%;
+  height: 55px;
+  border-radius: 15px;
+  left: 0;
+  top: 0;
+}
 .lobby-content.slots .top .provider.active {
   height: auto;
 }
@@ -21959,12 +22010,19 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 1400px;
 }
 .lobby-content.slots .slots-list-item {
   margin-top: 40px;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(20% - 47px);
           flex: 0 0 calc(20% - 47px);
+  position: relative;
 }
 .lobby-content.slots .slots-list-item .img-wrapper {
   position: relative;
@@ -22077,6 +22135,32 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .lobby-content.slots .slots-list-item:hover .details > div > div:first-child {
   color: white;
 }
+.lobby-content.slots .slots-list-item .under {
+  background: rgba(0, 0, 0, 0.631372549);
+  width: 220px;
+  height: 220px;
+  border-radius: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  font-size: 16px;
+  text-shadow: 0 0 4px white;
+}
+.lobby-content.slots .slots-list-item .new-icon {
+  right: 10px;
+  top: -13px;
+}
 .lobby-content.esports {
   width: 100%;
   background: #EFEFEF;
@@ -22109,6 +22193,28 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
+.lobby-content.esports .lobby-content-item.under::before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 80%;
+  top: unset;
+  bottom: 45px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(80%, rgb(0, 0, 0)));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 80%);
+  border-radius: 15px;
+}
+.lobby-content.esports .lobby-content-item.under .under-text {
+  color: #fff;
+}
+.lobby-content.esports .lobby-content-item.under img {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+.lobby-content.esports .lobby-content-item .new-icon {
+  right: 15px;
+  top: 5px;
+}
 .lobby-title {
   color: #0A1B38;
   margin-top: 15px;
@@ -22125,6 +22231,27 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .lobby .esports-game-list a {
   margin-right: 15px;
+  position: relative;
+}
+.lobby .esports-game-list a .new-icon {
+  background: #FF7600;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  z-index: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  right: 20px;
+  top: -15px;
+  color: #fff;
 }
 .lobby .esports-game-list a:hover {
   -webkit-filter: drop-shadow(0 0 10px #A1A1A1);
@@ -22138,7 +22265,76 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
+.lobby .esports-game-list a.under {
+  position: relative;
+}
+.lobby .esports-game-list a.under::before {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 80%;
+  bottom: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(80%, rgb(0, 0, 0)));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 80%);
+  border-radius: 15px;
+  z-index: 2;
+}
+.lobby .esports-game-list a.under .under-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #fff;
+  z-index: 3;
+  text-align: center;
+  font-size: 16px;
+  text-shadow: 0 0 4px white;
+}
+.lobby .esports-game-list a.under img {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
 .lobby .esports-game-list img {
   width: 340px;
   border-radius: 20px;
+}
+.lobby .new-icon {
+  background: #FF7600;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  z-index: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  right: 0;
+  top: 20px;
+  color: #fff;
+}
+.lobby .nodata {
+  color: #E5E5E5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 70px;
+}
+.lobby .nodata img {
+  width: 60px;
+  margin-bottom: 10px;
 }/*# sourceMappingURL=style.css.map */

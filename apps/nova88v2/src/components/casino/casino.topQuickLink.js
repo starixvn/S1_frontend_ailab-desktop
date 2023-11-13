@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import classNames from "classnames";
@@ -6,11 +6,16 @@ import { bannerImgUrl } from "../../config";
 import { userInfoContext } from "../common/context";
 import { defSlotTpGameType } from "../../datas/productList";
 
-const TopQuickLink = ({ lobbyImgList, activeProvider, onChange }) => {
+const TopQuickLink = ({
+	lobbyImgList,
+	activeProvider,
+	isActiveDropdown,
+	onChange,
+	onToggleDropdown
+}) => {
 	const {
 		userInfo: { langId }
 	} = useContext(userInfoContext);
-	const [isActiveDropdown, setIsActiveDropdown] = useState(false);
 
 	return (
 		<div
@@ -30,6 +35,7 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange }) => {
 					}) => {
 						return openPath ? (
 							<Link
+								key={`${tpName}_${tpId}`}
 								className={`${classNames("provider-list-item", {
 									active: activeProvider.tpId === tpId
 								})}`}
@@ -45,6 +51,7 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange }) => {
 							</Link>
 						) : (
 							<Link
+								key={`${tpName}_${tpId}`}
 								to={`/${langId}/slots?tpId=${tpId}&tpGameType=${defSlotTpGameType[tpName]?.tpGameType}`}
 								className={`${classNames("provider-list-item", {
 									active: activeProvider.tpId === tpId
@@ -76,7 +83,7 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange }) => {
 					}
 				)}
 			</div>
-			<button onClick={() => setIsActiveDropdown(prev => !prev)}>
+			<button onClick={() => onToggleDropdown(prev => !prev)}>
 				<img
 					src={`${bannerImgUrl}/desktop/img/4.0/lobby-slots/down.png`}
 					alt=""
@@ -89,7 +96,9 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange }) => {
 TopQuickLink.propTypes = {
 	lobbyImgList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	activeProvider: PropTypes.objectOf(PropTypes.any).isRequired,
-	onChange: PropTypes.func.isRequired
+	isActiveDropdown: PropTypes.bool.isRequired,
+	onChange: PropTypes.func.isRequired,
+	onToggleDropdown: PropTypes.func.isRequired
 };
 
 export default TopQuickLink;
