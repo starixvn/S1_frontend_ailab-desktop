@@ -63,7 +63,8 @@ export class Dropdown extends Component {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={this.props.clickClose}>
+											onClick={this.props.clickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -81,7 +82,8 @@ export class Dropdown extends Component {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={this.props.clickClose}>
+										onClick={this.props.clickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -92,7 +94,8 @@ export class Dropdown extends Component {
 			} else {
 				this.props.setUserInfo(prev => ({
 					...prev,
-					currencyId
+					currencyId,
+					langId: value
 				}));
 			}
 
@@ -129,7 +132,8 @@ export class Dropdown extends Component {
 									item.value,
 									item.currencyId,
 									getNewLanguagePath(item.value)
-								)}>
+								)}
+							>
 								{item.displayText}
 							</button>
 						);
@@ -141,7 +145,8 @@ export class Dropdown extends Component {
 		const selected = (
 			<button
 				style={{ whiteSpace: "nowrap" }}
-				className={`flag ${icon} arrow`}>
+				className={`flag ${icon} arrow`}
+			>
 				{this.props?.selectedValue && this.props.selectedValue}
 			</button>
 		);
@@ -150,12 +155,14 @@ export class Dropdown extends Component {
 			<div
 				className={this.props.className}
 				ref={this.wrapper}
-				onClick={this.clickDropdown}>
+				onClick={this.clickDropdown}
+			>
 				{selected}
 				<div
 					className={`${this.props.subClassName} ${
 						this.state.isOpen ? " active" : ""
-					}`}>
+					}`}
+				>
 					{rows}
 				</div>
 			</div>
