@@ -8,7 +8,7 @@ export default () => {
 	return (
 		<Wrapper>
 			<Layout>
-				<main className="livecasinoinside newDesign">
+				<main className="lobby">
 					<LivecasinoNew />
 				</main>
 				<Footer />

@@ -1,16 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { bannerImgUrl } from "../../config";
 import { defTpGameType } from "../../datas/productList";
 
 export default ({
-	listData,
+	liveCasinoSubMenu,
 	maintainList,
 	tpGameTypeSettingList,
 	clickItem,
 	t
 }) => {
-	return listData.map(subMenuItem => {
+	if (liveCasinoSubMenu.length <= 0) return null;
+
+	return liveCasinoSubMenu.map(subMenuItem => {
 		if (!subMenuItem.lobbyPage) return null;
 		if (tpGameTypeSettingList && tpGameTypeSettingList.length > 0) {
 			tpGameTypeSettingList.forEach(settingItem => {
@@ -25,7 +28,7 @@ export default ({
 		if (subMenuItem?.noShow) return null;
 		return (
 			<LiveCasinoListItem
-				key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
+				key={`${subMenuItem?.displayKey}-${subMenuItem?.tpId}-${subMenuItem?.gameId}`}
 				t={t}
 				clickItem={clickItem}
 				subMenuItem={subMenuItem}
@@ -58,16 +61,24 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 				item.tpGameType === defTpGameType.All)
 	);
 
-	const _className = [isInMaintain && "active"].filter(Boolean).join(" ");
+	const isNew = () => {
+		if (
+			subMenuItem.eventIcons &&
+			subMenuItem.eventIcons[0] &&
+			// * 這裡因為跟 menu className 不同所以如果 defEventIcon 更改這裡判斷也需更改
+			subMenuItem.eventIcons[0].match("new")
+		) {
+			return true;
+		}
 
-	const _style = {
-		pointerEvents: isInMaintain ? "none" : "auto"
+		return false;
 	};
 
 	return (
 		<div
-			className={_className}
-			style={_style}
+			className={classNames("lobby-content-item", {
+				under: isInMaintain
+			})}
 			onClick={() =>
 				clickItem({
 					tpId,
@@ -78,24 +89,25 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 					tpGameType,
 					noPlay
 				})
-			}>
-			{subMenuItem?.eventIcons?.length > 0 && (
-				<div className={subMenuItem.eventIcons[0]} />
+			}
+		>
+			{isInMaintain && (
+				<div className="under-text">{t("lbl_underMaintenance")}</div>
 			)}
 
-			<div className="animationImg">
-				<img
-					src={`${bannerImgUrl}/desktop/img/livecasino/animation_img.png`}
-					alt="animation-img"
-				/>
-			</div>
-			<img
-				src={`${bannerImgUrl}/desktop/img/livecasino/${npcImg}.png`}
-				alt="casino-img"
-			/>
+			{isNew() && <div className="new-icon">{t("lbl_New")}</div>}
 
-			<div className="name">{_displayText}</div>
-			<div className="under">{t("lbl_underMaintenance")}</div>
+			<div className="img-wrapper">
+				<img
+					src={`${bannerImgUrl}/desktop/img/4.0/lobby-livecasino/${npcImg}`}
+					alt="casino-img"
+				/>
+				<div className="btn-container">
+					<button>{t("lbl_PlayNow")}</button>
+				</div>
+			</div>
+
+			<div className="lobby-title">{_displayText}</div>
 		</div>
 	);
 };

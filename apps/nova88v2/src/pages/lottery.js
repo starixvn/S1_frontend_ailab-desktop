@@ -8,7 +8,7 @@ export default () => {
 	return (
 		<Wrapper>
 			<Layout>
-				<main className="lotteryinside">
+				<main className="lobby">
 					<Lottery />
 				</main>
 				<Footer />

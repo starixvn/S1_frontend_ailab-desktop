@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -21729,7 +21729,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .lobby {
-  padding-top: 113px;
+  padding-top: 175px;
 }
 .lobby-banner {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 62%, 25% 100%, 0 64%);
