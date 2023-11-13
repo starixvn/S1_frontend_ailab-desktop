@@ -1,16 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { defNav } from "./casino.def";
+import { userInfoContext } from "../common/context";
 
-const Nav = ({
-	categoryList,
-	activeCategory,
-	onChange,
-	isProcessing,
-	memberType
-}) => {
+const Nav = ({ categoryList, activeCategory, onChange, isProcessing }) => {
+	const {
+		userInfo: { memberType }
+	} = useContext(userInfoContext);
 	const { t } = useTranslation();
 	return (
 		<div className="select-bar">
@@ -45,10 +43,14 @@ const Nav = ({
 	);
 };
 export default Nav;
+
+Nav.defaultProps = {
+	activeCategory: null
+};
+
 Nav.propTypes = {
 	categoryList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	activeCategory: PropTypes.string.isRequired,
+	activeCategory: PropTypes.string,
 	onChange: PropTypes.func.isRequired,
-	isProcessing: PropTypes.bool.isRequired,
-	memberType: PropTypes.number.isRequired
+	isProcessing: PropTypes.bool.isRequired
 };
