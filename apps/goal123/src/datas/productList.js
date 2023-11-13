@@ -552,7 +552,7 @@ export const defCasinoProviders = {
 	},
 	Endorphina: {
 		tpId: 49,
-		name: "ES",
+		name: "Endorphina",
 		tpGameType: 98
 	},
 	FaChai: {

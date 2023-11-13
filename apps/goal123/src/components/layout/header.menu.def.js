@@ -428,12 +428,12 @@ export const defMenuLinks = langId => ({
 			},
 			{
 				...defCasinoProviders.Endorphina,
-				displayText: "ES",
+				displayText: "Endorphina",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.Endorphina.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/es.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/es-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/es-icon.png`,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/endorphina.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/endorphina-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/endorphina-icon.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -872,12 +872,12 @@ export const defMenuLinks = langId => ({
 				tpId: 18,
 				className: "liveEB",
 				icon: "icon icon-EB",
-				listNpcImgUrl: "we.png",
-				displayText: "WE",
+				listNpcImgUrl: "ebet.png",
+				displayText: "eBET",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/we.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/we-icon.png`,
-				lobbyImg: "we"
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/ebet.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/ebet-icon.png`,
+				lobbyImg: "ebet"
 			}
 		]
 	},
