@@ -49,14 +49,11 @@ const GameList = ({
 				const storageList = storageStr.split("&") ?? [];
 				const handleIsFavorite = () => storageList?.includes(key);
 				const isFavorite = handleIsFavorite();
-				const brandTpName = providerList.find(
-					obj => obj.tpId === g.tpId
-				).tpName;
 				const gameProviderName = providerList.find(
 					obj => obj.tpId === g.tpId
 				).gameImgDisplayText;
 
-				_imgUrl = `${imgUrl}/${brandTpName}/${imgName}`;
+				_imgUrl = `${imgUrl}/${gameProviderName}/${imgName}`;
 
 				const _style = {
 					pointerEvents: getIsInMaintain(g) ? "none" : "auto"
