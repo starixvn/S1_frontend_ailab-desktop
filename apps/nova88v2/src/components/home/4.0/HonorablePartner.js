@@ -6,7 +6,6 @@ import paths from "../../../router";
 import { defCurrencyList } from "../../common/common";
 import { productTpIdsContext } from "../../common/context";
 import { getPPAllowCurrencies } from "../../header/header.menu.def";
-import allowedCurrencyList from "../../../datas/allowedCurrencyList";
 import { useAuth } from "../../hook";
 import { SET_ENTER_PAGE } from "../../../service/enterPage";
 import defPopBoxType from "../../common/defPopBoxType";
@@ -176,13 +175,6 @@ const HonorablePartner = () => {
 				path: paths.casino.root,
 				parameter: { ...productList.casino_SimplePlay },
 				imgName: "simple"
-			},
-			{
-				...productList.casino_AMB,
-				path: paths.casino.root,
-				parameter: { ...productList.casino_AMB },
-				imgName: "amb",
-				allowCurrencies: allowedCurrencyList.slotAMB
 			},
 			{
 				...productList.casino_Skywind,
