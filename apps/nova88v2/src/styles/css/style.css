@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* http://meyerweb.com/eric/tools/css/reset/
+/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -500,6 +500,7 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .tableList,
 .header > div.menu .subMenu-Wrapper-new .gameList,
 .header > div.menu .subMenu-Wrapper-new .fishList,
+.header > div.menu .subMenu-Wrapper-new .fourList,
 .header > div.menu .subMenu-Wrapper-new .promoList,
 .header > div.menu .subMenu-Wrapper-new .tvList,
 .header > div.menu .subMenu-Wrapper-new .vipList,
@@ -531,6 +532,7 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .tableList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .gameList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .fishList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .fourList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .promoList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .tvList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .vipList.maintenance,
@@ -561,6 +563,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button,
 .header > div.menu .subMenu-Wrapper-new .fishList a,
 .header > div.menu .subMenu-Wrapper-new .fishList button,
+.header > div.menu .subMenu-Wrapper-new .fourList a,
+.header > div.menu .subMenu-Wrapper-new .fourList button,
 .header > div.menu .subMenu-Wrapper-new .promoList a,
 .header > div.menu .subMenu-Wrapper-new .promoList button,
 .header > div.menu .subMenu-Wrapper-new .tvList a,
@@ -622,6 +626,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button .under,
 .header > div.menu .subMenu-Wrapper-new .fishList a .under,
 .header > div.menu .subMenu-Wrapper-new .fishList button .under,
+.header > div.menu .subMenu-Wrapper-new .fourList a .under,
+.header > div.menu .subMenu-Wrapper-new .fourList button .under,
 .header > div.menu .subMenu-Wrapper-new .promoList a .under,
 .header > div.menu .subMenu-Wrapper-new .promoList button .under,
 .header > div.menu .subMenu-Wrapper-new .tvList a .under,
@@ -664,6 +670,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button.active,
 .header > div.menu .subMenu-Wrapper-new .fishList a.active,
 .header > div.menu .subMenu-Wrapper-new .fishList button.active,
+.header > div.menu .subMenu-Wrapper-new .fourList a.active,
+.header > div.menu .subMenu-Wrapper-new .fourList button.active,
 .header > div.menu .subMenu-Wrapper-new .promoList a.active,
 .header > div.menu .subMenu-Wrapper-new .promoList button.active,
 .header > div.menu .subMenu-Wrapper-new .tvList a.active,
@@ -701,6 +709,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button.active .under,
 .header > div.menu .subMenu-Wrapper-new .fishList a.active .under,
 .header > div.menu .subMenu-Wrapper-new .fishList button.active .under,
+.header > div.menu .subMenu-Wrapper-new .fourList a.active .under,
+.header > div.menu .subMenu-Wrapper-new .fourList button.active .under,
 .header > div.menu .subMenu-Wrapper-new .promoList a.active .under,
 .header > div.menu .subMenu-Wrapper-new .promoList button.active .under,
 .header > div.menu .subMenu-Wrapper-new .tvList a.active .under,
@@ -737,6 +747,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button .live:before,
 .header > div.menu .subMenu-Wrapper-new .fishList a .live:before,
 .header > div.menu .subMenu-Wrapper-new .fishList button .live:before,
+.header > div.menu .subMenu-Wrapper-new .fourList a .live:before,
+.header > div.menu .subMenu-Wrapper-new .fourList button .live:before,
 .header > div.menu .subMenu-Wrapper-new .promoList a .live:before,
 .header > div.menu .subMenu-Wrapper-new .promoList button .live:before,
 .header > div.menu .subMenu-Wrapper-new .tvList a .live:before,
@@ -776,6 +788,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button img,
 .header > div.menu .subMenu-Wrapper-new .fishList a img,
 .header > div.menu .subMenu-Wrapper-new .fishList button img,
+.header > div.menu .subMenu-Wrapper-new .fourList a img,
+.header > div.menu .subMenu-Wrapper-new .fourList button img,
 .header > div.menu .subMenu-Wrapper-new .promoList a img,
 .header > div.menu .subMenu-Wrapper-new .promoList button img,
 .header > div.menu .subMenu-Wrapper-new .tvList a img,
@@ -815,6 +829,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .fishList a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .fishList button img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .fourList a img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .fourList button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .promoList a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .promoList button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .tvList a img.List-npc,
@@ -853,6 +869,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button:hover img,
 .header > div.menu .subMenu-Wrapper-new .fishList a:hover img,
 .header > div.menu .subMenu-Wrapper-new .fishList button:hover img,
+.header > div.menu .subMenu-Wrapper-new .fourList a:hover img,
+.header > div.menu .subMenu-Wrapper-new .fourList button:hover img,
 .header > div.menu .subMenu-Wrapper-new .promoList a:hover img,
 .header > div.menu .subMenu-Wrapper-new .promoList button:hover img,
 .header > div.menu .subMenu-Wrapper-new .tvList a:hover img,
@@ -891,6 +909,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .fishList a:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .fishList button:hover img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .fourList a:hover img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .fourList button:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .promoList a:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .promoList button:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .tvList a:hover img.List-npc,
@@ -927,6 +947,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .fishList a:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .fishList button:hover img.List-bg,
+.header > div.menu .subMenu-Wrapper-new .fourList a:hover img.List-bg,
+.header > div.menu .subMenu-Wrapper-new .fourList button:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .promoList a:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .promoList button:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .tvList a:hover img.List-bg,
@@ -965,6 +987,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button > span,
 .header > div.menu .subMenu-Wrapper-new .fishList a > span,
 .header > div.menu .subMenu-Wrapper-new .fishList button > span,
+.header > div.menu .subMenu-Wrapper-new .fourList a > span,
+.header > div.menu .subMenu-Wrapper-new .fourList button > span,
 .header > div.menu .subMenu-Wrapper-new .promoList a > span,
 .header > div.menu .subMenu-Wrapper-new .promoList button > span,
 .header > div.menu .subMenu-Wrapper-new .tvList a > span,
@@ -1016,6 +1040,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .fishList a.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .fishList button.icon-new:before,
+.header > div.menu .subMenu-Wrapper-new .fourList a.icon-new:before,
+.header > div.menu .subMenu-Wrapper-new .fourList button.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .promoList a.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .promoList button.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .tvList a.icon-new:before,
@@ -1060,6 +1086,7 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .tableList.active,
 .header > div.menu .subMenu-Wrapper-new .gameList.active,
 .header > div.menu .subMenu-Wrapper-new .fishList.active,
+.header > div.menu .subMenu-Wrapper-new .fourList.active,
 .header > div.menu .subMenu-Wrapper-new .promoList.active,
 .header > div.menu .subMenu-Wrapper-new .tvList.active,
 .header > div.menu .subMenu-Wrapper-new .vipList.active,
@@ -1091,6 +1118,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList.active button,
 .header > div.menu .subMenu-Wrapper-new .fishList.active a,
 .header > div.menu .subMenu-Wrapper-new .fishList.active button,
+.header > div.menu .subMenu-Wrapper-new .fourList.active a,
+.header > div.menu .subMenu-Wrapper-new .fourList.active button,
 .header > div.menu .subMenu-Wrapper-new .promoList.active a,
 .header > div.menu .subMenu-Wrapper-new .promoList.active button,
 .header > div.menu .subMenu-Wrapper-new .tvList.active a,
@@ -1136,6 +1165,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList.active button img,
 .header > div.menu .subMenu-Wrapper-new .fishList.active a img,
 .header > div.menu .subMenu-Wrapper-new .fishList.active button img,
+.header > div.menu .subMenu-Wrapper-new .fourList.active a img,
+.header > div.menu .subMenu-Wrapper-new .fourList.active button img,
 .header > div.menu .subMenu-Wrapper-new .promoList.active a img,
 .header > div.menu .subMenu-Wrapper-new .promoList.active button img,
 .header > div.menu .subMenu-Wrapper-new .tvList.active a img,
@@ -1174,6 +1205,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList.active button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .fishList.active a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .fishList.active button img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .fourList.active a img.List-npc,
+.header > div.menu .subMenu-Wrapper-new .fourList.active button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .promoList.active a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .promoList.active button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .tvList.active a img.List-npc,
@@ -1210,6 +1243,8 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList.active button > span,
 .header > div.menu .subMenu-Wrapper-new .fishList.active a > span,
 .header > div.menu .subMenu-Wrapper-new .fishList.active button > span,
+.header > div.menu .subMenu-Wrapper-new .fourList.active a > span,
+.header > div.menu .subMenu-Wrapper-new .fourList.active button > span,
 .header > div.menu .subMenu-Wrapper-new .promoList.active a > span,
 .header > div.menu .subMenu-Wrapper-new .promoList.active button > span,
 .header > div.menu .subMenu-Wrapper-new .tvList.active a > span,
@@ -1239,6 +1274,7 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .tableList .new-icon,
 .header > div.menu .subMenu-Wrapper-new .gameList .new-icon,
 .header > div.menu .subMenu-Wrapper-new .fishList .new-icon,
+.header > div.menu .subMenu-Wrapper-new .fourList .new-icon,
 .header > div.menu .subMenu-Wrapper-new .promoList .new-icon,
 .header > div.menu .subMenu-Wrapper-new .tvList .new-icon,
 .header > div.menu .subMenu-Wrapper-new .vipList .new-icon,
@@ -1394,6 +1430,9 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .promoList.bd {
   background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-bd.jpg) no-repeat center/auto;
 }
+.header > div.menu .subMenu-Wrapper-new .promoList.kh {
+  background: url(https://banner.0814media.net/desktop/img/pomobanner-kh.jpg) no-repeat center/auto;
+}
 .header > div.menu .subMenu-Wrapper-new .promoList.vn {
   background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-vn.jpg) no-repeat center/auto;
 }
@@ -1448,6 +1487,9 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
   background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-id.jpg) no-repeat center/auto;
+}
+.header > div.menu .subMenu-Wrapper-new .rankingList.kh {
+  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-kh.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.vn {
   background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-vn.jpg) no-repeat center/auto;
@@ -3425,7 +3467,7 @@ footer .license > div:nth-child(2) > div img {
 footer .license > div .star {
   width: auto;
   position: absolute;
-  right: -30px;
+  right: -16px;
   bottom: -25px;
 }
 footer .sfp {
@@ -4017,6 +4059,9 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
 }
 .flag.bd:before {
   background: url(https://banner.0814media.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
+}
+.flag.kh:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
 }
 .flag.kh:before {
   background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
@@ -7671,6 +7716,10 @@ input[type=file] {
   top: 25px;
   right: 12px;
 }
+.addBank .addBankName .cryptoInfo .checkbox {
+  margin-right: -2px;
+  margin-left: 5px;
+}
 .addBank .addBankName .cryptoInfo > .title {
   width: 100%;
   margin-bottom: 5px;
@@ -8148,6 +8197,9 @@ input[type=file] {
 .quickSelect .dropdown .dropdown-container .dropdown-item {
   margin: 0;
   padding: 5px 0 5px 10px;
+}
+.quickSelect .dropdown .btn {
+  padding: 0 10px;
 }
 
 .specialBonus {
@@ -9530,6 +9582,15 @@ article p {
   color: #b2b2b2;
 }
 .rdt .inputBox, .rdt .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .rdt .inputBox-event, .rdt .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .rdt .inputBox-event, .rdt .inputBox-org, .rdt .inputBox-white, .rdt .inputBox-blue {
+  width: 100%;
+}
+
+.react-datepicker-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.react-datepicker-wrapper input {
   width: 100%;
 }
 
@@ -18887,8 +18948,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-animation: vipAnimation 2s linear infinite;
-          animation: vipAnimation 2s linear infinite;
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 0;
@@ -21532,6 +21591,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: none;
 }
 
+.header .logo {
+  position: relative;
+}
+
 .thiaPop {
   padding: 5px 10px !important;
   font-size: 12px;
@@ -21726,6 +21789,18 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin: 5px auto;
   padding-top: 10px;
   border-top: 1px dotted #1E85EC;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .lobby {
@@ -22029,20 +22104,20 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   overflow: hidden;
   border-radius: 25px;
   z-index: 2;
+  width: 222px;
 }
 .lobby-content.slots .slots-list-item .img-wrapper img {
   width: 220px;
   border-radius: 25px;
-  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.1215686275);
-          box-shadow: 0 0 6px rgba(0, 0, 0, 0.1215686275);
+  border: 1px solid rgba(0, 0, 0, 0.0588235294);
 }
 .lobby-content.slots .slots-list-item .img-wrapper .btn-container {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3169642857)), to(rgb(0, 0, 0)));
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.3169642857) 0%, rgb(0, 0, 0) 100%);
   position: absolute;
   z-index: 2;
-  width: 220px;
-  height: 220px;
+  width: 222px;
+  height: 222px;
   border-radius: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -22094,7 +22169,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .lobby-content.slots .slots-list-item .details > div:first-child {
   border: 1px solid #DCDCDC;
-  width: 217px;
+  width: 220px;
   margin-top: -40px;
   border-radius: 25px;
   padding: 48px 0 12px;
@@ -22106,8 +22181,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 .lobby-content.slots .slots-list-item .details > div:last-child img {
   width: 23px;
-  -webkit-filter: drop-shadow(0 0 6px #ECECEC);
-          filter: drop-shadow(0 0 6px #ECECEC);
+  -webkit-filter: drop-shadow(0 0 6px #C9C9C9);
+          filter: drop-shadow(0 0 6px #C9C9C9);
+}
+.lobby-content.slots .slots-list-item .details > div:last-child.active img {
+  -webkit-filter: unset;
+          filter: unset;
 }
 .lobby-content.slots .slots-list-item .details > div > div {
   margin-left: 12px;
@@ -22117,7 +22196,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 100px;
+  width: 155px;
 }
 .lobby-content.slots .slots-list-item .details > div > div:last-child {
   color: #929292;
@@ -22130,15 +22209,15 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(62, 130, 249)), to(rgb(17, 34, 64)));
   background: linear-gradient(180deg, rgb(62, 130, 249) 0%, rgb(17, 34, 64) 100%);
   border: 0;
-  width: 220px;
+  width: 222px;
 }
 .lobby-content.slots .slots-list-item:hover .details > div > div:first-child {
   color: white;
 }
 .lobby-content.slots .slots-list-item .under {
   background: rgba(0, 0, 0, 0.631372549);
-  width: 220px;
-  height: 220px;
+  width: 222px;
+  height: 221px;
   border-radius: 25px;
   position: absolute;
   top: 0;
@@ -22212,7 +22291,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           filter: grayscale(1);
 }
 .lobby-content.esports .lobby-content-item .new-icon {
-  right: 15px;
+  right: 0;
   top: 5px;
 }
 .lobby-title {
@@ -22249,7 +22328,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  right: 20px;
+  right: 0;
   top: -15px;
   color: #fff;
 }

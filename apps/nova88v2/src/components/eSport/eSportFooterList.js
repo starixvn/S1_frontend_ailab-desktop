@@ -30,6 +30,8 @@ const ESportFooterList = ({
 		});
 	}
 
+	const isNew = eSportSabaItem.eventIcons?.[0]?.includes("new") || false;
+
 	return (
 		<>
 			<a className={classNames({ under: eSportSabaItem?.isInMaintain })}>
@@ -38,6 +40,7 @@ const ESportFooterList = ({
 						{t("lbl_underMaintenance")}
 					</div>
 				)}
+				{isNew && <div className="new-icon">{t("lbl_New")}</div>}
 				<img
 					onClick={() => clickItem(eSportSabaItem)}
 					src={`${bannerImgUrl}/desktop/img/4.0/lobby-esports/lol.png`}
@@ -50,6 +53,7 @@ const ESportFooterList = ({
 						{t("lbl_underMaintenance")}
 					</div>
 				)}
+				{isNew && <div className="new-icon">{t("lbl_New")}</div>}
 				<img
 					onClick={() => clickItem(eSportSabaItem)}
 					src={`${bannerImgUrl}/desktop/img/4.0/lobby-esports/king.png`}
@@ -62,6 +66,7 @@ const ESportFooterList = ({
 						{t("lbl_underMaintenance")}
 					</div>
 				)}
+				{isNew && <div className="new-icon">{t("lbl_New")}</div>}
 				<img
 					onClick={() => clickItem(eSportSabaItem)}
 					src={`${bannerImgUrl}/desktop/img/4.0/lobby-esports/cs.png`}
@@ -74,6 +79,7 @@ const ESportFooterList = ({
 						{t("lbl_underMaintenance")}
 					</div>
 				)}
+				{isNew && <div className="new-icon">{t("lbl_New")}</div>}
 				<img
 					onClick={() => clickItem(eSportSabaItem)}
 					src={`${bannerImgUrl}/desktop/img/4.0/lobby-esports/dota.png`}
