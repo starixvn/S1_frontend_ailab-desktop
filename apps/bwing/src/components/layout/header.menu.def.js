@@ -343,7 +343,7 @@ export const defMenuLinks = {
 		]
 	},
 	casino: {
-		path: path["casino-lobby"].root,
+		path: path.casino.root,
 		displayKey: "lbl_Slots",
 		className: "slotsbtn",
 		subDivClass1: "light light-slot",

@@ -16,11 +16,8 @@ export const SideBarDownload = () => {
 
 	return (
 		<div className="quickLink app">
-			<div>
-				<i
-					className="icon icon-download"
-					onClick={() => navigate(`/${path.appDownload.root}`)}
-				/>
+			<div onClick={() => navigate(`/${path.appDownload.root}`)}>
+				<i className="icon icon-download" />
 				<span>{t("lbl_Download")}</span>
 			</div>
 			<div>
