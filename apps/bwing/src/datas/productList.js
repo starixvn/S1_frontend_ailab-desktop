@@ -581,6 +581,11 @@ export const defCasinoProviders = {
 		name: "FaChai",
 		tpGameType: 106
 	},
+	BNG: {
+		tpId: 57,
+		name: "BNG",
+		tpGameType: 108
+	},
 	eBET: {
 		tpId: 56,
 		name: "eBET",

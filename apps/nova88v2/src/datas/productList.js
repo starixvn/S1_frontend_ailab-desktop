@@ -223,6 +223,10 @@ export default {
 		tpId: 14,
 		tpGameType: 17
 	},
+	casino_BNG: {
+		tpId: 57,
+		tpGameType: 108
+	},
 	casino_OW: {
 		tpId: 41,
 		gameId: 208,
