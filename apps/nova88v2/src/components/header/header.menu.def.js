@@ -916,7 +916,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotbng.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { provider: "bng" },
+				parameter: productList.casino_BNG,
 				...productList.casino_BNG,
 				eventIcons: [
 					showEventIcon({
