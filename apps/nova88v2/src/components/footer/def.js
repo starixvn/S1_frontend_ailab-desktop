@@ -15,109 +15,164 @@ export const channelNameToImg = {
 export const PAYMENT_LIST = {
 	MYR: [
 		{
-			name: "help2pay",
-			img: `${bannerImgUrl}/desktop/img/footer/help2pay.png`
+			name: "DuitNow",
+			img: `${bannerImgUrl}/desktop/img/footer/duitnow.png`
 		},
-		{ name: "fpay", img: `${bannerImgUrl}/desktop/img/footer/fpay.png` },
+		{ name: "TouchnGo", img: `${bannerImgUrl}/desktop/img/footer/tng.png` },
 		{
-			name: "truepay",
+			name: "SpeedPay",
+			img: `${bannerImgUrl}/desktop/img/footer/speedpay.png`
+		},
+		{
+			name: "Direpay",
+			img: `${bannerImgUrl}/desktop/img/footer/direpay.png`
+		},
+		{
+			name: "Rapidpay",
+			img: `${bannerImgUrl}/desktop/img/footer/rapidpay.png`
+		},
+		{ name: "Fpay", img: `${bannerImgUrl}/desktop/img/footer/fpay.png` },
+		{
+			name: "TruePay",
 			img: `${bannerImgUrl}/desktop/img/footer/truepay.png`
-		},
-		{ name: "tngqr", img: `${bannerImgUrl}/desktop/img/footer/tngqr.png` },
-		{
-			name: "duitnowqr",
-			img: `${bannerImgUrl}/desktop/img/footer/duitnowqr.png`
 		}
 	],
 	THB: [
+		{ name: "LINE", img: `${bannerImgUrl}/desktop/img/footer/line.png` },
 		{
-			name: "help2pay",
-			img: `${bannerImgUrl}/desktop/img/footer/help2pay.png`
+			name: "SpeedPay",
+			img: `${bannerImgUrl}/desktop/img/footer/speedpay.png`
 		},
-		{ name: "thaiqr", img: `${bannerImgUrl}/desktop/img/footer/thaiqr.png` }
+		{
+			name: "PattayaPay",
+			img: `${bannerImgUrl}/desktop/img/footer/pattayapay.png`
+		},
+		{
+			name: "RapidPay",
+			img: `${bannerImgUrl}/desktop/img/footer/rapidpay.png`
+		},
+		{
+			name: "FattyPay",
+			img: `${bannerImgUrl}/desktop/img/footer/fattypay.png`
+		},
+		{
+			name: "PromptPay",
+			img: `${bannerImgUrl}/desktop/img/footer/promptpay.png`
+		},
+		{
+			name: "TrueWallet",
+			img: `${bannerImgUrl}/desktop/img/footer/truewallet.png`
+		},
+		{
+			name: "Direpay",
+			img: `${bannerImgUrl}/desktop/img/footer/direpay.png`
+		}
 	],
 	IDR: [
 		{
-			name: "help2pay",
+			name: "RapidPay",
+			img: `${bannerImgUrl}/desktop/img/footer/rapidpay.png`
+		},
+		{ name: "Ypay", img: `${bannerImgUrl}/desktop/img/footer/ypay.png` },
+		{
+			name: "Help2Pay",
 			img: `${bannerImgUrl}/desktop/img/footer/help2pay.png`
 		},
-		{ name: "ovo", img: `${bannerImgUrl}/desktop/img/footer/ovo.png` },
+		{ name: "Gopay", img: `${bannerImgUrl}/desktop/img/footer/gopay.png` },
+		{ name: "OVO", img: `${bannerImgUrl}/desktop/img/footer/ovo.png` },
+		{ name: "Dana", img: `${bannerImgUrl}/desktop/img/footer/dana.png` },
 		{
-			name: "gopay",
-			img: `${bannerImgUrl}/desktop/img/footer/gopay.png`
-		},
-		{
-			name: "dana",
-			img: `${bannerImgUrl}/desktop/img/footer/dana.png`
-		},
-		{
-			name: "sakuku",
-			img: `${bannerImgUrl}/desktop/img/footer/sakuku.png`
-		},
-		{
-			name: "linkaja",
-			img: `${bannerImgUrl}/desktop/img/footer/linkaja.png`
-		},
-		{
-			name: "shopeepay",
+			name: "ShopeePay",
 			img: `${bannerImgUrl}/desktop/img/footer/shopeepay.png`
-		},
-		{ name: "doku", img: `${bannerImgUrl}/desktop/img/footer/doku.png` }
+		}
 	],
 	INR: [
-		{ name: "tenpay", img: `${bannerImgUrl}/desktop/img/footer/tenpay.png` }
+		{
+			name: "VaderPay",
+			img: `${bannerImgUrl}/desktop/img/footer/vaderpay.png`
+		},
+		{
+			name: "TenPay",
+			img: `${bannerImgUrl}/desktop/img/footer/tenpay.png`
+		},
+		{
+			name: "LionPay",
+			img: `${bannerImgUrl}/desktop/img/footer/lionpay.png`
+		},
+		{
+			name: "Direpay",
+			img: `${bannerImgUrl}/desktop/img/footer/direpay.png`
+		},
+		{ name: "Fxbit", img: `${bannerImgUrl}/desktop/img/footer/fxbit.png` }
 	],
 	BDT: [
+		{ name: "Nagad", img: `${bannerImgUrl}/desktop/img/footer/nagad.png` },
+		{ name: "Upay", img: `${bannerImgUrl}/desktop/img/footer/upay.png` },
+		{ name: "WPpay", img: `${bannerImgUrl}/desktop/img/footer/wppay.png` },
 		{
-			name: "DirePay",
+			name: "Direpay",
 			img: `${bannerImgUrl}/desktop/img/footer/direpay.png`
 		},
-		{
-			name: "FxBit",
-			img: `${bannerImgUrl}/desktop/img/footer/fxbit.png`
-		}
+		{ name: "Fxbit", img: `${bannerImgUrl}/desktop/img/footer/fxbit.png` }
 	],
-	CNY: [
+	KHR: [
+		{ name: "ABA Bank", img: `${bannerImgUrl}/desktop/img/footer/aba.png` },
 		{
-			name: "DirePay",
-			img: `${bannerImgUrl}/desktop/img/footer/direpay.png`
+			name: "Power Bank Pay",
+			img: `${bannerImgUrl}/desktop/img/footer/powerbank.png`
+		},
+		{ name: "Pipay", img: `${bannerImgUrl}/desktop/img/footer/pipay.png` },
+		{
+			name: "True Wallet",
+			img: `${bannerImgUrl}/desktop/img/footer/truewallet.png`
 		},
 		{
-			name: "FxBit",
-			img: `${bannerImgUrl}/desktop/img/footer/fxbit.png`
-		}
-	],
-	USD: [
-		{
-			name: "DirePay",
+			name: "Direpay",
 			img: `${bannerImgUrl}/desktop/img/footer/direpay.png`
 		},
-		{
-			name: "FxBit",
-			img: `${bannerImgUrl}/desktop/img/footer/fxbit.png`
-		}
+		{ name: "FxBit", img: `${bannerImgUrl}/desktop/img/footer/fxbit.png` }
 	],
 	VND: [
 		{
-			name: "ACB",
-			img: `${bannerImgUrl}/desktop/img/footer/acb.png`
+			name: "YuiPay",
+			img: `${bannerImgUrl}/desktop/img/footer/yuipay.png`
 		},
 		{
-			name: "MB",
-			img: `${bannerImgUrl}/desktop/img/footer/mb.png`
+			name: "LeoPay",
+			img: `${bannerImgUrl}/desktop/img/footer/leopay.png`
 		},
 		{
-			name: "VCB",
-			img: `${bannerImgUrl}/desktop/img/footer/vcb.png`
+			name: "HonorPay",
+			img: `${bannerImgUrl}/desktop/img/footer/honorpay.png`
 		},
 		{
-			name: "VPB",
-			img: `${bannerImgUrl}/desktop/img/footer/vpb.png`
+			name: "TruePay",
+			img: `${bannerImgUrl}/desktop/img/footer/truepay.png`
+		},
+		{ name: "MOMO", img: `${bannerImgUrl}/desktop/img/footer/momo.png` },
+		{
+			name: "Direpay",
+			img: `${bannerImgUrl}/desktop/img/footer/direpay.png`
+		},
+		{ name: "FxBit", img: `${bannerImgUrl}/desktop/img/footer/fxbit.png` }
+	],
+	CNY: [
+		{
+			name: "ChangchenPay",
+			img: `${bannerImgUrl}/desktop/img/footer/changchenpay.png`
 		},
 		{
-			name: "MOMO",
-			img: `${bannerImgUrl}/desktop/img/footer/momo.png`
-		}
+			name: "Direpay",
+			img: `${bannerImgUrl}/desktop/img/footer/direpay.png`
+		},
+		{ name: "FxBit", img: `${bannerImgUrl}/desktop/img/footer/fxbit.png` }
+	],
+	USD: [
+		{
+			name: "Direpay",
+			img: `${bannerImgUrl}/desktop/img/footer/direpay.png`
+		},
+		{ name: "FxBit", img: `${bannerImgUrl}/desktop/img/footer/fxbit.png` }
 	]
 };
 

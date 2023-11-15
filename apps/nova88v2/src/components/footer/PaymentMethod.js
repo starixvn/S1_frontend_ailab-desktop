@@ -15,7 +15,7 @@ const PaymentMethod = () => {
 		PAYMENT_LIST.MYR;
 
 	return (
-		<div className="footer-center-item">
+		<div className="footer-center-item payment">
 			<div className="footer-center-title">{t("lbl_Payment_Method")}</div>
 			<div className="footer-icon">
 				{paymentList.map(({ name, img }) => (
