@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { useInView } from "../hook/useInView";
 import { userInfoContext } from "../common/context";
@@ -125,6 +126,7 @@ const GameList = ({
 								<div>{gameProviderName}</div>
 							</div>
 							<div
+								className={classNames({ active: isFavorite })}
 								onClick={() => onSetFavorite(g.tpId, g.gameId)}
 							>
 								<img
