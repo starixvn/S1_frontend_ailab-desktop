@@ -13,7 +13,6 @@ export default () => {
 				</main>
 				<Footer />
 			</Layout>
-			s
 		</Wrapper>
 	);
 };
