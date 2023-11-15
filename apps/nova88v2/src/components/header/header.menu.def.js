@@ -990,7 +990,7 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_PEGASUS },
 				...productList.casino_PEGASUS,
-				allowCurrencies: allowedCurrencyList.slotJoker,
+				allowCurrencies: allowedCurrencyList.slotPegasus,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,

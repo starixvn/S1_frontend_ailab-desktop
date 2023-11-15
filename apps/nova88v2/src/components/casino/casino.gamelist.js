@@ -66,7 +66,6 @@ const GameList = ({
 
 				return (
 					<div
-						onClick={() => onSetFavorite(g.tpId, g.gameId)}
 						className="slots-list-item "
 						style={_style}
 						key={`casino-game-${g.tpId}-${g.gameId}`}
