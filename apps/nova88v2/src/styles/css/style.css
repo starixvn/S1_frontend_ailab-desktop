@@ -22139,17 +22139,17 @@ input[type=number] {
   opacity: 0;
   visibility: hidden;
 }
-.lobby-content.slots .slots-list-item .img-wrapper .btn-container button {
+.lobby-content.slots .slots-list-item .img-wrapper .btn-container .btn-play, .lobby-content.slots .slots-list-item .img-wrapper .btn-container .btn-demo {
   border-radius: 50px;
   width: 110px;
   height: 40px;
   color: white;
 }
-.lobby-content.slots .slots-list-item .img-wrapper .btn-container button:first-child {
+.lobby-content.slots .slots-list-item .img-wrapper .btn-container .btn-play {
   background: #FF7700;
   margin-bottom: 15px;
 }
-.lobby-content.slots .slots-list-item .img-wrapper .btn-container button:last-child {
+.lobby-content.slots .slots-list-item .img-wrapper .btn-container .btn-demo {
   border: 1px solid white;
 }
 .lobby-content.slots .slots-list-item .img-wrapper:hover .btn-container {

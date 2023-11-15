@@ -82,6 +82,7 @@ const GameList = ({
 							<img src={_imgUrl} alt="" />
 							<div className="btn-container">
 								<button
+									className="btn-play"
 									onClick={() =>
 										onClickPlay({
 											tpId: g.tpId,
@@ -99,6 +100,7 @@ const GameList = ({
 
 								{g.playFree ? (
 									<button
+										className="btn-demo"
 										onClick={() =>
 											onClickPlay({
 												tpId: g.tpId,
