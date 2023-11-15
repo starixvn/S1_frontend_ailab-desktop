@@ -20,7 +20,7 @@ const PaymentMethod = () => {
 			<div className="footer-icon">
 				{paymentList.map(({ name, img }) => (
 					<a key={name}>
-						<img style={{ width: "auto" }} src={img} alt={name} />
+						<img src={img} alt={name} />
 					</a>
 				))}
 			</div>
