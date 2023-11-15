@@ -624,6 +624,23 @@ export const defMenuLinks = {
 						period: defEventPeriod.IM
 					})
 				]
+			},
+			{
+				displayText: "TFGaming",
+				listNpcImgUrl: "esportTFG.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.TFGaming },
+				...productList.TFGaming,
+				lobbyPage: {
+					bgImg: "esportlobby-tfg.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.TFGaming
+					})
+				]
 			}
 		]
 	},
@@ -1264,6 +1281,27 @@ export const defMenuLinks = {
 					bgImg: "km.png"
 				}
 			},
+			{
+				keyName: "games_V8Poker",
+				className: "fsgw",
+				listNpcImgUrl: "v8.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayKey: "lbl_V8Poker",
+				menuType: defMenuType.entPage,
+				...productList.games_V8Poker,
+				parameter: { ...productList.games_V8Poker },
+				lobbyPage: {
+					bgImg: "v8.png"
+				},
+				allowCurrencies: allowedCurrencyList.V8Poker,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.V8Poker
+					})
+				]
+			},
+
 			{
 				keyName: "games_im_aviator",
 				className: "fsgw",

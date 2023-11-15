@@ -352,6 +352,17 @@ const allowedCurrencyList = {
 		defCurrencyList.INR,
 		defCurrencyList.VND,
 		defCurrencyList.KHM
+	],
+	V8Poker: [
+		defCurrencyList.MYR,
+		defCurrencyList.USD,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.INR,
+		defCurrencyList.CNY,
+		defCurrencyList.KHM,
+		defCurrencyList.VND,
+		defCurrencyList.USDT
 	]
 };
 
