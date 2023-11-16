@@ -46,6 +46,7 @@ export const defSlotTpGameType = {
 	SPRIBE: { tpId: 53, tpGameType: 104, name: "spribe" },
 	END: { tpId: 49, tpGameType: 98, name: "Endorphina" },
 	FaChai: { tpId: 55, tpGameType: 106, name: "FaChai" },
+	BNG: { tpId: 57, name: "BNG", tpGameType: 108 },
 	PEGASUS: { tpId: 56, tpGameType: 107, name: "PEGASUS" }
 };
 
