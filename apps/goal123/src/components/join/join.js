@@ -7,7 +7,8 @@ import {
 	api_site_Signup,
 	api_site_GetAffiliateAgent,
 	api_site_ExistsEmail,
-	api_site_AffiliateCheck
+	api_site_AffiliateCheck,
+	api_site_GetRecaptchaInfo
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import {
@@ -43,6 +44,7 @@ export default () => {
 	const [showPwdState, setShowPwdState] = useState(initShowPwdState);
 	const [siteCurrency, setSiteCurrency] = useState([]);
 	const [reCaptchaToken, setReCaptchaToken] = useState("");
+	const [recaptchaInfo, setRecaptchaInfo] = useState({});
 	const isMountedRef = useRef(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const configSiteName = config.siteName;
@@ -58,6 +60,32 @@ export default () => {
 	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
 	const urlAffiliate = urlAffId || urlAffCode;
 
+	const getRecaptchaSiteKey = async () => {
+		try {
+			const res = await api_site_GetRecaptchaInfo();
+			const { country, siteKey } = res.data.data;
+			setRecaptchaInfo({
+				country,
+				siteKey
+			});
+		} catch (error) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("msg_ApiServerError"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+		}
+	};
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -67,6 +95,7 @@ export default () => {
 
 	useEffect(() => {
 		getShieldData();
+		getRecaptchaSiteKey();
 		if (urlAffiliate) {
 			checkAffiliate({});
 		} else {
@@ -405,7 +434,8 @@ export default () => {
 		const _phoneCheck = phoneCheck(userValue.phone);
 		const _emailCheck = res[1];
 		const _agreeCheck = userValue.agreeCheck;
-		const _reCaptchaCheck = reCaptchaToken !== "";
+		const _reCaptchaCheck =
+			reCaptchaToken !== "" || recaptchaInfo.country === "CN";
 		const _affiliateCheck = res[2];
 
 		const checked =
@@ -613,6 +643,7 @@ export default () => {
 				reCaptchaOnChange={handleReCaptchaChange}
 				_areaCode={_areaCode}
 				urlAffiliate={urlAffiliate}
+				recaptchaInfo={recaptchaInfo}
 			/>
 		</div>
 	);

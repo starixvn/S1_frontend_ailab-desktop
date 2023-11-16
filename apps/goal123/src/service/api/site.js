@@ -82,3 +82,6 @@ export const api_account_GetVipBanner = ({ CurrencyId }) =>
 	siteRequest.post("/GetVipBanner", {
 		CurrencyId
 	});
+
+export const api_site_GetRecaptchaInfo = () =>
+	siteRequest.post("/GetRecaptchaInfo");
