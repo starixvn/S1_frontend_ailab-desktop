@@ -25,7 +25,8 @@ const JoinForm = ({
 	langId,
 	reCaptchaOnChange,
 	_areaCode,
-	urlAffiliate
+	urlAffiliate,
+	recaptchaInfo
 }) => {
 	return (
 		<form className="joinloginFunction" onSubmit={clickSubmit}>
@@ -126,19 +127,21 @@ const JoinForm = ({
 				) : null}
 			</div>
 
-			<ReCAPTCHA
-				class="g-recaptcha"
-				sitekey="6LfhmRciAAAAAFSX-wXBxMISia2lpS5_SQ7aa7-E"
-				onChange={reCaptchaOnChange}
-				hl={reCaptchaEnum[langId]}
-			/>
+			{Object.keys(recaptchaInfo).length > 0 &&
+				recaptchaInfo.country !== "CN" && (
+					<ReCAPTCHA
+						class="g-recaptcha"
+						sitekey={recaptchaInfo.siteKey}
+						onChange={reCaptchaOnChange}
+						hl={reCaptchaEnum[langId]}
+					/>
+				)}
 
 			<div className="Terms">
 				<Checkbox
 					id="joinAgreeCheck"
 					checked={userValue.agreeCheck}
-					onChange={checkboxHandler.bind(null, "agreeCheck")}
-				>
+					onChange={checkboxHandler.bind(null, "agreeCheck")}>
 					{t("lbl_Check18TC1")}&nbsp;
 					<a target="_blank" rel="noreferrer" href={tandCTerms}>
 						{t("lbl_TermsConditions")}
@@ -161,8 +164,7 @@ const JoinForm = ({
 				<button
 					type="button"
 					className="btn-cancel"
-					onClick={clickCancel}
-				>
+					onClick={clickCancel}>
 					{t("lbl_Cancel")}
 				</button>
 				<button className="btn-check" type="submit">
@@ -177,7 +179,8 @@ JoinForm.defaultProps = {
 	langId: null,
 	reCaptchaOnChange: null,
 	_areaCode: null,
-	urlAffiliate: null
+	urlAffiliate: null,
+	recaptchaInfo: null
 };
 
 JoinForm.propTypes = {
@@ -199,7 +202,8 @@ JoinForm.propTypes = {
 	langId: PropTypes.string,
 	reCaptchaOnChange: PropTypes.func,
 	_areaCode: PropTypes.string,
-	urlAffiliate: PropTypes.bool
+	urlAffiliate: PropTypes.bool,
+	recaptchaInfo: PropTypes.objectOf(PropTypes.any)
 };
 
 export default JoinForm;
