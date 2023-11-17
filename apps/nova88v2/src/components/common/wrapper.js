@@ -555,10 +555,9 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 			let langIdByPath;
 			let currencyIdByPath;
 
-			if (pathLang) {
+			if (pathLang && pathLang !== "en") {
 				const result = flatLangList.find(
-					({ value, currencyId }) =>
-						currencyId === defaultCurrencyId && value === pathLang
+					({ value }) => value === pathLang
 				);
 
 				langIdByPath = result?.value;
