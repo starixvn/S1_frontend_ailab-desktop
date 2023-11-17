@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { navigate } from "gatsby";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
+import { useLazyGetDepositQuickTransferQuery } from "@ailab-desktop/service";
 import {
 	loadingContext,
 	userInfoContext,
@@ -33,6 +34,7 @@ import LocalBankForm from "./components/localBankForm";
 import CryptoPayForm from "./components/cryptoPayForm";
 import LoadCardForm from "./components/loadCardForm";
 import QRPayForm from "./components/qrPayForm";
+import QuickTransferForm from "./components/quickTransferForm";
 import DepositInfoMoule from "./deposit.infoMoule";
 import DepositRecentHistory from "./deposit.recentHistory";
 import usePopBox from "../hook/usePopBox";
@@ -111,6 +113,11 @@ const Deposit = () => {
 
 	const { errorPopBox, closePopBox } = usePopBox();
 
+	const [getDepositQuickTransfer, { data: depositQuickTransferResponse }] =
+		useLazyGetDepositQuickTransferQuery();
+	const quickTransferGroupList =
+		depositQuickTransferResponse?.data?.QuickTransfer?.data || [];
+
 	const {
 		asyncUploadBankPopBox,
 		getDepositInfoRecent,
@@ -168,7 +175,7 @@ const Deposit = () => {
 	useEffect(async () => {
 		await getLocalBankGroupList();
 		setIsGroupListFetchDone(true);
-	}, [isGroupListFetchDone, formInfo]);
+	}, [isGroupListFetchDone, depositType]);
 
 	const {
 		getCryptoPayGroupList,
@@ -260,8 +267,7 @@ const Deposit = () => {
 							navigate(
 								`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`
 							)
-						}
-					>
+						}>
 						{t("lbl_UpdatePersonalDetail")}
 					</button>
 				</div>
@@ -313,6 +319,7 @@ const Deposit = () => {
 
 		if (typeof window !== "undefined") {
 			const {
+				payId,
 				sysId,
 				channelId,
 				amount,
@@ -351,14 +358,12 @@ const Deposit = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={() => resolve(false)}
-									>
+										onClick={() => resolve(false)}>
 										{t("lbl_ReModify")}
 									</button>
 									<button
 										className="btn-check"
-										onClick={() => resolve(true)}
-									>
+										onClick={() => resolve(true)}>
 										{t("lbl_Confirm")}
 									</button>
 								</div>
@@ -415,8 +420,7 @@ const Deposit = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={closePopBox}
-										>
+											onClick={closePopBox}>
 											OK
 										</button>
 									</div>
@@ -710,6 +714,21 @@ const Deposit = () => {
 					window.open(`${baseUrl}?${params}`);
 				}
 				await delay(1000);
+			} else if (depositType === defDepositType.quickTransfer) {
+				const params = [
+					`sysId=${sysId || 0}`,
+					`payId=${payId}`,
+					`ChannelId=${channelId}`,
+					`Amount=${resultAmount}`,
+					bonusCode ? `BonusCode=${bonusCode}` : ""
+				]
+					.filter(Boolean)
+					.join("&");
+
+				const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReq`;
+				window.open(`${baseUrl}?${params}`);
+
+				await delay(1000);
 			}
 
 			setLoading(false);
@@ -733,7 +752,8 @@ const Deposit = () => {
 					getAutoChannelBankGroupList(),
 					getLoadCardPayGroupList(),
 					getCryptoPayGroupList(),
-					getQRPayGroupList()
+					getQRPayGroupList(),
+					getDepositQuickTransfer()
 				]);
 
 				setIsInitDataDone(true);
@@ -762,7 +782,8 @@ const Deposit = () => {
 		localBankGroupList,
 		loadCardPayGroupList,
 		cryptoPayGroupList,
-		QRPayGroupList
+		QRPayGroupList,
+		quickTransferGroupList
 	});
 
 	const filterDepositOptions = depositOptions.filter(item => !item.isHide);
@@ -800,8 +821,21 @@ const Deposit = () => {
 				onSubmit={onSubmit}
 				setDepositType={onChangeDepositType}
 				canSubmit={formInfo.canSubmit}
-				submitHandle={submitHandle}
-			>
+				submitHandle={submitHandle}>
+				{depositType === defDepositType.quickTransfer && (
+					<QuickTransferForm
+						quickTransferGroupList={quickTransferGroupList}
+						depositType={depositType}
+						_isConvert={_isConvert}
+						formInfo={formInfo}
+						depositPromoList={depositPromoList}
+						isGroupListFetchDone={isGroupListFetchDone}
+						onChangeForm={onChangeForm}
+						onChangePromotion={onChangePromotion}
+						setFormInfo={setFormInfo}
+						onInputboxKeyDown={onInputboxKeyDown}
+					/>
+				)}
 				{depositType === defDepositType.mobile && (
 					<MobileForm
 						t={t}
