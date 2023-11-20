@@ -103,7 +103,7 @@ const allowedCurrencyList = {
 		defCurrencyList.CNY,
 		defCurrencyList.USD
 	],
-	slotPrgasus: [defCurrencyList.MYR],
+	slotPegasus: [defCurrencyList.MYR],
 	slot_FaChai: [
 		defCurrencyList.MYR,
 		defCurrencyList.THB,

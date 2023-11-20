@@ -93,6 +93,12 @@ const defPlatform = [
 		imgName: "cq9"
 	},
 	{
+		...defCasinoProviders.PNG,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.PNG.name },
+		imgName: "png"
+	},
+	{
 		...defCasinoProviders.JILI,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.JILI.name },
@@ -179,7 +185,13 @@ const defPlatform = [
 		...defCasinoProviders.Endorphina,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.Endorphina.name },
-		imgName: "endorphina"
+		imgName: "es"
+	},
+	{
+		...defCasinoProviders.liveCasino_eBET,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.Endorphina.name },
+		imgName: "we"
 	},
 	{
 		...defCasinoProviders.FaChai,

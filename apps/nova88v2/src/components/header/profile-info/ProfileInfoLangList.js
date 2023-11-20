@@ -26,7 +26,7 @@ const ProfileInfoLangList = () => {
 
 	const _defLangGroup = getLangs(langKey, userInfo.isLogin);
 
-	const selectedLangText = defLangGroups[langKey].find(
+	const selectedLangText = defLangGroups[langKey]?.find(
 		({ value: langId }) => langId === (userInfo.langId || "en")
 	)?.displayText;
 

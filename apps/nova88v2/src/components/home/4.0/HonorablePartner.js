@@ -6,13 +6,14 @@ import paths from "../../../router";
 import { defCurrencyList } from "../../common/common";
 import { productTpIdsContext } from "../../common/context";
 import { getPPAllowCurrencies } from "../../header/header.menu.def";
-import allowedCurrencyList from "../../../datas/allowedCurrencyList";
 import { useAuth } from "../../hook";
 import { SET_ENTER_PAGE } from "../../../service/enterPage";
 import defPopBoxType from "../../common/defPopBoxType";
+import usePopBox from "../../hook/usePopBox";
 
 const HonorablePartner = () => {
 	const { t } = useTranslation();
+	const { setPopBox } = usePopBox();
 	const { userInfo: { isLogin, currencyId, langId } = {} } = useAuth();
 	const { productTpIds } = useContext(productTpIdsContext);
 	const [products, setProducts] = useState([]);
@@ -178,13 +179,6 @@ const HonorablePartner = () => {
 				imgName: "simple"
 			},
 			{
-				...productList.casino_AMB,
-				path: paths.casino.root,
-				parameter: { ...productList.casino_AMB },
-				imgName: "amb",
-				allowCurrencies: allowedCurrencyList.slotAMB
-			},
-			{
 				...productList.casino_Skywind,
 				path: paths.casino.root,
 				parameter: { ...productList.casino_Skywind },
@@ -216,7 +210,19 @@ const HonorablePartner = () => {
 				...productList.casino_Endorphina,
 				path: paths.casino.root,
 				parameter: { ...productList.casino_Endorphina },
-				imgName: "end"
+				imgName: "es"
+			},
+			{
+				...productList.liveCasino_eBET,
+				path: paths.casino.root,
+				parameter: { ...productList.liveCasino_eBET },
+				imgName: "we"
+			},
+			{
+				...productList.casino_AMB,
+				path: paths.casino.root,
+				parameter: { ...productList.casino_AMB },
+				imgName: "askme"
 			},
 			{
 				...productList.casino_FaChai,
@@ -229,10 +235,6 @@ const HonorablePartner = () => {
 				path: paths.casino.root,
 				parameter: { ...productList.casino_PEGASUS },
 				imgName: "pegasus"
-			},
-			{
-				...productList.TFGaming,
-				imgName: "tfg"
 			},
 			{
 				...productList.games_V8Poker,
@@ -248,6 +250,10 @@ const HonorablePartner = () => {
 					defCurrencyList.VND,
 					defCurrencyList.USDT
 				]
+			},
+			{
+				...productList.TFGaming,
+				imgName: "tfg"
 			}
 		];
 

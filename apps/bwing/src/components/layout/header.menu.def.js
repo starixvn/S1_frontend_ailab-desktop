@@ -834,13 +834,13 @@ export const defMenuLinks = {
 				gameId: 18,
 				tpId: 18,
 				className: "liveEB",
-				lobbyImg: "we.png",
 				icon: "icon icon-EB",
 				displayText: "WE",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
-					bgClass: "live-ebet"
+					bgClass: "live-we"
 				},
+				lobbyImg: "we.png",
 				tpGameType: 28,
 				img: "livecasino/we.png"
 			}
