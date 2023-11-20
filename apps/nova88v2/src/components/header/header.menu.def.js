@@ -634,8 +634,7 @@ export const defMenuLinks = {
 				parameter: { ...productList.TFGaming },
 				...productList.TFGaming,
 				lobbyPage: {
-					bgImg: "esposts-tfg.png",
-					hoverBgImg: "esposts-tfga.png"
+					bgImg: "esportlobby-tfg.png"
 				},
 				eventIcons: [
 					showEventIcon({
@@ -1293,9 +1292,9 @@ export const defMenuLinks = {
 				...productList.games_V8Poker,
 				parameter: { ...productList.games_V8Poker },
 				lobbyPage: {
-					bgImg: "gamev8.png",
-					hoverBgImg: "gamev8a.png"
+					bgImg: "v8.png"
 				},
+				// https://banner.0814media.net/desktop/img/4.0/lobby-games/v8.png
 				allowCurrencies: allowedCurrencyList.V8Poker,
 				eventIcons: [
 					showEventIcon({
