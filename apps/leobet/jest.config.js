@@ -1,5 +1,5 @@
 module.exports = {
-	displayName: "nova88",
+	displayName: "leobets",
 	preset: "../../jest.preset.js",
 	globals: {
 		"ts-jest": {
@@ -11,5 +11,5 @@ module.exports = {
 		"^.+\\.[tj]sx?$": "ts-jest"
 	},
 	moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
-	coverageDirectory: "../../coverage/apps/nova88"
+	coverageDirectory: "../../apps/leobet"
 };
