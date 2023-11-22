@@ -191,13 +191,18 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.FaChai.name },
 		imgName: "fachai"
-
 	},
 	{
 		...defCasinoProviders.eBET,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.eBET.name },
 		imgName: "we"
+	},
+	{
+		...defCasinoProviders.NoLimitCity,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.NoLimitCity.name },
+		imgName: "nlc"
 	}
 ];
 

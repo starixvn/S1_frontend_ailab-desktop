@@ -38,15 +38,16 @@ export const defSlotTpGameType = {
 	AP: { tpId: 39, tpGameType: 67, name: "advant-play" },
 	MG: { tpId: 34, tpGameType: 57, name: "microgaming" },
 	RedTiger: { tpId: 38, tpGameType: 65, name: "red-tiger" },
-	NetEnt: { tpId: 37, tpGameType: 64, name: "netent" },
+	Netent: { tpId: 37, tpGameType: 64, name: "netent" },
 	SimplePlay: { tpId: 44, tpGameType: 86, name: "simple-play" },
-	Habanero: { tpId: 40, tpGameType: 68, name: "habanero" },
+	HB: { tpId: 40, tpGameType: 68, name: "habanero" },
 	Skywind: { tpId: 43, tpGameType: 82, name: "skywind" },
 	Nextspin: { tpId: 50, tpGameType: 99, name: "nextspin" },
 	SPRIBE: { tpId: 53, tpGameType: 104, name: "spribe" },
 	END: { tpId: 49, tpGameType: 98, name: "Endorphina" },
 	FaChai: { tpId: 55, tpGameType: 106, name: "FaChai" },
-	PEGASUS: { tpId: 56, tpGameType: 107, name: "PEGASUS" }
+	Pegasus: { tpId: 56, tpGameType: 107, name: "PEGASUS" },
+	NLC: { tpId: 59, tpGameType: 111, name: "NoLimitCity" }
 };
 
 export default {
@@ -194,6 +195,10 @@ export default {
 	casino_PEGASUS: {
 		tpId: 56,
 		tpGameType: 107
+	},
+	casino_NoLimitCity: {
+		tpId: 59,
+		tpGameType: 111
 	},
 	casino_CQ9: {
 		tpId: 16,

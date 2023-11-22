@@ -475,6 +475,19 @@ export const defMenuLinks = {
 				img: "slots/spribe.png"
 			},
 			{
+				...defCasinoProviders.NoLimitCity,
+				displayText: "NoLimit City",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.NoLimitCity.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_NoLimitCity
+					})
+				],
+				img: "slots/nlc.png"
+			},
+			{
 				...defCasinoProviders.RedTiger,
 				className: "RED",
 				displayText: "Red Tiger",
