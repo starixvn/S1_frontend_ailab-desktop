@@ -244,7 +244,6 @@ const defSortFishing = {
 		fishing_Zombie_Party: 3,
 		fishing_Alien_Hunter: 4,
 		fishing_CQ9_PARADISE: 5,
-		fishing_GGYL_WORLD: 6,
 		fishing_Haiba: 7,
 		fishing_Hunting_Happy_Fish_5: 8,
 		fishing_Hunting_Monster_Awaken: 9,
@@ -255,7 +254,6 @@ const defSortFishing = {
 		fishing_Zombie_Party: 2,
 		fishing_Alien_Hunter: 3,
 		fishing_CQ9_PARADISE: 4,
-		fishing_GGYL_WORLD: 5,
 		fishing_Haiba: 6,
 		fishing_Hunting_Happy_Fish_5: 7,
 		fishing_Hunting_Monster_Awaken: 8
@@ -265,7 +263,6 @@ const defSortFishing = {
 		fishing_Zombie_Party: 2,
 		fishing_Alien_Hunter: 3,
 		fishing_CQ9_PARADISE: 4,
-		fishing_GGYL_WORLD: 5,
 		fishing_Haiba: 6,
 		fishing_Hunting_Happy_Fish_5: 7,
 		fishing_Hunting_Monster_Awaken: 8
@@ -276,7 +273,6 @@ const defSortFishing = {
 		fishing_Zombie_Party: 3,
 		fishing_Alien_Hunter: 4,
 		fishing_CQ9_PARADISE: 5,
-		fishing_GGYL_WORLD: 6,
 		fishing_Haiba: 7,
 		fishing_Hunting_Happy_Fish_5: 8,
 		fishing_Hunting_Monster_Awaken: 9,
@@ -1490,20 +1486,6 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgImg: "fishpd.png",
 					hoverBgImg: "fishpda.png"
-				}
-			},
-			{
-				keyName: "fishing_GGYL_WORLD",
-				className: "fgg",
-				displayKey: "lbl_FishingGG",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishGG.png",
-				listBgImgUrl: "fishListHover.png",
-				...productList.fishing,
-				parameter: { ...productList.fishing },
-				lobbyPage: {
-					bgImg: "fishgg.png",
-					hoverBgImg: "fishgga.png"
 				}
 			},
 			{
