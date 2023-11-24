@@ -51,9 +51,7 @@ const RebateExclude = () => {
 				<div className="exclude__table__item">
 					<div>{t("lbl_RebateExclude_Product")}</div>
 					<div>
-						<span>
-							{t("rebateExclude.lbl_RebateExclude_GameName")}
-						</span>
+						<span>{t("lbl_RebateExclude_GameName")}</span>
 					</div>
 				</div>
 				{rebateExcludeList.map(({ tpGameTypeName, gameName }) => (
