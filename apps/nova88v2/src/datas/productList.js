@@ -490,16 +490,12 @@ export default {
 		tpGameType: 85
 	},
 
-	/* === 5. cook fighting === */
+	/* === 5. 4D === */
 
-	cockFighting_vn: {
-		tpId: 17,
-		tpGameType: 27
-	},
-	cockFighting: {
-		tpId: 19,
-		gameId: 19,
-		tpGameType: 30
+	HaoLong: {
+		tpId: 58,
+		gameId: "HL",
+		tpGameType: 110
 	},
 
 	/* === 6. lottery === */
