@@ -266,6 +266,10 @@ const HonorablePartner = () => {
 				path: paths.casino.root,
 				parameter: { ...productList.casino_NoLimitCity },
 				imgName: "nlc"
+			},
+			{
+				...productList.HaoLong,
+				imgName: "haolong"
 			}
 		];
 
