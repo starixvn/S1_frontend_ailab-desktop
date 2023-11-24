@@ -67,14 +67,14 @@ export const defDepositOptions = ({
 		depositDisplaykey: "lbl_QRPay",
 		isHide: !QRPayGroupList.length,
 		creditTime: "lbl_Instant",
-		iconClass: "icon icon-qrpay"
+		iconClass: "icon-qrpay"
 	},
 	{
 		type: defDepositType.loadCard,
 		isHide: !loadCardPayGroupList.length,
 		depositDisplaykey: "lbl_TopUpCard",
 		creditTime: "lbl_Instant",
-		iconClass: "icon icon-topup"
+		iconClass: "icon-topup"
 	}
 ];
 
