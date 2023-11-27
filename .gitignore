@@ -38,10 +38,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/apps/nova88/node_modules
-/apps/nova88/public
-/apps/nova88/.cache
-
 /apps/goal123/node_modules
 /apps/goal123/public
 /apps/goal123/.cache
@@ -51,7 +47,6 @@ Thumbs.db
 /apps/bwing/.cache
 cmd
 
-/apps/nova88/static/styles
 /apps/goal123/static/styles
 /apps/bwing/static/styles
 

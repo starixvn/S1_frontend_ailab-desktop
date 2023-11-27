@@ -10,17 +10,20 @@ const PaymentMethod = () => {
 		userInfo: { langId, currencyId }
 	} = useContext(userInfoContext);
 
+	// 避免KHR的英文網站去吃到USD的Footer圖片
 	const paymentList =
-		PAYMENT_LIST[GetCurrencyName({ langId, currencyId, t })] ??
-		PAYMENT_LIST.MYR;
+		currencyId === 72
+			? PAYMENT_LIST.KHR
+			: PAYMENT_LIST[GetCurrencyName({ langId, currencyId, t })] ??
+			  PAYMENT_LIST.MYR;
 
 	return (
-		<div className="footer-center-item">
+		<div className="footer-center-item payment">
 			<div className="footer-center-title">{t("lbl_Payment_Method")}</div>
 			<div className="footer-icon">
 				{paymentList.map(({ name, img }) => (
 					<a key={name}>
-						<img style={{ width: "auto" }} src={img} alt={name} />
+						<img src={img} alt={name} />
 					</a>
 				))}
 			</div>
