@@ -193,6 +193,12 @@ const defPlatform = [
 		imgName: "fachai"
 	},
 	{
+		...defCasinoProviders.BNG,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.BNG.name },
+		imgName: "bng"
+	},
+	{
 		...defCasinoProviders.eBET,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.eBET.name },
@@ -289,8 +295,7 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 					...p,
 					urlParams: _urlParams,
 					isInMaintain
-				})}
-			>
+				})}>
 				<ImageWithHover
 					bannerImgUrl={bannerImgUrl}
 					imgName={p.imgName}

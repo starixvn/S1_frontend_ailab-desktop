@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { CurrenciesEnum } from "@ailab-desktop/common";
 import config, { errorPageUrl } from "../config";
 import productList from "../datas/productList";
@@ -27,10 +28,18 @@ export const SET_CASINO_ENTER_PAGE = ({
 			const _errorPageUrl = errorPageUrl(langId);
 			const _tpGameType = tpGameType ? `&tpGameType=${tpGameType}` : "";
 			const entPageUrl = `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&errorUrl=${_errorPageUrl}${_tpGameType}`;
+			const url = `${entPageUrl}&fun=${isFree ? 1 : 0}&gameType=slots`;
+			// * stage 環境， log url 提供資訊 debug
+			if (
+				window.location.href.indexOf("stag") !== -1 ||
+				window.location.href.indexOf("localhost") !== -1
+			) {
+				console.log("SET_CASINO_ENTER_PAGE", url);
+			}
 
 			window
 				.open(
-					`${entPageUrl}&fun=${isFree ? 1 : 0}&gameType=slots`,
+					url,
 					`Tp_${tpId}`,
 					"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
 				)
@@ -63,6 +72,13 @@ export const SET_ENTER_PAGE = ({
 	if (!isLogin && result.needLogin) {
 		loginCallback();
 	} else if (result.actionType === _ACTION_TYPE.blank || openInBlank) {
+		// * stage 環境， log url 提供資訊 debug
+		if (
+			window.location.href.indexOf("stag") !== -1 ||
+			window.location.href.indexOf("localhost") !== -1
+		) {
+			console.log("SET_ENTER_PAGE", result.entPageUrl);
+		}
 		OPEN_IN_BLANK(result.entPageUrl, result.windowKey);
 	} else if (result.actionType === _ACTION_TYPE.redirect) {
 		if (typeof window !== `undefined`) {

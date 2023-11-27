@@ -462,6 +462,23 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pg-icon.png`
 			},
 			{
+				...defCasinoProviders.BNG,
+				className: "",
+				icon: "",
+				displayText: "BNG",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.BNG.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/bng.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/bng-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/bng-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_bng
+					})
+				]
+			},
+			{
 				...defCasinoProviders.FaChai,
 				className: "",
 				icon: "",

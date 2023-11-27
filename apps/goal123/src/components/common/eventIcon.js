@@ -52,6 +52,7 @@ export const defEventPeriod = {
 	slot_endorphina: { end: "2023/10/25 23:59:59" },
 	PNG: { end: "2023/11/05 23:59:59" },
 	slot_fachai: { end: "2023/12/31 23:59:59" },
+	slot_bng: { end: "2023/12/31 23:59:59" },
 	fishing_Zombie_Party: { end: "2023/11/05 23:59:59" },
 	fishing_Alien_Hunter: { end: "2023/11/05 23:59:59" }
 };
