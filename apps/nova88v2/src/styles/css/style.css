@@ -3233,6 +3233,28 @@ main .promosswiper .swiper-button-prev::after {
   border-bottom: 0.2px solid rgba(255, 255, 255, 0.2588235294);
   padding-bottom: 50px;
 }
+.footer-center .footer-center-item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 450px;
+          flex: 0 0 450px;
+}
+.footer-center .footer-center-item.payment {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 500px;
+          flex: 0 0 500px;
+}
+.footer-center .footer-center-item.payment .footer-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.footer-center .footer-center-item.payment .footer-icon img {
+  width: auto;
+  height: 40px;
+  border-radius: 5px;
+}
 .footer-center .footer-center-item .game-license {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3263,9 +3285,6 @@ main .promosswiper .swiper-button-prev::after {
   height: 20px;
   width: 20px;
   margin-left: 8px;
-}
-.footer-center .footer-center-item:nth-child(2) {
-  margin-left: 220px;
 }
 .footer-center .footer-center-item:nth-child(2) .footer-icon img {
   margin: 15px 10px 0 0;
