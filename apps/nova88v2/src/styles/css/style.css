@@ -500,7 +500,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .tableList,
 .header > div.menu .subMenu-Wrapper-new .gameList,
 .header > div.menu .subMenu-Wrapper-new .fishList,
-.header > div.menu .subMenu-Wrapper-new .fourList,
 .header > div.menu .subMenu-Wrapper-new .promoList,
 .header > div.menu .subMenu-Wrapper-new .tvList,
 .header > div.menu .subMenu-Wrapper-new .vipList,
@@ -532,7 +531,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .tableList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .gameList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .fishList.maintenance,
-.header > div.menu .subMenu-Wrapper-new .fourList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .promoList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .tvList.maintenance,
 .header > div.menu .subMenu-Wrapper-new .vipList.maintenance,
@@ -563,8 +561,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button,
 .header > div.menu .subMenu-Wrapper-new .fishList a,
 .header > div.menu .subMenu-Wrapper-new .fishList button,
-.header > div.menu .subMenu-Wrapper-new .fourList a,
-.header > div.menu .subMenu-Wrapper-new .fourList button,
 .header > div.menu .subMenu-Wrapper-new .promoList a,
 .header > div.menu .subMenu-Wrapper-new .promoList button,
 .header > div.menu .subMenu-Wrapper-new .tvList a,
@@ -626,8 +622,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button .under,
 .header > div.menu .subMenu-Wrapper-new .fishList a .under,
 .header > div.menu .subMenu-Wrapper-new .fishList button .under,
-.header > div.menu .subMenu-Wrapper-new .fourList a .under,
-.header > div.menu .subMenu-Wrapper-new .fourList button .under,
 .header > div.menu .subMenu-Wrapper-new .promoList a .under,
 .header > div.menu .subMenu-Wrapper-new .promoList button .under,
 .header > div.menu .subMenu-Wrapper-new .tvList a .under,
@@ -670,8 +664,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button.active,
 .header > div.menu .subMenu-Wrapper-new .fishList a.active,
 .header > div.menu .subMenu-Wrapper-new .fishList button.active,
-.header > div.menu .subMenu-Wrapper-new .fourList a.active,
-.header > div.menu .subMenu-Wrapper-new .fourList button.active,
 .header > div.menu .subMenu-Wrapper-new .promoList a.active,
 .header > div.menu .subMenu-Wrapper-new .promoList button.active,
 .header > div.menu .subMenu-Wrapper-new .tvList a.active,
@@ -709,8 +701,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button.active .under,
 .header > div.menu .subMenu-Wrapper-new .fishList a.active .under,
 .header > div.menu .subMenu-Wrapper-new .fishList button.active .under,
-.header > div.menu .subMenu-Wrapper-new .fourList a.active .under,
-.header > div.menu .subMenu-Wrapper-new .fourList button.active .under,
 .header > div.menu .subMenu-Wrapper-new .promoList a.active .under,
 .header > div.menu .subMenu-Wrapper-new .promoList button.active .under,
 .header > div.menu .subMenu-Wrapper-new .tvList a.active .under,
@@ -747,8 +737,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button .live:before,
 .header > div.menu .subMenu-Wrapper-new .fishList a .live:before,
 .header > div.menu .subMenu-Wrapper-new .fishList button .live:before,
-.header > div.menu .subMenu-Wrapper-new .fourList a .live:before,
-.header > div.menu .subMenu-Wrapper-new .fourList button .live:before,
 .header > div.menu .subMenu-Wrapper-new .promoList a .live:before,
 .header > div.menu .subMenu-Wrapper-new .promoList button .live:before,
 .header > div.menu .subMenu-Wrapper-new .tvList a .live:before,
@@ -788,8 +776,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button img,
 .header > div.menu .subMenu-Wrapper-new .fishList a img,
 .header > div.menu .subMenu-Wrapper-new .fishList button img,
-.header > div.menu .subMenu-Wrapper-new .fourList a img,
-.header > div.menu .subMenu-Wrapper-new .fourList button img,
 .header > div.menu .subMenu-Wrapper-new .promoList a img,
 .header > div.menu .subMenu-Wrapper-new .promoList button img,
 .header > div.menu .subMenu-Wrapper-new .tvList a img,
@@ -829,8 +815,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .fishList a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .fishList button img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .fourList a img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .fourList button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .promoList a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .promoList button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .tvList a img.List-npc,
@@ -869,8 +853,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button:hover img,
 .header > div.menu .subMenu-Wrapper-new .fishList a:hover img,
 .header > div.menu .subMenu-Wrapper-new .fishList button:hover img,
-.header > div.menu .subMenu-Wrapper-new .fourList a:hover img,
-.header > div.menu .subMenu-Wrapper-new .fourList button:hover img,
 .header > div.menu .subMenu-Wrapper-new .promoList a:hover img,
 .header > div.menu .subMenu-Wrapper-new .promoList button:hover img,
 .header > div.menu .subMenu-Wrapper-new .tvList a:hover img,
@@ -909,8 +891,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .fishList a:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .fishList button:hover img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .fourList a:hover img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .fourList button:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .promoList a:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .promoList button:hover img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .tvList a:hover img.List-npc,
@@ -947,8 +927,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .fishList a:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .fishList button:hover img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .fourList a:hover img.List-bg,
-.header > div.menu .subMenu-Wrapper-new .fourList button:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .promoList a:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .promoList button:hover img.List-bg,
 .header > div.menu .subMenu-Wrapper-new .tvList a:hover img.List-bg,
@@ -987,8 +965,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button > span,
 .header > div.menu .subMenu-Wrapper-new .fishList a > span,
 .header > div.menu .subMenu-Wrapper-new .fishList button > span,
-.header > div.menu .subMenu-Wrapper-new .fourList a > span,
-.header > div.menu .subMenu-Wrapper-new .fourList button > span,
 .header > div.menu .subMenu-Wrapper-new .promoList a > span,
 .header > div.menu .subMenu-Wrapper-new .promoList button > span,
 .header > div.menu .subMenu-Wrapper-new .tvList a > span,
@@ -1040,8 +1016,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList button.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .fishList a.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .fishList button.icon-new:before,
-.header > div.menu .subMenu-Wrapper-new .fourList a.icon-new:before,
-.header > div.menu .subMenu-Wrapper-new .fourList button.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .promoList a.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .promoList button.icon-new:before,
 .header > div.menu .subMenu-Wrapper-new .tvList a.icon-new:before,
@@ -1086,7 +1060,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .tableList.active,
 .header > div.menu .subMenu-Wrapper-new .gameList.active,
 .header > div.menu .subMenu-Wrapper-new .fishList.active,
-.header > div.menu .subMenu-Wrapper-new .fourList.active,
 .header > div.menu .subMenu-Wrapper-new .promoList.active,
 .header > div.menu .subMenu-Wrapper-new .tvList.active,
 .header > div.menu .subMenu-Wrapper-new .vipList.active,
@@ -1118,8 +1091,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList.active button,
 .header > div.menu .subMenu-Wrapper-new .fishList.active a,
 .header > div.menu .subMenu-Wrapper-new .fishList.active button,
-.header > div.menu .subMenu-Wrapper-new .fourList.active a,
-.header > div.menu .subMenu-Wrapper-new .fourList.active button,
 .header > div.menu .subMenu-Wrapper-new .promoList.active a,
 .header > div.menu .subMenu-Wrapper-new .promoList.active button,
 .header > div.menu .subMenu-Wrapper-new .tvList.active a,
@@ -1165,8 +1136,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList.active button img,
 .header > div.menu .subMenu-Wrapper-new .fishList.active a img,
 .header > div.menu .subMenu-Wrapper-new .fishList.active button img,
-.header > div.menu .subMenu-Wrapper-new .fourList.active a img,
-.header > div.menu .subMenu-Wrapper-new .fourList.active button img,
 .header > div.menu .subMenu-Wrapper-new .promoList.active a img,
 .header > div.menu .subMenu-Wrapper-new .promoList.active button img,
 .header > div.menu .subMenu-Wrapper-new .tvList.active a img,
@@ -1205,8 +1174,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList.active button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .fishList.active a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .fishList.active button img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .fourList.active a img.List-npc,
-.header > div.menu .subMenu-Wrapper-new .fourList.active button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .promoList.active a img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .promoList.active button img.List-npc,
 .header > div.menu .subMenu-Wrapper-new .tvList.active a img.List-npc,
@@ -1243,8 +1210,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .gameList.active button > span,
 .header > div.menu .subMenu-Wrapper-new .fishList.active a > span,
 .header > div.menu .subMenu-Wrapper-new .fishList.active button > span,
-.header > div.menu .subMenu-Wrapper-new .fourList.active a > span,
-.header > div.menu .subMenu-Wrapper-new .fourList.active button > span,
 .header > div.menu .subMenu-Wrapper-new .promoList.active a > span,
 .header > div.menu .subMenu-Wrapper-new .promoList.active button > span,
 .header > div.menu .subMenu-Wrapper-new .tvList.active a > span,
@@ -1274,7 +1239,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .tableList .new-icon,
 .header > div.menu .subMenu-Wrapper-new .gameList .new-icon,
 .header > div.menu .subMenu-Wrapper-new .fishList .new-icon,
-.header > div.menu .subMenu-Wrapper-new .fourList .new-icon,
 .header > div.menu .subMenu-Wrapper-new .promoList .new-icon,
 .header > div.menu .subMenu-Wrapper-new .tvList .new-icon,
 .header > div.menu .subMenu-Wrapper-new .vipList .new-icon,
@@ -1430,9 +1394,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .promoList.bd {
   background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-bd.jpg) no-repeat center/auto;
 }
-.header > div.menu .subMenu-Wrapper-new .promoList.kh {
-  background: url(https://banner.0814media.net/desktop/img/pomobanner-kh.jpg) no-repeat center/auto;
-}
 .header > div.menu .subMenu-Wrapper-new .promoList.vn {
   background: url(https://banner.0814media.net/desktop/img/4.0/pomobanner-vn.jpg) no-repeat center/auto;
 }
@@ -1487,9 +1448,6 @@ header input:focus-within {
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.id {
   background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-id.jpg) no-repeat center/auto;
-}
-.header > div.menu .subMenu-Wrapper-new .rankingList.kh {
-  background: url(https://banner.0814media.net/desktop/img/leaderboardbanner-kh.jpg) no-repeat center/auto;
 }
 .header > div.menu .subMenu-Wrapper-new .rankingList.vn {
   background: url(https://banner.0814media.net/desktop/img/4.0/leaderboard-dropdown-vn.jpg) no-repeat center/auto;
@@ -2801,7 +2759,7 @@ main .promosswiper .swiper-button-prev::after {
 .hotmatch .hotmatch-item .hotmatch-item-center .team-content .team-item img {
   padding: 4px;
   width: 35px;
-  border: 2px solid #140a0a;
+  border: 2px solid #D1D1D1;
   border-radius: 50px;
   margin-right: 8px;
 }
@@ -3294,7 +3252,8 @@ main .promosswiper .swiper-button-prev::after {
 }
 .footer-center .footer-center-item.payment .footer-icon img {
   width: auto;
-  height: 35px;
+  height: 40px;
+  border-radius: 5px;
 }
 .footer-center .footer-center-item .game-license {
   display: -webkit-box;
@@ -3485,7 +3444,7 @@ footer .license > div:nth-child(2) > div img {
 footer .license > div .star {
   width: auto;
   position: absolute;
-  right: -16px;
+  right: -30px;
   bottom: -25px;
 }
 footer .sfp {
@@ -4077,9 +4036,6 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
 }
 .flag.bd:before {
   background: url(https://banner.0814media.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
-}
-.flag.kh:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
 }
 .flag.kh:before {
   background: url(https://banner.0814media.net/desktop/img/flag/kh.jpg) no-repeat top left/cover;
@@ -7734,10 +7690,6 @@ input[type=file] {
   top: 25px;
   right: 12px;
 }
-.addBank .addBankName .cryptoInfo .checkbox {
-  margin-right: -2px;
-  margin-left: 5px;
-}
 .addBank .addBankName .cryptoInfo > .title {
   width: 100%;
   margin-bottom: 5px;
@@ -8215,9 +8167,6 @@ input[type=file] {
 .quickSelect .dropdown .dropdown-container .dropdown-item {
   margin: 0;
   padding: 5px 0 5px 10px;
-}
-.quickSelect .dropdown .btn {
-  padding: 0 10px;
 }
 
 .specialBonus {
@@ -9600,15 +9549,6 @@ article p {
   color: #b2b2b2;
 }
 .rdt .inputBox, .rdt .worldcupEvent .event .event-content .ticket-item.finished .inputBox-event, .worldcupEvent .event .event-content .ticket-item.finished .rdt .inputBox-event, .rdt .worldcupEvent .event .event-content .inputBox-event, .worldcupEvent .event .event-content .rdt .inputBox-event, .rdt .inputBox-org, .rdt .inputBox-white, .rdt .inputBox-blue {
-  width: 100%;
-}
-
-.react-datepicker-wrapper {
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
-}
-.react-datepicker-wrapper input {
   width: 100%;
 }
 
@@ -18966,6 +18906,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-animation: vipAnimation 2s linear infinite;
+          animation: vipAnimation 2s linear infinite;
   -webkit-transform: scale(1);
           transform: scale(1);
   opacity: 0;
@@ -21609,10 +21551,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: none;
 }
 
-.header .logo {
-  position: relative;
-}
-
 .thiaPop {
   padding: 5px 10px !important;
   font-size: 12px;
@@ -21807,631 +21745,4 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin: 5px auto;
   padding-top: 10px;
   border-top: 1px dotted #1E85EC;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-.lobby {
-  padding-top: 175px;
-}
-.lobby-banner {
-  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 79%, 25% 100%, 0 79%);
-          clip-path: polygon(0 0, 100% 0%, 100% 79%, 25% 100%, 0 79%);
-}
-.lobby-content {
-  width: 1400px;
-  margin: 85px auto 90px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-.lobby-content-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-weight: 500;
-  margin: 0 10px 20px;
-  position: relative;
-}
-.lobby-content-item .img-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: 25px;
-}
-.lobby-content-item .img-wrapper img {
-  width: 260px;
-}
-.lobby-content-item .img-wrapper .btn-container {
-  background: url(https://banner.0814media.net/desktop/img/4.0/lobby-hover.png) no-repeat center/cover;
-  position: absolute;
-  z-index: 2;
-  width: 260px;
-  height: 260px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%);
-  opacity: 0;
-  visibility: hidden;
-}
-.lobby-content-item .img-wrapper .btn-container button {
-  border-radius: 50px;
-  width: 110px;
-  height: 40px;
-  color: white;
-  border: 2px solid white;
-  margin-top: 80px;
-  -webkit-box-shadow: 0 0 3px white;
-          box-shadow: 0 0 3px white;
-  text-shadow: 0 0 3px white;
-}
-.lobby-content-item .img-wrapper:hover {
-  cursor: pointer;
-}
-.lobby-content-item .img-wrapper:hover .btn-container {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  visibility: visible;
-  opacity: 1;
-}
-.lobby-content-item.under::before {
-  display: block;
-  content: "";
-  background: url(https://banner.0814media.net/desktop/img/4.0/lobby-under.png) no-repeat center/cover;
-  width: 260px;
-  height: 260px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 3;
-  border-radius: 25px;
-}
-.lobby-content-item.under .under-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 3;
-  text-align: center;
-  font-size: 16px;
-  text-shadow: 0 0 4px white;
-}
-.lobby-content-item.under .img-wrapper img {
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
-}
-.lobby-content.slots {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-.lobby-content.slots .top {
-  -webkit-box-shadow: 0 0 10px #eeeeee;
-          box-shadow: 0 0 10px #eeeeee;
-  border-radius: 20px;
-  padding: 35px;
-}
-.lobby-content.slots .top .search-bar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-bottom: 1px solid #E9E9E9;
-  padding-bottom: 18px;
-  margin: 10px 80px 25px 15px;
-}
-.lobby-content.slots .top .search-bar img {
-  width: 20px;
-}
-.lobby-content.slots .top .search-input {
-  border: none;
-  margin-left: 2px;
-  outline: none;
-}
-.lobby-content.slots .top .search-input::-webkit-input-placeholder {
-  color: #bfbfbf;
-}
-.lobby-content.slots .top .provider {
-  height: 80px;
-  overflow: hidden;
-  position: relative;
-}
-.lobby-content.slots .top .provider-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-.lobby-content.slots .top .provider-list-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: #0A1B38;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #F2F2F2;
-  width: 179px;
-  height: 55px;
-  padding-left: 15px;
-  border-radius: 15px;
-  margin: 15px 0 0 15px;
-}
-.lobby-content.slots .top .provider-list-item > div:first-child {
-  -webkit-box-shadow: 0 0 5px gray;
-          box-shadow: 0 0 5px gray;
-  width: 35px;
-  height: 35px;
-  border-radius: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background: white;
-}
-.lobby-content.slots .top .provider-list-item > div:last-child {
-  margin-left: 7px;
-}
-.lobby-content.slots .top .provider-list-item img {
-  width: 50px;
-  padding: 3px;
-}
-.lobby-content.slots .top .provider-list-item:hover {
-  cursor: pointer;
-  color: white;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(33, 76, 152)), to(rgb(17, 34, 64)));
-  background: linear-gradient(180deg, rgb(33, 76, 152) 0%, rgb(17, 34, 64) 100%);
-}
-.lobby-content.slots .top .provider-list-item.active {
-  color: white;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(33, 76, 152)), to(rgb(17, 34, 64)));
-  background: linear-gradient(180deg, rgb(33, 76, 152) 0%, rgb(17, 34, 64) 100%);
-}
-.lobby-content.slots .top .provider-list-item.under {
-  position: relative;
-}
-.lobby-content.slots .top .provider-list-item.under::after {
-  position: absolute;
-  display: block;
-  content: "";
-  background: url(https://banner.0814media.net/desktop/img/4.0/lobby-slots/under.png) no-repeat center/cover;
-  height: 40px;
-  width: 40px;
-  right: 75px;
-}
-.lobby-content.slots .top .provider-list-item.under::before {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.6509803922);
-  display: block;
-  content: "";
-  width: 100%;
-  height: 55px;
-  border-radius: 15px;
-  left: 0;
-  top: 0;
-}
-.lobby-content.slots .top .provider.active {
-  height: auto;
-}
-.lobby-content.slots .top .provider.active button {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
-}
-.lobby-content.slots .top .provider button {
-  position: absolute;
-  background: #CFCFCF;
-  border-radius: 50px;
-  padding: 15px;
-  right: 5px;
-  top: 17px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-}
-.lobby-content.slots .top .provider button img {
-  width: 18px;
-}
-.lobby-content.slots .select-bar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: #bfbfbf;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  width: 1000px;
-  margin: 30px auto 10px;
-  padding: 10px 0 0;
-  border-bottom: 2px solid #EBEBEB;
-  position: relative;
-}
-.lobby-content.slots .select-bar > div {
-  margin-bottom: -2px;
-  padding-bottom: 20px;
-}
-.lobby-content.slots .select-bar > div.active {
-  border-bottom: 2px solid #FF6000;
-  color: #0A1B38;
-}
-.lobby-content.slots .select-bar > div:hover {
-  color: #0A1B38;
-  cursor: pointer;
-}
-.lobby-content.slots .slots-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 1400px;
-}
-.lobby-content.slots .slots-list-item {
-  margin-top: 40px;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(20% - 47px);
-          flex: 0 0 calc(20% - 47px);
-  position: relative;
-}
-.lobby-content.slots .slots-list-item .img-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: 25px;
-  z-index: 2;
-  width: 222px;
-}
-.lobby-content.slots .slots-list-item .img-wrapper img {
-  width: 220px;
-  border-radius: 25px;
-  border: 1px solid rgba(0, 0, 0, 0.0588235294);
-}
-.lobby-content.slots .slots-list-item .img-wrapper .btn-container {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3169642857)), to(rgb(0, 0, 0)));
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3169642857) 0%, rgb(0, 0, 0) 100%);
-  position: absolute;
-  z-index: 2;
-  width: 222px;
-  height: 222px;
-  border-radius: 25px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%);
-  opacity: 0;
-  visibility: hidden;
-}
-.lobby-content.slots .slots-list-item .img-wrapper .btn-container .btn-play, .lobby-content.slots .slots-list-item .img-wrapper .btn-container .btn-demo {
-  border-radius: 50px;
-  width: 110px;
-  height: 40px;
-  color: white;
-}
-.lobby-content.slots .slots-list-item .img-wrapper .btn-container .btn-play {
-  background: #FF7700;
-  margin-bottom: 15px;
-}
-.lobby-content.slots .slots-list-item .img-wrapper .btn-container .btn-demo {
-  border: 1px solid white;
-}
-.lobby-content.slots .slots-list-item .img-wrapper:hover .btn-container {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  visibility: visible;
-  opacity: 1;
-}
-.lobby-content.slots .slots-list-item .details {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-}
-.lobby-content.slots .slots-list-item .details > div:first-child {
-  border: 1px solid #DCDCDC;
-  width: 220px;
-  margin-top: -40px;
-  border-radius: 25px;
-  padding: 48px 0 12px;
-}
-.lobby-content.slots .slots-list-item .details > div:last-child {
-  position: absolute;
-  right: 30px;
-  bottom: 20px;
-}
-.lobby-content.slots .slots-list-item .details > div:last-child img {
-  width: 23px;
-  -webkit-filter: drop-shadow(0 0 6px #C9C9C9);
-          filter: drop-shadow(0 0 6px #C9C9C9);
-}
-.lobby-content.slots .slots-list-item .details > div:last-child.active img {
-  -webkit-filter: unset;
-          filter: unset;
-}
-.lobby-content.slots .slots-list-item .details > div > div {
-  margin-left: 12px;
-}
-.lobby-content.slots .slots-list-item .details > div > div:first-child {
-  color: #0A1B38;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  width: 155px;
-}
-.lobby-content.slots .slots-list-item .details > div > div:last-child {
-  color: #929292;
-  font-size: 10px;
-}
-.lobby-content.slots .slots-list-item:hover {
-  cursor: pointer;
-}
-.lobby-content.slots .slots-list-item:hover .details > div:first-child {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(62, 130, 249)), to(rgb(17, 34, 64)));
-  background: linear-gradient(180deg, rgb(62, 130, 249) 0%, rgb(17, 34, 64) 100%);
-  border: 0;
-  width: 222px;
-}
-.lobby-content.slots .slots-list-item:hover .details > div > div:first-child {
-  color: white;
-}
-.lobby-content.slots .slots-list-item .under {
-  background: rgba(0, 0, 0, 0.631372549);
-  width: 222px;
-  height: 221px;
-  border-radius: 25px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  font-size: 16px;
-  text-shadow: 0 0 4px white;
-}
-.lobby-content.slots .slots-list-item .new-icon {
-  right: 10px;
-  top: -13px;
-}
-.lobby-content.esports {
-  width: 100%;
-  background: #EFEFEF;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 30px 0;
-  margin: 85px auto 50px;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-}
-.lobby-content.esports .lobby-content-item {
-  margin: 0 18px 0 0;
-}
-.lobby-content.esports .lobby-content-item img {
-  width: 455px;
-}
-.lobby-content.esports .lobby-content-item:hover {
-  -webkit-filter: drop-shadow(0 0 10px #A1A1A1);
-          filter: drop-shadow(0 0 10px #A1A1A1);
-  cursor: pointer;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-.lobby-content.esports .lobby-content-item:hover img {
-  width: 460px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.lobby-content.esports .lobby-content-item.under::before {
-  display: block;
-  content: "";
-  width: 100%;
-  height: 80%;
-  top: unset;
-  bottom: 45px;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(80%, rgb(0, 0, 0)));
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 80%);
-  border-radius: 15px;
-}
-.lobby-content.esports .lobby-content-item.under .under-text {
-  color: #fff;
-}
-.lobby-content.esports .lobby-content-item.under img {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-.lobby-content.esports .lobby-content-item .new-icon {
-  right: 0;
-  top: 5px;
-}
-.lobby-title {
-  color: #0A1B38;
-  margin-top: 15px;
-  font-size: 20px;
-}
-.lobby .esports-game-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 90px;
-}
-.lobby .esports-game-list a {
-  margin-right: 15px;
-  position: relative;
-}
-.lobby .esports-game-list a .new-icon {
-  background: #FF7600;
-  border-radius: 50px;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  z-index: 3;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  right: 0;
-  top: -15px;
-  color: #fff;
-}
-.lobby .esports-game-list a:hover {
-  -webkit-filter: drop-shadow(0 0 10px #A1A1A1);
-          filter: drop-shadow(0 0 10px #A1A1A1);
-  cursor: pointer;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-.lobby .esports-game-list a:hover img {
-  width: 345px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.lobby .esports-game-list a.under {
-  position: relative;
-}
-.lobby .esports-game-list a.under::before {
-  position: absolute;
-  display: block;
-  content: "";
-  width: 100%;
-  height: 80%;
-  bottom: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(80%, rgb(0, 0, 0)));
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 80%);
-  border-radius: 15px;
-  z-index: 2;
-}
-.lobby .esports-game-list a.under .under-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  color: #fff;
-  z-index: 3;
-  text-align: center;
-  font-size: 16px;
-  text-shadow: 0 0 4px white;
-}
-.lobby .esports-game-list a.under img {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-.lobby .esports-game-list img {
-  width: 340px;
-  border-radius: 20px;
-}
-.lobby .new-icon {
-  background: #FF7600;
-  border-radius: 50px;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  z-index: 3;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  right: 0;
-  top: 20px;
-  color: #fff;
-}
-.lobby .nodata {
-  color: #E5E5E5;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 70px;
-}
-.lobby .nodata img {
-  width: 60px;
-  margin-bottom: 10px;
 }/*# sourceMappingURL=style.css.map */
