@@ -21826,8 +21826,8 @@ input[type=number] {
   padding-top: 175px;
 }
 .lobby-banner {
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 62%, 25% 100%, 0 64%);
-          clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 62%, 25% 100%, 0 64%);
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 79%, 25% 100%, 0 79%);
+          clip-path: polygon(0 0, 100% 0%, 100% 79%, 25% 100%, 0 79%);
 }
 .lobby-content {
   width: 1400px;
@@ -21969,7 +21969,7 @@ input[type=number] {
   outline: none;
 }
 .lobby-content.slots .top .search-input::-webkit-input-placeholder {
-  color: #D1D1D1;
+  color: #bfbfbf;
 }
 .lobby-content.slots .top .provider {
   height: 80px;
@@ -22079,7 +22079,7 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #DCDCDC;
+  color: #bfbfbf;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   width: 1000px;
