@@ -1,45 +1,28 @@
-import React, { useRef, useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
+import { bannerImgUrl } from "../../config";
 
-export default ({ editSearchField, searchInfo, t }) => {
-	const [isActive, setIsActive] = useState(false);
-	const ref = useRef();
-
-	const onActive = () => {
-		setIsActive(true);
-
-		ref.current.focus();
-	};
-
-	const onBlur = () => {
-		ref.current.blur();
-	};
-
+export const SearchBox = ({ editSearchField, searchInfo }) => {
+	const { t } = useTranslation();
 	return (
-		<div className="search-container">
+		<div className="search-bar">
+			<img
+				src={`${bannerImgUrl}/desktop/img/4.0/lobby-slots/search-icon.png`}
+				alt=""
+			/>
 			<input
-				ref={ref}
-				className="search expandright"
+				className="search-input"
 				type="text"
 				placeholder={t("lbl_SearchGames")}
 				onChange={e => editSearchField("searchText", e.target.value)}
 				value={searchInfo.searchText}
-				onBlur={() => setIsActive(false)}
 			/>
-			{/* <!-- 打文字時會出現 closebutton -- */}
-			<label className="button searchbutton closebutton">
-				{isActive ? (
-					<div onClick={onBlur}>
-						<img
-							src="https://banner.0814media.net/desktop/img/close.png"
-							alt=""
-						/>
-					</div>
-				) : (
-					<div onClick={onActive}>
-						<span className="mglass">&#9906;</span>
-					</div>
-				)}
-			</label>
 		</div>
 	);
+};
+
+SearchBox.propTypes = {
+	editSearchField: PropTypes.func.isRequired,
+	searchInfo: PropTypes.objectOf(PropTypes.any).isRequired
 };

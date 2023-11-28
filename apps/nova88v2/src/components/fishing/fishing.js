@@ -11,11 +11,9 @@ import {
 	productTpGameTypeSettingListContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
-import FishingBanner from "./fishing.banner";
 import FishingList from "./fishing.list";
 import { useGameMenu } from "../hook/useGameMenu";
-
-const SLIDE_IMG_LIST = ["fishmainbanner.jpg"];
+import { bannerImgUrl } from "../../config";
 
 const Fishing = () => {
 	const { t } = useTranslation();
@@ -26,7 +24,7 @@ const Fishing = () => {
 	const { tpGameTypeSettingList } = useContext(
 		productTpGameTypeSettingListContext
 	);
-	const [subMenu, setSubMenu] = useState([]);
+	const [fishingSubMenu, setFishingSubMenu] = useState([]);
 	const { sortGameMenu } = useGameMenu({ productTpIds });
 
 	const clickItem = ({
@@ -60,7 +58,8 @@ const Fishing = () => {
 							className="btn-check"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -106,25 +105,35 @@ const Fishing = () => {
 
 		const menu = getSubMenu();
 
-		setSubMenu(menu);
+		setFishingSubMenu(menu);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [productTpIds, userInfo.currencyId, userInfo.isLogin]);
 
 	return (
 		<>
-			<FishingBanner slideImgList={SLIDE_IMG_LIST} />
-			<section className="inside">
-				<div className="rightModule">
-					<FishingList
-						subMenu={subMenu}
-						maintainList={allMaintainList}
-						tpGameTypeSettingList={tpGameTypeSettingList}
-						clickItem={clickItem}
-						t={t}
-					/>
+			<div className="lobby-banner">
+				<div className="swiper-container">
+					<div className="swiper-wrapper">
+						<div className="swiper-slide">
+							<img
+								src={`${bannerImgUrl}/desktop/img/4.0/lobby-fishing/fishlobby-bn.png`}
+								alt="fishlobby-bn"
+							/>
+						</div>
+					</div>
 				</div>
-			</section>
+			</div>
+
+			<div className="lobby-content">
+				<FishingList
+					fishingSubMenu={fishingSubMenu}
+					maintainList={allMaintainList}
+					tpGameTypeSettingList={tpGameTypeSettingList}
+					clickItem={clickItem}
+					t={t}
+				/>
+			</div>
 		</>
 	);
 };

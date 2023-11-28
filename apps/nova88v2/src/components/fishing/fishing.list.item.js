@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../config";
 import { defTpGameType } from "../../datas/productList";
 
 const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
-	const [isHover, setIsHover] = useState(false);
-	const hoverHandler = () => setIsHover(prev => !prev);
-
 	const {
 		displayText,
 		displayKey,
@@ -14,11 +12,10 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		gameId,
 		path,
 		needLogin,
-		lobbyPage: { bgImg, hoverBgImg },
+		lobbyPage: { bgImg },
 		tpGameType,
 		noPlay
 	} = subMenuItem;
-
 	const _displayText = displayText || t(displayKey);
 
 	const isInMaintain = maintainList?.some(
@@ -28,20 +25,24 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 				item.tpGameType === defTpGameType.All)
 	);
 
-	const _className = [isInMaintain && "active"].filter(Boolean).join(" ");
+	const isNew = () => {
+		if (
+			subMenuItem.eventIcons &&
+			subMenuItem.eventIcons[0] &&
+			// * 這裡因為跟 menu className 不同所以如果 defEventIcon 更改這裡判斷也需更改
+			subMenuItem.eventIcons[0].match("new")
+		) {
+			return true;
+		}
 
-	const _style = {
-		pointerEvents: isInMaintain ? "none" : "auto"
+		return false;
 	};
 
 	return (
 		<div
-			className={_className}
-			style={_style}
-			onMouseOver={hoverHandler}
-			onMouseOut={hoverHandler}
-			onFocus={() => 0}
-			onBlur={() => 0}
+			className={classNames("lobby-content-item", {
+				under: isInMaintain
+			})}
 			onClick={() =>
 				clickItem({
 					tpId,
@@ -51,25 +52,24 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 					tpGameType,
 					noPlay
 				})
-			}>
-			{subMenuItem?.eventIcons?.length > 0 && (
-				<div className={subMenuItem.eventIcons[0]} />
+			}
+		>
+			{isInMaintain && (
+				<div className="under-text">{t("lbl_underMaintenance")}</div>
 			)}
 
-			{isHover ? (
-				<img
-					src={`${bannerImgUrl}/desktop/img/fishing/${hoverBgImg}`}
-					alt={hoverBgImg}
-				/>
-			) : (
-				<img
-					src={`${bannerImgUrl}/desktop/img/fishing/${bgImg}`}
-					alt={hoverBgImg}
-				/>
-			)}
+			{isNew() && <div className="new-icon">{t("lbl_New")}</div>}
 
-			<div className="name">{_displayText}</div>
-			<div className="under">{t("lbl_underMaintenance")}</div>
+			<div className="img-wrapper">
+				<img
+					src={`${bannerImgUrl}/desktop/img/4.0/lobby-fishing/${bgImg}`}
+					alt={bgImg}
+				/>
+				<div className="btn-container">
+					<button>{t("lbl_PlayNow")}</button>
+				</div>
+			</div>
+			<div className="lobby-title">{_displayText}</div>
 		</div>
 	);
 };

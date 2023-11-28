@@ -11,12 +11,11 @@ import {
 	productTpGameTypeSettingListContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
-import EsportBanner from "./eSport.banner";
-import ESportSwiper from "./eSport.swiper";
+import ESportList from "./eSportList";
 import { defTpGameType } from "../../datas/productList";
 import { useGameMenu } from "../hook/useGameMenu";
-
-const SLIDE_IMG_LIST = ["esport_mainbanner_bg.jpg"];
+import { bannerImgUrl } from "../../config";
+import ESportFooterList from "./eSportFooterList";
 
 const Esport = () => {
 	const { t } = useTranslation();
@@ -125,19 +124,36 @@ const Esport = () => {
 
 	return (
 		<>
-			<EsportBanner slideImgList={SLIDE_IMG_LIST} />
-			<section className="inside">
-				<div className="rightModule">
-					<div className="esport">
-						<ESportSwiper
-							t={t}
-							subMenu={eSportsSubMenu}
-							tpGameTypeSettingList={tpGameTypeSettingList}
-							clickItem={clickItem}
-						/>
+			<div className="lobby-banner">
+				<div className="swiper-container">
+					<div className="swiper-wrapper">
+						<div className="swiper-slide">
+							<img
+								src={`${bannerImgUrl}/desktop/img/4.0/lobby-esports/esportslobby-bn.png`}
+								alt="esportslobby-bn"
+							/>
+						</div>
 					</div>
 				</div>
-			</section>
+			</div>
+
+			<div className="lobby-content esports">
+				<ESportList
+					t={t}
+					eSportsSubMenu={eSportsSubMenu}
+					tpGameTypeSettingList={tpGameTypeSettingList}
+					clickItem={clickItem}
+				/>
+			</div>
+
+			<div className="esports-game-list">
+				<ESportFooterList
+					t={t}
+					eSportsSubMenu={eSportsSubMenu}
+					tpGameTypeSettingList={tpGameTypeSettingList}
+					clickItem={clickItem}
+				/>
+			</div>
 		</>
 	);
 };
