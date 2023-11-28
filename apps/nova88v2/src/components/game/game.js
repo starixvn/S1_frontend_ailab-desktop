@@ -11,9 +11,9 @@ import {
 	productTpGameTypeSettingListContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
-import GameBanner from "./game.banner";
 import GameList from "./game.list";
 import { useGameMenu } from "../hook/useGameMenu";
+import { bannerImgUrl } from "../../config";
 
 const Game = () => {
 	const { t } = useTranslation();
@@ -63,7 +63,8 @@ const Game = () => {
 							className="btn-check"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -117,18 +118,28 @@ const Game = () => {
 
 	return (
 		<>
-			<GameBanner t={t} />
-			<section className="inside">
-				<div className="rightModule">
-					<GameList
-						t={t}
-						gameSubMenu={gameSubMenu}
-						maintainList={allMaintainList}
-						tpGameTypeSettingList={tpGameTypeSettingList}
-						clickItem={clickItem}
-					/>
+			<div className="lobby-banner">
+				<div className="swiper-container">
+					<div className="swiper-wrapper">
+						<div className="swiper-slide">
+							<img
+								src={`${bannerImgUrl}/desktop/img/4.0/lobby-games/gamelobby_bn.png`}
+								alt="gamelobby_bn"
+							/>
+						</div>
+					</div>
 				</div>
-			</section>
+			</div>
+
+			<div className="lobby-content">
+				<GameList
+					t={t}
+					gameSubMenu={gameSubMenu}
+					maintainList={allMaintainList}
+					tpGameTypeSettingList={tpGameTypeSettingList}
+					clickItem={clickItem}
+				/>
+			</div>
 		</>
 	);
 };

@@ -553,8 +553,7 @@ export const defMenuLinks = {
 				parameter: { ...productList.eSportAll },
 				...productList.eSportAll,
 				lobbyPage: {
-					bgImg: "esposts-saba.png",
-					hoverBgImg: "esposts-sabaa.png"
+					bgImg: "esportlobby-saba.png"
 				}
 			},
 			// {
@@ -613,13 +612,29 @@ export const defMenuLinks = {
 				parameter: { ...productList.eSport_IM },
 				...productList.eSport_IM,
 				lobbyPage: {
-					bgImg: "esposts-inplaymatrix.png",
-					hoverBgImg: "esposts-inplaymatrixa.png"
+					bgImg: "esportlobby-im.png"
 				},
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
 						period: defEventPeriod.IM
+					})
+				]
+			},
+			{
+				displayText: "TFGaming",
+				listNpcImgUrl: "esportTFG.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.TFGaming },
+				...productList.TFGaming,
+				lobbyPage: {
+					bgImg: "esportlobby-tfg.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.TFGaming
 					})
 				]
 			}
@@ -642,7 +657,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-PP.png",
 				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				lobbyPage: { npcImg: "casino_pp" },
+				lobbyPage: { npcImg: "casino-PP.png" },
 				allowCurrencies: getPPAllowCurrencies()
 			},
 			{
@@ -654,7 +669,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-bg.png",
 				listBgImgUrl: ["bgbg.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				lobbyPage: { npcImg: "casino_bg" },
+				lobbyPage: { npcImg: "casino-bg.png" },
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -671,7 +686,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-yb.png",
 				listBgImgUrl: ["ybBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				lobbyPage: { npcImg: "casino_yb" },
+				lobbyPage: { npcImg: "casino-yb.png" },
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -692,7 +707,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-SK.png",
 				listBgImgUrl: ["skbg.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				lobbyPage: { npcImg: "casino_sk" },
+				lobbyPage: { npcImg: "casino-SK.png" },
 				allowCurrencies: allowedCurrencyList.casino_SkyWind
 			},
 			{
@@ -708,7 +723,7 @@ export const defMenuLinks = {
 						period: defEventPeriod.liveCasino_mg
 					})
 				],
-				lobbyPage: { npcImg: "casino_mg" },
+				lobbyPage: { npcImg: "casino-mg.png" },
 				allowCurrencies: allowedCurrencyList.casino_MGPSW
 			},
 			{
@@ -718,7 +733,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["evbg.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_EVO,
-				lobbyPage: { npcImg: "casino_ev" },
+				lobbyPage: { npcImg: "casino-ev.png" },
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -733,7 +748,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-pt.png",
 				listBgImgUrl: ["ptbg.png", "livecasinListHover.png"],
 				...productList.liveCasino_PlayTech,
-				lobbyPage: { npcImg: "casino_pt" },
+				lobbyPage: { npcImg: "casino-pt.png" },
 				allowCurrencies: allowedCurrencyList.liveCasinoPlayTech
 			},
 			{
@@ -744,7 +759,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				allowCurrencies: allowedCurrencyList.liveCasino_N2,
 				...productList.liveCasino_N2,
-				lobbyPage: { npcImg: "casino_n2" }
+				lobbyPage: { npcImg: "casino-n2.png" }
 			},
 			{
 				keyName: "casino_WM",
@@ -756,7 +771,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				allowCurrencies: allowedCurrencyList.casino_WM,
 				...productList.liveCasino_WM,
-				lobbyPage: { npcImg: "casino_wm" }
+				lobbyPage: { npcImg: "casino-WM.png" }
 			},
 			{
 				keyName: "casino_ALBET",
@@ -767,7 +782,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["allBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_Allbet,
-				lobbyPage: { npcImg: "casino_ab" },
+				lobbyPage: { npcImg: "casino-ALL.png" },
 				allowCurrencies: allowedCurrencyList.allbet
 			},
 			{
@@ -779,7 +794,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["ebBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_eBET,
-				lobbyPage: { npcImg: "casino_we" }
+				lobbyPage: { npcImg: "casino-we.png" }
 			},
 			{
 				keyName: "casino_SA",
@@ -790,7 +805,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["saBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_SA,
-				lobbyPage: { npcImg: "casino_sa" },
+				lobbyPage: { npcImg: "casino-SA.png" },
 				allowCurrencies: allowedCurrencyList.casinoSA
 			},
 			{
@@ -802,7 +817,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["aeBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_AE,
-				lobbyPage: { npcImg: "casino_ae" }
+				lobbyPage: { npcImg: "casino-AE.png" }
 			},
 			{
 				keyName: "casino_DG",
@@ -813,7 +828,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["dgBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_DG,
-				lobbyPage: { npcImg: "casino_dg" },
+				lobbyPage: { npcImg: "casino-DG.png" },
 				allowCurrencies: allowedCurrencyList.liveCasino_DG
 			},
 			{
@@ -825,7 +840,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_AG,
-				lobbyPage: { npcImg: "casino_ag" },
+				lobbyPage: { npcImg: "casino-ag.png" },
 				allowCurrencies: allowedCurrencyList.liveCasino_AG
 			}
 		]
@@ -988,7 +1003,7 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_PEGASUS },
 				...productList.casino_PEGASUS,
-				allowCurrencies: allowedCurrencyList.slotJoker,
+				allowCurrencies: allowedCurrencyList.slotPegasus,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -1217,8 +1232,7 @@ export const defMenuLinks = {
 				...productList.games_MPoker,
 				parameter: { ...productList.games_MPoker },
 				lobbyPage: {
-					bgImg: "gamemp.png",
-					hoverBgImg: "gamempa.png"
+					bgImg: "mp.png"
 				},
 				allowCurrencies: allowedCurrencyList.mPoker
 			},
@@ -1232,8 +1246,7 @@ export const defMenuLinks = {
 				...productList.games_AMBPoker,
 				parameter: { ...productList.games_AMBPoker },
 				lobbyPage: {
-					bgImg: "gameamb.png",
-					hoverBgImg: "gameamba.png"
+					bgImg: "am.png"
 				},
 				allowCurrencies: allowedCurrencyList.amb
 			},
@@ -1247,8 +1260,7 @@ export const defMenuLinks = {
 				...productList.sabaClub,
 				parameter: { ...productList.sabaClub },
 				lobbyPage: {
-					bgImg: "gamevg.png",
-					hoverBgImg: "gamevga.png"
+					bgImg: "vg.png"
 				},
 				allowCurrencies: allowedCurrencyList.vGaming
 			},
@@ -1262,10 +1274,30 @@ export const defMenuLinks = {
 				...productList.games_kingMaker,
 				parameter: { ...productList.games_kingMaker },
 				lobbyPage: {
-					bgImg: "gamekim.png",
-					hoverBgImg: "gamekima.png"
+					bgImg: "km.png"
 				}
 			},
+			{
+				keyName: "games_V8Poker",
+				className: "fsgw",
+				listNpcImgUrl: "v8.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayKey: "lbl_V8Poker",
+				menuType: defMenuType.entPage,
+				...productList.games_V8Poker,
+				parameter: { ...productList.games_V8Poker },
+				lobbyPage: {
+					bgImg: "v8.png"
+				},
+				allowCurrencies: allowedCurrencyList.V8Poker,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.V8Poker
+					})
+				]
+			},
+
 			{
 				keyName: "games_im_aviator",
 				className: "fsgw",
@@ -1276,8 +1308,7 @@ export const defMenuLinks = {
 				...productList.games_im_avaitor,
 				parameter: { ...productList.games_im_avaitor },
 				lobbyPage: {
-					bgImg: "gamespribe-aciator.png",
-					hoverBgImg: "gamespribe-aciatora.png"
+					bgImg: "gameSpribeAviator.png"
 				},
 				allowCurrencies: allowedCurrencyList.SPRIBE,
 				eventIcons: [
@@ -1297,8 +1328,7 @@ export const defMenuLinks = {
 				...productList.games_im_mines,
 				parameter: { ...productList.games_im_mines },
 				lobbyPage: {
-					bgImg: "gamespribe-mines.png",
-					hoverBgImg: "gamespribe-minesa.png"
+					bgImg: "gameSpribeMines.png"
 				},
 				allowCurrencies: allowedCurrencyList.SPRIBE,
 				eventIcons: [
@@ -1318,8 +1348,7 @@ export const defMenuLinks = {
 				...productList.games_im_goal,
 				parameter: { ...productList.games_im_goal },
 				lobbyPage: {
-					bgImg: "gamespribe-goal.png",
-					hoverBgImg: "gamespribe-goala.png"
+					bgImg: "gameSpribeGoal.png"
 				},
 				allowCurrencies: allowedCurrencyList.SPRIBE,
 				eventIcons: [
@@ -1339,8 +1368,7 @@ export const defMenuLinks = {
 				...productList.games_im_dice,
 				parameter: { ...productList.games_im_dice },
 				lobbyPage: {
-					bgImg: "gamespribe-dice.png",
-					hoverBgImg: "gamespribe-dicea.png"
+					bgImg: "gameSpribeDice.png"
 				},
 				allowCurrencies: allowedCurrencyList.SPRIBE,
 				eventIcons: [
@@ -1360,8 +1388,7 @@ export const defMenuLinks = {
 				...productList.games_Spaceman,
 				parameter: { ...productList.games_Spaceman },
 				lobbyPage: {
-					bgImg: "gamepp.png",
-					hoverBgImg: "gameppa.png"
+					bgImg: "pp.png"
 				},
 				allowCurrencies: allowedCurrencyList.spaceman
 			},
@@ -1375,8 +1402,7 @@ export const defMenuLinks = {
 				...productList.games_Crash,
 				parameter: { ...productList.games_Crash },
 				lobbyPage: {
-					bgImg: "gameap.png",
-					hoverBgImg: "gameapa.png"
+					bgImg: "ap.png"
 				}
 			},
 			{
@@ -1389,8 +1415,7 @@ export const defMenuLinks = {
 				...productList.games_GoRush,
 				parameter: { ...productList.games_GoRush },
 				lobbyPage: {
-					bgImg: "gamejili.png",
-					hoverBgImg: "gamejilia.png"
+					bgImg: "jili.png"
 				}
 			}
 		]
@@ -1413,8 +1438,7 @@ export const defMenuLinks = {
 				...productList.fishing_SG,
 				parameter: { ...productList.fishing_SG },
 				lobbyPage: {
-					bgImg: "fishfg.png",
-					hoverBgImg: "fishfga.png"
+					bgImg: "fishSG.png"
 				},
 				allowCurrencies: allowedCurrencyList.fishingGod
 			},
@@ -1428,8 +1452,7 @@ export const defMenuLinks = {
 				...productList.fishing_SGW,
 				parameter: { ...productList.fishing_SGW },
 				lobbyPage: {
-					bgImg: "fishfw.png",
-					hoverBgImg: "fishfwa.png"
+					bgImg: "fishSGwar.png"
 				}
 			},
 			{
@@ -1442,8 +1465,7 @@ export const defMenuLinks = {
 				...productList.Fishing_Zombie_Party,
 				parameter: { ...productList.Fishing_Zombie_Party },
 				lobbyPage: {
-					bgImg: "fishzp.png",
-					hoverBgImg: "fishzpa.png"
+					bgImg: "fishzp.png"
 				},
 				eventIcons: [
 					showEventIcon({
@@ -1463,8 +1485,7 @@ export const defMenuLinks = {
 				...productList.Fishing_Alien_Hunter,
 				parameter: { ...productList.Fishing_Alien_Hunter },
 				lobbyPage: {
-					bgImg: "fishah.png",
-					hoverBgImg: "fishaha.png"
+					bgImg: "fishah.png"
 				},
 				eventIcons: [
 					showEventIcon({
@@ -1484,8 +1505,7 @@ export const defMenuLinks = {
 				...productList.CQ9_Paradise,
 				parameter: { ...productList.CQ9_Paradise },
 				lobbyPage: {
-					bgImg: "fishpd.png",
-					hoverBgImg: "fishpda.png"
+					bgImg: "paradise.png"
 				}
 			},
 			{
@@ -1497,8 +1517,7 @@ export const defMenuLinks = {
 				...productList.fishing_Haiba,
 				parameter: { ...productList.fishing_Haiba },
 				lobbyPage: {
-					bgImg: "fishhb.png",
-					hoverBgImg: "fishhba.png"
+					bgImg: "hb.png"
 				},
 				eventIcons: [
 					showEventIcon({
@@ -1517,8 +1536,7 @@ export const defMenuLinks = {
 				...productList.fishing_Hunting_Happy_Fish_5,
 				parameter: { ...productList.fishing_Hunting_Happy_Fish_5 },
 				lobbyPage: {
-					bgImg: "fishhf.png",
-					hoverBgImg: "fishhfa.png"
+					bgImg: "hf5.png"
 				},
 				allowCurrencies: allowedCurrencyList.happyFish5
 			},
@@ -1531,8 +1549,7 @@ export const defMenuLinks = {
 				...productList.fishing_Hunting_Monster_Awaken,
 				parameter: { ...productList.fishing_Hunting_Monster_Awaken },
 				lobbyPage: {
-					bgImg: "fishma.png",
-					hoverBgImg: "fishmaa.png"
+					bgImg: "ma.png"
 				},
 				eventIcons: [
 					showEventIcon({
@@ -1552,8 +1569,7 @@ export const defMenuLinks = {
 				...productList.CQ9_Oneshot_Fishing,
 				parameter: { ...productList.CQ9_Oneshot_Fishing },
 				lobbyPage: {
-					bgImg: "fishof.png",
-					hoverBgImg: "fishofa.png"
+					bgImg: "oneshotfishing.png"
 				},
 				allowCurrencies: allowedCurrencyList.oneShot
 			}
@@ -1641,8 +1657,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.GPI_Keno },
 				lobbyPage: {
-					bgImg: "lotterygpikeno.png",
-					hoverBgImg: "lotterygpikenoa.png"
+					bgImg: "lo-gpikeno.png"
 				},
 				eventIcons: [
 					showEventIcon({
@@ -1659,8 +1674,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.GPI_ThaiLottery },
 				lobbyPage: {
-					bgImg: "lotterygpithai.png",
-					hoverBgImg: "lotterygpithaia.png"
+					bgImg: "lo-gpithai.png"
 				},
 				eventIcons: [
 					showEventIcon({
@@ -1678,8 +1692,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.GPI_Fast3 },
 				lobbyPage: {
-					bgImg: "lotterygpifast3.png",
-					hoverBgImg: "lotterygpifast3a.png"
+					bgImg: "lo-gpifast3.png"
 				},
 				eventIcons: [
 					showEventIcon({
@@ -1698,8 +1711,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.tcg },
 				lobbyPage: {
-					bgImg: "lotterytc.png",
-					hoverBgImg: "lotterytca.png"
+					bgImg: "lo-tcg.png"
 				}
 			},
 			{
@@ -1711,8 +1723,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.keno },
 				lobbyPage: {
-					bgImg: "lotteryke.png",
-					hoverBgImg: "lotterykea.png"
+					bgImg: "lo-keno.png"
 				}
 			},
 			{
@@ -1724,8 +1735,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.lottery },
 				lobbyPage: {
-					bgImg: "lotterylo.png",
-					hoverBgImg: "lotteryloa.png"
+					bgImg: "lo-lottery.png"
 				}
 			},
 			{
@@ -1739,8 +1749,7 @@ export const defMenuLinks = {
 				// parameter: { ...productList.numberGame },
 				parameter: { provider: "saba", type: "number-game" },
 				lobbyPage: {
-					bgImg: "lotterynu.png",
-					hoverBgImg: "lotterynua.png"
+					bgImg: "lo-numberGame.png"
 				}
 			},
 			{
@@ -1751,8 +1760,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.tablegame },
 				lobbyPage: {
-					bgImg: "lotteryta.png",
-					hoverBgImg: "lotterytaa.png"
+					bgImg: "lo-tableGame.png"
 				}
 			}
 			// {

@@ -9,9 +9,11 @@ import { getPPAllowCurrencies } from "../../header/header.menu.def";
 import { useAuth } from "../../hook";
 import { SET_ENTER_PAGE } from "../../../service/enterPage";
 import defPopBoxType from "../../common/defPopBoxType";
+import usePopBox from "../../hook/usePopBox";
 
 const HonorablePartner = () => {
 	const { t } = useTranslation();
+	const { setPopBox } = usePopBox();
 	const { userInfo: { isLogin, currencyId, langId } = {} } = useAuth();
 	const { productTpIds } = useContext(productTpIdsContext);
 	const [products, setProducts] = useState([]);
@@ -233,6 +235,25 @@ const HonorablePartner = () => {
 				path: paths.casino.root,
 				parameter: { ...productList.casino_PEGASUS },
 				imgName: "pegasus"
+			},
+			{
+				...productList.games_V8Poker,
+				imgName: "v8",
+				allowCurrencies: [
+					defCurrencyList.MYR,
+					defCurrencyList.USD,
+					defCurrencyList.THB,
+					defCurrencyList.IDR,
+					defCurrencyList.INR,
+					defCurrencyList.CNY,
+					defCurrencyList.KHM,
+					defCurrencyList.VND,
+					defCurrencyList.USDT
+				]
+			},
+			{
+				...productList.TFGaming,
+				imgName: "tfg"
 			}
 		];
 

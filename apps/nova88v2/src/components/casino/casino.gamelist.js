@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
+import { useTranslation } from "react-i18next";
 import { useInView } from "../hook/useInView";
+import { userInfoContext } from "../common/context";
+import { bannerImgUrl } from "../../config";
 
 const GameList = ({
 	displayGames,
 	imgUrl,
-	langId,
 	providerList,
 	onSetFavorite,
-	t,
 	onLoadMore,
 	onClickPlay,
 	filterJudge,
@@ -20,6 +22,10 @@ const GameList = ({
 	favoriteStr,
 	activeProvider
 }) => {
+	const { t } = useTranslation();
+	const {
+		userInfo: { langId }
+	} = useContext(userInfoContext);
 	const inViewRef = useInView(() => onLoadMore());
 	let _imgUrl = "";
 	const rows =
@@ -55,93 +61,96 @@ const GameList = ({
 
 				_imgUrl = `${imgUrl}/${gameProviderName}/${imgName}`;
 
-				const _className = [getIsInMaintain(g) && "active"]
-					.filter(Boolean)
-					.join(" ");
-
 				const _style = {
 					pointerEvents: getIsInMaintain(g) ? "none" : "auto"
 				};
 
 				return (
 					<div
-						className={_className}
+						className="slots-list-item "
 						style={_style}
 						key={`casino-game-${g.tpId}-${g.gameId}`}
 					>
-						<div className="brand">
-							<span>{gameProviderName}</span>
-						</div>
-
-						<div
-							className={`icon ${
-								activeCategory === "new" ? "icon-new" : ""
-							}`}
-						/>
-
-						<img alt="Casino_tpInfo" src={_imgUrl} />
-
-						<div className="txt-darkBlue">
-							<div>{gameDisplayName}</div>
-							<div
-								onClick={onSetFavorite?.bind(
-									this,
-									g.tpId,
-									g.gameId
-								)}
-								className={`icon icon-star-full${
-									isFavorite ? " active" : ""
-								}`}
-							/>
-						</div>
-
-						<div className="btnGroup">
-							<button
-								className="blue"
-								onClick={() =>
-									onClickPlay({
-										tpId: g.tpId,
-										gameId: g.gameId,
-										isFree: false,
-										delay: 5000,
-										isInMaintain: getIsInMaintain(g),
-										tpGameType: getTpGameType(g).tpGameType
-									})
-								}
-							>
-								{t("lbl_Play")}
-							</button>
-
-							{g.playFree ? (
+						{getIsInMaintain(g) && (
+							<div className="under">
+								{t("lbl_underMaintenance")}
+							</div>
+						)}
+						{activeCategory === "new" && (
+							<div className="new-icon">{t("lbl_New")}</div>
+						)}
+						<div className="img-wrapper">
+							<img src={_imgUrl} alt="" />
+							<div className="btn-container">
 								<button
-									className="blue"
+									className="btn-play"
 									onClick={() =>
 										onClickPlay({
 											tpId: g.tpId,
 											gameId: g.gameId,
-											isFree: true,
-											delay: 0,
+											isFree: false,
+											delay: 5000,
 											isInMaintain: getIsInMaintain(g),
 											tpGameType:
 												getTpGameType(g).tpGameType
 										})
 									}
 								>
-									{t("lbl_Demo")}
+									{t("lbl_Play")}
 								</button>
-							) : null}
+
+								{g.playFree ? (
+									<button
+										className="btn-demo"
+										onClick={() =>
+											onClickPlay({
+												tpId: g.tpId,
+												gameId: g.gameId,
+												isFree: true,
+												delay: 0,
+												isInMaintain:
+													getIsInMaintain(g),
+												tpGameType:
+													getTpGameType(g).tpGameType
+											})
+										}
+									>
+										{t("lbl_Demo")}
+									</button>
+								) : null}
+							</div>
 						</div>
-						<div className="under">{t("lbl_underMaintenance")}</div>
+						<div className="details">
+							<div>
+								<div>{gameDisplayName}</div>
+								<div>{gameProviderName}</div>
+							</div>
+							<div
+								className={classNames({ active: isFavorite })}
+								onClick={() => onSetFavorite(g.tpId, g.gameId)}
+							>
+								<img
+									src={`${bannerImgUrl}/desktop/img/4.0/lobby-slots/star-icon${
+										isFavorite ? "-active" : ""
+									}.png`}
+									alt=""
+								/>
+							</div>
+						</div>
 					</div>
 				);
 			});
 	return rows && rows.length > 0 ? (
-		<div className="slotList">
+		<div className="slots-list">
 			{rows}
 			<span ref={inViewRef} />
 		</div>
 	) : (
-		<div className="nodata icon icon-nodata">
+		<div className="nodata">
+			<img
+				src={`${bannerImgUrl}/desktop/img/4.0/nodata-icon.png`}
+				alt=""
+			/>
 			<div>{t("lbl_NoData")}</div>
 		</div>
 	);
@@ -150,9 +159,7 @@ const GameList = ({
 GameList.defaultProps = {
 	displayGames: null,
 	providerList: null,
-	langId: null,
 	onSetFavorite: () => null,
-	t: () => null,
 	onLoadMore: () => null,
 	onClickPlay: () => null,
 	filterJudge: () => null,
@@ -168,9 +175,7 @@ GameList.propTypes = {
 	displayGames: PropTypes.arrayOf(PropTypes.any),
 	providerList: PropTypes.arrayOf(PropTypes.any),
 	imgUrl: PropTypes.string.isRequired,
-	langId: PropTypes.string,
 	onSetFavorite: PropTypes.func,
-	t: PropTypes.func,
 	onLoadMore: PropTypes.func,
 	onClickPlay: PropTypes.func,
 	filterJudge: PropTypes.func,
