@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import Nav from "./casino.nav";
-import SearchBox from "./casino.searchBox";
 import GameList from "./casino.gamelist";
 import { defBannerType } from "../../service/api/site";
 import { api_account_SetFavoriteGame } from "../../service/api/account";
@@ -16,7 +15,6 @@ import defPopBoxType from "../common/defPopBoxType";
 import { defRowsPerPage, defSearchColumn } from "./casino.def";
 import SwipperBanner from "../common/swipperBanner";
 import TopQuickLink from "./casino.topQuickLink";
-import CasinoJackpot from "./casino.jackpot";
 import { api_game_GetSlotGamePage } from "../../service/api/game";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import {
@@ -31,6 +29,7 @@ import {
 	defTpGameType
 } from "../../datas/productList";
 import { getUrlParameter } from "../common/common";
+import { SearchBox } from "./casino.searchBox";
 
 export default () => {
 	const { t } = useTranslation();
@@ -48,10 +47,11 @@ export default () => {
 		[defSearchColumn.searchText]: "",
 		[defSearchColumn.provider]: { idx: 0, value: null }
 	});
-	const [initialSlide, setInitialSlide] = useState(9);
+	// const [initialSlide, setInitialSlide] = useState(9);
 	const [favoriteStr, setFavoriteStr] = useState(
 		localStorage.getItem("favorite")
 	);
+	const [isActiveDropdown, setIsActiveDropdown] = useState(false);
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -72,115 +72,6 @@ export default () => {
 	const urlProviderTpId = Object.values(defSlotTpGameType).find(
 		el => el.name.toUpperCase() === urlProvider.toUpperCase()
 	)?.tpId;
-	const slidesPerViewNum = 9;
-
-	useEffect(() => {
-		isMountedRef.current = true;
-		return () => {
-			isMountedRef.current = false;
-		};
-	});
-
-	useEffect(() => {
-		if (Object.keys(activeProvider).length > 0) {
-			const filterList = allCategoryList.filter(
-				obj =>
-					Object.keys(obj)[0] === "myFavorite" ||
-					Object.values(obj)[0].filter(
-						i => i.tpId === activeProvider.tpId
-					).length > 0
-			);
-			const miniItem = allCategoryList.find(
-				obj => Object.keys(obj)[0] === "mini"
-			);
-
-			if (
-				miniItem &&
-				Object.values(miniItem)[0].some(
-					({ tpId }) => tpId === activeProvider.tpId
-				)
-			) {
-				filterList.splice(2, 0, miniItem);
-				filterList.pop();
-			}
-
-			let totalData = [];
-			filterList.forEach(item => {
-				if (Object.keys(item)[0] === "all") {
-					totalData = Object.values(item)[0].filter(
-						i => i.tpId === activeProvider.tpId
-					);
-				}
-			});
-
-			if (totalData.length > 0) {
-				setCategoryList(filterList);
-				setActiveCategory("all");
-			} else {
-				setCategoryList([]);
-				setActiveCategory(null);
-			}
-		} else if (
-			Object.keys(activeProvider).length === 0 &&
-			tpGameTypeSettingList &&
-			tpGameTypeSettingList.length > 0
-		) {
-			const uniqueTpIds = Array.from(
-				new Set(
-					tpGameTypeSettingList.map(item => {
-						if (item.categoryId === defCategory.Slots) {
-							return item.tpId;
-						}
-					})
-				)
-			);
-			const unLimitTpGameTypeList = allCategoryList.filter(
-				categoryObj => {
-					const found = Object.values(categoryObj)[0].find(
-						({ tpId }) => !uniqueTpIds.includes(tpId)
-					);
-					return found !== undefined;
-				}
-			);
-			setCategoryList(unLimitTpGameTypeList);
-		} else {
-			setCategoryList(allCategoryList);
-		}
-	}, [activeProvider]);
-
-	useEffect(() => {
-		setLoading(true);
-		!isProcessing && getSlotData();
-		if (!userInfo.isLogin) {
-			localStorage.setItem("favorite", "");
-			setFavoriteStr("");
-		}
-	}, [userInfo.isLogin]);
-
-	useEffect(() => {
-		onChangeCategory(activeCategory);
-	}, [activeCategory, activeProvider]);
-
-	useEffect(() => {
-		if (
-			!(
-				Object.keys(activeProvider).length === 0 &&
-				activeCategory === "all"
-			)
-		) {
-			onChangeCategory(activeCategory);
-		}
-	}, [favoriteStr]);
-
-	useEffect(() => {
-		if (activeProvider.index !== undefined) {
-			const newInitialSlide =
-				Object.keys(activeProvider).length === 0
-					? slidesPerViewNum
-					: activeProvider.index - 2;
-			setInitialSlide(newInitialSlide);
-		}
-	}, [activeProvider]);
 
 	const loadMore = () => {
 		if (allGames && pageInfo.totalPages > pageInfo.currentPage) {
@@ -198,32 +89,26 @@ export default () => {
 	const randomArray = array => array.sort(() => Math.random() - 0.5);
 
 	const onChangeCategory = categoryName => {
-		let _displayGames = categoryList.filter(
-			item => Object.keys(item)[0] === categoryName
-		);
+		let _displayGames;
 		if (categoryName === "myFavorite") {
-			const storageStr = favoriteStr ?? "";
-			const storageList = storageStr.split("&") ?? [];
+			const storageList = (favoriteStr || "").split("&");
 			_displayGames = allGames.filter(item =>
 				storageList.includes(`${item.tpId}_${item.gameId}`)
 			);
-		} else if (
-			categoryName === "all" &&
-			Object.keys(activeProvider).length === 0
-		) {
-			_displayGames = randomArray(_displayGames[0]?.[activeCategory]);
 		} else {
-			_displayGames = _displayGames[0]?.[activeCategory];
+			const targetCategoryList = categoryList.find(
+				item => Object.keys(item)[0] === categoryName
+			);
+			_displayGames =
+				categoryName === "all" && !Object.keys(activeProvider).length
+					? randomArray(targetCategoryList?.[activeCategory])
+					: targetCategoryList?.[activeCategory];
 		}
-		const _totalPages =
-			_displayGames?.length === 0
-				? 1
-				: Math.ceil(_displayGames?.length / defRowsPerPage);
+		const _totalPages = _displayGames?.length
+			? Math.ceil(_displayGames?.length / defRowsPerPage)
+			: 1;
 
-		const _currentPage =
-			pageInfo.currentPage > _totalPages
-				? _totalPages
-				: pageInfo.currentPage;
+		const _currentPage = Math.min(pageInfo.currentPage, _totalPages);
 
 		if (
 			tpGameTypeSettingList &&
@@ -233,11 +118,9 @@ export default () => {
 		) {
 			const uniqueTpIds = Array.from(
 				new Set(
-					tpGameTypeSettingList.map(item => {
-						if (item.categoryId === defCategory.Slots) {
-							return item.tpId;
-						}
-					})
+					tpGameTypeSettingList
+						.filter(item => item.categoryId === defCategory.Slots)
+						.map(item => item.tpId)
 				)
 			);
 			_displayGames = _displayGames.filter(
@@ -254,32 +137,21 @@ export default () => {
 
 	const onSetFavorite = (tpId, gameId) => {
 		const key = `${tpId}_${gameId}`;
-		const storageStr = favoriteStr ?? "";
-		const storageList = storageStr.split("&") ?? [];
-
-		const handleIsFavorite = () => storageList?.includes(key);
-		const _isFavorite = handleIsFavorite();
+		const storageStr = favoriteStr || "";
+		const storageList = storageStr.split("&").filter(str => !!str);
+		const _isFavorite = storageList.includes(key);
 		const isRemove = _isFavorite;
-		const storageFavList = storageStr
-			.split("&")
-			.filter(str => !(str === ""));
 		let filterList;
 		if (_isFavorite) {
-			filterList = storageFavList.filter(item => item !== key);
+			filterList = storageList.filter(item => item !== key);
 			localStorage.setItem("favorite", filterList.join("&"));
 			setFavoriteStr(filterList.join("&"));
 		} else {
 			localStorage.setItem(
 				"favorite",
-				`${storageStr ?? ""}${
-					storageStr === "" ? "" : "&"
-				}${tpId}_${gameId}`
+				`${storageStr ?? ""}${storageStr ? "&" : ""}${key}`
 			);
-			setFavoriteStr(
-				`${storageStr ?? ""}${
-					storageStr === "" ? "" : "&"
-				}${tpId}_${gameId}`
-			);
+			setFavoriteStr(`${storageStr ?? ""}${storageStr ? "&" : ""}${key}`);
 		}
 		if (userInfo.isLogin) {
 			setIsProcessing(true);
@@ -330,14 +202,13 @@ export default () => {
 	};
 
 	const editSearchField = (column, value) => {
-		if (column === defSearchColumn.searchText) {
-			setSearchInfo(prevS => ({ ...prevS, [column]: value }));
-		} else {
-			setSearchInfo(prevS => ({
-				...prevS,
-				[column]: { idx: value, value: tpOptions[value].id }
-			}));
-		}
+		setSearchInfo(prev => ({
+			...prev,
+			[column]:
+				column === defSearchColumn.searchText
+					? value
+					: { idx: value, value: tpOptions[value].id }
+		}));
 	};
 	const getSlotData = async () => {
 		setIsProcessing(true);
@@ -610,98 +481,196 @@ export default () => {
 	};
 	const handleProviderChange = provider => {
 		editSearchField("searchText", "");
-		let noSelect = false;
 		if (tpGameTypeSettingList && tpGameTypeSettingList.length > 0) {
-			tpGameTypeSettingList.forEach(settingItem => {
-				if (settingItem.tpId === provider.tpId && settingItem.noPlay) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.Success,
-						icon: "icon icon-bell",
-						description: (
-							<div style={{ color: "red" }}>
-								{t("lbl_InaccessibleWithoutPermission")}
-							</div>
-						),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-check"
-									onClick={() => {
-										setPopBox({ isOpen: false });
-									}}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
-					noSelect = true;
-				}
-			});
-		}
-		if (!isProcessing && !noSelect) {
-			setActiveProvider(provider);
+			const hasNoPlayPermission = tpGameTypeSettingList.some(
+				settingItem =>
+					settingItem.tpId === provider.tpId && settingItem.noPlay
+			);
+			if (hasNoPlayPermission) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Success,
+					icon: "icon icon-bell",
+					description: (
+						<div style={{ color: "red" }}>
+							{t("lbl_InaccessibleWithoutPermission")}
+						</div>
+					),
+					btnBar: (
+						<div className="btnGroup">
+							<button
+								className="btn-check"
+								onClick={() => {
+									setPopBox({ isOpen: false });
+								}}>
+								{t("lbl_Close")}
+							</button>
+						</div>
+					)
+				});
+			}
+		} else {
+			!isProcessing && setActiveProvider(provider);
 		}
 	};
 
+	const onToggleDropdown = () => {
+		setIsActiveDropdown(prev => !prev);
+	};
+
+	useEffect(() => {
+		// 當指定廠牌不在頁面上時,展開下拉
+		if (
+			urlProviderTpId &&
+			providerList.findIndex(({ tpId }) => tpId === urlProviderTpId) > 5
+		) {
+			setIsActiveDropdown(true);
+		}
+	}, [providerList.length]);
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
+		if (Object.keys(activeProvider).length > 0) {
+			const filterList = allCategoryList.filter(
+				obj =>
+					Object.keys(obj)[0] === "myFavorite" ||
+					Object.values(obj)[0].filter(
+						i => i.tpId === activeProvider.tpId
+					).length > 0
+			);
+			const miniItem = allCategoryList.find(
+				obj => Object.keys(obj)[0] === "mini"
+			);
+
+			if (
+				miniItem &&
+				Object.values(miniItem)[0].some(
+					({ tpId }) => tpId === activeProvider.tpId
+				)
+			) {
+				filterList.splice(2, 0, miniItem);
+				filterList.pop();
+			}
+
+			let totalData = [];
+			filterList.forEach(item => {
+				if (Object.keys(item)[0] === "all") {
+					totalData = Object.values(item)[0].filter(
+						i => i.tpId === activeProvider.tpId
+					);
+				}
+			});
+
+			if (totalData.length > 0) {
+				setCategoryList(filterList);
+				setActiveCategory("all");
+			} else {
+				setCategoryList([]);
+				setActiveCategory(null);
+			}
+		} else if (
+			!Object.keys(activeProvider).length &&
+			tpGameTypeSettingList &&
+			tpGameTypeSettingList.length > 0
+		) {
+			const uniqueTpIds = Array.from(
+				new Set(
+					tpGameTypeSettingList
+						.filter(item => item.categoryId === defCategory.Slots)
+						.map(item => item.tpId)
+				)
+			);
+			const unLimitTpGameTypeList = allCategoryList.filter(
+				categoryObj => {
+					const found = Object.values(categoryObj)[0].find(
+						({ tpId }) => !uniqueTpIds.includes(tpId)
+					);
+					return found !== undefined;
+				}
+			);
+			setCategoryList(unLimitTpGameTypeList);
+		} else {
+			setCategoryList(allCategoryList);
+		}
+	}, [activeProvider]);
+
+	useEffect(() => {
+		setLoading(true);
+		!isProcessing && getSlotData();
+		if (!userInfo.isLogin) {
+			localStorage.setItem("favorite", "");
+			setFavoriteStr("");
+		}
+	}, [userInfo.isLogin]);
+
+	useEffect(() => {
+		onChangeCategory(activeCategory);
+	}, [activeCategory, activeProvider]);
+
+	useEffect(() => {
+		if (
+			!(!Object.keys(activeProvider).length && activeCategory === "all")
+		) {
+			onChangeCategory(activeCategory);
+		}
+	}, [favoriteStr]);
+
 	return loading ? null : (
 		<>
-			<SwipperBanner
-				ImgFolder={[defBannerType.Slots]}
-				openInBlank={true}
-			/>
-			<section className="inside">
-				<div className="rightModule">
-					<CasinoJackpot t={t} userInfo={userInfo} />
-
-					<div className="infoModule">
-						<TopQuickLink
-							lobbyImgList={providerList}
-							activeProvider={activeProvider}
-							onChange={handleProviderChange}
-							langId={userInfo.langId}
-							initialSlide={initialSlide}
-							slidesPerViewNum={slidesPerViewNum}
-						/>
-						<div className="casinoSelect">
-							<Nav
-								categoryList={categoryList}
-								activeCategory={activeCategory}
-								onChange={handleCategoryChange}
-								t={t}
-								isProcessing={isProcessing}
-								memberType={userInfo.memberType}
-							/>
-							<SearchBox
-								t={t}
-								searchInfo={searchInfo}
-								editSearchField={editSearchField}
-							/>
-						</div>
-						<GameList
-							t={t}
-							imgUrl={imgUrl}
-							displayGames={displayGames}
-							providerList={providerList}
-							activeProvider={activeProvider}
-							langId={userInfo.langId}
-							currentPage={pageInfo.currentPage}
-							onSetFavorite={isProcessing ? null : onSetFavorite}
-							onLoadMore={loadMore}
-							searchText={searchInfo.searchText}
-							isProcessing={isProcessing}
-							onClickPlay={onClickPlay}
-							filterJudge={filterJudge}
-							startIdx={startIdx}
-							endIdx={endIdx}
-							getIsInMaintain={getIsInMaintain}
-							getTpGameType={getTpGameType}
-							activeCategory={activeCategory}
-							favoriteStr={favoriteStr ?? ""}
-						/>
-					</div>
+			<div className="lobby-banner">
+				<SwipperBanner
+					ImgFolder={[defBannerType.Slots]}
+					openInBlank={true}
+					className="swiper-casino"
+				/>
+			</div>
+			<div className="lobby-content slots">
+				<div className="top">
+					<SearchBox
+						searchInfo={searchInfo}
+						editSearchField={editSearchField}
+					/>
+					<TopQuickLink
+						lobbyImgList={providerList}
+						activeProvider={activeProvider}
+						isActiveDropdown={isActiveDropdown}
+						onChange={handleProviderChange}
+						onToggleDropdown={onToggleDropdown}
+					/>
 				</div>
-			</section>
+				<Nav
+					categoryList={categoryList}
+					activeCategory={activeCategory}
+					onChange={handleCategoryChange}
+					isProcessing={isProcessing}
+					memberType={userInfo.memberType}
+				/>
+				<GameList
+					imgUrl={imgUrl}
+					displayGames={displayGames}
+					providerList={providerList}
+					activeProvider={activeProvider}
+					currentPage={pageInfo.currentPage}
+					onSetFavorite={isProcessing ? null : onSetFavorite}
+					onLoadMore={loadMore}
+					searchText={searchInfo.searchText}
+					isProcessing={isProcessing}
+					onClickPlay={onClickPlay}
+					filterJudge={filterJudge}
+					startIdx={startIdx}
+					endIdx={endIdx}
+					getIsInMaintain={getIsInMaintain}
+					getTpGameType={getTpGameType}
+					activeCategory={activeCategory}
+					favoriteStr={favoriteStr ?? ""}
+				/>
+			</div>
 		</>
 	);
 };

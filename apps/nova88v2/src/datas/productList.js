@@ -171,6 +171,11 @@ export default {
 		gameId: "ESPORTSBULL",
 		tpGameType: 102
 	},
+	TFGaming: {
+		tpId: 48,
+		gameId: 0,
+		tpGameType: 97
+	},
 
 	/* === 2.  slot === */
 
@@ -556,6 +561,11 @@ export default {
 	games_kingMaker: {
 		tpId: 11,
 		tpGameType: 52
+	},
+	games_V8Poker: {
+		tpId: 25,
+		tpGameType: 47,
+		gameId: 0
 	},
 	games_MPoker: {
 		tpId: 35,

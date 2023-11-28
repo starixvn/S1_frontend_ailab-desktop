@@ -11,10 +11,10 @@ import {
 	productTpGameTypeSettingListContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
-import LotteryBanner from "./lottery.banner";
-import LotterySwiper from "./lottery.swiper";
+import LotteryList from "./lotteryList";
 import { defTpGameType } from "../../datas/productList";
 import { useGameMenu } from "../hook/useGameMenu";
+import { bannerImgUrl } from "../../config";
 
 const Lottery = () => {
 	const { t } = useTranslation();
@@ -64,7 +64,8 @@ const Lottery = () => {
 							className="btn-check"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -129,18 +130,27 @@ const Lottery = () => {
 	return (
 		(productTpIds || userInfo.isLogin === false) && (
 			<>
-				<LotteryBanner t={t} />
-
-				<section className="inside">
-					<div className="rightModule">
-						<LotterySwiper
-							t={t}
-							lotterySubMenu={lotterySubMenu}
-							tpGameTypeSettingList={tpGameTypeSettingList}
-							clickItem={clickItem}
-						/>
+				<div className="lobby-banner">
+					<div className="swiper-container">
+						<div className="swiper-wrapper">
+							<div className="swiper-slide">
+								<img
+									src={`${bannerImgUrl}/desktop/img/4.0/lobby-lottery/lotterylobby_bn.png`}
+									alt="lotterylobby_bn"
+								/>
+							</div>
+						</div>
 					</div>
-				</section>
+				</div>
+
+				<div className="lobby-content">
+					<LotteryList
+						t={t}
+						lotterySubMenu={lotterySubMenu}
+						tpGameTypeSettingList={tpGameTypeSettingList}
+						clickItem={clickItem}
+					/>
+				</div>
 			</>
 		)
 	);

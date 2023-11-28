@@ -1,132 +1,104 @@
-import React, { useContext, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation } from "swiper";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import classNames from "classnames";
 import { bannerImgUrl } from "../../config";
 import { userInfoContext } from "../common/context";
 import { defSlotTpGameType } from "../../datas/productList";
 
-SwiperCore.use([Navigation]);
-
 const TopQuickLink = ({
 	lobbyImgList,
 	activeProvider,
+	isActiveDropdown,
 	onChange,
-	langId,
-	initialSlide,
-	slidesPerViewNum
+	onToggleDropdown
 }) => {
-	const { userInfo } = useContext(userInfoContext);
-	const [hoverImg, setHoverImg] = useState(null);
-	const handleOnMouseOverImg = imgName => {
-		setHoverImg(`${imgName}`);
-	};
-	const dataRows =
-		lobbyImgList.length > slidesPerViewNum
-			? lobbyImgList
-			: [...lobbyImgList, ...lobbyImgList];
-	const Rows = dataRows.map((_item, idx) => {
-		const _srcImg =
-			hoverImg === _item.tpName || activeProvider.tpId === _item.tpId
-				? `${_item.imgName}a`
-				: _item.imgName;
-
-		const content = (
-			<Link
-				to={
-					_item?.openPath
-						? `/${userInfo.langId}/${_item?.openPath}`
-						: `/${userInfo.langId}/slots?tpId=${
-								_item.tpId
-						  }&tpGameType=${
-								defSlotTpGameType[_item?.tpName]?.tpGameType
-						  }`
-				}>
-				<img
-					src={`${bannerImgUrl}/desktop/img/venderlogo/${_srcImg}.png`}
-					alt={_item.tpName}
-				/>
-				<div>{_item.displayText}</div>
-			</Link>
-		);
-
-		return (
-			// eslint-disable-next-line react/no-array-index-key
-			<SwiperSlide key={`slot-swiper-${_item.tpId}-${idx}`}>
-				<div className="swiper-slide">
-					{_item.openPath ? (
-						<Link
-							className={
-								activeProvider.tpId === _item.tpId
-									? "active"
-									: ""
-							}
-							to={`/${langId}/${_item.openPath}`}>
-							{content}
-						</Link>
-					) : (
-						<button
-							onClick={() => {
-								onChange(
-									_item.tpId === activeProvider.tpId
-										? {}
-										: _item
-								);
-							}}
-							className={
-								activeProvider.tpId === _item.tpId
-									? "active"
-									: ""
-							}
-							onMouseOver={handleOnMouseOverImg.bind(
-								this,
-								_item.tpName
-							)}
-							onMouseOut={handleOnMouseOverImg.bind(this, "")}
-							onBlur={() => 0}
-							onFocus={() => 0}>
-							{content}
-						</button>
-					)}
-				</div>
-			</SwiperSlide>
-		);
-	});
-
-	const params = {
-		spaceBetween: 0,
-		slidesPerView: slidesPerViewNum,
-		loop: true
-	};
+	const {
+		userInfo: { langId }
+	} = useContext(userInfoContext);
 
 	return (
-		<div className="partnerSelect">
-			<Swiper
-				className="swiper-container"
-				key={initialSlide}
-				initialSlide={initialSlide}
-				navigation={true}
-				{...params}>
-				{Rows}
-			</Swiper>
+		<div
+			className={`provider ${classNames({
+				active: isActiveDropdown
+			})}`}
+		>
+			<div className="provider-list">
+				{lobbyImgList.map(
+					({
+						imgName,
+						tpName,
+						displayText,
+						openPath,
+						tpId,
+						...rest
+					}) => {
+						return openPath ? (
+							<Link
+								key={`${tpName}_${tpId}`}
+								className={`${classNames("provider-list-item", {
+									active: activeProvider.tpId === tpId
+								})}`}
+								to={`/${langId}/${openPath}`}
+							>
+								<div>
+									<img
+										src={`${bannerImgUrl}/desktop/img/4.0/lobby-slots/provider-logo/${imgName}.png`}
+										alt={tpName}
+									/>
+								</div>
+								<div>{displayText}</div>
+							</Link>
+						) : (
+							<Link
+								key={`${tpName}_${tpId}`}
+								to={`/${langId}/slots?tpId=${tpId}&tpGameType=${defSlotTpGameType[tpName]?.tpGameType}`}
+								className={`${classNames("provider-list-item", {
+									active: activeProvider.tpId === tpId
+								})}`}
+								onClick={() =>
+									onChange(
+										tpId === activeProvider.tpId
+											? {}
+											: {
+													imgName,
+													tpName,
+													displayText,
+													openPath,
+													tpId,
+													...rest
+											  }
+									)
+								}
+							>
+								<div>
+									<img
+										src={`${bannerImgUrl}/desktop/img/4.0/lobby-slots/provider-logo/${imgName}.png`}
+										alt={tpName}
+									/>
+								</div>
+								<div>{displayText}</div>
+							</Link>
+						);
+					}
+				)}
+			</div>
+			<button onClick={() => onToggleDropdown(prev => !prev)}>
+				<img
+					src={`${bannerImgUrl}/desktop/img/4.0/lobby-slots/down.png`}
+					alt=""
+				/>
+			</button>
 		</div>
 	);
-};
-
-TopQuickLink.defaultProps = {
-	langId: null,
-	initialSlide: null,
-	slidesPerViewNum: null
 };
 
 TopQuickLink.propTypes = {
 	lobbyImgList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	activeProvider: PropTypes.objectOf(PropTypes.any).isRequired,
+	isActiveDropdown: PropTypes.bool.isRequired,
 	onChange: PropTypes.func.isRequired,
-	langId: PropTypes.string,
-	initialSlide: PropTypes.number,
-	slidesPerViewNum: PropTypes.number
+	onToggleDropdown: PropTypes.func.isRequired
 };
 
 export default TopQuickLink;

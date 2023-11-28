@@ -10,12 +10,10 @@ import {
 	maintainListContext,
 	productTpGameTypeSettingListContext
 } from "../common/context";
-
+import { bannerImgUrl } from "../../config";
 import defPopBoxType from "../common/defPopBoxType";
 import { useGotoGame } from "../hook/useGotoGame";
 import { useGameMenu } from "../hook/useGameMenu";
-
-import LivecasinoNewBanner from "./livecasinoNew.banner";
 import LivecasinoNewList from "./livecasinoNew.list";
 
 export default () => {
@@ -69,7 +67,8 @@ export default () => {
 							className="btn-check"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -133,21 +132,28 @@ export default () => {
 
 	return (
 		<>
-			<LivecasinoNewBanner t={t} langId={userInfo.langId} />
-
-			<section className="inside">
-				<div className="rightModule">
-					<div className="livecasino newDesign">
-						<LivecasinoNewList
-							listData={subMenu}
-							maintainList={allMaintainList}
-							tpGameTypeSettingList={tpGameTypeSettingList}
-							clickItem={clickItem}
-							t={t}
-						/>
+			<div className="lobby-banner">
+				<div className="swiper-container">
+					<div className="swiper-wrapper">
+						<div className="swiper-slide">
+							<img
+								src={`${bannerImgUrl}/desktop/img/4.0/lobby-livecasino/livecasinolobby-bn.png`}
+								alt="livecasinolobby-bn"
+							/>
+						</div>
 					</div>
 				</div>
-			</section>
+			</div>
+
+			<div className="lobby-content">
+				<LivecasinoNewList
+					liveCasinoSubMenu={subMenu}
+					maintainList={allMaintainList}
+					tpGameTypeSettingList={tpGameTypeSettingList}
+					clickItem={clickItem}
+					t={t}
+				/>
+			</div>
 		</>
 	);
 };
