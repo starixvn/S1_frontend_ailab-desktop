@@ -28,7 +28,7 @@ const fakeData = {
 	isUSDT: false
 };
 
-const userValue ={
+const userValue = {
 	username: "",
 	password: "",
 	email: "",
@@ -39,7 +39,7 @@ const userValue ={
 	ageCheck: false,
 	termsCheck: false,
 	specialBonusCode: null
-},
+};
 
 const tip = {
 	username: { checked: null, msg: "testValue" },
@@ -54,7 +54,9 @@ const tip = {
 
 describe("function-openLogin", () => {
 	test("if click Login Here, function-openLogin toHaveBeenCalled", () => {
-		const { container } = render(<JoinForm {...fakeData} tip={tip} userValue={userValue} />);
+		const { container } = render(
+			<JoinForm {...fakeData} tip={tip} userValue={userValue} />
+		);
 		const button_LoginHere = container.getElementsByTagName("button")[0];
 		fireEvent.click(button_LoginHere);
 		expect(fakeData.openLogin).toHaveBeenCalled();
@@ -63,7 +65,9 @@ describe("function-openLogin", () => {
 
 describe("input onChange", () => {
 	test("function-EditField toHaveBeenCalled", () => {
-		const { container } = render(<JoinForm {...fakeData} tip={tip} userValue={userValue} />);
+		const { container } = render(
+			<JoinForm {...fakeData} tip={tip} userValue={userValue} />
+		);
 		const allInputs = container.getElementsByTagName("input");
 		const first_input = allInputs[0];
 		fireEvent.change(first_input, { target: { value: "testValue" } });
@@ -74,7 +78,9 @@ describe("input onChange", () => {
 describe("click info icon", () => {
 	afterEach(cleanup);
 	test("if click info icon, function-clickInfo() toHaveBeenCalled", () => {
-		const { container } = render(<JoinForm {...fakeData} tip={tip} userValue={userValue} />);
+		const { container } = render(
+			<JoinForm {...fakeData} tip={tip} userValue={userValue} />
+		);
 		const allInfoIcons = container.getElementsByClassName(
 			"icon icon-information"
 		);
@@ -85,7 +91,9 @@ describe("click info icon", () => {
 	});
 
 	test("if click info icon, show tip text", () => {
-		const { container } = render(<JoinForm {...fakeData} tip={tip} userValue={userValue} />);
+		const { container } = render(
+			<JoinForm {...fakeData} tip={tip} userValue={userValue} />
+		);
 		const allInfoIcon = container.getElementsByClassName(
 			"icon icon-information"
 		);
@@ -99,11 +107,12 @@ describe("click info icon", () => {
 
 describe("function-onSelectItem", () => {
 	test("if click dropdown, function-clickDropdown toHaveBeenCalled", () => {
-		const { container } = render(<JoinForm {...fakeData} tip={tip} userValue={userValue} />);
+		const { container } = render(
+			<JoinForm {...fakeData} tip={tip} userValue={userValue} />
+		);
 		const dropdown = container.getElementsByClassName("dropdown")[0];
-		const dropdownContainer = container.getElementsByClassName(
-			"dropdown-container"
-		)[0];
+		const dropdownContainer =
+			container.getElementsByClassName("dropdown-container")[0];
 		fireEvent.click(dropdown);
 		expect(dropdownContainer.className.includes("active")).toBe(true);
 	});
@@ -111,7 +120,9 @@ describe("function-onSelectItem", () => {
 
 describe("function-showPswHandler", () => {
 	test("if click eye icon, function-showPswHandler toHaveBeenCalled", () => {
-		const { container } = render(<JoinForm {...fakeData} tip={tip} userValue={userValue} />);
+		const { container } = render(
+			<JoinForm {...fakeData} tip={tip} userValue={userValue} />
+		);
 		const iconEye = container.getElementsByClassName(
 			"icon icon-eye-blocked"
 		)[0];
@@ -132,20 +143,25 @@ describe("phone input display", () => {
 		ageCheck: false,
 		termsCheck: false,
 		specialBonusCode: null
-	}
+	};
 	test("if currency is filled, phone input will display", () => {
-		const { container } = render(<JoinForm {...fakeData} tip={tip} userValue={userValue_hasCurrency} />);
-		const phoneInput = container.getElementsByClassName(
-			"phone"
-		)[0];
+		const { container } = render(
+			<JoinForm
+				{...fakeData}
+				tip={tip}
+				userValue={userValue_hasCurrency}
+			/>
+		);
+		const phoneInput = container.getElementsByClassName("phone")[0];
 		expect(phoneInput).toBeTruthy();
 	});
 });
 
-
 describe("click submit", () => {
 	test("if click submit button function-clickSubmit toHaveBeenCalled", () => {
-		const { container } = render(<JoinForm {...fakeData} tip={tip} userValue={userValue} />);
+		const { container } = render(
+			<JoinForm {...fakeData} tip={tip} userValue={userValue} />
+		);
 		const btnGroup = container.getElementsByClassName("btnGroup")[0];
 		const submitBtn = btnGroup.lastChild;
 		fireEvent.click(submitBtn);
@@ -155,7 +171,9 @@ describe("click submit", () => {
 
 describe("click cancel", () => {
 	test("if click cancel button function-clickCancel toHaveBeenCalled", () => {
-		const { container } = render(<JoinForm {...fakeData} tip={tip} userValue={userValue} />);
+		const { container } = render(
+			<JoinForm {...fakeData} tip={tip} userValue={userValue} />
+		);
 		const btnGroup = container.getElementsByClassName("btnGroup")[0];
 		const submitBtn = btnGroup.firstChild;
 		fireEvent.click(submitBtn);
@@ -178,7 +196,7 @@ describe("show icon-cross", () => {
 		const { container } = render(
 			<JoinForm {...fakeData} tip={tip_false} userValue={userValue} />
 		);
-		
+
 		const submitBtn = container.getElementsByTagName("button")[0];
 		const allIcon = container.getElementsByClassName("iconModule")[0];
 		fireEvent.click(submitBtn);

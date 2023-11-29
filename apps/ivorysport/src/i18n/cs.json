@@ -1143,6 +1143,6 @@
 		"lbl_Product": "产品",
 		"lbl_GameName": "游戏名称"
 	},
-
+	"Label_Header_WinLossAmountHint": "注：由于四舍五入的问题，投注的输赢金额可能会有一些差异。",
 	"end-----": "end-----"
 }
