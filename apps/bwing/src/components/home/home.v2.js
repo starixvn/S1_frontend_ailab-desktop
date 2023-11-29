@@ -130,21 +130,23 @@ const Home = () => {
 			});
 			setHotEventList(data ?? []);
 		} catch (error) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.ErrorMsg,
-				message: t("msg_ApiServerError"),
-				btnBar: (
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}
-						>
-							{t("lbl_Close")}
-						</button>
-					</div>
-				)
-			});
+			// * getHotEventList 會定期更新資料，目前有收到市場回饋首頁有情境會出現「 Oops something wrong 」 的錯誤訊息
+			// * 因此跟 announce 一樣先關閉錯誤訊息，讓邏輯變為「 api 成功時就更新資料」
+			// setPopBox({
+			// 	isOpen: true,
+			// 	popBoxType: defPopBoxType.ErrorMsg,
+			// 	message: t("msg_ApiServerError"),
+			// 	btnBar: (
+			// 		<div className="btnGroup">
+			// 			<button
+			// 				className="btn-cancel"
+			// 				onClick={() => setPopBox({ isOpen: false })}
+			// 			>
+			// 				{t("lbl_Close")}
+			// 			</button>
+			// 		</div>
+			// 	)
+			// });
 		}
 	};
 
