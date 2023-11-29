@@ -1333,7 +1333,8 @@ header input:focus-within {
 }
 .header > div.function .wallet .icon-plus,
 .header > div.function .wallet .icon-minus,
-.header > div.function .wallet .icon-spinner11 {
+.header > div.function .wallet .icon-spinner11,
+.header > div.function .wallet .icon-information {
   background: #1a3732;
   border-radius: 30px;
   display: -webkit-box;
@@ -1351,8 +1352,40 @@ header input:focus-within {
 }
 .header > div.function .wallet .icon-plus:before,
 .header > div.function .wallet .icon-minus:before,
-.header > div.function .wallet .icon-spinner11:before {
+.header > div.function .wallet .icon-spinner11:before,
+.header > div.function .wallet .icon-information:before {
   color: white;
+}
+.header > div.function .wallet .icon-information {
+  background: transparent;
+  position: relative;
+}
+.header > div.function .wallet .icon-information:before {
+  color: #1a3732;
+  font-size: 18px;
+}
+.header > div.function .wallet .icon-information:hover .note {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.header > div.function .wallet .note {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  top: 25px;
+  left: -25px;
+  background: rgb(204, 230, 225);
+  width: 300px;
+  border-radius: 5px;
+  padding: 5px 8px;
+  font-size: 13px;
+  text-align: left;
+  white-space: wrap;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  z-index: 1;
 }
 .header > div.function .wallet .icon-spinner11 {
   background: #f8b82e;

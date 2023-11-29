@@ -156,6 +156,13 @@ class Dropdown extends Component {
 							  )
 					} ${isHideBalance ? "" : balance}`}
 				</span>
+
+				<button className="icon icon-information">
+					<div className="note">
+						{this.props.i18n("Label_Header_WinLossAmountHint")}
+					</div>
+				</button>
+
 				<button
 					aria-label="HandleDisplayBalance"
 					value={!isHideBalance}

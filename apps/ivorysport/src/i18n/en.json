@@ -49,7 +49,7 @@
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "Badminton",
 	"lbl_Baseball": "Baseball",
-	"lbl_IceHockey" : "Ice Hockey",
+	"lbl_IceHockey": "Ice Hockey",
 	"lbl_BaseballBetting": "Baseball Betting",
 	"lbl_Basketball": "Basketball",
 	"lbl_BasketballBetting": "Basketball Betting",
@@ -1148,5 +1148,6 @@
 		"lbl_GameName": "Game Name"
 	},
 
+	"Label_Header_WinLossAmountHint": "Note: The win loss amount of the bets may have some difference due to the rounding issue.",
 	"end-----": "end-----"
 }
