@@ -17,7 +17,6 @@ import BankCard from "./withdrawal.set.card.bank";
 import CryptoCard from "./withdrawal.set.card.crypto";
 import path from "../../router";
 import ECard from "./withdrawal.set.card.E";
-import allowedCurrencyList from "../../datas/allowedCurrencyList";
 import { WITHDRAWAL_BLOCK_SETTING_TYPE } from "./withdrawal.defStep";
 
 const CardPanel = ({
@@ -298,32 +297,29 @@ const CardPanel = ({
 
 	return (
 		<>
-			{allowedCurrencyList.bankCard.includes(userInfo.currencyId) &&
-				displayBankCard && (
-					<BankCard
-						t={t}
-						state={state}
-						defPanel={defPanel}
-						custBankInfo={custBankInfo}
-						addBankAccount={addBankAccount}
-						selectAccount={selectAccount}
-						delAccount={delAccount}
-						isIfscRequired={isIfscRequired}
-					/>
-				)}
-			{allowedCurrencyList.eWallet.includes(userInfo.currencyId) &&
-				state.eWalletStatus &&
-				displayEWallet && (
-					<ECard
-						t={t}
-						state={state}
-						defPanel={defPanel}
-						custEWalletInfo={custEWalletInfo}
-						addEAccount={addEAccount}
-						selectAccount={selectAccount}
-						delAccount={delEWallet}
-					/>
-				)}
+			{displayBankCard && (
+				<BankCard
+					t={t}
+					state={state}
+					defPanel={defPanel}
+					custBankInfo={custBankInfo}
+					addBankAccount={addBankAccount}
+					selectAccount={selectAccount}
+					delAccount={delAccount}
+					isIfscRequired={isIfscRequired}
+				/>
+			)}
+			{state.eWalletStatus && displayEWallet && (
+				<ECard
+					t={t}
+					state={state}
+					defPanel={defPanel}
+					custEWalletInfo={custEWalletInfo}
+					addEAccount={addEAccount}
+					selectAccount={selectAccount}
+					delAccount={delEWallet}
+				/>
+			)}
 			{displayCrypto && (
 				<CryptoCard
 					userInfo={userInfo}

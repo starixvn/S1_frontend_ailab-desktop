@@ -49,22 +49,6 @@ const allowedCurrencyList = {
 	],
 
 	// ==== withdrawal method ====
-	bankCard: [
-		defCurrencyList.MYR,
-		defCurrencyList.THB,
-		defCurrencyList.IDR,
-		defCurrencyList.INR,
-		defCurrencyList.KHM,
-		defCurrencyList.VND,
-		defCurrencyList.CNY
-	],
-	eWallet: [
-		defCurrencyList.IDR,
-		defCurrencyList.BDT,
-		defCurrencyList.MYR,
-		defCurrencyList.THB,
-		defCurrencyList.VND
-	],
 	allbet: [
 		defCurrencyList.IDR,
 		defCurrencyList.MYR,
