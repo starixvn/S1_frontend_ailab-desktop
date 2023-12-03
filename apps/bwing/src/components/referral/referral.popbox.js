@@ -17,8 +17,7 @@ export default () => {
 			onClick={closePopBox}
 			className={`popup promotionpop refferalpop${
 				popBox.isOpen || openReferralBox ? " active" : ""
-			}`}
-		>
+			}`}>
 			{referralBox.content}
 		</div>
 	);
@@ -39,46 +38,6 @@ export const ReferralPopBox = ({ data, closePopBox, t }) => (
 				<div className="title">{data.referralContent?.title}</div>
 				<div className="subtitle">
 					{data.referralContent?.description}
-				</div>
-			</div>
-		</div>
-
-		<div className="promotionpop-info">
-			<div className="promotionpop-info-item">
-				<div>{t("lbl_ReferralReward")}</div>
-				<div>{data.referralReward}</div>
-			</div>
-			<div className="promotionpop-info-item">
-				<div>{t("lbl_FriendsInvitationLimit")}</div>
-				<div>{data.invitationLimit}</div>
-			</div>
-			<div className="promotionpop-info-item">
-				<div>{t("lbl_DepositRequirement")}</div>
-				<div>{data.agentDeposit}</div>
-			</div>
-			<div className="promotionpop-info-item">
-				<div>{t("lbl_ValidBetRequirement")}</div>
-				<div>{data.agentValidBet}</div>
-			</div>
-		</div>
-
-		<div className="promotionpop-info">
-			<div className="promotionpop-info-item">
-				<div>{t("lbl_ReferredFreeCredit")}</div>
-				<div>{data.memberReward}</div>
-			</div>
-			<div className="promotionpop-info-item">
-				<div>{t("lbl_DepositRequirement")}</div>
-				<div>{data.deposit}</div>
-			</div>
-			<div className="promotionpop-info-item">
-				<div>{t("lbl_ValidBetRequirement")}</div>
-				<div>{data.vaildBet}</div>
-			</div>
-			<div className="promotionpop-info-item">
-				<div>{t("lbl_TermPeriodWithin")}</div>
-				<div>
-					{data.periodDays} ({t("lbl_Days")})
 				</div>
 			</div>
 		</div>

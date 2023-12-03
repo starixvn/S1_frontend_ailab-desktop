@@ -1019,20 +1019,6 @@ export const defMenuLinks = langId => ({
 					bgImg: `${bannerImgUrl}/desktop/img/fishing/oneshot.png`,
 					providerImg: "cq9"
 				}
-			},
-			{
-				...productList.fishing,
-				className: "fgg",
-				displayKey: "lbl_FishingGG",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.fishing },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishingworld.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishingworld-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/gg-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/fishingworld.png`,
-					providerImg: "gg"
-				}
 			}
 			// {
 			// 	...productList.CQ9_LuckyFishing,

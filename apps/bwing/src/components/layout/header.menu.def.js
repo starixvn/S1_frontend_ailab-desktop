@@ -892,18 +892,6 @@ export const defMenuLinks = {
 				img: "fishing/fg.png"
 			},
 			{
-				...productList.fishing,
-				className: "fs-world",
-				displayKey: "lbl_FishingGG",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.fishing },
-				lobbyPage: {
-					bgClass: "fish-world"
-				},
-				lobbyImg: "fo.png",
-				img: "fishing/fo.png"
-			},
-			{
 				...productList.fishing_Zombie_Party,
 				className: "fs-zp",
 				displayKey: "lbl_Fishing_Zombie_Party",

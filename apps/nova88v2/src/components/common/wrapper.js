@@ -579,7 +579,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	// * 補語系 url
 	useEffect(() => {
-		if (userInfo.langId && userInfo.langId !== pathLang) {
+		if (userInfo.langId && !pathLang) {
 			navigate(`/${userInfo.langId}`);
 		}
 	}, [pathLang, userInfo.langId, userInfo.isLogin]);

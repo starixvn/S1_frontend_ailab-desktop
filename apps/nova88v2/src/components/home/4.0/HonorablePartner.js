@@ -9,7 +9,6 @@ import { useAuth } from "../../hook";
 import { SET_ENTER_PAGE } from "../../../service/enterPage";
 import defPopBoxType from "../../common/defPopBoxType";
 import usePopBox from "../../hook/usePopBox";
-import allowedCurrencyList from "../../../datas/allowedCurrencyList";
 
 const HonorablePartner = () => {
 	const { t } = useTranslation();
@@ -245,17 +244,21 @@ const HonorablePartner = () => {
 			{
 				...productList.games_V8Poker,
 				imgName: "v8",
-				allowCurrencies: allowedCurrencyList.V8Poker
+				allowCurrencies: [
+					defCurrencyList.MYR,
+					defCurrencyList.USD,
+					defCurrencyList.THB,
+					defCurrencyList.IDR,
+					defCurrencyList.INR,
+					defCurrencyList.CNY,
+					defCurrencyList.KHM,
+					defCurrencyList.VND,
+					defCurrencyList.USDT
+				]
 			},
 			{
 				...productList.TFGaming,
 				imgName: "tfg"
-			},
-			{
-				...productList.casino_NoLimitCity,
-				path: paths.casino.root,
-				parameter: { ...productList.casino_NoLimitCity },
-				imgName: "nlc"
 			}
 		];
 
