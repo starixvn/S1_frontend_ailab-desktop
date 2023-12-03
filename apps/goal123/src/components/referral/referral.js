@@ -2,55 +2,31 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import {
 	api_account_GetReferralCode,
-	api_account_GetReferralSetting,
+	api_account_GetReferralSettingDetail,
 	api_account_GetReferralSummary
 } from "../../service/api/account";
-import { loadingContext, userInfoContext } from "../common/context";
+import {
+	loadingContext,
+	referralPopBox,
+	userInfoContext
+} from "../common/context";
 import usePopBox from "../hook/usePopBox";
-import { number_format, isConvert } from "../common/common";
-import ReferralLinks from "./referral.links";
-import ReferralShare from "./referral.share";
 import { bannerImgUrl } from "../../config";
-
-const initReferralSettingData = {
-	periodDays: 0,
-	bonusAmount: 0,
-	vaildBet: 0,
-	deposit: 0
-};
+import ReferralInfo from "./referral.info";
+import ReferralStatus from "./referral.status";
+import { ReferralPopBox } from "./referral.popbox";
 
 export default () => {
 	const { t } = useTranslation();
 	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 	const [referralCode, setReferralCode] = useState("");
-	const [referralSettingData, setReferralSettingData] = useState(
-		initReferralSettingData
-	);
+	const {
+		userInfo: { langId }
+	} = useContext(userInfoContext);
 	const { loading, setLoading } = useContext(loadingContext);
-	const { userInfo } = useContext(userInfoContext);
-	const refStepBanner = `${bannerImgUrl}/desktop/img/refbanner-${userInfo.langId}.png`;
-
-	const [referralSum, setReferralSum] = useState({
-		conditionCount: 0,
-		amountCount: 0,
-		referralCount: 0,
-		amountSum: 0
-	});
-	const _isConvert = isConvert(userInfo.currencyId);
-
-	useEffect(() => {
-		isMountedRef.current = true;
-		return () => {
-			isMountedRef.current = false;
-		};
-	});
-
-	useEffect(() => {
-		getReferralCode();
-		getReferralSetting();
-		getReferralSummary();
-	}, []);
+	const { setReferralBox } = useContext(referralPopBox);
+	const [referralSum, setReferralSum] = useState({});
 
 	const getReferralCode = async () => {
 		setLoading(true);
@@ -71,30 +47,6 @@ export default () => {
 			},
 			() => {
 				setLoading(false);
-				if (isMountedRef.current) {
-					errorPopBox();
-				}
-			}
-		);
-	};
-
-	const getReferralSetting = () => {
-		api_account_GetReferralSetting().then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						if (res.data.data.length > 0) {
-							setReferralSettingData(res.data.data[0]);
-						}
-					} else {
-						errorPopBox(
-							res.data.message || "error",
-							res.data.errorCode
-						);
-					}
-				}
-			},
-			() => {
 				if (isMountedRef.current) {
 					errorPopBox();
 				}
@@ -134,60 +86,67 @@ export default () => {
 		);
 	};
 
+	const getReferralDetail = async () => {
+		const res = await api_account_GetReferralSettingDetail();
+		const { errorCode, data, message } = res.data;
+
+		const closePopBox = () => {
+			setReferralBox({ isOpen: false });
+		};
+
+		if (errorCode === 0) {
+			setReferralBox({
+				isOpen: true,
+				content: (
+					<ReferralPopBox
+						data={data}
+						closePopBox={closePopBox}
+						t={t}
+					/>
+				)
+			});
+		} else {
+			errorPopBox(message || `error`, errorCode);
+		}
+	};
+
+	const onCopy = async column_id => {
+		const copyInput = document.getElementById(column_id);
+		copyInput.select();
+		document.execCommand("copy");
+	};
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
+		getReferralCode();
+		getReferralSummary();
+	}, []);
+
 	return (
 		!loading && (
-			<div className="infoModule">
-				<div className="inside-title icon icon-friend">
-					<span>{t("lbl_ReferFriends")}</span>
-				</div>
-				<div className="title">{t("lbl_ReferralStatus")} </div>
-				<div className="achievement">
-					<div className="achievement_item">
-						{t("lbl_InvitationAccepted")} /{" "}
-						{t("lbl_MissionCompleted")}
-						<span>
-							{referralSum.conditionCount} /{" "}
-							{referralSum.amountCount}
-						</span>
-					</div>
-
-					<div className="achievement_item">
-						{t("lbl_NoOfAchievements")} / {t("lbl_RewardAmount")}
-						<span>
-							{referralSum.referralCount} /{" "}
-							{t(`Currency_${userInfo.currencyId}`)}{" "}
-							{number_format({
-								number: referralSum.amountSum,
-								formatRequired: _isConvert
-							})}
-						</span>
-					</div>
-				</div>
-				<div className="txt-lightgray">
-					{t("lbl_Referral_description")}
-				</div>
-
+			<>
 				<img
-					src={refStepBanner}
-					className="refbanner"
-					alt="refStepBanner"
+					className="refer-banner"
+					src={`${bannerImgUrl}/desktop/img/referral/referral-top-bg-${langId}.png`}
+					alt=""
 				/>
-				<div className="referralModule">
-					{referralSettingData?.status && (
-						<ReferralShare
-							t={t}
-							langId={userInfo.langId}
-							currencyId={userInfo.currencyId}
-							referralSettingData={referralSettingData}
-						/>
-					)}
-					<ReferralLinks
-						t={t}
-						referralCode={referralCode}
-						langId={userInfo.langId}
-					/>
+				<button className="refer-moreinfo" onClick={getReferralDetail}>
+					{t("lbl_Promotion_MoreInfo")}
+				</button>
+				<div className="infoModule">
+					<div className="title">
+						{String(t("lbl_Your_link_invite")).toUpperCase()}
+					</div>
+					<ReferralInfo referralCode={referralCode} onCopy={onCopy} />
+					<ReferralStatus referralSum={referralSum} />
 				</div>
-			</div>
+			</>
 		)
 	);
 };

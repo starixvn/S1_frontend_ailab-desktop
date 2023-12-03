@@ -12,7 +12,7 @@ export default () => (
 				<main>
 					<section className="inside">
 						<LeftMenu />
-						<div className="rightModule">
+						<div className="rightModule refer">
 							<Referral />
 						</div>
 					</section>

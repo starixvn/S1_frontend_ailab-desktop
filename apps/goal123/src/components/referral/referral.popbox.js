@@ -38,36 +38,6 @@ export const ReferralPopBox = ({ data, closePopBox, t }) => (
 					</div>
 				</div>
 			</div>
-			<div className="rolloverNew">
-				<div>
-					<div>{t("lbl_ReferralReward")}</div>
-					<div>{t("lbl_FriendsInvitationLimit")}</div>
-					<div>{t("lbl_DepositRequirement")}</div>
-					<div>{t("lbl_ValidBetRequirement")}</div>
-				</div>
-				<div>
-					<div>{data.referralReward}</div>
-					<div>{data.invitationLimit}</div>
-					<div>{data.agentDeposit}</div>
-					<div>{data.agentValidBet}</div>
-				</div>
-			</div>
-			<div className="rolloverNew">
-				<div>
-					<div>{t("lbl_ReferredFreeCredit")}</div>
-					<div>{t("lbl_DepositRequirement")}</div>
-					<div>{t("lbl_ValidBetRequirement")}</div>
-					<div>{t("lbl_TermPeriodWithin")}</div>
-				</div>
-				<div>
-					<div>{data.memberReward}</div>
-					<div>{data.deposit}</div>
-					<div>{data.vaildBet}</div>
-					<div>
-						{data.periodDays} ({t("lbl_Days")})
-					</div>
-				</div>
-			</div>
 			<div
 				className="proDataBody"
 				dangerouslySetInnerHTML={{
