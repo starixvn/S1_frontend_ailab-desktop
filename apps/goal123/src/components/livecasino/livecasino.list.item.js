@@ -35,7 +35,6 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 				})
 			}>
 			<img
-				lobbyImg
 				src={`${bannerImgUrl}/desktop/img/livecasinolist/${lobbyImg}.jpg`}
 				alt={`${_displayText}-bgimg`}
 			/>

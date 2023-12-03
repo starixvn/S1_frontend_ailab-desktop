@@ -40,6 +40,7 @@ const Shield = () => {
 				src={`https://d1cr9zxt7u0sgu.cloudfront.net/shdfp.js?SITE_ID=${SHIELD_SITE_ID}&TYPE=JS&DE=1&AUTO=0`}
 				type="text/javascript"
 				async
+				// eslint-disable-next-line react/no-unknown-property
 				charSet="UTF-8"
 				onLoad={getShieldData}
 			/>
