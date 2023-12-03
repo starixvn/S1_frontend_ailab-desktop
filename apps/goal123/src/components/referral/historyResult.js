@@ -15,15 +15,6 @@ const Content = props => {
 		onRefFriendDetail
 	} = props;
 
-	console.log({
-		idx,
-		custId,
-		settledDate,
-		totalDeposit,
-		rewardAmount,
-		onChangeSelectedStep,
-		onRefFriendDetail
-	});
 	return (
 		<div>
 			<div>{idx}</div>
@@ -38,20 +29,25 @@ const Content = props => {
 			<div>{number_format({ number: rewardAmount })}</div>
 
 			<div>
-				<a
-					onClick={async () => {
-						const payload = {
-							startDate: moment(settledDate).unix(),
-							endDate: moment(settledDate).endOf("day").unix(),
-							pageNumber: 1,
-							pageSize: 10
-						};
+				<div className="btnGroup">
+					<a
+						className="blue"
+						onClick={async () => {
+							const payload = {
+								startDate: moment(settledDate).unix(),
+								endDate: moment(settledDate)
+									.endOf("day")
+									.unix(),
+								pageNumber: 1,
+								pageSize: 10
+							};
 
-						await onRefFriendDetail(payload);
-						onChangeSelectedStep(2);
-					}}>
-					{t("lbl_Details")}
-				</a>
+							await onRefFriendDetail(payload);
+							onChangeSelectedStep(2);
+						}}>
+						{t("lbl_Details")}
+					</a>
+				</div>
 			</div>
 		</div>
 	);
