@@ -54,7 +54,8 @@ export const defEventPeriod = {
 	fishing_Alien_Hunter: { end: "2023/11/05 23:59:59" },
 	PNG: { end: "2023/11/05 23:59:59" },
 	V8Poker: { end: "2023/12/15 23:59:59" },
-	TFGaming: { end: "2023/12/15 23:59:59" }
+	TFGaming: { end: "2023/12/15 23:59:59" },
+	casino_Amigo: { end: "2023/12/31 23:59:59" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

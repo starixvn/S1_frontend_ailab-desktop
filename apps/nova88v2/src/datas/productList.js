@@ -46,7 +46,8 @@ export const defSlotTpGameType = {
 	SPRIBE: { tpId: 53, tpGameType: 104, name: "spribe" },
 	END: { tpId: 49, tpGameType: 98, name: "Endorphina" },
 	FaChai: { tpId: 55, tpGameType: 106, name: "FaChai" },
-	PEGASUS: { tpId: 56, tpGameType: 107, name: "PEGASUS" }
+	PEGASUS: { tpId: 56, tpGameType: 107, name: "PEGASUS" },
+	Amigo: { tpId: 60, name: "Amigo", tpGameType: 112 }
 };
 
 export default {
@@ -290,7 +291,10 @@ export default {
 		tpId: 55,
 		tpGameType: 106
 	},
-
+	casino_Amigo: {
+		tpId: 60,
+		tpGameType: 112
+	},
 	/* === 3. live casino === */
 
 	liveCasino_WM: {

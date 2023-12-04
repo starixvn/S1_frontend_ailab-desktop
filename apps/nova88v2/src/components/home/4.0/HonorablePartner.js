@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
+import allowedCurrencyList from "../../../datas/allowedCurrencyList";
 import productList from "../../../datas/productList";
 import paths from "../../../router";
 import { defCurrencyList } from "../../common/common";
@@ -254,6 +255,11 @@ const HonorablePartner = () => {
 			{
 				...productList.TFGaming,
 				imgName: "tfg"
+			},
+			{
+				...productList.casino_Amigo,
+				imgName: "amigo",
+				allowCurrencies: allowedCurrencyList.casino_Amigo
 			}
 		];
 
