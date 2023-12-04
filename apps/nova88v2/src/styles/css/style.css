@@ -12915,17 +12915,26 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .icon-qrpay::before {
   content: "";
   display: block;
-  width: 55px;
-  height: 55px;
+  width: 57px;
+  height: 57px;
   margin: 0 auto !important;
   background: url(https://banner.0814media.net/desktop/img/qrpay.png) center/cover;
+}
+
+.icon-quick::before {
+  content: "";
+  display: block;
+  width: 57px;
+  height: 57px;
+  margin: 0 auto !important;
+  background: url(https://banner.0814media.net/desktop/img/quick-transfer.png) center/cover;
 }
 
 .icon-topup::before {
   content: "";
   display: block;
-  width: 55px;
-  height: 55px;
+  width: 57px;
+  height: 57px;
   margin: 0 auto !important;
   background: url(https://banner.0814media.net/desktop/img/topup.png) center/cover;
 }
