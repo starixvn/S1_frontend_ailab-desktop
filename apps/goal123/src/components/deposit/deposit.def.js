@@ -4,7 +4,8 @@ export const defDepositType = {
 	onlineBank: "Online Bank",
 	loadCard: "TopUp Mobile",
 	cryptoPay: "Crypto Pay",
-	QRPay: "QR Pay"
+	QRPay: "QR Pay",
+	quickTransfer: "Quick Transfer"
 };
 
 export const defDepositOptions = ({
@@ -13,7 +14,8 @@ export const defDepositOptions = ({
 	autoChannelBankGroupList = [],
 	loadCardPayGroupList = [],
 	cryptoPayGroupList = [],
-	QRPayGroupList = []
+	QRPayGroupList = [],
+	quickTransferGroupList = []
 }) => [
 	{
 		type: defDepositType.localBank,
@@ -56,5 +58,12 @@ export const defDepositOptions = ({
 		isHide: !QRPayGroupList.length,
 		creditTime: "lbl_Instant",
 		iconClass: "icon icon-qrcode-scan"
+	},
+	{
+		type: defDepositType.quickTransfer,
+		isHide: !quickTransferGroupList.length,
+		depositDisplaykey: "lbl_DepositType9",
+		creditTime: "lbl_Instant",
+		iconClass: "icon-quick"
 	}
 ];
