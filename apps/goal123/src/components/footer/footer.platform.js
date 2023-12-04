@@ -210,6 +210,12 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.NoLimitCity.name },
 		imgName: "nlc"
+	},
+	{
+		...defCasinoProviders.Amigo,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.Amigo.name },
+		imgName: "amigo"
 	}
 ];
 

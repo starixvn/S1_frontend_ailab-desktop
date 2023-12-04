@@ -375,6 +375,19 @@ export const defMenuLinks = {
 				img: "slots/ap.png"
 			},
 			{
+				...defCasinoProviders.Amigo,
+				displayText: "Amigo Gaming",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.Amigo.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_amigo
+					})
+				],
+				img: "slots/amigo.png"
+			},
+			{
 				...defCasinoProviders.Endorphina,
 				className: "Endorphina",
 				displayText: "ES",
