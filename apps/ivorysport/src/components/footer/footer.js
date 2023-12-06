@@ -140,7 +140,136 @@ export const CopyrightSection = ({ t }) => {
 			>
 				{t("lbl_ResposibleGaming")}
 			</a>
-			<span>{`© Copyright ${new Date().getFullYear()}. ivorysport. All Rights Reserved. 21+`}</span>
+
+			<div className="footer-center">
+				<div className="footer-center-item">
+					<div className="footer-center-title">
+						{t("lbl_GamingLicense")}
+					</div>
+					<a
+						href="https://www.pagcor.ph/regulatory/cop.php"
+						target="_blank"
+						className="game-license"
+						rel="noreferrer"
+					>
+						<img
+							src={`${bannerImgUrl}/desktop/img/pagcor.png`}
+							alt=""
+						/>
+					</a>
+				</div>
+				<div className="footer-center-item">
+					<div className="footer-center-title">
+						{t("lbl_SuggestedBrowser")}
+					</div>
+					<div className="footer-icon">
+						<img
+							src={`${bannerImgUrl}/desktop/img/edge.png`}
+							alt=""
+						/>
+						<img
+							src={`${bannerImgUrl}/desktop/img/chrome.png`}
+							alt=""
+						/>
+						<img
+							src={`${bannerImgUrl}/desktop/img/safari.png`}
+							alt=""
+						/>
+						<img
+							src={`${bannerImgUrl}/desktop/img/firefox.png`}
+							alt=""
+						/>
+					</div>
+				</div>
+				<div className="footer-center-item payment">
+					<div className="footer-center-title">
+						{t("lbl_PaymentMethods")}
+					</div>
+					<div className="footer-icon">
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/maybank.jpg`}
+								alt=""
+							/>
+						</a>
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/ocbc.jpg`}
+								alt=""
+							/>
+						</a>
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/ambank.jpg`}
+								alt=""
+							/>
+						</a>
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/cimb.jpg`}
+								alt=""
+							/>
+						</a>
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/rhb.jpg`}
+								alt=""
+							/>
+						</a>
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/affin.jpg`}
+								alt=""
+							/>
+						</a>
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/hlb.jpg`}
+								alt=""
+							/>
+						</a>
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/pbb.jpg`}
+								alt=""
+							/>
+						</a>
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/duitnow.jpg`}
+								alt=""
+							/>
+						</a>
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/tng.jpg`}
+								alt=""
+							/>
+						</a>
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/boost.jpg`}
+								alt=""
+							/>
+						</a>
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/grabpay.jpg`}
+								alt=""
+							/>
+						</a>
+						<a href="">
+							<img
+								src={`${bannerImgUrl}/desktop/img/footer/square/shopeepay.jpg`}
+								alt=""
+							/>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<span>{`© Copyright ${new Date().getFullYear()}. DYNAMIC SYSTEM INTERNATIONAL LIMITED. All Rights Reserved. 21+`}</span>
+			<span>Email: support247@ivorysport.com</span>
 		</div>
 	);
 };

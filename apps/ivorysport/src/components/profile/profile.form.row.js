@@ -29,7 +29,7 @@ const DisplayRow = ({
 	const _isConvert = isConvert(userInfo.currencyId);
 	const _areaCode = areaCodeList[userValue?.areaCodeIdx]?.areaCode;
 
-	const legalDate = moment().subtract(18, "year");
+	const legalDate = moment().subtract(21, "year");
 	const vaildDate = current => current.isBefore(legalDate);
 	const currencyName = GetCurrencyName({
 		langId: userInfo.langId,
