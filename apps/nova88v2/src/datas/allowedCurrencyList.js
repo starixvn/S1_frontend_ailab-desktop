@@ -145,7 +145,8 @@ const allowedCurrencyList = {
 		defCurrencyList.CNY,
 		defCurrencyList.USD,
 		defCurrencyList.INR,
-		defCurrencyList.VND
+		defCurrencyList.VND,
+		defCurrencyList.KHM
 	],
 	liveCasino_N2: [
 		defCurrencyList.IDR,
