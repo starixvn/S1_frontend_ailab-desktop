@@ -115,9 +115,13 @@ class Dropdown extends Component {
 			return prev + curr.balance;
 		}, 0);
 
+		const bonusWalletsSum = bonusWallets.reduce((prev, curr) => {
+			return prev + curr.bonus;
+		}, 0);
+
 		const balance = !isNaN(mainWallet.balance)
 			? number_format(
-					mainWallet.balance + tpWalletsBonusSum,
+					mainWallet.balance + tpWalletsBonusSum + bonusWalletsSum,
 					this.props._isConvert
 			  )
 			: 0;
