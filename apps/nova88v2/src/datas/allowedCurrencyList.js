@@ -137,6 +137,17 @@ const allowedCurrencyList = {
 		defCurrencyList.VND,
 		defCurrencyList.KHM
 	],
+	casino_Amigo: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.BDT,
+		defCurrencyList.IDR,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.INR,
+		defCurrencyList.VND,
+		defCurrencyList.KHM
+	],
 	liveCasino_N2: [
 		defCurrencyList.IDR,
 		defCurrencyList.THB,
