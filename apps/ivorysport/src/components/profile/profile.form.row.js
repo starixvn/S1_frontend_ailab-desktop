@@ -6,6 +6,8 @@ import Inputbox from "../common/inputbox";
 import { GetCurrencyName, isConvert, number_format } from "../common/common";
 import { AreaCodeDropdown } from "../join/join.form";
 import { areaCodeList } from "../join/join";
+import Dropdown from "../common/dropdown";
+import { getOccupationOptions, getIncomeSourceOptions } from "./profile.data";
 
 const DisplayRow = ({
 	t,
@@ -23,6 +25,8 @@ const DisplayRow = ({
 	clickInfo,
 	isUSDT,
 	areaCodeOptions,
+	onSelectOccupation,
+	onSelectSourceOfIncome,
 	onSelectAreaCode,
 	sendEmailOtp
 }) => {
@@ -36,6 +40,13 @@ const DisplayRow = ({
 		currencyId: userInfo.currencyId,
 		t
 	});
+	const occupationOptions = getOccupationOptions(t);
+	const incomeSourceOptions = getIncomeSourceOptions(t);
+
+	// * 如果生日已填寫且 occupation 和 sourceOfIncome 視為舊用戶(setProfile已送出過)
+	const isNewUser =
+		!userInfo.birth_d &&
+		(userInfo.occupation === 0 || userInfo.sourceOfIncome === 0);
 
 	if (displayKey === "lbl_RealName" && !userInfo?.accountName) {
 		return (
@@ -222,6 +233,50 @@ const DisplayRow = ({
 		);
 	}
 
+	// * 新用戶才給予下拉選單
+	if (displayKey === "lbl_Occupation" && isNewUser) {
+		return (
+			<div>
+				<div>{t(displayKey)}</div>
+				<div className="inputBox-blue">
+					<Dropdown
+						defaultOption={
+							userValue.occupation ? null : t("lbl_PleaseChoose")
+						}
+						i18n={t}
+						options={occupationOptions}
+						onSelectItem={onSelectOccupation}
+						selectedIdx={userValue.occupation - 1}
+						mainKey="occupation"
+					/>
+				</div>
+			</div>
+		);
+	}
+
+	// * 新用戶才給予下拉選單
+	if (displayKey === "lbl_SourceOfIncome" && isNewUser) {
+		return (
+			<div>
+				<div>{t(displayKey)}</div>
+				<div className="inputBox-blue">
+					<Dropdown
+						defaultOption={
+							userValue.sourceOfIncome
+								? null
+								: t("lbl_PleaseChoose")
+						}
+						i18n={t}
+						options={incomeSourceOptions}
+						onSelectItem={onSelectSourceOfIncome}
+						selectedIdx={userValue.sourceOfIncome - 1}
+						mainKey="sourceOfIncome"
+					/>
+				</div>
+			</div>
+		);
+	}
+
 	return (
 		<div>
 			<div>{t(displayKey)}</div>
@@ -253,5 +308,7 @@ DisplayRow.propTypes = {
 	isUSDT: PropTypes.bool.isRequired,
 	areaCodeOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
 	onSelectAreaCode: PropTypes.func.isRequired,
+	onSelectOccupation: PropTypes.func.isRequired,
+	onSelectSourceOfIncome: PropTypes.func.isRequired,
 	sendEmailOtp: PropTypes.func.isRequired
 };
