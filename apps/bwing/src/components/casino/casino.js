@@ -18,7 +18,11 @@ import TopQuickLink from "./casino.topQuickLink";
 import SwipperBanner from "../common/swipperBanner";
 import { api_game_GetSlotGamePage } from "../../service/api/game";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
-import { defLoginGameType, defSpecialSetting } from "../hook/useGotoGame";
+import {
+	defLoginGameType,
+	defSpecialSetting,
+	useGotoGame
+} from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
 import {
 	defCasinoProviders,
@@ -47,6 +51,7 @@ export default () => {
 	const [favoriteStr, setFavoriteStr] = useState(
 		localStorage.getItem("favorite")
 	);
+	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -255,7 +260,8 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}>
+											onClick={clickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -275,7 +281,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}>
+										onClick={clickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -429,7 +436,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -448,7 +456,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
