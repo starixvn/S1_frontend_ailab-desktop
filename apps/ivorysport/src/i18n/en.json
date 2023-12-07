@@ -1,5 +1,8 @@
 {
 	"home ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_GamingLicense": "Gaming License",
+	"lbl_SuggestedBrowser": "Suggested Browser",
+	"lbl_PaymentMethods": "Payment Methods",
 	"lbl_SocialMedia": "Social Media",
 	"lbl_Licenses": "Licenses",
 	"lbl_Responsibility": "Responsibility",
@@ -992,9 +995,9 @@
 	"lbl_POKER_NOW": "POKER NOW",
 	"lbl_DOWNLOAD_APP_NOW": "DOWNLOAD APP NOW",
 	"lbl_HOT_GAMES": "Hot Games",
-	"lbl_sign_up_terms_start": "By clicking the JOIN NOW button, I hereby acknowledge that I am above 21 years old and have read and accepted your",
-	"lbl_sign_up_terms_center": "terms & conditions",
-	"lbl_sign_up_terms_end": ".",
+	"lbl_sign_up_terms_start": "By clicking the JOIN NOW button, I hereby declare that I am at least twenty-one (21) years of age or above, and that I am not among those persons disqualified under the law to engage in remote gambling activities. I also declare that I have read, fully understood, and accepted your",
+	"lbl_sign_up_terms_center": "Terms and Conditions, Terms of Use,",
+	"lbl_sign_up_terms_end": " and other relevant policies.",
 	"lbl_homeJackpotTitle": "Jackpot",
 
 	"■■■■■■■■■■■■■■■■■■■■ sponsor ■■■■■■■■■■■■■■■■■■■■": "",
