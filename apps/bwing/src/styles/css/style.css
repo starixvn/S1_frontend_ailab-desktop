@@ -15582,6 +15582,14 @@ input + .iconModule i.icon.icon-checkmark:before {
   width: auto;
   height: 100%;
 }
+.subModuleListColumn > .subModule .icon-quick::before {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 54px;
+  margin: 0 auto !important;
+  background: url(https://banner.bw88.io/desktop/img/quick-transfer.png) center/cover;
+}
 .subModuleListColumn .column {
   width: calc(85% - 135px);
 }

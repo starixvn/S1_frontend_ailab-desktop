@@ -29,6 +29,7 @@ const useDepositEffect = ({
 	cryptoPayGroupList,
 	QRPayGroupList,
 	loadCardPayGroupList,
+	quickTransferGroupList,
 	setLoading,
 	onValidAmount,
 	setDepositType,
@@ -43,8 +44,10 @@ const useDepositEffect = ({
 	getQRPayGroupList,
 	getLoadCardPayGroupList,
 	getAutoDepositGroupList,
+
 	getLinePayLink,
-	linePayLink
+	linePayLink,
+	getDepositQuickTransfer
 }) => {
 	const location = useLocation();
 	const parameterType = getUrlParameter("type");
@@ -60,6 +63,7 @@ const useDepositEffect = ({
 	useEffect(() => {
 		const getData = async () => {
 			setLoading(true);
+
 			try {
 				// * 當嘗試 call 所有 payment 來確認是否有權限或資料時，沒有權限的 payment api status 將 return 500
 				await Promise.all([
@@ -69,7 +73,8 @@ const useDepositEffect = ({
 					getCryptoPayGroupList(),
 					getQRPayGroupList(),
 					getLoadCardPayGroupList(),
-					getAutoDepositGroupList()
+					getAutoDepositGroupList(),
+					getDepositQuickTransfer()
 				]);
 			} catch (e) {
 				// * 當 return 500 時不需要做特別的錯誤處理，其他的錯誤(errorCode不等於0)會在各個function處理掉
@@ -105,11 +110,14 @@ const useDepositEffect = ({
 					cryptoPayGroupList,
 					QRPayGroupList,
 					loadCardPayGroupList,
-					linePayLink
+					linePayLink,
+					quickTransferGroupList
 				});
+
 				const filterDepositOptions = originalDepositOptions.filter(
 					item => !item.isHide
 				);
+
 				if (filterDepositOptions.length) {
 					setDepositOptions(filterDepositOptions);
 				}
@@ -144,8 +152,10 @@ const useDepositEffect = ({
 				localBankGroupList,
 				cryptoPayGroupList,
 				QRPayGroupList,
-				loadCardPayGroupList
+				loadCardPayGroupList,
+				quickTransferGroupList
 			});
+
 			const filterDepositOptions = originalDepositOptions.filter(
 				item => !item.isHide
 			);
@@ -246,7 +256,8 @@ const useDepositEffect = ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}
+							>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>

@@ -6,7 +6,8 @@ export const defDepositType = {
 	QRPay: "QR Pay",
 	autoDeposit: "Auto Deposit",
 	linePay: "Line Pay",
-	loadCard: "TopUp Mobile"
+	loadCard: "TopUp Mobile",
+	quickTransfer: "Quick Transfer"
 };
 
 export const defDepositOptions = ({
@@ -17,6 +18,7 @@ export const defDepositOptions = ({
 	cryptoPayGroupList = [],
 	QRPayGroupList = [],
 	loadCardPayGroupList = [],
+	quickTransferGroupList = [],
 	linePayLink
 }) => [
 	{
@@ -74,7 +76,14 @@ export const defDepositOptions = ({
 		isHide: !loadCardPayGroupList.length,
 		depositDisplaykey: "lbl_TopUpCard",
 		creditTime: "lbl_Instant",
-		iconClass: "icon-topup"
+		iconClass: "icon icon-topup"
+	},
+	{
+		type: defDepositType.quickTransfer,
+		isHide: !quickTransferGroupList.length,
+		depositDisplaykey: "lbl_DepositType9",
+		creditTime: "lbl_Instant",
+		iconClass: "icon-quick"
 	}
 ];
 

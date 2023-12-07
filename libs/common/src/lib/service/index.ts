@@ -7,3 +7,4 @@ export * from "./accountApi";
 export * from "./hotGameApi";
 export * from "./player";
 export * from "./gameApi";
+export * from "./paymentApi";

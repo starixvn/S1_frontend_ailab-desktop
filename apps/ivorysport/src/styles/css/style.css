@@ -1532,9 +1532,9 @@ footer .copyright {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -1560,8 +1560,8 @@ footer .copyright a:nth-child(1),
 footer .copyright button:nth-child(1) {
   padding-left: 0;
 }
-footer .copyright a:nth-last-child(2)::after,
-footer .copyright button:nth-last-child(2)::after {
+footer .copyright a:nth-last-child(3)::after,
+footer .copyright button:nth-last-child(3)::after {
   display: none;
 }
 footer .copyright span {
@@ -11527,4 +11527,103 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-size: 12px;
   margin-top: 5px;
   font-weight: normal;
+}
+
+.footer-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1400px;
+  margin: 50px auto 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-top: 0.2px solid rgba(255, 255, 255, 0.2588235294);
+  border-bottom: 0.2px solid rgba(255, 255, 255, 0.2588235294);
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+.footer-center .footer-center-item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 450px;
+          flex: 0 0 450px;
+}
+.footer-center .footer-center-item a {
+  padding: 0;
+}
+.footer-center .footer-center-item a::after {
+  display: none;
+}
+.footer-center .footer-center-item.payment {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 500px;
+          flex: 0 0 500px;
+}
+.footer-center .footer-center-item.payment .footer-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.footer-center .footer-center-item.payment .footer-icon a {
+  padding: 0;
+}
+.footer-center .footer-center-item.payment .footer-icon a::after {
+  display: none;
+}
+.footer-center .footer-center-item.payment .footer-icon img {
+  width: auto;
+  height: 40px;
+  border-radius: 5px;
+}
+.footer-center .footer-center-item .game-license {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer-center .footer-center-item .game-license > img {
+  width: 85px;
+  margin: 15px 10px 0 0;
+}
+.footer-center .footer-center-item .game-license .icon-aware {
+  width: 115px;
+}
+.footer-center .footer-center-item:first-child .footer-center-title:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer-center .footer-center-item:first-child .footer-center-title:first-child::after {
+  display: block;
+  content: "";
+  background: url(https://banner.0814media.net/desktop/img/4.0/license-tick.png) no-repeat center/cover;
+  height: 20px;
+  width: 20px;
+  margin-left: 8px;
+}
+.footer-center .footer-center-item:nth-child(2) .footer-icon img {
+  margin: 15px 10px 0 0;
+}
+.footer-center .footer-center-item .footer-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer-center .footer-center-item .footer-icon img {
+  width: 50px;
+  margin: 10px 15px 0 0;
+}
+.footer-center .footer-center-item .footer-icon .icon-aware {
+  width: 129px;
+  height: 25px;
 }/*# sourceMappingURL=style.css.map */

@@ -8796,6 +8796,14 @@ html.Newtheme .subModuleListColumn > .subModule.bankQR .qrCode svg, html.Newthem
   width: auto;
   height: 100%;
 }
+html.Newtheme .subModuleListColumn > .subModule .icon-quick::before {
+  content: "";
+  display: block;
+  width: 57px;
+  height: 57px;
+  margin: 0 auto !important;
+  background: url(https://banner.goal123.org/desktop/img/quick-transfer.png) center/cover;
+}
 html.Newtheme .subModuleListColumn .subModuleTitle {
   margin: 10px 0;
 }

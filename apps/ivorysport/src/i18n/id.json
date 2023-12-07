@@ -1,5 +1,8 @@
 {
 	"home ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_GamingLicenses": "Lisensi Resmi",
+	"lbl_SuggestedBrowser": "Browser yang Disarankan",
+	"lbl_PaymentMethods": "Cara Pembayaran",
 	"lbl_SocialMedia": "Social Media",
 	"lbl_Licenses": "Licenses",
 	"lbl_Responsibility": "Responsibility",
@@ -975,9 +978,9 @@
 	"lbl_POKER_NOW": "POKER NOW",
 	"lbl_DOWNLOAD_APP_NOW": "DOWNLOAD APLIKASI SEKARANG",
 	"lbl_HOT_GAMES": "Hot Games",
-	"lbl_sign_up_terms_start": "Dengan meng-klik GABUNG SEKARANG, saya menyatakan hahwa saya berumur diatas 21 tahun dan telah membaca dan menyetujui",
-	"lbl_sign_up_terms_center": "syarat & ketentuan",
-	"lbl_sign_up_terms_end": ".",
+	"lbl_sign_up_terms_start": "Dengan mengklik tombol GABUNG SEKARANG, saya dengan ini menyatakan bahwa saya setidaknya berusia dua puluh satu (21) tahun atau lebih, dan saya tidak termasuk orang yang didiskualifikasi berdasarkan hukum untuk terlibat dalam aktivitas perjudian online. Saya juga menyatakan bahwa saya telah membaca, memahami sepenuhnya, dan menerima ",
+	"lbl_sign_up_terms_center": "Syarat dan Ketentuan Anda, Syarat Penggunaan",
+	"lbl_sign_up_terms_end": "dan terkait kebijakan lainnya.",
 	"lbl_homeJackpotTitle": "Jackpot",
 
 	"■■■■■■■■■■■■■■■■■■■■ sponsor ■■■■■■■■■■■■■■■■■■■■": "",
