@@ -10,6 +10,7 @@ import { useAuth } from "../../hook";
 import { SET_ENTER_PAGE } from "../../../service/enterPage";
 import defPopBoxType from "../../common/defPopBoxType";
 import usePopBox from "../../hook/usePopBox";
+import { defCurrencyList } from "../../common/common";
 
 const HonorablePartner = () => {
 	const { t } = useTranslation();
