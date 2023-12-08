@@ -1,11 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { defTabId } from "./leaderBoard.def";
+import { defTabId, defRankKey } from "./leaderBoard.def";
 import { bannerImgUrl } from "../../config";
+import { number_format } from "../common/common";
 
-const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
-	const rows2 = rewardList?.section2?.map((item, idx) => (
-		<li key={`leaderBoard-event-${item.rank}`}>
+const leaderBoardEventContent = ({
+	t,
+	tab,
+	linkToTnc,
+	leaderBoardEventData
+}) => {
+	const { leaderboardPointCalculation, leaderboardRankingBonus = [] } =
+		leaderBoardEventData ?? {};
+
+	const {
+		sportTurnover = 0,
+		slotTurnover = 0,
+		liveCasinoTurnover = 0
+	} = leaderboardPointCalculation ?? {};
+
+	const rows2 = leaderboardRankingBonus?.map((item, idx) => (
+		<li key={`leaderBoard-event-${item.ranking}`}>
 			<div>
 				{idx + 1 < 4 ? (
 					<img
@@ -20,10 +35,10 @@ const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 						alt="top_ranking"
 					/>
 				)}
-				{item.rank}
+				{t(defRankKey[item.ranking] ?? "")}
 			</div>
-			<div>{item.point}</div>
-			<div>{item.bonus}</div>
+			<div>{number_format(item.minPoint, false, 0)}</div>
+			<div>{number_format(item.bonus, false, 0)}</div>
 		</li>
 	));
 
@@ -49,8 +64,9 @@ const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 							/>
 							{String(t("lbl_Sports")).toUpperCase()}
 						</div>
-						<div>{rewardList?.section1[0]?.turnover}</div>
-						<div>{rewardList?.section1[0]?.point}</div>
+						<div>{number_format(sportTurnover, false, 0)}</div>
+						{/* 異動 api 後 point 全部都改成 1 */}
+						<div>1</div>
 					</li>
 					<li>
 						<div>
@@ -60,8 +76,8 @@ const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 							/>
 							{String(t("lbl_Slots")).toUpperCase()}
 						</div>
-						<div>{rewardList?.section1[1]?.turnover}</div>
-						<div>{rewardList?.section1[1]?.point}</div>
+						<div>{number_format(slotTurnover, false, 0)}</div>
+						<div>1</div>
 					</li>
 					<li>
 						<div>
@@ -71,8 +87,8 @@ const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 							/>
 							{String(t("lbl_LiveCasino")).toUpperCase()}
 						</div>
-						<div>{rewardList?.section1[2]?.turnover}</div>
-						<div>{rewardList?.section1[2]?.point}</div>
+						<div>{number_format(liveCasinoTurnover, false, 0)}</div>
+						<div>1</div>
 					</li>
 				</ul>
 				<div className="title">{t("lbl_Monthly_Tournament")}</div>
@@ -93,8 +109,8 @@ const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 leaderBoardEventContent.propTypes = {
 	t: PropTypes.func.isRequired,
 	tab: PropTypes.number.isRequired,
-	rewardList: PropTypes.objectOf(PropTypes.any).isRequired,
-	linkToTnc: PropTypes.func.isRequired
+	linkToTnc: PropTypes.func.isRequired,
+	leaderBoardEventData: PropTypes.object.isRequired
 };
 
 export default leaderBoardEventContent;
