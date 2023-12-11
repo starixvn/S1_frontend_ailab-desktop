@@ -412,6 +412,21 @@ export const defMenuLinks = {
 				img: "slots/pg.png"
 			},
 			{
+				...defCasinoProviders.BNG,
+				className: "",
+				icon: "",
+				displayText: "BNG",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.BNG.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_bng
+					})
+				],
+				img: "slots/bng.png"
+			},
+			{
 				...defCasinoProviders.FaChai,
 				className: "",
 				icon: "",
@@ -473,6 +488,19 @@ export const defMenuLinks = {
 					})
 				],
 				img: "slots/spribe.png"
+			},
+			{
+				...defCasinoProviders.NoLimitCity,
+				displayText: "NoLimit City",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.NoLimitCity.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_NoLimitCity
+					})
+				],
+				img: "slots/nlc.png"
 			},
 			{
 				...defCasinoProviders.RedTiger,

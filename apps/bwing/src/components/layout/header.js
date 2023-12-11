@@ -18,6 +18,10 @@ import { defEventPeriod } from "../common/eventIcon";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { angPaoEventPeriod } from "../../pages/angpao";
 
+export const christmasPeriod = {
+	endDate: "2023-12-26 23:59:59"
+};
+
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
@@ -41,7 +45,8 @@ export default () => {
 				<div
 					className={classNames("logo", {
 						dragon: isDateRange(dragonBoatFestivalEventPeriod)
-					})}>
+					})}
+				>
 					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
 							className={classNames({
@@ -49,7 +54,11 @@ export default () => {
 									dragonBoatFestivalEventPeriod
 								)
 							})}
-							src={`${bannerImgUrl}/desktop/img/4.0/logo.png`}
+							src={`${bannerImgUrl}/desktop/img/4.0/${
+								isDateRange(christmasPeriod)
+									? "christmas-logo"
+									: "logo"
+							}.png`}
 							alt={config.siteName}
 						/>
 					</Link>

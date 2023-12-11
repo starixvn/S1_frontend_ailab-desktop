@@ -21,6 +21,10 @@ import path from "../../router";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { angPaoEventPeriod } from "../../pages/angpao";
 
+export const christmasPeriod = {
+	endDate: "2023-12-26 23:59:59"
+};
+
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -44,7 +48,11 @@ export default () => {
 				>
 					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
-							src={`${bannerImgUrl}/desktop/img/logo.png`}
+							src={`${bannerImgUrl}/desktop/img/${
+								isDateRange(christmasPeriod)
+									? "christmas-logo"
+									: "logo"
+							}.png`}
 							alt={config.siteName}
 						/>
 					</Link>

@@ -191,13 +191,24 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.FaChai.name },
 		imgName: "fachai"
-
+	},
+	{
+		...defCasinoProviders.BNG,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.BNG.name },
+		imgName: "bng"
 	},
 	{
 		...defCasinoProviders.eBET,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.eBET.name },
 		imgName: "we"
+	},
+	{
+		...defCasinoProviders.NoLimitCity,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.NoLimitCity.name },
+		imgName: "nlc"
 	}
 ];
 
@@ -290,8 +301,7 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 					...p,
 					urlParams: _urlParams,
 					isInMaintain
-				})}
-			>
+				})}>
 				<ImageWithHover
 					bannerImgUrl={bannerImgUrl}
 					imgName={p.imgName}

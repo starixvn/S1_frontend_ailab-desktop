@@ -473,7 +473,7 @@ export default () => {
 					isFree: false,
 					delay: 5000,
 					isInMaintain: getIsInMaintain(target),
-					tpGameType: getTpGameType(target)
+					tpGameType: getTpGameType(target).tpGameType
 				});
 		} else {
 			!isProcessing && setActiveCategory(category);

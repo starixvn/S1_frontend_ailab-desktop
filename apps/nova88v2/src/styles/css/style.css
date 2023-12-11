@@ -1693,6 +1693,12 @@ header input:focus-within {
           align-items: center;
   color: #fff;
 }
+.header > div.function .grade-text.active::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+}
 .header > div.function .grade-text::after {
   content: "";
   display: block;
@@ -1700,6 +1706,8 @@ header input:focus-within {
   width: 12px;
   height: 14px;
   margin-left: 5px;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
 }
 .header > div.function .grade-color {
   display: -webkit-box;
@@ -1839,6 +1847,12 @@ header input:focus-within {
       -ms-flex-align: center;
           align-items: center;
 }
+.header > div.function .home-balance .wallet.active::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+}
 .header > div.function .home-balance .wallet::after {
   content: "";
   display: block;
@@ -1846,6 +1860,8 @@ header input:focus-within {
   width: 12px;
   height: 14px;
   margin-left: 5px;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
 }
 .header > div.function .home-balance .icon-spinner::before {
   content: "";
@@ -2220,6 +2236,12 @@ header input:focus-within {
       -ms-flex-direction: row;
           flex-direction: row;
 }
+.home-profile .home-profile-bottom .home-profile-country .flag.arrow.active::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+}
 .home-profile .home-profile-bottom .home-profile-country .flag.arrow::after {
   display: block;
   content: "";
@@ -2227,6 +2249,8 @@ header input:focus-within {
   width: 15px;
   height: 15px;
   margin-left: 90px;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
 }
 .home-profile .home-profile-bottom .home-profile-country .countryList {
   position: unset;

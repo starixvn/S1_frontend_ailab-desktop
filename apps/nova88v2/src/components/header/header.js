@@ -23,6 +23,10 @@ import defPopBoxType from "../common/defPopBoxType";
 import { angPaoEventPeriod } from "../../pages/angpao";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 
+export const christmasPeriod = {
+	endDate: "2023-12-26 23:59:59"
+};
+
 export default () => {
 	const { t } = useTranslation();
 	const { productTpIds } = useContext(productTpIdsContext);
@@ -97,7 +101,11 @@ export default () => {
 						})}
 					>
 						<img
-							src={`${bannerImgUrl}/desktop/img/4.0/logo_w.png`}
+							src={`${bannerImgUrl}/desktop/img/4.0/${
+								isDateRange(christmasPeriod)
+									? "christmas-logo"
+									: "logo_w"
+							}.png`}
 							alt={config.siteName}
 						/>
 					</Link>
