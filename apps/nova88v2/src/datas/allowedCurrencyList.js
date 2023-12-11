@@ -166,7 +166,8 @@ const allowedCurrencyList = {
 		defCurrencyList.USD,
 		defCurrencyList.KHM,
 		defCurrencyList.INR,
-		defCurrencyList.VND
+		defCurrencyList.VND,
+		defCurrencyList.BDT
 	],
 	liveCasinoPlayTech: [
 		defCurrencyList.MYR,

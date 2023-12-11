@@ -265,7 +265,14 @@ const HonorablePartner = () => {
 			{
 				...productList.casino_Amigo,
 				imgName: "amigo",
+				path: paths.casino.root,
 				allowCurrencies: allowedCurrencyList.casino_Amigo
+			},
+			{
+				...productList.casino_NoLimitCity,
+				path: paths.casino.root,
+				parameter: { ...productList.casino_NoLimitCity },
+				imgName: "nlc"
 			}
 		];
 
