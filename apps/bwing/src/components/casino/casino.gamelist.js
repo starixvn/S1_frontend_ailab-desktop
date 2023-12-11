@@ -53,7 +53,7 @@ const GameList = ({
 				const isFavorite = handleIsFavorite();
 				const brandTpName = providerList.find(
 					obj => obj.tpId === g.tpId
-				).tpName;
+				).gameImgDisplayText;
 
 				const imageUrl = `${imgUrl}/${brandTpName}/${imgName}`;
 
@@ -93,7 +93,8 @@ const GameList = ({
 															getTpGameType(g)
 																.tpGameType
 													})
-												}>
+												}
+											>
 												{t("lbl_Play")}
 											</button>
 											{g.playFree ? (
@@ -112,7 +113,8 @@ const GameList = ({
 																getTpGameType(g)
 																	.tpGameType
 														})
-													}>
+													}
+												>
 													{t("lbl_Demo")}
 												</button>
 											) : null}
@@ -147,7 +149,8 @@ const GameList = ({
 						className={`slots-products-item ${slotProductItemStyle()}`}
 						style={_style}
 						key={`casino-game-${g.tpId}-${g.gameId}`}
-						onClick={openSlotProductPopBox}>
+						onClick={openSlotProductPopBox}
+					>
 						<button
 							className={`${
 								isFavorite
