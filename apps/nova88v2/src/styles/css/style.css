@@ -1693,6 +1693,12 @@ header input:focus-within {
           align-items: center;
   color: #fff;
 }
+.header > div.function .grade-text.active::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+}
 .header > div.function .grade-text::after {
   content: "";
   display: block;
@@ -1700,6 +1706,8 @@ header input:focus-within {
   width: 12px;
   height: 14px;
   margin-left: 5px;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
 }
 .header > div.function .grade-color {
   display: -webkit-box;
@@ -1839,6 +1847,12 @@ header input:focus-within {
       -ms-flex-align: center;
           align-items: center;
 }
+.header > div.function .home-balance .wallet.active::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+}
 .header > div.function .home-balance .wallet::after {
   content: "";
   display: block;
@@ -1846,6 +1860,8 @@ header input:focus-within {
   width: 12px;
   height: 14px;
   margin-left: 5px;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
 }
 .header > div.function .home-balance .icon-spinner::before {
   content: "";
@@ -2220,6 +2236,12 @@ header input:focus-within {
       -ms-flex-direction: row;
           flex-direction: row;
 }
+.home-profile .home-profile-bottom .home-profile-country .flag.arrow.active::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
+}
 .home-profile .home-profile-bottom .home-profile-country .flag.arrow::after {
   display: block;
   content: "";
@@ -2227,6 +2249,8 @@ header input:focus-within {
   width: 15px;
   height: 15px;
   margin-left: 90px;
+  -webkit-transition: 0.35s;
+  transition: 0.35s;
 }
 .home-profile .home-profile-bottom .home-profile-country .countryList {
   position: unset;
@@ -3275,6 +3299,28 @@ main .promosswiper .swiper-button-prev::after {
   border-bottom: 0.2px solid rgba(255, 255, 255, 0.2588235294);
   padding-bottom: 50px;
 }
+.footer-center .footer-center-item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 450px;
+          flex: 0 0 450px;
+}
+.footer-center .footer-center-item.payment {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 500px;
+          flex: 0 0 500px;
+}
+.footer-center .footer-center-item.payment .footer-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.footer-center .footer-center-item.payment .footer-icon img {
+  width: auto;
+  height: 40px;
+  border-radius: 5px;
+}
 .footer-center .footer-center-item .game-license {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3305,9 +3351,6 @@ main .promosswiper .swiper-button-prev::after {
   height: 20px;
   width: 20px;
   margin-left: 8px;
-}
-.footer-center .footer-center-item:nth-child(2) {
-  margin-left: 220px;
 }
 .footer-center .footer-center-item:nth-child(2) .footer-icon img {
   margin: 15px 10px 0 0;
@@ -12896,8 +12939,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .icon-qrpay::before {
   content: "";
   display: block;
-  width: 55px;
-  height: 55px;
+  width: 57px;
+  height: 57px;
   margin: 0 auto !important;
   background: url(https://banner.0814media.net/desktop/img/qrpay.png) center/cover;
 }
@@ -12914,8 +12957,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .icon-topup::before {
   content: "";
   display: block;
-  width: 55px;
-  height: 55px;
+  width: 57px;
+  height: 57px;
   margin: 0 auto !important;
   background: url(https://banner.0814media.net/desktop/img/topup.png) center/cover;
 }
@@ -21816,8 +21859,8 @@ input[type=number] {
   padding-top: 175px;
 }
 .lobby-banner {
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 62%, 25% 100%, 0 64%);
-          clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 62%, 25% 100%, 0 64%);
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 79%, 25% 100%, 0 79%);
+          clip-path: polygon(0 0, 100% 0%, 100% 79%, 25% 100%, 0 79%);
 }
 .lobby-content {
   width: 1400px;
@@ -21959,7 +22002,7 @@ input[type=number] {
   outline: none;
 }
 .lobby-content.slots .top .search-input::-webkit-input-placeholder {
-  color: #D1D1D1;
+  color: #bfbfbf;
 }
 .lobby-content.slots .top .provider {
   height: 80px;
@@ -22069,7 +22112,7 @@ input[type=number] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: #DCDCDC;
+  color: #bfbfbf;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   width: 1000px;
