@@ -38,14 +38,12 @@ const GameList = ({
 				const storageList = storageStr.split("&") ?? [];
 				const handleIsFavorite = () => storageList?.includes(key);
 				const isFavorite = handleIsFavorite();
-				const brandTpName = providerList.find(
-					obj => obj.tpId === g.tpId
-				).tpName;
+
 				const gameProviderName = providerList.find(
 					obj => obj.tpId === g.tpId
 				).gameImgDisplayText;
 
-				_imgUrl = `${imgUrl}/${brandTpName}/${imgName}`;
+				_imgUrl = `${imgUrl}/${gameProviderName}/${imgName}`;
 
 				const _className = [getIsInMaintain(g) && "active"]
 					.filter(Boolean)
@@ -59,7 +57,8 @@ const GameList = ({
 					<div
 						className={_className}
 						style={_style}
-						key={`casino-game-${g.tpId}-${g.gameId}`}>
+						key={`casino-game-${g.tpId}-${g.gameId}`}
+					>
 						<div className="brand">
 							<span>{gameProviderName}</span>
 						</div>
@@ -98,7 +97,8 @@ const GameList = ({
 										isInMaintain: getIsInMaintain(g),
 										tpGameType: getTpGameType(g).tpGameType
 									})
-								}>
+								}
+							>
 								{t("lbl_Play")}
 							</button>
 
@@ -115,7 +115,8 @@ const GameList = ({
 											tpGameType:
 												getTpGameType(g).tpGameType
 										})
-									}>
+									}
+								>
 									{t("lbl_Demo")}
 								</button>
 							) : null}
