@@ -260,6 +260,12 @@ const HonorablePartner = () => {
 			{
 				...productList.TFGaming,
 				imgName: "tfg"
+			},
+			{
+				...productList.casino_NoLimitCity,
+				path: paths.casino.root,
+				parameter: { ...productList.casino_NoLimitCity },
+				imgName: "nlc"
 			}
 		];
 
