@@ -1026,6 +1026,21 @@ export const defMenuLinks = {
 				]
 			},
 			{
+				keyName: "slot_NoLimitCity",
+				displayText: "NoLimit City",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotnlc.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_NoLimitCity },
+				...productList.casino_NoLimitCity,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_NoLimitCity
+					})
+				]
+			},
+			{
 				keyName: "slot_RedTiger",
 				displayText: "Red Tiger",
 				menuType: defMenuType.Link,

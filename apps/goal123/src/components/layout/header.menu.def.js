@@ -536,6 +536,21 @@ export const defMenuLinks = langId => ({
 				]
 			},
 			{
+				...defCasinoProviders.NoLimitCity,
+				displayText: "NoLimit City",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.NoLimitCity.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/nlc.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/nlc-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/nlc-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_NoLimitCity
+					})
+				]
+			},
+			{
 				...defCasinoProviders.RedTiger,
 				className: "RedTiger",
 				displayText: "Red Tiger",
