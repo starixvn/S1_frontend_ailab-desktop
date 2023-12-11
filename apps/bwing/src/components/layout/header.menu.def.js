@@ -412,6 +412,21 @@ export const defMenuLinks = {
 				img: "slots/pg.png"
 			},
 			{
+				...defCasinoProviders.BNG,
+				className: "",
+				icon: "",
+				displayText: "BNG",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.BNG.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_bng
+					})
+				],
+				img: "slots/bng.png"
+			},
+			{
 				...defCasinoProviders.FaChai,
 				className: "",
 				icon: "",
