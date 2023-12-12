@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { navigate } from "gatsby";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
-import Dropdown from "../../common/dropdown";
 import ShortcutAmountList from "./shortcutAmountList";
 import { defCurrencyList, getUrlParameter } from "../../common/common";
-import { defDepositChannel, defDepositChannelIdList } from "../deposit.def";
-
 import PromotionSelect from "./promotionSelect";
-
 import ClipboardJS from "../../../lib/clipboard.min";
-import path from "../../../router";
 import { paymentImgUrl } from "../../../config";
 import { currencyCode } from "../../../datas/countryCode";
 import { useSyncRouteQuery } from "../hooks";
@@ -32,16 +26,10 @@ const LocalBankForm = ({
 	asyncUploadBankPopBox,
 	getBankInfo,
 	setLocalBankChecked,
-	custBankInfoList,
-	localBankChannelError,
-	localBankBankInfoErrpr,
-	depositInfoStorage,
 	isGroupListFetchDone,
 	setSelectedBankId
 }) => {
 	const parameterSysId = Number(getUrlParameter("sysId"));
-	const [fromChannelIdIdx, setFromChannelIdIdx] = useState(0);
-	const [custBankInfoIdx, setCustBankInfoIdx] = useState(null);
 	const [sysIdForRecord, setSysIdForRecord] = useState(parameterSysId);
 	const [infoActive, setInfoActive] = useState({
 		upload: false
@@ -119,38 +107,6 @@ const LocalBankForm = ({
 		}
 	};
 
-	const onSelectChannel = (idx, item) => {
-		setFormInfo(prev => {
-			const newState = {
-				...prev,
-				fromChannel: item.id
-			};
-
-			const isRemoveBankDetailKeys =
-				item.id === defDepositChannelIdList.CashDepositMachine ||
-				item.id === defDepositChannelIdList.OverTheCounter ||
-				item.id === defDepositChannelIdList.BankQR;
-
-			if (isRemoveBankDetailKeys) {
-				delete newState.fromAccountNum;
-				delete newState.fromSysId;
-			}
-
-			return newState;
-		});
-		setFromChannelIdIdx(idx);
-	};
-
-	const onSelectBankDetail = (idx, item) => {
-		setFormInfo(prev => ({
-			...prev,
-			fromSysId: item.sysId,
-			fromAccountNum: item.accountNo
-		}));
-
-		setCustBankInfoIdx(idx);
-	};
-
 	useSyncRouteQuery({
 		type: depositType,
 		sysId: sysIdForRecord
@@ -177,39 +133,16 @@ const LocalBankForm = ({
 				errors.imgFile = "error";
 			}
 
-			if (!datas.fromChannel) {
-				errors.fromChannel = t("lbl_DepositChannelTip");
-			}
-
-			if (
-				(datas?.fromChannel === defDepositChannelIdList.OnlineBanking ||
-					datas?.fromChannel === defDepositChannelIdList.ATM) &&
-				!datas.fromAccountNum
-			) {
-				errors.fromAccountNum = t("lbl_LocalBankBankAccountTip");
-			}
 			return errors;
 		};
 
 		const errors = validate({
-			imgFile: formInfo.imgFile,
-			fromChannel: formInfo.fromChannel,
-			fromAccountNum: formInfo.fromAccountNum
+			imgFile: formInfo.imgFile
 		});
 
 		const isValid = Object.keys(errors).length === 0;
 
 		setLocalBankChecked(isValid);
-
-		// setLocalBankChannelError({
-		// 	checked: !errors.fromChannel,
-		// 	tip: errors.fromChannel
-		// });
-
-		// setLocalBankBankInfoErrpr({
-		// 	checked: !errors.fromAccountNum,
-		// 	tip: errors.fromAccountNum
-		// });
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [formInfo]);
@@ -236,40 +169,7 @@ const LocalBankForm = ({
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isGroupListFetchDone]);
 
-	useEffect(() => {
-		if (depositInfoStorage.localBankChannel) {
-			const { localBankChannel } = depositInfoStorage;
-			const fromChannelId = Object.values(
-				defDepositChannelIdList
-			).findIndex(i => i === localBankChannel.fromChannel);
-
-			onSelectChannel(fromChannelId, {
-				id: localBankChannel.fromChannel
-			});
-
-			if (localBankChannel?.fromAccountNum) {
-				const bankDetailIdx = custBankInfoList.findIndex(
-					obj =>
-						obj.sysId === localBankChannel.fromSysId &&
-						obj.accountNo === localBankChannel.fromAccountNum
-				);
-
-				if (bankDetailIdx !== -1) {
-					onSelectBankDetail(bankDetailIdx, {
-						sysId: localBankChannel.fromSysId,
-						accountNo: localBankChannel.fromAccountNum
-					});
-				}
-			}
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [custBankInfoList]);
-
 	if (localBankGroupList.length <= 0) return null;
-
-	const isShowBankDetails =
-		formInfo.fromChannel === defDepositChannelIdList.OnlineBanking ||
-		formInfo.fromChannel === defDepositChannelIdList.ATM;
 
 	const placeHolderText = `${t("lbl_MinMaxAmount")} ${
 		_isConvert ? formInfo.minAmount / 1000 : formInfo.minAmount
@@ -303,7 +203,8 @@ const LocalBankForm = ({
 								className={`${className} ${
 									item.canSubmit ? "" : "pending"
 								}`}
-								onClick={() => onChangeBankInfo(item)}>
+								onClick={() => onChangeBankInfo(item)}
+							>
 								<div>
 									<img
 										src={`${paymentImgUrl}/square/${bankLogo}`}
@@ -420,98 +321,6 @@ const LocalBankForm = ({
 
 			<div className="subModuleTitle">
 				<i className="txt-blue">*</i>
-				{t("lbl_DepositChannel")}
-			</div>
-
-			<div className="subModule">
-				<div
-					className={`inputBox-blue${
-						localBankChannelError.checked === false ? " error" : ""
-					}`}>
-					<Dropdown
-						mainKey="deposit-localbank-channel-provider"
-						defaultOption={
-							formInfo.fromChannel ? null : t("lbl_SelectChannel")
-						}
-						options={
-							userInfo.currencyId === defCurrencyList.MYR
-								? defDepositChannel
-								: defDepositChannel.filter(
-										obj =>
-											obj.id !==
-											defDepositChannelIdList.BankQR
-								  )
-						}
-						onSelectItem={(idx, item) => onSelectChannel(idx, item)}
-						selectedIdx={fromChannelIdIdx}
-						i18n={t}
-					/>
-				</div>
-
-				<div
-					className={`tip${
-						localBankChannelError.tip ? " active" : ""
-					}`}>
-					{localBankChannelError.tip}
-				</div>
-			</div>
-
-			{isShowBankDetails && (
-				<>
-					<div className="subModuleTitle">
-						<i className="txt-blue">*</i>
-						{t("lbl_BankDetails")}
-					</div>
-
-					<div className="subModule">
-						<div
-							className={`inputBox-blue${
-								localBankBankInfoErrpr.checked === false
-									? " error"
-									: ""
-							}`}>
-							<Dropdown
-								mainKey="deposit-localbank-Bank-provider"
-								defaultOption={
-									formInfo.fromAccountNum
-										? null
-										: t("lbl_SelectBank")
-								}
-								options={custBankInfoList}
-								onSelectItem={(idx, item) =>
-									onSelectBankDetail(idx, item)
-								}
-								selectedIdx={custBankInfoIdx}
-								i18n={t}
-							/>
-						</div>
-
-						{custBankInfoList?.length < 3 && (
-							<div className="btnGroup">
-								<button
-									onClick={() =>
-										navigate(
-											`/${userInfo.langId}/${path.bankInfo.root}`
-										)
-									}
-									className="btn-check">
-									+
-								</button>
-							</div>
-						)}
-
-						<div
-							className={`tip${
-								localBankBankInfoErrpr.tip ? " active" : ""
-							}`}>
-							{localBankBankInfoErrpr.tip}
-						</div>
-					</div>
-				</>
-			)}
-
-			<div className="subModuleTitle">
-				<i className="txt-blue">*</i>
 				{t("lbl_SubmitProof")}
 			</div>
 
@@ -541,7 +350,6 @@ const LocalBankForm = ({
 };
 
 LocalBankForm.defaultProps = {
-	depositInfoStorage: {},
 	onChangePromotion: () => null
 };
 
@@ -561,10 +369,6 @@ LocalBankForm.propTypes = {
 	localBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	asyncUploadBankPopBox: PropTypes.func.isRequired,
 	getBankInfo: PropTypes.func.isRequired,
-	custBankInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	localBankChannelError: PropTypes.objectOf(PropTypes.any).isRequired,
-	localBankBankInfoErrpr: PropTypes.objectOf(PropTypes.any).isRequired,
-	depositInfoStorage: PropTypes.objectOf(PropTypes.any),
 	isGroupListFetchDone: PropTypes.bool.isRequired,
 	onChangePromotion: PropTypes.func,
 	setSelectedBankId: PropTypes.func.isRequired
