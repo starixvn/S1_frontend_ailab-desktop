@@ -6,6 +6,7 @@ const useShieldCheck = () => {
 	const [shieldData, setShieldData] = useState({});
 
 	const getShieldData = () => {
+		return;
 		getDeviceResult().then(
 			// on success
 			res => {
