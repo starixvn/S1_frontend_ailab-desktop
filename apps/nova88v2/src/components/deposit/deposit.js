@@ -107,15 +107,6 @@ const Deposit = () => {
 
 	const [selectedBankId, setSelectedBankId] = useState(0);
 
-	const localBankChannelError = {
-		checked: null,
-		tip: ""
-	};
-	const localBankBankInfoErrpr = {
-		checked: null,
-		tip: ""
-	};
-
 	const [getDepositQuickTransfer, { data: depositQuickTransferResponse }] =
 		useLazyGetDepositQuickTransferQuery();
 	const quickTransferGroupList =
@@ -162,8 +153,7 @@ const Deposit = () => {
 		localBankInfo,
 		postLocalBankReqWireTransfer,
 		uploadLocalBankReceipt,
-		getBankInfo,
-		custBankInfoList
+		getBankInfo
 		// setLocalBankReceipt
 	} = useDepositLocalBank({
 		isMountedRef,
@@ -560,9 +550,6 @@ const Deposit = () => {
 				const transId = await postLocalBankReqWireTransfer({
 					amount: resultAmount,
 					sysId: formInfo.sysId,
-					fromChannel: formInfo.fromChannel,
-					fromSysId: formInfo.fromSysId,
-					fromAccountNum: formInfo.fromAccountNum,
 					hasPromotion: Boolean(bonusCode),
 					bankId: selectedBankId
 				});
@@ -1010,6 +997,7 @@ const Deposit = () => {
 	if (loading || !isInitDataDone) return null;
 
 	const isPending = depositInfoRecentDatas.some(item => item.status === 1);
+
 	return (
 		<>
 			<DepositInfoMoule
@@ -1094,9 +1082,6 @@ const Deposit = () => {
 						formInfo={formInfo}
 						depositPromoList={depositPromoList}
 						localBankInfo={localBankInfo}
-						custBankInfoList={custBankInfoList}
-						localBankChannelError={localBankChannelError}
-						localBankBankInfoErrpr={localBankBankInfoErrpr}
 						onChangePromotion={onChangePromotion}
 						setFormInfo={setFormInfo}
 						getBankInfo={getBankInfo}
@@ -1104,7 +1089,6 @@ const Deposit = () => {
 						getLocalBankInfo={getLocalBankInfo}
 						onInputboxKeyDown={onInputboxKeyDown}
 						asyncUploadBankPopBox={asyncUploadBankPopBox}
-						depositInfoStorage={depositInfoStorage}
 						setSelectedBankId={setSelectedBankId}
 					/>
 				)}
