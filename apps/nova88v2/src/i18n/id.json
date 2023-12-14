@@ -144,6 +144,8 @@
   "lbl_BeforeAmount": "Jumlah terdahulu",
   "lbl_Best_Mobile_Experience ": "Pengalaman Mobile Terbaik",
   "lbl_BetNow": "Bertaruh",
+  "lbl_BigWinProfit_Description1": "Tepuk tangan meriah kepada <div>【{{userName}}】</div>!",
+  "lbl_BigWinProfit_Description2": "Dia tidak hanya membuat <button>{{venderName}}</button> <span>lebih seru, tapi juga membuat semua bersemangat!</span>",
   "lbl_BirthCertificate": "Akte Kelahiran",
   "lbl_BirthRequired": "Harap isi kolom ulang tahun",
   "lbl_Birthday": "Tgl Lahir",

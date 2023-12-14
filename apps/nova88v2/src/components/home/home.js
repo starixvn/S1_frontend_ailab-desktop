@@ -14,7 +14,8 @@ import {
 	readCookie,
 	setCookie,
 	deleteCookie,
-	getUrlParameter
+	getUrlParameter,
+	defCurrencyList
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 
@@ -40,14 +41,14 @@ import OfficialPartner from "./4.0/OfficialPartner";
 import { defTpGameType } from "../../datas/productList";
 import usePopBox from "../hook/usePopBox";
 import { defDeviceType } from "../../service/api/base";
+import { api_bigWin_GetPopUpDataList } from "../../service/api/bigWin";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { setIsRoot } = useContext(isRootContext);
-	const { closePopBox } = usePopBox();
-
+	const { closePopBox, errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 	const { allMaintainList: maintainList } = useContext(maintainListContext);
 
@@ -339,11 +340,38 @@ const IndexPage = () => {
 			});
 		};
 
+		const displayBigWinProfitPopup = async () => {
+			const cookieName = `BigWinProfit${userInfo.userName}`;
+
+			if (
+				userInfo.isLogin &&
+				readCookie(cookieName) !== "1" &&
+				userInfo.currencyId === defCurrencyList.IDR
+			) {
+				try {
+					const {
+						data: { data: bigWinData }
+					} = await api_bigWin_GetPopUpDataList();
+
+					setCookie(cookieName, "1", 1);
+					setPopBox({
+						isOpen: true,
+						customLayout: true,
+						popBoxType: defPopBoxType.BigWinProfit,
+						bigWinData
+					});
+				} catch (error) {
+					errorPopBox(error);
+				}
+			}
+		};
+
 		const popUpStack = [
 			displayDepositPopup,
 			displaySponsorshipPopup,
 			displayPromotionPopup,
-			disclaimerForVnd
+			disclaimerForVnd,
+			displayBigWinProfitPopup
 		];
 
 		const openNextPopUp = () => {

@@ -144,6 +144,8 @@
   "lbl_BeforeAmount": "Before Amount",
   "lbl_Best_Mobile_Experience ": "Best Mobile Experience",
   "lbl_BetNow": "Bet Now",
+  "lbl_BigWinProfit_Description1": "We're giving <div>【{{userName}}】</div> a standing ovation!",
+  "lbl_BigWinProfit_Description2": "He is not just making <button>{{venderName}}</button> <span>more thrilling, but got all of us buzzing with excitement!</span>\n\n",
   "lbl_BirthCertificate": "Birth Certificate",
   "lbl_BirthRequired": "Please fill in the birthday field",
   "lbl_Birthday": "Birthday",
