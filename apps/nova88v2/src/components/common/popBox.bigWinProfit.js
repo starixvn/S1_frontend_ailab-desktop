@@ -8,7 +8,7 @@ import { bannerImgUrl } from "../../config";
 const BigWinProfit = ({ bigWinData }) => {
 	const { t } = useTranslation();
 	const {
-		userInfo: { currencyId }
+		userInfo: { currencyId, langId }
 	} = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 
@@ -18,7 +18,7 @@ const BigWinProfit = ({ bigWinData }) => {
 
 	return (
 		<div className="bigwin">
-			<div className="bigwinpop active en">
+			<div className={`bigwinpop active ${langId}`}>
 				<div className="bigwinpop-item">
 					<div className="bigwinpop-img" />
 					<div className="bigwinpop-text">
