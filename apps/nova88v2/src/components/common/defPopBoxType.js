@@ -42,6 +42,5 @@ export default {
 	BankQR: "BankQR",
 	WithdrawalMsg: "WithdrawalMsg",
 	DepositMsg: "DepositMsg",
-	EWalletQR: "EWalletQR",
-	BigWinProfit: "BigWinProfit"
+	EWalletQR: "EWalletQR"
 };

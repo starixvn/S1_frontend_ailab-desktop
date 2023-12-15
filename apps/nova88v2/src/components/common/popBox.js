@@ -44,7 +44,6 @@ import BankQR from "./popBox.bankQR";
 import WithdrawalMsg from "./popBox.withdrawalMsg";
 import DepositMsg from "./popBox.depositMsg";
 import EWalletQR from "./popBox.eWalletQR";
-import BigWinProfit from "./popBox.bigWinProfit";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -380,10 +379,6 @@ export default () => {
 					transId={popBox.transId}
 				/>
 			);
-			break;
-
-		case defPopBoxType.BigWinProfit:
-			content = <BigWinProfit bigWinData={popBox.bigWinData} />;
 			break;
 		case // eslint-disable-next-line no-fallthrough
 		defPopBoxType.default:
