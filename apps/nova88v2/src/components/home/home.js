@@ -355,6 +355,7 @@ const IndexPage = () => {
 						data: { data: bigWinData }
 					} = await api_bigWin_GetPopUpDataList();
 
+					// 該userName回傳null表示不顯示彈窗
 					if (bigWinData.userName !== null) {
 						setCookie(cookieName, "1", 1);
 						setPopBox({
