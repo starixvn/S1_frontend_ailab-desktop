@@ -138,6 +138,24 @@
 	"lbl_Mini": "Mini",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
+
+	"lbl_PleaseChoose": "Please Choose",
+
+
+	"lbl_CurrentAddress": "Current Address",
+	"lbl_Nationality": "Nationality",
+	
+	"lbl_SourceOfIncome": "Source of Income",
+	"lbl_OwnSaving": "Own Saving",
+	"lbl_Loan": "Loan",
+
+	"lbl_Occupation": "Occupation",
+	"lbl_SelfEmployed": "Self Employed",
+	"lbl_Employed": "Employed",
+	"lbl_Retired": "Retired",
+	"lbl_Others": "Others",
+
+
 	"msg_UsernameReq": "Username is required.",
 	"msg_RealNameReq": "Real name is required",
 	"msg_PasswordReq": "Password is required.",
