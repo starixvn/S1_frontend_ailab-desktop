@@ -355,80 +355,88 @@ const IndexPage = () => {
 						data: { data: bigWinData }
 					} = await api_bigWin_GetPopUpDataList();
 
-					setCookie(cookieName, "1", 1);
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.Modal,
-						content: (
-							<div className="bigwin">
-								<div
-									className={`bigwinpop active ${userInfo.langId}`}
-								>
-									<div className="bigwinpop-item">
-										<div className="bigwinpop-img" />
-										<div className="bigwinpop-text">
-											<div>
-												<Trans
-													i18nKey="lbl_BigWinProfit_Description1"
-													values={{
-														userName:
-															bigWinData?.userName ??
-															"-"
-													}}
-													components={{
-														div: (
-															<div className="name" />
-														)
-													}}
-												/>
+					if (bigWinData.userName !== null) {
+						setCookie(cookieName, "1", 1);
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.Modal,
+							content: (
+								<div className="bigwin">
+									<div
+										className={`bigwinpop active ${userInfo.langId}`}
+									>
+										<div className="bigwinpop-item">
+											<div className="bigwinpop-img" />
+											<div className="bigwinpop-text">
+												<div>
+													<Trans
+														i18nKey="lbl_BigWinProfit_Description1"
+														values={{
+															userName:
+																bigWinData?.userName ??
+																"-"
+														}}
+														components={{
+															div: (
+																<div className="name" />
+															)
+														}}
+													/>
+												</div>
+												<div>
+													<Trans
+														i18nKey="lbl_BigWinProfit_Description2"
+														values={{
+															venderName:
+																bigWinData?.gameName ??
+																"-"
+														}}
+														components={{
+															button: (
+																<button className="vender" />
+															),
+															span: (
+																<sapn
+																	style={{
+																		width: "280px"
+																	}}
+																/>
+															)
+														}}
+													/>
+												</div>
 											</div>
-											<div>
-												<Trans
-													i18nKey="lbl_BigWinProfit_Description2"
-													values={{
-														venderName:
-															bigWinData?.gameName ??
-															"-"
-													}}
-													components={{
-														button: (
-															<button className="vender" />
-														),
-														span: <sapn />
-													}}
-												/>
+											<div className="bigwinpop-number">
+												$
+												{t(
+													`Currency_${userInfo.currencyId}`
+												)}{" "}
+												{number_format(
+													bigWinData?.amount ?? 0
+												)}
 											</div>
+											<img
+												className="money"
+												src={`${bannerImgUrl}/desktop/img/4.0/money.gif`}
+												alt=""
+											/>
+											<img
+												className="money-two"
+												src={`${bannerImgUrl}/desktop/img/4.0/money.gif`}
+												alt=""
+											/>
+											<img
+												src={`${bannerImgUrl}/desktop/img/promosBackPopup/delet.png`}
+												alt=""
+												className="closepop"
+												onClick={closePopBox}
+											/>
 										</div>
-										<div className="bigwinpop-number">
-											$
-											{t(
-												`Currency_${userInfo.currencyId}`
-											)}{" "}
-											{number_format(
-												bigWinData?.amount ?? 0
-											)}
-										</div>
-										<img
-											className="money"
-											src={`${bannerImgUrl}/desktop/img/4.0/money.gif`}
-											alt=""
-										/>
-										<img
-											className="money-two"
-											src={`${bannerImgUrl}/desktop/img/4.0/money.gif`}
-											alt=""
-										/>
-										<img
-											src={`${bannerImgUrl}/desktop/img/promosBackPopup/delet.png`}
-											alt=""
-											className="closepop"
-											onClick={closePopBox}
-										/>
 									</div>
 								</div>
-							</div>
-						)
-					});
+							)
+						});
+					}
 				} catch (error) {
 					errorPopBox(error);
 				}
