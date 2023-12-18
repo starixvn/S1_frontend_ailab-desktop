@@ -161,8 +161,10 @@ export default {
 	mega888: {
 		root: "mega888"
 	},
-
 	rebateExclude: {
 		root: "rebateExclude"
+	},
+	"4d": {
+		root: "4d"
 	}
 };

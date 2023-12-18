@@ -125,7 +125,9 @@ export const useGotoGame = ({
 						gameType:
 							_tpId === defSpecialSetting.playTech ? "slots" : "",
 						tpGameType: String(tpGameType),
-						loginGameType: String(loginGameType)
+						loginGameType: loginGameType
+							? String(loginGameType)
+							: ""
 					});
 
 					if (res.data.errorCode === 0 && res.data.message) {
@@ -169,13 +171,13 @@ export const useGotoGame = ({
 							}
 						} else if (_tpId === defSpecialSetting.sports_9w) {
 							returnData = JSON.parse(result);
-						} else if (_tpId === defSpecialSetting.PG) {
-							if (loginGameType === defLoginGameType.returnHtml) {
-								const newWindow = window.open();
-								newWindow.document.write(res.data.message);
-							} else {
-								window.open(res.data.message);
-							}
+						} else if (
+							loginGameType === defLoginGameType.returnHtml
+						) {
+							const newWindow = window.open();
+							newWindow.document.write(res.data.message);
+						} else {
+							window.open(res.data.message);
 						}
 					} else if (
 						res.data.errorCode === 3000 &&

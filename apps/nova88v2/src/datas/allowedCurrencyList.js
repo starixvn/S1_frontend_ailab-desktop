@@ -40,12 +40,14 @@ const allowedCurrencyList = {
 		defCurrencyList.INR
 	],
 	rewards: [defCurrencyList.MYR, defCurrencyList.THB, defCurrencyList.IDR],
+	"4D": [defCurrencyList.MYR],
 
 	// ==== transfer ====
 	transferFunds: [
 		defCurrencyList.INR,
 		defCurrencyList.BDT,
-		defCurrencyList.USD
+		defCurrencyList.USD,
+		defCurrencyList.MYR
 	],
 
 	// ==== withdrawal method ====
@@ -311,6 +313,9 @@ const allowedCurrencyList = {
 		defCurrencyList.USD,
 		defCurrencyList.VND
 	],
+
+	// 4D
+	haoLong: [defCurrencyList.MYR],
 
 	// lottery
 	indo4d: [defCurrencyList.IDR],
