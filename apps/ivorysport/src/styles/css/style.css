@@ -2403,7 +2403,7 @@ input[type=file] {
 
 .tip {
   font-size: 12px;
-  padding: 0 10px;
+  padding: 0 5px;
   width: 100%;
   color: #596e6a;
 }
@@ -2423,6 +2423,7 @@ input[type=file] {
       flex-flow: wrap;
 }
 .dropdown > .dropdown-container {
+  padding-top: 5px;
   margin-left: 5px;
   width: 100%;
   color: #666;
@@ -5520,6 +5521,10 @@ input[type=file] {
 .profile .checkbox.autotransfer {
   -webkit-transform: translateY(-40px);
           transform: translateY(-40px);
+}
+.profile .dropdown-container.active {
+  max-height: 150px;
+  overflow-y: auto;
 }
 
 .haveBank {
