@@ -19,6 +19,8 @@ const ProfileForm = ({
 	isUSDT,
 	areaCodeOptions,
 	onSelectAreaCode,
+	onSelectOccupation,
+	onSelectSourceOfIncome,
 	sendEmailOtp
 }) => {
 	const arr = infoList?.map(item => {
@@ -47,6 +49,8 @@ const ProfileForm = ({
 				clickSubmit={clickSubmit}
 				isUSDT={isUSDT}
 				areaCodeOptions={areaCodeOptions}
+				onSelectOccupation={onSelectOccupation}
+				onSelectSourceOfIncome={onSelectSourceOfIncome}
 				onSelectAreaCode={onSelectAreaCode}
 				sendEmailOtp={sendEmailOtp}
 			/>
@@ -78,5 +82,7 @@ ProfileForm.propTypes = {
 	isUSDT: PropTypes.bool.isRequired,
 	areaCodeOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
 	onSelectAreaCode: PropTypes.func.isRequired,
+	onSelectOccupation: PropTypes.func.isRequired,
+	onSelectSourceOfIncome: PropTypes.func.isRequired,
 	sendEmailOtp: PropTypes.func.isRequired
 };

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import moment from "moment";
+import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
 
 export const initValue = {
@@ -12,7 +13,9 @@ export const initValue = {
 	addressCity: "",
 	addressPostCode: "",
 	addressState: "",
-	addressCountry: ""
+	occupation: "",
+	aaoccupation: "",
+	sourceOfIncome: ""
 };
 
 export const initStatus = {
@@ -57,6 +60,14 @@ export const initStatus = {
 		checked: null,
 		tip: "",
 		type: "addr"
+	},
+	occupation: {
+		checked: null,
+		tip: ""
+	},
+	sourceOfIncome: {
+		checked: null,
+		tip: ""
 	}
 };
 
@@ -64,8 +75,36 @@ export const initStatus = {
 // 	return dataList.find(x => x.code === value)?.countryName || value;
 // };
 
+export const getOccupationOptions = getTranslation => [
+	{ id: 0, displayText: getTranslation("lbl_SelfEmployed"), value: 1 },
+	{ id: 1, displayText: getTranslation("lbl_Employed"), value: 2 },
+	{ id: 2, displayText: getTranslation("lbl_Retired"), value: 3 },
+	{ id: 3, displayText: getTranslation("lbl_Others"), value: 4 }
+];
+
+export const getIncomeSourceOptions = getTranslation => [
+	{ id: 0, displayText: getTranslation("lbl_OwnSaving"), value: 1 },
+	{ id: 1, displayText: getTranslation("lbl_Loan"), value: 2 },
+	{ id: 2, displayText: getTranslation("lbl_Others"), value: 3 }
+];
+
+export const occupationEnum = {
+	1: "lbl_SelfEmployed",
+	2: "lbl_Employed",
+	3: "lbl_Retired",
+	4: "lbl_Others"
+};
+
+export const incomeSourceEnum = {
+	1: "lbl_OwnSaving",
+	2: "lbl_Loan",
+	3: "lbl_Others"
+};
+
 export const InfoList = ({ countryList }) => {
 	const { userInfo } = useContext(userInfoContext);
+
+	const { t } = useTranslation();
 
 	const infoList = [
 		{
@@ -113,6 +152,35 @@ export const InfoList = ({ countryList }) => {
 			content: moment(userInfo.lastLogin).format("DD/MM/YYYY HH:mm:ss"),
 			show: Boolean(userInfo.lastLogin)
 		},
+
+		{
+			displayKey: "lbl_CurrentAddress",
+			content: userInfo?.currentAddress || "-",
+			show: Boolean(userInfo.currentAddress)
+		},
+
+		{
+			displayKey: "lbl_Nationality",
+			content: userInfo.nationality || "-",
+			show: Boolean(userInfo.nationality)
+		},
+
+		{
+			displayKey: "lbl_Occupation",
+			content: occupationEnum[userInfo.occupation]
+				? t(occupationEnum[userInfo.occupation])
+				: "-",
+			show: true
+		},
+
+		{
+			displayKey: "lbl_SourceOfIncome",
+			content: incomeSourceEnum[userInfo.sourceOfIncome]
+				? t(incomeSourceEnum[userInfo.sourceOfIncome])
+				: "-",
+			show: true
+		},
+
 		{
 			displayKey: "lbl_Line_1",
 			content: userInfo?.addressLineFirst,
