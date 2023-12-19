@@ -886,6 +886,22 @@ export const defMenuLinks = {
 				...productList.casino_AdvantPlay
 			},
 			{
+				keyName: "slot_AmigoGaming",
+				displayText: "Amigo Gaming",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotamigo.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_Amigo },
+				...productList.casino_Amigo,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_Amigo
+					})
+				],
+				allowCurrencies: allowedCurrencyList.casino_Amigo
+			},
+			{
 				keyName: "slot_Endorphina",
 				displayText: "ES",
 				menuType: defMenuType.Link,

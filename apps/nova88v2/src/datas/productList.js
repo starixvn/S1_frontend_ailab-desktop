@@ -48,7 +48,8 @@ export const defSlotTpGameType = {
 	FaChai: { tpId: 55, tpGameType: 106, name: "FaChai" },
 	BNG: { tpId: 57, name: "BNG", tpGameType: 108 },
 	Pegasus: { tpId: 56, tpGameType: 107, name: "PEGASUS" },
-	NLC: { tpId: 59, tpGameType: 111, name: "NoLimitCity" }
+	NLC: { tpId: 59, tpGameType: 111, name: "NoLimitCity" },
+	Amigo: { tpId: 60, name: "Amigo", tpGameType: 112 }
 };
 
 export default {
@@ -300,7 +301,10 @@ export default {
 		tpId: 55,
 		tpGameType: 106
 	},
-
+	casino_Amigo: {
+		tpId: 60,
+		tpGameType: 112
+	},
 	/* === 3. live casino === */
 
 	liveCasino_WM: {
