@@ -427,6 +427,21 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ap-icon.png`
 			},
 			{
+				...defCasinoProviders.Amigo,
+				displayText: "Amigo Gaming",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.Amigo.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/amigo.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/amigo-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/amigo-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.slot_amigo
+					})
+				]
+			},
+			{
 				...defCasinoProviders.Endorphina,
 				displayText: "ES",
 				menuType: defMenuType.Link,

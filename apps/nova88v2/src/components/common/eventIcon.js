@@ -56,7 +56,8 @@ export const defEventPeriod = {
 	V8Poker: { end: "2023/12/28 23:59:59" },
 	TFGaming: { end: "2023/12/28 23:59:59" },
 	slot_BNG: { end: "2024/01/11 23:59:59" },
-	slot_NoLimitCity: { end: "2024/01/11 23:59:59" }
+	slot_NoLimitCity: { end: "2024/01/11 23:59:59" },
+	casino_Amigo: { end: "2023/12/31 23:59:59" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

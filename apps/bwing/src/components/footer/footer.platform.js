@@ -209,6 +209,12 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.NoLimitCity.name },
 		imgName: "nlc"
+	},
+	{
+		...defCasinoProviders.Amigo,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.Amigo.name },
+		imgName: "amigo"
 	}
 ];
 
@@ -301,7 +307,8 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 					...p,
 					urlParams: _urlParams,
 					isInMaintain
-				})}>
+				})}
+			>
 				<ImageWithHover
 					bannerImgUrl={bannerImgUrl}
 					imgName={p.imgName}

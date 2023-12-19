@@ -40,7 +40,8 @@ export const defSlotTpGameType = {
 	END: { tpId: 49, tpGameType: 98, name: "endorphina" },
 	FaChai: { tpId: 55, tpGameType: 106, name: "FaChai" },
 	BNG: { tpId: 57, name: "BNG", tpGameType: 108 },
-	NLC: { tpId: 59, tpGameType: 111, name: "NoLimitCity" }
+	NLC: { tpId: 59, tpGameType: 111, name: "NoLimitCity" },
+	Amigo: { tpId: 60, tpGameType: 112, name: "Amigo" }
 };
 
 export default {
@@ -597,5 +598,10 @@ export const defCasinoProviders = {
 		tpId: 59,
 		tpGameType: 111,
 		name: "NoLimitCity"
+	},
+	Amigo: {
+		tpId: 60,
+		name: "Amigo",
+		tpGameType: 112
 	}
 };

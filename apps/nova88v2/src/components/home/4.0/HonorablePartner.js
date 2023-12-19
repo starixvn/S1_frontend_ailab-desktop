@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
+import allowedCurrencyList from "../../../datas/allowedCurrencyList";
 import productList from "../../../datas/productList";
 import paths from "../../../router";
 import { defCurrencyList } from "../../common/common";
@@ -266,6 +267,11 @@ const HonorablePartner = () => {
 				path: paths.casino.root,
 				parameter: { ...productList.casino_NoLimitCity },
 				imgName: "nlc"
+			},
+			{
+				...productList.casino_Amigo,
+				imgName: "amigo",
+				allowCurrencies: allowedCurrencyList.casino_Amigo
 			}
 		];
 
