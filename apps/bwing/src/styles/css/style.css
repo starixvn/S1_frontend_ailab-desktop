@@ -17544,6 +17544,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .home .swiper-container {
   overflow: hidden;
+  padding: 21px 0 0;
 }
 
 .Straight-lock {
