@@ -1,7 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import { useLazyGetDepositQuickTransferQuery } from "@ailab-desktop/service";
+import {
+	useLazyGetDepositChatTransferQuery,
+	useLazyGetDepositQuickTransferQuery
+} from "@ailab-desktop/service";
 import {
 	loadingContext,
 	userInfoContext,
@@ -54,6 +57,7 @@ import {
 	api_cashier_DepositReqCryptoLocalPay
 } from "../../service/api/cashier";
 import { api_payment_DepositReqLocalPay } from "../../service/api/payment";
+import ChatPayForm from "./components/chatPayForm";
 
 const isOTPVerified = ({
 	phoneVerified,
@@ -111,6 +115,11 @@ const Deposit = () => {
 		useLazyGetDepositQuickTransferQuery();
 	const quickTransferGroupList =
 		depositQuickTransferResponse?.data?.QuickTransfer?.data || [];
+
+	const [getDepositChatTransfer, { data: depositChatTransferResponse }] =
+		useLazyGetDepositChatTransferQuery();
+	const chatTransferGroupList =
+		depositChatTransferResponse?.data?.ChatTransfer?.data || [];
 
 	const {
 		asyncUploadBankPopBox,
@@ -283,8 +292,7 @@ const Deposit = () => {
 
 					<Link
 						className="btn-check"
-						to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`}
-					>
+						to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`}>
 						{t("lbl_UpdatePersonalDetail")}
 					</Link>
 				</div>
@@ -356,8 +364,7 @@ const Deposit = () => {
 									onClick={() => {
 										closePopBox();
 										resolve(true);
-									}}
-								>
+									}}>
 									{t("lbl_Deposit_Promotion_Button_Proceed")}
 								</button>
 								<button
@@ -365,8 +372,7 @@ const Deposit = () => {
 									onClick={() => {
 										closePopBox();
 										resolve(false);
-									}}
-								>
+									}}>
 									{t("lbl_Deposit_Promotion_Button_Back")}
 								</button>
 							</div>
@@ -900,6 +906,17 @@ const Deposit = () => {
 
 				const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReq`;
 				window.open(`${baseUrl}?${params}`);
+			} else if (depositType === defDepositType.douDouPay) {
+				const params = [
+					`ChannelId=${channelId || 0}`,
+					`Amount=${resultAmount}`,
+					bonusCode ? `BonusCode=${bonusCode}` : ""
+				]
+					.filter(Boolean)
+					.join("&");
+
+				const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReq`;
+				window.open(`${baseUrl}?${params}`);
 			}
 
 			await getDepositInfoRecent();
@@ -972,6 +989,7 @@ const Deposit = () => {
 		QRPayGroupList,
 		loadCardPayGroupList,
 		quickTransferGroupList,
+		chatTransferGroupList,
 		setLoading,
 		onValidAmount,
 		setDepositType,
@@ -986,8 +1004,8 @@ const Deposit = () => {
 		getQRPayGroupList,
 		getLoadCardPayGroupList,
 		getAutoDepositGroupList,
-
 		getLinePayLink,
+		getDepositChatTransfer,
 		linePayLink,
 
 		// QuickTransfer Pay fetch
@@ -1016,8 +1034,21 @@ const Deposit = () => {
 				setPopBox={setPopBox}
 				userName={userInfo.userName}
 				canSubmit={formInfo.canSubmit}
-				submitHandle={submitHandle}
-			>
+				submitHandle={submitHandle}>
+				{depositType === defDepositType.douDouPay && (
+					<ChatPayForm
+						formInfo={formInfo}
+						depositType={depositType}
+						isGroupListFetchDone={isGroupListFetchDone}
+						chatTransferGroupList={chatTransferGroupList}
+						depositPromoList={depositPromoList}
+						setFormInfo={setFormInfo}
+						onChangePromotion={onChangePromotion}
+						onChangeAmount={onChangeAmount}
+						onInputboxKeyDown={onInputboxKeyDown}
+					/>
+				)}
+
 				{depositType === defDepositType.quickTransfer && (
 					<QuickTransferForm
 						formInfo={formInfo}
