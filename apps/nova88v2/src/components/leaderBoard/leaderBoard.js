@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { navigate } from "gatsby";
+import { useGetLeaderboardSettingQuery } from "@ailab-desktop/service";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import {
@@ -14,19 +15,17 @@ import LeaderBoardTab from "./leaderBoard.tabs";
 import {
 	defTabId,
 	defDayNum,
-	defRewardList,
 	defEventCode,
 	defRankNum,
 	defGameType,
 	defMonthKey,
 	getLeaderBoardSupportCurrencyId
 } from "./leaderBoard.def";
-import { bannerImgUrl } from "../../config";
+import config, { bannerImgUrl } from "../../config";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
 import {
 	langAndCurrMapping,
-	defCurrencyList,
 	getCombineLeaderBoardLangId
 } from "../common/common";
 import { siteDefLangId } from "../../service/language";
@@ -57,10 +56,11 @@ export default () => {
 
 	const _canSeeLeaderBoard = CanSeeLeaderBoard({ currencyId });
 
-	const rewardList =
-		currencyId === defCurrencyList.INR
-			? defRewardList({ t }).MYR
-			: defRewardList({ t })[t(`Currency_${currencyId}`)];
+	const { data: { data: leaderboardEventData } = {} } =
+		useGetLeaderboardSettingQuery({
+			siteId: config.siteId,
+			currencyId: userInfo.currencyId
+		});
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -404,7 +404,7 @@ export default () => {
 					<ContentEvent
 						t={t}
 						tab={tab}
-						rewardList={rewardList}
+						leaderBoardEventData={leaderboardEventData}
 						linkToTnc={linkToTnc}
 					/>
 				) : (
@@ -413,7 +413,6 @@ export default () => {
 						showUpdateTime={showUpdateTime}
 						tab={tab}
 						periodId={periodId}
-						rewardList={rewardList}
 						periodList={periodList}
 						rankingData={rankingData}
 						onChangePeriod={onChangePeriod}

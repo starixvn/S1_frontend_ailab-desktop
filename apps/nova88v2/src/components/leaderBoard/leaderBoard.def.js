@@ -65,6 +65,18 @@ export const getLeaderBoardSupportCurrencyId = () =>
 		key => defCurrencyList[key]
 	);
 
+export const defRankKey = {
+	1: "lbl_RankChampion",
+	2: "lbl_Rank1",
+	3: "lbl_Rank2",
+	4: "lbl_Rank3",
+	5: "lbl_Rank4",
+	6: "lbl_Rank5",
+	7: "lbl_Rank6",
+	8: "lbl_Rank7",
+	"9-30": "lbl_Rank9_30"
+};
+
 export const defRewardList = ({ t }) => ({
 	MYR: {
 		section1: [
