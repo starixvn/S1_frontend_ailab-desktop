@@ -2224,6 +2224,10 @@ header input:focus-within {
   margin: 0;
   height: 40px;
 }
+.home-profile .home-profile-bottom .home-profile-country .flag span {
+  width: 135px;
+  text-align: start;
+}
 .home-profile .home-profile-bottom .home-profile-country .flag::before {
   border: 1px solid #0A1B38;
   width: 25px;
@@ -2248,7 +2252,7 @@ header input:focus-within {
   background: url(https://banner.0814media.net/desktop/img/4.0/down-2.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
-  margin-left: 90px;
+  margin-left: 50px;
   -webkit-transition: 0.35s;
   transition: 0.35s;
 }
@@ -9038,6 +9042,7 @@ input[type=file] {
 
 form {
   width: 100%;
+  color: #5574A7;
 }
 
 .casinoSelect {
