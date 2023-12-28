@@ -299,7 +299,8 @@ export default () => {
 			FromTpId: _fromTpId,
 			ToTpId: _toTpId,
 			Amount: _amount,
-			TransferAction: transferAction
+			TransferAction: transferAction,
+			LangId: userInfo.langId
 		}).then(
 			res => {
 				if (isMountedRef.current) {
@@ -315,7 +316,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										OK
 									</button>
 								</div>

@@ -340,6 +340,7 @@ export const defSubListClassName = {
 	casino: "livecasinoList",
 	poker: "pokerList",
 	game: "tableList",
+	"4d": "fourList",
 	lottery: "gameList",
 	fishing: "fishList",
 	promotion: "promoList",
@@ -1686,6 +1687,32 @@ export const defMenuLinks = {
 			// 	},
 			// 	allowCurrencies: allowedCurrencyList.fishingOfSaviors
 			// }
+		]
+	},
+	"4d": {
+		displayKey: "lbl_4D",
+		path: path["4d"].root,
+		filterByAuth: true,
+		checkBeforeLogin: true,
+		allowCurrencies: allowedCurrencyList["4D"],
+		subMenu: [
+			{
+				...productList.HaoLong,
+				displayText: "Grand Dragon",
+				listNpcImgUrl: "haolong.png",
+				menuType: defMenuType.useGoToGame,
+				parameter: { ...productList.HaoLong },
+				allowCurrencies: allowedCurrencyList.haoLong,
+				lobbyPage: {
+					bgImg: "haolong.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.HaoLong
+					})
+				]
+			}
 		]
 	},
 	lottery: {
