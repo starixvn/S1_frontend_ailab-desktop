@@ -5,7 +5,7 @@ import { navigate } from "gatsby";
 import { bannerImgUrl } from "../../config";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { api_liveStreaming_GetDataList } from "../../service/api/liveStreaming";
-import { langAndCurrMapping } from "../common/common";
+import { defCurrencyToClass, langAndCurrMapping } from "../common/common";
 import usePopBox from "../hook/usePopBox";
 import defPopBoxType from "../common/defPopBoxType";
 import { SetPathParameter } from "../common/swipperBanner";
@@ -52,6 +52,20 @@ const LiveStreamingLink = () => {
 			"[]"
 		);
 
+	const getClassNameByCurrencyId = () => {
+		const currencyClassNames = {
+			[langAndCurrMapping.vn]: _langId =>
+				_langId === "en" ? "vn-en" : "vn",
+			[langAndCurrMapping.th]: _langId =>
+				_langId === "en" ? "th-en" : "th"
+		};
+		const getClassName = currencyClassNames[currencyId];
+		if (getClassName) {
+			return getClassName(langId);
+		}
+		return "";
+	};
+
 	const handleBetting = ({ tpId, gameId, matchId }) => {
 		const parameters = SetPathParameter({
 			urlRouter: path.sports.root,
@@ -67,7 +81,9 @@ const LiveStreamingLink = () => {
 			isOpen: true,
 			popBoxType: defPopBoxType.Modal,
 			content: (
-				<div className="livesportspop active">
+				<div
+					className={`livesportspop active ${getClassNameByCurrencyId()}`}
+				>
 					<div className="livesports-content">
 						<div>
 							{liveStreamingList.map(
@@ -170,15 +186,17 @@ const LiveStreamingLink = () => {
 	}, [langId, isLogin]);
 
 	return isShowLiveStreaming ? (
-		<div className="livesports" onClick={handleLiveSteamingModalOpen}>
+		<div className="livesports">
 			<button
 				className="icon icon-close"
 				onClick={() => setIsShowLiveStreaming(false)}
 			/>
-			<img
-				src={`${bannerImgUrl}/desktop/img/4.0/livesports-${langId}.png`}
-				alt="livesports"
-			/>
+			<button onClick={handleLiveSteamingModalOpen}>
+				<img
+					src={`${bannerImgUrl}/desktop/img/4.0/livesports-${defCurrencyToClass[currencyId]}.png`}
+					alt="livesports"
+				/>
+			</button>
 		</div>
 	) : null;
 };

@@ -4898,6 +4898,7 @@ input[type=file] {
 .livesports {
   position: fixed;
   bottom: 135px;
+  z-index: 1;
 }
 .livesports img {
   -webkit-animation: livesports 4s ease-in-out infinite;
@@ -7178,9 +7179,15 @@ input[type=file] {
   background-color: unset;
 }
 #popup .livesportspop.th {
-  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-thbg-en.png) no-repeat center/100% !important;
+  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-thbg-th.png) no-repeat center/100% !important;
 }
 #popup .livesportspop.vn {
+  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-vnbg-vn.png) no-repeat center/100% !important;
+}
+#popup .livesportspop.th-en {
+  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-thbg-en.png) no-repeat center/100% !important;
+}
+#popup .livesportspop.vn-en {
   background: url(https://banner.0814media.net/desktop/img/4.0/livesports-vnbg-en.png) no-repeat center/100% !important;
 }
 
