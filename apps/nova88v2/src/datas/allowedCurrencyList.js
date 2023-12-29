@@ -139,6 +139,15 @@ const allowedCurrencyList = {
 		defCurrencyList.VND,
 		defCurrencyList.KHM
 	],
+	slot_PP: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.VND,
+		defCurrencyList.KHM
+	],
 	casino_Amigo: [
 		defCurrencyList.MYR,
 		defCurrencyList.THB,
@@ -230,7 +239,15 @@ const allowedCurrencyList = {
 		defCurrencyList.INR,
 		defCurrencyList.VND
 	],
-
+	casino_PP: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.CNY,
+		defCurrencyList.USD,
+		defCurrencyList.VND,
+		defCurrencyList.KHM
+	],
 	// game
 	mPoker: [defCurrencyList.THB],
 	amb: [defCurrencyList.THB],
