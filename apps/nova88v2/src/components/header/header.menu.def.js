@@ -658,7 +658,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				lobbyPage: { npcImg: "casino-PP.png" },
-				allowCurrencies: getPPAllowCurrencies()
+				allowCurrencies: allowedCurrencyList.casino_PP
 			},
 			{
 				...productList.liveCasino_BG,
@@ -863,7 +863,7 @@ export const defMenuLinks = {
 				// parameter: { ...productList.casino_PP },
 				parameter: { provider: "pragmatic-play" },
 				...productList.casino_PP,
-				allowCurrencies: getPPAllowCurrencies()
+				allowCurrencies: allowedCurrencyList.slot_PP
 			},
 			{
 				keyName: "slot_SG",
