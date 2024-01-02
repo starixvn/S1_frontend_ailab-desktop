@@ -302,10 +302,7 @@ const IndexPage = () => {
 				openNextPopUp();
 				return;
 			}
-			const showLang =
-				ipCountryData.code === "VN" && userInfo.langId === "vn"
-					? "vn"
-					: "en";
+			const showLang = userInfo.langId === "vn" ? "vn" : "en";
 
 			setCookie(cookieName, "1", 1);
 			setPopBox({
@@ -317,19 +314,25 @@ const IndexPage = () => {
 							<div className="vninfopop-inner">
 								<img
 									src={`https://banner.0814media.net/desktop/img/disclaimer-vnd-currency-popup-${showLang}.png`}
-									alt=""
+									alt="disclaimer-vnd-popUp"
 								/>
 								<button
 									className="popgoto"
-									onClick={() => setPopBox({ isOpen: false })}
+									onClick={() => {
+										closePopBox();
+										openNextPopUp();
+									}}
 								>
 									{/* 這裡只有 vn en 語系 故不用i18n  */}
 									JoinNow
 								</button>
 								<img
-									onClick={() => setPopBox({ isOpen: false })}
+									onClick={() => {
+										closePopBox();
+										openNextPopUp();
+									}}
 									src="https://banner.0814media.net/desktop/img/promosBackPopup/delet.png"
-									alt=""
+									alt="close"
 									className="closepop"
 								/>
 							</div>
