@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
-import { AngpaoFloatLink } from "@ailab-desktop/components";
 import { isDateRange } from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
 import {
@@ -34,19 +32,16 @@ import Jackpot from "./components/jackpot";
 import HotGameList from "./components/hotGameList";
 import News from "./components/news";
 import WinnerBoard from "./winnerBoard";
-
 import MysteryBoxLink from "./mysteryBoxLink";
 import SideBarQuickLink from "./sideBarQuickLink";
 import QuickdownloadLink from "./quickdownloadLink";
 import { defTpGameType } from "../../datas/productList";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
-import { defEventPeriod } from "../common/eventIcon";
-import Fireworks from "../specialEffects/fireworks";
-import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
-import { angPaoEventPeriod } from "../../pages/angpao";
 import { defMenuLinks } from "../layout/header.menu.def";
 import RecentlyViewedGameList from "./components/recentlyViewedGameList";
 import { defDeviceType } from "../../service/api/base";
+import { eventPerios } from "../../datas/eventDef";
+import DragonEgg from "../dragonEgg/homeLink";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -61,11 +56,6 @@ const Home = ({ productTpIds }) => {
 
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
 	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
-
-	const isEvent = isDateRange(
-		defEventPeriod.newYear.start,
-		defEventPeriod.newYear.end
-	);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -86,40 +76,13 @@ const Home = ({ productTpIds }) => {
 			const isShowOfficialAnnouncePopBox =
 				readCookie(cookieOfficialAnnounce) !== "1";
 
-			if (
-				!isDateRange(
-					NewYearEventPeriod.startDate,
-					NewYearEventPeriod.endDate
-				) &&
-				userInfo.isLogin === false &&
-				isShowOfficialAnnouncePopBox
-			) {
+			if (userInfo.isLogin === false && isShowOfficialAnnouncePopBox) {
 				setPopBox({
 					isOpen: true,
 					popBoxType: defPopBoxType.OfficialAnnounce,
 					onClickClose: openNextPopUp
 				});
 				setCookie(cookieOfficialAnnounce, "1", 1);
-			} else {
-				openNextPopUp();
-			}
-		};
-
-		const displayNewYearPopup = () => {
-			if (
-				isDateRange(
-					NewYearEventPeriod.startDate,
-					NewYearEventPeriod.endDate
-				) &&
-				!readCookie(`NewYear-${window.location.hostname}`)
-			) {
-				setPopBox({
-					isOpen: true,
-					customLayout: true,
-					popBoxType: defPopBoxType.NewYear,
-					onClickClose: openNextPopUp,
-					langId: userInfo.langId
-				});
 			} else {
 				openNextPopUp();
 			}
@@ -214,7 +177,8 @@ const Home = ({ productTpIds }) => {
 												navigate(
 													`/${path.promotion.root}?bonusCode=${bonusCode}`
 												);
-											}}>
+											}}
+										>
 											{t("lbl_Promotion_ClaimNow")}
 										</button>
 
@@ -241,7 +205,6 @@ const Home = ({ productTpIds }) => {
 
 		const popUpStack = [
 			displayDepositPopup,
-			displayNewYearPopup,
 			displayAnnouncePopup,
 			displayPromotionPopup
 		];
@@ -270,7 +233,8 @@ const Home = ({ productTpIds }) => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -341,8 +305,7 @@ const Home = ({ productTpIds }) => {
 	};
 
 	return (
-		<main id="main" className={isEvent ? "newyear" : ""}>
-			{isEvent && <Fireworks />}
+		<main id="main">
 			<BannerSwipper
 				ImgFolder={[defBannerType.Promotions]}
 				withBtn={false}
@@ -422,13 +385,12 @@ const Home = ({ productTpIds }) => {
 			)}
 
 			{/* 僅限過年期間不顯示 */}
-			{!isDateRange(angPaoEventPeriod) && (
+			{!isDateRange(eventPerios.dragonEgg) && (
 				<LuckyWheelLink langId={userInfo.langId} />
 			)}
 
-			{/* 僅限過年期間顯示且只支援部分語系 */}
-			{isDateRange(angPaoEventPeriod) &&
-				["en", "vn"].includes(i18next.language) && <AngpaoFloatLink />}
+			{/* 僅限過年期間顯示 */}
+			{isDateRange(eventPerios.dragonEgg) && <DragonEgg />}
 
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
@@ -463,21 +425,24 @@ const InfoCenter = ({ t, langId }) => (
 				<a
 					href={`${config.t_and_cURL}/Static/${langId}/HowToDeposit.html`}
 					rel="noreferrer"
-					target="_blank">
+					target="_blank"
+				>
 					<i className="icon icon-deposit2" />
 					{t("lbl_HowToDepoist")}
 				</a>
 				<a
 					href={`${config.t_and_cURL}/Static/${langId}/HowToWithdrawal.html`}
 					rel="noreferrer"
-					target="_blank">
+					target="_blank"
+				>
 					<i className="icon icon-withdrawal2" />
 					{t("lbl_HowToWithdraw")}
 				</a>
 				<a
 					href={`${config.t_and_cURL}/Static/${langId}/FAQ.html`}
 					rel="noreferrer"
-					target="_blank">
+					target="_blank"
+				>
 					<i className="icon icon-support" />
 					{t("lbl_FAQ")}
 				</a>
