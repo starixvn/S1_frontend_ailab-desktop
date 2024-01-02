@@ -14,6 +14,7 @@ export default () => {
 				<Modal
 					closePopBox={popBox.closePopBox}
 					content={popBox.content}
+					className={popBox.className}
 				/>
 			);
 			break;
@@ -418,7 +419,10 @@ export default () => {
 
 	if (!popBox.isOpen) return null;
 
-	const memorizeContent = useMemo(() => content, [popBox.popBoxType]);
+	const memorizeContent = useMemo(
+		() => content,
+		[popBox.popBoxType, popBox.content]
+	);
 
 	if (customLayout || popBox.customLayout)
 		return <Suspense fallback={<Loading />}>{memorizeContent}</Suspense>;
