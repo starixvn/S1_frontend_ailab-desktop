@@ -1,6 +1,6 @@
 import { navigate } from "gatsby";
 import React, { useContext, useEffect, useRef } from "react";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import { isDateRange } from "@ailab-desktop/common";
 import { AngpaoFloatLink } from "@ailab-desktop/components";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
@@ -369,46 +369,16 @@ const IndexPage = () => {
 										<div className="bigwinpop-item">
 											<div className="bigwinpop-img" />
 											<div className="bigwinpop-text">
-												<div>
-													<Trans
-														i18nKey="lbl_BigWinProfit_Description1"
-														values={{
-															userName:
-																bigWinData?.userName ??
-																"-"
-														}}
-														components={{
-															div: (
-																<div className="name" />
-															)
-														}}
-													/>
+												<div className="name">
+													{bigWinData?.userName ??
+														"-"}
 												</div>
-												<div>
-													<Trans
-														i18nKey="lbl_BigWinProfit_Description2"
-														values={{
-															venderName:
-																bigWinData?.gameName ??
-																"-"
-														}}
-														components={{
-															button: (
-																<button className="vender" />
-															),
-															span: (
-																<sapn
-																	style={{
-																		width: "280px"
-																	}}
-																/>
-															)
-														}}
-													/>
-												</div>
+												<button className="vender">
+													{bigWinData?.gameName ??
+														"-"}
+												</button>
 											</div>
 											<div className="bigwinpop-number">
-												$
 												{t(
 													`Currency_${userInfo.currencyId}`
 												)}{" "}
