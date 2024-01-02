@@ -564,6 +564,19 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				currencyIdByPath = result?.currencyId;
 			}
 
+			// 需另外判斷 en 是否存在於當前選擇的幣別語系中，若存在則寫入 en , 確保 langId 寫入正確
+			if (pathLang && pathLang === "en") {
+				const isInclude = !!flatLangList
+					.filter(
+						({ currencyId }) => currencyId === defaultCurrencyId
+					)
+					.find(({ value }) => value === pathLang);
+
+				if (isInclude) {
+					langIdByPath = pathLang;
+				}
+			}
+
 			setUserInfo(prev => ({
 				...prev,
 				langId: langIdByPath || defaultLangId,
