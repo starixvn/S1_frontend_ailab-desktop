@@ -39,6 +39,7 @@ import OfficialPartner from "./4.0/OfficialPartner";
 import { defTpGameType } from "../../datas/productList";
 import usePopBox from "../hook/usePopBox";
 import { defDeviceType } from "../../service/api/base";
+import LiveStreamingLink from "./liveStreamingLink";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
@@ -428,6 +429,8 @@ const IndexPage = () => {
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 			/>
+
+			<LiveStreamingLink />
 		</main>
 	);
 };

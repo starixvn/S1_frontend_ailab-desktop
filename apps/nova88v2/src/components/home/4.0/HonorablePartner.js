@@ -276,7 +276,8 @@ const HonorablePartner = () => {
 			},
 			{
 				...productList.HaoLong,
-				imgName: "haolong"
+				imgName: "haolong",
+				allowCurrencies: allowedCurrencyList.haoLong
 			}
 		];
 

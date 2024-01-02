@@ -30,6 +30,7 @@ const useDepositEffect = ({
 	QRPayGroupList,
 	loadCardPayGroupList,
 	quickTransferGroupList,
+	chatTransferGroupList,
 	setLoading,
 	onValidAmount,
 	setDepositType,
@@ -44,8 +45,8 @@ const useDepositEffect = ({
 	getQRPayGroupList,
 	getLoadCardPayGroupList,
 	getAutoDepositGroupList,
-
 	getLinePayLink,
+	getDepositChatTransfer,
 	linePayLink,
 	getDepositQuickTransfer
 }) => {
@@ -74,7 +75,8 @@ const useDepositEffect = ({
 					getQRPayGroupList(),
 					getLoadCardPayGroupList(),
 					getAutoDepositGroupList(),
-					getDepositQuickTransfer()
+					getDepositQuickTransfer(),
+					getDepositChatTransfer()
 				]);
 			} catch (e) {
 				// * 當 return 500 時不需要做特別的錯誤處理，其他的錯誤(errorCode不等於0)會在各個function處理掉
@@ -111,7 +113,8 @@ const useDepositEffect = ({
 					QRPayGroupList,
 					loadCardPayGroupList,
 					linePayLink,
-					quickTransferGroupList
+					quickTransferGroupList,
+					chatTransferGroupList
 				});
 
 				const filterDepositOptions = originalDepositOptions.filter(
@@ -153,7 +156,8 @@ const useDepositEffect = ({
 				cryptoPayGroupList,
 				QRPayGroupList,
 				loadCardPayGroupList,
-				quickTransferGroupList
+				quickTransferGroupList,
+				chatTransferGroupList
 			});
 
 			const filterDepositOptions = originalDepositOptions.filter(
@@ -256,8 +260,7 @@ const useDepositEffect = ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}
-							>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>

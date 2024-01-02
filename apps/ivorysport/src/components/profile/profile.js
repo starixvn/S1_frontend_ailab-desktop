@@ -16,13 +16,11 @@ import {
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 import ProfileForm from "./profile.form";
-import ProfileAddrForm from "./profile.addrForm";
 import { getUrlParameter } from "../common/common";
 import { defPrevPage } from "./profile.def";
 import Loading from "../common/loading";
 import { api_site_GetCountryList } from "../../service/api/site";
 import { currencyCode } from "../../datas/countryCode";
-import VerificationPanel from "./verificationPanel";
 import useVerifyEmail from "./hook/useVerifyEmail";
 import { areaCodeList } from "../join/join";
 
@@ -68,7 +66,12 @@ export default () => {
 				result =
 					(!userInfo.accountName && userValue.accountName === "") ||
 					(!userInfo.birth_d && userValue.birth === "") ||
-					(!userInfo.phoneNo && userValue.phoneNo === "");
+					(!userInfo.phoneNo && userValue.phoneNo === "") ||
+					(userInfo.occupation === 0 &&
+						userValue.occupation === "") ||
+					(userInfo.sourceOfIncome === 0 &&
+						userValue.sourceOfIncome === "");
+
 				break;
 			}
 			case "addr": {
@@ -93,7 +96,9 @@ export default () => {
 		const profileStatus = {
 			accountName: status.accountName,
 			birth: status.birth,
-			phoneNo: status.phoneNo
+			phoneNo: status.phoneNo,
+			occupation: status.occupation,
+			sourceOfIncome: status.sourceOfIncome
 		};
 		const addrStatus = {
 			addressLineFirst: status.addressLineFirst,
@@ -152,6 +157,21 @@ export default () => {
 	const onSelectAreaCode = i => {
 		setUserValue(prev => ({ ...prev, areaCodeIdx: i }));
 		phoneCheck("areaCode", i);
+	};
+
+	//  後端資料從1開始
+
+	const onSelectOccupation = i => {
+		const occupationAsString = (i + 1).toString();
+		setUserValue(prev => ({ ...prev, occupation: occupationAsString }));
+	};
+
+	const onSelectSourceOfIncome = i => {
+		const sourceOfIncomeAsString = (i + 1).toString();
+		setUserValue(prev => ({
+			...prev,
+			sourceOfIncome: sourceOfIncomeAsString
+		}));
 	};
 
 	const closePopBox = () => {
@@ -425,7 +445,19 @@ export default () => {
 							PhoneNo:
 								userInfo.phoneNo && userInfo.phoneNo !== ""
 									? userInfo.phoneNo
-									: userValue.phoneNo
+									: userValue.phoneNo,
+
+							Occupation:
+								userInfo.occupation &&
+								userInfo.occupation !== ""
+									? userInfo.occupation
+									: userValue.occupation,
+
+							SourceOfIncome:
+								userInfo.sourceOfIncome &&
+								userInfo.sourceOfIncome !== ""
+									? userInfo.sourceOfIncome
+									: userValue.sourceOfIncome
 					  }
 					: {
 							AddressCountry:
@@ -472,7 +504,10 @@ export default () => {
 										birth_m: profileDatas.Birth_m,
 										birth_y: profileDatas.Birth_y,
 										phoneNo: profileDatas.PhoneNo,
-										areaCode: profileDatas.AreaCode
+										areaCode: profileDatas.AreaCode,
+										occupation: profileDatas.Occupation,
+										sourceOfIncome:
+											profileDatas.SourceOfIncome
 								  }
 								: {
 										...prev,
@@ -747,13 +782,17 @@ export default () => {
 					isUSDT={isUSDT}
 					areaCodeOptions={areaCodeOptions}
 					onSelectAreaCode={onSelectAreaCode}
+					onSelectOccupation={onSelectOccupation}
+					onSelectSourceOfIncome={onSelectSourceOfIncome}
 					sendEmailOtp={sendEmailOtp}
 				/>
 			</div>
 
 			{!userInfo?.accountName ||
 			!userInfo?.birth_d ||
-			!userInfo?.phoneNo ? (
+			!userInfo?.phoneNo ||
+			userInfo.occupation === 0 ||
+			userInfo.sourceOfIncome === 0 ? (
 				<div className="btnGroup">
 					<button
 						className={
