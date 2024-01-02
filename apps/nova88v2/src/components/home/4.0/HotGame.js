@@ -369,6 +369,10 @@ const HotGame = () => {
 										imgName[userInfo.langId] || imgName.en
 									}`;
 
+									const name =
+										gameName[userInfo.langId] ||
+										gameName.en;
+
 									return (
 										<div key={imgName}>
 											<a
@@ -390,14 +394,7 @@ const HotGame = () => {
 														src={imgUrl}
 														alt="img-hot-game"
 													/>
-													<span>
-														{
-															gameName[
-																userInfo.langId ||
-																	"en"
-															]
-														}
-													</span>
+													<span>{name}</span>
 												</div>
 											</a>
 										</div>
