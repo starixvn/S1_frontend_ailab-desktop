@@ -107,3 +107,8 @@ export const liveStreamingRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/LiveStreaming`
 });
+
+export const bigWinRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/BigWin`
+});

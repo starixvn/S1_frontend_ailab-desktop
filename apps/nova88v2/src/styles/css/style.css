@@ -7194,6 +7194,215 @@ input[type=file] {
 #popup .livesportspop.vn-en {
   background: url(https://banner.0814media.net/desktop/img/4.0/livesports-vnbg-en.png) no-repeat center/100% !important;
 }
+#popup .bigwin {
+  color: white;
+}
+#popup .bigwin .bigwinpop {
+  background: transparent;
+  padding-top: unset;
+  border-radius: unset;
+  display: none;
+  position: relative;
+}
+#popup .bigwin .bigwinpop.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#popup .bigwin .bigwinpop.en .bigwinpop-img {
+  width: 700px;
+  height: 700px;
+  -webkit-animation: bigwinpopup-en 0.5s infinite;
+          animation: bigwinpopup-en 0.5s infinite;
+}
+#popup .bigwin .bigwinpop.en .bigwinpop-text {
+  margin-top: -33px;
+}
+#popup .bigwin .bigwinpop.id .bigwinpop-img {
+  width: 700px;
+  height: 700px;
+  -webkit-animation: bigwinpopup-id 0.5s infinite;
+          animation: bigwinpopup-id 0.5s infinite;
+}
+#popup .bigwin .bigwinpop.id .bigwinpop-text {
+  margin-top: -15px;
+}
+#popup .bigwin .bigwinpop-item {
+  margin-bottom: 200px;
+  position: relative;
+  -webkit-animation: vninfopop-inner 1.5s ease-in-out;
+          animation: vninfopop-inner 1.5s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#popup .bigwin .bigwinpop-text {
+  position: absolute;
+  text-align: center;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#popup .bigwin .bigwinpop-text > div:last-child {
+  margin-top: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#popup .bigwin .bigwinpop-text > div:last-child span {
+  width: 280px;
+}
+#popup .bigwin .bigwinpop-text .name {
+  position: absolute;
+  bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  letter-spacing: 1px;
+  background: url(https://banner.0814media.net/desktop/img/4.0/username.png) no-repeat center/100%;
+  width: 270px;
+  height: 80px;
+  font-size: 17px;
+  font-weight: 600;
+  text-shadow: 0 0 20px #49008d, 0 0 20px #49008d, 0 0 6px #49008d;
+}
+#popup .bigwin .bigwinpop-text .vender {
+  position: absolute;
+  top: 33px;
+  margin: 5px 0;
+  background: white;
+  padding: 10px 5px;
+  width: 320px;
+  height: 63px;
+  font-size: 16px;
+  border-radius: 10px;
+  color: #4e1587;
+  font-weight: 700;
+  line-height: 20px;
+}
+#popup .bigwin .bigwinpop-number {
+  position: absolute;
+  bottom: 140px;
+  font-size: 37px;
+  font-weight: 900;
+  text-shadow: 0 0 10px #cb1ff0, 0 0 10px #cb1ff0, 0 0 10px #cb1ff0, 0 0 10px #cb1ff0;
+}
+#popup .bigwin .bigwinpop .money {
+  position: absolute;
+  top: 260px;
+}
+#popup .bigwin .bigwinpop .money-two {
+  position: absolute;
+  top: 50px;
+  left: 95px;
+}
+@keyframes vninfopop-inner {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  50% {
+    -webkit-transform: scale(1.05, 1.05);
+            transform: scale(1.05, 1.05);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+@-webkit-keyframes bigwinpopup-en {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/4.0/popup-en-2.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/4.0/popup-en-1.png) no-repeat center/cover;
+  }
+}
+@keyframes bigwinpopup-en {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/4.0/popup-en-2.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/4.0/popup-en-1.png) no-repeat center/cover;
+  }
+}
+@-webkit-keyframes bigwinpopup-id {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/4.0/popup-id-2.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/4.0/popup-id-1.png) no-repeat center/cover;
+  }
+}
+@keyframes bigwinpopup-id {
+  0% {
+    background: url(https://banner.0814media.net/desktop/img/4.0/popup-id-2.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(https://banner.0814media.net/desktop/img/4.0/popup-id-1.png) no-repeat center/cover;
+  }
+}
+#popup .bigwin .bigwinpop .closepop {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  position: absolute;
+  right: 335px;
+  bottom: 7px;
+  opacity: 0.7;
+  -webkit-animation: closepop 2s ease-in-out;
+          animation: closepop 2s ease-in-out;
+}
+#popup .bigwin .bigwinpop .closepop:hover {
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@keyframes closepop {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  88% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .Submit,
 .poker,

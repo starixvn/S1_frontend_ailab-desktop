@@ -14,7 +14,9 @@ import {
 	readCookie,
 	setCookie,
 	deleteCookie,
-	getUrlParameter
+	getUrlParameter,
+	defCurrencyList,
+	number_format
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWalletInfo } from "../../service/api/account";
@@ -40,14 +42,15 @@ import { defTpGameType } from "../../datas/productList";
 import usePopBox from "../hook/usePopBox";
 import { defDeviceType } from "../../service/api/base";
 import LiveStreamingLink from "./liveStreamingLink";
+import { api_bigWin_GetPopUpDataList } from "../../service/api/bigWin";
+import { bannerImgUrl } from "../../config";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { setIsRoot } = useContext(isRootContext);
-	const { closePopBox } = usePopBox();
-
+	const { closePopBox, errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 	const { allMaintainList: maintainList } = useContext(maintainListContext);
 
@@ -342,11 +345,84 @@ const IndexPage = () => {
 			});
 		};
 
+		const displayBigWinProfitPopup = async () => {
+			const cookieName = `BigWinProfit${userInfo.userName}`;
+
+			if (
+				userInfo.isLogin &&
+				readCookie(cookieName) !== "1" &&
+				userInfo.currencyId === defCurrencyList.IDR
+			) {
+				try {
+					const {
+						data: { data: bigWinData }
+					} = await api_bigWin_GetPopUpDataList();
+
+					// 該userName回傳null表示不顯示彈窗
+					if (bigWinData.userName !== null) {
+						setCookie(cookieName, "1", 1);
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.Modal,
+							content: (
+								<div className="bigwin">
+									<div
+										className={`bigwinpop active ${userInfo.langId}`}
+									>
+										<div className="bigwinpop-item">
+											<div className="bigwinpop-img" />
+											<div className="bigwinpop-text">
+												<div className="name">
+													{bigWinData?.userName ??
+														"-"}
+												</div>
+												<button className="vender">
+													{bigWinData?.gameName ??
+														"-"}
+												</button>
+											</div>
+											<div className="bigwinpop-number">
+												{t(
+													`Currency_${userInfo.currencyId}`
+												)}{" "}
+												{number_format(
+													bigWinData?.amount ?? 0
+												)}
+											</div>
+											<img
+												className="money"
+												src={`${bannerImgUrl}/desktop/img/4.0/money.gif`}
+												alt=""
+											/>
+											<img
+												className="money-two"
+												src={`${bannerImgUrl}/desktop/img/4.0/money.gif`}
+												alt=""
+											/>
+											<img
+												src={`${bannerImgUrl}/desktop/img/promosBackPopup/delet.png`}
+												alt=""
+												className="closepop"
+												onClick={closePopBox}
+											/>
+										</div>
+									</div>
+								</div>
+							)
+						});
+					}
+				} catch (error) {
+					errorPopBox(error);
+				}
+			}
+		};
+
 		const popUpStack = [
 			displayDepositPopup,
 			displaySponsorshipPopup,
 			displayPromotionPopup,
-			disclaimerForVnd
+			disclaimerForVnd,
+			displayBigWinProfitPopup
 		];
 
 		const openNextPopUp = () => {
