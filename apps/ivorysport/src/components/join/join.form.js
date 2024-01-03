@@ -1,12 +1,21 @@
 /* eslint-disable react/forbid-prop-types */
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 import ReCAPTCHA from "react-google-recaptcha";
+import classNames from "classnames";
+import DateTime from "react-datetime";
 import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Dropdown from "../common/dropdown";
-import { defCurrencyList } from "../common/common";
 import { reCaptchaEnum } from "./join.def";
+import {
+	OCCUPATION_OPTIONS,
+	SOURCE_OF_INCOME_OPTIONS
+} from "../common/join.data";
+
+const legalDate = moment().subtract(21, "year");
+const vaildDate = current => current.isBefore(legalDate);
 
 const JoinForm = ({
 	t,
@@ -143,7 +152,6 @@ const JoinForm = ({
 					{t("lbl_CantChangePreferredCurrency")}
 				</div>
 			)}
-
 			{userValue.currencyIdx !== null ? (
 				<div className="phone">
 					<div
@@ -185,13 +193,150 @@ const JoinForm = ({
 					/>
 				</div>
 			) : null}
-
 			{userValue.currencyIdx !== null &&
 				(tip.phone.msg ? (
 					<div className="tip active txt-red">{tip.phone.msg}</div>
 				) : (
 					<div className="tip active">{t("lbl_CantChangePhone")}</div>
 				))}
+
+			{/* // * Birth Dropdown */}
+			<div className="inputBox-blue">
+				<DateTime
+					onChange={EditField.bind(this, "birth")}
+					value={userValue.birth}
+					timeFormat={false}
+					dateFormat="YYYY-MM-DD"
+					isValidDate={vaildDate}
+					viewDate={moment(legalDate).format("YYYY-MM-DD")}
+					onClose={() => {
+						checkValue("birth", userValue.birth);
+					}}
+					inputProps={{
+						placeholder: t("lbl_Birthday"),
+						onBlur: e => {
+							checkValue("birth", e.target.value);
+						}
+					}}
+				/>
+				<div className="iconModule">
+					<i className="icon icon-calendar" />
+				</div>
+			</div>
+			<div className="tip active txt-red">{tip.birth.msg}</div>
+
+			{/* // * Occupation Dropdown */}
+			<div className="inputBox-blue">
+				<Dropdown
+					defaultOption={t(
+						OCCUPATION_OPTIONS[userValue.occupation.index]
+							.displayKey
+					)}
+					mainKey="join_Occupation"
+					options={OCCUPATION_OPTIONS}
+					selectedIdx={userValue.occupation.index}
+					i18n={t}
+					onSelectItem={(i, item) => {
+						EditField("occupation", {
+							index: i,
+							value: item.value
+						});
+					}}
+				/>
+			</div>
+
+			{/* // * Source of Income */}
+			<div className="inputBox-blue">
+				<Dropdown
+					defaultOption={t(
+						SOURCE_OF_INCOME_OPTIONS[userValue.sourceOfIncome.index]
+							.displayKey
+					)}
+					mainKey="join_source_of_income"
+					options={SOURCE_OF_INCOME_OPTIONS}
+					selectedIdx={userValue.sourceOfIncome.index}
+					i18n={t}
+					onSelectItem={(i, item) => {
+						EditField("sourceOfIncome", {
+							index: i,
+							value: item.value
+						});
+					}}
+				/>
+			</div>
+
+			{/* // * Nationality */}
+			<div
+				className={classNames("inputBox-blue", {
+					error: tip.nationality.checked === false
+				})}>
+				<input
+					value={userValue.nationality}
+					placeholder={t("lbl_Nationality")}
+					onBlur={e => {
+						checkValue("nationality", e);
+					}}
+					onChange={e => {
+						EditField("nationality", e);
+					}}
+				/>
+				<div className="iconModule" />
+			</div>
+			{/* // * ----- */}
+
+			<div className="address">
+				<div
+					className={classNames("inputBox-blue", {
+						error: tip.country.checked === false
+					})}>
+					<input
+						value={userValue.country}
+						placeholder={t("lbl_Country")}
+						onBlur={e => {
+							checkValue("country", e);
+						}}
+						onChange={e => {
+							EditField("country", e);
+						}}
+					/>
+					<div className="iconModule" />
+				</div>
+				<div
+					className={classNames("inputBox-blue", {
+						error: tip.city.checked === false
+					})}>
+					<input
+						value={userValue.city}
+						placeholder={t("lbl_City")}
+						onBlur={e => {
+							checkValue("city", e);
+						}}
+						onChange={e => {
+							EditField("city", e);
+						}}
+					/>
+					<div className="iconModule" />
+				</div>
+
+				<div className="inputBox-blue">
+					<input
+						placeholder={t("lbl_PostCode")}
+						onChange={e => {
+							EditField("postCode", e);
+						}}
+					/>
+					<div className="iconModule" />
+				</div>
+			</div>
+			<div className="inputBox-blue">
+				<input
+					placeholder={t("lbl_Line_1")}
+					onChange={e => {
+						EditField("lineFirst", e);
+					}}
+				/>
+				<div className="iconModule" />
+			</div>
 
 			{/* <Inputbox */}
 			{/*	className={`inputBox-blue${ */}
