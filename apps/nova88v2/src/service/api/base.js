@@ -102,3 +102,8 @@ export const hotGameRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/HotGame`
 });
+
+export const liveStreamingRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/LiveStreaming`
+});
