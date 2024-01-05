@@ -156,12 +156,16 @@ const QuickTransferForm = ({
 												number: item.minAmount,
 												digits: 0
 											})}
+											{`${t("lbl_Min")}: ${number_format({
+												number: item.minAmount,
+												digits: 0
+											})}`}
 										</div>
 										<div>
-											{number_format({
+											{`${t("lbl_Max")}: ${number_format({
 												number: item.maxAmount,
 												digits: 0
-											})}
+											})}`}
 										</div>
 									</div>
 								</div>
@@ -233,14 +237,6 @@ const QuickTransferForm = ({
 					</div>
 				</>
 			)}
-
-			{
-				(console.log(!formInfo.selBank),
-				!formInfo.selBank ||
-					supportBanksByPayId.some(
-						item => item.sysId === sysIdForRecord
-					))
-			}
 
 			<div className="subModuleTitle">
 				<span>
