@@ -152,16 +152,16 @@ const QuickTransferForm = ({
 
 									<div>
 										<div>
-											{number_format({
+											{`${t("lbl_Min")}: ${number_format({
 												number: item.minAmount,
 												digits: 0
-											})}
+											})}`}
 										</div>
 										<div>
-											{number_format({
+											{`${t("lbl_Max")}: ${number_format({
 												number: item.maxAmount,
 												digits: 0
-											})}
+											})}`}
 										</div>
 									</div>
 								</div>
