@@ -152,10 +152,6 @@ const QuickTransferForm = ({
 
 									<div>
 										<div>
-											{number_format({
-												number: item.minAmount,
-												digits: 0
-											})}
 											{`${t("lbl_Min")}: ${number_format({
 												number: item.minAmount,
 												digits: 0
