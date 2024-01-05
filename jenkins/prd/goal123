@@ -43,7 +43,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'ansible-playbook -i ${ansible_path}host.yml ${ansible_path}deploy.yml --extra-vars "commitId=${commitHash} site=${site} platform=desktop host=desktop-${site} env=${env}"'
+                // sh 'ansible-playbook -i ${ansible_path}host.yml ${ansible_path}deploy.yml --extra-vars "commitId=${commitHash} site=${site} platform=desktop host=desktop-${site} env=${env}"'
             }
         }
     }
