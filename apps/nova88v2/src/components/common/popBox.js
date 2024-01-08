@@ -380,9 +380,8 @@ export default () => {
 				/>
 			);
 			break;
-
-		// eslint-disable-next-line no-fallthrough
-		default:
+		case // eslint-disable-next-line no-fallthrough
+		defPopBoxType.default:
 			break;
 	}
 
