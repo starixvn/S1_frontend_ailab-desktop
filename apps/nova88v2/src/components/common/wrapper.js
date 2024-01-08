@@ -40,7 +40,8 @@ import { defLangGroups } from "../header/header.langDropdown";
 const flatLangList = Object.values(defLangGroups).flatMap(item => item);
 
 export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
+
 	const location = useLocation();
 	const [popBox, setPopBox] = useState({
 		isOpen: false,
@@ -594,8 +595,22 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	useEffect(() => {
 		if (userInfo.langId && !pathLang) {
 			navigate(`/${userInfo.langId}`);
+		} else if (
+			// * 利用 userInfo.accountName 判斷是否已拿到登入資訊
+			userInfo.accountName
+		) {
+			const isNotSupportLangId = flatLangList.some(
+				item =>
+					item.currencyId === userInfo.currencyId &&
+					item.value === pathLang
+			);
+
+			// * 如果是不支援的語系，導航回首頁
+			if (!isNotSupportLangId) {
+				navigate(`/${userInfo.langId}`);
+			}
 		}
-	}, [pathLang, userInfo.langId, userInfo.isLogin]);
+	}, [pathLang, userInfo.langId, userInfo.isLogin, userInfo.accountName]);
 
 	useEffect(() => {
 		const AffId = getUrlParameter("AffId");
