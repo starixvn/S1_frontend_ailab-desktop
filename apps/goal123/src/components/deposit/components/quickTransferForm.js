@@ -154,13 +154,15 @@ const QuickTransferForm = ({
 										<div>
 											{`${t("lbl_Min")}: ${number_format({
 												number: item.minAmount,
-												digits: 0
+												digits: 0,
+												formatRequired: true
 											})}`}
 										</div>
 										<div>
 											{`${t("lbl_Max")}: ${number_format({
 												number: item.maxAmount,
-												digits: 0
+												digits: 0,
+												formatRequired: true
 											})}`}
 										</div>
 									</div>
@@ -213,7 +215,8 @@ const QuickTransferForm = ({
 														"lbl_Min"
 													)}: ${number_format({
 														number: item.minAmount,
-														digits: 0
+														digits: 0,
+														formatRequired: true
 													})}`}
 												</div>
 												<div>
@@ -221,7 +224,8 @@ const QuickTransferForm = ({
 														"lbl_Max"
 													)}: ${number_format({
 														number: item.maxAmount,
-														digits: 0
+														digits: 0,
+														formatRequired: true
 													})}`}
 												</div>
 											</div>
