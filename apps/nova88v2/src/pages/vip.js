@@ -5,6 +5,8 @@ import Footer from "../components/footer/footer";
 import Vip from "../components/vip/vip";
 
 export default function vip() {
+	// eslint-disable-next-line no-console
+	console.log("commit test");
 	return (
 		<Wrapper afterLogin={false}>
 			<Layout>
