@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent { node { label 'Build' } }
     tools {nodejs "nodejs"}
     environment{
         node_modules_exists = fileExists 'node_modules'
@@ -10,7 +10,6 @@ pipeline {
     }
     stages {
         stage('Install dependencies') {
-            agent { node { label 'Build' } }
             when {
                 anyOf {
                     changeset "package.json"
@@ -23,7 +22,6 @@ pipeline {
             }
         }
         stage('Build') {
-            agent { node { label 'Build' } }
             steps {
                 sh 'npx gulp minify --gulpfile=apps/${project_name}/gulpfile.js'
                 sh '(git rev-parse --short=7 HEAD & git rev-parse --abbrev-ref HEAD) > apps/${project_name}/static/rnt.txt'
@@ -32,7 +30,6 @@ pipeline {
             }
         }
         stage('Zip'){
-            agent { node { label 'Build' } }
             steps {
                 dir("apps/${project_name}/public"){
                     script {
@@ -41,7 +38,7 @@ pipeline {
                     sh 'zip -r desktop-${site}-${commitHash} *'
                     // 因不是從地端機器，不須經過proxy,參考dev zip step
                     //sh 'curl -x http://10.4.194.104:3128 -v -u admin:123456 --upload-file desktop-${site}-${commitHash}.zip http://13.213.82.69:8081/repository/artifacts/Frontend/desktop/${site}/${env}/desktop-${site}-${commitHash}.zip'
-                    sh 'curl -v -u admin:123456 --upload-file desktop-${site}-${commitHash}.zip http://172.31.28.233:8081/repository/artifacts/Frontend/desktop/${site}/${env}/desktop-${site}-${commitHash}.zip'
+                    sh 'curl -v -u admin:123456 --upload-file desktop-${site}-${commitHash}.zip http://13.213.82.69:8081/repository/artifacts/Frontend/desktop/${site}/${env}/desktop-${site}-${commitHash}.zip'
                     sh 'echo desktop-${site}-${commitHash}'
                     sh 'echo "deploy version=${commitHash}"'
                 }
