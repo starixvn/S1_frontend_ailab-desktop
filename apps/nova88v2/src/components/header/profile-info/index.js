@@ -132,7 +132,9 @@ const ProfileInfo = () => {
 			})}
 			onClick={toggle}
 		>
-			<a className="grade-text">{`Hello,  ${userInfo.userName}`}</a>
+			<a className="grade-text">{`${t("Label_General_Hello")},  ${
+				userInfo.userName
+			}`}</a>
 			<div className="grade-color">
 				<div className="dots" />
 				<div className="gradecolor-text">
