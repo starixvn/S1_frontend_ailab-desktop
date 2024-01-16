@@ -69,7 +69,8 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 								<div className="btnGroup">
 									<Link
 										className="btn-check"
-										to={`/${langId}/${path.profile.root}?prevPage=${path.promotion.root}&BonusCode=${bonusCode}`}>
+										to={`/${langId}/${path.profile.root}?prevPage=${path.promotion.root}&BonusCode=${bonusCode}`}
+									>
 										{t("lbl_UpdatePersonalDetail")}
 									</Link>
 								</div>
@@ -88,7 +89,8 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={clickClose}>
+										onClick={clickClose}
+									>
 										OK
 									</button>
 								</div>
@@ -153,7 +155,8 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 		moment.unix(promotionInfo.periodFrom).diff(Date.now()) > 0 ||
 		moment.unix(promotionInfo.periodTo).diff(Date.now()) < 0 ? null : (
 		<button className="btn-primary" onClick={onJoinPromotion}>
-			{promotionInfo.promotionType === defPromotionType.cashback
+			{promotionInfo.promotionType === defPromotionType.cashback ||
+			promotionInfo.promotionType === defPromotionType.retentionFreeBet
 				? t("lbl_Promotion_ClaimNow")?.toUpperCase()
 				: t("lbl_PromoJoinNow")?.toUpperCase()}
 		</button>
