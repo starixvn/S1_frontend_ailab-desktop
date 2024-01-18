@@ -11,7 +11,8 @@ export const api_accountStrict_SetProfile = ({
 	Birth_y,
 	CountryCode,
 	AreaCode,
-	PhoneNo
+	PhoneNo,
+	Email
 }) =>
 	accountStrictRequest.post("/SetProfile", {
 		AccountName,
@@ -20,7 +21,8 @@ export const api_accountStrict_SetProfile = ({
 		Birth_y,
 		CountryCode,
 		AreaCode,
-		PhoneNo
+		PhoneNo,
+		Email
 	});
 
 export const api_accountStrict_SetProfileAddress = ({

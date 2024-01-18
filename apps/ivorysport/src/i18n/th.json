@@ -1,9 +1,15 @@
 {
+	"Label_General_Exit": "ออก",
+	"Label_General_AgeVerification": "การตรวจสอบอายุ",
+	"Label_General_Verify21Years": "โปรดตรวจสอบว่าคุณมีอายุ 21 ปีหรือมากกว่าเพื่อเข้าสู่เว็บไซต์นี้",
+	"Label_General_Already21Years": "ฉันมีอายุมากกว่า 21 ปี",
+	"Label_General_AgreeTermsCondition": "ฉันยินยอมตาม ivorysport <Link>เงื่อนไขและข้อกำหนด</Link>",
+
 	"home ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_GamingLicense": "ใบอนุญาตเกม",
 	"lbl_SuggestedBrowser": "เบราว์เซอร์ที่แนะนำ",
 	"lbl_PaymentMethods": "ช่องทางการฝากเงิน",
-	
+
 	"lbl_SocialMedia": "สื่อสังคมออนไลน์",
 	"lbl_Licenses": "ใบอนุญาต",
 	"lbl_Responsibility": "ความรับผิดชอบ",
@@ -149,13 +155,12 @@
 	"lbl_OwnSaving": "เงินออม",
 	"lbl_Loan": "เงินกู้",
 
-
 	"lbl_Occupation": "อาชีพ",
 	"lbl_SelfEmployed": "อาชีพอิสระ",
 	"lbl_Employed": "ลูกจ้าง",
 	"lbl_Retired": "เกษียณแล้ว",
 	"lbl_Others": "อื่นๆ",
-	
+
 	"msg_UsernameReq": "ต้องใส่ชื่อบัญชีผู้ใช้",
 	"msg_RealNameReq": "ต้องระบุชื่อจริง",
 	"msg_PasswordReq": "ต้องใส่รหัสผ่าน",

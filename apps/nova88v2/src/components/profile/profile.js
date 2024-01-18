@@ -20,7 +20,10 @@ import ProfileAddrForm from "./profile.addrForm";
 import { getUrlParameter } from "../common/common";
 import { defPrevPage } from "./profile.def";
 import Loading from "../common/loading";
-import { api_site_GetCountryList } from "../../service/api/site";
+import {
+	api_site_ExistsEmail,
+	api_site_GetCountryList
+} from "../../service/api/site";
 import { currencyCode } from "../../datas/countryCode";
 import VerificationPanel from "./verificationPanel";
 import useVerifyEmail from "./hook/useVerifyEmail";
@@ -68,7 +71,8 @@ export default () => {
 				result =
 					(!userInfo.accountName && userValue.accountName === "") ||
 					(!userInfo.birth_d && userValue.birth === "") ||
-					(!userInfo.phoneNo && userValue.phoneNo === "");
+					(!userInfo.phoneNo && userValue.phoneNo === "") ||
+					(!userInfo.email && userValue.email === "");
 				break;
 			}
 			case "addr": {
@@ -93,7 +97,8 @@ export default () => {
 		const profileStatus = {
 			accountName: status.accountName,
 			birth: status.birth,
-			phoneNo: status.phoneNo
+			phoneNo: status.phoneNo,
+			email: status.email
 		};
 		const addrStatus = {
 			addressLineFirst: status.addressLineFirst,
@@ -298,6 +303,8 @@ export default () => {
 				INPUT_PATTERN.userNameSpecialCharactersPattern,
 				""
 			);
+		} else if (col === "email") {
+			val = e.target.value;
 		} else if (addrInputList.includes(col)) {
 			val = e.target.value;
 		} else {
@@ -373,6 +380,64 @@ export default () => {
 		return checked;
 	};
 
+	const emailCheck = async val => {
+		let checked = true;
+		let msg = "";
+		const regx =
+			/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+
+		if (val === "") {
+			checked = false;
+			msg = "msg_EmailReq";
+		} else if (!regx.test(val)) {
+			checked = false;
+			msg = "msg_MailWrongFormat";
+		} else {
+			checked = true;
+			msg = "lbl_CantChangeEmail";
+		}
+
+		if (checked === true) {
+			const res = await api_site_ExistsEmail({ Email: val });
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					if (res.data.data === true) {
+						setStatus(prev => ({
+							...prev,
+							email: {
+								checked: false,
+								tip: t("msg_MailExisted")
+							}
+						}));
+					} else {
+						setStatus(prev => ({
+							...prev,
+							email: {
+								checked,
+								tip: msg
+							}
+						}));
+					}
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			}
+		} else {
+			setStatus(prev => ({
+				...prev,
+				email: {
+					checked,
+					tip: msg
+				}
+			}));
+		}
+
+		return { checked, msg };
+	};
+
 	const clickSubmit = (e, type) => {
 		e.preventDefault();
 		if (disableSubmit(type)) return;
@@ -425,7 +490,11 @@ export default () => {
 							PhoneNo:
 								userInfo.phoneNo && userInfo.phoneNo !== ""
 									? userInfo.phoneNo
-									: userValue.phoneNo
+									: userValue.phoneNo,
+							Email:
+								userInfo.email && userInfo.email !== ""
+									? userInfo.email
+									: userValue.email
 					  }
 					: {
 							AddressCountry:
@@ -472,7 +541,8 @@ export default () => {
 										birth_m: profileDatas.Birth_m,
 										birth_y: profileDatas.Birth_y,
 										phoneNo: profileDatas.PhoneNo,
-										areaCode: profileDatas.AreaCode
+										areaCode: profileDatas.AreaCode,
+										email: profileDatas.Email
 								  }
 								: {
 										...prev,
@@ -582,7 +652,7 @@ export default () => {
 				}
 			};
 			closePopBox();
-			setLoading(true);
+			setLoading(false);
 
 			if (type === "profile") {
 				api_accountStrict_SetProfile(profileDatas).then(
@@ -711,9 +781,9 @@ export default () => {
 		openErrorMessagePopBox
 	});
 
-	return loading || !tokenPassed ? (
-		<Loading />
-	) : (
+	if (loading || !tokenPassed) return <Loading />;
+
+	return (
 		<div className="infoModule">
 			<div className="inside-title">
 				<span className="icon icon-icon32px_Profile">
@@ -748,6 +818,7 @@ export default () => {
 					editField={editField}
 					valueCheck={valueCheck}
 					phoneCheck={phoneCheck}
+					emailCheck={emailCheck}
 					clickInfo={clickInfo}
 					clickSubmit={e => clickSubmit(e, "profile")}
 					isUSDT={isUSDT}
@@ -759,7 +830,8 @@ export default () => {
 
 			{!userInfo?.accountName ||
 			!userInfo?.birth_d ||
-			!userInfo?.phoneNo ? (
+			!userInfo?.phoneNo ||
+			!userInfo.email ? (
 				<div className="btnGroup">
 					<button
 						className={

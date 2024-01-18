@@ -14,6 +14,7 @@ const ProfileForm = ({
 	editField,
 	valueCheck,
 	phoneCheck,
+	emailCheck,
 	clickInfo,
 	clickSubmit,
 	isUSDT,
@@ -43,6 +44,7 @@ const ProfileForm = ({
 				editField={editField}
 				valueCheck={valueCheck}
 				phoneCheck={phoneCheck}
+				emailCheck={emailCheck}
 				clickInfo={clickInfo}
 				clickSubmit={clickSubmit}
 				isUSDT={isUSDT}
@@ -69,6 +71,7 @@ ProfileForm.propTypes = {
 	editField: PropTypes.func.isRequired,
 	valueCheck: PropTypes.func.isRequired,
 	phoneCheck: PropTypes.func.isRequired,
+	emailCheck: PropTypes.func.isRequired,
 	clickInfo: PropTypes.func.isRequired,
 	clickSubmit: PropTypes.func.isRequired,
 	isUSDT: PropTypes.bool.isRequired,

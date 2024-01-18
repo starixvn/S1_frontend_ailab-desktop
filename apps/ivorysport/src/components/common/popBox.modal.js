@@ -1,13 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import useClickOutSide from "../hook/useClickOutSide";
 
-const PopBoxModule = ({ closePopBox, content }) => {
-	const ref = useClickOutSide(() => closePopBox());
-
+const PopBoxModule = ({ content, className, ...rest }) => {
 	return (
-		<div ref={ref} className="Success active">
-			{content}
+		<div className="pop">
+			<div className="Success active">{content}</div>
 		</div>
 	);
 };
@@ -15,11 +12,9 @@ const PopBoxModule = ({ closePopBox, content }) => {
 export default PopBoxModule;
 
 PopBoxModule.defaultProps = {
-	closePopBox: () => null,
 	content: null
 };
 
 PopBoxModule.propTypes = {
-	closePopBox: PropTypes.func,
 	content: PropTypes.node
 };

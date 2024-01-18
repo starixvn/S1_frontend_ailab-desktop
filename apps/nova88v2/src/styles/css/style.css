@@ -7203,6 +7203,7 @@ input[type=file] {
   border-radius: unset;
   display: none;
   position: relative;
+  z-index: 1;
 }
 #popup .bigwin .bigwinpop.active {
   display: -webkit-box;
@@ -7227,7 +7228,7 @@ input[type=file] {
 #popup .bigwin .bigwinpop.id .bigwinpop-text {
   margin-top: -15px;
 }
-#popup .bigwin .bigwinpop-item {
+#popup .bigwin .bigwinpop-item > div {
   margin-bottom: 200px;
   position: relative;
   -webkit-animation: vninfopop-inner 1.5s ease-in-out;
@@ -7379,10 +7380,11 @@ input[type=file] {
   width: 30px;
   position: absolute;
   right: 335px;
-  bottom: 7px;
+  bottom: 200px;
   opacity: 0.7;
   -webkit-animation: closepop 2s ease-in-out;
           animation: closepop 2s ease-in-out;
+  z-index: 4;
 }
 #popup .bigwin .bigwinpop .closepop:hover {
   opacity: 1;

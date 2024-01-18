@@ -33,7 +33,11 @@ import WelcomeInfo from "./WelcomeInfo";
 import HotMatch from "./HotMatch";
 import { defMenuType } from "../header/header.menu.def";
 import { getUrl } from "../common/linkItems";
-import { GET_OPEN_RULE, OPEN_IN_BLANK } from "../../service/enterPage";
+import {
+	GET_OPEN_RULE,
+	OPEN_IN_BLANK,
+	SET_CASINO_ENTER_PAGE
+} from "../../service/enterPage";
 import HotGame from "./4.0/HotGame";
 import AppDownload from "./4.0/AppDownload";
 import HonorablePartner from "./4.0/HonorablePartner";
@@ -41,9 +45,15 @@ import OfficialPartner from "./4.0/OfficialPartner";
 import { defTpGameType } from "../../datas/productList";
 import usePopBox from "../hook/usePopBox";
 import { defDeviceType } from "../../service/api/base";
-import LiveStreamingLink from "./liveStreamingLink";
-import { api_bigWin_GetPopUpDataList } from "../../service/api/bigWin";
 import { bannerImgUrl } from "../../config";
+import { api_bigWin_GetPopUpDataList } from "../../service/api/bigWin";
+import {
+	defLoginGameType,
+	defSpecialSetting,
+	useGotoGame
+} from "../hook/useGotoGame";
+import useDelayFunc from "../hook/useDelayFunc";
+import LiveStreamingLink from "./liveStreamingLink";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
@@ -53,6 +63,12 @@ const IndexPage = () => {
 	const { closePopBox, errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 	const { allMaintainList: maintainList } = useContext(maintainListContext);
+	const { throttle } = useDelayFunc();
+	const { handleGoToGame } = useGotoGame({
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId,
+		autoGetData: false
+	});
 
 	// Nova 4.0 首頁各靜態路徑共用的點擊事件
 	const handleEntryClick = (item, checkLogin = false) => {
@@ -212,8 +228,7 @@ const IndexPage = () => {
 												navigate(
 													`/${path.promotion.root}?bonusCode=${bonusCode}`
 												);
-											}}
-										>
+											}}>
 											{t("lbl_ClaimNow")}
 										</button>
 
@@ -324,8 +339,7 @@ const IndexPage = () => {
 									onClick={() => {
 										closePopBox();
 										openNextPopUp();
-									}}
-								>
+									}}>
 									{/* 這裡只有 vn en 語系 故不用i18n  */}
 									JoinNow
 								</button>
@@ -367,38 +381,72 @@ const IndexPage = () => {
 							content: (
 								<div className="bigwin">
 									<div
-										className={`bigwinpop active ${userInfo.langId}`}
-									>
+										className={`bigwinpop active ${userInfo.langId}`}>
 										<div className="bigwinpop-item">
-											<div className="bigwinpop-img" />
-											<div className="bigwinpop-text">
-												<div className="name">
-													{bigWinData?.userName ??
-														"-"}
+											<div
+												onClick={() =>
+													throttle(
+														() =>
+															SET_CASINO_ENTER_PAGE(
+																{
+																	tpId: bigWinData.tpId,
+																	gameId: bigWinData.gameId,
+																	isFree: false,
+																	langId: userInfo.langId,
+																	execFunction:
+																		bigWinData.tpId ===
+																		defSpecialSetting.PG
+																			? handleGoToGame.bind(
+																					this,
+																					{
+																						langId: userInfo.langId,
+																						tpId: bigWinData.tpId,
+																						gameId: bigWinData.gameId,
+																						isFun: false,
+																						tpGameType:
+																							bigWinData.tpGameType,
+																						loginGameType:
+																							defLoginGameType.returnHtml
+																					}
+																			  )
+																			: null,
+																	tpGameType:
+																		bigWinData.tpGameType
+																}
+															),
+														5000
+													)
+												}>
+												<div className="bigwinpop-img" />
+												<div className="bigwinpop-text">
+													<div className="name">
+														{bigWinData?.userName ??
+															"-"}
+													</div>
+													<button className="vender">
+														{bigWinData?.gameName ??
+															"-"}
+													</button>
 												</div>
-												<button className="vender">
-													{bigWinData?.gameName ??
-														"-"}
-												</button>
+												<div className="bigwinpop-number">
+													{t(
+														`Currency_${userInfo.currencyId}`
+													)}{" "}
+													{number_format(
+														bigWinData?.amount ?? 0
+													)}
+												</div>
+												<img
+													className="money"
+													src={`${bannerImgUrl}/desktop/img/4.0/money.gif`}
+													alt=""
+												/>
+												<img
+													className="money-two"
+													src={`${bannerImgUrl}/desktop/img/4.0/money.gif`}
+													alt=""
+												/>
 											</div>
-											<div className="bigwinpop-number">
-												{t(
-													`Currency_${userInfo.currencyId}`
-												)}{" "}
-												{number_format(
-													bigWinData?.amount ?? 0
-												)}
-											</div>
-											<img
-												className="money"
-												src={`${bannerImgUrl}/desktop/img/4.0/money.gif`}
-												alt=""
-											/>
-											<img
-												className="money-two"
-												src={`${bannerImgUrl}/desktop/img/4.0/money.gif`}
-												alt=""
-											/>
 											<img
 												src={`${bannerImgUrl}/desktop/img/promosBackPopup/delet.png`}
 												alt=""
@@ -449,8 +497,7 @@ const IndexPage = () => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								setPopBox({ isOpen: false });
-							}}
-						>
+							}}>
 							{t("lbl_Close")}
 						</button>
 					</div>

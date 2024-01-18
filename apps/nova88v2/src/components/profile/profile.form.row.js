@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 import PropTypes from "prop-types";
 import moment from "moment";
 import DateTime from "react-datetime";
@@ -20,9 +21,8 @@ const DisplayRow = ({
 	editField,
 	valueCheck,
 	phoneCheck,
+	emailCheck,
 	clickInfo,
-	isUSDT,
-	areaCodeOptions,
 	onSelectAreaCode,
 	sendEmailOtp
 }) => {
@@ -189,37 +189,61 @@ const DisplayRow = ({
 	}
 
 	if (displayKey === "lbl_Email") {
+		let emailContent = null;
+		emailContent = !userInfo?.email ? (
+			<div>
+				<Inputbox
+					className={classNames("inputBox-blue", {
+						error: status.email.checked === false
+					})}
+					icon="icon-email txt-blue"
+					placeholder={t("lbl_Email")}
+					value={userValue.email}
+					isTipHide={true}
+					checked={status.email.checked}
+					clickInfo={clickInfo.bind(this, "email")}
+					onChange={editField.bind(this, "email")}
+					onBlur={e => emailCheck(e.target.value)}
+				/>
+				{status.email.tip && (
+					<div className="tip active">{t(status.email.tip)}</div>
+				)}
+			</div>
+		) : (
+			<div>
+				{content}
+				{!userInfo?.emailVerified ? (
+					<button
+						className="icon icon-envelope btn-org"
+						onClick={sendEmailOtp}
+					>
+						{t("lbl_EmailVerification")}
+						<div className="description">
+							<div className="title">
+								{t("lbl_EmailVerification")}
+							</div>
+							<div>{t("lbl_EmailVerificationHint1")}</div>
+							<div>
+								{t("lbl_EmailVerificationHint2", {
+									currency: currencyName,
+									amount: number_format(
+										userInfo.emailReward ?? 0,
+										_isConvert
+									)
+								})}
+							</div>
+						</div>
+					</button>
+				) : (
+					<span className="icon icon-Shield" />
+				)}
+			</div>
+		);
+
 		return (
 			<div>
 				<div>{t(displayKey)}</div>
-				<div>
-					{content}
-					{userInfo.emailVerified ? (
-						<span className="icon icon-Shield" />
-					) : (
-						<button
-							className="icon icon-envelope btn-org"
-							onClick={sendEmailOtp}
-						>
-							{t("lbl_EmailVerification")}
-							<div className="description">
-								<div className="title">
-									{t("lbl_EmailVerification")}
-								</div>
-								<div>{t("lbl_EmailVerificationHint1")}</div>
-								<div>
-									{t("lbl_EmailVerificationHint2", {
-										currency: currencyName,
-										amount: number_format(
-											userInfo.emailReward ?? 0,
-											_isConvert
-										)
-									})}
-								</div>
-							</div>
-						</button>
-					)}
-				</div>
+				{emailContent}
 			</div>
 		);
 	}
@@ -251,9 +275,8 @@ DisplayRow.propTypes = {
 	editField: PropTypes.func.isRequired,
 	valueCheck: PropTypes.func.isRequired,
 	phoneCheck: PropTypes.func.isRequired,
+	emailCheck: PropTypes.func.isRequired,
 	clickInfo: PropTypes.func.isRequired,
-	isUSDT: PropTypes.bool.isRequired,
-	areaCodeOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
 	onSelectAreaCode: PropTypes.func.isRequired,
 	sendEmailOtp: PropTypes.func.isRequired
 };

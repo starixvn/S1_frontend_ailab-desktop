@@ -40,7 +40,8 @@ import { defLangGroups } from "../header/header.langDropdown";
 const flatLangList = Object.values(defLangGroups).flatMap(item => item);
 
 export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
+
 	const location = useLocation();
 	const [popBox, setPopBox] = useState({
 		isOpen: false,
@@ -564,6 +565,19 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				currencyIdByPath = result?.currencyId;
 			}
 
+			// 需另外判斷 en 是否存在於當前選擇的幣別語系中，若存在則寫入 en , 確保 langId 寫入正確
+			if (pathLang && pathLang === "en") {
+				const isInclude = !!flatLangList
+					.filter(
+						({ currencyId }) => currencyId === defaultCurrencyId
+					)
+					.find(({ value }) => value === pathLang);
+
+				if (isInclude) {
+					langIdByPath = pathLang;
+				}
+			}
+
 			setUserInfo(prev => ({
 				...prev,
 				langId: langIdByPath || defaultLangId,
@@ -581,8 +595,22 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	useEffect(() => {
 		if (userInfo.langId && !pathLang) {
 			navigate(`/${userInfo.langId}`);
+		} else if (
+			// * 利用 userInfo.accountName 判斷是否已拿到登入資訊
+			userInfo.accountName
+		) {
+			const isNotSupportLangId = flatLangList.some(
+				item =>
+					item.currencyId === userInfo.currencyId &&
+					item.value === pathLang
+			);
+
+			// * 如果是不支援的語系，導航回首頁
+			if (!isNotSupportLangId) {
+				navigate(`/${userInfo.langId}`);
+			}
 		}
-	}, [pathLang, userInfo.langId, userInfo.isLogin]);
+	}, [pathLang, userInfo.langId, userInfo.isLogin, userInfo.accountName]);
 
 	useEffect(() => {
 		const AffId = getUrlParameter("AffId");

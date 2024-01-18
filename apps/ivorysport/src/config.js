@@ -18,6 +18,7 @@ export const errorPageUrl = langId =>
 export const SiteInfo = {
 	siteName,
 	logo: "https://image.0814media.net/SiteSkin/img/logo_evt.png",
+	ageVerificationCookie: `${siteName}-age-verification`,
 	affiliateLink: getAffiliate(),
 	langCookie: "IvorysportLangId",
 	currencyCookie: "IvorysportCurrencyId",

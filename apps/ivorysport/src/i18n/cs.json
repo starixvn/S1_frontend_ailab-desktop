@@ -1,4 +1,10 @@
 {
+	"Label_General_Exit": "退出",
+	"Label_General_AgeVerification": "年龄验证",
+	"Label_General_Verify21Years": "请验证您是否年满21岁或更年长以进入此网站",
+	"Label_General_Already21Years": "我已年滿21歲",
+	"Label_General_AgreeTermsCondition": "我同意 ivorysport 的 <Link>條款和條件</Link>",
+
 	"home ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_GamingLicense": "游戏许可证",
 	"lbl_SuggestedBrowser": "推荐浏览器",
@@ -143,18 +149,16 @@
 	"lbl_CurrentAddress": "目前地址",
 	"lbl_Nationality": "国籍",
 
-
 	"lbl_SourceOfIncome": "收入來源",
 	"lbl_OwnSaving": "自有儲蓄",
 	"lbl_Loan": "貸款",
-
 
 	"lbl_Occupation": "職業",
 	"lbl_SelfEmployed": "自僱",
 	"lbl_Employed": "就業",
 	"lbl_Retired": "退休",
 	"lbl_Others": "其他的",
-	
+
 	"msg_UsernameReq": "请输入用户名。",
 	"msg_RealNameReq": "请输入真实姓名",
 	"msg_PasswordReq": "请输入密码。",
