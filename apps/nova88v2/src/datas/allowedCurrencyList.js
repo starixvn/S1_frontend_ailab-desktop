@@ -146,7 +146,8 @@ const allowedCurrencyList = {
 		defCurrencyList.CNY,
 		defCurrencyList.USD,
 		defCurrencyList.VND,
-		defCurrencyList.KHM
+		defCurrencyList.KHM,
+		defCurrencyList.BDT
 	],
 	casino_Amigo: [
 		defCurrencyList.MYR,
@@ -274,7 +275,7 @@ const allowedCurrencyList = {
 	],
 
 	// fishing
-	fishingGod: [defCurrencyList.INR, defCurrencyList.VND],
+
 	fishingHaiba: [
 		defCurrencyList.MYR,
 		defCurrencyList.THB,
@@ -305,7 +306,6 @@ const allowedCurrencyList = {
 		defCurrencyList.CNY,
 		defCurrencyList.USD
 	],
-	oneShot: [defCurrencyList.INR, defCurrencyList.VND],
 	tyrantAndProncess: [defCurrencyList.INR],
 	fishingOfSaviors: [defCurrencyList.INR],
 	zombieParty: [
