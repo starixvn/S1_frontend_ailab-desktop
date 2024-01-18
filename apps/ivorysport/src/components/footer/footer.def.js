@@ -1,5 +1,151 @@
+import { bannerImgUrl } from "../../config";
 import productList from "../../datas/productList";
 import path from "../../router";
+
+export const PAYMENT_LIST = {
+	2: [
+		{
+			name: "Maybank",
+			img: `${bannerImgUrl}/desktop/img/footer/square/maybank.jpg`
+		},
+		{
+			name: "OCBC",
+			img: `${bannerImgUrl}/desktop/img/footer/square/ocbc.jpg`
+		},
+		{
+			name: "Ambank",
+			img: `${bannerImgUrl}/desktop/img/footer/square/ambank.jpg`
+		},
+		{
+			name: "CIMB",
+			img: `${bannerImgUrl}/desktop/img/footer/square/cimb.jpg`
+		},
+		{
+			name: "RHB",
+			img: `${bannerImgUrl}/desktop/img/footer/square/rhb.jpg`
+		},
+		{
+			name: "AFFIN",
+			img: `${bannerImgUrl}/desktop/img/footer/square/affin.jpg`
+		},
+		{
+			name: "HLB",
+			img: `${bannerImgUrl}/desktop/img/footer/square/hlb.jpg`
+		},
+		{
+			name: "PBB",
+			img: `${bannerImgUrl}/desktop/img/footer/square/pbb.jpg`
+		},
+		{
+			name: "Duitnow",
+			img: `${bannerImgUrl}/desktop/img/footer/square/duitnow.jpg`
+		},
+		{
+			name: "TnG",
+			img: `${bannerImgUrl}/desktop/img/footer/square/tng.jpg`
+		},
+		{
+			name: "Boost",
+			img: `${bannerImgUrl}/desktop/img/footer/square/boost.jpg`
+		},
+		{
+			name: "Grabpay",
+			img: `${bannerImgUrl}/desktop/img/footer/square/grabpay.jpg`
+		},
+		{
+			name: "Shopeepay",
+			img: `${bannerImgUrl}/desktop/img/footer/square/shopeepay.jpg`
+		}
+	],
+	4: [
+		{
+			name: "Kasikorn Bank",
+			img: `${bannerImgUrl}/desktop/img/footer/square/kasikornbank.jpg`
+		},
+		{
+			name: "Krung Thai Bank",
+			img: `${bannerImgUrl}/desktop/img/footer/square/ktb.jpg`
+		},
+		{
+			name: "Siam Commercial Bank",
+			img: `${bannerImgUrl}/desktop/img/footer/square/scb.jpg`
+		},
+		{
+			name: "Bangkok Bank",
+			img: `${bannerImgUrl}/desktop/img/footer/square/bangkokbank.jpg`
+		},
+		{
+			name: "Bank of Ayudhya",
+			img: `${bannerImgUrl}/desktop/img/footer/square/ayudhya.jpg`
+		},
+		{
+			name: "Promtpay",
+			img: `${bannerImgUrl}/desktop/img/footer/square/promptpay.jpg`
+		},
+		{
+			name: "TrueMoney",
+			img: `${bannerImgUrl}/desktop/img/footer/square/truemoney.jpg`
+		}
+	],
+	15: [
+		{
+			name: "BCA",
+			img: `${bannerImgUrl}/desktop/img/footer/square/bca.jpg`
+		},
+		{
+			name: "MANDIRI",
+			img: `${bannerImgUrl}/desktop/img/footer/square/mandiri.jpg`
+		},
+		{
+			name: "BRI",
+			img: `${bannerImgUrl}/desktop/img/footer/square/bri.jpg`
+		},
+		{
+			name: "PERMATA",
+			img: `${bannerImgUrl}/desktop/img/footer/square/permata.jpg`
+		},
+		{
+			name: "CIMB",
+			img: `${bannerImgUrl}/desktop/img/footer/square/cimb.jpg`
+		},
+		{
+			name: "BNI",
+			img: `${bannerImgUrl}/desktop/img/footer/square/bni.jpg`
+		},
+		{
+			name: "QRIS",
+			img: `${bannerImgUrl}/desktop/img/footer/square/qris.jpg`
+		},
+		{
+			name: "GOPAY",
+			img: `${bannerImgUrl}/desktop/img/footer/square/gopay.jpg`
+		},
+		{
+			name: "OVO",
+			img: `${bannerImgUrl}/desktop/img/footer/square/ovo.jpg`
+		},
+		{
+			name: "DANA",
+			img: `${bannerImgUrl}/desktop/img/footer/square/dana.jpg`
+		},
+		{
+			name: "SAKUKU",
+			img: `${bannerImgUrl}/desktop/img/footer/square/sakuku.jpg`
+		},
+		{
+			name: "LINKAJA",
+			img: `${bannerImgUrl}/desktop/img/footer/square/linkaja.jpg`
+		},
+		{
+			name: "SHOPEEPAY",
+			img: `${bannerImgUrl}/desktop/img/footer/square/shopeepay.jpg`
+		},
+		{
+			name: "DOKU",
+			img: `${bannerImgUrl}/desktop/img/footer/square/doku.jpg`
+		}
+	]
+};
 
 export const defSportsBetting_Section1 = {
 	soccer: {
