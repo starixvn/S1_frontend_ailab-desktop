@@ -1,5 +1,12 @@
 {
+	"Label_General_Exit": "EXIT",
+	"Label_General_AgeVerification": "Age Verification",
+	"Label_General_Verify21Years": "Please verify that you are 21 years old or older to enter this site",
+	"Label_General_Already21Years": "I AM OVER 21 YEARS OLD",
+	"Label_General_AgreeTermsCondition": "I agree to the ivorysport <Link>Terms & Condition</Link>",
+
 	"home ■■■■■■■■■■■■■■■■■■■■": "",
+
 	"lbl_GamingLicense": "Gaming License",
 	"lbl_SuggestedBrowser": "Suggested Browser",
 	"lbl_PaymentMethods": "Payment Methods",
@@ -141,10 +148,9 @@
 
 	"lbl_PleaseChoose": "Please Choose",
 
-
 	"lbl_CurrentAddress": "Current Address",
 	"lbl_Nationality": "Nationality",
-	
+
 	"lbl_SourceOfIncome": "Source of Income",
 	"lbl_OwnSaving": "Own Saving",
 	"lbl_Loan": "Loan",
@@ -154,7 +160,6 @@
 	"lbl_Employed": "Employed",
 	"lbl_Retired": "Retired",
 	"lbl_Others": "Others",
-
 
 	"msg_UsernameReq": "Username is required.",
 	"msg_RealNameReq": "Real name is required",

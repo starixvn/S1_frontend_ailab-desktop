@@ -455,7 +455,7 @@ const Join = () => {
 		if (!_reCaptchaCheck) return false;
 		const res = await Promise.all([
 			usernameCheck(userValue.userName),
-			emailCheck(userValue.email),
+			// emailCheck(userValue.email),
 			checkAffiliate({ formAffCode: userValue.affiliate })
 		]);
 		const _usernameCheck = res[0];
@@ -463,9 +463,9 @@ const Join = () => {
 		const _passwordCheck = passwordCheck(userValue.password);
 		const _confirmPwdCheck = confirmPwdCheck(userValue.confirmPwd);
 		const _phoneCheck = phoneCheck(userValue.phone);
-		const _emailCheck = res[1];
+		// const _emailCheck = res[1];
 		const _agreeCheck = userValue.agreeCheck;
-		const _affiliateCheck = res[2];
+		const _affiliateCheck = res[1];
 
 		const checked =
 			_usernameCheck.checked &&
@@ -473,7 +473,7 @@ const Join = () => {
 			_passwordCheck.checked &&
 			_confirmPwdCheck.checked &&
 			_phoneCheck.checked &&
-			_emailCheck.checked &&
+			// _emailCheck.checked &&
 			_agreeCheck &&
 			// affiliate is optional
 			(_affiliateCheck.checked === true ||
@@ -506,10 +506,10 @@ const Join = () => {
 					checked: _phoneCheck.checked,
 					msg: t(_phoneCheck.msg)
 				},
-				email: {
-					checked: _emailCheck.checked,
-					msg: t(_emailCheck.msg)
-				},
+				// email: {
+				// 	checked: _emailCheck.checked,
+				// 	msg: t(_emailCheck.msg)
+				// },
 				agreeCheck: {
 					checked: true,
 					msg: t(checkboxMsg)
@@ -529,7 +529,7 @@ const Join = () => {
 				Userpwd: userValue.password,
 				CurrencyId: siteCurrency[userValue.currency]?.id,
 				PhoneNo: userValue.phone,
-				Email: userValue.email,
+				// Email: userValue.email,
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
@@ -767,20 +767,20 @@ const Join = () => {
 						activeInfo={activeInfo}
 						setActiveInfo={setActiveInfo}
 					/>
-					<Inputbox
-						placeholder={t("lbl_Email")}
-						value={userValue.email}
-						tip={inputStatus.email.msg}
-						checked={inputStatus.email.checked}
-						clickInfo={() => clickInfo("email")}
-						onChange={e => EditField("email", e)}
-						onBlur={() => checkValue("email", userValue.email)}
-						border={false}
-						icon="icon-email"
-						hint={inputStatus.email.hint}
-						activeInfo={activeInfo}
-						setActiveInfo={setActiveInfo}
-					/>
+					{/* <Inputbox */}
+					{/* 	placeholder={t("lbl_Email")} */}
+					{/* 	value={userValue.email} */}
+					{/* 	tip={inputStatus.email.msg} */}
+					{/* 	checked={inputStatus.email.checked} */}
+					{/* 	clickInfo={() => clickInfo("email")} */}
+					{/* 	onChange={e => EditField("email", e)} */}
+					{/* 	onBlur={() => checkValue("email", userValue.email)} */}
+					{/* 	border={false} */}
+					{/* 	icon="icon-email" */}
+					{/* 	hint={inputStatus.email.hint} */}
+					{/* 	activeInfo={activeInfo} */}
+					{/* 	setActiveInfo={setActiveInfo} */}
+					{/* /> */}
 					<Inputbox
 						placeholder={t("lbl_Affiliate_ID")}
 						value={userValue.affiliate}

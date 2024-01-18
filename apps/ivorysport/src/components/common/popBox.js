@@ -50,12 +50,7 @@ export default () => {
 	let { content } = popBox;
 	switch (popBox.popBoxType) {
 		case defPopBoxType.Modal:
-			content = (
-				<Modal
-					closePopBox={popBox.closePopBox}
-					content={popBox.content}
-				/>
-			);
+			content = <Modal {...popBox} />;
 			break;
 
 		case defPopBoxType.Cancel:
@@ -404,8 +399,7 @@ export default () => {
 		<div
 			id="popup"
 			className="active"
-			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}
-		>
+			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}>
 			<div className="pop">{memorizeContent}</div>
 		</div>
 	);

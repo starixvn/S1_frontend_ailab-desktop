@@ -19642,7 +19642,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 180px;
 }
 .profileModule > div.profile > div > div:last-child {
-  width: 310px;
+  width: 330px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19660,15 +19660,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin-left: 5px;
   width: auto;
   max-width: revert;
-}
-.profileModule > div.profile > div > div:last-child .tip {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-  white-space: nowrap;
-  color: #cf0404;
 }
 .profileModule > div.profile > div > div > span {
   color: #009810;
@@ -19744,6 +19735,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #1E85EC;
   font-size: 14px;
   margin-bottom: 5px;
+}
+
+form .profileModule .vipLv .vipname {
+  color: white;
 }
 
 .accountSafety {

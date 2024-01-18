@@ -526,18 +526,18 @@ export default () => {
 
 			const res = await Promise.all([
 				usernameCheck(userValue.username),
-				emailCheck(userValue.email),
+				// emailCheck(userValue.email),
 				checkAffiliate({ formAffCode: userValue.affiliate })
 			]);
 
 			const _usernameCheck = res[0];
 			const _realNameCheck = realNameCheck(userValue.realName);
 			const _phoneCheck = phoneCheck(userValue.phone);
-			const _emailCheck = res[1];
+			// const _emailCheck = res[1];
 			const _passwordCheck = passwordCheck(userValue.password);
 			const _confirmPwdCheck = confirmPwdCheck(userValue.confirmPwd);
 			const _currencyCheck = currencyCheck(defaultOption);
-			const _affiliateCheck = res[2];
+			const _affiliateCheck = res[1];
 
 			const checked =
 				_usernameCheck.checked &&
@@ -545,7 +545,7 @@ export default () => {
 				_passwordCheck.checked &&
 				_confirmPwdCheck.checked &&
 				_phoneCheck.checked &&
-				_emailCheck.checked &&
+				// _emailCheck.checked &&
 				_currencyCheck.checked &&
 				// affiliate is optional
 				(_affiliateCheck.checked === true ||
@@ -574,10 +574,10 @@ export default () => {
 						checked: _phoneCheck.checked,
 						msg: t(_phoneCheck.msg)
 					},
-					email: {
-						checked: _emailCheck.checked,
-						msg: t(_emailCheck.msg)
-					},
+					// email: {
+					// 	checked: _emailCheck.checked,
+					// 	msg: t(_emailCheck.msg)
+					// },
 					currency: {
 						checked: _currencyCheck.checked,
 						msg: t(_currencyCheck.msg)
@@ -617,7 +617,7 @@ export default () => {
 				UserName: userValue.username,
 				RealName: userValue.realName,
 				Userpwd: userValue.password,
-				Email: userValue.email,
+				// Email: userValue.email,
 				PhoneNo: userValue.phone,
 				CurrencyId: currencyId,
 				UserLang: signupLangId,

@@ -1898,7 +1898,7 @@ footer .copyright span span {
   display: -ms-flexbox;
   display: flex;
   margin: 0;
-  padding: 5px 0 5px 39px;
+  padding: 5px 0 5px 20px;
 }
 .joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container::-webkit-scrollbar {
   width: 3px;
@@ -11631,4 +11631,17 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .footer-center .footer-center-item .footer-icon .icon-aware {
   width: 129px;
   height: 25px;
+}
+
+.address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.address .inputBox-blue {
+  margin-right: 5px;
+  width: 116px;
+}
+.address .inputBox-blue:last-child {
+  margin-right: 0;
 }/*# sourceMappingURL=style.css.map */

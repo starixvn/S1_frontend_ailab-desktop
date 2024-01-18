@@ -1,52 +1,30 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { useTranslation } from "react-i18next";
-import { Link } from "gatsby";
-import { isDateRange } from "@ailab-desktop/common";
-import { AngpaoFloatLink } from "@ailab-desktop/components";
+import { useTranslation, Trans } from "react-i18next";
 import {
 	userInfoContext,
 	popBoxContext,
-	isRootContext,
-	maintainListContext
+	isRootContext
 } from "../common/context";
 import {
 	readCookie,
 	setCookie,
 	deleteCookie,
-	getUrlParameter,
-	defCurrencyList
+	getUrlParameter
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import Marquee from "./marquee";
-import { defBannerType } from "../../service/api/site";
-import SwipperBanner from "../common/swipperBanner";
-import path from "../../router";
-import SideBarQuickLink from "./sideBarQuickLink";
-import PromoList from "./promoList";
-import HomeJackpot from "./jackpot";
-import HotGameList from "./hotGameList";
-import MysteryBoxLink from "./mysteryBoxLink";
-import EventSwipper from "./eventSwipper";
-import IndexCenterBanner from "./indexCenterBanner";
-import { HomeNews } from "./homeNews";
-import LatestVideo from "./latestVideo";
-import QuickdownloadLink from "./quickdownloadLink";
-import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import usePopBox from "../hook/usePopBox";
-import { angpaoAllowedCurrencies, angPaoEventPeriod } from "../../pages/angpao";
-import LiveCasino from "./liveCasino";
-import { bannerImgUrl } from "../../config";
-import {HomeEntry} from "./homeEntry,js";
+import { bannerImgUrl, SiteInfo } from "../../config";
+import { HomeEntry } from "./homeEntry,js";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { setIsRoot } = useContext(isRootContext);
-	const { errorPopBox } = usePopBox();
+	const { errorPopBox, closePopBox } = usePopBox();
 	const isMountedRef = useRef(null);
-	const { allMaintainList } = useContext(maintainListContext);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -124,23 +102,89 @@ const IndexPage = () => {
 				showDepositPopBox();
 			}
 		}
+		// * 如果未登入狀態及尚未勾選已年滿21歲的cookie即彈出此彈窗讓使用者驗證
+		else if (!readCookie(SiteInfo.ageVerificationCookie)) {
+			const onOK = () => {
+				setCookie(SiteInfo.ageVerificationCookie, 1, 1);
+				closePopBox();
+			};
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Modal,
+				closePopBox,
+				content: (
+					<>
+						<div className="icon icon-icon32px_notification" />
+						<div className="title">
+							{t("Label_General_AgeVerification")}
+						</div>
+						<div>
+							<p>{t("Label_General_Verify21Years")}</p>
+							<br />
+
+							<p>
+								<Trans
+									i18nKey="Label_General_AgreeTermsCondition"
+									components={{
+										Link: (
+											<a
+												href={`${bannerImgUrl}/Static/en/TermsConditions.html`}
+												rel="noreferrer"
+												target="_blank">
+												{t("Label_General_Exit")}
+											</a>
+										)
+									}}
+								/>
+							</p>
+						</div>
+
+						<div className="btnGroup" style={{ marginTop: 10 }}>
+							<button className="btn-check" onClick={onOK}>
+								{t("Label_General_Already21Years")}
+							</button>
+
+							<a
+								className="btn-cancel"
+								href={`${bannerImgUrl}/Static/en/TermsConditions.html`}
+								rel="noreferrer">
+								{t("Label_General_Exit")}
+							</a>
+						</div>
+
+						<div style={{ display: "flex" }}>
+							<img
+								style={{ height: "64px" }}
+								src="../../styles/img/homepage/pagcor.png"
+								alt="img-pagcor"
+							/>
+							<img
+								style={{ height: "64px" }}
+								src="../../styles/img/homepage/21age.png"
+								alt="img-pagcor"
+							/>
+						</div>
+					</>
+				)
+			});
+		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 
 	useEffect(() => {
 		const popBoxMsg = readCookie("popBoxMsg");
 		if (popBoxMsg) {
-			const closePopBox = () => {
-				deleteCookie("popBoxMsg");
-				setPopBox({ isOpen: false });
-			};
-
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.ErrorMsg,
 				message: popBoxMsg,
 				btnBar: (
 					<div className="btnGroup">
-						<button className="btn-cancel" onClick={closePopBox}>
+						<button
+							className="btn-cancel"
+							onClick={() => {
+								deleteCookie("popBoxMsg");
+								closePopBox();
+							}}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -149,15 +193,19 @@ const IndexPage = () => {
 		}
 	}, []);
 
-	return <main>
-		<div className="swiper-container">
-			<div className="swiper-wrapper">
-				<div className="swiper-slide"><img src={`${bannerImgUrl}/desktop/img/slide01.jpg`}/></div>
+	return (
+		<main>
+			<div className="swiper-container">
+				<div className="swiper-wrapper">
+					<div className="swiper-slide">
+						<img src={`${bannerImgUrl}/desktop/img/slide01.jpg`} />
+					</div>
+				</div>
 			</div>
-		</div>
-		<Marquee />
-		<HomeEntry/>
+			<Marquee />
+			<HomeEntry />
 		</main>
+	);
 };
 
 export default IndexPage;
