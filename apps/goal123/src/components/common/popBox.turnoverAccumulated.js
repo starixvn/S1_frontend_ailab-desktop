@@ -5,8 +5,10 @@ import { number_format } from "./common";
 export default ({ btnBar, turnover, rollover, currencyId }) => {
 	const { t } = useTranslation();
 
-	const percentage =
+	let percentage =
 		turnover > rollover ? 100 : ((turnover / rollover) * 100).toFixed(2);
+
+	if (isNaN(percentage)) percentage = 0;
 
 	return (
 		<div className="Success active">
