@@ -1485,8 +1485,7 @@ export const defMenuLinks = {
 				parameter: { ...productList.fishing_SG },
 				lobbyPage: {
 					bgImg: "fishSG.png"
-				},
-				allowCurrencies: allowedCurrencyList.fishingGod
+				}
 			},
 			{
 				keyName: "fishing_SGW_WAR",
@@ -1616,8 +1615,7 @@ export const defMenuLinks = {
 				parameter: { ...productList.CQ9_Oneshot_Fishing },
 				lobbyPage: {
 					bgImg: "oneshotfishing.png"
-				},
-				allowCurrencies: allowedCurrencyList.oneShot
+				}
 			}
 			// {
 			// 	keyName: "Skywind_Ocean_Ruler",
