@@ -101,16 +101,16 @@ const JoinForm = ({
 					onChange={EditField.bind(null, "phone")}
 					onBlur={checkValue.bind(null, "phone")}
 				/>
-				<Inputbox
-					icon="icon-email txt-blue12"
-					placeholder={t("lbl_Email")}
-					value={userValue.email}
-					tip={tip.email.msg}
-					checked={tip.email.checked}
-					clickInfo={clickInfo.bind(this, "email")}
-					onChange={EditField.bind(null, "email")}
-					onBlur={checkValue.bind(null, "email")}
-				/>
+				{/* <Inputbox */}
+				{/* 	icon="icon-email txt-blue12" */}
+				{/* 	placeholder={t("lbl_Email")} */}
+				{/* 	value={userValue.email} */}
+				{/* 	tip={tip.email.msg} */}
+				{/* 	checked={tip.email.checked} */}
+				{/* 	clickInfo={clickInfo.bind(this, "email")} */}
+				{/* 	onChange={EditField.bind(null, "email")} */}
+				{/* 	onBlur={checkValue.bind(null, "email")} */}
+				{/* /> */}
 				<Inputbox
 					icon="icon-affiliate txt-blue12"
 					placeholder={t("lbl_Affiliate_ID")}

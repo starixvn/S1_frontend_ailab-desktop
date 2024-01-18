@@ -6,6 +6,7 @@ export const initValue = {
 	accountName: "",
 	birth: "",
 	phoneNo: "",
+	email: "",
 	areaCodeIdx: null,
 	addressLineFirst: "",
 	addressLineSecond: "",
@@ -26,6 +27,10 @@ export const initStatus = {
 	},
 	phoneNo: {
 		checked: null,
+		tip: ""
+	},
+	email: {
+		checked: "profile-email",
 		tip: ""
 	},
 	addressLineFirst: {

@@ -39,6 +39,15 @@ const InputBox = ({
 			return <i className="icon icon-spinner11" />;
 		}
 
+		if (checked === "profile-email") {
+			return (
+				<>
+					<i className="icon icon-information-solid" />
+					<i className="icon icon-warning" />
+				</>
+			);
+		}
+
 		return null;
 	};
 

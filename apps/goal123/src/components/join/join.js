@@ -423,7 +423,7 @@ export default () => {
 	const checkAll = async () => {
 		const res = await Promise.all([
 			usernameCheck(userValue.username),
-			emailCheck(userValue.email),
+			// emailCheck(userValue.email),
 			checkAffiliate({ formAffCode: userValue.affiliate })
 		]);
 
@@ -432,11 +432,11 @@ export default () => {
 		const _passwordCheck = passwordCheck(userValue.password);
 		const _confirmPwdCheck = confirmPwdCheck(userValue.confirmPwd);
 		const _phoneCheck = phoneCheck(userValue.phone);
-		const _emailCheck = res[1];
+		// const _emailCheck = res[1];
 		const _agreeCheck = userValue.agreeCheck;
 		const _reCaptchaCheck =
 			reCaptchaToken !== "" || recaptchaInfo.country === "CN";
-		const _affiliateCheck = res[2];
+		const _affiliateCheck = res[1];
 
 		const checked =
 			_usernameCheck.checked &&
@@ -444,7 +444,7 @@ export default () => {
 			_passwordCheck.checked &&
 			_confirmPwdCheck.checked &&
 			_phoneCheck.checked &&
-			_emailCheck.checked &&
+			// _emailCheck.checked &&
 			_agreeCheck &&
 			_reCaptchaCheck &&
 			// affiliate is optional
@@ -478,10 +478,10 @@ export default () => {
 					checked: _phoneCheck.checked,
 					msg: t(_phoneCheck.msg)
 				},
-				email: {
-					checked: _emailCheck.checked,
-					msg: t(_emailCheck.msg)
-				},
+				// email: {
+				// 	checked: _emailCheck.checked,
+				// 	msg: t(_emailCheck.msg)
+				// },
 				checkbox: {
 					checked: true,
 					msg: t(checkboxMsg)
@@ -503,7 +503,7 @@ export default () => {
 				CurrencyId: siteCurrency[userValue.currency].id,
 				AreaCode: _areaCode,
 				PhoneNo: userValue.phone,
-				Email: userValue.email,
+				// Email: userValue.email,
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
 				ReferralUrl: document.referrer,
