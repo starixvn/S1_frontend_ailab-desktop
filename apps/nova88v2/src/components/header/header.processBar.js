@@ -1,8 +1,11 @@
 import React from "react";
 
 export default ({ turnover, rollover }) => {
-	const percentage =
+	let percentage =
 		turnover > rollover ? 100 : ((turnover / rollover) * 100).toFixed(2);
+
+	if (isNaN(percentage)) percentage = 0;
+
 	return (
 		<div className="progressBar">
 			<div className="bar">
