@@ -2,6 +2,10 @@ import { useContext } from "react";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
+import {
+	OCCUPATION_OPTIONS,
+	SOURCE_OF_INCOME_OPTIONS
+} from "../common/join.data";
 
 export const initValue = {
 	accountName: "",
@@ -155,32 +159,43 @@ export const InfoList = ({ countryList }) => {
 
 		{
 			displayKey: "lbl_CurrentAddress",
-			content: userInfo?.currentAddress || "-",
+			content:
+				// * addressCity 為必填，因此只判斷 addressCity 是否有值
+				userInfo.addressCity
+					? `${userInfo.addressLineFirst}, ${
+							userInfo.addressCity
+					  } ${t("lbl_City")} ${userInfo.addressPostCode}, ${
+							userInfo.addressCountry
+					  }`
+					: userInfo?.currentAddress || "-",
 			show: Boolean(userInfo.currentAddress)
 		},
-
 		{
 			displayKey: "lbl_Nationality",
-			content: userInfo.nationality || "-",
+			content: userInfo.addressCountry || userInfo.nationality || "-",
 			show: Boolean(userInfo.nationality)
 		},
-
 		{
 			displayKey: "lbl_Occupation",
-			content: occupationEnum[userInfo.occupation]
-				? t(occupationEnum[userInfo.occupation])
-				: "-",
+			content:
+				t(
+					OCCUPATION_OPTIONS.find(
+						item => item.value === userInfo?.occupation
+					)?.displayKey
+				) || "-",
 			show: true
 		},
 
 		{
 			displayKey: "lbl_SourceOfIncome",
-			content: incomeSourceEnum[userInfo.sourceOfIncome]
-				? t(incomeSourceEnum[userInfo.sourceOfIncome])
-				: "-",
+			content:
+				t(
+					SOURCE_OF_INCOME_OPTIONS.find(
+						item => item.value === userInfo?.sourceOfIncome
+					)?.displayKey
+				) || "-",
 			show: true
 		},
-
 		{
 			displayKey: "lbl_Line_1",
 			content: userInfo?.addressLineFirst,

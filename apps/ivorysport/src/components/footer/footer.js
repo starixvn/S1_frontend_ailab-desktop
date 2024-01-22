@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import PaymentMethod from "./PaymentMethod";
 import { userInfoContext } from "../common/context";
 import { bannerImgUrl } from "../../config";
 import { api_site_GetTpIds } from "../../service/api/site";
@@ -181,91 +182,7 @@ export const CopyrightSection = ({ t }) => {
 						/>
 					</div>
 				</div>
-				<div className="footer-center-item payment">
-					<div className="footer-center-title">
-						{t("lbl_PaymentMethods")}
-					</div>
-					<div className="footer-icon">
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/maybank.jpg`}
-								alt=""
-							/>
-						</a>
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/ocbc.jpg`}
-								alt=""
-							/>
-						</a>
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/ambank.jpg`}
-								alt=""
-							/>
-						</a>
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/cimb.jpg`}
-								alt=""
-							/>
-						</a>
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/rhb.jpg`}
-								alt=""
-							/>
-						</a>
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/affin.jpg`}
-								alt=""
-							/>
-						</a>
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/hlb.jpg`}
-								alt=""
-							/>
-						</a>
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/pbb.jpg`}
-								alt=""
-							/>
-						</a>
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/duitnow.jpg`}
-								alt=""
-							/>
-						</a>
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/tng.jpg`}
-								alt=""
-							/>
-						</a>
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/boost.jpg`}
-								alt=""
-							/>
-						</a>
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/grabpay.jpg`}
-								alt=""
-							/>
-						</a>
-						<a href="">
-							<img
-								src={`${bannerImgUrl}/desktop/img/footer/square/shopeepay.jpg`}
-								alt=""
-							/>
-						</a>
-					</div>
-				</div>
+				<PaymentMethod />
 			</div>
 
 			<span>{`© Copyright ${new Date().getFullYear()}. DYNAMIC SYSTEM INTERNATIONAL LIMITED. All Rights Reserved. 21+`}</span>

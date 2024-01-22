@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
+import moment from "moment";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
@@ -203,14 +204,27 @@ export default () => {
 	};
 
 	const EditField = (col, e) => {
-		let val = e.target.value;
-		if (col === "username") {
-			val = val.replace(/[\W_]/g, "");
-		} else if (col === "realName") {
-			val = val.replace(/[\d\-!@#$%^&_()+";~～<>=|?\[\]\\`~{}]+/gu, "");
-		}
-		if (col === "phone") {
-			val = val.replace(/[^0-9]+/g, "");
+		let val = null;
+		if (col === "birth") {
+			val = moment(e).format("YYYY-MM-DD");
+		} else if (
+			// * 儲存下拉選單資訊
+			col === "occupation" ||
+			col === "sourceOfIncome"
+		) {
+			val = e; // * e = {index, value}
+		} else {
+			val = e.target.value;
+			if (col === "username") {
+				val = val.replace(/[\W_]/g, "");
+			} else if (col === "realName") {
+				val = val.replace(
+					/[\d\-!@#$%^&_()+";~～<>=|?\[\]\\`~{}]+/gu,
+					""
+				);
+			} else if (col === "phone") {
+				val = val.replace(/[^0-9]+/g, "");
+			}
 		}
 
 		setUserValue(prev => ({
@@ -254,36 +268,55 @@ export default () => {
 	};
 
 	const checkValue = async (col, e) => {
-		const val = e.target.value;
 		let checked = true;
 		let msg = "";
 
-		if (col === "username") {
-			const result = await usernameCheck(val);
+		if (col === "birth") {
+			const result = birthCheck(e);
 			checked = result.checked;
 			msg = result.msg;
-		} else if (col === "realName") {
-			const result = realNameCheck(val);
-			checked = result.checked;
-			msg = result.msg;
-		} else if (col === "password") {
-			const result = passwordCheck(val);
-			checked = result.checked;
-			msg = result.message;
-		} else if (col === "email") {
-			const result = await emailCheck(val);
-			checked = result.checked;
-			msg = result.msg;
-		} else if (col === "currency") {
-			const result = currencyCheck(defaultOption);
-			checked = result.checked;
-			msg = result.msg;
-		} else if (col === "phone") {
-			const result = await phoneCheck(val);
-			checked = result.checked;
-			msg = result.msg;
-		} else if (col === "specialBonusCode") {
-			checked = null;
+		} else {
+			const val = e?.target?.value;
+
+			if (col === "username") {
+				const result = await usernameCheck(val);
+				checked = result.checked;
+				msg = result.msg;
+			} else if (col === "realName") {
+				const result = realNameCheck(val);
+				checked = result.checked;
+				msg = result.msg;
+			} else if (col === "password") {
+				const result = passwordCheck(val);
+				checked = result.checked;
+				msg = result.message;
+			} else if (col === "email") {
+				const result = await emailCheck(val);
+				checked = result.checked;
+				msg = result.msg;
+			} else if (col === "currency") {
+				const result = currencyCheck(defaultOption);
+				checked = result.checked;
+				msg = result.msg;
+			} else if (col === "phone") {
+				const result = await phoneCheck(val);
+				checked = result.checked;
+				msg = result.msg;
+			} else if (col === "specialBonusCode") {
+				checked = null;
+			} else if (col === "birth") {
+				const result = birthCheck(val);
+				checked = result.checked;
+				msg = result.msg;
+			} else if (
+				col === "nationality" ||
+				col === "country" ||
+				col === "city"
+			) {
+				const result = requireCheck(val);
+				checked = result.checked;
+				msg = result.msg;
+			}
 		}
 
 		setTip(prev => ({
@@ -293,6 +326,24 @@ export default () => {
 				msg: t(msg)
 			}
 		}));
+	};
+
+	// * 驗證生日格式
+	const birthCheck = val => {
+		let checked = true;
+		let msg = "";
+
+		const pattern = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+		if (!val) {
+			msg = "lbl_BirthRequired";
+			checked = !!val;
+		}
+		if (!pattern.test(val)) {
+			msg = "lbl_BirthdayErrorTip";
+			checked = false;
+		}
+
+		return { checked, msg };
 	};
 
 	const usernameCheck = async val => {
@@ -423,6 +474,18 @@ export default () => {
 		return { checked, msg };
 	};
 
+	const requireCheck = val => {
+		let checked = true;
+		let msg = "";
+
+		if (val === "") {
+			checked = false;
+			msg = "";
+		}
+
+		return { checked, msg };
+	};
+
 	const clickCancel = () => {
 		navigate(`/${userInfo.langId}`);
 	};
@@ -448,6 +511,10 @@ export default () => {
 			const _emailCheck = res[2];
 			const _passwordCheck = passwordCheck(userValue.password);
 			const _currencyCheck = currencyCheck(defaultOption);
+			const _birthCheck = birthCheck(userValue.birth);
+			const _nationalityCheck = requireCheck(userValue.nationality);
+			const _countryCheck = requireCheck(userValue.country);
+			const _cityCheck = requireCheck(userValue.city);
 
 			const checked =
 				_realNameCheck.checked &&
@@ -455,7 +522,11 @@ export default () => {
 				_passwordCheck.checked &&
 				_phoneCheck.checked &&
 				_emailCheck.checked &&
-				_currencyCheck.checked;
+				_currencyCheck.checked &&
+				_birthCheck.checked &&
+				_nationalityCheck.checked &&
+				_countryCheck.checked &&
+				_cityCheck.checked;
 
 			if (!checked) {
 				setTip(prev => ({
@@ -483,6 +554,22 @@ export default () => {
 					currency: {
 						checked: _currencyCheck.checked,
 						msg: t(_currencyCheck.msg)
+					},
+					birth: {
+						checked: _birthCheck.checked,
+						msg: t(_birthCheck.msg)
+					},
+					nationality: {
+						checked: _nationalityCheck.checked,
+						msg: "" // * 僅提供紅匡input警示
+					},
+					country: {
+						checked: _countryCheck.checked,
+						msg: "" // * 僅提供紅匡input警示
+					},
+					city: {
+						checked: _cityCheck.checked,
+						msg: "" // * 僅提供紅匡input警示
 					}
 				}));
 			}
@@ -533,6 +620,8 @@ export default () => {
 
 			const currencyId = siteCurrency[userValue.currencyIdx]?.id;
 
+			const [birthY, birthM, birthD] = userValue.birth.split("-"); // * ex: ['1969', '01', '14']
+
 			const regData = {
 				UserName: userValue.username,
 				RealName: userValue.realName,
@@ -544,7 +633,19 @@ export default () => {
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
 				ReferralUrl: document.referrer,
-				ReCaptchaToken: reCaptchaToken
+				ReCaptchaToken: reCaptchaToken,
+
+				// * Ivorysport 額外的欄位
+				Occupation: userValue.occupation.value,
+				SourceOfIncome: userValue.sourceOfIncome.value,
+				Nationality: userValue.nationality,
+				Country: userValue.country,
+				City: userValue.city,
+				PostCode: userValue.postCode,
+				LineFirst: userValue.lineFirst,
+				Birth_y: Number(birthY),
+				Birth_m: Number(birthM),
+				Birth_d: Number(birthD)
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
