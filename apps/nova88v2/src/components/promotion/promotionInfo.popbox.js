@@ -11,6 +11,7 @@ import { defPromotionType } from "./promotion.def";
 import ProcessBar from "./promotion.processBar";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
+import PromoMission from "./promotion.mission";
 import { defFilterType } from "./promotion.nav";
 import CashBackInfo from "./cashBackInfo";
 import path from "../../router";
@@ -158,7 +159,6 @@ const PromotionInfo = ({
 	};
 
 	if (promotionInfo === null) return null;
-
 	return (
 		<div className="promotionsInfo">
 			<div className="icon icon-close" onClick={closePromoPopBox} />
@@ -193,12 +193,14 @@ const PromotionInfo = ({
 						{showAllPromosBtn && (
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.promotion.root}`}>
+								to={`/${userInfo.langId}/${path.promotion.root}`}
+							>
 								{t("lbl_Promotion_AllPromos")}
 							</Link>
 						)}
 					</div>
 				</div>
+
 				<CashBackInfo
 					bonusCode={promotionInfo.bonusCode}
 					cashBackDetails={promotionInfo.cashBackDetails}
@@ -240,12 +242,22 @@ const PromotionInfo = ({
 					)}
 					currencyId={userInfo.currencyId}
 				/>
-				<PromoRule
-					promotionInfo={promotionInfo}
-					t={t}
-					currencyId={userInfo.currencyId}
-					langId={userInfo.langId}
-				/>
+				{promotionInfo.promotionType ===
+					defPromotionType.missionBonus &&
+					!promotionInfo.isJoin && (
+						<PromoMission promotionInfo={promotionInfo} />
+					)}
+
+				{promotionInfo.promotionType !==
+					defPromotionType.missionBonus && (
+					<PromoRule
+						promotionInfo={promotionInfo}
+						t={t}
+						currencyId={userInfo.currencyId}
+						langId={userInfo.langId}
+					/>
+				)}
+
 				<div
 					className="proDataBody"
 					dangerouslySetInnerHTML={{
@@ -324,7 +336,8 @@ const DepositSlip = ({ promotionInfo, t, isSpecialType, currencyId }) => {
 				<div className="depositSlipList">
 					{refList?.map(item => (
 						<div
-							key={`promotion-deposit-record-${bonusCode}-${item.depositId}`}>
+							key={`promotion-deposit-record-${bonusCode}-${item.depositId}`}
+						>
 							<div>{item.depositId}</div>
 							<div>
 								{number_format(

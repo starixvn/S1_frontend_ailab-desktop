@@ -1693,12 +1693,6 @@ header input:focus-within {
           align-items: center;
   color: #fff;
 }
-.header > div.function .grade-text.active::after {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-  -webkit-transition: 0.35s;
-  transition: 0.35s;
-}
 .header > div.function .grade-text::after {
   content: "";
   display: block;
@@ -1706,8 +1700,6 @@ header input:focus-within {
   width: 12px;
   height: 14px;
   margin-left: 5px;
-  -webkit-transition: 0.35s;
-  transition: 0.35s;
 }
 .header > div.function .grade-color {
   display: -webkit-box;
@@ -1847,12 +1839,6 @@ header input:focus-within {
       -ms-flex-align: center;
           align-items: center;
 }
-.header > div.function .home-balance .wallet.active::after {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-  -webkit-transition: 0.35s;
-  transition: 0.35s;
-}
 .header > div.function .home-balance .wallet::after {
   content: "";
   display: block;
@@ -1860,8 +1846,6 @@ header input:focus-within {
   width: 12px;
   height: 14px;
   margin-left: 5px;
-  -webkit-transition: 0.35s;
-  transition: 0.35s;
 }
 .header > div.function .home-balance .icon-spinner::before {
   content: "";
@@ -2224,10 +2208,6 @@ header input:focus-within {
   margin: 0;
   height: 40px;
 }
-.home-profile .home-profile-bottom .home-profile-country .flag span {
-  width: 135px;
-  text-align: start;
-}
 .home-profile .home-profile-bottom .home-profile-country .flag::before {
   border: 1px solid #0A1B38;
   width: 25px;
@@ -2240,21 +2220,13 @@ header input:focus-within {
       -ms-flex-direction: row;
           flex-direction: row;
 }
-.home-profile .home-profile-bottom .home-profile-country .flag.arrow.active::after {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-  -webkit-transition: 0.35s;
-  transition: 0.35s;
-}
 .home-profile .home-profile-bottom .home-profile-country .flag.arrow::after {
   display: block;
   content: "";
   background: url(https://banner.0814media.net/desktop/img/4.0/down-2.png) no-repeat center/cover;
   width: 15px;
   height: 15px;
-  margin-left: 50px;
-  -webkit-transition: 0.35s;
-  transition: 0.35s;
+  margin-left: 90px;
 }
 .home-profile .home-profile-bottom .home-profile-country .countryList {
   position: unset;
@@ -9042,7 +9014,6 @@ input[type=file] {
 
 form {
   width: 100%;
-  color: #5574A7;
 }
 
 .casinoSelect {
@@ -12944,37 +12915,19 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .icon-qrpay::before {
   content: "";
   display: block;
-  width: 57px;
-  height: 57px;
+  width: 55px;
+  height: 55px;
   margin: 0 auto !important;
   background: url(https://banner.0814media.net/desktop/img/qrpay.png) center/cover;
-}
-
-.icon-quick::before {
-  content: "";
-  display: block;
-  width: 57px;
-  height: 57px;
-  margin: 0 auto !important;
-  background: url(https://banner.0814media.net/desktop/img/quick-transfer.png) center/cover;
 }
 
 .icon-topup::before {
   content: "";
   display: block;
-  width: 57px;
-  height: 57px;
+  width: 55px;
+  height: 55px;
   margin: 0 auto !important;
   background: url(https://banner.0814media.net/desktop/img/topup.png) center/cover;
-}
-
-.icon-dou::before {
-  content: "";
-  display: block;
-  width: 57px;
-  height: 57px;
-  margin: 0 auto !important;
-  background: url(https://banner.0814media.net/desktop/img/4.0/chat-transfer.png) center/cover;
 }
 
 .text-center {
@@ -16725,6 +16678,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rolloverListNew > div > div:last-child {
   border-right: 0;
 }
+.rolloverListNew.mission {
+  margin-top: 20px;
+}
 
 .rolloverList div div {
   display: -webkit-box;
@@ -16758,6 +16714,91 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.mission-content {
+  margin: 20px 0;
+}
+.mission-title {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(17, 34, 64)), color-stop(50%, rgb(42, 79, 164)), to(rgb(17, 34, 64)));
+  background: linear-gradient(90deg, rgb(17, 34, 64) 0%, rgb(42, 79, 164) 50%, rgb(17, 34, 64) 100%);
+  padding: 12px 0;
+  text-align: center;
+  font-size: 20px;
+}
+.mission-progress {
+  background: #efefef;
+  padding: 20px 0 30px 25px;
+  color: #2a4fa4;
+  font-weight: 600;
+}
+.mission-progress > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.mission-progress > div .state {
+  background: #000;
+  height: 25px;
+  width: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  border-radius: 20px 0 0 20px;
+}
+.mission-progress > div .state.completed {
+  background: #2A4FA4;
+}
+.mission-progress > div .state.undone {
+  background: #858585;
+}
+.mission-progress-item .progress {
+  background: white;
+  height: 8px;
+  width: 650px;
+  border-radius: 20px;
+}
+.mission-progress-item .progress .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(42, 79, 164)), color-stop(70%, rgb(113, 156, 255)));
+  background: linear-gradient(90deg, rgb(42, 79, 164) 0%, rgb(113, 156, 255) 70%);
+  height: 8px;
+  border-radius: 20px;
+}
+.mission-progress-item.turnover .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(53, 105, 227)), color-stop(70%, rgb(248, 69, 255)));
+  background: linear-gradient(90deg, rgb(53, 105, 227) 0%, rgb(248, 69, 255) 70%);
+}
+.mission-progress-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.mission-progress-text > div:first-child {
+  margin-bottom: 5px;
+}
+.mission-progress-text > div:last-child {
+  font-size: 12px;
+  color: #8d8d8d;
 }
 
 .countdown {
@@ -19129,7 +19170,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 180px;
 }
 .profileModule > div.profile > div > div:last-child {
-  width: 330px;
+  width: 310px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19147,6 +19188,15 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin-left: 5px;
   width: auto;
   max-width: revert;
+}
+.profileModule > div.profile > div > div:last-child .tip {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  white-space: nowrap;
+  color: #cf0404;
 }
 .profileModule > div.profile > div > div > span {
   color: #009810;

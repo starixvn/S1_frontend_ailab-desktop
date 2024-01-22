@@ -21,13 +21,37 @@ const AmountConfirmPopbox = ({
 
 	const isFirstDeposit = promotionType === defPromotionType.firstDeposit;
 
-	const options = canJoinTierAmountList?.map((el, i) => ({
-		id: i,
-		displayText: `${t("lbl_DepositAmount")} ${el.requiredAmount} / ${t(
-			"lbl_Promotion_Bonus"
-		)} ${el.bonusAmount}`,
-		lockedAmount: el.lockedAmount
-	}));
+	const options = canJoinTierAmountList?.map((el, i) => {
+		const { requiredAmount, requiredTurnover, bonusAmount, lockedAmount } =
+			el;
+
+		const displayText = requiredAmount
+			? `${t("lbl_DepositAmount")} ${number_format(
+					requiredAmount,
+					false,
+					0
+			  )} / ${t("lbl_Promotion_Bonus")} ${number_format(
+					bonusAmount,
+					false,
+					0
+			  )}`
+			: `${t("lbl_TurnOver")} ${number_format(
+					requiredTurnover,
+					false,
+					0
+			  )} / ${t("lbl_Promotion_Bonus")} ${number_format(
+					bonusAmount,
+					false,
+					0
+			  )}`;
+
+		return {
+			id: i,
+			displayText,
+			lockedAmount,
+			bonusAmount
+		};
+	});
 
 	const onSelectItem = i => {
 		if (i !== selectedIdx) {
@@ -69,7 +93,8 @@ const AmountConfirmPopbox = ({
 				<div
 					className={`tip ${
 						validationError.status !== 0 ? "active" : ""
-					}`}>
+					}`}
+				>
 					{validationError.msg}
 				</div>
 				<div className="txt-orange">
@@ -95,9 +120,13 @@ const AmountConfirmPopbox = ({
 			setClaimPromotion(
 				langId,
 				bonusCode,
-				options[selectedIdx].lockedAmount
+				// 後端期望promotionType為missionBonus的話帶bonusAmount
+				promotionType === defPromotionType.missionBonus
+					? options[selectedIdx].bonusAmount
+					: options[selectedIdx].lockedAmount
 			);
 		};
+
 		return (
 			<>
 				<div className="inputBox-blue">
@@ -129,7 +158,9 @@ const AmountConfirmPopbox = ({
 	const isRenderInput = promotionType === defPromotionType.firstDeposit;
 
 	// * 如果 promotionType 為 redeposit 則提供 距級 的 Dropdown 直接選擇
-	const isRenderDropdown = promotionType === defPromotionType.redeposit;
+	const isRenderDropdown =
+		promotionType === defPromotionType.redeposit ||
+		promotionType === defPromotionType.missionBonus;
 
 	return (
 		<div className="loackAmount" style={{ display: "flex" }}>

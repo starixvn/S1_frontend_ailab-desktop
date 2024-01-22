@@ -12,6 +12,7 @@ import ProcessBar from "./promotion.processBar";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 import CashBackInfo from "./cashBackInfo";
+import PromoMission from "./promotion.mission";
 import path from "../../router";
 
 export const useHandlePromotionInfo = ({ showAllPromosBtn = false }) => {
@@ -248,12 +249,22 @@ const PromotionInfo = ({
 					)}
 					currencyId={userInfo.currencyId}
 				/>
-				<PromoRule
-					promotionInfo={promotionInfo}
-					t={t}
-					currencyId={userInfo.currencyId}
-					langId={userInfo.langId}
-				/>
+				{promotionInfo.promotionType ===
+					defPromotionType.missionBonus &&
+					!promotionInfo.isJoin && (
+						<PromoMission promotionInfo={promotionInfo} />
+					)}
+
+				{promotionInfo.promotionType !==
+					defPromotionType.missionBonus && (
+					<PromoRule
+						promotionInfo={promotionInfo}
+						t={t}
+						currencyId={userInfo.currencyId}
+						langId={userInfo.langId}
+					/>
+				)}
+
 				<div
 					className="promotionpop-content"
 					dangerouslySetInnerHTML={{
