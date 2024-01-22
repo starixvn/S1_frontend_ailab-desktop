@@ -33,13 +33,41 @@ const AmountConfirmPopbox = ({
 		}
 	}, [amount]);
 
-	const options = canJoinTierAmountList?.map((el, i) => ({
-		id: i,
-		displayText: `${t("lbl_DepositAmount")} ${el.requiredAmount} / ${t(
-			"lbl_Promotion_Bonus"
-		)} ${el.bonusAmount}`,
-		lockedAmount: el.lockedAmount
-	}));
+	const options = canJoinTierAmountList?.map((el, i) => {
+		const {
+			requiredAmount: _requireAmount,
+			requiredTurnover,
+			bonusAmount,
+			lockedAmount
+		} = el;
+
+		const displayText = _requireAmount
+			? `${t("lbl_DepositAmount")} ${number_format({
+					number: _requireAmount,
+					isConvertRequired: false,
+					digits: 0
+			  })} / ${t("lbl_Promotion_Bonus")} ${number_format({
+					number: bonusAmount,
+					isConvertRequired: false,
+					digits: 0
+			  })}`
+			: `${t("lbl_TurnOver")} ${number_format({
+					number: requiredTurnover,
+					isConvertRequired: false,
+					digits: 0
+			  })} / ${t("lbl_Promotion_Bonus")} ${number_format({
+					number: bonusAmount,
+					isConvertRequired: false,
+					digits: 0
+			  })}`;
+
+		return {
+			id: i,
+			displayText,
+			lockedAmount,
+			bonusAmount
+		};
+	});
 
 	const onSetClaimPromotion = () => {
 		if (isFirstDeposit) {
@@ -52,7 +80,10 @@ const AmountConfirmPopbox = ({
 			setClaimPromotion(
 				langId,
 				bonusCode,
-				options[selectedIdx].lockedAmount
+				// 後端期望promotionType為missionBonus的話帶bonusAmount
+				promotionType === defPromotionType.missionBonus
+					? options[selectedIdx].bonusAmount
+					: options[selectedIdx].lockedAmount
 			);
 		}
 	};
@@ -89,7 +120,8 @@ const AmountConfirmPopbox = ({
 				<div
 					className={`tip ${
 						validationError.status !== 0 ? "active" : ""
-					}`}>
+					}`}
+				>
 					{validationError.msg}
 				</div>
 
