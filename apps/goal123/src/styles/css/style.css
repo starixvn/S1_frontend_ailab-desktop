@@ -6544,6 +6544,126 @@ html.Newtheme .promotionsInfo .proData .turnover {
 html.Newtheme .promotionsInfo .proData .bounsName {
   color: #1e85ec;
 }
+html.Newtheme .promotionsInfo .proData .rolloverListNew > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html.Newtheme .promotionsInfo .proData .rolloverListNew > div:first-child div {
+  background: #112240;
+  color: white;
+}
+html.Newtheme .promotionsInfo .proData .rolloverListNew > div:first-child div:last-child {
+  border-right: 0;
+}
+html.Newtheme .promotionsInfo .proData .rolloverListNew > div:last-child div {
+  border-bottom: 0;
+}
+html.Newtheme .promotionsInfo .proData .rolloverListNew > div > div {
+  background: #E4E4E4;
+  color: #707070;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  border: 1px solid #ccc;
+  border-width: 0 1px 1px 0;
+  text-align: center;
+  padding: 5px 0;
+}
+html.Newtheme .promotionsInfo .proData .rolloverListNew > div > div:last-child {
+  border-right: 0;
+}
+html.Newtheme .promotionsInfo .proData .rolloverListNew.mission {
+  margin-top: 20px;
+}
+html.Newtheme .promotionsInfo .proData .mission-content {
+  margin: 20px 0;
+}
+html.Newtheme .promotionsInfo .proData .mission-title {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(245, 142, 35)), color-stop(50%, rgb(245, 172, 35)), to(rgb(245, 142, 35)));
+  background: linear-gradient(90deg, rgb(245, 142, 35) 0%, rgb(245, 172, 35) 50%, rgb(245, 142, 35) 100%);
+  padding: 12px 0;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+}
+html.Newtheme .promotionsInfo .proData .mission-progress {
+  background: #efefef;
+  padding: 20px 0 30px 25px;
+  color: #1f3258;
+  font-weight: 600;
+}
+html.Newtheme .promotionsInfo .proData .mission-progress > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html.Newtheme .promotionsInfo .proData .mission-progress > div .state {
+  background: #000;
+  height: 25px;
+  width: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  border-radius: 20px 0 0 20px;
+}
+html.Newtheme .promotionsInfo .proData .mission-progress > div .state.completed {
+  background: #007aff;
+}
+html.Newtheme .promotionsInfo .proData .mission-progress > div .state.undone {
+  background: #858585;
+}
+html.Newtheme .promotionsInfo .proData .mission-progress-item .progress {
+  background: white;
+  height: 8px;
+  width: 650px;
+  border-radius: 20px;
+}
+html.Newtheme .promotionsInfo .proData .mission-progress-item .progress .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(31, 50, 88)), color-stop(70%, rgb(98, 173, 255)));
+  background: linear-gradient(90deg, rgb(31, 50, 88) 0%, rgb(98, 173, 255) 70%);
+  height: 8px;
+  border-radius: 20px;
+}
+html.Newtheme .promotionsInfo .proData .mission-progress-item.turnover {
+  color: #1f3258;
+}
+html.Newtheme .promotionsInfo .proData .mission-progress-item.turnover .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, from(#e90900), color-stop(70%, rgb(245, 151, 35)));
+  background: linear-gradient(90deg, #e90900 0%, rgb(245, 151, 35) 70%);
+}
+html.Newtheme .promotionsInfo .proData .mission-progress-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html.Newtheme .promotionsInfo .proData .mission-progress-text > div:first-child {
+  margin-bottom: 5px;
+}
+html.Newtheme .promotionsInfo .proData .mission-progress-text > div:last-child {
+  font-size: 12px;
+  color: #8d8d8d;
+}
 html.Newtheme .icon-icon32px_deposit {
   position: relative;
 }

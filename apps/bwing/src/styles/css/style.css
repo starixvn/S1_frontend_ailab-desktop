@@ -4016,7 +4016,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   position: relative;
   border-radius: 20px;
   margin-top: 140px;
-  max-width: 938px;
+  width: 820px;
 }
 .promotionpop-title {
   font-size: 24px;
@@ -4349,6 +4349,95 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 .promotionpop .minAmount > div > div:last-child {
   color: #1C317B;
   background: white;
+}
+
+.mission-content {
+  margin: 20px 0;
+}
+.mission-title {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(243, 100, 0)), color-stop(50%, #ffa82e), to(rgb(243, 100, 0)));
+  background: linear-gradient(90deg, rgb(243, 100, 0) 0%, #ffa82e 50%, rgb(243, 100, 0) 100%);
+  padding: 12px 0;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  font-weight: 800;
+}
+.mission-progress {
+  background: #ffe5c1;
+  padding: 20px 0 30px 25px;
+  color: #2a4fa4;
+  font-weight: 600;
+}
+.mission-progress > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.mission-progress > div .state {
+  background: #000;
+  height: 25px;
+  width: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  border-radius: 20px 0 0 20px;
+}
+.mission-progress > div .state.completed {
+  background: #f36400;
+}
+.mission-progress > div .state.undone {
+  background: #858585;
+}
+.mission-progress-item .progress {
+  background: white;
+  height: 8px;
+  width: 650px;
+  border-radius: 20px;
+}
+.mission-progress-item .progress .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, from(#254dbf), color-stop(70%, rgb(255, 69, 93)));
+  background: linear-gradient(90deg, #254dbf 0%, rgb(255, 69, 93) 70%);
+  height: 8px;
+  border-radius: 20px;
+}
+.mission-progress-item.turnover .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(243, 100, 0)), color-stop(70%, rgb(255, 168, 46)));
+  background: linear-gradient(90deg, rgb(243, 100, 0) 0%, rgb(255, 168, 46) 70%);
+}
+.mission-progress-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #1C317B;
+  font-weight: 800;
+}
+.mission-progress-text > div:first-child {
+  margin-bottom: 5px;
+}
+.mission-progress-text > div:last-child {
+  font-size: 12px;
+  color: #8d8d8d;
 }
 
 .slotspop-item {
