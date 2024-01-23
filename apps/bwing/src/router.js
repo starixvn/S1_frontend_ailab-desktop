@@ -181,5 +181,8 @@ export default {
 	},
 	sportsIM: {
 		root: "sportsIM"
+	},
+	dragonEgg: {
+		root: "dragonEgg"
 	}
 };

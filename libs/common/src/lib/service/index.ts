@@ -9,3 +9,4 @@ export * from "./player";
 export * from "./gameApi";
 export * from "./paymentApi";
 export * from "./eventApi";
+export * from "./eventsApi";

@@ -41,6 +41,12 @@ const allowedCurrencyList = {
 	],
 	rewards: [defCurrencyList.MYR, defCurrencyList.THB, defCurrencyList.IDR],
 	"4D": [defCurrencyList.MYR],
+	dragonEgg: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.VND
+	],
 
 	// ==== transfer ====
 	transferFunds: [

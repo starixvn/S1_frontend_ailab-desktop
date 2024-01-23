@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
-import i18next from "i18next";
 import { isDateRange } from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
-import { AngpaoFloatLink } from "@ailab-desktop/components";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
 import path from "../../router";
 import {
@@ -26,7 +24,6 @@ import { defBannerType } from "../../service/api/site";
 import useGetVideo from "../streaming/hook";
 import { bannerImgUrl } from "../../config";
 import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
-import { angPaoEventPeriod } from "../../pages/angpao";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { defMenuLinks } from "../layout/header.menu.def";
 import { defDeviceType } from "../../service/api/base";
@@ -45,6 +42,8 @@ import HomeDownLoad from "./homeDownLoad";
 import LiveSports from "./liveSports";
 import News from "./news";
 import { api_news_GetNews } from "../../service/api/news";
+import { eventPerios } from "../../datas/eventDef";
+import DragonEgg from "../dragonEgg/homeLink";
 
 const Home = () => {
 	const { t } = useTranslation();
@@ -538,13 +537,12 @@ const Home = () => {
 			)}
 
 			{/* 僅限過年期間不顯示 */}
-			{!isDateRange(angPaoEventPeriod) && (
+			{!isDateRange(eventPerios.dragonEgg) && (
 				<LuckyWheelLink langId={userInfo.langId} />
 			)}
 
-			{/* 僅限過年期間顯示且只支援部分語系 */}
-			{isDateRange(angPaoEventPeriod) &&
-				["en", "vn"].includes(i18next.language) && <AngpaoFloatLink />}
+			{/* 僅限過年期間顯示 */}
+			{isDateRange(eventPerios.dragonEgg) && <DragonEgg />}
 
 			<SideBarContactUs />
 
