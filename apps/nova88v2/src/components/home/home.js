@@ -2,7 +2,6 @@ import { navigate } from "gatsby";
 import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { isDateRange } from "@ailab-desktop/common";
-import { AngpaoFloatLink } from "@ailab-desktop/components";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
 import {
 	userInfoContext,
@@ -28,7 +27,6 @@ import path from "../../router";
 import PromoList from "./promoList";
 import MysteryBoxLink from "./mysteryBoxLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
-import { angpaoAllowedCurrencies, angPaoEventPeriod } from "../../pages/angpao";
 import LiveCasino from "./Casino";
 import WelcomeInfo from "./WelcomeInfo";
 import HotMatch from "./HotMatch";
@@ -45,6 +43,9 @@ import HonorablePartner from "./4.0/HonorablePartner";
 import OfficialPartner from "./4.0/OfficialPartner";
 import { defTpGameType } from "../../datas/productList";
 import usePopBox from "../hook/usePopBox";
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
+import { eventPerios } from "../../datas/eventDef";
+import DragonEgg from "../dragonEgg/homeLink";
 import { defDeviceType } from "../../service/api/base";
 import { api_bigWin_GetPopUpDataList } from "../../service/api/bigWin";
 import { bannerImgUrl } from "../../config";
@@ -542,7 +543,7 @@ const IndexPage = () => {
 			{/* <QuickdownloadLink t={t} /> */}
 
 			{/* 僅限過年期間不顯示 */}
-			{!isDateRange(angPaoEventPeriod) && (
+			{!isDateRange(eventPerios.dragonEgg) && (
 				<LuckyWheelLink
 					langId={userInfo.langId}
 					currencyId={userInfo.currencyId}
@@ -550,10 +551,10 @@ const IndexPage = () => {
 			)}
 
 			{/* 僅限過年期間顯示且只支援部分語系 */}
-			{isDateRange(angPaoEventPeriod) &&
-				angpaoAllowedCurrencies.includes(userInfo?.currencyId) && (
-					<AngpaoFloatLink />
-				)}
+			{isDateRange(eventPerios.dragonEgg) &&
+				allowedCurrencyList.dragonEgg.includes(
+					userInfo?.currencyId
+				) && <DragonEgg />}
 
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}

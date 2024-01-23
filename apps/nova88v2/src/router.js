@@ -164,6 +164,9 @@ export default {
 	rebateExclude: {
 		root: "rebateExclude"
 	},
+	dragonEgg: {
+		root: "dragonEgg"
+	},
 	"4d": {
 		root: "4d"
 	}
