@@ -55,6 +55,7 @@ export default () => {
 				<Modal
 					closePopBox={popBox.closePopBox}
 					content={popBox.content}
+					className={popBox.className}
 				/>
 			);
 			break;
@@ -405,7 +406,10 @@ export default () => {
 
 	if (!popBox.isOpen) return null;
 
-	const memorizeContent = useMemo(() => content, [popBox.popBoxType]);
+	const memorizeContent = useMemo(
+		() => content,
+		[popBox.popBoxType, popBox.content]
+	);
 
 	return customLayout || popBox.customLayout ? (
 		<div id="popup" className="active" onClick={closeHandler}>
