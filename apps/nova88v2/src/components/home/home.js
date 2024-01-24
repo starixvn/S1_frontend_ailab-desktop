@@ -464,10 +464,14 @@ const IndexPage = () => {
 								</div>
 							)
 						});
+					} else {
+						openNextPopUp();
 					}
 				} catch (error) {
 					errorPopBox(error);
 				}
+			} else {
+				openNextPopUp();
 			}
 		};
 
