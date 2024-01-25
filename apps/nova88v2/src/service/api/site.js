@@ -104,6 +104,15 @@ export const api_site_GetSocialChannel = ({
 	});
 
 export const api_site_GetRecaptchaInfo = () =>
-	siteRequest.post("/GetRecaptchaInfo");
+	siteRequest.post("/GetRecaptchaInfo", null, {
+		headers: {
+			common: {
+				"origin-host":
+					typeof window !== "undefined"
+						? window?.location?.origin
+						: undefined
+			}
+		}
+	});
 
 export const api_site_GetIpCountry = () => siteRequest.post("/GetIpCountry");
