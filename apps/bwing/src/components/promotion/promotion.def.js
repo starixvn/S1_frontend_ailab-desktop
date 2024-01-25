@@ -15,7 +15,8 @@ export const defPromotionType = {
 	cashback: 7,
 	retentionFreeBet: 9,
 	specialBonus: 9001,
-	other: 8
+	other: 8,
+	missionBonus: 11
 };
 
 export const defBonusType = {
@@ -52,4 +53,10 @@ export const defFilterType = {
 	liveCasino: "liveCasino",
 	slots: "slots",
 	specialBonus: "specialBonus"
+};
+
+export const promotionPeriodType = {
+	Daily: 1,
+	Weekly: 2,
+	Monthly: 3
 };

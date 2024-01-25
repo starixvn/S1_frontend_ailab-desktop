@@ -106,6 +106,12 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 								</div>
 							)
 						});
+						if (
+							promotionInfo.promotionType ===
+							defPromotionType.missionBonus
+						) {
+							callBack();
+						}
 					} else {
 						openErrorMessagePopBox(message || "error", errorCode);
 					}
@@ -136,7 +142,8 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 		if (
 			canJoin &&
 			(promotionType === defPromotionType.redeposit ||
-				promotionType === defPromotionType.firstDeposit)
+				promotionType === defPromotionType.firstDeposit ||
+				promotionType === defPromotionType.missionBonus)
 		) {
 			setPopBox({
 				isOpen: true,

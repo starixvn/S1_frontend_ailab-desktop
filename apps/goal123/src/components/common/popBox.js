@@ -304,6 +304,7 @@ export default () => {
 					promotionInfo={popBox.promotionInfo}
 					clickClose={popBox.clickClose}
 					setClaimPromotion={popBox.setClaimPromotion}
+					callBack={popBox.callBack}
 				/>
 			);
 
