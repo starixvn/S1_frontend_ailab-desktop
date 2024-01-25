@@ -94,4 +94,13 @@ export const api_account_GetVipBanner = ({ CurrencyId }) =>
 	});
 
 export const api_site_GetRecaptchaInfo = () =>
-	siteRequest.post("/GetRecaptchaInfo");
+	siteRequest.post("/GetRecaptchaInfo", null, {
+		headers: {
+			common: {
+				"origin-host":
+					typeof window !== "undefined"
+						? window?.location?.origin
+						: undefined
+			}
+		}
+	});
