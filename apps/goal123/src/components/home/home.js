@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
+import moment from "moment/moment";
 import { useTranslation } from "react-i18next";
 import { isDateRange } from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
@@ -21,6 +22,7 @@ import {
 } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
+import { api_liveStreaming_GetDataList } from "../../service/api/liveStreaming";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import config from "../../config";
@@ -42,6 +44,7 @@ import RecentlyViewedGameList from "./components/recentlyViewedGameList";
 import { defDeviceType } from "../../service/api/base";
 import { eventPerios } from "../../datas/eventDef";
 import DragonEgg from "../dragonEgg/homeLink";
+import LiveStreamingLink from "./liveStreaming";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -52,6 +55,9 @@ const Home = ({ productTpIds }) => {
 	const { setIsRoot } = useContext(isRootContext);
 	const [winnerList, setWinnerList] = useState([]);
 	const [displayVgaming, setDisplayVgaming] = useState(true);
+	const [displayLiveStreaming, setDisplayLiveStreaming] = useState(false);
+	const [liveStreamingList, setLiveStreamingList] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
 	const { allMaintainList } = useContext(maintainListContext);
 
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
@@ -243,6 +249,36 @@ const Home = ({ productTpIds }) => {
 		}
 	}, []);
 
+	useEffect(() => {
+		const getLiveStreamingList = async () => {
+			setIsLoading(true);
+			try {
+				const {
+					data: { data: resultList }
+				} = await api_liveStreaming_GetDataList({
+					langId: userInfo.langId,
+					currencyId: 51
+				});
+				if (resultList.length > 0) {
+					setDisplayLiveStreaming(true);
+					// 根據開始時間+2hr判斷是否過期,並取前3項
+					const filterList = resultList
+						.filter(({ battleTime }) =>
+							moment(battleTime).add(2, "hours").isAfter(moment())
+						)
+						.slice(0, 3);
+
+					setLiveStreamingList(filterList);
+				}
+				setIsLoading(false);
+			} catch (error) {
+				errorPopBox(error);
+				setIsLoading(false);
+			}
+		};
+		getLiveStreamingList();
+	}, [userInfo.isLogin, userInfo.isLogin]);
+
 	const clickItem = ({ tpId, gameId, tpGameType }) => {
 		const isInMaintain = allMaintainList?.some(
 			mt =>
@@ -360,7 +396,7 @@ const Home = ({ productTpIds }) => {
 				/> */}
 			</section>
 			{/* vgaming Home 點擊入口 */}
-			{displayVgaming && (
+			{displayVgaming && !displayLiveStreaming && !isLoading && (
 				<div className="eventLink vgaming">
 					<button
 						className="icon icon-close"
@@ -400,6 +436,12 @@ const Home = ({ productTpIds }) => {
 			<SideBarQuickLink />
 
 			<QuickdownloadLink />
+
+			<LiveStreamingLink
+				liveStreamingList={liveStreamingList}
+				displayLiveStreaming={displayLiveStreaming}
+				setDisplayLiveStreaming={setDisplayLiveStreaming}
+			/>
 		</main>
 	);
 };
