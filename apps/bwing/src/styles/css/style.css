@@ -4890,6 +4890,240 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   border-radius: unset;
 }
 
+.livesportspop {
+  width: 390px !important;
+  height: 740px;
+  position: relative;
+  -webkit-animation: sponsor 0.3s linear 0.2s backwards;
+          animation: sponsor 0.3s linear 0.2s backwards;
+}
+.livesportspop.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.livesportspop .livesports-content > div {
+  padding: 0 5px;
+  margin-top: 205px;
+}
+.livesportspop .livesports-content > div .livesports-item {
+  background: url(https://banner.bw88.io/desktop/img/team-bg.png) no-repeat center/100%;
+  height: 160px;
+  width: 345px;
+  margin-bottom: 12px;
+}
+.livesportspop .livesports-content > div .livesports-item .top {
+  padding: 10px 0 10px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-gradient(linear, left top, right top, from(rgb(107, 140, 255)), to(rgb(28, 49, 123)));
+  background: linear-gradient(90deg, rgb(107, 140, 255) 0%, rgb(28, 49, 123) 100%);
+  border-radius: 10px 10px 0 0;
+  color: white;
+  font-weight: 500;
+}
+.livesportspop .livesports-content > div .livesports-item .top > div:last-child {
+  background: #ff7600;
+  width: 45px;
+  text-align: center;
+  border-radius: 20px 0 0 20px;
+  padding: 0 0 0 11px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.livesportspop .livesports-content > div .livesports-item .top > div:last-child::before {
+  display: block;
+  content: "";
+  background: white;
+  width: 5px;
+  height: 5px;
+  border-radius: 20px;
+  margin-right: 5px;
+  -webkit-animation: blinking 0.5s cubic-bezier(0.5, 0, 1, 1) infinite alternate;
+          animation: blinking 0.5s cubic-bezier(0.5, 0, 1, 1) infinite alternate;
+}
+.livesportspop .livesports-content > div .livesports-item .bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 16px;
+}
+.livesportspop .livesports-content > div .livesports-item .bottom-team {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #909090;
+}
+.livesportspop .livesports-content > div .livesports-item .bottom-team > div:first-child {
+  background: #d5d5d5;
+  border-radius: 50px;
+  width: 45px;
+  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.livesportspop .livesports-content > div .livesports-item .bottom-team > div:first-child img {
+  width: 40px;
+}
+.livesportspop .livesports-content > div .livesports-item .bottom-team > div:last-child {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+  line-height: 15px;
+  width: 80px;
+}
+.livesportspop .livesports-content > div .livesports-item .bottom-time {
+  margin: 0 5px;
+}
+.livesportspop .livesports-content > div .livesports-item .bottom-time img {
+  width: 100px;
+}
+.livesportspop .livesports-content > div .livesports-item .bottom-time > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0f214e;
+  font-weight: 600;
+}
+.livesportspop .livesports-content > div .livesports-item .bottom-time > div > div {
+  margin-top: 5px;
+  font-size: 12px;
+}
+.livesportspop .livesports-content > div .livesports-item .bottom-time > div > div:last-child {
+  margin-left: 5px;
+}
+.livesportspop .livesports-content > div .livesports-item.next .top {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(141, 142, 152)), to(rgb(24, 24, 24)));
+  background: linear-gradient(90deg, rgb(141, 142, 152) 0%, rgb(24, 24, 24) 100%);
+}
+.livesportspop .livesports-content > div .livesports-item.next .top > div:last-child {
+  padding: 0 5px 0 11px;
+  background: white;
+  color: #272829;
+}
+.livesportspop .livesports-content > div .livesports-item.next .top > div:last-child::before {
+  background: #272829;
+  -webkit-animation: none;
+          animation: none;
+}
+.livesportspop .livesports-content > div .livesports-item.next .bottom-team img {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+.livesportspop .livesports-content > div .livesports-item.next .bottom-time img {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+.livesportspop .livesports-content > div .livesports-item.next .bottom-time > div {
+  color: #272829;
+}
+.livesportspop .closepop {
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  position: absolute;
+  right: -40px;
+  top: 15px;
+  opacity: 0.7;
+  -webkit-animation: closepop 1.5s ease-in-out;
+          animation: closepop 1.5s ease-in-out;
+}
+.livesportspop .closepop:hover {
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+@keyframes closepop {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  88% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes blinking {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes blinking {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes sponsor {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.95) translateY(1em);
+            transform: scale(0.95) translateY(1em);
+  }
+}
+@keyframes sponsor {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.95) translateY(1em);
+            transform: scale(0.95) translateY(1em);
+  }
+}
+.livesportspop > div:not(.bankSlip):not(.eventpop):not(.joinSuccess):not(.errorInfo) {
+  background-color: unset;
+}
+.livesportspop.vn {
+  background: url(https://banner.bw88.io/desktop/img/livesportspop-bg-vn.png) no-repeat center/100% !important;
+}
+.livesportspop.en {
+  background: url(https://banner.bw88.io/desktop/img/livesportspop-bg-en.png) no-repeat center/100% !important;
+}
+
 input {
   background: #F6F9FF;
   border: 1px solid #1C317B;
@@ -18405,6 +18639,64 @@ input + .iconModule i.icon.icon-checkmark:before {
 .eventLink.vgaming .icon-close-primary::before {
   width: 30px;
   height: 30px;
+}
+
+.livesports {
+  position: fixed;
+  bottom: 210px;
+  left: 30px;
+  z-index: 1;
+}
+.livesports img {
+  -webkit-animation: livesports 4s ease-in-out infinite;
+          animation: livesports 4s ease-in-out infinite;
+  z-index: 2;
+  width: 198px;
+}
+.livesports .icon-close-primary {
+  position: absolute;
+  top: 8px;
+  left: 0;
+}
+.livesports .icon-close-primary::before {
+  width: 30px;
+  height: 30px;
+}
+@-webkit-keyframes livesports {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  75% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
+@keyframes livesports {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  75% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
 }
 
 .subheader {
