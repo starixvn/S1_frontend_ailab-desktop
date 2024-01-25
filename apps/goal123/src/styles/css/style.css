@@ -4292,18 +4292,26 @@ html.Newtheme #popup .livesportspop .livesports-content > div .livesports-item .
   color: white;
   font-weight: bold;
 }
+html.Newtheme #popup .livesportspop .livesports-content > div .livesports-item .top > div {
+  width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 html.Newtheme #popup .livesportspop .livesports-content > div .livesports-item .top > div:last-child {
   background: #ff7600;
-  width: 48px;
+  width: 72px;
   text-align: center;
   border-radius: 20px 0 0 20px;
-  padding: 0 0 0 11px;
+  padding: 5px 0 5px 11px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 12px;
+  line-height: 1.2;
 }
 html.Newtheme #popup .livesportspop .livesports-content > div .livesports-item .top > div:last-child::before {
   display: block;
@@ -4394,7 +4402,7 @@ html.Newtheme #popup .livesportspop .livesports-content > div .livesports-item.n
   background: linear-gradient(90deg, rgb(141, 142, 152) 0%, rgb(24, 24, 24) 100%);
 }
 html.Newtheme #popup .livesportspop .livesports-content > div .livesports-item.next .top > div:last-child {
-  padding: 0 5px 0 11px;
+  padding: 5px 0 5px 11px;
   background: white;
   color: #272829;
 }
