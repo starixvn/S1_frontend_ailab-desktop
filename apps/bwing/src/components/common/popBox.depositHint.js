@@ -16,17 +16,27 @@ export default () => {
 	return (
 		<div className="Cancel active">
 			<div className="icon icon-icon32px_notification" />
-			<div className="title">{t("lbl_Information")}</div>
-			<div className="txt-lightgray">{t("msg_DepositHint")}</div>
+			<div className="title">{t("Label_DepositNowPopBalance")}</div>
+			<div className="txt-lightgray">
+				{t("Label_DepositNowPopContent1")}
+			</div>
+			<div className="txt-lightgray">
+				{t("Label_DepositNowPopContent2")}
+			</div>
 			<div className="btnGroup">
-				<button className="btn-cancel" onClick={closePopBox}>
-					{t("lbl_Later")}
-				</button>
+				<Link
+					to={`/${userInfo.langId}/${path.promotion.root}`}
+					className="orange-check"
+					onClick={closePopBox}
+				>
+					{String(t("Label_CheckOutPromos") || "").toUpperCase()}
+				</Link>
 				<Link
 					to={`/${userInfo.langId}/${path.deposit.root}`}
-					className="btn-check"
-					onClick={closePopBox}>
-					{t("lbl_DepositNow")}
+					className="orange"
+					onClick={closePopBox}
+				>
+					{String(t("lbl_DepositNow") || "").toUpperCase()}
 				</Link>
 			</div>
 		</div>
