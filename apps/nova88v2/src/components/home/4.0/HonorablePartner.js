@@ -278,6 +278,10 @@ const HonorablePartner = () => {
 				...productList.HaoLong,
 				imgName: "haolong",
 				allowCurrencies: allowedCurrencyList.haoLong
+			},
+			{
+				...productList.games_maxGame,
+				imgName: "maxgame"
 			}
 		];
 
