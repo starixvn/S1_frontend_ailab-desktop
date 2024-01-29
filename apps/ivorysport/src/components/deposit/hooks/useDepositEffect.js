@@ -40,7 +40,8 @@ const useDepositEffect = ({
 	getCryptoPayGroupList,
 	getAutoDepositGroupList,
 	getLinePayLink,
-	linePayLink
+	linePayLink,
+	checkKyc
 }) => {
 	const location = useLocation();
 	const parameterType = getUrlParameter("type");
@@ -63,7 +64,8 @@ const useDepositEffect = ({
 					getLocalBankGroupList(),
 					getOnlineBankGroupList(),
 					getCryptoPayGroupList(),
-					getAutoDepositGroupList()
+					getAutoDepositGroupList(),
+					checkKyc()
 				]);
 			} catch (e) {
 				// * 當 return 500 時不需要做特別的錯誤處理，其他的錯誤(errorCode不等於0)會在各個function處理掉
