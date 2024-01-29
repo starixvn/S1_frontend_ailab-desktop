@@ -1324,6 +1324,25 @@ export const defMenuLinks = {
 				}
 			},
 			{
+				keyName: "games_maxGame",
+				className: "fsgw",
+				listNpcImgUrl: "maxgame.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Max Game",
+				menuType: defMenuType.entPage,
+				...productList.games_maxGame,
+				parameter: { ...productList.games_maxGame },
+				lobbyPage: {
+					bgImg: "maxgame.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.game_maxGame
+					})
+				]
+			},
+			{
 				keyName: "games_V8Poker",
 				className: "fsgw",
 				listNpcImgUrl: "v8.png",
