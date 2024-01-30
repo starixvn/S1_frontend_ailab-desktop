@@ -593,8 +593,9 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	// * 補語系 url
 	useEffect(() => {
+		const originPath = window.location.pathname + window.location.search;
 		if (userInfo.langId && !pathLang) {
-			navigate(`/${userInfo.langId}`);
+			navigate(`/${userInfo.langId}${originPath}`);
 		} else if (
 			// * 利用 userInfo.accountName 判斷是否已拿到登入資訊
 			userInfo.accountName
@@ -604,10 +605,9 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 					item.currencyId === userInfo.currencyId &&
 					item.value === pathLang
 			);
-
 			// * 如果是不支援的語系，導航回首頁
 			if (!isNotSupportLangId) {
-				navigate(`/${userInfo.langId}`);
+				navigate(`/${userInfo.langId}${originPath}`);
 			}
 		}
 	}, [pathLang, userInfo.langId, userInfo.isLogin, userInfo.accountName]);
