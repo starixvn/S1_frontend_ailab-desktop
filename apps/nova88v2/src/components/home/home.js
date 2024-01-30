@@ -227,7 +227,7 @@ const IndexPage = () => {
 											className="popgo"
 											onClick={() => {
 												navigate(
-													`/${path.promotion.root}?bonusCode=${bonusCode}`
+													`/${userInfo.langId}/${path.promotion.root}?bonusCode=${bonusCode}`
 												);
 											}}>
 											{t("lbl_ClaimNow")}
