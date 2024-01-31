@@ -14,8 +14,7 @@ import { api_account_GetWithdrawalAvailableBalance } from "../../service/api/acc
 import {
 	api_payment_GetWithdrawalInfoRecent,
 	api_payment_KycCheck,
-	api_payment_GetWithdrawalLimit,
-	api_payment_GetWithdrawalBlockSetting
+	api_payment_GetWithdrawalLimit
 } from "../../service/api/payment";
 import { initState, reducer, defActionType } from "./withdrawal.reducer";
 import RecentHistory from "./withdrawal.recentHistory";
@@ -32,17 +31,20 @@ export default () => {
 	const [state, dispatch] = useReducer(reducer, initState);
 	const isMountedRef = useRef(null);
 	const { restoreAllBalanceToMainWallet } = useTransfer();
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
 			isMountedRef.current = false;
 		};
 	});
+
 	useEffect(() => {
 		if (userInfo.isLogin) {
 			GetDailyWithdrawalLimit();
 		}
 	}, [userInfo.isLogin]);
+
 	const GetDailyWithdrawalLimit = () => {
 		api_payment_GetWithdrawalLimit().then(
 			res => {
@@ -176,31 +178,6 @@ export default () => {
 		);
 	};
 
-	const GetWithdrawalBlockSetting = async () => {
-		await api_payment_GetWithdrawalBlockSetting().then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						dispatch({
-							type: defActionType.GET_WITHDRAWAL_SETTING_TYPE,
-							withdrawalSettingTypeList: res.data.data
-						});
-					} else {
-						errorPopBox(
-							res.data.message || "error",
-							res.data.errorCode
-						);
-					}
-				}
-			},
-			() => {
-				if (isMountedRef.current) {
-					errorPopBox();
-				}
-			}
-		);
-	};
-
 	const KycCheck = async () => {
 		await api_payment_KycCheck().then(
 			res => {
@@ -237,7 +214,6 @@ export default () => {
 		await GetWithdrawalAvailableBalance();
 		await GetWithdrawalInfoRecent();
 		await KycCheck();
-		await GetWithdrawalBlockSetting();
 	};
 
 	const restoreAll = async () => {
@@ -249,10 +225,6 @@ export default () => {
 
 		setLoading(false);
 	};
-
-	useEffect(() => {
-		GetWithdrawalBlockSetting();
-	}, []);
 
 	return (
 		!loading && (
