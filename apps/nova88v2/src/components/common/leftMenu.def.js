@@ -1,6 +1,7 @@
 import path from "../../router";
 import { defEventIcon, defEventPeriod, showEventIcon } from "./eventIcon";
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
+import { WITHDRAWAL_BLOCK_SETTING_TYPE } from "../hook";
 
 export const defLeftMenu = {
 	Cashier: {
@@ -39,11 +40,13 @@ export const defLeftMenu = {
 			bankInfo: {
 				path: path.bankInfo.root,
 				displayKey: "lbl_BankInfo",
-				allowCurrency: allowedCurrencyList.bankCard
+				allowCurrency: allowedCurrencyList.bankCard,
+				withdrawalSettingType: WITHDRAWAL_BLOCK_SETTING_TYPE.BankCard
 			},
 			cryptoWallet: {
 				path: path.cryptoWallet.root,
-				displayKey: "lbl_CryptoWallet"
+				displayKey: "lbl_CryptoWallet",
+				withdrawalSettingType: WITHDRAWAL_BLOCK_SETTING_TYPE.Crypto
 			},
 			referral: {
 				path: path.referral.root,

@@ -17,7 +17,7 @@ import BankCard from "./withdrawal.set.card.bank";
 import CryptoCard from "./withdrawal.set.card.crypto";
 import path from "../../router";
 import ECard from "./withdrawal.set.card.E";
-import { WITHDRAWAL_BLOCK_SETTING_TYPE } from "./withdrawal.defStep";
+import { useGetWithdrawalBlockSetting } from "../hook";
 
 const CardPanel = ({
 	dispatch,
@@ -34,6 +34,9 @@ const CardPanel = ({
 	const { setPopBox } = useContext(popBoxContext);
 	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
+
+	const { displayBankCard, displayEWallet, displayCrypto } =
+		useGetWithdrawalBlockSetting();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -283,17 +286,6 @@ const CardPanel = ({
 			)
 		});
 	};
-
-	// * 從後台 Payment GateWay 設定的開關
-	const displayBankCard = state.withdrawalSettingTypeList?.find(
-		item => item.type === WITHDRAWAL_BLOCK_SETTING_TYPE.BankCard
-	)?.status;
-	const displayEWallet = state.withdrawalSettingTypeList?.find(
-		item => item.type === WITHDRAWAL_BLOCK_SETTING_TYPE.EWallet
-	)?.status;
-	const displayCrypto = state.withdrawalSettingTypeList?.find(
-		item => item.type === WITHDRAWAL_BLOCK_SETTING_TYPE.Crypto
-	)?.status;
 
 	return (
 		<>
