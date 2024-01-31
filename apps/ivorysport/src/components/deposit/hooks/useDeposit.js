@@ -8,7 +8,8 @@ import {
 } from "../../../service/api/promotion";
 import {
 	api_payment_GetDepositInfoRecent,
-	api_payment_CheckDepositSpecialCode
+	api_payment_CheckDepositSpecialCode,
+	api_payment_KycCheck
 } from "../../../service/api/payment";
 
 const useDeposit = ({ isMountedRef, userInfo }) => {
@@ -16,6 +17,7 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 
 	const [depositInfoRecentDatas, setDepositInfoRecentDatas] = useState([]);
 	const [depositPromoList, setDepositPromoList] = useState([]);
+	const [kycStatus, setKycStatus] = useState("normal");
 
 	const { errorPopBox, setPopBox } = usePopBox();
 
@@ -154,14 +156,45 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 		);
 	};
 
+	const checkKyc = async () => {
+		await api_payment_KycCheck().then(
+			res => {
+				if (isMountedRef.current) {
+					const { errorCode } = res.data;
+					let apiKycStatus = "";
+					if (errorCode === 0) {
+						apiKycStatus = "normal";
+					} else if (errorCode === 1) {
+						apiKycStatus = "kycUpload";
+					} else if (errorCode === 2) {
+						apiKycStatus = "kycPending";
+					} else {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+					setKycStatus(apiKycStatus);
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
+			}
+		);
+	};
+
 	return {
+		kycStatus,
 		asyncUploadBankPopBox,
 		getDepositInfoRecent,
 		depositInfoRecentDatas,
 		setDepositInfoRecentDatas,
 		depositPromoList,
 		setDepositPromotionQueue,
-		checkDepositSpecialCode
+		checkDepositSpecialCode,
+		checkKyc
 	};
 };
 
