@@ -2304,7 +2304,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 }
 .home-match .swiper-container {
   width: 472px !important;
-  padding: 0 0 0 50px;
+  padding: 0 0 0 50px !important;
 }
 .home-match .swiper-button-prev, .home-match .swiper-button-next {
   background-image: url(https://banner.bw88.io/desktop/img/4.0/btn-arrow.svg);
@@ -2326,8 +2326,11 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   padding: 0 0 0 40px;
   margin-top: -32px;
 }
+.home-sports .swiper-container {
+  padding: 0 !important;
+}
 .home-sports img {
-  height: 550.53px;
+  height: 539.53px;
 }
 .home-sports .tag-new-pop::before {
   right: 0;
