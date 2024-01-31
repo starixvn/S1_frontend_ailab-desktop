@@ -41,6 +41,7 @@ import OnlineBankForm from "./components/onlineBankForm";
 import LocalBankForm from "./components/localBankForm";
 import CryptoPayForm from "./components/cryptoPayForm";
 import AutoDepositForm from "./components/autoDepositForm";
+import { DepositKyc } from "./deposit.kyc";
 
 import {
 	api_cashier_DepositReqMobilePay,
@@ -112,13 +113,15 @@ const Deposit = () => {
 	};
 
 	const {
+		kycStatus,
 		asyncUploadBankPopBox,
 		getDepositInfoRecent,
 		depositInfoRecentDatas,
 		setDepositInfoRecentDatas,
 		depositPromoList,
 		setDepositPromotionQueue,
-		checkDepositSpecialCode
+		checkDepositSpecialCode,
+		checkKyc
 	} = useDeposit({
 		isMountedRef,
 		userInfo
@@ -828,142 +831,149 @@ const Deposit = () => {
 		getCryptoPayGroupList,
 		getAutoDepositGroupList,
 		getLinePayLink,
-		linePayLink
+		linePayLink,
+		checkKyc
 	});
+
 	if (loading || !isInitDataDone) return null;
 
 	const isPending = depositInfoRecentDatas.some(item => item.status === 1);
 
 	return (
 		<>
-			<DepositInfoMoule
-				t={t}
-				langId={userInfo.langId}
-				currencyId={userInfo.currencyId}
-				depositType={depositType}
-				depositOptions={depositOptions}
-				saveInfoChecked={saveInfoChecked}
-				checked={!!formInfo.checked && localBankChecked}
-				processingDescriptionActive={processingDescriptionActive}
-				onReset={onReset}
-				onSubmit={onSubmit}
-				setDepositType={onChangeDepositType}
-				setSaveInfoChecked={setSaveInfoChecked}
-				setPopBox={setPopBox}
-				userName={userInfo.userName}
-				canSubmit={formInfo.canSubmit}
-				submitHandle={submitHandle}>
-				{depositType === defDepositType.autoDeposit && (
-					<AutoDepositForm
-						t={t}
-						userInfo={userInfo}
-						_isConvert={_isConvert}
-						formatAmount={formatAmount}
-						depositType={depositType}
-						autoDepositGroupList={autoDepositGroupList}
-						formInfo={formInfo}
-						depositPromoList={depositPromoList}
-						onChangePromotion={onChangePromotion}
-						setFormInfo={setFormInfo}
-						onChangeAmount={onChangeAmount}
-						onInputboxKeyDown={onInputboxKeyDown}
-					/>
-				)}
+			{/* 上傳後直接跳過，所以只判斷需要上傳的狀態 */}
+			{kycStatus === "kycUpload" ? (
+				<DepositKyc kycStatus={kycStatus} checkKyc={checkKyc} />
+			) : (
+				<DepositInfoMoule
+					t={t}
+					langId={userInfo.langId}
+					currencyId={userInfo.currencyId}
+					depositType={depositType}
+					depositOptions={depositOptions}
+					saveInfoChecked={saveInfoChecked}
+					checked={!!formInfo.checked && localBankChecked}
+					processingDescriptionActive={processingDescriptionActive}
+					onReset={onReset}
+					onSubmit={onSubmit}
+					setDepositType={onChangeDepositType}
+					setSaveInfoChecked={setSaveInfoChecked}
+					setPopBox={setPopBox}
+					userName={userInfo.userName}
+					canSubmit={formInfo.canSubmit}
+					submitHandle={submitHandle}>
+					{depositType === defDepositType.autoDeposit && (
+						<AutoDepositForm
+							t={t}
+							userInfo={userInfo}
+							_isConvert={_isConvert}
+							formatAmount={formatAmount}
+							depositType={depositType}
+							autoDepositGroupList={autoDepositGroupList}
+							formInfo={formInfo}
+							depositPromoList={depositPromoList}
+							onChangePromotion={onChangePromotion}
+							setFormInfo={setFormInfo}
+							onChangeAmount={onChangeAmount}
+							onInputboxKeyDown={onInputboxKeyDown}
+						/>
+					)}
 
-				{depositType === defDepositType.mobile && (
-					<MobileForm
-						t={t}
-						userInfo={userInfo}
-						_isConvert={_isConvert}
-						formatAmount={formatAmount}
-						depositType={depositType}
-						mobilePayGourpList={mobilePayGourpList}
-						mobilePayInfoList={mobilePayInfoList}
-						formInfo={formInfo}
-						depositPromoList={depositPromoList}
-						isGroupListFetchDone={isGroupListFetchDone}
-						setFormInfo={setFormInfo}
-						onChangePromotion={onChangePromotion}
-						onChangeAmount={onChangeAmount}
-						onInputboxKeyDown={onInputboxKeyDown}
-						getMobilePayInfoList={getMobilePayInfoList}
-					/>
-				)}
+					{depositType === defDepositType.mobile && (
+						<MobileForm
+							t={t}
+							userInfo={userInfo}
+							_isConvert={_isConvert}
+							formatAmount={formatAmount}
+							depositType={depositType}
+							mobilePayGourpList={mobilePayGourpList}
+							mobilePayInfoList={mobilePayInfoList}
+							formInfo={formInfo}
+							depositPromoList={depositPromoList}
+							isGroupListFetchDone={isGroupListFetchDone}
+							setFormInfo={setFormInfo}
+							onChangePromotion={onChangePromotion}
+							onChangeAmount={onChangeAmount}
+							onInputboxKeyDown={onInputboxKeyDown}
+							getMobilePayInfoList={getMobilePayInfoList}
+						/>
+					)}
 
-				{depositType === defDepositType.localBank && (
-					<LocalBankForm
-						t={t}
-						userInfo={userInfo}
-						setPopBox={setPopBox}
-						depositType={depositType}
-						defPopBoxType={defPopBoxType}
-						_isConvert={_isConvert}
-						formatAmount={formatAmount}
-						localBankGroupList={localBankGroupList}
-						isGroupListFetchDone={isGroupListFetchDone}
-						formInfo={formInfo}
-						depositPromoList={depositPromoList}
-						localBankInfo={localBankInfo}
-						custBankInfoList={custBankInfoList}
-						localBankChannelError={localBankChannelError}
-						localBankBankInfoErrpr={localBankBankInfoErrpr}
-						onChangePromotion={onChangePromotion}
-						setFormInfo={setFormInfo}
-						getBankInfo={getBankInfo}
-						setLocalBankChecked={setLocalBankChecked}
-						getLocalBankInfo={getLocalBankInfo}
-						onInputboxKeyDown={onInputboxKeyDown}
-						asyncUploadBankPopBox={asyncUploadBankPopBox}
-						depositInfoStorage={depositInfoStorage}
-						setSelectedBankId={setSelectedBankId}
-					/>
-				)}
+					{depositType === defDepositType.localBank && (
+						<LocalBankForm
+							t={t}
+							userInfo={userInfo}
+							setPopBox={setPopBox}
+							depositType={depositType}
+							defPopBoxType={defPopBoxType}
+							_isConvert={_isConvert}
+							formatAmount={formatAmount}
+							localBankGroupList={localBankGroupList}
+							isGroupListFetchDone={isGroupListFetchDone}
+							formInfo={formInfo}
+							depositPromoList={depositPromoList}
+							localBankInfo={localBankInfo}
+							custBankInfoList={custBankInfoList}
+							localBankChannelError={localBankChannelError}
+							localBankBankInfoErrpr={localBankBankInfoErrpr}
+							onChangePromotion={onChangePromotion}
+							setFormInfo={setFormInfo}
+							getBankInfo={getBankInfo}
+							setLocalBankChecked={setLocalBankChecked}
+							getLocalBankInfo={getLocalBankInfo}
+							onInputboxKeyDown={onInputboxKeyDown}
+							asyncUploadBankPopBox={asyncUploadBankPopBox}
+							depositInfoStorage={depositInfoStorage}
+							setSelectedBankId={setSelectedBankId}
+						/>
+					)}
 
-				{depositType === defDepositType.onlineBank && (
-					<OnlineBankForm
-						t={t}
-						userInfo={userInfo}
-						_isConvert={_isConvert}
-						formatAmount={formatAmount}
-						depositType={depositType}
-						onlineBankGroupList={onlineBankGroupList}
-						onlineBankInfoList={onlineBankInfoList}
-						formInfo={formInfo}
-						depositPromoList={depositPromoList}
-						isGroupListFetchDone={isGroupListFetchDone}
-						onChangePromotion={onChangePromotion}
-						setFormInfo={setFormInfo}
-						onChangeAmount={onChangeAmount}
-						onInputboxKeyDown={onInputboxKeyDown}
-						setOnlineBankInfoList={setOnlineBankInfoList}
-						getOnlineBankInfoList={getOnlineBankInfoList}
-					/>
-				)}
+					{depositType === defDepositType.onlineBank && (
+						<OnlineBankForm
+							t={t}
+							userInfo={userInfo}
+							_isConvert={_isConvert}
+							formatAmount={formatAmount}
+							depositType={depositType}
+							onlineBankGroupList={onlineBankGroupList}
+							onlineBankInfoList={onlineBankInfoList}
+							formInfo={formInfo}
+							depositPromoList={depositPromoList}
+							isGroupListFetchDone={isGroupListFetchDone}
+							onChangePromotion={onChangePromotion}
+							setFormInfo={setFormInfo}
+							onChangeAmount={onChangeAmount}
+							onInputboxKeyDown={onInputboxKeyDown}
+							setOnlineBankInfoList={setOnlineBankInfoList}
+							getOnlineBankInfoList={getOnlineBankInfoList}
+						/>
+					)}
 
-				{depositType === defDepositType.cryptoPay && (
-					<CryptoPayForm
-						t={t}
-						userInfo={userInfo}
-						depositType={depositType}
-						isPending={isPending}
-						defPopBoxType={defPopBoxType}
-						_isConvert={_isConvert}
-						formatAmount={formatAmount}
-						cryptoPayGroupList={cryptoPayGroupList}
-						formInfo={formInfo}
-						depositPromoList={depositPromoList}
-						cryptoPayInfo={cryptoPayInfo}
-						isGroupListFetchDone={isGroupListFetchDone}
-						getCryptoPayInfo={getCryptoPayInfo}
-						onChangePromotion={onChangePromotion}
-						setFormInfo={setFormInfo}
-						onChangeAmount={onChangeAmount}
-						onValidAmount={onValidAmount}
-						onInputboxKeyDown={onInputboxKeyDown}
-						onSubmit={onSubmit}
-					/>
-				)}
-			</DepositInfoMoule>
+					{depositType === defDepositType.cryptoPay && (
+						<CryptoPayForm
+							t={t}
+							userInfo={userInfo}
+							depositType={depositType}
+							isPending={isPending}
+							defPopBoxType={defPopBoxType}
+							_isConvert={_isConvert}
+							formatAmount={formatAmount}
+							cryptoPayGroupList={cryptoPayGroupList}
+							formInfo={formInfo}
+							depositPromoList={depositPromoList}
+							cryptoPayInfo={cryptoPayInfo}
+							isGroupListFetchDone={isGroupListFetchDone}
+							getCryptoPayInfo={getCryptoPayInfo}
+							onChangePromotion={onChangePromotion}
+							setFormInfo={setFormInfo}
+							onChangeAmount={onChangeAmount}
+							onValidAmount={onValidAmount}
+							onInputboxKeyDown={onInputboxKeyDown}
+							onSubmit={onSubmit}
+						/>
+					)}
+				</DepositInfoMoule>
+			)}
 
 			<DepositRecentHistory
 				asyncUploadBankPopBox={asyncUploadBankPopBox}
