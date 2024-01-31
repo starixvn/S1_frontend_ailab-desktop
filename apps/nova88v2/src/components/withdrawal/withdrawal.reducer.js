@@ -37,8 +37,7 @@ export const initState = {
 	maxTimes: 0,
 	withdrawalTimes: 0,
 	eWalletWithdrawalMin: 0,
-	eWalletStatus: false,
-	withdrawalSettingTypeList: []
+	eWalletStatus: false
 };
 
 export function reducer(state, action) {
@@ -127,12 +126,6 @@ export function reducer(state, action) {
 				eWalletStatus: action.eWalletStatus,
 				eWalletWithdrawalAvailableAmount:
 					action.eWalletWithdrawalAvailableAmount
-			};
-
-		case defActionType.GET_WITHDRAWAL_SETTING_TYPE:
-			return {
-				...state,
-				withdrawalSettingTypeList: action.withdrawalSettingTypeList
 			};
 
 		default:
