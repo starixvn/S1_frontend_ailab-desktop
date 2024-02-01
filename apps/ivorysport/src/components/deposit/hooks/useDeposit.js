@@ -9,7 +9,7 @@ import {
 import {
 	api_payment_GetDepositInfoRecent,
 	api_payment_CheckDepositSpecialCode,
-	api_payment_KycCheck
+	api_deposit_KycCheck
 } from "../../../service/api/payment";
 
 const useDeposit = ({ isMountedRef, userInfo }) => {
@@ -157,7 +157,7 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 	};
 
 	const checkKyc = async () => {
-		await api_payment_KycCheck().then(
+		await api_deposit_KycCheck().then(
 			res => {
 				if (isMountedRef.current) {
 					const { errorCode } = res.data;
