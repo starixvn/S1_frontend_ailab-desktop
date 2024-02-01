@@ -337,6 +337,10 @@ export default {
 		name: "cockFighting",
 		tpGameType: 27
 	},
+	GA_CockFighting: {
+		tpId: 63,
+		tpGameType: 115
+	},
 
 	/* === 6. lottery === */
 
