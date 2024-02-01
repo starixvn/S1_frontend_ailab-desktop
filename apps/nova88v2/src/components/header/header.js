@@ -1,10 +1,7 @@
 import React, { useContext } from "react";
 import { Link, navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
-import {
-	dragonBoatFestivalEventPeriod,
-	isDateRange
-} from "@ailab-desktop/common";
+import { isDateRange } from "@ailab-desktop/common";
 import classNames from "classnames";
 import {
 	userInfoContext,
@@ -23,8 +20,9 @@ import defPopBoxType from "../common/defPopBoxType";
 import { angPaoEventPeriod } from "../../pages/angpao";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 
-export const christmasPeriod = {
-	endDate: "2023-12-26 23:59:59"
+export const eventPeriod = {
+	startDate: "2024-02-01 00:00:00",
+	endDate: "2024-02-25 23:59:59"
 };
 
 export default () => {
@@ -86,45 +84,17 @@ export default () => {
 	return (
 		<header id="header">
 			<div className="header">
-				<div
-					className={classNames("logo", {
-						dragon: isDateRange(dragonBoatFestivalEventPeriod)
-					})}
-				>
-					<Link
-						to={`/${userInfo.langId}`}
-						onClick={reload}
-						className={classNames({
-							dragonlogo: isDateRange(
-								dragonBoatFestivalEventPeriod
-							)
-						})}
-					>
+				<div className={classNames("logo")}>
+					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
 							src={`${bannerImgUrl}/desktop/img/4.0/${
-								isDateRange(christmasPeriod)
-									? "christmas-logo"
+								isDateRange(eventPeriod)
+									? "newyear-logo"
 									: "logo_w"
 							}.png`}
 							alt={config.siteName}
 						/>
 					</Link>
-					<a className="splogo" />
-					{isDateRange(dragonBoatFestivalEventPeriod) && (
-						<>
-							<img
-								className="dragon"
-								src={`${bannerImgUrl}/desktop/img/dragon.png`}
-								alt={config.siteName}
-							/>
-							<img
-								className="dragon-light"
-								src={`${bannerImgUrl}/desktop/img/dragon-light.png`}
-								alt={config.siteName}
-							/>
-						</>
-					)}
-
 					<a className="splogo" />
 
 					{/* 僅限過年期間顯示 */}
