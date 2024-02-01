@@ -11,7 +11,11 @@ import defPopBoxType from "../../common/defPopBoxType";
 import allowedCurrencyList from "../../../datas/allowedCurrencyList";
 import { LOGOUT } from "../../../service/auth";
 import { HEADER_VIP_LEVEL_INFO_LIST } from "../../vip/vip.def";
-import { useAuth } from "../../hook";
+import {
+	useAuth,
+	useGetWithdrawalBlockSetting,
+	WITHDRAWAL_BLOCK_SETTING_TYPE
+} from "../../hook";
 import VipLevel from "./VipLevel";
 
 const defSettingLinks = [
@@ -24,17 +28,18 @@ const defSettingLinks = [
 		displayKey: "lbl_BankInfo",
 		href: path.bankInfo.root,
 		allowCurrencies: allowedCurrencyList.bankCard,
-		img: "https://banner.0814media.net/desktop/img/4.0/bankinfo.png"
+		img: "https://banner.0814media.net/desktop/img/4.0/bankinfo.png",
+		withdrawalSettingType: WITHDRAWAL_BLOCK_SETTING_TYPE.BankCard
 	},
 	{
 		displayKey: "lbl_CryptoWallet",
 		href: path.cryptoWallet.root,
-		img: "https://banner.0814media.net/desktop/img/4.0/cryptowallet.png"
+		img: "https://banner.0814media.net/desktop/img/4.0/cryptowallet.png",
+		withdrawalSettingType: WITHDRAWAL_BLOCK_SETTING_TYPE.Crypto
 	},
 	{
 		displayKey: "lbl_ReferFriends",
 		href: path.referral.root,
-
 		img: "https://banner.0814media.net/desktop/img/4.0/referfriends.png"
 	},
 	{
@@ -50,6 +55,8 @@ const ProfileInfo = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { t } = useTranslation();
 	const [isActive, setIsActive] = useState();
+
+	const { displayBankCard, displayCrypto } = useGetWithdrawalBlockSetting();
 
 	const { data: { data: custVIPProgress } = {} } =
 		useGetCustVIPProgressQuery(null);
@@ -96,9 +103,20 @@ const ProfileInfo = () => {
 	};
 
 	const filteredSettingLinks = defSettingLinks.filter(
-		el =>
-			!el?.allowCurrencies ||
-			el?.allowCurrencies.includes(userInfo.currencyId)
+		({ allowCurrencies, withdrawalSettingType }) => {
+			let isShowItem = allowCurrencies
+				? allowCurrencies.includes(userInfo.currencyId)
+				: true;
+
+			if (withdrawalSettingType)
+				isShowItem =
+					withdrawalSettingType ===
+					WITHDRAWAL_BLOCK_SETTING_TYPE.BankCard
+						? displayBankCard
+						: displayCrypto;
+
+			return isShowItem;
+		}
 	);
 
 	const vipLevelInfo = HEADER_VIP_LEVEL_INFO_LIST.find(

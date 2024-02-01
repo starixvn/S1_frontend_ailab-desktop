@@ -16,7 +16,6 @@ export const DepositKyc = ({ kycStatus, checkKyc }) => {
 	const filebox = createRef();
 	const isMountedRef = useRef(null);
 	const [kycData, setKycData] = useState({});
-
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -56,7 +55,6 @@ export const DepositKyc = ({ kycStatus, checkKyc }) => {
 		if (kycData?.fileData?.length > 0) {
 			const formData = new FormData();
 			formData.append("PhotoId", kycData.fileData[0]);
-
 			api_accountStrict_UploadCustPhotoId(formData).then(
 				res => {
 					if (isMountedRef.current) {
@@ -101,6 +99,7 @@ export const DepositKyc = ({ kycStatus, checkKyc }) => {
 			);
 		}
 	};
+
 	return (
 		<div className="infoModule">
 			<div className="inside-title">

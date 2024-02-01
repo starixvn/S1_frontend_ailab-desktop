@@ -166,6 +166,9 @@ export const api_payment_SetWithdrawalCancel = TransId =>
 
 export const api_payment_KycCheck = () => paymentRequest.post("/KycCheck");
 
+export const api_deposit_KycCheck = () =>
+	paymentRequest.post("/DepositKycCheck");
+
 export const api_payment_CustTpBetRecordListDateRange = ({
 	StartDate,
 	EndDate,

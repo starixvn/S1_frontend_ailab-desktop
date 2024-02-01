@@ -3,10 +3,16 @@ import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
 import { userInfoContext } from "./context";
 import { defLeftMenu } from "./leftMenu.def";
+import {
+	WITHDRAWAL_BLOCK_SETTING_TYPE,
+	useGetWithdrawalBlockSetting
+} from "../hook";
 
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
+
+	const { displayBankCard, displayCrypto } = useGetWithdrawalBlockSetting();
 
 	const currentPage =
 		typeof window !== "undefined" ? `${window.location.pathname}/` : "";
@@ -24,10 +30,16 @@ export default () => {
 			let _iconClassName = "";
 			const s = menu.subMenu[_key];
 
-			let allowCurrency = true;
-			if (s.allowCurrency) {
-				allowCurrency = s.allowCurrency.includes(userInfo.currencyId);
-			}
+			let isShowItem = s?.allowCurrency
+				? s.allowCurrency.includes(userInfo.currencyId)
+				: true;
+
+			if (s?.withdrawalSettingType)
+				isShowItem =
+					s.withdrawalSettingType ===
+					WITHDRAWAL_BLOCK_SETTING_TYPE.BankCard
+						? displayBankCard
+						: displayCrypto;
 
 			if (s.eventIcons) {
 				let iconStrings = "";
@@ -38,11 +50,12 @@ export default () => {
 			}
 
 			return (
-				allowCurrency && (
+				isShowItem && (
 					<Link
 						key={`leftMenu-subMenu-${_key}`}
 						to={`/${userInfo.langId}/${s.path}`}
-						className={`menuSelect${_active}`}>
+						className={`menuSelect${_active}`}
+					>
 						<span className={_iconClassName}>
 							{t(s.displayKey)}
 						</span>
