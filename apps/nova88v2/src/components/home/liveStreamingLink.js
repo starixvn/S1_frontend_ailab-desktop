@@ -5,7 +5,7 @@ import { navigate } from "gatsby";
 import { bannerImgUrl } from "../../config";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { api_liveStreaming_GetDataList } from "../../service/api/liveStreaming";
-import { defCurrencyToClass, langAndCurrMapping } from "../common/common";
+import { defCurrencyToLangId, langAndCurrMapping } from "../common/common";
 import usePopBox from "../hook/usePopBox";
 import defPopBoxType from "../common/defPopBoxType";
 import { SetPathParameter } from "../common/swipperBanner";
@@ -57,7 +57,17 @@ const LiveStreamingLink = () => {
 			[langAndCurrMapping.vn]: _langId =>
 				_langId === "en" ? "vn-en" : "vn",
 			[langAndCurrMapping.th]: _langId =>
-				_langId === "en" ? "th-en" : "th"
+				_langId === "en" ? "th-en" : "th",
+			[langAndCurrMapping.my]: _langId => {
+				switch (_langId) {
+					case "en":
+						return "my-en";
+					case "cs":
+						return "my-cs";
+					default:
+						return "my";
+				}
+			}
 		};
 		const getClassName = currencyClassNames[currencyId];
 		if (getClassName) {
@@ -179,7 +189,8 @@ const LiveStreamingLink = () => {
 		// 當currencyId為vn或th時顯示直播icon
 		if (
 			currencyId === langAndCurrMapping.vn ||
-			currencyId === langAndCurrMapping.th
+			currencyId === langAndCurrMapping.th ||
+			currencyId === langAndCurrMapping.my
 		) {
 			getLiveStreamingList();
 		}
@@ -193,7 +204,7 @@ const LiveStreamingLink = () => {
 			/>
 			<button onClick={handleLiveSteamingModalOpen}>
 				<img
-					src={`${bannerImgUrl}/desktop/img/4.0/livesports-${defCurrencyToClass[currencyId]}.png`}
+					src={`${bannerImgUrl}/desktop/img/4.0/livesports-${defCurrencyToLangId[currencyId]}.png`}
 					alt="livesports"
 				/>
 			</button>
