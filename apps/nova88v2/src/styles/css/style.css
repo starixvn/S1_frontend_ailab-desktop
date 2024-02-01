@@ -6997,9 +6997,15 @@ input[type=file] {
   background: linear-gradient(90deg, rgb(5, 29, 160) 0%, rgb(17, 34, 64) 100%);
   border-radius: 10px 10px 0 0;
 }
+#popup .livesportspop .livesports-content > div .livesports-item .top > div:first-child {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 200px;
+}
 #popup .livesportspop .livesports-content > div .livesports-item .top > div:last-child {
   background: #ff7600;
-  width: 45px;
+  width: 55px;
   text-align: center;
   border-radius: 20px 0 0 20px;
   padding: 0 0 0 11px;
@@ -7193,6 +7199,15 @@ input[type=file] {
 }
 #popup .livesportspop.vn-en {
   background: url(https://banner.0814media.net/desktop/img/4.0/livesports-vnbg-en.png) no-repeat center/100% !important;
+}
+#popup .livesportspop.my-en {
+  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-mybg-en.png) no-repeat center/100% !important;
+}
+#popup .livesportspop.my {
+  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-mybg-my.png) no-repeat center/100% !important;
+}
+#popup .livesportspop.my-cs {
+  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-mybg-cs.png) no-repeat center/100% !important;
 }
 #popup .bigwin {
   color: white;
@@ -17238,6 +17253,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .rolloverListNew > div > div:last-child {
   border-right: 0;
 }
+.rolloverListNew.mission {
+  margin-top: 20px;
+}
 
 .rolloverList div div {
   display: -webkit-box;
@@ -17271,6 +17289,91 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.mission-content {
+  margin: 20px 0;
+}
+.mission-title {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(17, 34, 64)), color-stop(50%, rgb(42, 79, 164)), to(rgb(17, 34, 64)));
+  background: linear-gradient(90deg, rgb(17, 34, 64) 0%, rgb(42, 79, 164) 50%, rgb(17, 34, 64) 100%);
+  padding: 12px 0;
+  text-align: center;
+  font-size: 20px;
+}
+.mission-progress {
+  background: #efefef;
+  padding: 20px 0 30px 25px;
+  color: #2a4fa4;
+  font-weight: 600;
+}
+.mission-progress > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.mission-progress > div .state {
+  background: #000;
+  height: 25px;
+  width: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 5px;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  border-radius: 20px 0 0 20px;
+}
+.mission-progress > div .state.completed {
+  background: #2A4FA4;
+}
+.mission-progress > div .state.undone {
+  background: #858585;
+}
+.mission-progress-item .progress {
+  background: white;
+  height: 8px;
+  width: 650px;
+  border-radius: 20px;
+}
+.mission-progress-item .progress .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(42, 79, 164)), color-stop(70%, rgb(113, 156, 255)));
+  background: linear-gradient(90deg, rgb(42, 79, 164) 0%, rgb(113, 156, 255) 70%);
+  height: 8px;
+  border-radius: 20px;
+}
+.mission-progress-item.turnover .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(53, 105, 227)), color-stop(70%, rgb(248, 69, 255)));
+  background: linear-gradient(90deg, rgb(53, 105, 227) 0%, rgb(248, 69, 255) 70%);
+}
+.mission-progress-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.mission-progress-text > div:first-child {
+  margin-bottom: 5px;
+}
+.mission-progress-text > div:last-child {
+  font-size: 12px;
+  color: #8d8d8d;
 }
 
 .countdown {
