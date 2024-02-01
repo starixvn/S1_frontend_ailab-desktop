@@ -7194,6 +7194,15 @@ input[type=file] {
 #popup .livesportspop.vn-en {
   background: url(https://banner.0814media.net/desktop/img/4.0/livesports-vnbg-en.png) no-repeat center/100% !important;
 }
+#popup .livesportspop.my-en {
+  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-mybg-en.png) no-repeat center/100% !important;
+}
+#popup .livesportspop.my {
+  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-mybg-my.png) no-repeat center/100% !important;
+}
+#popup .livesportspop.my-cs {
+  background: url(https://banner.0814media.net/desktop/img/4.0/livesports-mybg-cs.png) no-repeat center/100% !important;
+}
 #popup .bigwin {
   color: white;
 }
