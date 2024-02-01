@@ -320,7 +320,7 @@
   "lbl_DownloadAppStep3-1": "Click 'Get' to install 'Mini Puzzle Game' app",
   "lbl_DownloadAppStep4": "Open 'Mini Puzzle Game' to launch the 'Nova88' app",
   "lbl_DragonEgg_10Again": "10 AGAIN",
-  "lbl_DragonEgg_BlessingHints": "Collect Five Blessing Sticker Gets ${{amount}}",
+  "lbl_DragonEgg_BlessingHints": "Collect Five Blessing Sticker Gets {{currencyName}} {{amount}}",
   "lbl_DragonEgg_CONGRATULATIONS": "CONGRATULATIONS",
   "lbl_DragonEgg_ClickFor10": "CLICK FOR 10",
   "lbl_DragonEgg_Confirm": "CONFIRM",
