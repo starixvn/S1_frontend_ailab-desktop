@@ -101,7 +101,7 @@ const Collection = () => {
 			className={classNames("event-collection", { vn: langId === "vn" })}
 		>
 			<img
-				src={`${bannerImgUrl}/desktop/img/event/dragonegg/5fu_bg_en.png`}
+				src={`${bannerImgUrl}/desktop/img/event/dragonegg/5fu_bg_${langId}.png`}
 				alt="5fu_bg_en"
 				className="event-fu-bg"
 			/>
