@@ -127,6 +127,20 @@ export const defMenuLinks = {
 				img: "games/km.png"
 			},
 			{
+				...productList["93Connect"],
+				lobbyImg: "93connect.png",
+				displayText: "93Connect",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "93connect" },
+				img: "games/93connect.png",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.game_93Connect
+					})
+				]
+			},
+			{
 				...productList.V8_Poker,
 				className: "v8",
 				displayKey: "lbl_V8Poker",

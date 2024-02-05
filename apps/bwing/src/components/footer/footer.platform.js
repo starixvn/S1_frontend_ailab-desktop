@@ -215,6 +215,10 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.Amigo.name },
 		imgName: "amigo"
+	},
+	{
+		...productList["93Connect"],
+		imgName: "93connect"
 	}
 ];
 
@@ -307,7 +311,8 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 					...p,
 					urlParams: _urlParams,
 					isInMaintain
-				})}>
+				})}
+			>
 				<ImageWithHover
 					bannerImgUrl={bannerImgUrl}
 					imgName={p.imgName}

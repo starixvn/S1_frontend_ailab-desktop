@@ -464,6 +464,11 @@ export default {
 		tpId: 32,
 		tpGameType: 53,
 		gameId: 224
+	},
+	"93Connect": {
+		tpId: 62,
+		tpGameType: 114,
+		gameId: "LOBBY"
 	}
 };
 

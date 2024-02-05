@@ -1324,6 +1324,25 @@ export const defMenuLinks = {
 				}
 			},
 			{
+				keyName: "games_93Connect",
+				className: "fsgw",
+				listNpcImgUrl: "93connect.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "93Connect",
+				menuType: defMenuType.entPage,
+				...productList.games_93Connect,
+				parameter: { ...productList.games_93Connect },
+				lobbyPage: {
+					bgImg: "93connect.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.game_93Connect
+					})
+				]
+			},
+			{
 				keyName: "games_V8Poker",
 				className: "fsgw",
 				listNpcImgUrl: "v8.png",
