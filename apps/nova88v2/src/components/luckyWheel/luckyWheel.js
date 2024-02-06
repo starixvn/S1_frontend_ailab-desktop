@@ -1,12 +1,13 @@
 import React, { useRef, useEffect, useContext, useMemo } from "react";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
+import { isDateRange } from "@ailab-desktop/common";
 import {
 	useDrawPrizeFetcher,
 	defDrawPrizeStatus
 } from "../hook/useDrawPrizeFetcher";
 import { useDataApi } from "../hook/useDataApi";
-import { isDateRange, getCurrencyCode } from "../common/common";
+import { getCurrencyCode } from "../common/common";
 import usePopBox from "../hook/usePopBox";
 import { userInfoContext, loadingContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";

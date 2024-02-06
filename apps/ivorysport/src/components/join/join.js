@@ -22,7 +22,8 @@ import {
 	getLocalStorage,
 	defCurrencyList,
 	defCurrencyToClass,
-	realNameCheck
+	realNameCheck,
+	removeLocalStorage
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
@@ -35,6 +36,7 @@ import JoinPromoInfo from "./join.promoInfo";
 import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
 import { currencyToAreacode, limitCountryNum } from "./join.def";
 import { defLangGroups } from "../header/header.langDropdown";
+import path from "../../router";
 
 export const areaCodeList = Object.values(areaCode).map(el => ({
 	id: `${el.AreaCode} ${el.Name}`,
@@ -683,7 +685,9 @@ export default () => {
 											if (lineUserId) {
 												removeLocalStorage("lineUser");
 											}
-											await navigate(`/${_user.langId}`);
+											await navigate(
+												`/${_user.langId}/${path.deposit.root}`
+											);
 										} else {
 											errorPopBox(
 												res_custInfo.data.message ||

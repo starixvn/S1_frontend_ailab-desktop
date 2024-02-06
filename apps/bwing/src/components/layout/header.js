@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "gatsby";
-import {
-	dragonBoatFestivalEventPeriod,
-	isDateRange
-} from "@ailab-desktop/common";
+import { isDateRange } from "@ailab-desktop/common";
 import classNames from "classnames";
 import {
 	userInfoContext,
@@ -18,8 +15,9 @@ import { defEventPeriod } from "../common/eventIcon";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { angPaoEventPeriod } from "../../pages/angpao";
 
-export const christmasPeriod = {
-	endDate: "2023-12-26 23:59:59"
+export const eventPeriod = {
+	startDate: "2024-02-01 00:00:00",
+	endDate: "2024-02-25 23:59:59"
 };
 
 export default () => {
@@ -42,21 +40,12 @@ export default () => {
 	return (
 		<header className={isEvent ? "newyear" : ""}>
 			<div className="header-content">
-				<div
-					className={classNames("logo", {
-						dragon: isDateRange(dragonBoatFestivalEventPeriod)
-					})}
-				>
+				<div className={classNames("logo")}>
 					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
-							className={classNames({
-								"dragon-logo": isDateRange(
-									dragonBoatFestivalEventPeriod
-								)
-							})}
 							src={`${bannerImgUrl}/desktop/img/4.0/${
-								isDateRange(christmasPeriod)
-									? "christmas-logo"
+								isDateRange(eventPeriod)
+									? "newyear-logo"
 									: "logo"
 							}.png`}
 							alt={config.siteName}
