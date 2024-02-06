@@ -1169,5 +1169,6 @@
 		"lbl_GameName": "游戏名称"
 	},
 	"Label_Header_WinLossAmountHint": "注：由于四舍五入的问题，投注的输赢金额可能会有一些差异。",
+	"Label_Kyc_Hint" : "请先上传您的身分证件，开始游戏!",
 	"end-----": "end-----"
 }

@@ -1175,5 +1175,6 @@
 	},
 
 	"Label_Header_WinLossAmountHint": "Note: The win loss amount of the bets may have some difference due to the rounding issue.",
+	"Label_Kyc_Hint" : "Please upload your Valid ID before start playing.",
 	"end-----": "end-----"
 }
