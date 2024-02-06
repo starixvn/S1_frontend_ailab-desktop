@@ -17,7 +17,8 @@ import {
 	getLocalStorage,
 	removeLocalStorage,
 	number_format,
-	defCurrencyList
+	defCurrencyList,
+	getUrlParameter
 } from "../common/common";
 import usePopBox from "../hook/usePopBox";
 
@@ -834,6 +835,24 @@ const Deposit = () => {
 		linePayLink,
 		checkKyc
 	});
+
+	useEffect(() => {
+		// 從註冊頁面來的要顯示 kyc 彈窗
+		if (kycStatus === "kycUpload") {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Success,
+				description: <div>{t("Label_Kyc_Hint")}</div>,
+				btnBar: (
+					<div className="btnGroup">
+						<button className="btn-check" onClick={closePopBox}>
+							OK
+						</button>
+					</div>
+				)
+			});
+		}
+	}, [kycStatus]);
 
 	if (loading || !isInitDataDone) return null;
 
