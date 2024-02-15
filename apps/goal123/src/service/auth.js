@@ -18,15 +18,26 @@ export const LOGIN = async ({ userName, password, langId }) => {
 		let userAgent = "";
 		let screen = "";
 		let di = "";
+		let bi = "";
+		let detecasAnalysis = "";
+		let sessionKey = "";
+		let token = "";
 		if (typeof window !== undefined) {
 			url = window.location.origin;
 			platform = navigator.platform;
 			userAgent = navigator.userAgent;
 			screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`;
+
+			// * di, bi, detecasAnalysis, sessionKey, token 引用第三方 js: //*/activator.ashx
 			di = document.getElementById("__di")?.value;
+			bi = document.getElementById("__bi")?.value;
+			detecasAnalysis =
+				document.getElementById("detecas-analysis")?.value;
+			sessionKey = document.getElementById("__fdi")?.value; // * fdi = sessionKey
+			token = document.getElementById("__tk")?.value; // * 默認為 empty
 		}
 
-		const res = await api_account_UserLogin(langId, {
+		const payload = {
 			UserName: userName,
 			Userpwd: password,
 			isPersistent: true,
@@ -34,8 +45,16 @@ export const LOGIN = async ({ userName, password, langId }) => {
 			platform,
 			userAgent,
 			screen,
-			di
-		});
+			FPSRequest: {
+				di,
+				bi,
+				detecasAnalysis,
+				sessionKey,
+				token
+			}
+		};
+
+		const res = await api_account_UserLogin(langId, payload);
 
 		let errMsg = res.data.message;
 		let isLogin = false;
