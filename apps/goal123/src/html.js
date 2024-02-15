@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -81,7 +82,7 @@ export default function HTML(props) {
 				<script
 					async=""
 					defer=""
-					src="//sc.detecas.com/di/activator.ashx"
+					src="//scqa2.detecas.com/activator.ashx"
 				/>
 			</footer>
 		</html>

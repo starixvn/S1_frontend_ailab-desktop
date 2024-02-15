@@ -172,7 +172,15 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		);
 	}, [userInfo.isLogin, userInfo.langId]);
 
+	let di = "";
+	if (typeof window !== "undefined") {
+		di = document.getElementById("__di")?.value;
+	}
+
 	useEffect(() => {
+		// * 以 di 為基準，等 di 有值之後才進入這個 effect
+		if (!di) return;
+
 		const code = getUrlParameter("code");
 		const state = getUrlParameter("state");
 		const error = getUrlParameter("error");
@@ -183,13 +191,23 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		let platform;
 		let userAgent;
 		let screen;
-		let di = "";
+		let bi = "";
+		let detecasAnalysis = "";
+		let sessionKey = "";
+		let token = "";
+
 		if (typeof window !== "undefined") {
 			url = window.location.origin;
 			platform = navigator.platform;
 			userAgent = navigator.userAgent;
 			screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`;
-			di = document.getElementById("__di")?.value;
+
+			// * di, bi, detecasAnalysis, sessionKey, token 引用第三方 js: //*/activator.ashx
+			bi = document.getElementById("__bi")?.value;
+			detecasAnalysis =
+				document.getElementById("detecas-analysis")?.value;
+			sessionKey = document.getElementById("__fdi")?.value; // * fdi = sessionKey
+			token = document.getElementById("__tk")?.value; // * 默認為 empty
 		}
 
 		if (code || state || error) {
@@ -208,7 +226,13 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 					platform,
 					userAgent,
 					screen,
-					di
+					FPSRequest: {
+						di,
+						bi,
+						detecasAnalysis,
+						sessionKey,
+						token
+					}
 				}
 			}).then(res => {
 				const { errorCode, message, data } = res.data;
@@ -241,7 +265,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				}
 			});
 		}
-	}, []);
+	}, [di]);
 
 	// * checkSignIn
 	useEffect(() => {
