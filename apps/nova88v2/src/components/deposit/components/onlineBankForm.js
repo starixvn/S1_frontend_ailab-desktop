@@ -2,7 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import ShortcutAmountList from "./shortcutAmountList";
-import { defCurrencyList, getUrlParameter } from "../../common/common";
+import {
+	defCurrencyList,
+	getUrlParameter,
+	number_format
+} from "../../common/common";
 import { paymentImgUrl } from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
 
@@ -12,7 +16,6 @@ import { userInfoContext } from "../../common/context";
 const OnlineBankForm = ({
 	t,
 	_isConvert,
-	formatAmount,
 	depositType,
 	onlineBankGroupList,
 	getOnlineBankInfoList,
@@ -113,6 +116,11 @@ const OnlineBankForm = ({
 			<div className="subModuleTitle">
 				<i className="txt-blue">*</i>
 				{t("lbl_Payment_Method")}
+				{_isConvert && (
+					<div className="info">
+						{t("Label_Deposit_AdditionalInfo")}
+					</div>
+				)}
 			</div>
 
 			<div className="subModule">
@@ -139,18 +147,18 @@ const OnlineBankForm = ({
 
 								<div className="bank">
 									<div>{item.payName}</div>
-
 									<div>
-										<div>
-											{`${t("lbl_Min")}: ${formatAmount(
-												item.minAmount
-											)}`}
-										</div>
-										<div>
-											{`${t("lbl_Max")}: ${formatAmount(
-												item.maxAmount
-											)}`}
-										</div>
+										{`${number_format(
+											item.minAmount,
+											_isConvert,
+											0,
+											false
+										)} ~ ${number_format(
+											item.maxAmount,
+											_isConvert,
+											0,
+											false
+										)}`}
 									</div>
 								</div>
 							</button>
@@ -164,6 +172,11 @@ const OnlineBankForm = ({
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
 						{t("lbl_SelectBank")}
+						{_isConvert && (
+							<div className="info">
+								{t("Label_Deposit_AdditionalInfo")}
+							</div>
+						)}
 					</div>
 					<div>
 						{onlineBankInfoList.map(item => {
@@ -190,20 +203,17 @@ const OnlineBankForm = ({
 									<div className="bank">
 										<div>{item.bankName}</div>
 										<div>
-											<div>
-												{`${t(
-													"lbl_Min"
-												)}: ${formatAmount(
-													item.minAmount
-												)}`}
-											</div>
-											<div>
-												{`${t(
-													"lbl_Max"
-												)}: ${formatAmount(
-													item.maxAmount
-												)}`}
-											</div>
+											{`${number_format(
+												item.minAmount,
+												_isConvert,
+												0,
+												false
+											)} ~ ${number_format(
+												item.maxAmount,
+												_isConvert,
+												0,
+												false
+											)}`}
 										</div>
 									</div>
 								</button>
@@ -260,7 +270,6 @@ const OnlineBankForm = ({
 OnlineBankForm.propTypes = {
 	t: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
-	formatAmount: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	onlineBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getOnlineBankInfoList: PropTypes.func.isRequired,

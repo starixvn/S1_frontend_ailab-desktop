@@ -36,8 +36,7 @@ const DepositInfoMoule = ({
 				<span>{t("lbl_Deposit")}</span>
 				<Link
 					className="icon icon-friend"
-					to={`/${langId}/${path.referral.root}`}
-				>
+					to={`/${langId}/${path.referral.root}`}>
 					<span>{t("lbl_Refer_friends_rewards")}</span>
 				</Link>
 			</div>
@@ -59,17 +58,12 @@ const DepositInfoMoule = ({
 								className={
 									item.type === depositType ? "active" : ""
 								}
-								key={`${item.type}-key`}
-							>
+								key={`${item.type}-key`}>
 								<div className={item.iconClass}>
 									<i className="icon icon-checkmark" />
 								</div>
 								<div className="bank">
 									<div>{t(item.depositDisplaykey)}</div>
-									<div>
-										{t("lbl_CreditTime")} ：
-										{t(item.creditTime)}
-									</div>
 								</div>
 							</button>
 						))}
@@ -84,8 +78,7 @@ const DepositInfoMoule = ({
 							await judgeBtnStatus();
 							submitHandle();
 						}}
-						className={classStyle()}
-					>
+						className={classStyle()}>
 						{canSubmit ? t("lbl_Submit") : t("lbl_DepositStatus1")}
 					</button>
 				</div>
