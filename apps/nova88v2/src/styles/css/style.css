@@ -6997,9 +6997,15 @@ input[type=file] {
   background: linear-gradient(90deg, rgb(5, 29, 160) 0%, rgb(17, 34, 64) 100%);
   border-radius: 10px 10px 0 0;
 }
+#popup .livesportspop .livesports-content > div .livesports-item .top > div:first-child {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 200px;
+}
 #popup .livesportspop .livesports-content > div .livesports-item .top > div:last-child {
   background: #ff7600;
-  width: 45px;
+  width: 55px;
   text-align: center;
   border-radius: 20px 0 0 20px;
   padding: 0 0 0 11px;
@@ -12904,6 +12910,15 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-weight: bold;
   margin-bottom: 10px;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.subModuleTitle .info {
+  margin-left: 5px;
+  color: rgba(247, 121, 0, 0.9);
+  font-weight: normal;
+  font-size: 13px;
 }
 .subModuleTitle .txt-blue {
   color: #f77900;
@@ -13133,7 +13148,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 10px 15px;
+  margin: 0 10px 5px;
   color: white;
   width: 134px;
   position: relative;
@@ -13190,14 +13205,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .subModuleListColumn > .subModule > div > button > div.bank > div,
 .subModuleListColumn > .subModule > div > a > div.bank > div {
   color: #5574A7;
-}
-.subModuleListColumn > .subModule > div > button > div.bank > div:last-child,
-.subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
-  background: #BFCCE2;
-  margin: 10px auto 0;
-  width: calc(100% - 10px);
-  padding: 5px;
-  border-radius: 5px;
 }
 .subModuleListColumn > .subModule > div > button > div:first-child,
 .subModuleListColumn > .subModule > div > a > div:first-child {
