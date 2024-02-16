@@ -9,13 +9,7 @@ import {
 } from "../common/context";
 import { defDepositType, defDepositOptions } from "./deposit.def";
 import { defPopBoxType } from "../common/popBox";
-import {
-	checkAmount,
-	isConvert,
-	getUrlParameter,
-	number_format
-} from "../common/common";
-
+import { checkAmount, isConvert, getUrlParameter } from "../common/common";
 import useDeposit from "./hook/useDeposit";
 import useDepositOnline from "./hook/useDepositOnline";
 import useDepositMobilePay from "./hook/useDepositMobilePay";
@@ -23,10 +17,8 @@ import useDepositLocalBank from "./hook/useDepositLocalBank";
 import useDepositLoadCard from "./hook/useDepositLoadCard";
 import useDepositCryptoPay from "./hook/useDepositCryptoPay";
 import useDepositQRPay from "./hook/useDepositQRPay";
-
 import path from "../../router";
 import config from "../../config";
-
 import MobileForm from "./components/mobileForm";
 import OnlineBankForm from "./components/onlineBankForm";
 import LocalBankForm from "./components/localBankForm";
@@ -175,14 +167,6 @@ const Deposit = () => {
 		QRPayGroupList,
 		QRPayInfoList
 	} = useDepositQRPay({ isMountedRef });
-
-	const formatAmount = _val =>
-		number_format({
-			number: _val,
-			formatRequired: true,
-			isConvertRequired: _isConvert,
-			digits: 0
-		});
 
 	const onChangeDepositType = async type => {
 		setDepositType(type);
@@ -919,7 +903,6 @@ const Deposit = () => {
 						depositType={depositType}
 						defPopBoxType={defPopBoxType}
 						_isConvert={_isConvert}
-						formatAmount={formatAmount}
 						cryptoPayGroupList={cryptoPayGroupList}
 						formInfo={formInfo}
 						depositPromoList={depositPromoList}

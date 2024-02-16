@@ -69,14 +69,6 @@ const Deposit = () => {
 		isDepositTypeIncludes ? parameterDefaultType : defDepositType.mobile
 	);
 
-	const formatAmount = _val =>
-		number_format({
-			number: _val,
-			formatRequired: true,
-			isConvertRequired: _isConvert,
-			digits: 0
-		});
-
 	const [isGroupListFetchDone, setIsGroupListFetchDone] = useState(true);
 
 	const [formInfo, setFormInfo] = useState({
@@ -917,7 +909,6 @@ const Deposit = () => {
 						depositType={depositType}
 						defPopBoxType={defPopBoxType}
 						_isConvert={_isConvert}
-						formatAmount={formatAmount}
 						cryptoPayGroupList={cryptoPayGroupList}
 						formInfo={formInfo}
 						depositPromoList={depositPromoList}

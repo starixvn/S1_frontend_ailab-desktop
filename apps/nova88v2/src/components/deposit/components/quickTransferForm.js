@@ -119,6 +119,11 @@ const QuickTransferForm = ({
 			<div className="subModuleTitle">
 				<i className="txt-blue">*</i>
 				{t("lbl_Payment_Method")}
+				{_isConvert && (
+					<div className="info">
+						{t("Label_Deposit_AdditionalInfo")}
+					</div>
+				)}
 			</div>
 			<div className="subModule">
 				<div>
@@ -144,22 +149,18 @@ const QuickTransferForm = ({
 
 								<div className="bank">
 									<div>{item.payName}</div>
-
 									<div>
-										<div>
-											{`${t("lbl_Min")}: ${number_format(
-												item.minAmount,
-												_isConvert,
-												0
-											)}`}
-										</div>
-										<div>
-											{`${t("lbl_Max")}: ${number_format(
-												item.maxAmount,
-												_isConvert,
-												0
-											)}`}
-										</div>
+										{`${number_format(
+											item.minAmount,
+											_isConvert,
+											0,
+											false
+										)} ~ ${number_format(
+											item.maxAmount,
+											_isConvert,
+											0,
+											false
+										)}`}
 									</div>
 								</div>
 							</button>
@@ -172,6 +173,11 @@ const QuickTransferForm = ({
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
 						{t("lbl_SelectBank")}
+						{_isConvert && (
+							<div className="info">
+								{t("Label_Deposit_AdditionalInfo")}
+							</div>
+						)}
 					</div>
 					<div>
 						{supportBanksByPayId.map(item => {
@@ -198,24 +204,17 @@ const QuickTransferForm = ({
 									<div className="bank">
 										<div>{item.bankName}</div>
 										<div>
-											<div>
-												{`${t(
-													"lbl_Min"
-												)}: ${number_format(
-													item.minAmount,
-													_isConvert,
-													0
-												)}`}
-											</div>
-											<div>
-												{`${t(
-													"lbl_Max"
-												)}: ${number_format(
-													item.maxAmount,
-													_isConvert,
-													0
-												)}`}
-											</div>
+											{`${number_format(
+												item.minAmount,
+												_isConvert,
+												0,
+												false
+											)} ~ ${number_format(
+												item.maxAmount,
+												_isConvert,
+												0,
+												false
+											)}`}
 										</div>
 									</div>
 								</button>

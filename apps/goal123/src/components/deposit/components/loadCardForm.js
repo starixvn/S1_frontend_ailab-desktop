@@ -86,6 +86,11 @@ export default function LoadCardForm({
 					<i className="txt-blue">*</i>
 					{t("lbl_PaymentModes")}
 				</span>
+				{_isConvert && (
+					<div className="info">
+						{t("Label_Deposit_AdditionalInfo")}
+					</div>
+				)}
 			</div>
 			<div className="subModule">
 				<div>
@@ -110,23 +115,15 @@ export default function LoadCardForm({
 
 							<div className="bank">
 								<div>{item.channelName}</div>
-
-								<div>
-									<div>
-										{`${t("lbl_Min")}: ${number_format({
-											number: item.minAmount,
-											formatRequired: _isConvert,
-											digits: 0
-										})}`}
-									</div>
-									<div>
-										{`${t("lbl_Max")}: ${number_format({
-											number: item.maxAmount,
-											formatRequired: _isConvert,
-											digits: 0
-										})}`}
-									</div>
-								</div>
+								<div>{`${number_format({
+									number: item.minAmount,
+									formatRequired: false,
+									digits: 0
+								})}~${number_format({
+									number: item.maxAmount,
+									formatRequired: false,
+									digits: 0
+								})}`}</div>
 							</div>
 						</button>
 					))}

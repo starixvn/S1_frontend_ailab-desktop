@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import ShortcutAmountList from "./shortcutAmountList";
-import { defCurrencyList, getUrlParameter } from "../../common/common";
+import {
+	defCurrencyList,
+	getUrlParameter,
+	number_format
+} from "../../common/common";
 import PromotionSelect from "./promotionSelect";
 import ClipboardJS from "../../../lib/clipboard.min";
 import { paymentImgUrl } from "../../../config";
@@ -14,7 +18,6 @@ const LocalBankForm = ({
 	userInfo,
 	depositType,
 	_isConvert,
-	formatAmount,
 	localBankGroupList,
 	formInfo,
 	depositPromoList,
@@ -186,6 +189,11 @@ const LocalBankForm = ({
 			<div className="subModuleTitle">
 				<i className="txt-blue">*</i>
 				{t("lbl_SelectBank")}
+				{_isConvert && (
+					<div className="info">
+						{t("Label_Deposit_AdditionalInfo")}
+					</div>
+				)}
 			</div>
 
 			<div className="subModule selectBank">
@@ -205,8 +213,7 @@ const LocalBankForm = ({
 								className={`${className} ${
 									item.canSubmit ? "" : "pending"
 								}`}
-								onClick={() => onChangeBankInfo(item)}
-							>
+								onClick={() => onChangeBankInfo(item)}>
 								<div>
 									<img
 										src={`${paymentImgUrl}/square/${bankLogo}`}
@@ -224,16 +231,17 @@ const LocalBankForm = ({
 									<div>{item.bankName}</div>
 
 									<div>
-										<div>
-											{`${t("lbl_Min")}: ${formatAmount(
-												item.minAmount
-											)}`}
-										</div>
-										<div>
-											{`${t("lbl_Max")}: ${formatAmount(
-												item.maxAmount
-											)}`}
-										</div>
+										{`${number_format(
+											item.minAmount,
+											_isConvert,
+											0,
+											false
+										)} ~ ${number_format(
+											item.maxAmount,
+											_isConvert,
+											0,
+											false
+										)}`}
 									</div>
 								</div>
 							</button>
@@ -379,7 +387,6 @@ LocalBankForm.propTypes = {
 	depositType: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
-	formatAmount: PropTypes.func.isRequired,
 	localBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
