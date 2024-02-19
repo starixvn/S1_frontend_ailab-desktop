@@ -15,6 +15,7 @@ import PopBox from "./popBox";
 import Loading from "./loading";
 import { loadingContext, productTpIdsContext } from "./context";
 import GoTopBtn from "./goTopBtn";
+import HomeFooter from "../footer/HomeFooter";
 
 const Layout = ({
 	children,
@@ -44,7 +45,9 @@ const Layout = ({
 			{showHeader ? <Header /> : null}
 			{childrenWithProps}
 
-			{showFooter ? <Footer /> : null}
+			{/* {showFooter ? <Footer /> : null} */}
+			{showFooter ? <HomeFooter /> : null}
+
 			<PopBox />
 			{loading ? <Loading /> : null}
 			{goTopBtn ? <GoTopBtn /> : null}
