@@ -3,12 +3,14 @@ import SEO from "../components/seo";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Content from "../components/home/home";
+import NewHome from "../components/home/NewHome";
 
 const IndexPage = () => {
 	return (
 		<Wrapper>
 			<Layout showFooter={true}>
-				<Content />
+				<NewHome />
+				{/* <Content /> */}
 			</Layout>
 		</Wrapper>
 	);

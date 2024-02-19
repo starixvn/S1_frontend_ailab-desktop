@@ -20,7 +20,7 @@ const EventSwipper = memo(({ langId }) => {
 				}
 			},
 			() => {
-				// errorPopBox();
+				// errorPopBox();d
 			}
 		);
 	};
