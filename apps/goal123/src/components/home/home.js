@@ -45,8 +45,6 @@ import { defDeviceType } from "../../service/api/base";
 import { eventPerios } from "../../datas/eventDef";
 import DragonEgg from "../dragonEgg/homeLink";
 import LiveStreamingLink from "./liveStreaming";
-import useWinnerList from "./hooks/useWinnerList";
-import useClickItem from "./hooks/useClickItem";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -55,14 +53,12 @@ const Home = ({ productTpIds }) => {
 	const { errorPopBox, closePopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 	const { setIsRoot } = useContext(isRootContext);
-	// const [winnerList, setWinnerList] = useState([]);
+	const [winnerList, setWinnerList] = useState([]);
 	const [displayVgaming, setDisplayVgaming] = useState(true);
 	const [displayLiveStreaming, setDisplayLiveStreaming] = useState(false);
 	const [liveStreamingList, setLiveStreamingList] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const { allMaintainList } = useContext(maintainListContext);
-	const winnerList = useWinnerList();
-	const { clickHomeItem } = useClickItem();
 
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
 	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
@@ -76,157 +72,157 @@ const Home = ({ productTpIds }) => {
 		};
 	});
 
-	// useEffect(() => {
-	// 	getTopWinnners();
-	// }, []);
+	useEffect(() => {
+		getTopWinnners();
+	}, []);
 
-	// useEffect(() => {
-	// 	const displayAnnouncePopup = () => {
-	// 		const cookieOfficialAnnounce = `OfficialAnnounce_cookie`;
-	// 		const isShowOfficialAnnouncePopBox =
-	// 			readCookie(cookieOfficialAnnounce) !== "1";
+	useEffect(() => {
+		const displayAnnouncePopup = () => {
+			const cookieOfficialAnnounce = `OfficialAnnounce_cookie`;
+			const isShowOfficialAnnouncePopBox =
+				readCookie(cookieOfficialAnnounce) !== "1";
 
-	// 		if (userInfo.isLogin === false && isShowOfficialAnnouncePopBox) {
-	// 			setPopBox({
-	// 				isOpen: true,
-	// 				popBoxType: defPopBoxType.OfficialAnnounce,
-	// 				onClickClose: openNextPopUp
-	// 			});
-	// 			setCookie(cookieOfficialAnnounce, "1", 1);
-	// 		} else {
-	// 			openNextPopUp();
-	// 		}
-	// 	};
+			if (userInfo.isLogin === false && isShowOfficialAnnouncePopBox) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.OfficialAnnounce,
+					onClickClose: openNextPopUp
+				});
+				setCookie(cookieOfficialAnnounce, "1", 1);
+			} else {
+				openNextPopUp();
+			}
+		};
 
-	// 	const displayDepositPopup = () => {
-	// 		const cookieName = `balanceHint${userInfo.userName}`;
-	// 		if (
-	// 			userInfo.isLogin &&
-	// 			userInfo.userName &&
-	// 			readCookie(cookieName) !== "1"
-	// 		) {
-	// 			setCookie(cookieName, "1", 1);
-	// 			api_account_GetWalletInfo().then(
-	// 				res => {
-	// 					if (res.data.errorCode === 0 && isMountedRef.current) {
-	// 						const tpWallets = res.data.data.tpWallets?.map(
-	// 							tp => ({
-	// 								tpId: tp.tpId,
-	// 								balance: tp.balance
-	// 							})
-	// 						);
+		const displayDepositPopup = () => {
+			const cookieName = `balanceHint${userInfo.userName}`;
+			if (
+				userInfo.isLogin &&
+				userInfo.userName &&
+				readCookie(cookieName) !== "1"
+			) {
+				setCookie(cookieName, "1", 1);
+				api_account_GetWalletInfo().then(
+					res => {
+						if (res.data.errorCode === 0 && isMountedRef.current) {
+							const tpWallets = res.data.data.tpWallets?.map(
+								tp => ({
+									tpId: tp.tpId,
+									balance: tp.balance
+								})
+							);
 
-	// 						const hasBalance =
-	// 							res.data.data?.balance ||
-	// 							tpWallets?.filter(tp => tp.balance > 0)
-	// 								.length >= 1;
+							const hasBalance =
+								res.data.data?.balance ||
+								tpWallets?.filter(tp => tp.balance > 0)
+									.length >= 1;
 
-	// 						if (!hasBalance) {
-	// 							setPopBox({
-	// 								isOpen: true,
-	// 								popBoxType: defPopBoxType.DepositHint
-	// 							});
-	// 						}
-	// 					} else if (res.data.errorCode !== 0) {
-	// 						errorPopBox(
-	// 							res.data.message || "error",
-	// 							res.data.errorCode,
-	// 							openNextPopUp
-	// 						);
-	// 					}
-	// 				},
-	// 				() => {
-	// 					if (isMountedRef.current) {
-	// 						errorPopBox(null, null, openNextPopUp);
-	// 					}
-	// 				}
-	// 			);
-	// 		} else {
-	// 			openNextPopUp();
-	// 		}
-	// 	};
+							if (!hasBalance) {
+								setPopBox({
+									isOpen: true,
+									popBoxType: defPopBoxType.DepositHint
+								});
+							}
+						} else if (res.data.errorCode !== 0) {
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode,
+								openNextPopUp
+							);
+						}
+					},
+					() => {
+						if (isMountedRef.current) {
+							errorPopBox(null, null, openNextPopUp);
+						}
+					}
+				);
+			} else {
+				openNextPopUp();
+			}
+		};
 
-	// 	const displayPromotionPopup = () => {
-	// 		const cookieName = `popUpPromotion${userInfo.userName}`;
+		const displayPromotionPopup = () => {
+			const cookieName = `popUpPromotion${userInfo.userName}`;
 
-	// 		// * 如果未登入 or 當日觸發過 則直接進入下一個彈窗
-	// 		if (
-	// 			!userInfo.isLogin ||
-	// 			!userInfo.accountName ||
-	// 			readCookie(cookieName) === "1"
-	// 		) {
-	// 			openNextPopUp();
-	// 			return;
-	// 		}
+			// * 如果未登入 or 當日觸發過 則直接進入下一個彈窗
+			if (
+				!userInfo.isLogin ||
+				!userInfo.accountName ||
+				readCookie(cookieName) === "1"
+			) {
+				openNextPopUp();
+				return;
+			}
 
-	// 		// * 如果 bonusCode 不為 null ，打開並記錄 cookie，效期為一日
-	// 		getPopUpPromotion({
-	// 			deviceType: defDeviceType.Desktop,
-	// 			langId: userInfo.langId
-	// 		}).then(({ data: { data: { bonusCode } = {} } = {} }) => {
-	// 			if (bonusCode) {
-	// 				setPopBox({
-	// 					isOpen: true,
-	// 					popBoxType: defPopBoxType.Modal,
-	// 					content: (
-	// 						<div className="pop promosbackpopup">
-	// 							<div className="promosback active">
-	// 								<div className="promosback-pop">
-	// 									<img
-	// 										src={`${
-	// 											process.env.REACT_APP_BANNER_URL
-	// 										}/desktop/img/promosBackPopup/promosPopup-${
-	// 											userInfo?.langId || "en"
-	// 										}.png`}
-	// 										alt="img-promosPopup"
-	// 									/>
+			// * 如果 bonusCode 不為 null ，打開並記錄 cookie，效期為一日
+			getPopUpPromotion({
+				deviceType: defDeviceType.Desktop,
+				langId: userInfo.langId
+			}).then(({ data: { data: { bonusCode } = {} } = {} }) => {
+				if (bonusCode) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.Modal,
+						content: (
+							<div className="pop promosbackpopup">
+								<div className="promosback active">
+									<div className="promosback-pop">
+										<img
+											src={`${
+												process.env.REACT_APP_BANNER_URL
+											}/desktop/img/promosBackPopup/promosPopup-${
+												userInfo?.langId || "en"
+											}.png`}
+											alt="img-promosPopup"
+										/>
 
-	// 									<button
-	// 										className="popgo"
-	// 										onClick={() => {
-	// 											navigate(
-	// 												`/${path.promotion.root}?bonusCode=${bonusCode}`
-	// 											);
-	// 										}}>
-	// 										{t("lbl_Promotion_ClaimNow")}
-	// 									</button>
+										<button
+											className="popgo"
+											onClick={() => {
+												navigate(
+													`/${path.promotion.root}?bonusCode=${bonusCode}`
+												);
+											}}>
+											{t("lbl_Promotion_ClaimNow")}
+										</button>
 
-	// 									<img
-	// 										src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/promosBackPopup/delet.png`}
-	// 										alt="img-delet"
-	// 										className="closepop"
-	// 										onClick={() => {
-	// 											closePopBox();
-	// 											openNextPopUp();
-	// 										}}
-	// 									/>
-	// 								</div>
-	// 							</div>
-	// 						</div>
-	// 					)
-	// 				});
-	// 				setCookie(cookieName, "1", 1);
-	// 			} else {
-	// 				openNextPopUp();
-	// 			}
-	// 		});
-	// 	};
+										<img
+											src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/promosBackPopup/delet.png`}
+											alt="img-delet"
+											className="closepop"
+											onClick={() => {
+												closePopBox();
+												openNextPopUp();
+											}}
+										/>
+									</div>
+								</div>
+							</div>
+						)
+					});
+					setCookie(cookieName, "1", 1);
+				} else {
+					openNextPopUp();
+				}
+			});
+		};
 
-	// 	const popUpStack = [
-	// 		displayDepositPopup,
-	// 		displayAnnouncePopup,
-	// 		displayPromotionPopup
-	// 	];
+		const popUpStack = [
+			displayDepositPopup,
+			displayAnnouncePopup,
+			displayPromotionPopup
+		];
 
-	// 	const openNextPopUp = () => {
-	// 		if (popUpStack.length) {
-	// 			popUpStack.pop()();
-	// 		} else {
-	// 			setPopBox({ isOpen: false });
-	// 		}
-	// 	};
-	// 	!userInfo.isResetPwd && openNextPopUp();
-	// }, [userInfo.isLogin, setPopBox, userInfo.langId, userInfo.accountName]);
+		const openNextPopUp = () => {
+			if (popUpStack.length) {
+				popUpStack.pop()();
+			} else {
+				setPopBox({ isOpen: false });
+			}
+		};
+		!userInfo.isResetPwd && openNextPopUp();
+	}, [userInfo.isLogin, setPopBox, userInfo.langId, userInfo.accountName]);
 
 	useEffect(() => {
 		const popBoxMsg = readCookie("popBoxMsg");
@@ -281,94 +277,136 @@ const Home = ({ productTpIds }) => {
 		getLiveStreamingList();
 	}, [userInfo.isLogin, userInfo.isLogin]);
 
-	// const clickItem = ({ tpId, gameId, tpGameType }) => {
-	// 	const isInMaintain = allMaintainList?.some(
-	// 		mt =>
-	// 			mt.tpId === tpId &&
-	// 			(mt.tpGameType === tpGameType ||
-	// 				mt.tpGameType === defTpGameType.All)
-	// 	);
+	const clickItem = ({ tpId, gameId, tpGameType }) => {
+		const isInMaintain = allMaintainList?.some(
+			mt =>
+				mt.tpId === tpId &&
+				(mt.tpGameType === tpGameType ||
+					mt.tpGameType === defTpGameType.All)
+		);
 
-	// 	const loginCallback = () => {
-	// 		setPopBox({
-	// 			isOpen: true,
-	// 			popBoxType: defPopBoxType.Login
-	// 		});
-	// 	};
+		const loginCallback = () => {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
+		};
 
-	// 	if (isInMaintain) {
-	// 		setPopBox({
-	// 			isOpen: true,
-	// 			popBoxType: defPopBoxType.UnderMaintain,
-	// 			clickClose: closePopBox
-	// 		});
-	// 	} else {
-	// 		SET_ENTER_PAGE({
-	// 			isLogin: userInfo.isLogin,
-	// 			langId: userInfo.langId,
-	// 			tpId,
-	// 			gameId,
-	// 			loginCallback,
-	// 			openInBlank: true,
-	// 			tpGameType
-	// 		});
-	// 	}
-	// };
+		if (isInMaintain) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.UnderMaintain,
+				clickClose: closePopBox
+			});
+		} else {
+			SET_ENTER_PAGE({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId,
+				gameId,
+				loginCallback,
+				openInBlank: true,
+				tpGameType
+			});
+		}
+	};
 
-	// const getTopWinnners = () => {
-	// 	const payload = {
-	// 		lBCategoryId: 0,
-	// 		TopNum: 10,
-	// 		BeforeDays: 0,
-	// 		EventCode: "202104"
-	// 	};
+	const getTopWinnners = () => {
+		const payload = {
+			lBCategoryId: 0,
+			TopNum: 10,
+			BeforeDays: 0,
+			EventCode: "202104"
+		};
 
-	// 	api_events_GetLeaderboardList(payload).then(
-	// 		res => {
-	// 			if (!isMountedRef.current) return;
-	// 			if (res.data.errorCode === 0) {
-	// 				setWinnerList(res.data.data);
-	// 			} else {
-	// 				errorPopBox(
-	// 					res.data.message || "error",
-	// 					res.data.errorCode
-	// 				);
-	// 			}
-	// 		},
-	// 		() => {
-	// 			// if (!isMountedRef.current) return;
-	// 			// errorPopBox();
-	// 		}
-	// 	);
-	// };
+		api_events_GetLeaderboardList(payload).then(
+			res => {
+				if (!isMountedRef.current) return;
+				if (res.data.errorCode === 0) {
+					setWinnerList(res.data.data);
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				// if (!isMountedRef.current) return;
+				// errorPopBox();
+			}
+		);
+	};
 
 	return (
 		<>
 			<main id="main" className="home">
-				<BannerSwipper
-					ImgFolder={[defBannerType.Promotions]}
-					withBtn={false}
-					withPagination={true}
-					config={{
-						effect: "fade",
-						autoplay: {
-							delay: 5000,
-							disableOnInteraction: false
-						}
-					}}
-				/>
+				<div className="home-banner ">
+					<div className="swiper-container">
+						<div className="swiper-wrapper">
+							<a className="swiper-slide">
+								<img src="https://goal123.org/Dec/Goal123-Direpay-Crypto-Cashback-EN.jpg" />
+							</a>
+							<a className="swiper-slide">
+								<img src="https://goal123imgs.0814media.net/PRD/BannerManagement/24dac1a4-bdb7-4b45-808e-c0d981c6dc55.jpg" />
+							</a>
+							<a className="swiper-slide">
+								<img src="https://goal123.org/Dec/Goal123-Direpay-Crypto-Cashback-EN.jpg" />
+							</a>
+							<a className="swiper-slide">
+								<img src="https://goal123imgs.0814media.net/PRD/BannerManagement/24dac1a4-bdb7-4b45-808e-c0d981c6dc55.jpg" />
+							</a>
+							<div className="swiper-pagination" />
+						</div>
+					</div>
 
-				<EventSwipper langId={userInfo.langId} />
+					{/* <BannerSwipper
+						ImgFolder={[defBannerType.Promotions]}
+						withBtn={false}
+						withPagination={true}
+						config={{
+							effect: "fade",
+							autoplay: {
+								delay: 5000,
+								disableOnInteraction: false
+							}
+						}}
+					/> */}
+				</div>
+
+				{/* <EventSwipper langId={userInfo.langId} /> */}
 
 				{/* <Marquee /> */}
+
+				<div id="Marquee">
+					<div className="home-marquee">
+						<i className="icon-speaker" />
+						<div className="marquee-run">
+							<a href="#">
+								IMPORTANT!!! Local Transfer Bank Account
+								Replacement!!!
+							</a>
+							<a href="#">
+								本公司希望借此机会提醒各位尊贵的客户，恳请频繁重置您的密码以确保您的帐户安全。
+							</a>
+							<a href="#">
+								本公司希望借此机会提醒各位尊贵的客户，恳请频繁重置您的密码以确保您的帐户安全。
+							</a>
+						</div>
+						<button
+							className="btn-info"
+							onClick={() => alert("Button clicked!")}>
+							More
+						</button>
+					</div>
+				</div>
 
 				<div className="home-wrapper">
 					<section>
 						<div className="indexliveCasinoList topten">
 							<LiveCasinoSwipper
 								t={t}
-								// clickItem={clickItem}
-								clickItem={clickHomeItem}
+								clickItem={clickItem}
 								langId={userInfo.langId}
 								productTpIds={productTpIds}
 							/>
@@ -383,8 +421,7 @@ const Home = ({ productTpIds }) => {
 						<HotGameList
 							t={t}
 							langId={userInfo.langId}
-							// clickItem={clickHomeItem}
-							// clickItem={clickItem}
+							clickItem={clickItem}
 							navigate={navigate}
 							allMaintainList={allMaintainList}
 						/>
