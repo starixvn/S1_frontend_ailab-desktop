@@ -559,11 +559,13 @@ export default () => {
 
 	return loading ? null : (
 		<>
-			<BannerSwipper
-				ImgFolder={[defBannerType.Slots]}
-				withBtn={true}
-				withPagination={true}
-			/>
+			<div className="lobby-top-banner">
+				<BannerSwipper
+					ImgFolder={[defBannerType.Slots]}
+					withBtn={true}
+					withPagination={true}
+				/>
+			</div>
 
 			<CasinoJackpot t={t} userInfo={userInfo} />
 

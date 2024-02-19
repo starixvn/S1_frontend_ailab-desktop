@@ -92,9 +92,7 @@ export class Dropdown extends Component {
 		});
 
 		const selected = (
-			<button className={`flag ${this.props.selectedValue}`}>
-				{defLangDisplayText[this.props.selectedValue]}
-			</button>
+			<button className={`flag ${this.props.selectedValue}`} />
 		);
 
 		return (

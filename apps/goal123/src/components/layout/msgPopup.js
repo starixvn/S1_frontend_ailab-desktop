@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import PropTypes from "prop-types";
 import { navigate, useLocation } from "@reach/router";
-import { popUpMsgContext } from "../common/context";
+import { popUpMsgContext, userInfoContext } from "../common/context";
 import path from "../../router";
 import useGetPopUpMsg from "../hook/useGetPopUpMsg";
 
-export default function Component({ userInfo }) {
+export default function Component() {
+	const { userInfo } = useContext(userInfoContext);
 	const { setPopUp, popUp } = useContext(popUpMsgContext);
 	const location = useLocation();
 
@@ -18,8 +18,7 @@ export default function Component({ userInfo }) {
 			onClick={e => {
 				e.preventDefault();
 				e.stopPropagation();
-			}}
-		>
+			}}>
 			<div
 				onClick={() => {
 					navigate(`/${userInfo.langId}/${path.message.root}`, {
@@ -29,8 +28,7 @@ export default function Component({ userInfo }) {
 							popupShowed: false
 						}
 					});
-				}}
-			>
+				}}>
 				{popUp.popupMessage}
 			</div>
 			<div
@@ -49,7 +47,3 @@ export default function Component({ userInfo }) {
 		</div>
 	) : null;
 }
-
-Component.propTypes = {
-	userInfo: PropTypes.objectOf(PropTypes.any).isRequired
-};

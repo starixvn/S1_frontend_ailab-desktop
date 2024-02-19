@@ -1,96 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { defTpGameType } from "../../datas/productList";
-import { bannerImgUrl } from "../../config";
+import LobbyListItem from "../common-lobby/LobbyListItem";
 
-const EsportList = ({ t, subMenu, allMaintainList, clickItem }) => {
-	if (subMenu.length <= 0) return null;
-
-	return subMenu.map(subMenuItem => {
-		const isInMaintain = allMaintainList?.some(
-			item =>
-				item.tpId === subMenuItem.tpId &&
-				(item.tpGameType === subMenuItem.tpGameType ||
-					item.tpGameType === defTpGameType.All)
-		);
-
-		return (
-			<EsportListItem
-				key={subMenuItem.displayKey}
-				t={t}
-				isInMaintain={isInMaintain}
-				clickItem={clickItem}
-				subMenuItem={subMenuItem}
-			/>
-		);
-	});
-};
-
-EsportList.propTypes = {
-	t: PropTypes.func.isRequired,
-	allMaintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
-	clickItem: PropTypes.func.isRequired
-};
-
-export default EsportList;
-
-const EsportListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
-	const {
-		displayText,
-		displayKey,
-		tpId,
-		gameId,
-		imgSrc,
-		tpGameType,
-		betType,
-		eventIcons
-	} = subMenuItem;
-	const _displayText = displayText || t(displayKey);
-
-	let iconStrings = "";
-	if (eventIcons) {
-		for (let i = 0; i < eventIcons.length; i++) {
-			iconStrings += `${eventIcons[i]}`;
-		}
-	}
-	// 判斷是否有 eventIcons 與 isInMaintain 以符合設計的 className
-	const isInMaintainOrIconStrings = (iconString = "", isUnderMaintain) => {
-		if (isUnderMaintain) {
-			return `active ${iconString}`;
-		}
-		return `${iconString}`;
-	};
+const EsportList = ({ subMenu }) => {
 	return (
-		<div
-			className={isInMaintainOrIconStrings(iconStrings, isInMaintain)}
-			onClick={() =>
-				clickItem({
-					tpId,
-					gameId,
-					isInMaintain,
-					tpGameType,
-					betType
-				})
-			}
-		>
-			<img src={imgSrc} alt="esport" />
-			<img
-				className="light"
-				src={`${bannerImgUrl}/desktop/img/esports/light.png`}
-				alt="light"
-			/>
-			<div className="txt-darkBlue">{_displayText}</div>
-			{isInMaintain && (
-				<div className="maintenance">{t("lbl_underMaintenance")}</div>
-			)}
+		<div className="lobby-list">
+			{subMenu.map(subMenuItem => {
+				return (
+					<LobbyListItem
+						key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
+						subMenuItem={subMenuItem}
+					/>
+				);
+			})}
 		</div>
 	);
 };
 
-EsportListItem.propTypes = {
-	t: PropTypes.func.isRequired,
-	isInMaintain: PropTypes.bool.isRequired,
-	clickItem: PropTypes.func.isRequired,
-	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired
+export default EsportList;
+
+EsportList.propTypes = {
+	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired
 };

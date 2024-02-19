@@ -1,16 +1,16 @@
 import React from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import Footer from "../components/footer/footer";
+import HomeFooter from "../components/footer/HomeFooter";
 import Lottery from "../components/lottery/lottery";
 
 export default () => (
 	<Wrapper>
 		<Layout>
-			<main className="lotterylobby">
+			<main className="lobby lottery">
 				<Lottery />
 			</main>
-			<Footer />
+			<HomeFooter />
 		</Layout>
 	</Wrapper>
 );

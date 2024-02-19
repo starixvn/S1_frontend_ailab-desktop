@@ -30,8 +30,12 @@ export default class Panel extends Component {
 		}
 	}
 
-	handleMoveToOutside = e => {
-		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
+	handleMouseLeave = e => {
+		if (
+			this.wrapper.current &&
+			e.relatedTarget &&
+			!this.wrapper.current.contains(e.relatedTarget)
+		) {
 			this.setState({ menuKey: "" });
 		}
 	};
@@ -68,11 +72,10 @@ export default class Panel extends Component {
 					productTpIds={this.props.productTpIds}
 				/>
 				<div
-					className={`subMenu-Wrapper newVender ${
-						subItems ? " active" : ""
-					}`}
+					className={`submenu-wrapper ${subItems ? " active" : ""}`}
 					ref={this.wrapper}
-					onClick={this.closeSubMenu}>
+					onClick={this.closeSubMenu}
+					onMouseLeave={this.handleMouseLeave}>
 					{subItems ? (
 						<SubMenu
 							menuKey={this.state.menuKey}
