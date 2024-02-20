@@ -15,29 +15,29 @@ export const defMenuType = {
 };
 
 export const defMenuLinks = langId => ({
-	cryptoSports: {
-		className: "cryptobtn",
-		menuType: defMenuType.entPage,
-		productInfo: { ...productList.cryptoSports }
-	},
+	// cryptoSports: {
+	// 	className: "cryptobtn",
+	// 	menuType: defMenuType.entPage,
+	// 	productInfo: { ...productList.cryptoSports }
+	// },
 	sports: {
 		productInfo: productList.soccer,
 		displayKey: "lbl_Sports",
 		subMenu: [
-			{
-				...productList.cryptoSports,
-				displayKey: "lbl_cryptoSports",
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/cryptosports.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/cryptosports-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/cryptosports-icon.png`,
-				parameter: { ...productList.cryptoSports },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.sports_cryptoSports
-					})
-				]
-			},
+			// {
+			// 	...productList.cryptoSports,
+			// 	displayKey: "lbl_cryptoSports",
+			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/cryptosports.png`,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/cryptosports-item.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/cryptosports-icon.png`,
+			// 	parameter: { ...productList.cryptoSports },
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.sports_cryptoSports
+			// 		})
+			// 	]
+			// },
 			{
 				...productList.sportSaba,
 				subPath: path.sports.root,

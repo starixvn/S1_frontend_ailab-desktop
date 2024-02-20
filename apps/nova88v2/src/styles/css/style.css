@@ -2922,6 +2922,11 @@ main .promosswiper .swiper-button-prev::after {
 .hotmatch .hotsports .hotsports-item img {
   width: 451px;
 }
+.hotmatch .hotsports .hotsports-item div {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+}
 
 .all-btn {
   position: absolute;
