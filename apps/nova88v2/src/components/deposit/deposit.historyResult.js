@@ -22,13 +22,13 @@ export const TransactionHistory = props => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	let actionContent = null;
+
 	if (props.depositType === 3 && (props.status === 1 || props.status === 7)) {
 		actionContent = (
 			<>
 				<button
 					className="orange icon icon-pencil"
-					onClick={props.SubmitProof}
-				>
+					onClick={props.SubmitProof}>
 					{t("lbl_SubmitProof")}
 				</button>
 				<button className="gray" onClick={props.ClickCancel}>

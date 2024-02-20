@@ -39,7 +39,7 @@ export default function useDepositHistory({
 		// historyDepositTime
 	}) => {
 		const { bankName, bankSite } = bankInfo;
-		const { accountName, accountNo } = depositRep;
+		const { accountName, accountNo, code } = depositRep;
 
 		const uploadPopBoxResult = await asyncUploadBankPopBox({
 			formInfo: {
@@ -55,7 +55,8 @@ export default function useDepositHistory({
 				accountNo,
 				accountName,
 				transId,
-				amount
+				amount,
+				code
 			},
 			_isConvert,
 			currencyId: userInfo.currencyId,
