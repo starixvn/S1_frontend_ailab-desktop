@@ -198,7 +198,8 @@ const LocalBankForm = ({
 							className={`${
 								item.sysId === sysIdForRecord ? "active" : ""
 							}${item.canSubmit ? "" : " pending"}`}
-							onClick={() => onChangeBankInfo(item)}>
+							onClick={() => onChangeBankInfo(item)}
+						>
 							<div>
 								<img
 									src={`${
@@ -272,6 +273,23 @@ const LocalBankForm = ({
 								data-clipboard-text={localBankInfo.accountNo}
 							/>
 						</ul>
+
+						{localBankInfo?.code && (
+							<>
+								<ul className="remark">
+									<li>{t("Label_Remark")}</li>
+									<li>{localBankInfo.code}</li>
+									<button
+										className="icon icon-files-empty copyBtn"
+										data-clipboard-text={localBankInfo.code}
+									/>
+								</ul>
+
+								<div className="tip active">
+									{t("Label_Deposit_RemarkHint")}
+								</div>
+							</>
+						)}
 					</div>
 				</div>
 				{QRCodeObj?.qrCodeUrl && (

@@ -207,7 +207,7 @@ const History = () => {
 		depositReceipt
 	) => {
 		const { bankName, bankSite } = bankInfo;
-		const { accountName, accountNo } = depositRep;
+		const { accountName, accountNo, code } = depositRep;
 
 		const uploadPopBoxResult = await asyncUploadBankPopBox({
 			formInfo: {
@@ -223,7 +223,8 @@ const History = () => {
 				accountNo,
 				accountName,
 				transId,
-				amount
+				amount,
+				code
 			},
 			_isConvert,
 			langId: userInfo.langId,
@@ -409,8 +410,7 @@ const History = () => {
 							onClick={() => {
 								setSelectedTagId(defHistoryIdList.referralId);
 								setRefFriendDetailPayload({});
-							}}
-						>
+							}}>
 							Back
 						</button>
 					</div>

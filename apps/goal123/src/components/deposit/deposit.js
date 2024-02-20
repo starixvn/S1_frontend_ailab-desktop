@@ -385,7 +385,8 @@ const Deposit = () => {
 					amount: resultAmount,
 					sysId,
 					hasPromotion: Boolean(bonusCode),
-					bankId: selectedBankId
+					bankId: selectedBankId,
+					code: localBankInfo.code
 				});
 
 				if (transId) {

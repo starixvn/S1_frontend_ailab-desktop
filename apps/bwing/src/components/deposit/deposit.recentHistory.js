@@ -55,7 +55,7 @@ const DepositRecentHistory = ({
 		depositReceipt = []
 	) => {
 		const { bankName, bankSite } = bankInfo;
-		const { accountName, accountNo } = depositRep;
+		const { accountName, accountNo, code } = depositRep;
 
 		const uploadPopBoxResult = await asyncUploadBankPopBox({
 			formInfo: {
@@ -71,7 +71,8 @@ const DepositRecentHistory = ({
 				accountNo,
 				accountName,
 				transId,
-				amount
+				amount,
+				code
 			},
 			_isConvert,
 			langId: userInfo.langId,
