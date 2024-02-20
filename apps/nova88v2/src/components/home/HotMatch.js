@@ -11,8 +11,9 @@ const HotMatch = ({ handleGameClick }) => {
 	const basketBallItem = sportMenu.find(
 		({ keyName }) => keyName === "basketball"
 	);
-	const cryptoSportItem = sportMenu.find(
-		({ keyName }) => keyName === "cryptoSports"
+
+	const badmintonSportItem = sportMenu.find(
+		({ keyName }) => keyName === "badminton"
 	);
 
 	return (
@@ -45,14 +46,14 @@ const HotMatch = ({ handleGameClick }) => {
 					</div>
 					<div className="hotsports-item">
 						<img
-							src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/4.0/home-sports-crypto.png`}
-							alt="sports-crypto"
+							src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/4.0/home-sports-badminton.png`}
+							alt="sports-badminton"
 						/>
 						<button
 							className="all-btn"
 							onClick={() => {
-								if (cryptoSportItem) {
-									handleGameClick(cryptoSportItem);
+								if (badmintonSportItem) {
+									handleGameClick(badmintonSportItem);
 								}
 							}}
 						>

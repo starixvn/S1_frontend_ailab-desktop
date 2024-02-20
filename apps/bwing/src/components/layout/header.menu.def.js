@@ -28,19 +28,19 @@ export const defMenuLinks = {
 		path: path["sports-lobby"].root,
 		displayKey: "lbl_Sports",
 		subMenu: [
-			{
-				...productList.cryptoSports,
-				className: "cryptosport",
-				displayKey: "lbl_cryptoSports",
-				parameter: { ...productList.cryptoSports },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.sports_cryptoSports
-					})
-				],
-				img: "sports/crypto.png"
-			},
+			// {
+			// 	...productList.cryptoSports,
+			// 	className: "cryptosport",
+			// 	displayKey: "lbl_cryptoSports",
+			// 	parameter: { ...productList.cryptoSports },
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.sports_cryptoSports
+			// 		})
+			// 	],
+			// 	img: "sports/crypto.png"
+			// },
 			{
 				...productList.sportSaba,
 				subPath: path.sports.root,

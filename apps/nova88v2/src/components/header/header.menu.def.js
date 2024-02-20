@@ -417,19 +417,19 @@ export const defMenuLinks = {
 		checkBeforeLogin: true,
 		customSort: defSortSports,
 		subMenu: [
-			{
-				displayKey: "lbl_cryptoSports",
-				listNpcImgUrl: "cryptosportNPC.png",
-				menuType: defMenuType.entPage,
-				...productList.cryptoSports,
-				keyName: "cryptoSports",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.sports_cryptoSports
-					})
-				]
-			},
+			// {
+			// 	displayKey: "lbl_cryptoSports",
+			// 	listNpcImgUrl: "cryptosportNPC.png",
+			// 	menuType: defMenuType.entPage,
+			// 	...productList.cryptoSports,
+			// 	keyName: "cryptoSports",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.sports_cryptoSports
+			// 		})
+			// 	]
+			// },
 			{
 				path: path.sports.root,
 				displayKey: "lbl_Soccer",
