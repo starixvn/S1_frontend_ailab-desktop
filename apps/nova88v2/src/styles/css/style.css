@@ -2922,6 +2922,11 @@ main .promosswiper .swiper-button-prev::after {
 .hotmatch .hotsports .hotsports-item img {
   width: 451px;
 }
+.hotmatch .hotsports .hotsports-item div {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+}
 
 .all-btn {
   position: absolute;
@@ -6997,9 +7002,15 @@ input[type=file] {
   background: linear-gradient(90deg, rgb(5, 29, 160) 0%, rgb(17, 34, 64) 100%);
   border-radius: 10px 10px 0 0;
 }
+#popup .livesportspop .livesports-content > div .livesports-item .top > div:first-child {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 200px;
+}
 #popup .livesportspop .livesports-content > div .livesports-item .top > div:last-child {
   background: #ff7600;
-  width: 45px;
+  width: 55px;
   text-align: center;
   border-radius: 20px 0 0 20px;
   padding: 0 0 0 11px;
@@ -7692,6 +7703,21 @@ input[type=file] {
   color: #5574A7;
   font-weight: bold;
   text-align: left;
+}
+.smallList .remark {
+  background: rgba(255, 255, 255, 0.5);
+  width: 300px;
+  border-radius: 5px;
+  margin: 5px 0 5px -5px;
+  padding: 2px 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.smallList .remark li {
+  margin: 0 !important;
+}
+.smallList .remark + .tip {
+  padding: 0;
 }
 
 .directions {
