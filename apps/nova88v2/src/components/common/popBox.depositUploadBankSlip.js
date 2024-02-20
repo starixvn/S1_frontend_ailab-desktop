@@ -278,6 +278,20 @@ const PopBoxDepositUploadBankSlip = ({
 						</li>
 					</ul>
 				) : null}
+
+				{localBankInfo?.code && (
+					<ul>
+						<li>{t("Label_Remark")}</li>
+						<li>{localBankInfo.code}</li>
+						<li>
+							<button
+								className="icon icon-files-empty copyBtn"
+								data-clipboard-text={localBankInfo.code}>
+								<span>{t("lbl_Copy")}</span>
+							</button>
+						</li>
+					</ul>
+				)}
 			</div>
 			<div className="smallList checkBankSlip">
 				<span className="title">{t("lbl_SubmitProof")}</span>

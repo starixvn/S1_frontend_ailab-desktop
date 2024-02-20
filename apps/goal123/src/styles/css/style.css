@@ -4663,6 +4663,22 @@ html.Newtheme .smallList ul li:nth-child(odd) {
 html.Newtheme .smallList ul li:first-child {
   font-weight: bold;
 }
+html.Newtheme .smallList .remark {
+  background: rgba(0, 0, 0, 0.3);
+  width: 300px;
+  border-radius: 5px;
+  margin: 5px 0 5px -5px;
+  padding: 2px 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html.Newtheme .smallList .remark li {
+  margin: 0 !important;
+}
+html.Newtheme .smallList .remark + .tip {
+  padding: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
 html.Newtheme .directions {
   border-bottom: 1px solid #666;
   color: #c6c6c6;

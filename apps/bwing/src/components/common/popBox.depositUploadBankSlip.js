@@ -249,6 +249,7 @@ const PopBoxDepositUploadBankSlip = ({
 							/>
 						</li>
 					</ul>
+
 					{localBankInfo.amount ? (
 						<ul>
 							<li>{t("lbl_DepositAmount")}</li>
@@ -266,6 +267,19 @@ const PopBoxDepositUploadBankSlip = ({
 							</li>
 						</ul>
 					) : null}
+
+					{localBankInfo?.code && (
+						<ul>
+							<li>{t("Label_Remark")}</li>
+							<li>{localBankInfo.code}</li>
+							<li>
+								<button
+									className="icon icon-files-empty copyBtn"
+									data-clipboard-text={localBankInfo.code}
+								/>
+							</li>
+						</ul>
+					)}
 				</div>
 				<div className="smallList checkBankSlip">
 					<span className="title">{t("lbl_SubmitProof")}</span>
