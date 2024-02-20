@@ -1,61 +1,63 @@
-import React, { useContext } from "react";
-import { Link } from "gatsby";
-import { useTranslation } from "react-i18next";
-import { bannerImgUrl } from "../../../config";
-import { userInfoContext } from "../../common/context";
-import path from "../../../router";
+import React from "react";
 
 const HomeJoin = () => {
-	const { userInfo } = useContext(userInfoContext);
-	const { t } = useTranslation();
-	const JoinListItems = [
-		{
-			title: "professional image",
-			text: "High trust with Michael Ballack as brand ambassador.",
-			img: "professional.png",
-			link: ""
-		},
-		{
-			title: "exclusives VIP",
-			text: "VIP Lounge with exclusives",
-			img: "exclusives-vip.png",
-			link: `/${userInfo.langId}/${path.vip.root}`
-		},
-		{
-			title: "Attractive bonus",
-			text: "welcome bonus, daily reload, unlimited rebate",
-			img: "bouns.png",
-			link: `/${userInfo.langId}/${path.promotion.root}`
-		},
-		{
-			title: "Speedy transactions",
-			text: "Enjoy faster and more convenient transaction payments",
-			img: "speedy.png",
-			link: `/${userInfo.langId}/${path.deposit.root}`
-		}
-	];
-
-	const getImageUrl = imageName =>
-		`${bannerImgUrl}/desktop/img/home-page/${imageName}`;
-
 	return (
-		<>
-			<div className="home-title">JOIN GOAL123</div>
-			<div className="home-join">
-				{JoinListItems.map((item, index) => (
-					<div className="item" key={index.title}>
-						<div className="title">{item.title}</div>
-						<div className="text">{item.text}</div>
-						<img src={getImageUrl(item.img)} alt="" />
-						<div className="bottom">
-							<Link to={item.link} className="btn-more">
-								{t("lbl_Promotion_MoreInfo")}
-							</Link>
-						</div>
-					</div>
-				))}
+		<div className="home-join">
+			<div className="item">
+				<div className="title">professional image</div>
+				<div className="text">
+					High trust with Michael Ballack as brand ambassador.
+				</div>
+				<img
+					src="https://banner.goal123.org/desktop/img/home-page/professional.png"
+					alt=""
+				/>
+				<div className="bottom">
+					{/* Button click to the content page of the information */}
+					<button className="btn-more">More info</button>
+				</div>
 			</div>
-		</>
+			<div className="item">
+				<div className="title">exclusives VIP</div>
+				<div className="text">VIP Lounge with exclusives</div>
+				<img
+					src="https://banner.goal123.org/desktop/img/home-page/exclusives-vip.png"
+					alt=""
+				/>
+				<div className="bottom">
+					{/* Button click to the content page of the information */}
+					<button className="btn-more">More info</button>
+				</div>
+			</div>
+			<div className="item">
+				<div className="title">Attractive bonus</div>
+				<div className="text">
+					welcome bonus, daily reload, unlimited rebate
+				</div>
+				<img
+					src="https://banner.goal123.org/desktop/img/home-page/bouns.png"
+					alt=""
+				/>
+				<div className="bottom">
+					{/* Button click to the content page of the information */}
+					<button className="btn-more">More info</button>
+				</div>
+			</div>
+			<div className="item">
+				<div className="title">Speedy transactions</div>
+				<div className="text">
+					Enjoy faster and more convenient transaction payments
+				</div>
+				<img
+					src="https://banner.goal123.org/desktop/img/home-page/speedy.png"
+					alt=""
+				/>
+				<div className="bottom">
+					{/* Button click to the content page of the information */}
+					<button className="btn-more">More info</button>
+				</div>
+			</div>
+		</div>
 	);
 };
 

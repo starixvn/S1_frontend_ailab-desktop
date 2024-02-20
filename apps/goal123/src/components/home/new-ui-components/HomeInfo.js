@@ -1,43 +1,64 @@
-import React, { useContext } from "react";
-import { useTranslation } from "react-i18next";
-import { userInfoContext } from "../../common/context";
-import config from "../../../config";
-import News from "../components/news";
+import React from "react";
 
 const HomeInfo = () => {
-	const { t } = useTranslation();
-	const { userInfo } = useContext(userInfoContext);
-
 	return (
 		<div className="home-informaticon">
 			<div className="home-info">
-				<div className="home-title">{t("lbl_InfoCenter")}</div>
-				<a
-					className="list"
-					href={`${config.t_and_cURL}/Static/${userInfo.langId}/FAQ.html`}
-					rel="noreferrer"
-					target="_blank">
+				<div className="home-title">Info</div>
+				{/* Link to FAQ page */}
+				<a className="list">
 					<i className="icon-faq" />
-					{t("lbl_FAQ")}
+					FAQ
 				</a>
-				<a
-					className="list"
-					href={`${config.t_and_cURL}/Static/${userInfo.langId}/HowToDeposit.html`}
-					rel="noreferrer"
-					target="_blank">
+				{/* Link to How to deposit page */}
+				<a className="list">
 					<i className="icon-deposit" />
-					{t("lbl_HowToDepoist")}
+					how to deposit
 				</a>
-				<a
-					className="list"
-					href={`${config.t_and_cURL}/Static/${userInfo.langId}/HowToWithdrawal.html`}
-					rel="noreferrer"
-					target="_blank">
+				{/* Link to How to Withdraw page */}
+				<a className="list">
 					<i className="icon-withdraw" />
-					{t("lbl_HowToWithdraw")}
+					how to Withdraw
 				</a>
 			</div>
-			<News />
+			<div className="home-news">
+				<div className="home-title">NEWS</div>
+				{/* Display up to two news items */}
+				<div className="inner">
+					<a className="item">
+						{/* News image */}
+						<img
+							src="https://goal123imgs.0814media.net/PRD/NewsManagement/b57bd289-d8e9-4f01-9165-2bf7cf2acd14.png"
+							alt=""
+						/>
+						{/* Title */}
+						<div className="title">
+							<p>
+								Messi khiến NHM Hồng Kông (Trung Quốc) bức xúc
+								xúc xúc
+							</p>
+						</div>
+					</a>
+					<a className="item">
+						{/* News image */}
+						<img
+							src="https://goal123imgs.0814media.net/PRD/NewsManagement/b57bd289-d8e9-4f01-9165-2bf7cf2acd14.png"
+							alt=""
+						/>
+						{/* Title */}
+						<div className="title">
+							<p>
+								Messi khiến NHM Hồng Kông (Trung Quốc) bức xúc
+							</p>
+						</div>
+					</a>
+					{/* Link to news page */}
+					<button className="btn-more-text">
+						More
+						<i className="icon-dropdown" />
+					</button>
+				</div>
+			</div>
 		</div>
 	);
 };

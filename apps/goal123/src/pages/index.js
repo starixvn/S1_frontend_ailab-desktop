@@ -10,7 +10,6 @@ const IndexPage = () => {
 		<Wrapper>
 			<Layout showFooter={true}>
 				<NewHome />
-				{/* <Content /> */}
 			</Layout>
 		</Wrapper>
 	);

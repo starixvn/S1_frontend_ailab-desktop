@@ -56,9 +56,7 @@ const HomeApp = () => {
 									alt=""
 								/>
 							</div>
-							<button
-								className="btn-app"
-								style={{ cursor: "default" }}>
+							<button className="btn-app" style={{ cursor: "default" }}>
 								<i className="icon-apple" />
 								Apple iOS
 							</button>

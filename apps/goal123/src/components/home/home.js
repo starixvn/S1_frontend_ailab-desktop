@@ -45,6 +45,7 @@ import { defDeviceType } from "../../service/api/base";
 import { eventPerios } from "../../datas/eventDef";
 import DragonEgg from "../dragonEgg/homeLink";
 import LiveStreamingLink from "./liveStreaming";
+import HomeApp from "./new-ui-components/HomeApp";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -341,65 +342,22 @@ const Home = ({ productTpIds }) => {
 	return (
 		<>
 			<main id="main" className="home">
-				<div className="home-banner ">
-					<div className="swiper-container">
-						<div className="swiper-wrapper">
-							<a className="swiper-slide">
-								<img src="https://goal123.org/Dec/Goal123-Direpay-Crypto-Cashback-EN.jpg" />
-							</a>
-							<a className="swiper-slide">
-								<img src="https://goal123imgs.0814media.net/PRD/BannerManagement/24dac1a4-bdb7-4b45-808e-c0d981c6dc55.jpg" />
-							</a>
-							<a className="swiper-slide">
-								<img src="https://goal123.org/Dec/Goal123-Direpay-Crypto-Cashback-EN.jpg" />
-							</a>
-							<a className="swiper-slide">
-								<img src="https://goal123imgs.0814media.net/PRD/BannerManagement/24dac1a4-bdb7-4b45-808e-c0d981c6dc55.jpg" />
-							</a>
-							<div className="swiper-pagination" />
-						</div>
-					</div>
-
-					{/* <BannerSwipper
-						ImgFolder={[defBannerType.Promotions]}
-						withBtn={false}
-						withPagination={true}
-						config={{
-							effect: "fade",
-							autoplay: {
-								delay: 5000,
-								disableOnInteraction: false
-							}
-						}}
-					/> */}
-				</div>
+				<BannerSwipper
+					ImgFolder={[defBannerType.Promotions]}
+					withBtn={false}
+					withPagination={true}
+					config={{
+						effect: "fade",
+						autoplay: {
+							delay: 5000,
+							disableOnInteraction: false
+						}
+					}}
+				/>
 
 				{/* <EventSwipper langId={userInfo.langId} /> */}
 
 				{/* <Marquee /> */}
-
-				<div id="Marquee">
-					<div className="home-marquee">
-						<i className="icon-speaker" />
-						<div className="marquee-run">
-							<a href="#">
-								IMPORTANT!!! Local Transfer Bank Account
-								Replacement!!!
-							</a>
-							<a href="#">
-								本公司希望借此机会提醒各位尊贵的客户，恳请频繁重置您的密码以确保您的帐户安全。
-							</a>
-							<a href="#">
-								本公司希望借此机会提醒各位尊贵的客户，恳请频繁重置您的密码以确保您的帐户安全。
-							</a>
-						</div>
-						<button
-							className="btn-info"
-							onClick={() => alert("Button clicked!")}>
-							More
-						</button>
-					</div>
-				</div>
 
 				<div className="home-wrapper">
 					<section>

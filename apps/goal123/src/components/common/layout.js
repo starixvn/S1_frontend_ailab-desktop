@@ -15,7 +15,7 @@ import PopBox from "./popBox";
 import Loading from "./loading";
 import { loadingContext, productTpIdsContext } from "./context";
 import GoTopBtn from "./goTopBtn";
-import HomeFooter from "../footer/HomeFooter";
+import HomeFooter from "../home/new-ui-components/HomeFooter";
 
 const Layout = ({
 	children,
