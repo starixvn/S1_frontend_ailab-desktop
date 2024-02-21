@@ -9,7 +9,8 @@ const IndexPage = () => {
 	return (
 		<Wrapper>
 			<Layout showFooter={true}>
-				<NewHome />
+				{/* <NewHome /> */}
+				<Content />
 			</Layout>
 		</Wrapper>
 	);

@@ -96,3 +96,11 @@ const HomeHotGame = () => {
 };
 
 export default HomeHotGame;
+
+{/* <HotGameList
+	t={t}
+	langId={userInfo.langId}
+	clickItem={clickItem}
+	navigate={navigate}
+	allMaintainList={allMaintainList}
+/>; */}

@@ -45,7 +45,8 @@ import { defDeviceType } from "../../service/api/base";
 import { eventPerios } from "../../datas/eventDef";
 import DragonEgg from "../dragonEgg/homeLink";
 import LiveStreamingLink from "./liveStreaming";
-import HomeApp from "./new-ui-components/HomeApp";
+import useWinnerList from "./hooks/useWinnerList";
+import useClickItem from "./hooks/useClickItem";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -54,12 +55,14 @@ const Home = ({ productTpIds }) => {
 	const { errorPopBox, closePopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 	const { setIsRoot } = useContext(isRootContext);
-	const [winnerList, setWinnerList] = useState([]);
+	// const [winnerList, setWinnerList] = useState([]);
 	const [displayVgaming, setDisplayVgaming] = useState(true);
 	const [displayLiveStreaming, setDisplayLiveStreaming] = useState(false);
 	const [liveStreamingList, setLiveStreamingList] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const { allMaintainList } = useContext(maintainListContext);
+	const winnerList = useWinnerList();
+	const { clickHomeItem } = useClickItem();
 
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
 	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
@@ -73,9 +76,9 @@ const Home = ({ productTpIds }) => {
 		};
 	});
 
-	useEffect(() => {
-		getTopWinnners();
-	}, []);
+	// useEffect(() => {
+	// 	getTopWinnners();
+	// }, []);
 
 	useEffect(() => {
 		const displayAnnouncePopup = () => {
@@ -278,66 +281,66 @@ const Home = ({ productTpIds }) => {
 		getLiveStreamingList();
 	}, [userInfo.isLogin, userInfo.isLogin]);
 
-	const clickItem = ({ tpId, gameId, tpGameType }) => {
-		const isInMaintain = allMaintainList?.some(
-			mt =>
-				mt.tpId === tpId &&
-				(mt.tpGameType === tpGameType ||
-					mt.tpGameType === defTpGameType.All)
-		);
+	// const clickItem = ({ tpId, gameId, tpGameType }) => {
+	// 	const isInMaintain = allMaintainList?.some(
+	// 		mt =>
+	// 			mt.tpId === tpId &&
+	// 			(mt.tpGameType === tpGameType ||
+	// 				mt.tpGameType === defTpGameType.All)
+	// 	);
 
-		const loginCallback = () => {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
-			});
-		};
+	// 	const loginCallback = () => {
+	// 		setPopBox({
+	// 			isOpen: true,
+	// 			popBoxType: defPopBoxType.Login
+	// 		});
+	// 	};
 
-		if (isInMaintain) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.UnderMaintain,
-				clickClose: closePopBox
-			});
-		} else {
-			SET_ENTER_PAGE({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId,
-				gameId,
-				loginCallback,
-				openInBlank: true,
-				tpGameType
-			});
-		}
-	};
+	// 	if (isInMaintain) {
+	// 		setPopBox({
+	// 			isOpen: true,
+	// 			popBoxType: defPopBoxType.UnderMaintain,
+	// 			clickClose: closePopBox
+	// 		});
+	// 	} else {
+	// 		SET_ENTER_PAGE({
+	// 			isLogin: userInfo.isLogin,
+	// 			langId: userInfo.langId,
+	// 			tpId,
+	// 			gameId,
+	// 			loginCallback,
+	// 			openInBlank: true,
+	// 			tpGameType
+	// 		});
+	// 	}
+	// };
 
-	const getTopWinnners = () => {
-		const payload = {
-			lBCategoryId: 0,
-			TopNum: 10,
-			BeforeDays: 0,
-			EventCode: "202104"
-		};
+	// const getTopWinnners = () => {
+	// 	const payload = {
+	// 		lBCategoryId: 0,
+	// 		TopNum: 10,
+	// 		BeforeDays: 0,
+	// 		EventCode: "202104"
+	// 	};
 
-		api_events_GetLeaderboardList(payload).then(
-			res => {
-				if (!isMountedRef.current) return;
-				if (res.data.errorCode === 0) {
-					setWinnerList(res.data.data);
-				} else {
-					errorPopBox(
-						res.data.message || "error",
-						res.data.errorCode
-					);
-				}
-			},
-			() => {
-				// if (!isMountedRef.current) return;
-				// errorPopBox();
-			}
-		);
-	};
+	// 	api_events_GetLeaderboardList(payload).then(
+	// 		res => {
+	// 			if (!isMountedRef.current) return;
+	// 			if (res.data.errorCode === 0) {
+	// 				setWinnerList(res.data.data);
+	// 			} else {
+	// 				errorPopBox(
+	// 					res.data.message || "error",
+	// 					res.data.errorCode
+	// 				);
+	// 			}
+	// 		},
+	// 		() => {
+	// 			// if (!isMountedRef.current) return;
+	// 			// errorPopBox();
+	// 		}
+	// 	);
+	// };
 
 	return (
 		<>
@@ -364,7 +367,8 @@ const Home = ({ productTpIds }) => {
 						<div className="indexliveCasinoList topten">
 							<LiveCasinoSwipper
 								t={t}
-								clickItem={clickItem}
+								// clickItem={clickItem}
+								clickItem={clickHomeItem}
 								langId={userInfo.langId}
 								productTpIds={productTpIds}
 							/>
@@ -379,7 +383,8 @@ const Home = ({ productTpIds }) => {
 						<HotGameList
 							t={t}
 							langId={userInfo.langId}
-							clickItem={clickItem}
+							// clickItem={clickHomeItem}
+							// clickItem={clickItem}
 							navigate={navigate}
 							allMaintainList={allMaintainList}
 						/>

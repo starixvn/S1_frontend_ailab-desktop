@@ -1,5 +1,40 @@
 import React from "react";
 
+const InfoCenter = ({ t, langId }) => (
+	<div className="home-informaticon">
+		<div className="home-info">
+			<div className="home-title">{t("lbl_InfoCenter")}</div>
+
+			<a
+				className="list"
+				href={`${config.t_and_cURL}/Static/${langId}/FAQ.html`}
+				rel="noreferrer"
+				target="_blank">
+				<i className="icon icon-support" />
+				{t("lbl_FAQ")}
+			</a>
+
+			<a
+				className="list"
+				href={`${config.t_and_cURL}/Static/${langId}/HowToDeposit.html`}
+				rel="noreferrer"
+				target="_blank">
+				<i className="icon icon-deposit2" />
+				{t("lbl_HowToDeposit")}
+			</a>
+
+			<a
+				className="list"
+				href={`${config.t_and_cURL}/Static/${langId}/HowToWithdrawal.html`}
+				rel="noreferrer"
+				target="_blank">
+				<i className="icon icon-withdrawal2" />
+				{t("lbl_HowToWithdraw")}
+			</a>
+		</div>
+	</div>
+);
+
 const HomeInfo = () => {
 	return (
 		<div className="home-informaticon">
