@@ -30,12 +30,19 @@ export const SideBarContactUs = () => {
 						>
 							{el.channelName}
 						</a>
-						<QRCode
-							value={el.link}
-							renderAs="svg"
-							size={150}
-							includeMargin={true}
-						/>
+						{el.channelName === "Zalo" ? (
+							<img
+								src="https://socialchannel.0814media.net/BWING/BWING_Zalo.png"
+								alt="Zalo"
+							/>
+						) : (
+							<QRCode
+								value={el.link}
+								renderAs="svg"
+								size={150}
+								includeMargin={true}
+							/>
+						)}
 					</li>
 				)
 			);
