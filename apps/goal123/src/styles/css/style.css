@@ -9066,7 +9066,7 @@ html.Newtheme .subModuleListColumn > .subModule {
       -ms-flex-align: center;
           align-items: center;
   background: #1f3258;
-  padding: 20px;
+  padding: 20px 20px 10px 20px;
   border-radius: 15px;
   margin-bottom: 20px;
   -ms-flex-wrap: wrap;
@@ -9176,14 +9176,14 @@ html.Newtheme .subModuleListColumn > .subModule > div > a > div.bank > div {
 html.Newtheme .subModuleListColumn > .subModule > div > button > div.bank > div:last-child,
 html.Newtheme .subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
   color: #fab617;
-  margin: 10px 0 0;
+  margin: 5px 0 0;
 }
 html.Newtheme .subModuleListColumn > .subModule > div > button > div:first-child,
 html.Newtheme .subModuleListColumn > .subModule > div > a > div:first-child {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   border-radius: 15px;
   width: 100px;
-  padding: 10px 5px;
+  padding: 10px 8px;
   background: white;
   position: relative;
   -webkit-transition: 0.7s;
