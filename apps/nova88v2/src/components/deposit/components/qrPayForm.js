@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
-import { getUrlParameter } from "../../common/common";
+import { getUrlParameter, number_format } from "../../common/common";
 import { paymentImgUrl } from "../../../config";
 import PromotionSelect from "./promotionSelect";
 import ShortcutAmountList from "./shortcutAmountList";
@@ -10,7 +10,6 @@ const QRPayForm = ({
 	t,
 	depositType,
 	_isConvert,
-	formatAmount,
 	QRPayGroupList,
 	getQRPayInfoList,
 	QRPayInfoList,
@@ -98,6 +97,11 @@ const QRPayForm = ({
 			<div className="subModuleTitle">
 				<i className="txt-blue">*</i>
 				{t("lbl_PaymentModes")}
+				{_isConvert && (
+					<div className="info">
+						{t("Label_Deposit_AdditionalInfo")}
+					</div>
+				)}
 			</div>
 			<div className="subModule">
 				<div>
@@ -109,8 +113,7 @@ const QRPayForm = ({
 								item.groupId === groupIdForRecord
 									? "active"
 									: ""
-							}
-						>
+							}>
 							<div>
 								<img
 									alt={item.groupName}
@@ -121,18 +124,16 @@ const QRPayForm = ({
 
 							<div className="bank">
 								<div>{item.channelName}</div>
-
 								<div>
-									<div>
-										{`${t("lbl_Min")}: ${formatAmount(
-											item.minAmount
-										)}`}
-									</div>
-									<div>
-										{`${t("lbl_Max")}: ${formatAmount(
-											item.maxAmount
-										)}`}
-									</div>
+									{`${number_format(
+										item.minAmount,
+										_isConvert,
+										0
+									)} ~ ${number_format(
+										item.maxAmount,
+										_isConvert,
+										0
+									)}`}
 								</div>
 							</div>
 						</button>
@@ -145,6 +146,11 @@ const QRPayForm = ({
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
 						{t("lbl_SelectChannel")}
+						{_isConvert && (
+							<div className="info">
+								{t("Label_Deposit_AdditionalInfo")}
+							</div>
+						)}
 					</div>
 					<div className="subModule">
 						<div>
@@ -157,8 +163,7 @@ const QRPayForm = ({
 										infoChannelIdForRecord
 											? "active"
 											: ""
-									}
-								>
+									}>
 									<div>
 										<img
 											alt={item.groupName}
@@ -169,22 +174,18 @@ const QRPayForm = ({
 
 									<div className="bank">
 										<div>{item.channelName}</div>
-
 										<div>
-											<div>
-												{`${t(
-													"lbl_Min"
-												)}:${formatAmount(
-													item.minAmount
-												)}`}
-											</div>
-											<div>
-												{`${t(
-													"lbl_Max"
-												)}: ${formatAmount(
-													item.maxAmount
-												)}`}
-											</div>
+											{`${number_format(
+												item.minAmount,
+												_isConvert,
+												0,
+												false
+											)} ~ ${number_format(
+												item.maxAmount,
+												_isConvert,
+												0,
+												false
+											)}`}
 										</div>
 									</div>
 								</button>
@@ -235,7 +236,6 @@ QRPayForm.propTypes = {
 	t: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
-	formatAmount: PropTypes.func.isRequired,
 	QRPayGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getQRPayInfoList: PropTypes.func.isRequired,
 	QRPayInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,

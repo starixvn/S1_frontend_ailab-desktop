@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import {
@@ -10,7 +10,6 @@ import ShortcutAmountList from "./shortcutAmountList";
 import { paymentImgUrl } from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
 import PromotionSelect from "./promotionSelect";
-import { userInfoContext } from "../../common/context";
 
 const defInputCol = {
 	payAccount: "payAccount"
@@ -19,7 +18,6 @@ const defInputCol = {
 const MobileForm = ({
 	t,
 	_isConvert,
-	formatAmount,
 	depositType,
 	mobilePayGourpList,
 	getMobilePayInfoList,
@@ -115,6 +113,11 @@ const MobileForm = ({
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
 						{t("lbl_Payment_Method")}
+						{_isConvert && (
+							<div className="info">
+								{t("Label_Deposit_AdditionalInfo")}
+							</div>
+						)}
 					</div>
 					<div className="subModule">
 						<div>
@@ -143,22 +146,18 @@ const MobileForm = ({
 										</div>
 										<div className="bank">
 											<div>{item.groupName}</div>
-
 											<div>
-												<div>
-													{`${t(
-														"lbl_Min"
-													)}: ${formatAmount(
-														item.minAmount
-													)}`}
-												</div>
-												<div>
-													{`${t(
-														"lbl_Max"
-													)}: ${formatAmount(
-														item.maxAmount
-													)}`}
-												</div>
+												{`${number_format(
+													item.minAmount,
+													_isConvert,
+													0,
+													false
+												)} ~ ${number_format(
+													item.maxAmount,
+													_isConvert,
+													0,
+													false
+												)}`}
 											</div>
 										</div>
 									</button>
@@ -174,6 +173,11 @@ const MobileForm = ({
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
 						{t("lbl_SelectChannel")}
+						{_isConvert && (
+							<div className="info">
+								{t("Label_Deposit_AdditionalInfo")}
+							</div>
+						)}
 					</div>
 
 					<div className="subModule">
@@ -203,22 +207,18 @@ const MobileForm = ({
 
 										<div className="bank">
 											<div>{item.channelName}</div>
-
 											<div>
-												<div>
-													{`${t(
-														"lbl_Min"
-													)}: ${formatAmount(
-														item.minAmount
-													)}`}
-												</div>
-												<div>
-													{`${t(
-														"lbl_Max"
-													)}: ${formatAmount(
-														item.maxAmount
-													)}`}
-												</div>
+												{`${number_format(
+													item.minAmount,
+													_isConvert,
+													0,
+													false
+												)} ~ ${number_format(
+													item.maxAmount,
+													_isConvert,
+													0,
+													false
+												)}`}
 											</div>
 										</div>
 									</button>
@@ -362,7 +362,6 @@ MobileForm.defaultProps = {
 MobileForm.propTypes = {
 	t: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
-	formatAmount: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	mobilePayGourpList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getMobilePayInfoList: PropTypes.func.isRequired,

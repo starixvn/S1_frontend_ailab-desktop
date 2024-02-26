@@ -11,7 +11,6 @@ import PromotionSelect from "./PromotionSelect";
 const CryptoPayForm = ({
 	t,
 	depositType,
-	formatAmount,
 	_isConvert,
 	cryptoPayGroupList,
 	formInfo,
@@ -119,6 +118,11 @@ const CryptoPayForm = ({
 		<>
 			<div className="subModuleTitle">
 				<span>{t("lbl_PaymentModes")}</span>
+				{_isConvert && (
+					<div className="info">
+						{t("Label_Deposit_AdditionalInfo")}
+					</div>
+				)}
 			</div>
 			<div className="subModule">
 				<div>
@@ -142,18 +146,16 @@ const CryptoPayForm = ({
 							</div>
 							<div className="bank">
 								<div>{item.groupName}</div>
-								<div>
-									<div>
-										{`${t("lbl_Min")}: ${formatAmount(
-											displayMinMax(item.groupId, "min")
-										)}`}
-									</div>
-									<div>
-										{`${t("lbl_Max")}: ${formatAmount(
-											displayMinMax(item.groupId, "max")
-										)}`}
-									</div>
-								</div>
+
+								<div>{`${number_format({
+									number: displayMinMax(item.groupId, "min"),
+									formatRequired: false,
+									digits: 0
+								})}~${number_format({
+									number: displayMinMax(item.groupId, "max"),
+									formatRequired: false,
+									digits: 0
+								})}`}</div>
 							</div>
 						</button>
 					))}
@@ -161,6 +163,11 @@ const CryptoPayForm = ({
 			</div>
 			<div className="subModuleTitle">
 				<span>{t("lbl_SelectChannel")}</span>
+				{_isConvert && (
+					<div className="info">
+						{t("Label_Deposit_AdditionalInfo")}
+					</div>
+				)}
 			</div>
 			<div className="subModule">
 				<div>
@@ -185,18 +192,16 @@ const CryptoPayForm = ({
 							</div>
 							<div className="bank">
 								<div>{item.channelName}</div>
-								<div>
-									<div>
-										{`${t("lbl_Min")}: ${formatAmount(
-											item.minAmount
-										)}`}
-									</div>
-									<div>
-										{`${t("lbl_Max")}: ${formatAmount(
-											item.maxAmount
-										)}`}
-									</div>
-								</div>
+
+								<div>{`${number_format({
+									number: item.minAmount,
+									formatRequired: false,
+									digits: 0
+								})}~${number_format({
+									number: item.maxAmount,
+									formatRequired: false,
+									digits: 0
+								})}`}</div>
 							</div>
 						</button>
 					))}
@@ -264,7 +269,6 @@ CryptoPayForm.propTypes = {
 	depositType: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	t: PropTypes.func.isRequired,
-	formatAmount: PropTypes.func.isRequired,
 	cryptoPayGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeForm: PropTypes.func.isRequired,

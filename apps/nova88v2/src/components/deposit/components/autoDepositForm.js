@@ -3,7 +3,11 @@ import PropTypes, { func } from "prop-types";
 import { userInfoContext } from "../../common/context";
 import Inputbox from "../../common/inputbox";
 import ShortcutAmountList from "./shortcutAmountList";
-import { defCurrencyList, getUrlParameter } from "../../common/common";
+import {
+	defCurrencyList,
+	getUrlParameter,
+	number_format
+} from "../../common/common";
 import { paymentImgUrl } from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
 
@@ -12,7 +16,6 @@ import PromotionSelect from "./promotionSelect";
 const AutoDepositForm = ({
 	t,
 	_isConvert,
-	formatAmount,
 	depositType,
 	formInfo,
 	depositPromoList,
@@ -69,6 +72,11 @@ const AutoDepositForm = ({
 			<div className="subModuleTitle">
 				<i className="txt-blue">*</i>
 				{t("lbl_SelectBank")}
+				{_isConvert && (
+					<div className="info">
+						{t("Label_Deposit_AdditionalInfo")}
+					</div>
+				)}
 			</div>
 
 			<div className="subModule selectBank">
@@ -84,8 +92,7 @@ const AutoDepositForm = ({
 									item.sysId === sysIdForRecord
 										? "active"
 										: ""
-								}
-							>
+								}>
 								<div>
 									<img
 										src={`${paymentImgUrl}/square/${bankLogo}`}
@@ -97,16 +104,17 @@ const AutoDepositForm = ({
 								<div className="bank">
 									<div>{item.bankName}</div>
 									<div>
-										<div>
-											{`${t("lbl_Min")}: ${formatAmount(
-												item.minAmount
-											)}`}
-										</div>
-										<div>
-											{`${t("lbl_Max")}: ${formatAmount(
-												item.maxAmount
-											)}`}
-										</div>
+										{`${number_format(
+											item.minAmount,
+											_isConvert,
+											0,
+											false
+										)} ~ ${number_format(
+											item.maxAmount,
+											_isConvert,
+											0,
+											false
+										)}`}
 									</div>
 								</div>
 							</button>
@@ -160,7 +168,6 @@ const AutoDepositForm = ({
 AutoDepositForm.propTypes = {
 	t: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
-	formatAmount: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
