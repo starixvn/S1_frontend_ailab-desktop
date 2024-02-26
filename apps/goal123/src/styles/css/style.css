@@ -9303,6 +9303,9 @@ html.Newtheme .subModuleListColumn > .subModule .icon-quick::before {
 }
 html.Newtheme .subModuleListColumn .subModuleTitle {
   margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 html.Newtheme .subModuleListColumn .subModuleTitle.important {
   font-size: 15px;
@@ -9317,6 +9320,10 @@ html.Newtheme .subModuleListColumn .subModuleTitle.important + .subModuleContent
 }
 html.Newtheme .subModuleListColumn .subModuleTitle span > i.txt-blue {
   color: #d83b35;
+}
+html.Newtheme .subModuleListColumn .subModuleTitle .info {
+  margin-left: 5px;
+  color: #5084e4;
 }
 html.Newtheme .subModuleListColumn .column {
   width: calc(100% - 135px);
