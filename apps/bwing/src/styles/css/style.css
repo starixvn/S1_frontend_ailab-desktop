@@ -15598,7 +15598,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           justify-content: space-between;
   background: #BBD1EB;
   border-radius: 5px;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   margin-bottom: 20px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -15700,10 +15700,10 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 .subModuleListColumn > .subModule > div > button > div:first-child,
 .subModuleListColumn > .subModule > div > a > div:first-child {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   border-radius: 5px;
   width: 100px;
-  padding: 10px 5px;
+  padding: 10px 6px;
   background: white;
   position: relative;
   -webkit-transition: 0.7s;
@@ -15712,6 +15712,10 @@ input + .iconModule i.icon.icon-checkmark:before {
 .subModuleListColumn > .subModule > div > button > div:first-child.icon,
 .subModuleListColumn > .subModule > div > a > div:first-child.icon {
   padding: 13px 5px;
+}
+.subModuleListColumn > .subModule > div > button > div:first-child.icon + .bank > div:last-child,
+.subModuleListColumn > .subModule > div > a > div:first-child.icon + .bank > div:last-child {
+  margin: 0;
 }
 .subModuleListColumn > .subModule > div > button > div:first-child:before,
 .subModuleListColumn > .subModule > div > a > div:first-child:before {
@@ -15734,7 +15738,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 .subModuleListColumn > .subModule > div > button > div.bank > div:last-child,
 .subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
   color: #2B79F8;
-  margin: 10px 0 0;
+  margin: 5px 0 0;
 }
 .subModuleListColumn > .subModule > div > button.active > div,
 .subModuleListColumn > .subModule > div > a.active > div {
