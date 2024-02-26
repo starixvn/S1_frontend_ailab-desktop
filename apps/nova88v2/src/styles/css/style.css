@@ -2922,6 +2922,11 @@ main .promosswiper .swiper-button-prev::after {
 .hotmatch .hotsports .hotsports-item img {
   width: 451px;
 }
+.hotmatch .hotsports .hotsports-item div {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+}
 
 .all-btn {
   position: absolute;
@@ -7698,6 +7703,21 @@ input[type=file] {
   color: #5574A7;
   font-weight: bold;
   text-align: left;
+}
+.smallList .remark {
+  background: rgba(255, 255, 255, 0.5);
+  width: 300px;
+  border-radius: 5px;
+  margin: 5px 0 5px -5px;
+  padding: 2px 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.smallList .remark li {
+  margin: 0 !important;
+}
+.smallList .remark + .tip {
+  padding: 0;
 }
 
 .directions {

@@ -87,7 +87,9 @@ const LocalBankForm = ({
 	};
 
 	const onOpenUploadBankPopBox = async () => {
-		const { bankName, accountNo, accountName, bankSite } = localBankInfo;
+		const { bankName, accountNo, accountName, bankSite, code } =
+			localBankInfo;
+
 		const { imgFile, refId, time } = formInfo;
 
 		const uploadPopBoxResult = await asyncUploadBankPopBox({
@@ -100,7 +102,8 @@ const LocalBankForm = ({
 				bankName,
 				bankSite,
 				accountNo,
-				accountName
+				accountName,
+				code
 			},
 			_isConvert,
 			langId: userInfo.langId
@@ -202,7 +205,8 @@ const LocalBankForm = ({
 							className={`${
 								item.sysId === sysIdForRecord ? "active" : ""
 							} ${item.canSubmit ? "" : "pending"}`}
-							onClick={() => onChangeBankInfo(item)}>
+							onClick={() => onChangeBankInfo(item)}
+						>
 							<div>
 								<img
 									src={`${
@@ -278,6 +282,23 @@ const LocalBankForm = ({
 								data-clipboard-text={localBankInfo.accountNo}
 							/>
 						</ul>
+
+						{localBankInfo?.code && (
+							<>
+								<ul className="remark">
+									<li>{t("Label_Remark")}</li>
+									<li>{localBankInfo.code}</li>
+									<button
+										className="icon icon-files-empty copyBtn"
+										data-clipboard-text={localBankInfo.code}
+									/>
+								</ul>
+
+								<div className="tip active">
+									{t("Label_Deposit_RemarkHint")}
+								</div>
+							</>
+						)}
 					</div>
 				</div>
 				{QRCodeObj?.qrCodeUrl && (

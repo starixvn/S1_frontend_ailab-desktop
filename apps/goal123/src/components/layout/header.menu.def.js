@@ -15,29 +15,29 @@ export const defMenuType = {
 };
 
 export const defMenuLinks = langId => ({
-	cryptoSports: {
-		className: "cryptobtn",
-		menuType: defMenuType.entPage,
-		productInfo: { ...productList.cryptoSports }
-	},
+	// cryptoSports: {
+	// 	className: "cryptobtn",
+	// 	menuType: defMenuType.entPage,
+	// 	productInfo: { ...productList.cryptoSports }
+	// },
 	sports: {
 		productInfo: productList.soccer,
 		displayKey: "lbl_Sports",
 		subMenu: [
-			{
-				...productList.cryptoSports,
-				displayKey: "lbl_cryptoSports",
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/cryptosports.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/cryptosports-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/cryptosports-icon.png`,
-				parameter: { ...productList.cryptoSports },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.sports_cryptoSports
-					})
-				]
-			},
+			// {
+			// 	...productList.cryptoSports,
+			// 	displayKey: "lbl_cryptoSports",
+			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/cryptosports.png`,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/cryptosports-item.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/cryptosports-icon.png`,
+			// 	parameter: { ...productList.cryptoSports },
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.sports_cryptoSports
+			// 		})
+			// 	]
+			// },
 			{
 				...productList.sportSaba,
 				subPath: path.sports.root,
@@ -111,10 +111,7 @@ export const defMenuLinks = langId => ({
 			}
 		]
 	},
-	// cockFighting: {
-	// 	productInfo: productList.cockFighting,
-	// 	displayKey: "lbl_CockFighting"
-	// },
+
 	// sabaClub: {
 	// 	productInfo: productList.sabaClub,
 	// 	displayKey: "lbl_Vgaming"
@@ -1239,6 +1236,31 @@ export const defMenuLinks = langId => ({
 			}
 		]
 	},
+	cockFighting: {
+		displayKey: "lbl_CockFighting",
+		path: path.cockFighting.root,
+		subMenu: [
+			{
+				...productList.GA_CockFighting,
+				displayKey: "GA Cock Fighting",
+				menuType: defMenuType.entPage,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting/cockfighting.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting/cockfighting-item.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/cockfighting/cockfighting.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/cockfighting/cockfighting-hover.png`
+				},
+				// * 設計稿尚未提供 Logo
+				// iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.GA_CockFighting
+					})
+				]
+			}
+		]
+	},
 	vip: {
 		path: path.vip.root,
 		displayKey: "lbl_Vip"
@@ -1283,5 +1305,6 @@ export const defSubListClassName = {
 	games: "gameList",
 	fishing: "fishList",
 	lottery: "lotteryList",
+	cockFighting: "cockList",
 	eSport: "esportList"
 };
