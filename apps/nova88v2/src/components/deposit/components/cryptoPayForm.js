@@ -1,7 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes, { bool, func } from "prop-types";
 import Inputbox from "../../common/inputbox";
-import { defCurrencyList, getUrlParameter } from "../../common/common";
+import {
+	defCurrencyList,
+	getUrlParameter,
+	number_format
+} from "../../common/common";
 import ShortcutAmountList from "./shortcutAmountList";
 import { paymentImgUrl } from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
@@ -13,7 +17,6 @@ const CryptoPayForm = ({
 	t,
 	_isConvert,
 	depositType,
-	formatAmount,
 	isPending,
 	cryptoPayGroupList,
 	formInfo,
@@ -117,6 +120,11 @@ const CryptoPayForm = ({
 				<div className="subModuleTitle">
 					<i className="txt-blue">*</i>
 					{t("lbl_Payment_Method")}
+					{_isConvert && (
+						<div className="info">
+							{t("Label_Deposit_AdditionalInfo")}
+						</div>
+					)}
 				</div>
 				<div>
 					{Array.from(groupList).map(item => (
@@ -138,16 +146,17 @@ const CryptoPayForm = ({
 							<div className="bank">
 								<div>{item.groupName}</div>
 								<div>
-									<div>
-										{`${t("lbl_Min")}: ${formatAmount(
-											displayMinMax(item.groupId, "min")
-										)}`}
-									</div>
-									<div>
-										{`${t("lbl_Max")}: ${formatAmount(
-											displayMinMax(item.groupId, "max")
-										)}`}
-									</div>
+									{`${number_format(
+										displayMinMax(item.groupId, "min"),
+										_isConvert,
+										0,
+										false
+									)} ~ ${number_format(
+										displayMinMax(item.groupId, "max"),
+										_isConvert,
+										0,
+										false
+									)}`}
 								</div>
 							</div>
 						</button>
@@ -159,6 +168,11 @@ const CryptoPayForm = ({
 				<div className="subModuleTitle">
 					<i className="txt-blue">*</i>
 					{t("lbl_SelectChannel")}
+					{_isConvert && (
+						<div className="info">
+							{t("Label_Deposit_AdditionalInfo")}
+						</div>
+					)}
 				</div>
 				<div>
 					{channelList.map(item => (
@@ -180,16 +194,17 @@ const CryptoPayForm = ({
 							<div className="bank">
 								<div>{item.channelName}</div>
 								<div>
-									<div>
-										{`${t("lbl_Min")}: ${formatAmount(
-											item.minAmount
-										)}`}
-									</div>
-									<div>
-										{`${t("lbl_Max")}: ${formatAmount(
-											item.maxAmount
-										)}`}
-									</div>
+									{`${number_format(
+										item.minAmount,
+										_isConvert,
+										0,
+										false
+									)} ~ ${number_format(
+										item.maxAmount,
+										_isConvert,
+										0,
+										false
+									)}`}
 								</div>
 							</div>
 						</button>
@@ -256,7 +271,6 @@ CryptoPayForm.propTypes = {
 	depositType: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
-	formatAmount: PropTypes.func.isRequired,
 	cryptoPayGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,

@@ -132,10 +132,6 @@ const DepositInfoMoule = ({
 
 								<div className="bank">
 									<div>{t(item.depositDisplaykey)}</div>
-									<div>
-										{t("lbl_CreditTime")} ：
-										{t(item.creditTime)}
-									</div>
 								</div>
 							</button>
 						))}

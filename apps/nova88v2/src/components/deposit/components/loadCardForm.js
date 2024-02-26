@@ -8,7 +8,6 @@ import PromotionSelect from "./promotionSelect";
 export default function LoadCardForm({
 	t,
 	_isConvert,
-	formatAmount,
 	formInfo,
 	depositType,
 	setFormInfo,
@@ -76,8 +75,7 @@ export default function LoadCardForm({
 	const amountList = formInfo.amountList.map(amount => (
 		<button
 			className={amount === Number(formInfo.amount) ? "active" : ""}
-			onClick={() => onChangeAmount(amount)}
-		>
+			onClick={() => onChangeAmount(amount)}>
 			{number_format(amount, _isConvert, 0)}
 		</button>
 	));
@@ -87,6 +85,11 @@ export default function LoadCardForm({
 			<div className="subModuleTitle">
 				<i className="txt-blue">*</i>
 				{t("lbl_PaymentModes")}
+				{_isConvert && (
+					<div className="info">
+						{t("Label_Deposit_AdditionalInfo")}
+					</div>
+				)}
 			</div>
 			<div className="subModule">
 				<div>
@@ -98,8 +101,7 @@ export default function LoadCardForm({
 								item.channelId === infoChannelIdForRecord
 									? "active"
 									: ""
-							}
-						>
+							}>
 							<div>
 								<img
 									alt={item.groupName}
@@ -110,18 +112,18 @@ export default function LoadCardForm({
 
 							<div className="bank">
 								<div>{item.channelName}</div>
-
 								<div>
-									<div>
-										{`${t("lbl_Min")}: ${formatAmount(
-											item.minAmount
-										)}`}
-									</div>
-									<div>
-										{`${t("lbl_Max")}: ${formatAmount(
-											item.maxAmount
-										)}`}
-									</div>
+									{`${number_format(
+										item.minAmount,
+										_isConvert,
+										0,
+										false
+									)} ~ ${number_format(
+										item.maxAmount,
+										_isConvert,
+										0,
+										false
+									)}`}
 								</div>
 							</div>
 						</button>
@@ -239,8 +241,7 @@ export default function LoadCardForm({
 						<div
 							className={`tipImg ${
 								cardCodeInfoIconActive ? "active" : ""
-							}`}
-						>
+							}`}>
 							<img
 								src={`${bannerImgUrl}/desktop/img/cardinfo.png`}
 								alt="cardinfoImg"
@@ -280,7 +281,6 @@ LoadCardForm.propTypes = {
 	t: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
-	formatAmount: PropTypes.func.isRequired,
 	loadCardPayGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getLoadCardPayInfoList: PropTypes.func.isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,

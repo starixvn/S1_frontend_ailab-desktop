@@ -1072,7 +1072,6 @@ const Deposit = () => {
 						t={t}
 						userInfo={userInfo}
 						_isConvert={_isConvert}
-						formatAmount={formatAmount}
 						depositType={depositType}
 						autoDepositGroupList={autoDepositGroupList}
 						formInfo={formInfo}
@@ -1089,7 +1088,6 @@ const Deposit = () => {
 						t={t}
 						userInfo={userInfo}
 						_isConvert={_isConvert}
-						formatAmount={formatAmount}
 						depositType={depositType}
 						mobilePayGourpList={mobilePayGourpList}
 						mobilePayInfoList={mobilePayInfoList}
@@ -1112,7 +1110,6 @@ const Deposit = () => {
 						depositType={depositType}
 						defPopBoxType={defPopBoxType}
 						_isConvert={_isConvert}
-						formatAmount={formatAmount}
 						localBankGroupList={localBankGroupList}
 						isGroupListFetchDone={isGroupListFetchDone}
 						formInfo={formInfo}
@@ -1134,7 +1131,6 @@ const Deposit = () => {
 						t={t}
 						userInfo={userInfo}
 						_isConvert={_isConvert}
-						formatAmount={formatAmount}
 						depositType={depositType}
 						onlineBankGroupList={onlineBankGroupList}
 						onlineBankInfoList={onlineBankInfoList}
@@ -1158,7 +1154,6 @@ const Deposit = () => {
 						isPending={isPending}
 						defPopBoxType={defPopBoxType}
 						_isConvert={_isConvert}
-						formatAmount={formatAmount}
 						cryptoPayGroupList={cryptoPayGroupList}
 						formInfo={formInfo}
 						depositPromoList={depositPromoList}
@@ -1178,7 +1173,6 @@ const Deposit = () => {
 						t={t}
 						depositType={depositType}
 						_isConvert={_isConvert}
-						formatAmount={formatAmount}
 						QRPayGroupList={QRPayGroupList}
 						getQRPayInfoList={getQRPayInfoList}
 						QRPayInfoList={QRPayInfoList}
@@ -1197,7 +1191,6 @@ const Deposit = () => {
 						t={t}
 						formInfo={formInfo}
 						_isConvert={_isConvert}
-						formatAmount={formatAmount}
 						depositType={depositType}
 						setFormInfo={setFormInfo}
 						loadCardPayGroupList={loadCardPayGroupList}

@@ -15574,10 +15574,17 @@ input + .iconModule i.icon.icon-checkmark:before {
 .subModuleListColumn > .subModuleTitle {
   white-space: nowrap;
   margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .subModuleListColumn > .subModuleTitle i {
   color: #2B79F8;
   margin-right: 3px;
+}
+.subModuleListColumn > .subModuleTitle .info {
+  margin-left: 5px;
+  color: rgba(243, 140, 0, 0.9);
 }
 .subModuleListColumn > .subModule {
   display: -webkit-box;
