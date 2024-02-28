@@ -179,7 +179,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	useEffect(() => {
 		// * 以 di 為基準，等 di 有值之後才進入這個 effect
-		if (!di) return;
+		if (!di || !userInfo?.langId) return;
 
 		const code = getUrlParameter("code");
 		const state = getUrlParameter("state");
