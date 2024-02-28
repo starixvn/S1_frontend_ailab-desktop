@@ -265,7 +265,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				}
 			});
 		}
-	}, [di]);
+	}, [di, userInfo?.langId]);
 
 	// * checkSignIn
 	useEffect(() => {
