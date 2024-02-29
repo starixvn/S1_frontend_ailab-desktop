@@ -764,18 +764,6 @@ export const defMenuLinks = {
 				img: "livecasino/pt.png"
 			},
 			{
-				...productList.liveCasino_n2live,
-				className: "liven2live",
-				lobbyImg: "n2.png",
-				icon: "icon icon-N2LIVE",
-				displayText: "n2-LIVE",
-				menuType: defMenuType.entPage,
-				lobbyPage: {
-					bgClass: "live-n2"
-				},
-				img: "livecasino/n2.png"
-			},
-			{
 				...productList.liveCasino_One789,
 				className: "live789",
 				lobbyImg: "789.png",
