@@ -209,9 +209,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 			sessionKey = document.getElementById("__fdi")?.value; // * fdi = sessionKey
 			token = document.getElementById("__tk")?.value; // * 默認為 empty
 		}
-		console.log("testing");
+
 		if (code || state || error) {
-			console.log(userInfo?.langId);
 			api_lineLogin_LineCallback({
 				langId: userInfo.langId,
 				lineLoginResponse: {
