@@ -41,10 +41,6 @@ const defPlatform = [
 		imgName: "ae"
 	},
 	{
-		...productList.liveCasino_n2live,
-		imgName: "n2"
-	},
-	{
 		...defCasinoProviders.PP,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.PP.name },

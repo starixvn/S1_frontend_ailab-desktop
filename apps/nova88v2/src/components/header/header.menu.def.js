@@ -52,8 +52,7 @@ const defSortCasino = {
 		casino_ALBET: 9,
 		casino_AG: 10,
 		casino_WM: 11,
-		casino_EBET: 12,
-		casino_N2LIVE: 13
+		casino_EBET: 12
 	},
 	[defCurrencyList.MYR]: {
 		casino_PP: 1,
@@ -81,8 +80,7 @@ const defSortCasino = {
 		casino_ALBET: 9,
 		casino_AG: 10,
 		casino_WM: 11,
-		casino_EBET: 12,
-		casino_N2LIVE: 13
+		casino_EBET: 12
 	},
 	[defCurrencyList.INR]: {
 		casino_PP: 1,
@@ -96,8 +94,7 @@ const defSortCasino = {
 		casino_ALBET: 9,
 		casino_AG: 10,
 		casino_WM: 11,
-		casino_EBET: 12,
-		casino_N2LIVE: 13
+		casino_EBET: 12
 	},
 	[defCurrencyList.BDT]: {
 		casino_PP: 1,
@@ -110,8 +107,7 @@ const defSortCasino = {
 		casino_ALBET: 8,
 		casino_AG: 9,
 		casino_WM: 10,
-		casino_EBET: 11,
-		casino_N2LIVE: 12
+		casino_EBET: 11
 	}
 };
 
@@ -750,16 +746,6 @@ export const defMenuLinks = {
 				...productList.liveCasino_PlayTech,
 				lobbyPage: { npcImg: "casino-pt.png" },
 				allowCurrencies: allowedCurrencyList.liveCasinoPlayTech
-			},
-			{
-				keyName: "casino_N2LIVE",
-				displayText: "n2-LIVE",
-				listNpcImgUrl: "casino-n2.png",
-				listBgImgUrl: ["n2bg.png", "livecasinListHover.png"],
-				menuType: defMenuType.entPage,
-				allowCurrencies: allowedCurrencyList.liveCasino_N2,
-				...productList.liveCasino_N2,
-				lobbyPage: { npcImg: "casino-n2.png" }
 			},
 			{
 				keyName: "casino_WM",
