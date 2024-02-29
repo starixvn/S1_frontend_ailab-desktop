@@ -41,10 +41,6 @@ const defPlatform = [
 		imgName: "ae"
 	},
 	{
-		...productList.liveCasino_n2live,
-		imgName: "n2"
-	},
-	{
 		...defCasinoProviders.PP,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.PP.name },
@@ -307,7 +303,8 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 					...p,
 					urlParams: _urlParams,
 					isInMaintain
-				})}>
+				})}
+			>
 				<ImageWithHover
 					bannerImgUrl={bannerImgUrl}
 					imgName={p.imgName}
