@@ -63,7 +63,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		langId: userInfo.langId,
 		errorPopBox
 	});
-
+	const [isLineLoading, setIsLineLoading] = useState(false);
 	const [isRoot, setIsRoot] = useState(false);
 	const [productTpIds, setProductTpIds] = useState(null);
 	const [tpGameTypeSettingList, setTpGameTypeSettingList] = useState([]);
@@ -179,7 +179,9 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	useEffect(() => {
 		// * 以 di 為基準，等 di 有值之後才進入這個 effect
-		if (!di || !userInfo?.langId) return;
+		// if (!di || !userInfo?.langId) return;
+		if (!userInfo?.langId) return;
+		if (isLineLoading) return;
 
 		const code = getUrlParameter("code");
 		const state = getUrlParameter("state");
@@ -264,8 +266,9 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 					});
 				}
 			});
+			setIsLineLoading(true);
 		}
-	}, [di, userInfo?.langId]);
+	}, [userInfo?.langId]);
 
 	// * checkSignIn
 	useEffect(() => {
