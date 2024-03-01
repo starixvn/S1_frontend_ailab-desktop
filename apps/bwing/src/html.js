@@ -63,11 +63,11 @@ export default function HTML(props) {
 				{props.postBodyComponents}
 			</body>
 			<footer>
-				<script
-					async=""
-					defer=""
-					src="//scqa2.detecas.com/activator.ashx"
-				/>
+				{/* <script */}
+				{/* 	async="" */}
+				{/* 	defer="" */}
+				{/* 	src="//scqa2.detecas.com/activator.ashx" */}
+				{/* /> */}
 			</footer>
 		</html>
 	);
