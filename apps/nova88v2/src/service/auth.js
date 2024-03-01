@@ -40,14 +40,14 @@ export const LOGIN = async ({ userName, password }) => {
 			url,
 			platform,
 			userAgent,
-			screen
-			// FPSRequest: {
-			// 	di,
-			// 	bi,
-			// 	detecasAnalysis,
-			// 	sessionKey,
-			// 	token
-			// }
+			screen,
+			FPSRequest: {
+				di,
+				bi,
+				detecasAnalysis,
+				sessionKey,
+				token
+			}
 		};
 
 		const res = await api_account_UserLogin(payload);
