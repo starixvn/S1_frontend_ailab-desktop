@@ -20,7 +20,7 @@ import LuckyWheelAnimation from "./luckyWheel.Animation";
 import LuckWheelEventModule from "./luckWheel.eventModule";
 
 const { startDate, endDate } = eventPeriod;
-const isInPeriod = isDateRange(startDate, endDate);
+const isInPeriod = isDateRange({ startDate, endDate });
 
 const LuckyWheel = () => {
 	const { t } = useTranslation();
