@@ -76,19 +76,19 @@ export const SPORT_LIST = {
 			parameter: { ...productList.sportSbo },
 			afterLogin: true
 		},
-		{
-			img: `${bannerImgUrl}/desktop/img/4.0/crypto.png`,
-			...productList.cryptoSports,
-			className: "cryptosport",
-			displayKey: "lbl_cryptoSports",
-			parameter: { ...productList.cryptoSports },
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.sports_cryptoSports
-				})
-			]
-		},
+		// {
+		// 	img: `${bannerImgUrl}/desktop/img/4.0/crypto.png`,
+		// 	...productList.cryptoSports,
+		// 	className: "cryptosport",
+		// 	displayKey: "lbl_cryptoSports",
+		// 	parameter: { ...productList.cryptoSports },
+		// 	eventIcons: [
+		// 		showEventIcon({
+		// 			icon: defEventIcon.new,
+		// 			period: defEventPeriod.sports_cryptoSports
+		// 		})
+		// 	]
+		// },
 		{
 			displayKey: "lbl_SabaSport",
 			img: `${bannerImgUrl}/desktop/img/4.0/saba.png`,
@@ -150,19 +150,19 @@ export const SPORT_LIST = {
 			parameter: { ...productList.sportSbo },
 			afterLogin: true
 		},
-		{
-			img: `${bannerImgUrl}/desktop/img/4.0/crypto-vn.png`,
-			...productList.cryptoSports,
-			className: "cryptosport",
-			displayKey: "lbl_cryptoSports",
-			parameter: { ...productList.cryptoSports },
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.sports_cryptoSports
-				})
-			]
-		},
+		// {
+		// 	img: `${bannerImgUrl}/desktop/img/4.0/crypto-vn.png`,
+		// 	...productList.cryptoSports,
+		// 	className: "cryptosport",
+		// 	displayKey: "lbl_cryptoSports",
+		// 	parameter: { ...productList.cryptoSports },
+		// 	eventIcons: [
+		// 		showEventIcon({
+		// 			icon: defEventIcon.new,
+		// 			period: defEventPeriod.sports_cryptoSports
+		// 		})
+		// 	]
+		// },
 		{
 			displayKey: "lbl_SabaSport",
 			img: `${bannerImgUrl}/desktop/img/4.0/saba-vn.png`,
