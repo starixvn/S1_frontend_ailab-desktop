@@ -152,7 +152,7 @@ const Join = () => {
 
 	useEffect(() => {
 		getShieldData();
-		getRecaptchaSiteKey();
+		// getRecaptchaSiteKey();
 		if (urlAffiliate) {
 			checkAffiliate({});
 		} else {
@@ -449,10 +449,10 @@ const Join = () => {
 	};
 
 	const checkAll = async () => {
-		const _reCaptchaCheck =
-			reCaptchaToken !== "" || recaptchaInfo.country === "CN";
-		// * 機器人驗證沒過直接 return 出去
-		if (!_reCaptchaCheck) return false;
+		// const _reCaptchaCheck =
+		// 	reCaptchaToken !== "" || recaptchaInfo.country === "CN";
+		// // * 機器人驗證沒過直接 return 出去
+		// if (!_reCaptchaCheck) return false;
 		const res = await Promise.all([
 			usernameCheck(userValue.userName),
 			// emailCheck(userValue.email),
@@ -533,8 +533,8 @@ const Join = () => {
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
-				ReferralUrl: document.referrer,
-				ReCaptchaToken: reCaptchaToken
+				ReferralUrl: document.referrer
+				// ReCaptchaToken: reCaptchaToken
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
@@ -798,7 +798,8 @@ const Join = () => {
 						activeInfo={activeInfo}
 						setActiveInfo={setActiveInfo}
 					/>
-					{Object.keys(recaptchaInfo).length > 0 &&
+					{/*
+						{Object.keys(recaptchaInfo).length > 0 &&
 						recaptchaInfo.country !== "CN" && (
 							<ReCAPTCHA
 								class="g-recaptcha"
@@ -807,6 +808,7 @@ const Join = () => {
 								hl={reCaptchaEnum[userInfo.langId]}
 							/>
 						)}
+					*/}
 
 					{inputStatus.agreeCheck.msg !== "" ? (
 						<div className="tip active">
