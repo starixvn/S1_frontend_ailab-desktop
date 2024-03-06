@@ -26,6 +26,9 @@ export default {
 	liveCasino: {
 		root: "liveCasino"
 	},
+	cockFighting: {
+		root: "cockFighting"
+	},
 	// deposit: {
 	// 	root: "deposit",
 	// 	sub: {
