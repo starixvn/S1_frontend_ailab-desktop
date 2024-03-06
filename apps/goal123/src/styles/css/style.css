@@ -4,7 +4,6 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Oswald:wght@600;700&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -315,7 +314,9 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .livecasinoLi
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .fishList a,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .fishList button,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList a,
-html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList button {
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList button,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .cockList a,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .cockList button {
   background: url(https://banner.goal123.org/desktop/img/dropdown/dropbg_b2.png) no-repeat center/auto 100%;
 }
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList a .item-icon, html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList button .item-icon,
@@ -330,7 +331,9 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .livecasinoLi
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .fishList a .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .fishList button .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList a .item-icon,
-html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList button .item-icon {
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList button .item-icon,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .cockList a .item-icon,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .cockList button .item-icon {
   width: 100px;
   left: 62px;
   top: 5px;
@@ -341,7 +344,8 @@ html.Newtheme header .header > div.menu .esportList,
 html.Newtheme header .header > div.menu .casinoList,
 html.Newtheme header .header > div.menu .livecasinoList,
 html.Newtheme header .header > div.menu .fishList,
-html.Newtheme header .header > div.menu .lotteryList {
+html.Newtheme header .header > div.menu .lotteryList,
+html.Newtheme header .header > div.menu .cockList {
   max-width: 100%;
   margin: auto;
   display: none;
@@ -352,7 +356,8 @@ html.Newtheme header .header > div.menu .esportList.active,
 html.Newtheme header .header > div.menu .casinoList.active,
 html.Newtheme header .header > div.menu .livecasinoList.active,
 html.Newtheme header .header > div.menu .fishList.active,
-html.Newtheme header .header > div.menu .lotteryList.active {
+html.Newtheme header .header > div.menu .lotteryList.active,
+html.Newtheme header .header > div.menu .cockList.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -368,7 +373,8 @@ html.Newtheme header .header > div.menu .esportList.active div,
 html.Newtheme header .header > div.menu .casinoList.active div,
 html.Newtheme header .header > div.menu .livecasinoList.active div,
 html.Newtheme header .header > div.menu .fishList.active div,
-html.Newtheme header .header > div.menu .lotteryList.active div {
+html.Newtheme header .header > div.menu .lotteryList.active div,
+html.Newtheme header .header > div.menu .cockList.active div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -386,7 +392,9 @@ html.Newtheme header .header > div.menu .livecasinoList button,
 html.Newtheme header .header > div.menu .fishList a,
 html.Newtheme header .header > div.menu .fishList button,
 html.Newtheme header .header > div.menu .lotteryList a,
-html.Newtheme header .header > div.menu .lotteryList button {
+html.Newtheme header .header > div.menu .lotteryList button,
+html.Newtheme header .header > div.menu .cockList a,
+html.Newtheme header .header > div.menu .cockList button {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 200px;
           flex: 0 0 200px;
@@ -423,7 +431,9 @@ html.Newtheme header .header > div.menu .livecasinoList button img,
 html.Newtheme header .header > div.menu .fishList a img,
 html.Newtheme header .header > div.menu .fishList button img,
 html.Newtheme header .header > div.menu .lotteryList a img,
-html.Newtheme header .header > div.menu .lotteryList button img {
+html.Newtheme header .header > div.menu .lotteryList button img,
+html.Newtheme header .header > div.menu .cockList a img,
+html.Newtheme header .header > div.menu .cockList button img {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -441,7 +451,9 @@ html.Newtheme header .header > div.menu .livecasinoList button span,
 html.Newtheme header .header > div.menu .fishList a span,
 html.Newtheme header .header > div.menu .fishList button span,
 html.Newtheme header .header > div.menu .lotteryList a span,
-html.Newtheme header .header > div.menu .lotteryList button span {
+html.Newtheme header .header > div.menu .lotteryList button span,
+html.Newtheme header .header > div.menu .cockList a span,
+html.Newtheme header .header > div.menu .cockList button span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -470,7 +482,9 @@ html.Newtheme header .header > div.menu .livecasinoList button span > p,
 html.Newtheme header .header > div.menu .fishList a span > p,
 html.Newtheme header .header > div.menu .fishList button span > p,
 html.Newtheme header .header > div.menu .lotteryList a span > p,
-html.Newtheme header .header > div.menu .lotteryList button span > p {
+html.Newtheme header .header > div.menu .lotteryList button span > p,
+html.Newtheme header .header > div.menu .cockList a span > p,
+html.Newtheme header .header > div.menu .cockList button span > p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -491,7 +505,9 @@ html.Newtheme header .header > div.menu .livecasinoList button:hover,
 html.Newtheme header .header > div.menu .fishList a:hover,
 html.Newtheme header .header > div.menu .fishList button:hover,
 html.Newtheme header .header > div.menu .lotteryList a:hover,
-html.Newtheme header .header > div.menu .lotteryList button:hover {
+html.Newtheme header .header > div.menu .lotteryList button:hover,
+html.Newtheme header .header > div.menu .cockList a:hover,
+html.Newtheme header .header > div.menu .cockList button:hover {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   background: url(https://banner.goal123.org/desktop/img/dropdown/dropbg_a.png) no-repeat center/auto 100%;
@@ -509,7 +525,9 @@ html.Newtheme header .header > div.menu .livecasinoList button:hover span,
 html.Newtheme header .header > div.menu .fishList a:hover span,
 html.Newtheme header .header > div.menu .fishList button:hover span,
 html.Newtheme header .header > div.menu .lotteryList a:hover span,
-html.Newtheme header .header > div.menu .lotteryList button:hover span {
+html.Newtheme header .header > div.menu .lotteryList button:hover span,
+html.Newtheme header .header > div.menu .cockList a:hover span,
+html.Newtheme header .header > div.menu .cockList button:hover span {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   background: url(https://banner.goal123.org/desktop/img/dropdown/droptitle_a.png) no-repeat center/auto 100%;
@@ -528,7 +546,9 @@ html.Newtheme header .header > div.menu .livecasinoList button:hover .item-img,
 html.Newtheme header .header > div.menu .fishList a:hover .item-img,
 html.Newtheme header .header > div.menu .fishList button:hover .item-img,
 html.Newtheme header .header > div.menu .lotteryList a:hover .item-img,
-html.Newtheme header .header > div.menu .lotteryList button:hover .item-img {
+html.Newtheme header .header > div.menu .lotteryList button:hover .item-img,
+html.Newtheme header .header > div.menu .cockList a:hover .item-img,
+html.Newtheme header .header > div.menu .cockList button:hover .item-img {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   bottom: 0;
@@ -546,7 +566,9 @@ html.Newtheme header .header > div.menu .livecasinoList button:hover .liveitem-i
 html.Newtheme header .header > div.menu .fishList a:hover .liveitem-img,
 html.Newtheme header .header > div.menu .fishList button:hover .liveitem-img,
 html.Newtheme header .header > div.menu .lotteryList a:hover .liveitem-img,
-html.Newtheme header .header > div.menu .lotteryList button:hover .liveitem-img {
+html.Newtheme header .header > div.menu .lotteryList button:hover .liveitem-img,
+html.Newtheme header .header > div.menu .cockList a:hover .liveitem-img,
+html.Newtheme header .header > div.menu .cockList button:hover .liveitem-img {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   bottom: 40px;
@@ -564,7 +586,9 @@ html.Newtheme header .header > div.menu .livecasinoList button img,
 html.Newtheme header .header > div.menu .fishList a img,
 html.Newtheme header .header > div.menu .fishList button img,
 html.Newtheme header .header > div.menu .lotteryList a img,
-html.Newtheme header .header > div.menu .lotteryList button img {
+html.Newtheme header .header > div.menu .lotteryList button img,
+html.Newtheme header .header > div.menu .cockList a img,
+html.Newtheme header .header > div.menu .cockList button img {
   max-width: 150px;
 }
 html.Newtheme header .header > div.menu .sportList a.active,
@@ -580,7 +604,9 @@ html.Newtheme header .header > div.menu .livecasinoList button.active,
 html.Newtheme header .header > div.menu .fishList a.active,
 html.Newtheme header .header > div.menu .fishList button.active,
 html.Newtheme header .header > div.menu .lotteryList a.active,
-html.Newtheme header .header > div.menu .lotteryList button.active {
+html.Newtheme header .header > div.menu .lotteryList button.active,
+html.Newtheme header .header > div.menu .cockList a.active,
+html.Newtheme header .header > div.menu .cockList button.active {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
   display: -webkit-box;
@@ -606,7 +632,9 @@ html.Newtheme header .header > div.menu .livecasinoList button.active .maintenan
 html.Newtheme header .header > div.menu .fishList a.active .maintenance,
 html.Newtheme header .header > div.menu .fishList button.active .maintenance,
 html.Newtheme header .header > div.menu .lotteryList a.active .maintenance,
-html.Newtheme header .header > div.menu .lotteryList button.active .maintenance {
+html.Newtheme header .header > div.menu .lotteryList button.active .maintenance,
+html.Newtheme header .header > div.menu .cockList a.active .maintenance,
+html.Newtheme header .header > div.menu .cockList button.active .maintenance {
   position: absolute;
   z-index: 1;
   background: #1f2e4d;
@@ -628,7 +656,9 @@ html.Newtheme header .header > div.menu .livecasinoList button .maintenance,
 html.Newtheme header .header > div.menu .fishList a .maintenance,
 html.Newtheme header .header > div.menu .fishList button .maintenance,
 html.Newtheme header .header > div.menu .lotteryList a .maintenance,
-html.Newtheme header .header > div.menu .lotteryList button .maintenance {
+html.Newtheme header .header > div.menu .lotteryList button .maintenance,
+html.Newtheme header .header > div.menu .cockList a .maintenance,
+html.Newtheme header .header > div.menu .cockList button .maintenance {
   display: none;
 }
 html.Newtheme header .header > div.menu .sportList .newicon:before, html.Newtheme header .header > div.menu .sportList .liveicon:before, html.Newtheme header .header > div.menu .sportList .hoticon:before,
@@ -649,7 +679,10 @@ html.Newtheme header .header > div.menu .fishList .liveicon:before,
 html.Newtheme header .header > div.menu .fishList .hoticon:before,
 html.Newtheme header .header > div.menu .lotteryList .newicon:before,
 html.Newtheme header .header > div.menu .lotteryList .liveicon:before,
-html.Newtheme header .header > div.menu .lotteryList .hoticon:before {
+html.Newtheme header .header > div.menu .lotteryList .hoticon:before,
+html.Newtheme header .header > div.menu .cockList .newicon:before,
+html.Newtheme header .header > div.menu .cockList .liveicon:before,
+html.Newtheme header .header > div.menu .cockList .hoticon:before {
   content: "";
   position: absolute;
   top: 5px;
@@ -666,7 +699,8 @@ html.Newtheme header .header > div.menu .esportList .newicon::before,
 html.Newtheme header .header > div.menu .casinoList .newicon::before,
 html.Newtheme header .header > div.menu .livecasinoList .newicon::before,
 html.Newtheme header .header > div.menu .fishList .newicon::before,
-html.Newtheme header .header > div.menu .lotteryList .newicon::before {
+html.Newtheme header .header > div.menu .lotteryList .newicon::before,
+html.Newtheme header .header > div.menu .cockList .newicon::before {
   background: url(https://banner.goal123.org/desktop/img/dropdown/new.svg) no-repeat center/contain;
 }
 html.Newtheme header .header > div.menu .sportList .liveicon::before,
@@ -675,7 +709,8 @@ html.Newtheme header .header > div.menu .esportList .liveicon::before,
 html.Newtheme header .header > div.menu .casinoList .liveicon::before,
 html.Newtheme header .header > div.menu .livecasinoList .liveicon::before,
 html.Newtheme header .header > div.menu .fishList .liveicon::before,
-html.Newtheme header .header > div.menu .lotteryList .liveicon::before {
+html.Newtheme header .header > div.menu .lotteryList .liveicon::before,
+html.Newtheme header .header > div.menu .cockList .liveicon::before {
   background: url(https://banner.goal123.org/desktop/img/dropdown/live.svg) no-repeat center/contain;
 }
 html.Newtheme header .header > div.menu .sportList .hoticon::before,
@@ -684,7 +719,8 @@ html.Newtheme header .header > div.menu .esportList .hoticon::before,
 html.Newtheme header .header > div.menu .casinoList .hoticon::before,
 html.Newtheme header .header > div.menu .livecasinoList .hoticon::before,
 html.Newtheme header .header > div.menu .fishList .hoticon::before,
-html.Newtheme header .header > div.menu .lotteryList .hoticon::before {
+html.Newtheme header .header > div.menu .lotteryList .hoticon::before,
+html.Newtheme header .header > div.menu .cockList .hoticon::before {
   background: url(https://banner.goal123.org/desktop/img/dropdown/hot.svg) no-repeat center/contain;
 }
 html.Newtheme header .header > div.menu .livecasinoList a:hover .item-img,
@@ -699,7 +735,8 @@ html.Newtheme header .header > div.menu .esportList .item-bg,
 html.Newtheme header .header > div.menu .casinoList .item-bg,
 html.Newtheme header .header > div.menu .livecasinoList .item-bg,
 html.Newtheme header .header > div.menu .fishList .item-bg,
-html.Newtheme header .header > div.menu .lotteryList .item-bg {
+html.Newtheme header .header > div.menu .lotteryList .item-bg,
+html.Newtheme header .header > div.menu .cockList .item-bg {
   position: absolute;
   top: calc(50% - 75px);
   left: calc(50% - 75px);
@@ -711,7 +748,8 @@ html.Newtheme header .header > div.menu .esportList .item-img,
 html.Newtheme header .header > div.menu .casinoList .item-img,
 html.Newtheme header .header > div.menu .livecasinoList .item-img,
 html.Newtheme header .header > div.menu .fishList .item-img,
-html.Newtheme header .header > div.menu .lotteryList .item-img {
+html.Newtheme header .header > div.menu .lotteryList .item-img,
+html.Newtheme header .header > div.menu .cockList .item-img {
   position: absolute;
   bottom: -10px;
   right: calc(50% - 95px);
@@ -723,7 +761,8 @@ html.Newtheme header .header > div.menu .esportList .liveitem-img,
 html.Newtheme header .header > div.menu .casinoList .liveitem-img,
 html.Newtheme header .header > div.menu .livecasinoList .liveitem-img,
 html.Newtheme header .header > div.menu .fishList .liveitem-img,
-html.Newtheme header .header > div.menu .lotteryList .liveitem-img {
+html.Newtheme header .header > div.menu .lotteryList .liveitem-img,
+html.Newtheme header .header > div.menu .cockList .liveitem-img {
   position: absolute;
   bottom: 20px;
   left: calc(50% - 75px);
@@ -753,7 +792,9 @@ html.Newtheme header .header > div.menu .livecasinoList button .item-icon,
 html.Newtheme header .header > div.menu .fishList a .item-icon,
 html.Newtheme header .header > div.menu .fishList button .item-icon,
 html.Newtheme header .header > div.menu .lotteryList a .item-icon,
-html.Newtheme header .header > div.menu .lotteryList button .item-icon {
+html.Newtheme header .header > div.menu .lotteryList button .item-icon,
+html.Newtheme header .header > div.menu .cockList a .item-icon,
+html.Newtheme header .header > div.menu .cockList button .item-icon {
   width: 40px;
   font-size: 10px;
   position: absolute;
@@ -6802,126 +6843,6 @@ html.Newtheme .promotionsInfo .proData .turnover {
 html.Newtheme .promotionsInfo .proData .bounsName {
   color: #1e85ec;
 }
-html.Newtheme .promotionsInfo .proData .rolloverListNew > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-html.Newtheme .promotionsInfo .proData .rolloverListNew > div:first-child div {
-  background: #112240;
-  color: white;
-}
-html.Newtheme .promotionsInfo .proData .rolloverListNew > div:first-child div:last-child {
-  border-right: 0;
-}
-html.Newtheme .promotionsInfo .proData .rolloverListNew > div:last-child div {
-  border-bottom: 0;
-}
-html.Newtheme .promotionsInfo .proData .rolloverListNew > div > div {
-  background: #E4E4E4;
-  color: #707070;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  border: 1px solid #ccc;
-  border-width: 0 1px 1px 0;
-  text-align: center;
-  padding: 5px 0;
-}
-html.Newtheme .promotionsInfo .proData .rolloverListNew > div > div:last-child {
-  border-right: 0;
-}
-html.Newtheme .promotionsInfo .proData .rolloverListNew.mission {
-  margin-top: 20px;
-}
-html.Newtheme .promotionsInfo .proData .mission-content {
-  margin: 20px 0;
-}
-html.Newtheme .promotionsInfo .proData .mission-title {
-  background: -webkit-gradient(linear, left top, right top, from(rgb(245, 142, 35)), color-stop(50%, rgb(245, 172, 35)), to(rgb(245, 142, 35)));
-  background: linear-gradient(90deg, rgb(245, 142, 35) 0%, rgb(245, 172, 35) 50%, rgb(245, 142, 35) 100%);
-  padding: 12px 0;
-  text-align: center;
-  font-size: 20px;
-  color: white;
-}
-html.Newtheme .promotionsInfo .proData .mission-progress {
-  background: #efefef;
-  padding: 20px 0 30px 25px;
-  color: #1f3258;
-  font-weight: 600;
-}
-html.Newtheme .promotionsInfo .proData .mission-progress > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 70px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-html.Newtheme .promotionsInfo .proData .mission-progress > div .state {
-  background: #000;
-  height: 25px;
-  width: 100px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 5px;
-  color: white;
-  font-weight: 500;
-  font-size: 12px;
-  border-radius: 20px 0 0 20px;
-}
-html.Newtheme .promotionsInfo .proData .mission-progress > div .state.completed {
-  background: #007aff;
-}
-html.Newtheme .promotionsInfo .proData .mission-progress > div .state.undone {
-  background: #858585;
-}
-html.Newtheme .promotionsInfo .proData .mission-progress-item .progress {
-  background: white;
-  height: 8px;
-  width: 650px;
-  border-radius: 20px;
-}
-html.Newtheme .promotionsInfo .proData .mission-progress-item .progress .progress-bar {
-  background: -webkit-gradient(linear, left top, right top, from(rgb(31, 50, 88)), color-stop(70%, rgb(98, 173, 255)));
-  background: linear-gradient(90deg, rgb(31, 50, 88) 0%, rgb(98, 173, 255) 70%);
-  height: 8px;
-  border-radius: 20px;
-}
-html.Newtheme .promotionsInfo .proData .mission-progress-item.turnover {
-  color: #1f3258;
-}
-html.Newtheme .promotionsInfo .proData .mission-progress-item.turnover .progress-bar {
-  background: -webkit-gradient(linear, left top, right top, from(#e90900), color-stop(70%, rgb(245, 151, 35)));
-  background: linear-gradient(90deg, #e90900 0%, rgb(245, 151, 35) 70%);
-}
-html.Newtheme .promotionsInfo .proData .mission-progress-text {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-html.Newtheme .promotionsInfo .proData .mission-progress-text > div:first-child {
-  margin-bottom: 5px;
-}
-html.Newtheme .promotionsInfo .proData .mission-progress-text > div:last-child {
-  font-size: 12px;
-  color: #8d8d8d;
-}
 html.Newtheme .icon-icon32px_deposit {
   position: relative;
 }
@@ -8216,73 +8137,6 @@ html.Newtheme .eventLink.wheel a img.note {
   z-index: 3;
   left: -20px;
 }
-html.Newtheme .eventLink.dragonegg {
-  bottom: 190px;
-}
-html.Newtheme .eventLink.dragonegg a img {
-  width: 170px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-animation: dragonegg 1s ease-in-out 0s infinite normal none;
-          animation: dragonegg 1s ease-in-out 0s infinite normal none;
-}
-@-webkit-keyframes dragonegg {
-  0%, 100% {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-    -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
-  }
-  15% {
-    -webkit-transform: translateX(-2px) rotate(-6deg);
-            transform: translateX(-2px) rotate(-6deg);
-  }
-  30% {
-    -webkit-transform: translateX(2px) rotate(6deg);
-            transform: translateX(2px) rotate(6deg);
-  }
-  45% {
-    -webkit-transform: translateX(-2px) rotate(-3.6deg);
-            transform: translateX(-2px) rotate(-3.6deg);
-  }
-  60% {
-    -webkit-transform: translateX(2px) rotate(2.4deg);
-            transform: translateX(2px) rotate(2.4deg);
-  }
-  75% {
-    -webkit-transform: translateX(-2px) rotate(-1.2deg);
-            transform: translateX(-2px) rotate(-1.2deg);
-  }
-}
-@keyframes dragonegg {
-  0%, 100% {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-    -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
-  }
-  15% {
-    -webkit-transform: translateX(-2px) rotate(-6deg);
-            transform: translateX(-2px) rotate(-6deg);
-  }
-  30% {
-    -webkit-transform: translateX(2px) rotate(6deg);
-            transform: translateX(2px) rotate(6deg);
-  }
-  45% {
-    -webkit-transform: translateX(-2px) rotate(-3.6deg);
-            transform: translateX(-2px) rotate(-3.6deg);
-  }
-  60% {
-    -webkit-transform: translateX(2px) rotate(2.4deg);
-            transform: translateX(2px) rotate(2.4deg);
-  }
-  75% {
-    -webkit-transform: translateX(-2px) rotate(-1.2deg);
-            transform: translateX(-2px) rotate(-1.2deg);
-  }
-}
 html.Newtheme .eventLink.worldcup {
   position: fixed;
   top: 175px;
@@ -8464,58 +8318,6 @@ html.Newtheme .eventLink.vgaming .icon-close {
 html.Newtheme .eventLink.vgaming .vgimg {
   width: 185px;
   height: 185px;
-}
-html.Newtheme .eventLink.livesports {
-  position: fixed;
-  bottom: 190px;
-  z-index: 1;
-}
-html.Newtheme .eventLink.livesports img {
-  -webkit-animation: livesports 4s ease-in-out infinite;
-          animation: livesports 4s ease-in-out infinite;
-  z-index: 2;
-  width: 200px;
-}
-html.Newtheme .eventLink.livesports .icon-close {
-  top: 10px;
-  background: #cecece;
-  color: rgb(92, 92, 92);
-}
-@-webkit-keyframes livesports {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  25% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-  50% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  75% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-}
-@keyframes livesports {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  25% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-  50% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  75% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
 }
 html.Newtheme .time {
   position: absolute;
@@ -9697,7 +9499,7 @@ html.Newtheme .vipLv > div.vipbg {
   padding: 25px;
   margin-top: 0;
 }
-html.Newtheme .livelobbyList, html.Newtheme .fishinglobbyList, html.Newtheme .gamelobbyList, html.Newtheme .lotterylobbyList, html.Newtheme .esportslobbyList {
+html.Newtheme .livelobbyList, html.Newtheme .fishinglobbyList, html.Newtheme .gamelobbyList, html.Newtheme .lotterylobbyList, html.Newtheme .esportslobbyList, html.Newtheme .cocklobbyList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9710,7 +9512,7 @@ html.Newtheme .livelobbyList, html.Newtheme .fishinglobbyList, html.Newtheme .ga
           justify-content: flex-start;
   line-height: 20px;
 }
-html.Newtheme .livelobbyList > div, html.Newtheme .fishinglobbyList > div, html.Newtheme .gamelobbyList > div, html.Newtheme .lotterylobbyList > div, html.Newtheme .esportslobbyList > div {
+html.Newtheme .livelobbyList > div, html.Newtheme .fishinglobbyList > div, html.Newtheme .gamelobbyList > div, html.Newtheme .lotterylobbyList > div, html.Newtheme .esportslobbyList > div, html.Newtheme .cocklobbyList > div {
   padding: 0;
   position: relative;
   cursor: pointer;
@@ -9724,10 +9526,10 @@ html.Newtheme .livelobbyList > div, html.Newtheme .fishinglobbyList > div, html.
       -ms-flex-align: center;
           align-items: center;
 }
-html.Newtheme .livelobbyList > div img, html.Newtheme .fishinglobbyList > div img, html.Newtheme .gamelobbyList > div img, html.Newtheme .lotterylobbyList > div img, html.Newtheme .esportslobbyList > div img {
+html.Newtheme .livelobbyList > div img, html.Newtheme .fishinglobbyList > div img, html.Newtheme .gamelobbyList > div img, html.Newtheme .lotterylobbyList > div img, html.Newtheme .esportslobbyList > div img, html.Newtheme .cocklobbyList > div img {
   display: block;
 }
-html.Newtheme .livelobbyList > div .txt-darkBlue, html.Newtheme .fishinglobbyList > div .txt-darkBlue, html.Newtheme .gamelobbyList > div .txt-darkBlue, html.Newtheme .lotterylobbyList > div .txt-darkBlue, html.Newtheme .esportslobbyList > div .txt-darkBlue {
+html.Newtheme .livelobbyList > div .txt-darkBlue, html.Newtheme .fishinglobbyList > div .txt-darkBlue, html.Newtheme .gamelobbyList > div .txt-darkBlue, html.Newtheme .lotterylobbyList > div .txt-darkBlue, html.Newtheme .esportslobbyList > div .txt-darkBlue, html.Newtheme .cocklobbyList > div .txt-darkBlue {
   position: absolute;
   width: 100%;
   height: 50px;
@@ -9745,11 +9547,11 @@ html.Newtheme .livelobbyList > div .txt-darkBlue, html.Newtheme .fishinglobbyLis
   font-size: 14px;
   text-align: center;
 }
-html.Newtheme .livelobbyList > div.active, html.Newtheme .fishinglobbyList > div.active, html.Newtheme .gamelobbyList > div.active, html.Newtheme .lotterylobbyList > div.active, html.Newtheme .esportslobbyList > div.active {
+html.Newtheme .livelobbyList > div.active, html.Newtheme .fishinglobbyList > div.active, html.Newtheme .gamelobbyList > div.active, html.Newtheme .lotterylobbyList > div.active, html.Newtheme .esportslobbyList > div.active, html.Newtheme .cocklobbyList > div.active {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
 }
-html.Newtheme .livelobbyList > div.active .maintenance, html.Newtheme .fishinglobbyList > div.active .maintenance, html.Newtheme .gamelobbyList > div.active .maintenance, html.Newtheme .lotterylobbyList > div.active .maintenance, html.Newtheme .esportslobbyList > div.active .maintenance {
+html.Newtheme .livelobbyList > div.active .maintenance, html.Newtheme .fishinglobbyList > div.active .maintenance, html.Newtheme .gamelobbyList > div.active .maintenance, html.Newtheme .lotterylobbyList > div.active .maintenance, html.Newtheme .esportslobbyList > div.active .maintenance, html.Newtheme .cocklobbyList > div.active .maintenance {
   position: absolute;
   display: block;
   background: #505050;
@@ -9758,34 +9560,34 @@ html.Newtheme .livelobbyList > div.active .maintenance, html.Newtheme .fishinglo
   border-radius: 5px;
   z-index: 1;
 }
-html.Newtheme .livelobbyList > div.active .mask, html.Newtheme .fishinglobbyList > div.active .mask, html.Newtheme .gamelobbyList > div.active .mask, html.Newtheme .lotterylobbyList > div.active .mask, html.Newtheme .esportslobbyList > div.active .mask {
+html.Newtheme .livelobbyList > div.active .mask, html.Newtheme .fishinglobbyList > div.active .mask, html.Newtheme .gamelobbyList > div.active .mask, html.Newtheme .lotterylobbyList > div.active .mask, html.Newtheme .esportslobbyList > div.active .mask, html.Newtheme .cocklobbyList > div.active .mask {
   display: none;
 }
-html.Newtheme .livelobbyList > div .maintenance, html.Newtheme .fishinglobbyList > div .maintenance, html.Newtheme .gamelobbyList > div .maintenance, html.Newtheme .lotterylobbyList > div .maintenance, html.Newtheme .esportslobbyList > div .maintenance {
+html.Newtheme .livelobbyList > div .maintenance, html.Newtheme .fishinglobbyList > div .maintenance, html.Newtheme .gamelobbyList > div .maintenance, html.Newtheme .lotterylobbyList > div .maintenance, html.Newtheme .esportslobbyList > div .maintenance, html.Newtheme .cocklobbyList > div .maintenance {
   display: none;
 }
-html.Newtheme .livelobbyList > div:hover, html.Newtheme .fishinglobbyList > div:hover, html.Newtheme .gamelobbyList > div:hover, html.Newtheme .lotterylobbyList > div:hover, html.Newtheme .esportslobbyList > div:hover {
+html.Newtheme .livelobbyList > div:hover, html.Newtheme .fishinglobbyList > div:hover, html.Newtheme .gamelobbyList > div:hover, html.Newtheme .lotterylobbyList > div:hover, html.Newtheme .esportslobbyList > div:hover, html.Newtheme .cocklobbyList > div:hover {
   -webkit-transform: translateY(-10px);
           transform: translateY(-10px);
   -webkit-transition: ease-in-out 0.3s;
   transition: ease-in-out 0.3s;
 }
-html.Newtheme .livelobbyList > div:hover img, html.Newtheme .fishinglobbyList > div:hover img, html.Newtheme .gamelobbyList > div:hover img, html.Newtheme .lotterylobbyList > div:hover img, html.Newtheme .esportslobbyList > div:hover img {
+html.Newtheme .livelobbyList > div:hover img, html.Newtheme .fishinglobbyList > div:hover img, html.Newtheme .gamelobbyList > div:hover img, html.Newtheme .lotterylobbyList > div:hover img, html.Newtheme .esportslobbyList > div:hover img, html.Newtheme .cocklobbyList > div:hover img {
   -webkit-filter: brightness(1.1);
           filter: brightness(1.1);
 }
-html.Newtheme .livelobbyList > div:hover .light, html.Newtheme .fishinglobbyList > div:hover .light, html.Newtheme .gamelobbyList > div:hover .light, html.Newtheme .lotterylobbyList > div:hover .light, html.Newtheme .esportslobbyList > div:hover .light {
+html.Newtheme .livelobbyList > div:hover .light, html.Newtheme .fishinglobbyList > div:hover .light, html.Newtheme .gamelobbyList > div:hover .light, html.Newtheme .lotterylobbyList > div:hover .light, html.Newtheme .esportslobbyList > div:hover .light, html.Newtheme .cocklobbyList > div:hover .light {
   opacity: 1;
   -webkit-transition: ease-in-out 0.5s;
   transition: ease-in-out 0.5s;
 }
-html.Newtheme .livelobbyList > div:hover .txt-darkBlue, html.Newtheme .fishinglobbyList > div:hover .txt-darkBlue, html.Newtheme .gamelobbyList > div:hover .txt-darkBlue, html.Newtheme .lotterylobbyList > div:hover .txt-darkBlue, html.Newtheme .esportslobbyList > div:hover .txt-darkBlue {
+html.Newtheme .livelobbyList > div:hover .txt-darkBlue, html.Newtheme .fishinglobbyList > div:hover .txt-darkBlue, html.Newtheme .gamelobbyList > div:hover .txt-darkBlue, html.Newtheme .lotterylobbyList > div:hover .txt-darkBlue, html.Newtheme .esportslobbyList > div:hover .txt-darkBlue, html.Newtheme .cocklobbyList > div:hover .txt-darkBlue {
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
   -webkit-transition: ease-in-out 0.3s;
   transition: ease-in-out 0.3s;
 }
-html.Newtheme .livelobbyList .icon-new::before, html.Newtheme .fishinglobbyList .icon-new::before, html.Newtheme .gamelobbyList .icon-new::before, html.Newtheme .lotterylobbyList .icon-new::before, html.Newtheme .esportslobbyList .icon-new::before {
+html.Newtheme .livelobbyList .icon-new::before, html.Newtheme .fishinglobbyList .icon-new::before, html.Newtheme .gamelobbyList .icon-new::before, html.Newtheme .lotterylobbyList .icon-new::before, html.Newtheme .esportslobbyList .icon-new::before, html.Newtheme .cocklobbyList .icon-new::before {
   position: absolute;
   top: 5px;
   left: 15px;
@@ -9799,7 +9601,7 @@ html.Newtheme .livelobbyList .icon-new::before, html.Newtheme .fishinglobbyList 
   font-size: 14px;
   z-index: 2;
 }
-html.Newtheme .livelobbyList .newicon::before, html.Newtheme .fishinglobbyList .newicon::before, html.Newtheme .gamelobbyList .newicon::before, html.Newtheme .lotterylobbyList .newicon::before, html.Newtheme .esportslobbyList .newicon::before {
+html.Newtheme .livelobbyList .newicon::before, html.Newtheme .fishinglobbyList .newicon::before, html.Newtheme .gamelobbyList .newicon::before, html.Newtheme .lotterylobbyList .newicon::before, html.Newtheme .esportslobbyList .newicon::before, html.Newtheme .cocklobbyList .newicon::before {
   content: "";
   position: absolute;
   top: 2px;
@@ -9909,22 +9711,53 @@ html.Newtheme .gamelobbyList > div:hover .gamesitem {
 html.Newtheme .gamelobbyList > div:hover .gameshover {
   opacity: 1;
 }
-html.Newtheme main.fishinglobby, html.Newtheme main.gameslobby, html.Newtheme main.livelobby, html.Newtheme main.esportslobby, html.Newtheme main.lotterylobby {
+html.Newtheme .cocklobbyList {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html.Newtheme .cocklobbyList > div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(25% - 50px);
+          flex: 0 0 calc(25% - 50px);
+  margin: 10px 24px;
+}
+html.Newtheme .cocklobbyList > div img {
+  display: block;
+}
+html.Newtheme .cocklobbyList > div .txt-darkBlue {
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  width: 180px;
+  bottom: 45px;
+  left: calc(50% - 93px);
+}
+html.Newtheme .cocklobbyList > div .gameshover {
+  position: absolute;
+  opacity: 0;
+}
+html.Newtheme .cocklobbyList > div:hover .gamesitem {
+  opacity: 0;
+}
+html.Newtheme .cocklobbyList > div:hover .gameshover {
+  opacity: 1;
+}
+html.Newtheme main.fishinglobby, html.Newtheme main.gameslobby, html.Newtheme main.livelobby, html.Newtheme main.esportslobby, html.Newtheme main.lotterylobby, html.Newtheme main.cocklobby {
   height: auto;
   min-height: auto;
 }
-html.Newtheme main.fishinglobby .infoModule, html.Newtheme main.gameslobby .infoModule, html.Newtheme main.livelobby .infoModule, html.Newtheme main.esportslobby .infoModule, html.Newtheme main.lotterylobby .infoModule {
+html.Newtheme main.fishinglobby .infoModule, html.Newtheme main.gameslobby .infoModule, html.Newtheme main.livelobby .infoModule, html.Newtheme main.esportslobby .infoModule, html.Newtheme main.lotterylobby .infoModule, html.Newtheme main.cocklobby .infoModule {
   background: transparent;
 }
-html.Newtheme main.fishinglobby .aniBanner, html.Newtheme main.gameslobby .aniBanner, html.Newtheme main.livelobby .aniBanner, html.Newtheme main.esportslobby .aniBanner, html.Newtheme main.lotterylobby .aniBanner {
+html.Newtheme main.fishinglobby .aniBanner, html.Newtheme main.gameslobby .aniBanner, html.Newtheme main.livelobby .aniBanner, html.Newtheme main.esportslobby .aniBanner, html.Newtheme main.lotterylobby .aniBanner, html.Newtheme main.cocklobby .aniBanner {
   min-width: 1400px;
   width: 100%;
   position: relative;
 }
-html.Newtheme main.fishinglobby .aniBanner img, html.Newtheme main.gameslobby .aniBanner img, html.Newtheme main.livelobby .aniBanner img, html.Newtheme main.esportslobby .aniBanner img, html.Newtheme main.lotterylobby .aniBanner img {
+html.Newtheme main.fishinglobby .aniBanner img, html.Newtheme main.gameslobby .aniBanner img, html.Newtheme main.livelobby .aniBanner img, html.Newtheme main.esportslobby .aniBanner img, html.Newtheme main.lotterylobby .aniBanner img, html.Newtheme main.cocklobby .aniBanner img {
   display: block;
 }
-html.Newtheme main.fishinglobby .aniBanner::after, html.Newtheme main.gameslobby .aniBanner::after, html.Newtheme main.livelobby .aniBanner::after, html.Newtheme main.esportslobby .aniBanner::after, html.Newtheme main.lotterylobby .aniBanner::after {
+html.Newtheme main.fishinglobby .aniBanner::after, html.Newtheme main.gameslobby .aniBanner::after, html.Newtheme main.livelobby .aniBanner::after, html.Newtheme main.esportslobby .aniBanner::after, html.Newtheme main.lotterylobby .aniBanner::after, html.Newtheme main.cocklobby .aniBanner::after {
   position: absolute;
   bottom: 0;
   z-index: 1;
@@ -9966,6 +9799,52 @@ html.Newtheme main.fishinglobby .aniBanner .items img:nth-child(3) {
   width: 90px;
   -webkit-animation: moveA 1s forwards, floatingB ease-in-out 5s 2s infinite;
           animation: moveA 1s forwards, floatingB ease-in-out 5s 2s infinite;
+}
+html.Newtheme main.cocklobby {
+  overflow: hidden;
+}
+html.Newtheme main.cocklobby .inside {
+  background: url(https://banner.goal123.org/desktop/img/cockfighting/cockfighting-bg.png) no-repeat bottom/cover;
+  min-width: 1400px;
+  width: 100%;
+}
+html.Newtheme main.cocklobby .inside > div {
+  margin: auto;
+}
+html.Newtheme main.cocklobby .aniBanner .items img {
+  position: absolute;
+  top: 30%;
+  right: -20px;
+  width: 625px;
+  -webkit-animation: moveA 1s forwards, floatingA 5s 1s infinite;
+          animation: moveA 1s forwards, floatingA 5s 1s infinite;
+}
+html.Newtheme main.cocklobby .aniBanner .items img:first-child {
+  top: 30%;
+  left: -20PX;
+  width: 625px;
+  -webkit-animation: moveB 1s forwards, floatingB ease-in-out 5s 1s infinite;
+          animation: moveB 1s forwards, floatingB ease-in-out 5s 1s infinite;
+}
+@-webkit-keyframes y-move {
+  0% {
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
+  }
+}
+@keyframes y-move {
+  0% {
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
+  }
 }
 html.Newtheme main.gameslobby {
   overflow: hidden;
@@ -14715,915 +14594,4 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   color: #1f3258;
-}
-
-.dragonegg-event {
-  min-width: 1400px !important;
-  padding-top: 0;
-  padding-bottom: 40px;
-  background: #AB0C21 !important;
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 14px;
-}
-.dragonegg-event button, .dragonegg-event a {
-  font-family: "Source Sans 3", sans-serif;
-}
-.dragonegg-event .event-banner {
-  width: -webkit-fill-available;
-  width: -moz-available;
-  width: fill-available;
-}
-.dragonegg-event .event-main {
-  position: relative;
-  z-index: 1;
-  width: 1200px;
-  height: 629px;
-  padding-top: 130px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: -170px auto 0;
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/daily_bg.png) no-repeat center/cover;
-}
-.dragonegg-event .event-task-title {
-  position: absolute;
-  top: 70px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  font-family: "EB Garamond", serif;
-  font-size: 30px;
-  font-weight: bold;
-}
-.dragonegg-event .event-task-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 251, 236)), to(rgb(255, 242, 199)));
-  background: linear-gradient(180deg, rgb(255, 251, 236) 0%, rgb(255, 242, 199) 100%);
-  margin-bottom: 15px;
-  border-radius: 5px;
-  padding: 5px;
-  -webkit-box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.25);
-  min-height: 95px;
-  width: 500px;
-}
-.dragonegg-event .event-task-item img {
-  width: 60px;
-}
-.dragonegg-event .event-task-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  color: #a06000;
-  width: 316px;
-  font-size: 16px;
-  margin-right: 25px;
-}
-.dragonegg-event .event-task-info .text {
-  color: #a06000;
-  font-weight: bold;
-  line-height: 1.2;
-  height: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.dragonegg-event .event-task-btn {
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/daily_btn.png) no-repeat center/cover;
-  width: 84px;
-  height: 28px;
-  margin-right: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: #fff;
-  font-weight: 600;
-  -webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.4)) brightness(1);
-          filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.4)) brightness(1);
-  font-size: 14px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.dragonegg-event .event-task-btn.active {
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/daily_btn_f.png) no-repeat center/cover;
-  color: #8e8e8e;
-}
-.dragonegg-event .event-task-btn.active:hover {
-  -webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.4)) brightness(1);
-          filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.4)) brightness(1);
-}
-.dragonegg-event .event-task-btn:hover {
-  -webkit-filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.4)) brightness(1.2);
-          filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.4)) brightness(1.2);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.dragonegg-event .event-draw {
-  text-align: center;
-}
-.dragonegg-event .event-draw img {
-  width: 514px;
-}
-.dragonegg-event .event-draw-egg {
-  position: relative;
-}
-.dragonegg-event .event-draw-value {
-  position: absolute;
-  top: 40px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  color: #fff;
-  font-size: 70px;
-  font-weight: 600;
-  -webkit-filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5));
-}
-.dragonegg-event .event-draw-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: -2px auto 25px;
-  width: 350px;
-  padding: 0 12px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.dragonegg-event .event-draw .draw-single {
-  width: 155px;
-  height: 48px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: 18px;
-  font-weight: 600;
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/draw_btn_f.png) no-repeat center/cover;
-  color: #6b6b6b;
-}
-.dragonegg-event .event-draw .draw-single.active {
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/draw_btn.png) no-repeat center/cover;
-  color: #fff;
-  -webkit-filter: brightness(1);
-          filter: brightness(1);
-}
-.dragonegg-event .event-draw .draw-single.active:hover {
-  -webkit-filter: brightness(1.2);
-          filter: brightness(1.2);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.dragonegg-event .event-draw .draw-ten {
-  width: 155px;
-  height: 48px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: 18px;
-  font-weight: 600;
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/draw_btn_f.png) no-repeat center/cover;
-  color: #6b6b6b;
-}
-.dragonegg-event .event-draw .draw-ten.active {
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/draw_btn_ten.png) no-repeat center/cover;
-  color: #fff;
-  -webkit-filter: brightness(1);
-          filter: brightness(1);
-}
-.dragonegg-event .event-draw .draw-ten.active:hover {
-  -webkit-filter: brightness(1.2);
-          filter: brightness(1.2);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.dragonegg-event .event-collection {
-  width: 1200px;
-  margin: 0 auto;
-  height: 649px;
-  margin-top: -115px;
-  margin-bottom: 25px;
-  position: relative;
-  z-index: 2;
-  padding-top: 305px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border-radius: 0 0 10px 10px;
-  -webkit-filter: drop-shadow(0px 0px 2px rgba(44, 44, 44, 0.5019607843));
-          filter: drop-shadow(0px 0px 2px rgba(44, 44, 44, 0.5019607843));
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/5fu_bg_en.png) no-repeat center/cover;
-}
-.dragonegg-event .event-collection.vn {
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/5fu_bg_vn.png) no-repeat center/cover;
-}
-.dragonegg-event .event-collection-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: #aa0804;
-  color: #fff0be;
-  padding: 0 10px;
-  margin: 50px auto 10px;
-  width: calc(100% - 600px);
-  min-height: 95px;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 30px;
-  opacity: 0.8;
-}
-.dragonegg-event .event-collection-btn img {
-  width: 90px;
-  -webkit-filter: contrast(50%);
-          filter: contrast(50%);
-}
-.dragonegg-event .event-collection-btn.active {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(254, 165, 68)), to(rgb(235, 34, 11)));
-  background: linear-gradient(180deg, rgb(254, 165, 68) 0%, rgb(235, 34, 11) 100%);
-  -webkit-filter: drop-shadow(0px 0px 3px #fef571);
-          filter: drop-shadow(0px 0px 3px #fef571);
-  opacity: 1;
-}
-.dragonegg-event .event-collection-btn.active img {
-  width: 90px;
-  -webkit-filter: contrast(1);
-          filter: contrast(1);
-}
-.dragonegg-event .event-collection-text {
-  color: #fff0be;
-  text-align: center;
-  font-size: 18px;
-}
-.dragonegg-event .event-fu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 0 315px;
-}
-.dragonegg-event .event-fu-item img {
-  width: 90px;
-}
-.dragonegg-event .event-fu.active .event-fu-item img {
-  -webkit-filter: grayscale(1) brightness(1.2) contrast(50%);
-          filter: grayscale(1) brightness(1.2) contrast(50%);
-}
-.dragonegg-event .event-history {
-  width: 1200px;
-  margin: 0 auto;
-  background: #8f051e url(https://banner.goal123.org/desktop/img/event/dragonegg/rewards_bg.png) no-repeat center/contain;
-  height: 410px;
-  padding: 80px 350px 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  position: relative;
-}
-.dragonegg-event .event-history::before {
-  display: block;
-  content: "";
-  position: absolute;
-  top: -35px;
-  left: 50%;
-  height: 35px;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  width: 1200px;
-  background: #8f051e;
-  z-index: 0;
-}
-.dragonegg-event .event-history::after {
-  display: block;
-  content: "";
-  position: absolute;
-  bottom: -35px;
-  left: 50%;
-  height: 35px;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  width: 1200px;
-  background: #8f051e;
-  z-index: 0;
-}
-.dragonegg-event .event-history-title {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  color: #ffed98;
-  font-size: 18px;
-  font-weight: bold;
-}
-.dragonegg-event .event-history-table {
-  width: 100%;
-  margin: 0 auto;
-  font-size: 13px;
-}
-.dragonegg-event .event-history-table .top-title {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-align: center;
-}
-.dragonegg-event .event-history-table .top-title div {
-  background: #f6cd63;
-  color: #7e4c02;
-  width: 100%;
-  border-radius: 0 10px 0 0;
-  padding: 5px 0;
-}
-.dragonegg-event .event-history-table .top-title div:first-child {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 150px;
-          flex: 0 0 150px;
-  margin-right: 2px;
-  border-radius: 10px 0 0 0;
-}
-.dragonegg-event .event-history-table .content {
-  border-radius: 0 0 10px 10px;
-  height: 230px;
-  overflow: auto;
-}
-.dragonegg-event .event-history-table .content::-webkit-scrollbar {
-  width: 2px;
-}
-.dragonegg-event .event-history-table .content div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-.dragonegg-event .event-history-table .content div div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  background: #FFE8BB;
-  width: 100%;
-  color: #CA2121;
-  border-bottom: 1px solid #7e4c02;
-  padding: 5px 0;
-}
-.dragonegg-event .event-history-table .content div div:first-child {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 150px;
-          flex: 0 0 150px;
-  margin-right: 2px;
-}
-.dragonegg-event .event-info {
-  background: #8f051e;
-  width: 1200px;
-  color: #f6cd63;
-  margin: 0 auto 10px;
-  padding: 20px 20px 45px;
-  border-radius: 0 0 15px 15px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-size: 13px;
-  position: relative;
-}
-.dragonegg-event .event-info .title {
-  font-size: 22px;
-  font-weight: bold;
-  color: #f6cd63;
-  margin-bottom: 20px;
-  text-align: center;
-}
-.dragonegg-event .event-info .text {
-  color: #f6cd63;
-  margin-bottom: 10px;
-}
-.dragonegg-event .event-info .sponsor {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-align: center;
-  margin: 0 auto;
-  width: 600px;
-}
-.dragonegg-event .event-info .sponsor div {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1;
-          flex: 1 1;
-  background: rgba(0, 0, 0, 0.25);
-  margin-right: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 10px;
-  padding: 10px;
-}
-.dragonegg-event .event-info .sponsor div img {
-  width: 150px;
-}
-.dragonegg-event .event-info-btn {
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/daily_btn.png) no-repeat center/cover;
-  width: 120px;
-  height: 40px;
-  margin: 10px auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  -webkit-filter: brightness(1);
-          filter: brightness(1);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.dragonegg-event .event-info-btn:hover {
-  -webkit-filter: brightness(1.2);
-          filter: brightness(1.2);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.dragonegg-event .progress {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(102, 0, 1)), to(rgb(189, 1, 0)));
-  background: linear-gradient(180deg, rgb(102, 0, 1) 0%, rgb(189, 1, 0) 100%);
-  position: relative;
-  border: 1.5px solid #fff;
-  border-radius: 2vw;
-  width: 100%;
-  height: 10px;
-  -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.15);
-}
-.dragonegg-event .progress-bar {
-  height: 10px;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 227, 133)), to(rgb(255, 163, 19)));
-  background: linear-gradient(180deg, rgb(255, 227, 133) 0%, rgb(255, 163, 19) 100%);
-  border-radius: 10px;
-}
-.dragonegg-event .progress-info {
-  position: absolute;
-  right: 0;
-  bottom: -25px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.dragonegg-pop {
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
-  position: relative;
-  font-family: "Source Sans 3", sans-serif;
-  font-size: 18px;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-}
-.dragonegg-pop .close-btn {
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/icon-close.svg) no-repeat center/cover;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  bottom: calc(50% - 320px);
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-.dragonegg-pop .pop {
-  margin-top: -95px;
-  background: unset !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  overflow: unset !important;
-  max-height: unset !important;
-}
-.dragonegg-pop .pop > div {
-  display: block !important;
-  min-width: unset !important;
-  max-width: unset !important;
-}
-.dragonegg-pop .dragonegg-frame {
-  width: 470px;
-  height: 598px;
-  padding-top: 300px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  text-align: center;
-  position: relative;
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/choose_bg.png) no-repeat center/cover;
-}
-.dragonegg-pop .dragonegg-draw {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 10px auto 0;
-}
-.dragonegg-pop .dragonegg-draw .egg {
-  position: relative;
-}
-.dragonegg-pop .dragonegg-draw .egg img {
-  width: 150px;
-}
-.dragonegg-pop .dragonegg-draw .egg::after {
-  content: "";
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/choose_egg_l.png) no-repeat center/cover;
-  position: absolute;
-  top: -10px;
-  right: 5px;
-  width: 75px;
-  height: 60px;
-  opacity: 0;
-  display: none;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.dragonegg-pop .dragonegg-draw .egg:hover::after {
-  opacity: 1;
-  display: block;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.dragonegg-pop .dragonegg-egg {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  font-weight: bold;
-}
-.dragonegg-pop .dragonegg-egg span {
-  color: #f6cd63;
-}
-
-.dragonegg-result-pop {
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
-  position: relative;
-  font-family: "Source Sans 3", sans-serif;
-  -webkit-box-pack: start !important;
-      -ms-flex-pack: start !important;
-          justify-content: flex-start !important;
-  height: auto;
-  margin-top: -95px;
-}
-.dragonegg-result-pop .close-btn {
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/icon-close.svg) no-repeat center/cover;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  bottom: -55px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-.dragonegg-result-pop .pop {
-  background: unset !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  overflow: unset !important;
-  max-height: unset !important;
-  margin-inline: auto;
-  position: relative;
-  padding-bottom: 25px !important;
-}
-.dragonegg-result-pop .pop > div {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  min-width: unset !important;
-  max-width: unset !important;
-}
-.dragonegg-result-pop .single .title {
-  margin-top: 40px;
-}
-.dragonegg-result-pop .next-try {
-  -webkit-box-pack: center !important;
-      -ms-flex-pack: center !important;
-          justify-content: center !important;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-}
-.dragonegg-result-pop .next-try .dragonegg-result-frame::before {
-  display: none;
-}
-.dragonegg-result-pop .next-try .dragonegg-result-frame img {
-  margin-top: -40px;
-  margin-bottom: 40px;
-  -webkit-animation: none;
-          animation: none;
-}
-.dragonegg-result-pop .next-try .close-btn {
-  bottom: -70px;
-}
-.dragonegg-result-pop .ten-draw .dragonegg-result-frame::before {
-  display: none;
-}
-.dragonegg-result-pop .ten-draw .dragonegg-result-frame img {
-  width: 250px;
-}
-.dragonegg-result-pop .dragonegg-result-frame {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  width: 550px;
-  margin: 0 auto;
-}
-.dragonegg-result-pop .dragonegg-result-frame::before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 270px;
-  top: -100px;
-  left: 0;
-  z-index: -1;
-  background: url(https://banner.goal123.org/desktop/img/event/dragonegg/winning_bg.png) no-repeat center/cover;
-  -webkit-animation: 0.3s bigger cubic-bezier(0.4, 0.94, 0.56, 1.59);
-          animation: 0.3s bigger cubic-bezier(0.4, 0.94, 0.56, 1.59);
-}
-.dragonegg-result-pop .dragonegg-result-frame .title {
-  font-size: 36px;
-  color: #fff;
-  font-family: "Oswald", sans-serif;
-  font-weight: bold;
-  -webkit-text-stroke-width: 1.5px;
-  -webkit-text-stroke-color: #B1010B;
-}
-.dragonegg-result-pop .dragonegg-result-frame .rewards-title {
-  color: #f6cd63;
-  font-size: 25px;
-  font-weight: bold;
-}
-.dragonegg-result-pop .dragonegg-result-frame img {
-  width: 350px;
-  -webkit-animation: 0.3s bigger cubic-bezier(0.4, 0.94, 0.56, 1.59);
-          animation: 0.3s bigger cubic-bezier(0.4, 0.94, 0.56, 1.59);
-}
-.dragonegg-result-pop .dragonegg-result-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin-bottom: 5px;
-  color: #fff;
-}
-.dragonegg-result-pop .dragonegg-result-list div {
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-.dragonegg-result-pop .dragonegg-result-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-orient: horizontal !important;
-  -webkit-box-direction: normal !important;
-      -ms-flex-direction: row !important;
-          flex-direction: row !important;
-  width: 400px;
-  margin: 0 auto;
-}
-.dragonegg-result-pop .dragonegg-result-btn .btn-red-outline {
-  border: 2px solid #ef4646;
-  border-radius: 5px;
-  -webkit-filter: drop-shadow(1px 1px 3px #ef4646) brightness(1);
-          filter: drop-shadow(1px 1px 3px #ef4646) brightness(1);
-  color: #ef4646;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px;
-  height: 42px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: block;
-}
-.dragonegg-result-pop .dragonegg-result-btn .btn-red-outline:hover {
-  -webkit-filter: drop-shadow(1px 1px 3px #ef4646) brightness(1.2);
-          filter: drop-shadow(1px 1px 3px #ef4646) brightness(1.2);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.dragonegg-result-pop .dragonegg-result-btn .btn-red-outline.full {
-  width: 100%;
-  margin-bottom: 10px;
-}
-.dragonegg-result-pop .dragonegg-result-btn .btn-red-outline.half {
-  width: 48.5%;
-  margin-bottom: 10px;
-}
-.dragonegg-result-pop .dragonegg-result-btn .btn-red {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(250, 83, 83)), to(rgb(191, 9, 11)));
-  background: linear-gradient(180deg, rgb(250, 83, 83) 0%, rgb(191, 9, 11) 100%);
-  border-radius: 5px;
-  color: #fff;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px;
-  height: 42px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: block;
-  -webkit-filter: brightness(1);
-          filter: brightness(1);
-}
-.dragonegg-result-pop .dragonegg-result-btn .btn-red:hover {
-  -webkit-filter: brightness(1.2);
-          filter: brightness(1.2);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.dragonegg-result-pop .dragonegg-result-btn .btn-red.full {
-  width: 100%;
-  margin-bottom: 10px;
-}
-.dragonegg-result-pop .dragonegg-result-btn .btn-red.half {
-  width: 48.5%;
-  margin-bottom: 10px;
-}
-.dragonegg-result-pop .dragonegg-result-btn .btn-org {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(249, 132, 66)), to(rgb(201, 78, 10)));
-  background: linear-gradient(180deg, rgb(249, 132, 66) 0%, rgb(201, 78, 10) 100%);
-  border-radius: 5px;
-  color: #fff;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px;
-  height: 42px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: block;
-  -webkit-filter: brightness(1);
-          filter: brightness(1);
-}
-.dragonegg-result-pop .dragonegg-result-btn .btn-org:hover {
-  -webkit-filter: brightness(1.2);
-          filter: brightness(1.2);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.dragonegg-result-pop .dragonegg-result-btn .btn-org.full {
-  width: 100%;
-  margin-bottom: 10px;
-}
-.dragonegg-result-pop .dragonegg-result-btn .btn-org.half {
-  width: 48.5%;
-  margin-bottom: 10px;
-}
-.dragonegg-result-pop .dragonegg-result-egg {
-  font-weight: bold;
-  text-align: center;
-  -webkit-box-orient: horizontal !important;
-  -webkit-box-direction: normal !important;
-      -ms-flex-direction: row !important;
-          flex-direction: row !important;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 16px;
-  color: #fff;
-}
-.dragonegg-result-pop .dragonegg-result-egg span {
-  color: #f6cd63;
-  margin-left: 5px;
-}
-.dragonegg-result-pop .dragonegg-result-share {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 5px;
-  background: #5B0604;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px;
-  margin: 15px auto;
-  -webkit-filter: brightness(1);
-          filter: brightness(1);
-}
-.dragonegg-result-pop .dragonegg-result-share:hover {
-  -webkit-filter: brightness(1.2);
-          filter: brightness(1.2);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-.dragonegg-result-pop .dragonegg-result-share img {
-  width: 20px;
-  margin-bottom: 5px;
-  margin-left: 10px;
-}
-
-.mr-2 {
-  margin-right: 10px;
-}
-
-@-webkit-keyframes bigger {
-  from {
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
-  }
-  to {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
-
-@keyframes bigger {
-  from {
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
-  }
-  to {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
 }/*# sourceMappingURL=style.css.map */
