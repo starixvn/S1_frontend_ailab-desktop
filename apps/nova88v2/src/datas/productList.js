@@ -625,6 +625,11 @@ export default {
 		tpGameType: 53,
 		gameId: 224
 	},
+	games_maxGame: {
+		tpId: 61,
+		gameId: 0,
+		tpGameType: 113
+	},
 
 	/* === 9. event === */
 	"world-cup": {
