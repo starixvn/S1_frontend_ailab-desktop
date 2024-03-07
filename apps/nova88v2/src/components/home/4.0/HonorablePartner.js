@@ -183,7 +183,8 @@ const HonorablePartner = () => {
 				...productList.casino_Skywind,
 				path: paths.casino.root,
 				parameter: { ...productList.casino_Skywind },
-				imgName: "sky"
+				imgName: "sky",
+				allowCurrencies: allowedCurrencyList.slot_SkyWind
 			},
 			{
 				...productList.casino_Nextspin,
@@ -193,7 +194,8 @@ const HonorablePartner = () => {
 			},
 			{
 				...productList.eSport_IM,
-				imgName: "im-esports"
+				imgName: "im-esports",
+				allowCurrencies: allowedCurrencyList.esports_IM
 			},
 			{
 				...productList.casino_SPRIBE,

@@ -189,10 +189,6 @@ export default {
 		gameId: 2,
 		tpGameType: 37
 	},
-	liveCasino_n2live: {
-		tpId: 28,
-		tpGameType: 45
-	},
 	// 新的 PlayTech (Seamless Wallet)
 	liveCasino_PlayTech: {
 		tpId: 51,

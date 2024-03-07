@@ -821,18 +821,6 @@ export const defMenuLinks = langId => ({
 				lobbyImg: "pt"
 			},
 			{
-				...productList.liveCasino_n2live,
-				tpId: 28,
-				className: "liveN2LIVE",
-				icon: "icon icon-N2LIVE",
-				listNpcImgUrl: "n2live.png",
-				displayText: "n2-LIVE",
-				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/n2live.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/n2live-icon.png`,
-				lobbyImg: "n2live"
-			},
-			{
 				...productList.liveCasino_WM,
 				gameId: 20,
 				tpId: 20,
