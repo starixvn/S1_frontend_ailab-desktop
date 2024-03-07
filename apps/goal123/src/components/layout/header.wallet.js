@@ -8,6 +8,7 @@ import React, {
 import moment from "moment";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import classNames from "classnames";
 import path from "../../router";
 import { walletInfoContext, userInfoContext } from "../common/context";
 import ReloadSpin from "../common/reloadSpin";
@@ -22,7 +23,9 @@ import usePopBox from "../hook/usePopBox";
 export default props => {
 	const { isHideBalance, mainWallet, tpWallets, bonusWallets, dispatch } =
 		useContext(walletInfoContext);
-	const { userInfo } = useContext(userInfoContext);
+	const {
+		userInfo: { langId, isLogin, currencyId, lastLogin }
+	} = useContext(userInfoContext);
 	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 
@@ -41,42 +44,30 @@ export default props => {
 
 	const RefreshAllWallets = () => {
 		GetAllWallets({
-			langId: userInfo.langId,
-			isLogin: userInfo.isLogin,
+			langId,
+			isLogin,
 			dispatch,
 			errorPopBox
 		});
 	};
 
-	return userInfo.isLogin && userInfo.currencyId !== undefined ? (
+	return isLogin && currencyId !== undefined ? (
 		<Dropdown
 			{...props}
-			lastLogin={userInfo.lastLogin}
-			currencyId={userInfo.currencyId}
+			lastLogin={lastLogin}
+			currencyId={currencyId}
 			bonusWallets={bonusWallets}
-			_isConvert={isConvert(userInfo.currencyId)}
+			_isConvert={isConvert(currencyId)}
 			handleIsHideBalance={HandleIsHideBalance}
 			RefreshAllWallets={RefreshAllWallets}
 			mainWallet={mainWallet}
 			tpWallets={tpWallets}
 			isHideBalance={isHideBalance}
 		/>
-	) : (
-		<></>
-	);
+	) : null;
 };
 
 class Dropdown extends Component {
-	constructor(props) {
-		super(props);
-		if (typeof document !== `undefined`) {
-			document.addEventListener("mousedown", this.handleClickOutside);
-		}
-		this.state = { isOpen: false };
-		this.wrapper = createRef(null);
-		this.intervalId = createRef(null);
-	}
-
 	handleClickOutside = e => {
 		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
 			this.setState({ isOpen: false });
@@ -87,6 +78,16 @@ class Dropdown extends Component {
 		e.preventDefault();
 		this.setState(prev => ({ isOpen: !prev.isOpen }));
 	};
+
+	constructor(props) {
+		super(props);
+		if (typeof document !== `undefined`) {
+			document.addEventListener("mousedown", this.handleClickOutside);
+		}
+		this.state = { isOpen: false };
+		this.wrapper = createRef(null);
+		this.intervalId = createRef(null);
+	}
 
 	// * 定時更新錢包資訊
 	componentDidMount() {
@@ -142,15 +143,16 @@ class Dropdown extends Component {
 
 		return (
 			<div
-				className={`wallet icon icon-balance${
-					this.state.isOpen ? " active" : ""
-				}`}
+				className={`wallet${this.state.isOpen ? " active" : ""}`}
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
-				<button>
+				<ReloadSpin func={this.props.RefreshAllWallets} />
+
+				<button className="wallet-balance">
 					{this.props.currencyId === 51 ? "VNĐ" : "$"} &nbsp;
-					{isHideBalance ? "*****" : balance}
+					<span>{isHideBalance ? "*****" : balance}</span>
 				</button>
+
 				<button
 					aria-label="HandleDisplayBalance"
 					value={!isHideBalance}
@@ -160,9 +162,10 @@ class Dropdown extends Component {
 					}`}
 				/>
 
-				<ReloadSpin func={this.props.RefreshAllWallets} />
-
-				<div className="submenu">
+				<div
+					className={`home-wallet ${
+						this.state.isOpen ? " active" : ""
+					}`}>
 					<div className="balance">
 						<span>
 							{this.props.currencyId === 51 ? "VNĐ" : "$"}
@@ -179,20 +182,15 @@ class Dropdown extends Component {
 						mainWallet={mainWallet}
 					/>
 					{tpWalletRows}
-
-					<div className="btnGroup">
-						<Link
-							to={`/${this.props.langId}/${path.deposit.root}`}
-							className="orange">
-							{this.props.i18n("lbl_Deposit")}
-						</Link>
-						{/* <Link
-							to={`/${this.props.langId}/${path.transferFunds.root}`}
-							className="orange">
-							{this.props.i18n("lbl_TransferFunds")}
-						</Link> */}
-					</div>
-					<div className="loginLog">
+					<Link to={`/${this.props.langId}/${path.withdrawal.root}`}>
+						<i className="icon-header-withdraw" />
+						{this.props.i18n("lbl_Withdrawal")}
+					</Link>
+					<Link to={`/${this.props.langId}/${path.financial.root}`}>
+						<i className="icon-header-financial" />
+						{this.props.i18n("lbl_FinancialLog")}
+					</Link>
+					<div className="log-login">
 						<span>{this.props.i18n("lbl_LastLogin")}</span>
 						<span>
 							{this.props.lastLogin
@@ -200,7 +198,7 @@ class Dropdown extends Component {
 								: null}
 						</span>
 					</div>
-					<div className="transactionLog">
+					<div className="log-transaction">
 						<span>{this.props.i18n("lbl_LastTransaction")}</span>
 						<span>
 							{mainWallet.lastTransaction
@@ -218,23 +216,21 @@ class Dropdown extends Component {
 
 const BonusWalletRows = ({ bonusWallets, i18n, mainWallet }) => {
 	return (
-		<div className="walletBalance mainWallet">
-			<div>
-				<span>{i18n("lbl_MainWallet")}</span>
-				<span>{number_format({ number: mainWallet.balance })}</span>
-			</div>
+		<>
 			{bonusWallets.map(item => {
 				return (
 					<div
-						className="walletBalance"
-						key={`header-bonuswallet-${item.tpId}`}>
-						<div>
-							<span>
+						key={`header-bonuswallet-${item.tpId}`}
+						className="balance-bouns">
+						<div className="bouns-data">
+							<span className="title">
 								{i18n(
 									`lbl_BonusWallet_${item.promoCategoryId}`
 								)}
 							</span>
-							<span>{number_format({ number: item.bonus })}</span>
+							<span className="bounscash">
+								{number_format({ number: item.bonus })}
+							</span>
 						</div>
 						<HeaderProcessBar
 							turnover={item.turnover}
@@ -243,7 +239,7 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet }) => {
 					</div>
 				);
 			})}
-		</div>
+		</>
 	);
 };
 

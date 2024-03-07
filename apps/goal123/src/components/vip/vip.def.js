@@ -59,31 +59,37 @@ export const defPageClubImg = [
 	{
 		img: `${bannerImgUrl}/desktop/img/vip/vip1.png`,
 		displayKey: "lbl_Vintage_Club",
-		alt: "vip01"
+		alt: "vip01",
+		className: "bronze"
 	},
 	{
 		img: `${bannerImgUrl}/desktop/img/vip/vip2.png`,
 		displayKey: "lbl_Silver_Club",
-		alt: "vip02"
+		alt: "vip02",
+		className: "silver"
 	},
 	{
 		img: `${bannerImgUrl}/desktop/img/vip/vip3.png`,
 		displayKey: "lbl_Gold_Club",
-		alt: "vip03"
+		alt: "vip03",
+		className: "gold"
 	},
 	{
 		img: `${bannerImgUrl}/desktop/img/vip/vip4.png`,
 		displayKey: "lbl_Titanium_Club",
-		alt: "vip04"
+		alt: "vip04",
+		className: "titanium"
 	},
 	{
 		img: `${bannerImgUrl}/desktop/img/vip/vip5.png`,
 		displayKey: "lbl_Diamond_Club",
-		alt: "vip05"
+		alt: "vip05",
+		className: "diamond"
 	},
 	{
 		img: `${bannerImgUrl}/desktop/img/vip/vip6.png`,
 		displayKey: "lbl_Goal123_Club",
-		alt: "vip06"
+		alt: "vip06",
+		className: "goal123"
 	}
 ];
