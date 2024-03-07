@@ -610,6 +610,7 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgImg: "esportlobby-im.png"
 				},
+				allowCurrencies: allowedCurrencyList.esports_IM,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,

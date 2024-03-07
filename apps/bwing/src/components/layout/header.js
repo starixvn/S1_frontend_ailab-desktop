@@ -44,9 +44,7 @@ export default () => {
 					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
 							src={`${bannerImgUrl}/desktop/img/4.0/${
-								isDateRange(eventPeriod)
-									? "newyear-logo"
-									: "logo"
+								userInfo.langId === "vn" ? "logo-vn" : "logo-en"
 							}.png`}
 							alt={config.siteName}
 						/>
