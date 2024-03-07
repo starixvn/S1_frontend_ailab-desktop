@@ -77,6 +77,17 @@ const allowedCurrencyList = {
 		defCurrencyList.KHM
 	],
 
+	// esports
+	esports_IM: [
+		defCurrencyList.MYR,
+		defCurrencyList.THB,
+		defCurrencyList.IDR,
+		defCurrencyList.VND,
+		defCurrencyList.KHM,
+		defCurrencyList.INR,
+		defCurrencyList.BDT
+	],
+
 	// slot
 	slotAMB: [
 		defCurrencyList.THB,
@@ -140,10 +151,8 @@ const allowedCurrencyList = {
 		defCurrencyList.THB,
 		defCurrencyList.IDR,
 		defCurrencyList.CNY,
-		defCurrencyList.USD,
 		defCurrencyList.INR,
-		defCurrencyList.VND,
-		defCurrencyList.KHM
+		defCurrencyList.VND
 	],
 	slot_PP: [
 		defCurrencyList.MYR,
@@ -241,8 +250,6 @@ const allowedCurrencyList = {
 		defCurrencyList.MYR,
 		defCurrencyList.IDR,
 		defCurrencyList.CNY,
-		defCurrencyList.USD,
-		defCurrencyList.KHM,
 		defCurrencyList.INR,
 		defCurrencyList.VND
 	],
