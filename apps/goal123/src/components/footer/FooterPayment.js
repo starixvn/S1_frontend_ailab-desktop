@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { bannerImgUrl } from "../../config";
 
-const Payment = () => {
+const FooterPayment = () => {
 	const { t } = useTranslation();
 	const paymentMethods = [
 		{ id: "acb", name: "ACB" },
@@ -26,7 +26,10 @@ const Payment = () => {
 			<div className="title">{t("lbl_PaymentMethods")}</div>
 			<div>
 				{paymentMethods.map(method => (
-					<a key={method.id} onClick={e => e.preventDefault()}>
+					<a
+						key={method.id}
+						onClick={e => e.preventDefault()}
+						style={{ cursor: "default" }}>
 						<img
 							src={`${bannerImgUrl}/desktop/img/home-page/payment/${method.id}.jpg`}
 							alt={method.name}
@@ -38,4 +41,4 @@ const Payment = () => {
 	);
 };
 
-export default Payment;
+export default FooterPayment;

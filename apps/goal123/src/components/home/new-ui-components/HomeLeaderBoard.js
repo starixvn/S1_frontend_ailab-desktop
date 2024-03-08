@@ -1,23 +1,26 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import useTopWinnerList from "../hooks/useWinnerList";
 import { number_format } from "../../common/common";
 import { bannerImgUrl } from "../../../config";
 
 const HomeLeaderBoard = () => {
 	const winnerList = useTopWinnerList();
+	const { t } = useTranslation();
 
+	// 尚在等product top list api資料
 	return (
 		<div className="home-leaderboard">
 			<div className="home-leaderboard-wrapper">
 				<div className="win-products">
-					<div className="home-title">Products top 1st</div>
+					<div className="home-title">Products top List</div>
 					<div className="inner">
 						<div className="item sports">
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/sports-top1.png`}
 								alt=""
 							/>
-							<div className="title">Sports</div>
+							<div className="title">{t("lbl_Sports")}</div>
 							<div className="user-data">
 								<span>Lo*****98</span>
 								<span>$999,999,999.99</span>
@@ -28,7 +31,7 @@ const HomeLeaderBoard = () => {
 								src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/casino-top1.png`}
 								alt=""
 							/>
-							<div className="title">Casino</div>
+							<div className="title">{t("lbl_Casino")}</div>
 							<div className="user-data">
 								<span>Lo*****98</span>
 								<span>$999,999,999.99</span>
@@ -39,7 +42,7 @@ const HomeLeaderBoard = () => {
 								src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/slots-top1.png`}
 								alt=""
 							/>
-							<div className="title">Slots</div>
+							<div className="title">{t("lbl_Slots")}</div>
 							<div className="user-data">
 								<span>Lo*****98</span>
 								<span>$999,999.99</span>

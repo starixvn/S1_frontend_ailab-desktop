@@ -116,8 +116,8 @@ const HomeHotGame = () => {
 						{/* Click to link to platform's Lobby-cockfighting page */}
 						<a
 							className="item"
-							href={`/${userInfo.langId}/${path.liveCasino.root}`}>
-							<span>cockfighting</span>
+							href={`/${userInfo.langId}/${path.cockFighting.root}`}>
+							<span>{t("lbl_CockFighting")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/cockfighting.png`}
 								alt=""

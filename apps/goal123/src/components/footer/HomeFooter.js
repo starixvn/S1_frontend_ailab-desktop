@@ -1,18 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-
 import { userInfoContext } from "../common/context";
 import { bannerImgUrl, siteInfo } from "../../config";
 import path from "../../router";
-import Payment from "./Payment";
-import FooterProvider from "./Provider";
+import FooterPayment from "./FooterPayment";
+import FooterProvider from "./FooterProvider";
 import TandC from "../../service/t_and_c";
 
 import useGetSocialChannel, {
 	defDisplayPage,
-	defChannelName,
-	defLinkType,
-	sideBarImgName
+	defChannelName
 } from "../hook/useGetSocialChannel";
 
 const HomeFooter = () => {
@@ -66,11 +63,13 @@ const HomeFooter = () => {
 						</a>
 
 						<a
-							style={{ fontWeight: "bold" }}
-							href={siteInfo(userInfo.langId).affiliateLink}
+							href={
+								siteInfo({ langId: userInfo.langId })
+									.affiliateLink
+							}
 							target="_blank"
 							rel="noreferrer">
-							{t("lbl_Affiliates")?.toUpperCase()}
+							{t("lbl_Affiliates")}
 						</a>
 					</div>
 
@@ -88,7 +87,7 @@ const HomeFooter = () => {
 										alt=""
 									/>
 								</a>
-								{/* youtube */}
+								{/* youtube 連結尚未給 */}
 								<a href="">
 									<img
 										src={`${bannerImgUrl}/desktop/img/home-page/icon/icon-youtube.svg`}
@@ -137,16 +136,17 @@ const HomeFooter = () => {
 							{t("lbl_Lottery")}
 						</a>
 						<a href={`/${userInfo.langId}/${path.casino.root}`}>
-							{t("lbl_Casino")}
+							{t("lbl_Slots")}
 						</a>
 						<a href={`/${userInfo.langId}/${path.liveCasino.root}`}>
 							{t("lbl_LiveCasino")}
 						</a>
-						<a href={`/${userInfo.langId}/${path.casino.root}`}>
-							Cockfighting
+						<a
+							href={`/${userInfo.langId}/${path.cockFighting.root}`}>
+							{t("lbl_Cockfight")}
 						</a>
 					</div>
-					<Payment />
+					<FooterPayment />
 					<FooterProvider />
 				</div>
 				<div className="powered">
