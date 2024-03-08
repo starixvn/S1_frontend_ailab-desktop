@@ -10,32 +10,6 @@ export default class Panel extends Component {
 		this.wrapper = createRef(null);
 	}
 
-	UNSAFE_componentWillMount() {
-		if (typeof document !== `undefined`) {
-			document.removeEventListener(
-				"mouseover",
-				this.handleMoveToOutside,
-				false
-			);
-		}
-	}
-
-	componentDidMount() {
-		if (typeof document !== `undefined`) {
-			document.addEventListener(
-				"mouseover",
-				this.handleMoveToOutside,
-				true
-			);
-		}
-	}
-
-	handleMoveToOutside = e => {
-		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
-			this.setState({ menuKey: "" });
-		}
-	};
-
 	showSubMenu = col => {
 		this.setState({ menuKey: col });
 	};
@@ -62,7 +36,11 @@ export default class Panel extends Component {
 		}
 
 		return (
-			<div className="menu">
+			<div
+				className="menu"
+				onMouseLeave={() => {
+					this.setState({ menuKey: "" });
+				}}>
 				<MainMenu
 					showSubMenu={this.showSubMenu}
 					productTpIds={this.props.productTpIds}

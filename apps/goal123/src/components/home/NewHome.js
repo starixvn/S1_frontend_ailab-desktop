@@ -1,24 +1,16 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useEffect, useContext, useRef } from "react";
 
 import { useTranslation } from "react-i18next";
 
 import { isDateRange } from "@ailab-desktop/common";
 
-import {
-	setCookie,
-	readCookie,
-	deleteCookie,
-	number_format
-} from "../common/common";
+import { readCookie, deleteCookie } from "../common/common";
 
 import {
 	userInfoContext,
 	popBoxContext,
-	isRootContext,
-	maintainListContext
+	isRootContext
 } from "../common/context";
-
-import usePopBox from "../hook/usePopBox";
 
 import { BannerSwipper } from "../common/customSwipper";
 import { defBannerType } from "../../service/api/site";
@@ -31,8 +23,7 @@ import HomeApp from "./new-ui-components/HomeApp";
 import HomeLeaderBoard from "./new-ui-components/HomeLeaderBoard";
 import HomeMarquee from "./new-ui-components/HomeMarquee";
 import HomeRecent from "./new-ui-components/HomeRecent";
-import SideBarQuickLink from "./sideBarQuickLink";
-import QuickdownloadLink from "./quickdownloadLink";
+
 import MysteryBoxLink from "./mysteryBoxLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import DragonEgg from "../dragonEgg/homeLink";
@@ -58,7 +49,7 @@ const NewHome = () => {
 			isMountedRef.current = false;
 			setIsRoot(false);
 		};
-	});
+	}, []);
 
 	useEffect(() => {
 		const popBoxMsg = readCookie("popBoxMsg");
@@ -100,7 +91,6 @@ const NewHome = () => {
 				withPagination={true}
 				config={bannerSwipperConfig}
 			/>
-			q
 			<HomeMarquee />
 			<div className="home-wrapper">
 				<HomeJoin />
@@ -118,7 +108,6 @@ const NewHome = () => {
 					langId={userInfo.langId}
 				/>
 				<LiveStreamingLink />
-				{/* <SideBarQuickLink /> */}
 			</div>
 		</main>
 	);

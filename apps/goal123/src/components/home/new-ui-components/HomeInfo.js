@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-
 import { userInfoContext } from "../../common/context";
 import config from "../../../config";
 import News from "../components/news";

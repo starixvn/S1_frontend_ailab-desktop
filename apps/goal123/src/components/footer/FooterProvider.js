@@ -40,7 +40,10 @@ const FooterProvider = () => {
 		<div className="provider">
 			<div>
 				{providers.map(provider => (
-					<a key={provider.id} onClick={e => e.preventDefault}>
+					<a
+						key={provider.id}
+						onClick={e => e.preventDefault}
+						style={{ cursor: "default" }}>
 						<img
 							src={`${bannerImgUrl}/desktop/img/home-page/provider/${
 								isHovered[provider.id]

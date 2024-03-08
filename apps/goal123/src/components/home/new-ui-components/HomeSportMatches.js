@@ -7,11 +7,9 @@ import { useTranslation } from "react-i18next";
 import { api_hotEvent_GetDataList } from "../../../service/api/hotEvent";
 import { userInfoContext } from "../../common/context";
 import { bannerImgUrl } from "../../../config";
-import path from "../../../router";
-import { SetPathParameter } from "../../common/customSwipper";
 
 const HomeSportMatches = () => {
-	const [activeTab, setActiveTab] = useState("1"); //  '1' 代表足球，'2' 代表籃球
+	const [activeTab, setActiveTab] = useState("1"); // 1: football, 2: basketball
 	const [apiData, setApiData] = useState([]);
 	const [filteredData, setFilteredData] = useState([]);
 	const { t } = useTranslation();
@@ -24,22 +22,9 @@ const HomeSportMatches = () => {
 				const { errorCode, data } = res.data;
 				if (errorCode === 0 && data) {
 					setApiData(data);
-					console.log("apiData", apiData);
 				}
 			});
-
-			const footballExists = apiData.some(item => item.gameId === "1");
-			const basketballExists = apiData.some(item => item.gameId === "2");
-
-			if (footballExists) {
-				setActiveTab("football");
-				console.log("footballExists");
-			} else if (basketballExists) {
-				setActiveTab("basketball");
-				console.log("footballExists");
-			}
 		};
-
 		getHotEventDataList();
 	}, []);
 
@@ -68,28 +53,15 @@ const HomeSportMatches = () => {
 		}
 	};
 
-	// const onClickEvent = ({ tpId, gameId, matchId }) => {
-	// 	const parameters = SetPathParameter({
-	// 		urlRouter: path.sports.root,
-	// 		tpId,
-	// 		gameId,
-	// 		matchId
-	// 	});
-
-	// 	navigate(`/${userInfo.langId}/${path.sports.root}${parameters}`);
-	// };
-
 	const onClickEvent = (gameId, matchId) => {
-		const gameType = gameId === "1" ? "Soccer" : "basketball"; // 假设'1'是足球，'2'是篮球
+		const gameType = gameId === "1" ? "Soccer" : "basketball";
 		const queryParams = new URLSearchParams({
 			game: gameType,
 			matchId
 		}).toString();
 
-		// 构造目标URL
 		const targetUrl = `/${userInfo.langId}/sports?${queryParams}`;
 
-		// 执行导航
 		navigate(targetUrl);
 	};
 
