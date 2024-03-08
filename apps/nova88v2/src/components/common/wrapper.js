@@ -40,7 +40,7 @@ import { defLangGroups } from "../header/header.langDropdown";
 const flatLangList = Object.values(defLangGroups).flatMap(item => item);
 
 export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 
 	const location = useLocation();
 	const [popBox, setPopBox] = useState({
@@ -179,7 +179,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	useEffect(() => {
 		// * 以 di 為基準，等 di 有值之後才進入這個 effect
-		if (!pathLang || !di || !userInfo?.langId) return;
+		if (!pathLang || !userInfo?.langId) return;
 		if (isLineLoading) return;
 
 		const code = getUrlParameter("code");
@@ -267,7 +267,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 			});
 			setIsLineLoading(true);
 		}
-	}, [di, userInfo?.langId, pathLang]);
+	}, [userInfo?.langId, pathLang]);
 
 	// * checkSignIn
 	useEffect(() => {
