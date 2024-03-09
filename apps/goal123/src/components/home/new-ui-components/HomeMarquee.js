@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 import { navigate } from "gatsby";
 import { api_message_GetAnnouncement } from "../../../service/api/message";
@@ -8,6 +9,7 @@ import { getCurrencyCode } from "../../common/common";
 
 const HomeMarquee = () => {
 	const [datas, setDatas] = useState([]);
+	const { t } = useTranslation();
 	const [isPaused, setIsPaused] = useState(false);
 	const [marginLeft, setMarginLeft] = useState(0);
 	const [shouldRestart, setShouldRestart] = useState(false);
@@ -98,7 +100,7 @@ const HomeMarquee = () => {
 					))}
 				</div>
 				<button className="btn-info" onClick={clickMarquee}>
-					More
+					{t("lbl_Home_More")}
 				</button>
 			</div>
 		</div>

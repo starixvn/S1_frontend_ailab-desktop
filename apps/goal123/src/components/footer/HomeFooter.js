@@ -76,7 +76,9 @@ const HomeFooter = () => {
 					{/* 需可觸發相對應的socialmedia */}
 					<div className="social-media">
 						<div className="social-media-item">
-							<div className="title">Follow us</div>
+							<div className="title">
+								{t("lbl_Home_Follow_Us")}
+							</div>
 							<div className="media">
 								{/* facebook */}
 								<a
@@ -122,7 +124,9 @@ const HomeFooter = () => {
 				{/* 需連到相對應的Lobby頁, sports應連到saba-sports */}
 				<div className="footer-bottom">
 					<div className="game-collection">
-						<div className="title">Games Collection</div>
+						<div className="title">
+							{t("lbl_Home_Game_Collection")}
+						</div>
 						<a href={`/${userInfo.langId}/${path.sports.root}`}>
 							{t("lbl_Sports")}
 						</a>
@@ -143,7 +147,7 @@ const HomeFooter = () => {
 						</a>
 						<a
 							href={`/${userInfo.langId}/${path.cockFighting.root}`}>
-							{t("lbl_Cockfight")}
+							{t("lbl_CockFighting")}
 						</a>
 					</div>
 					<FooterPayment />
@@ -151,7 +155,7 @@ const HomeFooter = () => {
 				</div>
 				<div className="powered">
 					<div className="brand-item">
-						<span>powered by</span>
+						<span>{t("lbl_PoweredBy")}</span>
 						<img
 							src={`${bannerImgUrl}/desktop/img/bong88.png`}
 							alt=""

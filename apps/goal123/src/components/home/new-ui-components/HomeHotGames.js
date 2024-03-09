@@ -6,7 +6,7 @@ import { bannerImgUrl } from "../../../config";
 import useClickItem from "../hooks/useClickItem";
 import productList from "../../../datas/productList";
 
-const HomeHotGame = () => {
+const HomeHotGames = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { clickHomeItem } = useClickItem();
 	const { t } = useTranslation();
@@ -130,4 +130,4 @@ const HomeHotGame = () => {
 	);
 };
 
-export default HomeHotGame;
+export default HomeHotGames;

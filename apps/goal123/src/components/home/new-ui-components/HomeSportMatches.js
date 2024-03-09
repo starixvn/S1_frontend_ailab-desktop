@@ -68,19 +68,19 @@ const HomeSportMatches = () => {
 	return (
 		<div className="home-sports">
 			<div>
-				<div className="home-title">Sports</div>
+				<div className="home-title">{t("lbl_Sports")}</div>
 				<div className="sports-menu">
 					<a
 						href="#"
 						className={activeTab === "1" ? "active" : ""}
 						onClick={e => handleTabClick(e, "1")}>
-						Football
+						{t("lbl_Home_Football")}
 					</a>
 					<a
 						href="#"
 						className={activeTab === "2" ? "active" : ""}
 						onClick={e => handleTabClick(e, "2")}>
-						Basketball
+						{t("lbl_Basketball")}
 					</a>
 				</div>
 			</div>
@@ -89,7 +89,7 @@ const HomeSportMatches = () => {
 					src={`${bannerImgUrl}/desktop/img/home-page/hotmatches-bg.png`}
 					alt=""
 				/>
-				<span>Brand Ambassador 2023-2024 </span>
+				<span>{t("lbl_Home_Ambassador")}2023-2024 </span>
 				<span>Michael Ballack</span>
 			</div>
 			<div className="video-content">

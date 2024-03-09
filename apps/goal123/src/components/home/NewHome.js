@@ -1,11 +1,6 @@
 import React, { useEffect, useContext, useRef } from "react";
-
 import { useTranslation } from "react-i18next";
-
 import { isDateRange } from "@ailab-desktop/common";
-
-import { readCookie, deleteCookie } from "../common/common";
-
 import {
 	userInfoContext,
 	popBoxContext,
@@ -15,7 +10,7 @@ import {
 import { BannerSwipper } from "../common/customSwipper";
 import { defBannerType } from "../../service/api/site";
 import HomeJoin from "./new-ui-components/HomeJoin";
-import HomeHotGame from "./new-ui-components/HomeHotGame";
+import HomeHotGames from "./new-ui-components/HomeHotGames";
 import HomeSportMatches from "./new-ui-components/HomeSportMatches";
 import HomePopularSlotGames from "./new-ui-components/HomePopularSlotGames";
 import HomeInfo from "./new-ui-components/HomeInfo";
@@ -23,7 +18,6 @@ import HomeApp from "./new-ui-components/HomeApp";
 import HomeLeaderBoard from "./new-ui-components/HomeLeaderBoard";
 import HomeMarquee from "./new-ui-components/HomeMarquee";
 import HomeRecent from "./new-ui-components/HomeRecent";
-
 import MysteryBoxLink from "./mysteryBoxLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import DragonEgg from "../dragonEgg/homeLink";
@@ -31,13 +25,12 @@ import path from "../../router";
 import { eventPerios } from "../../datas/eventDef";
 import { defPopBoxType } from "../common/popBox";
 import LiveStreamingLink from "./liveStreaming";
-import usePopupHandler from "./hooks/useHomePopup";
+import usePopupHandler from "./hooks/usePopupHandler";
 
 const NewHome = () => {
 	const isMountedRef = useRef(null);
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
-	const { setPopBox } = useContext(popBoxContext);
 	const { setIsRoot } = useContext(isRootContext);
 
 	usePopupHandler();
@@ -49,29 +42,6 @@ const NewHome = () => {
 			isMountedRef.current = false;
 			setIsRoot(false);
 		};
-	}, []);
-
-	useEffect(() => {
-		const popBoxMsg = readCookie("popBoxMsg");
-		if (popBoxMsg) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.ErrorMsg,
-				message: popBoxMsg,
-				btnBar: (
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							onClick={() => {
-								deleteCookie("popBoxMsg");
-								setPopBox({ isOpen: false });
-							}}>
-							{t("lbl_Close")}
-						</button>
-					</div>
-				)
-			});
-		}
 	}, []);
 
 	const bannerSwipperConfig = {
@@ -95,7 +65,7 @@ const NewHome = () => {
 			<div className="home-wrapper">
 				<HomeJoin />
 				<HomeSportMatches />
-				<HomeHotGame />
+				<HomeHotGames />
 				<HomeLeaderBoard />
 				<HomePopularSlotGames />
 				<HomeInfo />

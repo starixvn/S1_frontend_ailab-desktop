@@ -5,31 +5,38 @@ import { bannerImgUrl } from "../../../config";
 import { userInfoContext } from "../../common/context";
 import path from "../../../router";
 
+// lbl_Home_Exclusives_VIP_Title
+// lbl_Home_Exclusives_VIP_Text
+// lbl_Home_Attractive_Bonus_Title
+// lbl_Home_Attractive_Bonus_Text
+// lbl_Home_Speedy_Transactions_Title
+// lbl_Home_Speedy_Transactions_Text
+
 const HomeJoin = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { t } = useTranslation();
 	const JoinListItems = [
 		{
-			title: "professional image",
-			text: "High trust with Michael Ballack as brand ambassador.",
+			title: "lbl_Home_Professional_Image_Title",
+			text: "lbl_Home_Professional_Image_Text",
 			img: "professional.png",
 			link: ""
 		},
 		{
-			title: "exclusives VIP",
-			text: "VIP Lounge with exclusives",
+			title: "lbl_Home_Exclusives_VIP_Title",
+			text: "lbl_Home_Exclusives_VIP_Text",
 			img: "exclusives-vip.png",
 			link: `/${userInfo.langId}/${path.vip.root}`
 		},
 		{
-			title: "Attractive bonus",
-			text: "welcome bonus, daily reload, unlimited rebate",
+			title: "lbl_Home_Attractive_Bonus_Title",
+			text: "lbl_Home_Attractive_Bonus_Text",
 			img: "bouns.png",
 			link: `/${userInfo.langId}/${path.promotion.root}`
 		},
 		{
-			title: "Speedy transactions",
-			text: "Enjoy faster and more convenient transaction payments",
+			title: "lbl_Home_Speedy_Transactions_Title",
+			text: "lbl_Home_Speedy_Transactions_Text",
 			img: "speedy.png",
 			link: `/${userInfo.langId}/${path.deposit.root}`
 		}
@@ -40,12 +47,12 @@ const HomeJoin = () => {
 
 	return (
 		<>
-			<div className="home-title">JOIN GOAL123</div>
+			<div className="home-title">{t("lbl_Home_Join")} GOAL123</div>
 			<div className="home-join">
 				{JoinListItems.map((item, index) => (
 					<div className="item" key={index.title}>
-						<div className="title">{item.title}</div>
-						<div className="text">{item.text}</div>
+						<div className="title">{t(item.title)}</div>
+						<div className="text">{t(item.text)}</div>
 						<img src={getImageUrl(item.img)} alt="" />
 						<div className="bottom">
 							<Link to={item.link} className="btn-more">

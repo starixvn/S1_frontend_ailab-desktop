@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { defCasinoProviders } from "../../../datas/productList";
 import config from "../../../config";
 import { userInfoContext } from "../../common/context";
 
 const HomePopularSlotGames = () => {
 	const { userInfo } = useContext(userInfoContext);
+	const { t } = useTranslation();
 
 	return (
 		<div className="home-popularslots">
-			<div className="home-title">POPULAR slot games Ranking</div>
+			<div className="home-title">
+				{t("lbl_Home_Popular_Slot_Games_Ranking")}
+			</div>
 			<div className="popularslots-content">
 				<div className="popularslots-inner">
 					<div className="regular">

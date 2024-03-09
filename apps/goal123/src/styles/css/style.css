@@ -204,7 +204,7 @@ html.Newtheme header .header > div.menu {
   display: -ms-flexbox;
   display: flex;
   letter-spacing: 1px;
-  width: calc(100% - (100% - 1010px));
+  width: 100%;
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
@@ -349,7 +349,9 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .livecasinoLi
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .fishList a,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .fishList button,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList a,
-html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList button {
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList button,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .cockList a,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .cockList button {
   background: url(https://banner.goal123.org/desktop/img/dropdown/dropbg_b2.png) no-repeat center/auto 100%;
 }
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList a .item-icon, html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList button .item-icon,
@@ -364,10 +366,52 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .livecasinoLi
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .fishList a .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .fishList button .item-icon,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList a .item-icon,
-html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList button .item-icon {
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList button .item-icon,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .cockList a .item-icon,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .cockList button .item-icon {
   width: 100px;
   left: 62px;
   top: 5px;
+}
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .gameList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .esportList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .casinoList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .livecasinoList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .fishList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .cockList .newicon::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 20px;
+  -webkit-transform: unset;
+          transform: unset;
+  display: block;
+  width: 36px;
+  height: 36px;
+  -webkit-animation: flash4 linear infinite alternate 0.4s;
+          animation: flash4 linear infinite alternate 0.4s;
+}
+@-webkit-keyframes flash4 {
+  0% {
+    -webkit-filter: brightness(0.95);
+    filter: brightness(0.95);
+  }
+  100% {
+    -webkit-filter: brightness(1.15);
+    filter: brightness(1.15);
+  }
+}
+@keyframes flash4 {
+  0% {
+    -webkit-filter: brightness(0.95);
+    filter: brightness(0.95);
+  }
+  100% {
+    -webkit-filter: brightness(1.15);
+    filter: brightness(1.15);
+  }
 }
 html.Newtheme header .header > div.menu .sportList,
 html.Newtheme header .header > div.menu .gameList,
@@ -375,7 +419,8 @@ html.Newtheme header .header > div.menu .esportList,
 html.Newtheme header .header > div.menu .casinoList,
 html.Newtheme header .header > div.menu .livecasinoList,
 html.Newtheme header .header > div.menu .fishList,
-html.Newtheme header .header > div.menu .lotteryList {
+html.Newtheme header .header > div.menu .lotteryList,
+html.Newtheme header .header > div.menu .cockList {
   max-width: 100%;
   margin: auto;
   display: none;
@@ -386,7 +431,8 @@ html.Newtheme header .header > div.menu .esportList.active,
 html.Newtheme header .header > div.menu .casinoList.active,
 html.Newtheme header .header > div.menu .livecasinoList.active,
 html.Newtheme header .header > div.menu .fishList.active,
-html.Newtheme header .header > div.menu .lotteryList.active {
+html.Newtheme header .header > div.menu .lotteryList.active,
+html.Newtheme header .header > div.menu .cockList.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -402,7 +448,8 @@ html.Newtheme header .header > div.menu .esportList.active div,
 html.Newtheme header .header > div.menu .casinoList.active div,
 html.Newtheme header .header > div.menu .livecasinoList.active div,
 html.Newtheme header .header > div.menu .fishList.active div,
-html.Newtheme header .header > div.menu .lotteryList.active div {
+html.Newtheme header .header > div.menu .lotteryList.active div,
+html.Newtheme header .header > div.menu .cockList.active div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -420,7 +467,9 @@ html.Newtheme header .header > div.menu .livecasinoList button,
 html.Newtheme header .header > div.menu .fishList a,
 html.Newtheme header .header > div.menu .fishList button,
 html.Newtheme header .header > div.menu .lotteryList a,
-html.Newtheme header .header > div.menu .lotteryList button {
+html.Newtheme header .header > div.menu .lotteryList button,
+html.Newtheme header .header > div.menu .cockList a,
+html.Newtheme header .header > div.menu .cockList button {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 200px;
           flex: 0 0 200px;
@@ -457,7 +506,9 @@ html.Newtheme header .header > div.menu .livecasinoList button img,
 html.Newtheme header .header > div.menu .fishList a img,
 html.Newtheme header .header > div.menu .fishList button img,
 html.Newtheme header .header > div.menu .lotteryList a img,
-html.Newtheme header .header > div.menu .lotteryList button img {
+html.Newtheme header .header > div.menu .lotteryList button img,
+html.Newtheme header .header > div.menu .cockList a img,
+html.Newtheme header .header > div.menu .cockList button img {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -475,7 +526,9 @@ html.Newtheme header .header > div.menu .livecasinoList button span,
 html.Newtheme header .header > div.menu .fishList a span,
 html.Newtheme header .header > div.menu .fishList button span,
 html.Newtheme header .header > div.menu .lotteryList a span,
-html.Newtheme header .header > div.menu .lotteryList button span {
+html.Newtheme header .header > div.menu .lotteryList button span,
+html.Newtheme header .header > div.menu .cockList a span,
+html.Newtheme header .header > div.menu .cockList button span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -504,7 +557,9 @@ html.Newtheme header .header > div.menu .livecasinoList button span > p,
 html.Newtheme header .header > div.menu .fishList a span > p,
 html.Newtheme header .header > div.menu .fishList button span > p,
 html.Newtheme header .header > div.menu .lotteryList a span > p,
-html.Newtheme header .header > div.menu .lotteryList button span > p {
+html.Newtheme header .header > div.menu .lotteryList button span > p,
+html.Newtheme header .header > div.menu .cockList a span > p,
+html.Newtheme header .header > div.menu .cockList button span > p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -525,7 +580,9 @@ html.Newtheme header .header > div.menu .livecasinoList button:hover,
 html.Newtheme header .header > div.menu .fishList a:hover,
 html.Newtheme header .header > div.menu .fishList button:hover,
 html.Newtheme header .header > div.menu .lotteryList a:hover,
-html.Newtheme header .header > div.menu .lotteryList button:hover {
+html.Newtheme header .header > div.menu .lotteryList button:hover,
+html.Newtheme header .header > div.menu .cockList a:hover,
+html.Newtheme header .header > div.menu .cockList button:hover {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   background: url(https://banner.goal123.org/desktop/img/dropdown/dropbg_a.png) no-repeat center/auto 100%;
@@ -543,7 +600,9 @@ html.Newtheme header .header > div.menu .livecasinoList button:hover span,
 html.Newtheme header .header > div.menu .fishList a:hover span,
 html.Newtheme header .header > div.menu .fishList button:hover span,
 html.Newtheme header .header > div.menu .lotteryList a:hover span,
-html.Newtheme header .header > div.menu .lotteryList button:hover span {
+html.Newtheme header .header > div.menu .lotteryList button:hover span,
+html.Newtheme header .header > div.menu .cockList a:hover span,
+html.Newtheme header .header > div.menu .cockList button:hover span {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   background: url(https://banner.goal123.org/desktop/img/dropdown/droptitle_a.png) no-repeat center/auto 100%;
@@ -562,7 +621,9 @@ html.Newtheme header .header > div.menu .livecasinoList button:hover .item-img,
 html.Newtheme header .header > div.menu .fishList a:hover .item-img,
 html.Newtheme header .header > div.menu .fishList button:hover .item-img,
 html.Newtheme header .header > div.menu .lotteryList a:hover .item-img,
-html.Newtheme header .header > div.menu .lotteryList button:hover .item-img {
+html.Newtheme header .header > div.menu .lotteryList button:hover .item-img,
+html.Newtheme header .header > div.menu .cockList a:hover .item-img,
+html.Newtheme header .header > div.menu .cockList button:hover .item-img {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   bottom: 0;
@@ -580,7 +641,9 @@ html.Newtheme header .header > div.menu .livecasinoList button:hover .liveitem-i
 html.Newtheme header .header > div.menu .fishList a:hover .liveitem-img,
 html.Newtheme header .header > div.menu .fishList button:hover .liveitem-img,
 html.Newtheme header .header > div.menu .lotteryList a:hover .liveitem-img,
-html.Newtheme header .header > div.menu .lotteryList button:hover .liveitem-img {
+html.Newtheme header .header > div.menu .lotteryList button:hover .liveitem-img,
+html.Newtheme header .header > div.menu .cockList a:hover .liveitem-img,
+html.Newtheme header .header > div.menu .cockList button:hover .liveitem-img {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   bottom: 40px;
@@ -598,7 +661,9 @@ html.Newtheme header .header > div.menu .livecasinoList button img,
 html.Newtheme header .header > div.menu .fishList a img,
 html.Newtheme header .header > div.menu .fishList button img,
 html.Newtheme header .header > div.menu .lotteryList a img,
-html.Newtheme header .header > div.menu .lotteryList button img {
+html.Newtheme header .header > div.menu .lotteryList button img,
+html.Newtheme header .header > div.menu .cockList a img,
+html.Newtheme header .header > div.menu .cockList button img {
   max-width: 150px;
 }
 html.Newtheme header .header > div.menu .sportList a.active,
@@ -614,7 +679,9 @@ html.Newtheme header .header > div.menu .livecasinoList button.active,
 html.Newtheme header .header > div.menu .fishList a.active,
 html.Newtheme header .header > div.menu .fishList button.active,
 html.Newtheme header .header > div.menu .lotteryList a.active,
-html.Newtheme header .header > div.menu .lotteryList button.active {
+html.Newtheme header .header > div.menu .lotteryList button.active,
+html.Newtheme header .header > div.menu .cockList a.active,
+html.Newtheme header .header > div.menu .cockList button.active {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
   display: -webkit-box;
@@ -640,7 +707,9 @@ html.Newtheme header .header > div.menu .livecasinoList button.active .maintenan
 html.Newtheme header .header > div.menu .fishList a.active .maintenance,
 html.Newtheme header .header > div.menu .fishList button.active .maintenance,
 html.Newtheme header .header > div.menu .lotteryList a.active .maintenance,
-html.Newtheme header .header > div.menu .lotteryList button.active .maintenance {
+html.Newtheme header .header > div.menu .lotteryList button.active .maintenance,
+html.Newtheme header .header > div.menu .cockList a.active .maintenance,
+html.Newtheme header .header > div.menu .cockList button.active .maintenance {
   position: absolute;
   z-index: 1;
   background: #1f2e4d;
@@ -662,7 +731,9 @@ html.Newtheme header .header > div.menu .livecasinoList button .maintenance,
 html.Newtheme header .header > div.menu .fishList a .maintenance,
 html.Newtheme header .header > div.menu .fishList button .maintenance,
 html.Newtheme header .header > div.menu .lotteryList a .maintenance,
-html.Newtheme header .header > div.menu .lotteryList button .maintenance {
+html.Newtheme header .header > div.menu .lotteryList button .maintenance,
+html.Newtheme header .header > div.menu .cockList a .maintenance,
+html.Newtheme header .header > div.menu .cockList button .maintenance {
   display: none;
 }
 html.Newtheme header .header > div.menu .livecasinoList a:hover .item-img,
@@ -677,7 +748,8 @@ html.Newtheme header .header > div.menu .esportList .item-bg,
 html.Newtheme header .header > div.menu .casinoList .item-bg,
 html.Newtheme header .header > div.menu .livecasinoList .item-bg,
 html.Newtheme header .header > div.menu .fishList .item-bg,
-html.Newtheme header .header > div.menu .lotteryList .item-bg {
+html.Newtheme header .header > div.menu .lotteryList .item-bg,
+html.Newtheme header .header > div.menu .cockList .item-bg {
   position: absolute;
   top: calc(50% - 75px);
   left: calc(50% - 75px);
@@ -689,7 +761,8 @@ html.Newtheme header .header > div.menu .esportList .item-img,
 html.Newtheme header .header > div.menu .casinoList .item-img,
 html.Newtheme header .header > div.menu .livecasinoList .item-img,
 html.Newtheme header .header > div.menu .fishList .item-img,
-html.Newtheme header .header > div.menu .lotteryList .item-img {
+html.Newtheme header .header > div.menu .lotteryList .item-img,
+html.Newtheme header .header > div.menu .cockList .item-img {
   position: absolute;
   bottom: -10px;
   right: calc(50% - 95px);
@@ -701,7 +774,8 @@ html.Newtheme header .header > div.menu .esportList .liveitem-img,
 html.Newtheme header .header > div.menu .casinoList .liveitem-img,
 html.Newtheme header .header > div.menu .livecasinoList .liveitem-img,
 html.Newtheme header .header > div.menu .fishList .liveitem-img,
-html.Newtheme header .header > div.menu .lotteryList .liveitem-img {
+html.Newtheme header .header > div.menu .lotteryList .liveitem-img,
+html.Newtheme header .header > div.menu .cockList .liveitem-img {
   position: absolute;
   bottom: 20px;
   left: calc(50% - 75px);
@@ -731,7 +805,9 @@ html.Newtheme header .header > div.menu .livecasinoList button .item-icon,
 html.Newtheme header .header > div.menu .fishList a .item-icon,
 html.Newtheme header .header > div.menu .fishList button .item-icon,
 html.Newtheme header .header > div.menu .lotteryList a .item-icon,
-html.Newtheme header .header > div.menu .lotteryList button .item-icon {
+html.Newtheme header .header > div.menu .lotteryList button .item-icon,
+html.Newtheme header .header > div.menu .cockList a .item-icon,
+html.Newtheme header .header > div.menu .cockList button .item-icon {
   width: 40px;
   font-size: 10px;
   position: absolute;
@@ -5313,6 +5389,22 @@ html.Newtheme .smallList ul li:nth-child(odd) {
 html.Newtheme .smallList ul li:first-child {
   font-weight: bold;
 }
+html.Newtheme .smallList .remark {
+  background: rgba(0, 0, 0, 0.3);
+  width: 300px;
+  border-radius: 5px;
+  margin: 5px 0 5px -5px;
+  padding: 2px 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html.Newtheme .smallList .remark li {
+  margin: 0 !important;
+}
+html.Newtheme .smallList .remark + .tip {
+  padding: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
 html.Newtheme .directions {
   border-bottom: 1px solid #666;
   color: #c6c6c6;
@@ -9658,7 +9750,7 @@ html.Newtheme .subModuleListColumn > .subModule {
       -ms-flex-align: center;
           align-items: center;
   background: #1f3258;
-  padding: 20px;
+  padding: 20px 20px 10px 20px;
   border-radius: 15px;
   margin-bottom: 20px;
   -ms-flex-wrap: wrap;
@@ -9768,14 +9860,14 @@ html.Newtheme .subModuleListColumn > .subModule > div > a > div.bank > div {
 html.Newtheme .subModuleListColumn > .subModule > div > button > div.bank > div:last-child,
 html.Newtheme .subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
   color: #fab617;
-  margin: 10px 0 0;
+  margin: 5px 0 0;
 }
 html.Newtheme .subModuleListColumn > .subModule > div > button > div:first-child,
 html.Newtheme .subModuleListColumn > .subModule > div > a > div:first-child {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   border-radius: 15px;
   width: 100px;
-  padding: 10px 5px;
+  padding: 10px 8px;
   background: white;
   position: relative;
   -webkit-transition: 0.7s;
@@ -9937,6 +10029,9 @@ html.Newtheme .subModuleListColumn > .subModule .icon-quick::before {
 }
 html.Newtheme .subModuleListColumn .subModuleTitle {
   margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 html.Newtheme .subModuleListColumn .subModuleTitle.important {
   font-size: 15px;
@@ -9951,6 +10046,10 @@ html.Newtheme .subModuleListColumn .subModuleTitle.important + .subModuleContent
 }
 html.Newtheme .subModuleListColumn .subModuleTitle span > i.txt-blue {
   color: #d83b35;
+}
+html.Newtheme .subModuleListColumn .subModuleTitle .info {
+  margin-left: 5px;
+  color: #5084e4;
 }
 html.Newtheme .subModuleListColumn .column {
   width: calc(100% - 135px);
@@ -10324,7 +10423,7 @@ html.Newtheme .vipLv > div.vipbg {
   padding: 25px;
   margin-top: 0;
 }
-html.Newtheme .livelobbyList, html.Newtheme .fishinglobbyList, html.Newtheme .gamelobbyList, html.Newtheme .lotterylobbyList, html.Newtheme .esportslobbyList {
+html.Newtheme .livelobbyList, html.Newtheme .fishinglobbyList, html.Newtheme .gamelobbyList, html.Newtheme .lotterylobbyList, html.Newtheme .esportslobbyList, html.Newtheme .cocklobbyList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10337,7 +10436,7 @@ html.Newtheme .livelobbyList, html.Newtheme .fishinglobbyList, html.Newtheme .ga
           justify-content: flex-start;
   line-height: 20px;
 }
-html.Newtheme .livelobbyList > div, html.Newtheme .fishinglobbyList > div, html.Newtheme .gamelobbyList > div, html.Newtheme .lotterylobbyList > div, html.Newtheme .esportslobbyList > div {
+html.Newtheme .livelobbyList > div, html.Newtheme .fishinglobbyList > div, html.Newtheme .gamelobbyList > div, html.Newtheme .lotterylobbyList > div, html.Newtheme .esportslobbyList > div, html.Newtheme .cocklobbyList > div {
   padding: 0;
   position: relative;
   cursor: pointer;
@@ -10351,10 +10450,10 @@ html.Newtheme .livelobbyList > div, html.Newtheme .fishinglobbyList > div, html.
       -ms-flex-align: center;
           align-items: center;
 }
-html.Newtheme .livelobbyList > div img, html.Newtheme .fishinglobbyList > div img, html.Newtheme .gamelobbyList > div img, html.Newtheme .lotterylobbyList > div img, html.Newtheme .esportslobbyList > div img {
+html.Newtheme .livelobbyList > div img, html.Newtheme .fishinglobbyList > div img, html.Newtheme .gamelobbyList > div img, html.Newtheme .lotterylobbyList > div img, html.Newtheme .esportslobbyList > div img, html.Newtheme .cocklobbyList > div img {
   display: block;
 }
-html.Newtheme .livelobbyList > div .txt-darkBlue, html.Newtheme .fishinglobbyList > div .txt-darkBlue, html.Newtheme .gamelobbyList > div .txt-darkBlue, html.Newtheme .lotterylobbyList > div .txt-darkBlue, html.Newtheme .esportslobbyList > div .txt-darkBlue {
+html.Newtheme .livelobbyList > div .txt-darkBlue, html.Newtheme .fishinglobbyList > div .txt-darkBlue, html.Newtheme .gamelobbyList > div .txt-darkBlue, html.Newtheme .lotterylobbyList > div .txt-darkBlue, html.Newtheme .esportslobbyList > div .txt-darkBlue, html.Newtheme .cocklobbyList > div .txt-darkBlue {
   position: absolute;
   width: 100%;
   height: 50px;
@@ -10372,11 +10471,11 @@ html.Newtheme .livelobbyList > div .txt-darkBlue, html.Newtheme .fishinglobbyLis
   font-size: 14px;
   text-align: center;
 }
-html.Newtheme .livelobbyList > div.active, html.Newtheme .fishinglobbyList > div.active, html.Newtheme .gamelobbyList > div.active, html.Newtheme .lotterylobbyList > div.active, html.Newtheme .esportslobbyList > div.active {
+html.Newtheme .livelobbyList > div.active, html.Newtheme .fishinglobbyList > div.active, html.Newtheme .gamelobbyList > div.active, html.Newtheme .lotterylobbyList > div.active, html.Newtheme .esportslobbyList > div.active, html.Newtheme .cocklobbyList > div.active {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
 }
-html.Newtheme .livelobbyList > div.active .maintenance, html.Newtheme .fishinglobbyList > div.active .maintenance, html.Newtheme .gamelobbyList > div.active .maintenance, html.Newtheme .lotterylobbyList > div.active .maintenance, html.Newtheme .esportslobbyList > div.active .maintenance {
+html.Newtheme .livelobbyList > div.active .maintenance, html.Newtheme .fishinglobbyList > div.active .maintenance, html.Newtheme .gamelobbyList > div.active .maintenance, html.Newtheme .lotterylobbyList > div.active .maintenance, html.Newtheme .esportslobbyList > div.active .maintenance, html.Newtheme .cocklobbyList > div.active .maintenance {
   position: absolute;
   display: block;
   background: #505050;
@@ -10385,34 +10484,34 @@ html.Newtheme .livelobbyList > div.active .maintenance, html.Newtheme .fishinglo
   border-radius: 5px;
   z-index: 1;
 }
-html.Newtheme .livelobbyList > div.active .mask, html.Newtheme .fishinglobbyList > div.active .mask, html.Newtheme .gamelobbyList > div.active .mask, html.Newtheme .lotterylobbyList > div.active .mask, html.Newtheme .esportslobbyList > div.active .mask {
+html.Newtheme .livelobbyList > div.active .mask, html.Newtheme .fishinglobbyList > div.active .mask, html.Newtheme .gamelobbyList > div.active .mask, html.Newtheme .lotterylobbyList > div.active .mask, html.Newtheme .esportslobbyList > div.active .mask, html.Newtheme .cocklobbyList > div.active .mask {
   display: none;
 }
-html.Newtheme .livelobbyList > div .maintenance, html.Newtheme .fishinglobbyList > div .maintenance, html.Newtheme .gamelobbyList > div .maintenance, html.Newtheme .lotterylobbyList > div .maintenance, html.Newtheme .esportslobbyList > div .maintenance {
+html.Newtheme .livelobbyList > div .maintenance, html.Newtheme .fishinglobbyList > div .maintenance, html.Newtheme .gamelobbyList > div .maintenance, html.Newtheme .lotterylobbyList > div .maintenance, html.Newtheme .esportslobbyList > div .maintenance, html.Newtheme .cocklobbyList > div .maintenance {
   display: none;
 }
-html.Newtheme .livelobbyList > div:hover, html.Newtheme .fishinglobbyList > div:hover, html.Newtheme .gamelobbyList > div:hover, html.Newtheme .lotterylobbyList > div:hover, html.Newtheme .esportslobbyList > div:hover {
+html.Newtheme .livelobbyList > div:hover, html.Newtheme .fishinglobbyList > div:hover, html.Newtheme .gamelobbyList > div:hover, html.Newtheme .lotterylobbyList > div:hover, html.Newtheme .esportslobbyList > div:hover, html.Newtheme .cocklobbyList > div:hover {
   -webkit-transform: translateY(-10px);
           transform: translateY(-10px);
   -webkit-transition: ease-in-out 0.3s;
   transition: ease-in-out 0.3s;
 }
-html.Newtheme .livelobbyList > div:hover img, html.Newtheme .fishinglobbyList > div:hover img, html.Newtheme .gamelobbyList > div:hover img, html.Newtheme .lotterylobbyList > div:hover img, html.Newtheme .esportslobbyList > div:hover img {
+html.Newtheme .livelobbyList > div:hover img, html.Newtheme .fishinglobbyList > div:hover img, html.Newtheme .gamelobbyList > div:hover img, html.Newtheme .lotterylobbyList > div:hover img, html.Newtheme .esportslobbyList > div:hover img, html.Newtheme .cocklobbyList > div:hover img {
   -webkit-filter: brightness(1.1);
           filter: brightness(1.1);
 }
-html.Newtheme .livelobbyList > div:hover .light, html.Newtheme .fishinglobbyList > div:hover .light, html.Newtheme .gamelobbyList > div:hover .light, html.Newtheme .lotterylobbyList > div:hover .light, html.Newtheme .esportslobbyList > div:hover .light {
+html.Newtheme .livelobbyList > div:hover .light, html.Newtheme .fishinglobbyList > div:hover .light, html.Newtheme .gamelobbyList > div:hover .light, html.Newtheme .lotterylobbyList > div:hover .light, html.Newtheme .esportslobbyList > div:hover .light, html.Newtheme .cocklobbyList > div:hover .light {
   opacity: 1;
   -webkit-transition: ease-in-out 0.5s;
   transition: ease-in-out 0.5s;
 }
-html.Newtheme .livelobbyList > div:hover .txt-darkBlue, html.Newtheme .fishinglobbyList > div:hover .txt-darkBlue, html.Newtheme .gamelobbyList > div:hover .txt-darkBlue, html.Newtheme .lotterylobbyList > div:hover .txt-darkBlue, html.Newtheme .esportslobbyList > div:hover .txt-darkBlue {
+html.Newtheme .livelobbyList > div:hover .txt-darkBlue, html.Newtheme .fishinglobbyList > div:hover .txt-darkBlue, html.Newtheme .gamelobbyList > div:hover .txt-darkBlue, html.Newtheme .lotterylobbyList > div:hover .txt-darkBlue, html.Newtheme .esportslobbyList > div:hover .txt-darkBlue, html.Newtheme .cocklobbyList > div:hover .txt-darkBlue {
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
   -webkit-transition: ease-in-out 0.3s;
   transition: ease-in-out 0.3s;
 }
-html.Newtheme .livelobbyList .icon-new::before, html.Newtheme .fishinglobbyList .icon-new::before, html.Newtheme .gamelobbyList .icon-new::before, html.Newtheme .lotterylobbyList .icon-new::before, html.Newtheme .esportslobbyList .icon-new::before {
+html.Newtheme .livelobbyList .icon-new::before, html.Newtheme .fishinglobbyList .icon-new::before, html.Newtheme .gamelobbyList .icon-new::before, html.Newtheme .lotterylobbyList .icon-new::before, html.Newtheme .esportslobbyList .icon-new::before, html.Newtheme .cocklobbyList .icon-new::before {
   position: absolute;
   top: 5px;
   left: 15px;
@@ -10426,7 +10525,7 @@ html.Newtheme .livelobbyList .icon-new::before, html.Newtheme .fishinglobbyList 
   font-size: 14px;
   z-index: 2;
 }
-html.Newtheme .livelobbyList .newicon::before, html.Newtheme .fishinglobbyList .newicon::before, html.Newtheme .gamelobbyList .newicon::before, html.Newtheme .lotterylobbyList .newicon::before, html.Newtheme .esportslobbyList .newicon::before {
+html.Newtheme .livelobbyList .newicon::before, html.Newtheme .fishinglobbyList .newicon::before, html.Newtheme .gamelobbyList .newicon::before, html.Newtheme .lotterylobbyList .newicon::before, html.Newtheme .esportslobbyList .newicon::before, html.Newtheme .cocklobbyList .newicon::before {
   content: "";
   position: absolute;
   top: 2px;
@@ -10536,22 +10635,53 @@ html.Newtheme .gamelobbyList > div:hover .gamesitem {
 html.Newtheme .gamelobbyList > div:hover .gameshover {
   opacity: 1;
 }
-html.Newtheme main.fishinglobby, html.Newtheme main.gameslobby, html.Newtheme main.livelobby, html.Newtheme main.esportslobby, html.Newtheme main.lotterylobby {
+html.Newtheme .cocklobbyList {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html.Newtheme .cocklobbyList > div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(25% - 50px);
+          flex: 0 0 calc(25% - 50px);
+  margin: 10px 24px;
+}
+html.Newtheme .cocklobbyList > div img {
+  display: block;
+}
+html.Newtheme .cocklobbyList > div .txt-darkBlue {
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  width: 180px;
+  bottom: 45px;
+  left: calc(50% - 93px);
+}
+html.Newtheme .cocklobbyList > div .gameshover {
+  position: absolute;
+  opacity: 0;
+}
+html.Newtheme .cocklobbyList > div:hover .gamesitem {
+  opacity: 0;
+}
+html.Newtheme .cocklobbyList > div:hover .gameshover {
+  opacity: 1;
+}
+html.Newtheme main.fishinglobby, html.Newtheme main.gameslobby, html.Newtheme main.livelobby, html.Newtheme main.esportslobby, html.Newtheme main.lotterylobby, html.Newtheme main.cocklobby {
   height: auto;
   min-height: auto;
 }
-html.Newtheme main.fishinglobby .infoModule, html.Newtheme main.gameslobby .infoModule, html.Newtheme main.livelobby .infoModule, html.Newtheme main.esportslobby .infoModule, html.Newtheme main.lotterylobby .infoModule {
+html.Newtheme main.fishinglobby .infoModule, html.Newtheme main.gameslobby .infoModule, html.Newtheme main.livelobby .infoModule, html.Newtheme main.esportslobby .infoModule, html.Newtheme main.lotterylobby .infoModule, html.Newtheme main.cocklobby .infoModule {
   background: transparent;
 }
-html.Newtheme main.fishinglobby .aniBanner, html.Newtheme main.gameslobby .aniBanner, html.Newtheme main.livelobby .aniBanner, html.Newtheme main.esportslobby .aniBanner, html.Newtheme main.lotterylobby .aniBanner {
+html.Newtheme main.fishinglobby .aniBanner, html.Newtheme main.gameslobby .aniBanner, html.Newtheme main.livelobby .aniBanner, html.Newtheme main.esportslobby .aniBanner, html.Newtheme main.lotterylobby .aniBanner, html.Newtheme main.cocklobby .aniBanner {
   min-width: 1400px;
   width: 100%;
   position: relative;
 }
-html.Newtheme main.fishinglobby .aniBanner img, html.Newtheme main.gameslobby .aniBanner img, html.Newtheme main.livelobby .aniBanner img, html.Newtheme main.esportslobby .aniBanner img, html.Newtheme main.lotterylobby .aniBanner img {
+html.Newtheme main.fishinglobby .aniBanner img, html.Newtheme main.gameslobby .aniBanner img, html.Newtheme main.livelobby .aniBanner img, html.Newtheme main.esportslobby .aniBanner img, html.Newtheme main.lotterylobby .aniBanner img, html.Newtheme main.cocklobby .aniBanner img {
   display: block;
 }
-html.Newtheme main.fishinglobby .aniBanner::after, html.Newtheme main.gameslobby .aniBanner::after, html.Newtheme main.livelobby .aniBanner::after, html.Newtheme main.esportslobby .aniBanner::after, html.Newtheme main.lotterylobby .aniBanner::after {
+html.Newtheme main.fishinglobby .aniBanner::after, html.Newtheme main.gameslobby .aniBanner::after, html.Newtheme main.livelobby .aniBanner::after, html.Newtheme main.esportslobby .aniBanner::after, html.Newtheme main.lotterylobby .aniBanner::after, html.Newtheme main.cocklobby .aniBanner::after {
   position: absolute;
   bottom: 0;
   z-index: 1;
@@ -10593,6 +10723,52 @@ html.Newtheme main.fishinglobby .aniBanner .items img:nth-child(3) {
   width: 90px;
   -webkit-animation: moveA 1s forwards, floatingB ease-in-out 5s 2s infinite;
           animation: moveA 1s forwards, floatingB ease-in-out 5s 2s infinite;
+}
+html.Newtheme main.cocklobby {
+  overflow: hidden;
+}
+html.Newtheme main.cocklobby .inside {
+  background: url(https://banner.goal123.org/desktop/img/cockfighting/cockfighting-bg.png) no-repeat bottom/cover;
+  min-width: 1400px;
+  width: 100%;
+}
+html.Newtheme main.cocklobby .inside > div {
+  margin: auto;
+}
+html.Newtheme main.cocklobby .aniBanner .items img {
+  position: absolute;
+  top: 30%;
+  right: -20px;
+  width: 625px;
+  -webkit-animation: moveA 1s forwards, floatingA 5s 1s infinite;
+          animation: moveA 1s forwards, floatingA 5s 1s infinite;
+}
+html.Newtheme main.cocklobby .aniBanner .items img:first-child {
+  top: 30%;
+  left: -20PX;
+  width: 625px;
+  -webkit-animation: moveB 1s forwards, floatingB ease-in-out 5s 1s infinite;
+          animation: moveB 1s forwards, floatingB ease-in-out 5s 1s infinite;
+}
+@-webkit-keyframes y-move {
+  0% {
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
+  }
+}
+@keyframes y-move {
+  0% {
+    top: 100%;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
+  }
 }
 html.Newtheme main.gameslobby {
   overflow: hidden;
@@ -12413,6 +12589,7 @@ html.Newtheme main .home-sports > div:first-child::after {
 html.Newtheme main .home-sports .home-title {
   font-size: 60px;
   margin: unset;
+  white-space: nowrap;
 }
 html.Newtheme main .home-sports .sports-menu {
   display: -webkit-box;
@@ -12477,6 +12654,11 @@ html.Newtheme main .home-sports .sports-hotmatches {
   margin-top: -120px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+html.Newtheme main .home-sports .sports-hotmatches .swiper-wrapper {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 8px 6px;
+  border-radius: 15px;
 }
 html.Newtheme main .home-sports .sports-hotmatches .swiper-button-next, html.Newtheme main .home-sports .sports-hotmatches .swiper-button-prev {
   font-size: 12px;
@@ -13215,108 +13397,21 @@ html.Newtheme main .home-info button.list:hover {
 html.Newtheme main .home-news {
   width: 66%;
 }
-html.Newtheme main .home-news .inner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  height: 100%;
-}
-html.Newtheme main .home-news .inner a,
-html.Newtheme main .home-news .inner button {
+html.Newtheme main .home-news a, html.Newtheme main .home-news button {
   color: #284985;
 }
-html.Newtheme main .home-news .inner a.item,
-html.Newtheme main .home-news .inner button.item {
-  border-radius: 15px;
-  background: #fff;
-  -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  overflow: hidden;
-  margin: 0 18px;
+html.Newtheme main .home-news div:first-child {
   position: relative;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  height: 313px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
-html.Newtheme main .home-news .inner a.item:first-child,
-html.Newtheme main .home-news .inner button.item:first-child {
-  margin-left: unset;
-}
-html.Newtheme main .home-news .inner a.item:last-child,
-html.Newtheme main .home-news .inner button.item:last-child {
-  margin-right: unset;
-}
-html.Newtheme main .home-news .inner a.item .news-img,
-html.Newtheme main .home-news .inner button.item .news-img {
-  overflow: hidden;
-}
-html.Newtheme main .home-news .inner a.item .news-img img,
-html.Newtheme main .home-news .inner button.item .news-img img {
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-html.Newtheme main .home-news .inner a.item .title,
-html.Newtheme main .home-news .inner button.item .title {
-  padding: 22px;
-  position: relative;
-  z-index: 1;
-  background: #fff;
-  height: 20px;
-  border-top: 2px solid #f3f3f3;
-}
-html.Newtheme main .home-news .inner a.item .title p,
-html.Newtheme main .home-news .inner button.item .title p {
-  font-size: 18px;
-  font-weight: 700;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-html.Newtheme main .home-news .inner a.item:hover,
-html.Newtheme main .home-news .inner button.item:hover {
-  color: #d83b35;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-html.Newtheme main .home-news .inner a.item:hover .news-img img,
-html.Newtheme main .home-news .inner button.item:hover .news-img img {
-  -webkit-transform: translateX(-50%) scale(1.25, 1.25);
-          transform: translateX(-50%) scale(1.25, 1.25);
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-html.Newtheme main .home-news .inner a.btn-more-text,
-html.Newtheme main .home-news .inner button.btn-more-text {
+html.Newtheme main .home-news div:first-child .btn-more-text {
   font-size: 16px;
   text-transform: uppercase;
+  font-weight: 700;
   position: absolute;
-  top: -28px;
+  bottom: 0;
   right: 20px;
 }
-html.Newtheme main .home-news .inner a.btn-more-text::after,
-html.Newtheme main .home-news .inner button.btn-more-text::after {
+html.Newtheme main .home-news div:first-child .btn-more-text::after {
   content: "";
   display: block;
   width: 0%;
@@ -13327,19 +13422,100 @@ html.Newtheme main .home-news .inner button.btn-more-text::after {
   left: 0;
   bottom: -2px;
 }
-html.Newtheme main .home-news .inner a.btn-more-text:hover::after,
-html.Newtheme main .home-news .inner button.btn-more-text:hover::after {
+html.Newtheme main .home-news div:first-child .btn-more-text:hover::after {
   width: 100%;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
-html.Newtheme main .home-news .inner a.btn-more-text .icon-dropdown::after,
-html.Newtheme main .home-news .inner button.btn-more-text .icon-dropdown::after {
+html.Newtheme main .home-news div:first-child .btn-more-text .icon-dropdown::after {
   content: "";
   background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-dropdown-blue.svg) no-repeat center/contain;
   width: 12px;
   height: 12px;
   display: inline-block;
+}
+html.Newtheme main .home-news .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html.Newtheme main .home-news .inner .item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 15px;
+  background: #fff;
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  margin: 0 18px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+}
+html.Newtheme main .home-news .inner .item:first-child {
+  margin-left: unset;
+}
+html.Newtheme main .home-news .inner .item:last-child {
+  margin-right: unset;
+}
+html.Newtheme main .home-news .inner .item .news-img {
+  overflow: hidden;
+  position: relative;
+  height: 245px;
+}
+html.Newtheme main .home-news .inner .item .news-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+html.Newtheme main .home-news .inner .item .title {
+  padding: 22px;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  height: 20px;
+  border-top: 2px solid #f3f3f3;
+}
+html.Newtheme main .home-news .inner .item .title p {
+  font-size: 18px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+html.Newtheme main .home-news .inner .item:hover .news-img img {
+  -webkit-transform: translateX(-50%) scale(1.25, 1.25);
+          transform: translateX(-50%) scale(1.25, 1.25);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+html.Newtheme main .home-news .inner .item:hover .title p {
+  color: #d83b35;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 html.Newtheme main .home-recently {
   margin: 30px 0 80px;

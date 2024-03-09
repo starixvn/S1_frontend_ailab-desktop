@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
+import path from "../../../router";
+import { userInfoContext } from "../../common/context";
+import { bannerImgUrl } from "../../../config";
 
 const HomeApp = () => {
+	const { t } = useTranslation();
+	const { userInfo } = useContext(userInfoContext);
+
 	return (
 		<div>
 			<div className="home-app">
@@ -8,29 +15,26 @@ const HomeApp = () => {
 					<div className="app-title">
 						<img
 							className="app-title-icon"
-							src="https://banner.goal123.org/desktop/img/home-page/goal123-appicon.png"
+							src={`${bannerImgUrl}/desktop/img/home-page/goal123-appicon.png`}
 							alt=""
 						/>
 						<div className="app-title-text">
 							<div className="text">
-								<span>Great Games</span>
-								<span>on all devices</span>
+								<span>{t("lbl_Home_GreatGames")}</span>
+								<span>{t("lbl_Home_OnAllDevices")}</span>
 							</div>
 							<div className="text">
-								<span>NEW</span>
+								<span>{t("lbl_Home_New")}</span>
 								<img
 									className="brand"
-									src="https://banner.goal123.org/desktop/img/home-page/goal123-brand.png"
+									src={`${bannerImgUrl}/desktop/img/home-page/goal123-brand.png`}
 									alt=""
 								/>
-								<span>APP</span>
+								<span>{t("lbl_Home_App")}</span>
 							</div>
 						</div>
 					</div>
-					<span>
-						Sign up today for never ending rewards, promotion and
-						lots of freebies.
-					</span>
+					<span>{t("lbl_Home_SignupPromotion")}</span>
 					<div className="app-qrcode">
 						<div className="app-item">
 							<div className="qr">
@@ -43,10 +47,12 @@ const HomeApp = () => {
 								className="btn-app"
 								style={{ cursor: "default" }}>
 								<i className="icon-android" />
-								Android
+								{t("lbl_Home_Android")}
 							</button>
-							<a className="instructions" href="#">
-								Instructions
+							<a
+								className="instructions"
+								href={`/${userInfo.langId}/${path.appDownload.root}`}>
+								{t("lbl_Home_Instructions")}
 							</a>
 						</div>
 						<div className="app-item">
@@ -60,10 +66,12 @@ const HomeApp = () => {
 								className="btn-app"
 								style={{ cursor: "default" }}>
 								<i className="icon-apple" />
-								Apple iOS
+								{t("lbl_Home_AppleIos")}
 							</button>
-							<a className="instructions" href="#">
-								Instructions
+							<a
+								className="instructions"
+								href={`/${userInfo.langId}/${path.appDownload.root}`}>
+								{t("lbl_Instructions")}
 							</a>
 						</div>
 					</div>

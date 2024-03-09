@@ -8,12 +8,13 @@ const HomeLeaderBoard = () => {
 	const winnerList = useTopWinnerList();
 	const { t } = useTranslation();
 
-	// 尚在等product top list api資料
 	return (
 		<div className="home-leaderboard">
 			<div className="home-leaderboard-wrapper">
 				<div className="win-products">
-					<div className="home-title">Products top List</div>
+					<div className="home-title">
+						{t("lbl_Home_Product_Top_1st")}
+					</div>
 					<div className="inner">
 						<div className="item sports">
 							<img
@@ -51,7 +52,9 @@ const HomeLeaderBoard = () => {
 					</div>
 				</div>
 				<div className="win-total">
-					<div className="home-title">Total top 10</div>
+					<div className="home-title">
+						{t("lbl_HomeTotal_Top_10")}
+					</div>
 					<div className="user-ranking">
 						{winnerList.map((winner, index) => (
 							<div className="user-list top" key={index}>

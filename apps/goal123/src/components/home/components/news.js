@@ -47,33 +47,36 @@ const News = () => {
 		);
 	}, [userInfo.langId]);
 
-	const row = newsDatas.map(item => {
-		return (
-			<a
-				className="item"
-				key={`index-news-${item.newsId}-${userInfo.langId}`}
-				href={`/${userInfo.langId}/${path.news.root}/${path.news.sub.newsInfo.root}?newsId=${item.newsId}`}>
-				<div className="news-img">
-					<img src={item.imageURL} alt={`news-img-${item.newsId}`} />
-					<div className="title">
-						<p>{item.title}</p>
-					</div>
-				</div>
-			</a>
-		);
-	});
-
 	return (
 		<div className="home-news">
-			<div className="home-title">{t("lbl_News")}</div>
-			<div className="inner">
-				{row}
+			<div>
+				<div className="home-title">{t("lbl_News")}</div>
 				<Link
 					to={`/${userInfo.langId}/${path.news.root}`}
 					className="btn-more-text">
-					MoreMoreMoreMore
+					{t("lbl_Home_More")}
 					<i className="icon-dropdown" />
 				</Link>
+			</div>
+			<div className="inner">
+				{newsDatas.map(item => {
+					return (
+						<a
+							className="item"
+							key={`index-news-${item.newsId}-${userInfo.langId}`}
+							href={`/${userInfo.langId}/${path.news.root}/${path.news.sub.newsInfo.root}?newsId=${item.newsId}`}>
+							<div className="news-img">
+								<img
+									src={item.imageURL}
+									alt={`news-img-${item.newsId}`}
+								/>
+							</div>
+							<div className="title">
+								<p>{item.title}</p>
+							</div>
+						</a>
+					);
+				})}
 			</div>
 		</div>
 	);

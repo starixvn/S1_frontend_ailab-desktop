@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
-import { setCookie, readCookie } from "../../common/common";
+import { setCookie, readCookie, deleteCookie } from "../../common/common";
 import { userInfoContext, popBoxContext } from "../../common/context";
 import { api_account_GetWalletInfo } from "../../../service/api/account";
 import usePopBox from "../../hook/usePopBox";
@@ -10,10 +11,34 @@ import { defDeviceType } from "../../../service/api/base";
 const usePopupHandler = () => {
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
 	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
+	const { t } = useTranslation();
 	const { errorPopBox, closePopBox } = usePopBox();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
+
+	useEffect(() => {
+		const popBoxMsg = readCookie("popBoxMsg");
+		if (popBoxMsg) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: popBoxMsg,
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => {
+								deleteCookie("popBoxMsg");
+								setPopBox({ isOpen: false });
+							}}>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+		}
+	}, []);
 
 	useEffect(() => {
 		const displayAnnouncePopup = () => {
