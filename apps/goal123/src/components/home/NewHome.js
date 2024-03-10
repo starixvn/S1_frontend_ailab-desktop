@@ -1,12 +1,6 @@
 import React, { useEffect, useContext, useRef } from "react";
-import { useTranslation } from "react-i18next";
 import { isDateRange } from "@ailab-desktop/common";
-import {
-	userInfoContext,
-	popBoxContext,
-	isRootContext
-} from "../common/context";
-
+import { userInfoContext, isRootContext } from "../common/context";
 import { BannerSwipper } from "../common/customSwipper";
 import { defBannerType } from "../../service/api/site";
 import HomeJoin from "./new-ui-components/HomeJoin";
@@ -23,16 +17,15 @@ import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import DragonEgg from "../dragonEgg/homeLink";
 import path from "../../router";
 import { eventPerios } from "../../datas/eventDef";
-import { defPopBoxType } from "../common/popBox";
 import LiveStreamingLink from "./liveStreaming";
 import usePopupHandler from "./hooks/usePopupHandler";
 
 const NewHome = () => {
 	const isMountedRef = useRef(null);
-	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setIsRoot } = useContext(isRootContext);
 
+	// 彈窗邏輯整合至usePopupHandlerhook
 	usePopupHandler();
 
 	useEffect(() => {

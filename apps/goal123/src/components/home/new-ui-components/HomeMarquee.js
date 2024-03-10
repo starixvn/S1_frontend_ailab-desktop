@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { useTranslation } from "react-i18next";
-
 import { navigate } from "gatsby";
 import { api_message_GetAnnouncement } from "../../../service/api/message";
 import { userInfoContext, popBoxContext } from "../../common/context";
 import { GET_LANG_ID } from "../../../service/language";
 import { getCurrencyCode } from "../../common/common";
+
+// /api/Message/GetAnnouncement/{langId}
 
 const HomeMarquee = () => {
 	const [datas, setDatas] = useState([]);
@@ -38,7 +39,6 @@ const HomeMarquee = () => {
 				return prevMargin - 1;
 			});
 		}, speed);
-
 		return () => clearInterval(interval);
 	}, [speed, isPaused]);
 
@@ -57,9 +57,7 @@ const HomeMarquee = () => {
 					currencyId
 				});
 				setDatas(res.data.data);
-			} catch (error) {
-				console.error(error);
-			}
+			} catch (error) {}
 		};
 		getAnnouncement();
 	}, [langId, currencyId]);
@@ -73,6 +71,7 @@ const HomeMarquee = () => {
 				popBoxType: "Login"
 			});
 		}
+		return null;
 	};
 
 	return (

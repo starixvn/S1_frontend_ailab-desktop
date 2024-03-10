@@ -222,13 +222,13 @@ const RecentlyViewedGameList = () => {
 															userInfo.langId
 														] ?? gameLogo.en
 													}
-													alt=""
+													alt={gameLogo}
 												/>
 												<div>
 													<img
 														className="recently-brand"
 														src={tpLogo}
-														alt=""
+														alt={tpLogo}
 													/>
 													<div className="recently-title">
 														{gameName[

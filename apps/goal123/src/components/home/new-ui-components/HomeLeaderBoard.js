@@ -8,6 +8,8 @@ const HomeLeaderBoard = () => {
 	const winnerList = useTopWinnerList();
 	const { t } = useTranslation();
 
+	// 左半邊還在等api更新
+
 	return (
 		<div className="home-leaderboard">
 			<div className="home-leaderboard-wrapper">
@@ -19,7 +21,7 @@ const HomeLeaderBoard = () => {
 						<div className="item sports">
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/sports-top1.png`}
-								alt=""
+								alt="sports-top1"
 							/>
 							<div className="title">{t("lbl_Sports")}</div>
 							<div className="user-data">
@@ -30,7 +32,7 @@ const HomeLeaderBoard = () => {
 						<div className="item casino">
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/casino-top1.png`}
-								alt=""
+								alt="casino-top1"
 							/>
 							<div className="title">{t("lbl_Casino")}</div>
 							<div className="user-data">
@@ -41,7 +43,7 @@ const HomeLeaderBoard = () => {
 						<div className="item slots">
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/slots-top1.png`}
-								alt=""
+								alt="slots-top1"
 							/>
 							<div className="title">{t("lbl_Slots")}</div>
 							<div className="user-data">
@@ -57,15 +59,15 @@ const HomeLeaderBoard = () => {
 					</div>
 					<div className="user-ranking">
 						{winnerList.map((winner, index) => (
-							<div className="user-list top" key={index}>
+							<div className="user-list top" key={winner.custId}>
 								<div className="left">
 									<div className="order">
 										{index < 3 ? (
 											<img
 												src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/winner-${
 													index + 1
-												}st.png`}
-												alt=""
+												}.png`}
+												alt={`img-top${index + 1}`}
 											/>
 										) : (
 											<div className="order">

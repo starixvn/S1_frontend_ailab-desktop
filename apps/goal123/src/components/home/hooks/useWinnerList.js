@@ -3,6 +3,8 @@ import { api_events_GetLeaderboardList } from "../../../service/api/events";
 import { userInfoContext } from "../../common/context";
 import usePopBox from "../../hook/usePopBox";
 
+// api/Events/GetLeaderboardList
+
 const useTopWinnerList = () => {
 	const [winnerList, setWinnerList] = useState([]);
 	const { errorPopBox } = usePopBox();
@@ -24,7 +26,6 @@ const useTopWinnerList = () => {
 				const res = await api_events_GetLeaderboardList(payload);
 				if (isMountedRef.current && res.data.errorCode === 0) {
 					setWinnerList(res.data.data);
-					console.log("winnerList", winnerList);
 				} else {
 					errorPopBox(
 						res.data.message || "error",

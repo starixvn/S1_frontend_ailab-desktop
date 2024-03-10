@@ -5,13 +5,6 @@ import { bannerImgUrl } from "../../../config";
 import { userInfoContext } from "../../common/context";
 import path from "../../../router";
 
-// lbl_Home_Exclusives_VIP_Title
-// lbl_Home_Exclusives_VIP_Text
-// lbl_Home_Attractive_Bonus_Title
-// lbl_Home_Attractive_Bonus_Text
-// lbl_Home_Speedy_Transactions_Title
-// lbl_Home_Speedy_Transactions_Text
-
 const HomeJoin = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { t } = useTranslation();
@@ -20,6 +13,7 @@ const HomeJoin = () => {
 			title: "lbl_Home_Professional_Image_Title",
 			text: "lbl_Home_Professional_Image_Text",
 			img: "professional.png",
+			// pm還沒給
 			link: ""
 		},
 		{
@@ -53,7 +47,7 @@ const HomeJoin = () => {
 					<div className="item" key={index.title}>
 						<div className="title">{t(item.title)}</div>
 						<div className="text">{t(item.text)}</div>
-						<img src={getImageUrl(item.img)} alt="" />
+						<img src={getImageUrl(item.img)} alt={t(item.title)} />
 						<div className="bottom">
 							<Link to={item.link} className="btn-more">
 								{t("lbl_Promotion_MoreInfo")}

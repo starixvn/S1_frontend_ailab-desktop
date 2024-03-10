@@ -16,7 +16,7 @@ const HomeApp = () => {
 						<img
 							className="app-title-icon"
 							src={`${bannerImgUrl}/desktop/img/home-page/goal123-appicon.png`}
-							alt=""
+							alt="app-icon"
 						/>
 						<div className="app-title-text">
 							<div className="text">
@@ -28,7 +28,7 @@ const HomeApp = () => {
 								<img
 									className="brand"
 									src={`${bannerImgUrl}/desktop/img/home-page/goal123-brand.png`}
-									alt=""
+									alt="brand"
 								/>
 								<span>{t("lbl_Home_App")}</span>
 							</div>
@@ -40,7 +40,7 @@ const HomeApp = () => {
 							<div className="qr">
 								<img
 									src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/QR_code_of_Chinese_Wikipedia_main_page_20131019.svg/1200px-QR_code_of_Chinese_Wikipedia_main_page_20131019.svg.png"
-									alt=""
+									alt="qr-code"
 								/>
 							</div>
 							<button
@@ -59,7 +59,7 @@ const HomeApp = () => {
 							<div className="qr">
 								<img
 									src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/QR_code_of_Chinese_Wikipedia_main_page_20131019.svg/1200px-QR_code_of_Chinese_Wikipedia_main_page_20131019.svg.png"
-									alt=""
+									alt="qr-code"
 								/>
 							</div>
 							<button

@@ -87,7 +87,7 @@ const HomeSportMatches = () => {
 			<div className="ambassador">
 				<img
 					src={`${bannerImgUrl}/desktop/img/home-page/hotmatches-bg.png`}
-					alt=""
+					alt="ambassador"
 				/>
 				<span>{t("lbl_Home_Ambassador")}2023-2024 </span>
 				<span>Michael Ballack</span>
@@ -142,7 +142,7 @@ const HomeSportMatches = () => {
 											<div className="team-item">
 												<img
 													src={item?.homeTeamPic}
-													alt=""
+													alt={item?.homeTeamName}
 												/>
 												<div className="team-name">
 													{item?.homeTeamName}
@@ -157,7 +157,7 @@ const HomeSportMatches = () => {
 											<div className="team-item">
 												<img
 													src={item?.awayTeamPic}
-													alt=""
+													alt={item?.awayTeamName}
 												/>
 												<div className="team-name">
 													{item?.awayTeamName}
