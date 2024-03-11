@@ -8,10 +8,10 @@ import HomeHotGames from "./new-ui-components/HomeHotGames";
 import HomeSportMatches from "./new-ui-components/HomeSportMatches";
 import HomePopularSlotGames from "./new-ui-components/HomePopularSlotGames";
 import HomeInfo from "./new-ui-components/HomeInfo";
-import HomeApp from "./new-ui-components/HomeApp";
+import HomeAppDownload from "./new-ui-components/HomeAppDownload";
 import HomeLeaderBoard from "./new-ui-components/HomeLeaderBoard";
 import HomeMarquee from "./new-ui-components/HomeMarquee";
-import HomeRecent from "./new-ui-components/HomeRecent";
+import HomeRecentViewedGames from "./new-ui-components/HomeRecentViewedGames";
 import MysteryBoxLink from "./mysteryBoxLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import DragonEgg from "../dragonEgg/homeLink";
@@ -62,8 +62,8 @@ const NewHome = () => {
 				<HomeLeaderBoard />
 				<HomePopularSlotGames />
 				<HomeInfo />
-				<HomeRecent />
-				<HomeApp />
+				<HomeRecentViewedGames />
+				<HomeAppDownload />
 				{!isDateRange(eventPerios.dragonEgg) && <LuckyWheelLink />}
 				{isDateRange(eventPerios.dragonEgg) && <DragonEgg />}
 				<MysteryBoxLink

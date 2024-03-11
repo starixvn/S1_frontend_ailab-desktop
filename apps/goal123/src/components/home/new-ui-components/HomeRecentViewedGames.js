@@ -20,7 +20,7 @@ import { api_game_GetRecentlyViewed } from "../../../service/api/game";
 import useDelayFunc from "../../hook/useDelayFunc";
 import { defCategory } from "../../../datas/productList";
 
-const RecentlyViewedGameList = () => {
+const HomeRecentViewedGames = () => {
 	const [recentlyViewedGames, setRecentlyViewedGames] = useState([]);
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -255,4 +255,4 @@ const RecentlyViewedGameList = () => {
 	);
 };
 
-export default RecentlyViewedGameList;
+export default HomeRecentViewedGames;

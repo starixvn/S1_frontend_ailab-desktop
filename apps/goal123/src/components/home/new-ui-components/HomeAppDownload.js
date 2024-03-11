@@ -4,7 +4,7 @@ import path from "../../../router";
 import { userInfoContext } from "../../common/context";
 import { bannerImgUrl } from "../../../config";
 
-const HomeApp = () => {
+const HomeAppDownload = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 
@@ -66,12 +66,12 @@ const HomeApp = () => {
 								className="btn-app"
 								style={{ cursor: "default" }}>
 								<i className="icon-apple" />
-								{t("lbl_Home_AppleIos")}
+								{t("lbl_Home_Apple")}
 							</button>
 							<a
 								className="instructions"
 								href={`/${userInfo.langId}/${path.appDownload.root}`}>
-								{t("lbl_Instructions")}
+								{t("lbl_Home_Instructions")}
 							</a>
 						</div>
 					</div>
@@ -81,4 +81,4 @@ const HomeApp = () => {
 	);
 };
 
-export default HomeApp;
+export default HomeAppDownload;
