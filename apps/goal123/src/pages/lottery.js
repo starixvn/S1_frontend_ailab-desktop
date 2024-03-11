@@ -1,7 +1,7 @@
 import React from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import Footer from "../components/footer/footer";
+import HomeFooter from "../components/footer/HomeFooter";
 import Lottery from "../components/lottery/lottery";
 
 export default () => (
@@ -10,7 +10,7 @@ export default () => (
 			<main className="lotterylobby">
 				<Lottery />
 			</main>
-			<Footer />
+			<HomeFooter />
 		</Layout>
 	</Wrapper>
 );
