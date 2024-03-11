@@ -10,7 +10,6 @@ import { Provider } from "react-redux";
 import { store } from "@ailab-desktop/store";
 import PropTypes from "prop-types";
 import Header from "../layout/header";
-import Footer from "../footer/footer";
 import PopBox from "./popBox";
 import Loading from "./loading";
 import { loadingContext, productTpIdsContext } from "./context";
@@ -45,7 +44,6 @@ const Layout = ({
 			{showHeader ? <Header /> : null}
 			{childrenWithProps}
 
-			{/* {showFooter ? <Footer /> : null} */}
 			{showFooter ? <HomeFooter /> : null}
 
 			<PopBox />
