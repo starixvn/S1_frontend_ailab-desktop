@@ -88,7 +88,7 @@ const HomeMarquee = () => {
 						display: "flex",
 						marginLeft: `${marginLeft}px`
 					}}>
-					{datas.map((data, index) => (
+					{datas && datas.map((data, index) => (
 						<div
 							key={index}
 							style={{
