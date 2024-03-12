@@ -59,8 +59,8 @@ const NewHome = () => {
 				<HomeJoin />
 				<HomeSportMatches />
 				<HomeHotGames />
-				<HomeLeaderBoard />
 				<HomePopularSlotGames />
+				<HomeLeaderBoard />
 				<HomeInfo />
 				<HomeRecentViewedGames />
 				<HomeAppDownload />
