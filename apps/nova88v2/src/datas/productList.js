@@ -631,6 +631,11 @@ export default {
 		gameId: 0,
 		tpGameType: 113
 	},
+	games_93Connect: {
+		tpId: 62,
+		tpGameType: 114,
+		gameId: "LOBBY"
+	},
 
 	/* === 9. event === */
 	"world-cup": {
