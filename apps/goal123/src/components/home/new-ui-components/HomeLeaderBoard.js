@@ -54,9 +54,7 @@ const HomeLeaderBoard = () => {
 					</div>
 				</div>
 				<div className="win-total">
-					<div className="home-title">
-						{t("lbl_HomeTotal_Top_10")}
-					</div>
+					<div className="home-title">{t("lbl_Home_TotalTop10")}</div>
 					<div className="user-ranking">
 						{winnerList.map((winner, index) => (
 							<div className="user-list top" key={winner.custId}>

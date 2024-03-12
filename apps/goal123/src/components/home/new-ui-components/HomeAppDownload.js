@@ -24,13 +24,14 @@ const HomeAppDownload = () => {
 								<span>{t("lbl_Home_OnAllDevices")}</span>
 							</div>
 							<div className="text">
-								<span>{t("lbl_Home_New")}</span>
 								<img
 									className="brand"
 									src={`${bannerImgUrl}/desktop/img/home-page/goal123-brand.png`}
 									alt="brand"
 								/>
-								<span>{t("lbl_Home_App")}</span>
+								<span>
+									{t("lbl_Home_New") + t("lbl_Home_App")}
+								</span>
 							</div>
 						</div>
 					</div>
@@ -45,13 +46,15 @@ const HomeAppDownload = () => {
 							</div>
 							<button
 								className="btn-app"
-								style={{ cursor: "default" }}>
+								style={{ cursor: "default" }}
+							>
 								<i className="icon-android" />
 								{t("lbl_Home_Android")}
 							</button>
 							<a
 								className="instructions"
-								href={`/${userInfo.langId}/${path.appDownload.root}`}>
+								href={`/${userInfo.langId}/${path.appDownload.root}`}
+							>
 								{t("lbl_Home_Instructions")}
 							</a>
 						</div>
@@ -64,13 +67,15 @@ const HomeAppDownload = () => {
 							</div>
 							<button
 								className="btn-app"
-								style={{ cursor: "default" }}>
+								style={{ cursor: "default" }}
+							>
 								<i className="icon-apple" />
 								{t("lbl_Home_Apple")}
 							</button>
 							<a
 								className="instructions"
-								href={`/${userInfo.langId}/${path.appDownload.root}`}>
+								href={`/${userInfo.langId}/${path.appDownload.root}`}
+							>
 								{t("lbl_Home_Instructions")}
 							</a>
 						</div>
