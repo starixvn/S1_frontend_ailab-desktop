@@ -171,7 +171,7 @@ const AfterLogin = () => {
 
 	return (
 		<>
-			<div className="profile-icon titanium">
+			<div className={`profile-icon ${vipClassName}`}>
 				<Link to={`/${langId}/${path.profile.root}`}>
 					<img className={vipClassName} src={vipImg} alt={vipAlt} />
 				</Link>

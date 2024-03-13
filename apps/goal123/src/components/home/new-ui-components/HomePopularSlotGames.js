@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { defCasinoProviders } from "../../../datas/productList";
 import config from "../../../config";
 import { userInfoContext } from "../../common/context";
 
 const HomePopularSlotGames = () => {
 	const { userInfo } = useContext(userInfoContext);
+	const { t } = useTranslation();
 
 	return (
 		<div className="home-popularslots">
-			<div className="home-title">POPULAR slot games Ranking</div>
+			<div className="home-title">
+				{t("lbl_Home_Popular_Slot_Games_Ranking")}
+			</div>
 			<div className="popularslots-content">
 				<div className="popularslots-inner">
 					<div className="regular">
@@ -17,7 +21,7 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.PG.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-pg.png`}
-								alt=""
+								alt="slot-pg"
 							/>
 						</a>
 					</div>
@@ -27,12 +31,12 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.PP.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-pp.jpg`}
-								alt=""
+								alt="pop-pp"
 							/>
 							<div>
 								<img
 									src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-pp.png`}
-									alt=""
+									alt="popular-slots-pp"
 								/>
 							</div>
 						</a>
@@ -41,12 +45,12 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.Skywind.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-sky.png`}
-								alt=""
+								alt="pop-sky"
 							/>
 							<div>
 								<img
 									src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-sky.png`}
-									alt=""
+									alt="popular-slots-sky"
 								/>
 							</div>
 						</a>
@@ -55,12 +59,12 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.SG.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-spad.jpg`}
-								alt=""
+								alt="pop-spad"
 							/>
 							<div>
 								<img
 									src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-spade.png`}
-									alt=""
+									alt="popular-slots-spade"
 								/>
 							</div>
 						</a>
@@ -73,7 +77,7 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.AdvantPlay.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-ap.png`}
-								alt=""
+								alt="slot-ap"
 							/>
 						</a>
 					</div>
@@ -83,12 +87,12 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.JILI.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-jili.jpg`}
-								alt=""
+								alt="pop-jili"
 							/>
 							<div>
 								<img
 									src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-jili.png`}
-									alt=""
+									alt="popular-slots-jili"
 								/>
 							</div>
 						</a>
@@ -97,12 +101,12 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.MGPSW.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-micro.jpg`}
-								alt=""
+								alt="pop-micro"
 							/>
 							<div>
 								<img
 									src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-micro.png`}
-									alt=""
+									alt="popular-slots-micro"
 								/>
 							</div>
 						</a>
@@ -111,12 +115,12 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.CQ9.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-cq9.jpg`}
-								alt=""
+								alt="pop-cq9"
 							/>
 							<div>
 								<img
 									src={`${config.t_and_cURL}/desktop/img/home-page/cq9.png`}
-									alt=""
+									alt="popular-slots-cq9"
 								/>
 							</div>
 						</a>

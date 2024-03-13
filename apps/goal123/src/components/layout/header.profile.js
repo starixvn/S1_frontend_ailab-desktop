@@ -7,7 +7,7 @@ import {
 	useGetCustVIPProgressQuery
 } from "@ailab-desktop/service";
 import path from "../../router";
-import { langCookie } from "../../config";
+import { bannerImgUrl, langCookie } from "../../config";
 import { LOGOUT } from "../../service/auth";
 import { getNewLanguagePath } from "../../service/language";
 import usePopBox from "../hook/usePopBox";
@@ -97,6 +97,8 @@ const Profile = () => {
 		});
 	};
 
+	const isVipLevelHighest = custVIPProgress?.upDeposit === null;
+
 	const {
 		displayKey: currentVipDisplayKey,
 		className: currentVipClassName,
@@ -111,13 +113,13 @@ const Profile = () => {
 		className: nextVipClassName,
 		img: nextVipImg,
 		alt: nextVipAlt
-	} = custVIPProgress ? defPageClubImg[custVIPProgress?.currentVipLevel] : {};
+	} = custVIPProgress && !isVipLevelHighest
+		? defPageClubImg[custVIPProgress?.currentVipLevel]
+		: {};
 
 	const vipProgress = Math.floor(
 		(custVIPProgress?.actualDeposit / custVIPProgress?.upDeposit) * 100
 	);
-
-	const isVipLevelHighest = custVIPProgress?.upDeposit === null;
 
 	return (
 		<div

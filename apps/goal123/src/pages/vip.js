@@ -1,7 +1,7 @@
 import React from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import Footer from "../components/footer/footer";
+import HomeFooter from "../components/footer/HomeFooter";
 import Vip from "../components/vip/vip";
 
 export default function vip() {
@@ -10,7 +10,7 @@ export default function vip() {
 			<Layout>
 				<>
 					<Vip />
-					<Footer />
+					<HomeFooter />
 				</>
 			</Layout>
 		</Wrapper>

@@ -1,18 +1,29 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import useTopWinnerList from "../hooks/useWinnerList";
+import { number_format } from "../../common/common";
+import { bannerImgUrl } from "../../../config";
 
 const HomeLeaderBoard = () => {
+	const winnerList = useTopWinnerList();
+	const { t } = useTranslation();
+
+	// 左半邊還在等api更新
+
 	return (
 		<div className="home-leaderboard">
 			<div className="home-leaderboard-wrapper">
 				<div className="win-products">
-					<div className="home-title">Products top 1st</div>
+					<div className="home-title">
+						{t("lbl_Home_Product_Top_1st")}
+					</div>
 					<div className="inner">
 						<div className="item sports">
 							<img
-								src="https://banner.goal123.org/desktop/img/home-page/leaderboard/sports-top1.png"
-								alt=""
+								src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/sports-top1.png`}
+								alt="sports-top1"
 							/>
-							<div className="title">Sports</div>
+							<div className="title">{t("lbl_Sports")}</div>
 							<div className="user-data">
 								<span>Lo*****98</span>
 								<span>$999,999,999.99</span>
@@ -20,10 +31,10 @@ const HomeLeaderBoard = () => {
 						</div>
 						<div className="item casino">
 							<img
-								src="https://banner.goal123.org/desktop/img/home-page/leaderboard/casino-top1.png"
-								alt=""
+								src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/casino-top1.png`}
+								alt="casino-top1"
 							/>
-							<div className="title">Casino</div>
+							<div className="title">{t("lbl_Casino")}</div>
 							<div className="user-data">
 								<span>Lo*****98</span>
 								<span>$999,999,999.99</span>
@@ -31,10 +42,10 @@ const HomeLeaderBoard = () => {
 						</div>
 						<div className="item slots">
 							<img
-								src="https://banner.goal123.org/desktop/img/home-page/leaderboard/slots-top1.png"
-								alt=""
+								src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/slots-top1.png`}
+								alt="slots-top1"
 							/>
-							<div className="title">Slots</div>
+							<div className="title">{t("lbl_Slots")}</div>
 							<div className="user-data">
 								<span>Lo*****98</span>
 								<span>$999,999.99</span>
@@ -43,93 +54,39 @@ const HomeLeaderBoard = () => {
 					</div>
 				</div>
 				<div className="win-total">
-					<div className="home-title">Total top 10</div>
+					<div className="home-title">{t("lbl_Home_TotalTop10")}</div>
 					<div className="user-ranking">
-						<div className="user-list top">
-							<div className="left">
-								<div className="order">
-									<img
-										src="https://banner.goal123.org/desktop/img/home-page/leaderboard/winner-1st.png"
-										alt=""
-									/>
+						{winnerList.map((winner, index) => (
+							<div className="user-list top" key={winner.custId}>
+								<div className="left">
+									<div className="order">
+										{index < 3 ? (
+											<img
+												src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/winner-${
+													index + 1
+												}.png`}
+												alt={`img-top${index + 1}`}
+											/>
+										) : (
+											<div className="order">
+												{index + 1}
+											</div>
+										)}
+									</div>
+									<div className="user-id">
+										{winner.userName}
+									</div>
 								</div>
-								<div className="user-id">Lo******98</div>
-							</div>
-							<div className="right">
-								<i className="icon-cash"/>
-								<span>$999,999,999.66</span>
-							</div>
-						</div>
-						<div className="user-list top">
-							<div className="left">
-								<div className="order">
-									<img
-										src="https://banner.goal123.org/desktop/img/home-page/leaderboard/winner-2st.png"
-										alt=""
-									/>
+								<div className="right">
+									<i className="icon-cash" />
+									<span>
+										{number_format({
+											number: winner.wTurnover
+										})}
+									</span>
 								</div>
-								<div className="user-id">Lo******98</div>
 							</div>
-							<div className="right">
-								<i className="icon-cash"/>
-								<span>$999,999,999.66</span>
-							</div>
-						</div>
-						<div className="user-list top">
-							<div className="left">
-								<div className="order">
-									<img
-										src="https://banner.goal123.org/desktop/img/home-page/leaderboard/winner-3st.png"
-										alt=""
-									/>
-								</div>
-								<div className="user-id">Lo******98</div>
-							</div>
-							<div className="right">
-								<i className="icon-cash"/>
-								<span>$999,999,999.66</span>
-							</div>
-						</div>
-						<div className="user-list">
-							<div className="left">
-								<div className="order">4</div>
-								<div className="user-id">Lo**********98</div>
-							</div>
-							<div className="right">
-								<i className="icon-cash"/>
-								<span>$999,999,999.66</span>
-							</div>
-						</div>
-						<div className="user-list">
-							<div className="left">
-								<div className="order">5</div>
-								<div className="user-id">Lo******98</div>
-							</div>
-							<div className="right">
-								<i className="icon-cash"/>
-								<span>$999,999,999.66</span>
-							</div>
-						</div>
-						<div className="user-list">
-							<div className="left">
-								<div className="order">6</div>
-								<div className="user-id">Lo******98</div>
-							</div>
-							<div className="right">
-								<i className="icon-cash"/>
-								<span>$999,999,999.66</span>
-							</div>
-						</div>
-						<div className="user-list">
-							<div className="left">
-								<div className="order">7</div>
-								<div className="user-id">Lo******98</div>
-							</div>
-							<div className="right">
-								<i className="icon-cash"/>
-								<span>$999,999,999.66</span>
-							</div>
-						</div>
+						))}
 					</div>
 				</div>
 			</div>

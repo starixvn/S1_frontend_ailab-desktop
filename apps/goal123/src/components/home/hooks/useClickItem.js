@@ -1,22 +1,28 @@
 import { useContext } from "react";
 import { defTpGameType } from "../../../datas/productList.js";
-import { SET_ENTER_PAGE } from "../../../service/enterPage.js"
+import { SET_ENTER_PAGE } from "../../../service/enterPage.js";
 import { defPopBoxType } from "../../common/popBox";
-import { popBoxContext , userInfoContext , maintainListContext} from "../../common/context";
+import {
+	popBoxContext,
+	userInfoContext,
+	maintainListContext
+} from "../../common/context";
 
 const useClickItem = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 	const { allMaintainList } = useContext(maintainListContext);
 
-	const clickHomeItem = ({ tpId, gameId, tpGameType }) => {
-		const isInMaintain = allMaintainList?.some(
+	const isInMaintain = (tpId, tpGameType) => {
+		allMaintainList?.some(
 			mt =>
 				mt.tpId === tpId &&
 				(mt.tpGameType === tpGameType ||
 					mt.tpGameType === defTpGameType.All)
 		);
+	};
 
+	const clickHomeItem = ({ tpId, gameId, tpGameType }) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
@@ -24,7 +30,7 @@ const useClickItem = () => {
 			});
 		};
 
-		if (isInMaintain) {
+		if (isInMaintain()) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.UnderMaintain,
@@ -44,7 +50,7 @@ const useClickItem = () => {
 		}
 	};
 
-	return { clickHomeItem };
+	return { clickHomeItem, isInMaintain };
 };
 
 export default useClickItem;

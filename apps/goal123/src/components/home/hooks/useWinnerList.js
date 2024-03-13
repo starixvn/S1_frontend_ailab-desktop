@@ -3,7 +3,9 @@ import { api_events_GetLeaderboardList } from "../../../service/api/events";
 import { userInfoContext } from "../../common/context";
 import usePopBox from "../../hook/usePopBox";
 
-const useWinnerList = () => {
+// api/Events/GetLeaderboardList
+
+const useTopWinnerList = () => {
 	const [winnerList, setWinnerList] = useState([]);
 	const { errorPopBox } = usePopBox();
 	const { userInfo } = useContext(userInfoContext);
@@ -47,4 +49,4 @@ const useWinnerList = () => {
 	return winnerList;
 };
 
-export default useWinnerList;
+export default useTopWinnerList;

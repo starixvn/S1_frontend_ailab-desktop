@@ -1,50 +1,76 @@
-import React from "react";
-import HomeBanner from "./new-ui-components/HomeBanner";
+import React, { useEffect, useContext, useRef } from "react";
+import { isDateRange } from "@ailab-desktop/common";
+import { userInfoContext, isRootContext } from "../common/context";
+import { BannerSwipper } from "../common/customSwipper";
+import { defBannerType } from "../../service/api/site";
 import HomeJoin from "./new-ui-components/HomeJoin";
-import HomeHotGame from "./new-ui-components/HomeHotGame";
-import HomeSport from "./new-ui-components/HomeSport";
-import HomeSlot from "./new-ui-components/HomeSlot";
+import HomeHotGames from "./new-ui-components/HomeHotGames";
+import HomeSportMatches from "./new-ui-components/HomeSportMatches";
+import HomePopularSlotGames from "./new-ui-components/HomePopularSlotGames";
 import HomeInfo from "./new-ui-components/HomeInfo";
-import HomeApp from "./new-ui-components/HomeApp";
+import HomeAppDownload from "./new-ui-components/HomeAppDownload";
 import HomeLeaderBoard from "./new-ui-components/HomeLeaderBoard";
-import NewMarquee from "./new-ui-components/NewMarquee";
+import HomeMarquee from "./new-ui-components/HomeMarquee";
+import HomeRecentViewedGames from "./new-ui-components/HomeRecentViewedGames";
+import MysteryBoxLink from "./mysteryBoxLink";
+import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
+import DragonEgg from "../dragonEgg/homeLink";
+import path from "../../router";
+import { eventPerios } from "../../datas/eventDef";
+import LiveStreamingLink from "./liveStreaming";
+import usePopupHandler from "./hooks/usePopupHandler";
 
-const NewHome = ({ productTpIds }) => {
-
-
-
-
-	const { t } = useTranslation();
-	const { userInfo } = useContext(userInfoContext);
-	const { setPopBox } = useContext(popBoxContext);
-	const { errorPopBox, closePopBox } = usePopBox();
+const NewHome = () => {
 	const isMountedRef = useRef(null);
+	const { userInfo } = useContext(userInfoContext);
 	const { setIsRoot } = useContext(isRootContext);
-	const [winnerList, setWinnerList] = useState([]);
-	const [displayVgaming, setDisplayVgaming] = useState(true);
-	const [displayLiveStreaming, setDisplayLiveStreaming] = useState(false);
-	const [liveStreamingList, setLiveStreamingList] = useState([]);
-	const [isLoading, setIsLoading] = useState(false);
-	const { allMaintainList } = useContext(maintainListContext);
 
-	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
-	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
+	// 彈窗邏輯整合至usePopupHandlerhook
+	usePopupHandler();
 
-	
+	useEffect(() => {
+		isMountedRef.current = true;
+		setIsRoot(true);
+		return () => {
+			isMountedRef.current = false;
+			setIsRoot(false);
+		};
+	}, []);
+
+	const bannerSwipperConfig = {
+		effect: "fade",
+		autoplay: {
+			delay: 5000,
+			disableOnInteraction: false
+		}
+	};
+
 	return (
 		<main id="main" className="home">
-			<HomeBanner />
-			<NewMarquee />
+			{/* swiper 沿用舊的 */}
+			<BannerSwipper
+				ImgFolder={[defBannerType.Promotions]}
+				withBtn={false}
+				withPagination={true}
+				config={bannerSwipperConfig}
+			/>
+			<HomeMarquee />
 			<div className="home-wrapper">
-				<div className="home-title">JOIN GOAL123</div>
 				<HomeJoin />
-				<HomeSport />
-				<div className="home-title">Hot Game</div>
-				<HomeHotGame />
+				<HomeSportMatches />
+				<HomeHotGames />
+				<HomePopularSlotGames />
 				<HomeLeaderBoard />
-				<HomeSlot />
 				<HomeInfo />
-				<HomeApp />
+				<HomeRecentViewedGames />
+				<HomeAppDownload />
+				{!isDateRange(eventPerios.dragonEgg) && <LuckyWheelLink />}
+				{isDateRange(eventPerios.dragonEgg) && <DragonEgg />}
+				<MysteryBoxLink
+					to={`/${userInfo.langId}/${path.mysteryBox.root}`}
+					langId={userInfo.langId}
+				/>
+				<LiveStreamingLink />
 			</div>
 		</main>
 	);
