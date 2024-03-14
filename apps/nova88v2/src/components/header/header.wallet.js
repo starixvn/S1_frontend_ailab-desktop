@@ -175,8 +175,8 @@ class Dropdown extends Component {
 						value={!isHideBalance}
 						onClick={_handleIsHideBalance}
 						className={classNames({
-							"icon-plus": !isHideBalance,
-							"icon-minus": isHideBalance
+							"icon-plus": isHideBalance,
+							"icon-minus": !isHideBalance
 						})}
 					/>
 				</div>
