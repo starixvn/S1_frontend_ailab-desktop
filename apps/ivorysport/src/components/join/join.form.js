@@ -13,6 +13,7 @@ import {
 	OCCUPATION_OPTIONS,
 	SOURCE_OF_INCOME_OPTIONS
 } from "../common/join.data";
+import FileUpload from "../common/fileUpload";
 
 const legalDate = moment().subtract(21, "year");
 const vaildDate = current => current.isBefore(legalDate);
@@ -363,6 +364,7 @@ const JoinForm = ({
 			{/* /> */}
 		</div>
 
+		{/*
 		{Object.keys(recaptchaInfo).length > 0 &&
 			recaptchaInfo.country !== "CN" && (
 				<ReCAPTCHA
@@ -372,7 +374,35 @@ const JoinForm = ({
 					hl={reCaptchaEnum[langId]}
 				/>
 			)}
+		*/}
+		<div className="uploadModule id-verification">
+			{/* 上傳圖片錯誤顯示以下模組，文字於下方 */}
+			{/* <label class="upload_img error">
+                <input type="file" />
+                <i class="icon icon-plus"></i>
+            </label> */}
+			{/* 已上傳圖片樣式 */}
+			{/*
+			<label class="upload_img">
+                <input type="file" />
+                <img src="https://i.ibb.co/ZSb0s3B/Deposit-Slip-Template-04.jpg" alt="" />
+                <i class="icon icon-close"></i>
+            </label>
+            */}
 
+			{/* 錯誤訊息 */}
+			{/* <div class="txt-red">File format error,please try again.</div> */}
+			{/* 提醒資訊 */}
+			<FileUpload EditField={EditField} checked={tip.IDImage.checked} />
+			<ul className="info">
+				<li className="title">{t("lbl_UploadYourIdImportant")}:</li>
+				<li>1. {t("lbl_UploadYourIdHint1")}</li>
+				<li>2. {t("lbl_UploadYourIdHint2")}</li>
+				<li>3. {t("lbl_UploadYourIdHint3")}</li>
+				<li>4. {t("lbl_UploadYourIdHint4")}</li>
+				<li>5. {t("lbl_UploadYourIdHint5")}</li>
+			</ul>
+		</div>
 		<div className="Terms">
 			{t("lbl_sign_up_terms_start")}
 			<a

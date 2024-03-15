@@ -272,6 +272,13 @@
 	"lbl_EmailVerifiedMsg": "สุดยอด! อีเมลของคุณได้รับการยืนยันแล้ว!",
 	"lbl_PhoneNumberErrorTip": "หมายเลขโทรศัพท์ที่คุณกรอกไม่ถูกต้อง ระหว่าง {{digitalArea}} หลัก",
 	"lbl_BirthdayErrorTip": "กรุณากรอกวันเกิด",
+	"lbl_UploadYourId": "อัปโหลดรูปประจำตัวของคุณ",
+	"lbl_UploadYourIdImportant": "สำคัญ",
+	"lbl_UploadYourIdHint1": "กรุณาส่งประจำตัวของคุณ",
+	"lbl_UploadYourIdHint2": "ประเภทบัตรประจำตัว ได้แก่ บัตรประจำตัวประชาชน พาสปอร์ต หรือใบขับขี่",
+	"lbl_UploadYourIdHint3": "ประเภทไฟล์: JPG หรือ PNG เท่านั้น",
+	"lbl_UploadYourIdHint4": "ไม่อนุญาตให้ใช้ภาพสกรีนช็อตหน้าจอ",
+	"lbl_UploadYourIdHint5": "ขนาดไฟล์: ไม่เกิน 4 MB",
 
 	"shipping ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Shipping_Address": "ที่อยู่จัดส่ง",
