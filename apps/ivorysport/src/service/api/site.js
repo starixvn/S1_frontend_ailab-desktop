@@ -25,8 +25,12 @@ export const api_site_ExistsEmail = ({ Email }) =>
  * //* 專門開給 Ivorysport 的註冊 api，跟 'Signup' 比起來多了以下參數
  * //*  Occupation、SourceOfIncome、Nationality、Country、City、PostCode、LineFirst、Birth_d、Birth_m、Birth_y
  */
-export const api_site_Signup = (data, langId) =>
-	siteRequest.post(`/IvorysportSignup/${langId}`, data);
+export const api_site_Signup = (formData, langId) =>
+	siteRequest.post(`/IvorysportSignup/${langId}`, formData, {
+		headers: {
+			"Content-Type": "multipart/form-data"
+		}
+	});
 
 export const api_site_GetSiteCurrencyList = () =>
 	siteRequest.post(`/GetSiteCurrencyList/`);
