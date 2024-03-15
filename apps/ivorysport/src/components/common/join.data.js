@@ -22,7 +22,7 @@ export const initValue = {
 	termsCheck: false,
 	ageCheck: false,
 	affCode: null,
-	specialBonusCode: null,
+	specialBonusCode: "",
 	birth: "",
 	occupation: {
 		index: 0, // * 初始 0
@@ -36,7 +36,8 @@ export const initValue = {
 	country: "",
 	city: "",
 	postCode: "",
-	lineFirst: ""
+	lineFirst: "",
+	IDImage: ""
 };
 
 export const initTip = {
@@ -52,5 +53,9 @@ export const initTip = {
 	birth: { checked: null, msg: "" },
 	nationality: { checked: null, msg: "" },
 	country: { checked: null, msg: "" },
-	city: { checked: null, msg: "" }
+	city: { checked: null, msg: "" },
+	IDImage: {
+		checked: null,
+		msg: ""
+	}
 };

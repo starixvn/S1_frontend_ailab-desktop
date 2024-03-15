@@ -84,7 +84,7 @@ export default () => {
 
 	useEffect(() => {
 		checkUrlParam();
-		getRecaptchaSiteKey();
+		// getRecaptchaSiteKey();
 	}, []);
 
 	const getRecaptchaSiteKey = async () => {
@@ -210,11 +210,13 @@ export default () => {
 		if (col === "birth") {
 			val = moment(e).format("YYYY-MM-DD");
 		} else if (
+			col === "IDImage" ||
 			// * 儲存下拉選單資訊
 			col === "occupation" ||
-			col === "sourceOfIncome"
+			col === "sourceOfIncome" ||
+			col === "IDImage"
 		) {
-			val = e; // * e = {index, value}
+			val = e; // * e = File || {index, value}
 		} else {
 			val = e.target.value;
 			if (col === "username") {
@@ -497,7 +499,7 @@ export default () => {
 			const _reCaptchaCheck =
 				reCaptchaToken !== "" || recaptchaInfo.country === "CN";
 			// * 機器人驗證沒過直接 return 出去
-			if (!_reCaptchaCheck) return false;
+			// if (!_reCaptchaCheck) return false;
 
 			const res = await Promise.all([
 				usernameCheck(userValue.username),
@@ -517,6 +519,7 @@ export default () => {
 			const _nationalityCheck = requireCheck(userValue.nationality);
 			const _countryCheck = requireCheck(userValue.country);
 			const _cityCheck = requireCheck(userValue.city);
+			const _IDImage = requireCheck(userValue.IDImage ?? "");
 
 			const checked =
 				_realNameCheck.checked &&
@@ -528,7 +531,8 @@ export default () => {
 				_birthCheck.checked &&
 				_nationalityCheck.checked &&
 				_countryCheck.checked &&
-				_cityCheck.checked;
+				_cityCheck.checked &&
+				_IDImage.checked;
 
 			if (!checked) {
 				setTip(prev => ({
@@ -572,6 +576,10 @@ export default () => {
 					city: {
 						checked: _cityCheck.checked,
 						msg: "" // * 僅提供紅匡input警示
+					},
+					IDImage: {
+						checked: _IDImage.checked,
+						msg: ""
 					}
 				}));
 			}
@@ -624,40 +632,42 @@ export default () => {
 
 			const [birthY, birthM, birthD] = userValue.birth.split("-"); // * ex: ['1969', '01', '14']
 
-			const regData = {
-				UserName: userValue.username,
-				RealName: userValue.realName,
-				Userpwd: userValue.password,
-				Email: userValue.email,
-				PhoneNo: userValue.phone,
-				CurrencyId: currencyId,
-				UserLang: signupLangId,
-				PromoCode: userValue.specialBonusCode,
-				AreaCode: _areaCode,
-				ReferralUrl: document.referrer,
-				ReCaptchaToken: reCaptchaToken,
+			const formData = new FormData();
+			formData.append("UserName", userValue.username);
+			formData.append("RealName", userValue.realName);
+			formData.append("Userpwd", userValue.password);
+			formData.append("Email", userValue.email);
+			formData.append("PhoneNo", userValue.phone);
+			formData.append("CurrencyId", currencyId);
+			formData.append("UserLang", signupLangId);
+			formData.append("PromoCode", userValue.specialBonusCode);
+			formData.append("AreaCode", _areaCode);
+			formData.append("ReferralUrl", document.referrer);
+			formData.append("Occupation", userValue.occupation.value);
+			formData.append("SourceOfIncome", userValue.sourceOfIncome.value);
+			formData.append("Nationality", userValue.nationality);
+			formData.append("Country", userValue.country);
+			formData.append("City", userValue.city);
+			formData.append("PostCode", userValue.postCode);
+			formData.append("LineFirst", userValue.lineFirst);
+			formData.append("Birth_y", Number(birthY));
+			formData.append("Birth_m", Number(birthM));
+			formData.append("Birth_d", Number(birthD));
+			formData.append("PhotoId", userValue.IDImage);
+			formData.append(
+				"RefId",
+				getUrlParameter("RefId") || readCookie("RefId") || ""
+			);
+			formData.append("AffId", affIdCheckPass ? _AffId : ""); // Use empty string if null
+			formData.append(
+				"Aff",
+				getUrlParameter("Aff") || readCookie("Aff") || ""
+			);
+			formData.append("AffCode", isUrlAffCode ? userValue.affCode : "");
+			formData.append("blackbox", await Iov_GetBlackBox());
+			formData.append("LineUserId", lineUserId ?? "");
 
-				// * Ivorysport 額外的欄位
-				Occupation: userValue.occupation.value,
-				SourceOfIncome: userValue.sourceOfIncome.value,
-				Nationality: userValue.nationality,
-				Country: userValue.country,
-				City: userValue.city,
-				PostCode: userValue.postCode,
-				LineFirst: userValue.lineFirst,
-				Birth_y: Number(birthY),
-				Birth_m: Number(birthM),
-				Birth_d: Number(birthD)
-			};
-
-			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
-			regData.AffId = affIdCheckPass ? _AffId : null;
-			regData.Aff = getUrlParameter("Aff") || readCookie("Aff");
-			regData.AffCode = isUrlAffCode ?? userValue.affCode;
-			regData.blackbox = await Iov_GetBlackBox();
-			regData.LineUserId = lineUserId;
-
-			api_site_Signup(regData, signupLangId).then(
+			api_site_Signup(formData, signupLangId).then(
 				res => {
 					if (isMountedRef.current) {
 						const { errorCode, message } = res.data;
