@@ -251,7 +251,8 @@ const allowedCurrencyList = {
 		defCurrencyList.IDR,
 		defCurrencyList.CNY,
 		defCurrencyList.INR,
-		defCurrencyList.VND
+		defCurrencyList.VND,
+		defCurrencyList.THB
 	],
 	casino_PP: [
 		defCurrencyList.MYR,
