@@ -1269,7 +1269,13 @@ export const defMenuLinks = langId => ({
 		displayKey: "lbl_Affiliates",
 		target: "_blank",
 		isFullPath: true
+	},
+
+	sponsor: {
+		path: path.sponsor.root,
+		displayKey: "lbl_Sponsor"
 	}
+
 	// leaderBoard: {
 	// 	path: path.leaderBoard.root,
 	// 	displayKey: "lbl_Ranking",
