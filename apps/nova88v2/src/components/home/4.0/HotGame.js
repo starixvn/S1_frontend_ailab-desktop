@@ -24,6 +24,11 @@ import {
 } from "../../../datas/productList";
 import useDelayFunc from "../../hook/useDelayFunc";
 import { defCurrencyList } from "../../common/common";
+import {
+	defLoginGameType,
+	defSpecialSetting,
+	useGotoGame
+} from "../../hook/useGotoGame";
 
 const getTpGameType = tpId =>
 	Object.values(defSlotTpGameType).find(obj => obj.tpId === tpId) ?? {};
@@ -41,6 +46,11 @@ const HotGame = () => {
 	const ppItem = slotsMenu.find(({ keyName }) => keyName === "slot_PP");
 	const sgItem = slotsMenu.find(({ keyName }) => keyName === "slot_SG");
 	const { throttle } = useDelayFunc();
+	const { handleGoToGame } = useGotoGame({
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId,
+		autoGetData: false
+	});
 
 	const { data: hotGame = [] } = useGetHotGameListQuery(
 		{
@@ -104,7 +114,18 @@ const HotGame = () => {
 				tpId,
 				gameId,
 				langId: userInfo.langId,
-				tpGameType
+				tpGameType,
+				execFunction:
+					tpId === defSpecialSetting.PG
+						? handleGoToGame.bind(this, {
+								langId: userInfo.langId,
+								tpId,
+								gameId,
+								isFun: false,
+								tpGameType,
+								loginGameType: defLoginGameType.returnHtml
+						  })
+						: null
 			});
 			return;
 		}

@@ -5,15 +5,21 @@ import PropTypes from "prop-types";
 import { defTpGameType } from "../../datas/productList";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
-import { defFilterType as defProductType } from "../promotion/promotion.def";
+import { defCategory } from "../promotion/promotion.def";
 import { SET_CASINO_ENTER_PAGE, SET_ENTER_PAGE } from "../../service/enterPage";
 import useDelayFunc from "../hook/useDelayFunc";
+import {
+	defLoginGameType,
+	defSpecialSetting,
+	useGotoGame
+} from "../hook/useGotoGame";
 
 const FavoriteSlots = ({ hotGameList, maintainList }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 	const { throttle } = useDelayFunc();
+	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 
 	const onClickPlay = ({ tpId, gameId, isFree, delay, tpGameType }) => {
 		if (userInfo.isLogin || isFree) {
@@ -24,7 +30,19 @@ const FavoriteSlots = ({ hotGameList, maintainList }) => {
 						gameId,
 						isFree,
 						langId: userInfo.langId,
-						tpGameType
+						tpGameType,
+						execFunction:
+							tpId === defSpecialSetting.PG
+								? handleGoToGame.bind(this, {
+										langId: userInfo.langId,
+										tpId,
+										gameId,
+										isFun: isFree,
+										tpGameType,
+										loginGameType:
+											defLoginGameType.returnHtml
+								  })
+								: null
 					}),
 				delay
 			);
@@ -50,7 +68,8 @@ const FavoriteSlots = ({ hotGameList, maintainList }) => {
 							className="btn-gray"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							OK
 						</button>
 					</div>
@@ -62,7 +81,7 @@ const FavoriteSlots = ({ hotGameList, maintainList }) => {
 				popBoxType: defPopBoxType.Login,
 				customLayout: true
 			});
-		} else if (tpCategory === defProductType.slots) {
+		} else if (tpCategory === defCategory.Slots) {
 			onClickPlay({
 				tpId,
 				gameId,
@@ -119,7 +138,8 @@ const FavoriteSlots = ({ hotGameList, maintainList }) => {
 											tpCategory,
 											tpGameType
 										})
-									}>
+									}
+								>
 									<div
 										className="home-fav-img"
 										style={{
