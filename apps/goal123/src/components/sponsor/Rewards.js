@@ -17,7 +17,7 @@ const Rewards = () => {
 						alt=""
 					/>
 					<div>
-						{t("lbl_Ambassador_2002")}
+						2002
 						<span>{t("lbl_Ambassador_FIFA_World_Cup")}</span>
 					</div>
 					<img
@@ -31,7 +31,7 @@ const Rewards = () => {
 						alt=""
 					/>
 					<div>
-						{t("lbl_Ambassador_2005")}
+						2005
 						<span>
 							{t("lbl_Ambassador_FIFA_Confederations_Cup")}
 						</span>
@@ -47,7 +47,7 @@ const Rewards = () => {
 						alt=""
 					/>
 					<div>
-						{t("lbl_Ambassador_2006")}
+						2006
 						<span>{t("lbl_Ambassador_FIFA_World_Cup")}</span>
 					</div>
 					<img
@@ -61,7 +61,7 @@ const Rewards = () => {
 						alt=""
 					/>
 					<div>
-						{t("lbl_Ambassador_2008")}
+						2008
 						<span>{t("lbl_Ambassador_UEFA_European_Cup")}</span>
 					</div>
 					<img

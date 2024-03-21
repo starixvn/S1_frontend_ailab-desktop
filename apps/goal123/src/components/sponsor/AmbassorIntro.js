@@ -1,40 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { bannerImgUrl } from "../../config";
 
-{
-	/* <p>
-						As a leading bookmaker and online entertainment in
-						Vietnam, our brand has made a significant announcement
-						by signing former German & Chelsea football star Michael
-						Ballack as our brand ambassador for the season 2023/24.
-					</p>
-					<p>
-						This strategic move demonstrates our commitment to
-						aligning our brand with a renowned and respected figure
-						in the world of football. Michael Ballack, known for his
-						exceptional skills and contributions to the sport, will
-						now represent Goal123, adding value and prestige to our
-						company's brand image.
-					</p>
-					<p>
-						As the collaboration unfolds, fans and members can
-						anticipate exciting developments and initiatives that
-						showcase the synergy between Goal123 and Michael
-						Ballack, ultimately creating a compelling narrative of
-						excellence, integrity, and passion within the realm in
-						sports and online entertainment.
-					</p> */
-}
+import { Navigation, Thumbs } from "swiper";
+import { bannerImgUrl } from "../../config";
 
 export const AmbassadorIntro = () => {
 	const { t } = useTranslation();
+	const [thumbsSwiper, setThumbsSwiper] = useState(null);
 	const slidesData = [
-		// {
-		// 	type: "video",
-		// 	src: "https://streamable.com/e/vmq4q3?nocontrols=1"
-		// },
+		{
+			type: "video",
+			src: "https://streamable.com/e/vmq4q3?nocontrols=1"
+		},
 		{
 			type: "image",
 			src: `${bannerImgUrl}/desktop/img/ambassador/01.jpg`
@@ -66,6 +44,7 @@ export const AmbassadorIntro = () => {
 	];
 
 	const swiper2SlidesData = [
+		`${bannerImgUrl}/h5/img/ambassador/video-preview.jpg`,
 		`${bannerImgUrl}/desktop/img/ambassador/01.jpg`,
 		`${bannerImgUrl}/desktop/img/ambassador/02.jpg`,
 		`${bannerImgUrl}/desktop/img/ambassador/03.jpg`,
@@ -75,31 +54,79 @@ export const AmbassadorIntro = () => {
 		`${bannerImgUrl}/desktop/img/ambassador/07.jpg`
 	];
 
+	const swiperConfigTop = {
+		spaceBetween: 10,
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev"
+		},
+		thumbs: {
+			swiper: thumbsSwiper
+		}
+	};
+
+	const swiperConfigDown = {
+		spaceBetween: 10,
+		slidesPerView: 4.2,
+		freeMode: true,
+		watchSlidesProgress: true,
+		onSwiper: setThumbsSwiper
+	};
+
 	return (
 		<div className="ambassador-intro">
 			<div className="ambassador-gallery">
-				{/* gallery */}
-				{/* <Swiper className="swiper gallery2">
+				<Swiper
+					className="swiper gallery2"
+					modules={[Navigation, Thumbs]}
+					style={{ overflow: "hidden" }}
+					{...swiperConfigTop}>
 					<div className="swiper-wrapper">
-						{slidesData.map((slide, index) => (
-							<SwiperSlide className="swiper-slide" key={index}>
-								<div>
+						{slidesData.map((slide) => (
+							<SwiperSlide className="swiper-slide" key={slidesData.src}>
+								{slide.type === "video" ? (
+									<div
+										style={{
+											position: "relative",
+											width: "100%",
+											height: 0,
+											paddingBottom: "56.25%"
+										}}>
+										<iframe
+											src={slide.src}
+											allow="fullscreen"
+											allowFullScreen
+											style={{
+												position: "absolute",
+												width: "100%",
+												height: "100%",
+												left: 0,
+												top: 0,
+												border: "none",
+												overflow: "hidden"
+											}}
+										/>
+									</div>
+								) : (
 									<img
 										src={slide.src}
 										alt={t("lbl_Ambassador_Slide_Image")}
 									/>
-								</div>
+								)}
 							</SwiperSlide>
 						))}
-						<div className="swiper-button-next" />
-						<div className="swiper-button-prev" />
 					</div>
-				</Swiper> */}
-				{/* gallery  btm */}
-				{/* <Swiper className="swiper gallery">
+					<div className="swiper-button-next" />
+					<div className="swiper-button-prev" />
+				</Swiper>
+
+				<Swiper
+					className="swiper gallery"
+					{...swiperConfigDown}
+					style={{ overflow: "hidden" }}>
 					<div className="swiper-wrapper">
-						{swiper2SlidesData.map((src, index) => (
-							<SwiperSlide className="swiper-slide" key={index}>
+						{swiper2SlidesData.map((src) => (
+							<SwiperSlide className="swiper-slide" key={src}>
 								<img
 									src={src}
 									alt={t("lbl_Ambassador_Slide_Image")}
@@ -107,11 +134,11 @@ export const AmbassadorIntro = () => {
 							</SwiperSlide>
 						))}
 					</div>
-				</Swiper> */}
+				</Swiper>
 			</div>
 			<div className="ambassador-intro-item">
 				<div className="title">
-					{t("lbl_Ambassador_Collaboration_Declaration_Title")}
+					{t("lbl_Ambassador_Collaboration_Title")}
 				</div>
 				<div className="content">
 					<p>

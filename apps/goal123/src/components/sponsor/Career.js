@@ -46,7 +46,7 @@ const Career = () => {
 					/>
 					<div>
 						1999-2002
-						<span>{t("lbl_Ambassador_FC_Bayer_Leverkusen")}</span>
+						<span>{t("lbl_Ambassador_Bayer_Leverkusen")}</span>
 					</div>
 				</div>
 				<div className="ambassador-career-item">
