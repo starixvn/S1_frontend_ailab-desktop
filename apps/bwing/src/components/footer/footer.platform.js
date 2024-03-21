@@ -211,6 +211,10 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.Amigo.name },
 		imgName: "amigo"
+	},
+	{
+		...productList["93Connect"],
+		imgName: "93connect"
 	}
 ];
 
