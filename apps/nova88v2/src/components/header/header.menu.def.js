@@ -1325,7 +1325,26 @@ export const defMenuLinks = {
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.game_maxGame
+						period: defEventPeriod.game_maxGame,
+					})
+				]
+			},{
+				keyName: "games_93Connect",
+				className: "fsgw",
+				listNpcImgUrl: "93connect.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "93Connect",
+				menuType: defMenuType.entPage,
+				...productList.games_93Connect,
+				parameter: { ...productList.games_93Connect },
+				lobbyPage: {
+					bgImg: "93connect.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.game_maxGame,
+						period: defEventPeriod.game_93Connect
 					})
 				]
 			},
@@ -1349,7 +1368,6 @@ export const defMenuLinks = {
 					})
 				]
 			},
-
 			{
 				keyName: "games_im_aviator",
 				className: "fsgw",

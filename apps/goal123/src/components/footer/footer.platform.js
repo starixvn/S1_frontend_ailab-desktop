@@ -216,6 +216,10 @@ const defPlatform = [
 	{
 		...productList.GA_CockFighting,
 		imgName: "cockfighting"
+	},
+	{
+		...productList["93Connect"],
+		imgName: "93connect"
 	}
 ];
 

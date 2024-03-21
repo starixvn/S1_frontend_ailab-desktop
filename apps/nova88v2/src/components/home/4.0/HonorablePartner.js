@@ -284,6 +284,10 @@ const HonorablePartner = () => {
 			{
 				...productList.games_maxGame,
 				imgName: "maxgame"
+			},
+			{
+				...productList.games_93Connect,
+				imgName: "93connect"
 			}
 		];
 
