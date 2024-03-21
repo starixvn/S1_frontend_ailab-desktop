@@ -134,6 +134,24 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/kingmaker-icon.png`
 			},
 			{
+				...productList["93Connect"],
+				displayText: "93Connect",
+				menuType: defMenuType.entPage,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/93connect.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/93connect-item.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/new-games/93connect.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/new-games/93connect-hover.png`
+				},
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/93connect-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.game_93Connect
+					})
+				]
+			},
+			{
 				...productList.sabaClub,
 				className: "sabaclub",
 				displayKey: "lbl_Vgaming",
