@@ -2,25 +2,17 @@ import React from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Footer from "../components/footer/footer";
-import SponsorContent from "../components/sponsor/index";
+import AmbassadorContent from "../components/ambassador/index";
 
-const PageContent = () => {
-	return (
-		<main className="ambassador">
-			<SponsorContent />
-		</main>
-	);
-};
-
-const Sponsor = () => {
+const Ambassador = () => {
 	return (
 		<Wrapper>
 			<Layout>
-				<PageContent />
+				<AmbassadorContent />
 				<Footer />
 			</Layout>
 		</Wrapper>
 	);
 };
 
-export default Sponsor;
+export default Ambassador;

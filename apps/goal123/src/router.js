@@ -172,7 +172,7 @@ export default {
 	dragonEgg: {
 		root: "dragonEgg"
 	},
-	sponsor: {
-		root: "sponsor"
+	ambassador: {
+		root: "ambassador"
 	}
 };

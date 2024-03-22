@@ -6,7 +6,7 @@ const AmbassadorBanner = () => {
 		<div className="banner">
 			<img
 				src={`${bannerImgUrl}/desktop/img/ambassador/banner.jpg`}
-				alt=""
+				alt="ambassador-banner"
 			/>
 		</div>
 	);

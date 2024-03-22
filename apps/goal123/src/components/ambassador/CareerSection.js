@@ -1,17 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { bannerImgUrl } from "../../config";
 
-// Ambassador Career Section
-// lbl_Ambassador_Professional_Career: "Professional Career",
-// lbl_Ambassador_Chemnitzer_FC: "Chemnitzer FC",
-// lbl_Ambassador_FC_Kaiserslautern: "FC Kaiserslautern",
-// lbl_Ambassador_Bayer_Leverkusen: "Bayer Leverkusen",
-// lbl_Ambassador_Bayern_Munich: "Bayern Munich",
-// lbl_Ambassador_Chelsea: "Chelsea",
-// lbl_Ambassador_Total_Appearances: "Total Appearances",
-// lbl_Ambassador_Total_Goals: "Total Goals"
-
-const Career = () => {
+const CareerSection = () => {
 	const { t } = useTranslation();
 	return (
 		<div className="ambassador-career">
@@ -21,8 +12,8 @@ const Career = () => {
 			<div className="ambassador-career-block">
 				<div className="ambassador-career-item">
 					<img
-						src="https://banner.goal123.org/desktop/img/ambassador/career-logo-1.png"
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/career-logo-1.png`}
+						alt="ambassador-career-logo-1"
 					/>
 					<div>
 						1995-1997
@@ -31,8 +22,8 @@ const Career = () => {
 				</div>
 				<div className="ambassador-career-item">
 					<img
-						src="https://banner.goal123.org/desktop/img/ambassador/career-logo-2.png"
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/career-logo-2.png`}
+						alt="ambassador-career-logo-2"
 					/>
 					<div>
 						1997-1999
@@ -41,8 +32,8 @@ const Career = () => {
 				</div>
 				<div className="ambassador-career-item">
 					<img
-						src="https://banner.goal123.org/desktop/img/ambassador/career-logo-3.png"
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/career-logo-3.png`}
+						alt="ambassador-career-logo-3"
 					/>
 					<div>
 						1999-2002
@@ -51,8 +42,8 @@ const Career = () => {
 				</div>
 				<div className="ambassador-career-item">
 					<img
-						src="https://banner.goal123.org/desktop/img/ambassador/career-logo-4.png"
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/career-logo-4.png`}
+						alt="ambassador-career-logo-4"
 					/>
 					<div>
 						2002-2006
@@ -61,8 +52,8 @@ const Career = () => {
 				</div>
 				<div className="ambassador-career-item">
 					<img
-						src="https://banner.goal123.org/desktop/img/ambassador/career-logo-5.png"
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/career-logo-5.png`}
+						alt="ambassador-career-logo-5"
 					/>
 					<div>
 						2006-2010
@@ -71,8 +62,8 @@ const Career = () => {
 				</div>
 				<div className="ambassador-career-item">
 					<img
-						src="https://banner.goal123.org/desktop/img/ambassador/career-logo-6.png"
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/career-logo-6.png`}
+						alt="ambassador-career-logo-6"
 					/>
 					<div>
 						2010-2012
@@ -98,4 +89,4 @@ const Career = () => {
 	);
 };
 
-export default Career;
+export default CareerSection;

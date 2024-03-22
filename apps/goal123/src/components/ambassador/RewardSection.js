@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { bannerImgUrl } from "../../config"; // 導入配置文件中的變數
 
-const Rewards = () => {
+const RewardSection = () => {
 	const { t } = useTranslation();
 
 	return (
@@ -13,22 +13,22 @@ const Rewards = () => {
 			<div className="ambassador-reward-block">
 				<div className="ambassador-reward-item">
 					<img
-						src={`${bannerImgUrl}/desktop/img/ambassador/2002.png`} // 修改圖片來源
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/2002.png`}
+						alt="ambassador-2002"
 					/>
 					<div>
 						2002
 						<span>{t("lbl_Ambassador_FIFA_World_Cup")}</span>
 					</div>
 					<img
-						src={`${bannerImgUrl}/desktop/img/ambassador/2nd.png`} // 修改圖片來源
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/2nd.png`}
+						alt="ambassador-2nd"
 					/>
 				</div>
 				<div className="ambassador-reward-item">
 					<img
-						src={`${bannerImgUrl}/desktop/img/ambassador/2005.png`} // 修改圖片來源
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/2005.png`}
+						alt="ambassador-2005"
 					/>
 					<div>
 						2005
@@ -37,36 +37,36 @@ const Rewards = () => {
 						</span>
 					</div>
 					<img
-						src={`${bannerImgUrl}/desktop/img/ambassador/3rd.png`} // 修改圖片來源
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/3rd.png`}
+						alt="ambassador-3rd"
 					/>
 				</div>
 				<div className="ambassador-reward-item">
 					<img
-						src={`${bannerImgUrl}/desktop/img/ambassador/2006.png`} // 修改圖片來源
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/2006.png`}
+						alt="ambassador-2006"
 					/>
 					<div>
 						2006
 						<span>{t("lbl_Ambassador_FIFA_World_Cup")}</span>
 					</div>
 					<img
-						src={`${bannerImgUrl}/desktop/img/ambassador/3rd.png`} // 修改圖片來源
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/3rd.png`}
+						alt="ambassador-3rd"
 					/>
 				</div>
 				<div className="ambassador-reward-item">
 					<img
-						src={`${bannerImgUrl}/desktop/img/ambassador/2008.png`} // 修改圖片來源
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/2008.png`}
+						alt="ambassador-2008"
 					/>
 					<div>
 						2008
 						<span>{t("lbl_Ambassador_UEFA_European_Cup")}</span>
 					</div>
 					<img
-						src={`${bannerImgUrl}/desktop/img/ambassador/2nd.png`} // 修改圖片來源
-						alt=""
+						src={`${bannerImgUrl}/desktop/img/ambassador/2nd.png`}
+						alt="ambassador-2nd"
 					/>
 				</div>
 			</div>
@@ -88,4 +88,4 @@ const Rewards = () => {
 	);
 };
 
-export default Rewards;
+export default RewardSection;

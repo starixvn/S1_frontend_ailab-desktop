@@ -1,58 +1,61 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { Navigation, Thumbs } from "swiper";
 import { bannerImgUrl } from "../../config";
 
-export const AmbassadorIntro = () => {
+// swiper 版本問題 需額外引入css
+import "swiper/css";
+
+const topSlideData = [
+	{
+		type: "video",
+		src: "https://streamable.com/e/vmq4q3?nocontrols=1"
+	},
+	{
+		type: "image",
+		src: `${bannerImgUrl}/desktop/img/ambassador/01.jpg`
+	},
+	{
+		type: "image",
+		src: `${bannerImgUrl}/desktop/img/ambassador/02.jpg`
+	},
+	{
+		type: "image",
+		src: `${bannerImgUrl}/desktop/img/ambassador/03.jpg`
+	},
+	{
+		type: "image",
+		src: `${bannerImgUrl}/desktop/img/ambassador/04.jpg`
+	},
+	{
+		type: "image",
+		src: `${bannerImgUrl}/desktop/img/ambassador/05.jpg`
+	},
+	{
+		type: "image",
+		src: `${bannerImgUrl}/desktop/img/ambassador/06.jpg`
+	},
+	{
+		type: "image",
+		src: `${bannerImgUrl}/desktop/img/ambassador/07.jpg`
+	}
+];
+
+const bottomSlideData = [
+	`${bannerImgUrl}/h5/img/ambassador/video-preview.jpg`,
+	`${bannerImgUrl}/desktop/img/ambassador/01.jpg`,
+	`${bannerImgUrl}/desktop/img/ambassador/02.jpg`,
+	`${bannerImgUrl}/desktop/img/ambassador/03.jpg`,
+	`${bannerImgUrl}/desktop/img/ambassador/04.jpg`,
+	`${bannerImgUrl}/desktop/img/ambassador/05.jpg`,
+	`${bannerImgUrl}/desktop/img/ambassador/06.jpg`,
+	`${bannerImgUrl}/desktop/img/ambassador/07.jpg`
+];
+
+const AmbassadorInfo = () => {
 	const { t } = useTranslation();
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
-	const slidesData = [
-		{
-			type: "video",
-			src: "https://streamable.com/e/vmq4q3?nocontrols=1"
-		},
-		{
-			type: "image",
-			src: `${bannerImgUrl}/desktop/img/ambassador/01.jpg`
-		},
-		{
-			type: "image",
-			src: `${bannerImgUrl}/desktop/img/ambassador/02.jpg`
-		},
-		{
-			type: "image",
-			src: `${bannerImgUrl}/desktop/img/ambassador/03.jpg`
-		},
-		{
-			type: "image",
-			src: `${bannerImgUrl}/desktop/img/ambassador/04.jpg`
-		},
-		{
-			type: "image",
-			src: `${bannerImgUrl}/desktop/img/ambassador/05.jpg`
-		},
-		{
-			type: "image",
-			src: `${bannerImgUrl}/desktop/img/ambassador/06.jpg`
-		},
-		{
-			type: "image",
-			src: `${bannerImgUrl}/desktop/img/ambassador/07.jpg`
-		}
-	];
-
-	const swiper2SlidesData = [
-		`${bannerImgUrl}/h5/img/ambassador/video-preview.jpg`,
-		`${bannerImgUrl}/desktop/img/ambassador/01.jpg`,
-		`${bannerImgUrl}/desktop/img/ambassador/02.jpg`,
-		`${bannerImgUrl}/desktop/img/ambassador/03.jpg`,
-		`${bannerImgUrl}/desktop/img/ambassador/04.jpg`,
-		`${bannerImgUrl}/desktop/img/ambassador/05.jpg`,
-		`${bannerImgUrl}/desktop/img/ambassador/06.jpg`,
-		`${bannerImgUrl}/desktop/img/ambassador/07.jpg`
-	];
 
 	const swiperConfigTop = {
 		spaceBetween: 10,
@@ -60,6 +63,7 @@ export const AmbassadorIntro = () => {
 			nextEl: ".swiper-button-next",
 			prevEl: ".swiper-button-prev"
 		},
+		// 達到兩個slider sync 的效果
 		thumbs: {
 			swiper: thumbsSwiper
 		}
@@ -79,11 +83,14 @@ export const AmbassadorIntro = () => {
 				<Swiper
 					className="swiper gallery2"
 					modules={[Navigation, Thumbs]}
-					style={{ overflow: "hidden" }}
-					{...swiperConfigTop}>
+					{...swiperConfigTop}
+				>
 					<div className="swiper-wrapper">
-						{slidesData.map((slide) => (
-							<SwiperSlide className="swiper-slide" key={slidesData.src}>
+						{topSlideData.map(slide => (
+							<SwiperSlide
+								className="swiper-slide"
+								key={slide.src}
+							>
 								{slide.type === "video" ? (
 									<div
 										style={{
@@ -91,10 +98,12 @@ export const AmbassadorIntro = () => {
 											width: "100%",
 											height: 0,
 											paddingBottom: "56.25%"
-										}}>
+										}}
+									>
 										<iframe
 											src={slide.src}
 											allow="fullscreen"
+											title="goal-ambassador-video"
 											allowFullScreen
 											style={{
 												position: "absolute",
@@ -123,9 +132,10 @@ export const AmbassadorIntro = () => {
 				<Swiper
 					className="swiper gallery"
 					{...swiperConfigDown}
-					style={{ overflow: "hidden" }}>
+					style={{ overflow: "hidden" }}
+				>
 					<div className="swiper-wrapper">
-						{swiper2SlidesData.map((src) => (
+						{bottomSlideData.map(src => (
 							<SwiperSlide className="swiper-slide" key={src}>
 								<img
 									src={src}
@@ -161,3 +171,5 @@ export const AmbassadorIntro = () => {
 		</div>
 	);
 };
+
+export default AmbassadorInfo;

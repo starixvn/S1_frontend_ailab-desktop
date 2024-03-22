@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
+import QRCode from "qrcode.react";
 import { useTranslation } from "react-i18next";
 import { bannerImgUrl } from "../../config";
+import path from "../../router";
+import { useAppDownLoad } from "../appDownload/useAppDownLoad";
+import { userInfoContext } from "../common/context";
 
-const AppSection = () => {
+const AppDownloadSection = () => {
 	const { t } = useTranslation();
+	const { appLinkDatas } = useAppDownLoad();
+	const { userInfo } = useContext(userInfoContext);
+	const andriodDownLoadUrl = appLinkDatas?.Andriod?.downloadLink ?? "";
+	const iOSDownloadUrl = appLinkDatas?.IOS?.downloadLink ?? "";
+	if (Object.keys(appLinkDatas).length === 0) return null;
+
 	return (
 		<div className="ambassador-app">
 			<div className="ambassador-app-cover">
 				<div className="subtitle">
 					<img
 						src={`${bannerImgUrl}/desktop/img/ambassador/appicon.png`}
-						alt=""
+						alt="ambassador-appicon"
 					/>
 					<div>
 						{t("lbl_DownloadApp")}
@@ -22,14 +32,14 @@ const AppSection = () => {
 				</div>
 				<img
 					src={`${bannerImgUrl}/desktop/img/ambassador/app.png`}
-					alt=""
+					alt="ambassador.app"
 				/>
 			</div>
 			<div className="ambassador-app-info">
 				<div className="ambassador-app-info-item">
 					<img
 						src={`${bannerImgUrl}/desktop/img/ambassador/icon-vip.png`}
-						alt=""
+						alt="ambassador-vip"
 					/>
 					<div>
 						{t("lbl_Ambassador_Exclusives_VIP")}
@@ -41,7 +51,7 @@ const AppSection = () => {
 				<div className="ambassador-app-info-item">
 					<img
 						src={`${bannerImgUrl}/desktop/img/ambassador/icon-speedy.png`}
-						alt=""
+						alt="ambassador-speedy"
 					/>
 					<div>
 						{t("lbl_Ambassador_Speedy_Transactions")}
@@ -55,7 +65,7 @@ const AppSection = () => {
 				<div className="ambassador-app-info-item">
 					<img
 						src={`${bannerImgUrl}/desktop/img/ambassador/icon-bouns.png`}
-						alt=""
+						alt="ambassador-bouns"
 					/>
 					<div>
 						{t("lbl_Ambassador_Attractive_Bonus")}
@@ -69,7 +79,7 @@ const AppSection = () => {
 				<div className="ambassador-app-info-item">
 					<img
 						src={`${bannerImgUrl}/desktop/img/ambassador/icon-referral.png`}
-						alt=""
+						alt="ambassador-referral"
 					/>
 					<div>
 						{t("lbl_Ambassador_Referral_Made_Easy")}
@@ -83,47 +93,37 @@ const AppSection = () => {
 			</div>
 			<div className="ambassador-app-qrcode">
 				<div className="ambassador-app-qrcode-item">
-					<div className="qr">
-						<svg
-							shapeRendering="crispEdges"
-							height="135"
-							width="135"
-							viewBox="0 0 37 37">
-							<path fill="#FFFFFF" d="M0,0 h37v37H0z" />
-							<path fill="#000000" />
-						</svg>
-					</div>
+					<QRCode
+						className="qr"
+						value={andriodDownLoadUrl}
+						includeMargin={true}
+					/>
 					<div className="qr-button">
 						<img
 							src={`${bannerImgUrl}/desktop/img/ambassador/android.png`}
-							alt=""
+							alt="android"
 						/>
 						{t("lbl_Ambassador_Android")}
 					</div>
-					<a href="appdownload.html">
+					<a href={`/${userInfo.langId}/${path.appDownload.root}`}>
 						{t("lbl_Ambassador_Instructions")}
 					</a>
 				</div>
 				<div className="ambassador-app-qrcode-item">
-					<div className="qr">
-						<svg
-							shapeRendering="crispEdges"
-							height="135"
-							width="135"
-							viewBox="0 0 37 37">
-							<path fill="#FFFFFF" d="M0,0 h37v37H0z" />
-							<path fill="#000000" />
-						</svg>
-					</div>
+					<QRCode
+						className="qr"
+						value={iOSDownloadUrl}
+						includeMargin={true}
+					/>
 					<div className="qr-button">
 						<img
 							src={`${bannerImgUrl}/desktop/img/ambassador/apple.png`}
-							alt=""
+							alt="apple"
 						/>
-						{t("lbl_Ambassador_Android")}
+						{t("lbl_Ambassador_IOS")}
 					</div>
-					<a href="appdownload.html">
-						{t("lbl_Ambassador_Instructions")}{" "}
+					<a href={`/${userInfo.langId}/${path.appDownload.root}`}>
+						{t("lbl_Ambassador_Instructions")}
 					</a>
 				</div>
 			</div>
@@ -131,4 +131,4 @@ const AppSection = () => {
 	);
 };
 
-export default AppSection;
+export default AppDownloadSection;
