@@ -58,7 +58,7 @@ module.exports = {
 		app.use(
 			"/api",
 			createProxyMiddleware({
-				target: "https://www.n88dev.com",
+				target: "https://stage.nova88dev.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
@@ -66,7 +66,7 @@ module.exports = {
 		app.use(
 			"/SiteSkin",
 			createProxyMiddleware({
-				target: "https://www.n88dev.com",
+				target: "https://stage.nova88dev.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
@@ -74,7 +74,7 @@ module.exports = {
 		app.use(
 			"*/Cashier",
 			createProxyMiddleware({
-				target: "https://www.n88dev.com",
+				target: "https://stage.nova88dev.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
@@ -82,7 +82,7 @@ module.exports = {
 		app.use(
 			"*/entPage",
 			createProxyMiddleware({
-				target: "https://www.n88dev.com",
+				target: "https://stage.nova88dev.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
@@ -90,7 +90,7 @@ module.exports = {
 		app.use(
 			"*/liveStreamingEntPage",
 			createProxyMiddleware({
-				target: "https://www.n88dev.com",
+				target: "https://stage.nova88dev.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})

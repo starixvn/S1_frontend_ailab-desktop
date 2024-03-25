@@ -90,7 +90,7 @@ export default () => {
 
 	useEffect(() => {
 		checkUrlParam();
-		getRecaptchaSiteKey();
+		// getRecaptchaSiteKey();
 	}, []);
 
 	const getRecaptchaSiteKey = async () => {
@@ -522,7 +522,7 @@ export default () => {
 			const _reCaptchaCheck =
 				reCaptchaToken !== "" || recaptchaInfo.country === "CN";
 			// * 機器人驗證沒過直接 return 出去
-			if (!_reCaptchaCheck) return false;
+			// if (!_reCaptchaCheck) return false;
 
 			const res = await Promise.all([
 				usernameCheck(userValue.username),
