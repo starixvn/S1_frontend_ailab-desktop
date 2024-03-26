@@ -171,5 +171,8 @@ export default {
 	},
 	dragonEgg: {
 		root: "dragonEgg"
+	},
+	cupEvent: {
+		root: "cupEvent"
 	}
 };
