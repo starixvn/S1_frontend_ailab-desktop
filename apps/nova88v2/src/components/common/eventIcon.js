@@ -60,7 +60,7 @@ export const defEventPeriod = {
 	casino_Amigo: { end: "2023/12/31 23:59:59" },
 	HaoLong: { end: "2024/01/28 23:59:59" },
 	game_maxGame: { end: "2024/04/07 23:59:59" },
-	game_93Connect: { end: "2024/12/05 23:59:59" }
+	game_93Connect: { end: "2024/04/21 23:59:59" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

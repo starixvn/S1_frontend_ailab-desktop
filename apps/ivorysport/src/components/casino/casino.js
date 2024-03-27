@@ -226,8 +226,7 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}
-										>
+											onClick={clickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -247,8 +246,7 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}
-									>
+										onClick={clickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -420,8 +418,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}
-								>
+									onClick={clickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -440,8 +437,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}
-								>
+									onClick={clickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -469,7 +465,7 @@ export default () => {
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
-		if (userInfo.isLogin || isFree) {
+		if (userInfo.isLogin) {
 			throttle(
 				() =>
 					SET_CASINO_ENTER_PAGE({

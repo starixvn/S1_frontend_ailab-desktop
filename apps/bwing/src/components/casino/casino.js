@@ -485,7 +485,7 @@ export default () => {
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
-		if (userInfo.isLogin || isFree) {
+		if (userInfo.isLogin) {
 			throttle(
 				() =>
 					SET_CASINO_ENTER_PAGE({
