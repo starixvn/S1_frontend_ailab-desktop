@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { bannerImgUrl, sportsImgUrl } from "../../config";
+import { bannerImgUrl, sportsImgUrl } from "../../../config";
 
 const TeamSelector = ({
 	options,
@@ -38,6 +38,7 @@ const TeamSelector = ({
 				<div className="filter-bottom">
 					<div className="number-bar">
 						<input
+							type="number"
 							className="input-number"
 							placeholder={t("lbl_CupEvent_PleaseFillOut")}
 							value={ticketsNumber}

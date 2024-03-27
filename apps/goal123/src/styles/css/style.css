@@ -4636,6 +4636,127 @@ html.Newtheme #popup .depositlist .close-btn {
 html.Newtheme #popup .depositlist .close-btn img {
   width: 40px;
 }
+html.Newtheme #popup .submitpop {
+  background: #F2F3F4;
+  padding: 0;
+}
+html.Newtheme #popup .submitpop-wrapper {
+  font-family: "Montserrat", sans-serif;
+}
+html.Newtheme #popup .submitpop-wrapper > div:first-child {
+  background: white;
+  border-radius: 0 0 20px 20px;
+  padding: 30px 25px 20px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item {
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/ticket-item.png) no-repeat center/100%;
+  width: 530px;
+  height: 163px;
+  margin-right: 20px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 530px;
+  height: 163px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box .euro-logo {
+  width: 80px;
+  margin-left: 29px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div {
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team {
+  border-right: 1px solid white;
+  width: 185px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team .team-title {
+  color: #F9BF4B;
+  font-size: 14px;
+  font-weight: 600;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team > div img {
+  width: 40px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team > div span {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 25px;
+  width: 125px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-number span:first-child {
+  color: #F9BF4B;
+  font-size: 14px;
+  font-weight: 600;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-number span:last-child {
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 18px;
+}
+html.Newtheme #popup .submitpop-tip {
+  color: #143CDB;
+  font-weight: 700;
+  font-size: 20px;
+  background: #F2F3F4;
+  padding: 20px 50px;
+  margin-top: 10px;
+}
+html.Newtheme #popup .submitpop-btn button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 10px 0;
+  width: 180px;
+  border-radius: 50px;
+  margin: 10px 0 45px;
+}
+html.Newtheme #popup .submitpop-btn button:first-child {
+  border: 2px solid #143CDB;
+  color: #143CDB;
+  margin-right: 10px;
+}
+html.Newtheme #popup .submitpop-btn button:first-child:hover {
+  border: 2px solid #4268ff;
+  color: #4268ff;
+}
+html.Newtheme #popup .submitpop-btn button:last-child {
+  border: 2px solid #989898;
+  color: #989898;
+}
+html.Newtheme #popup .submitpop-btn button:last-child:hover {
+  border: 2px solid #6e6e6e;
+  color: #6e6e6e;
+}
 html.Newtheme .Submit.active,
 html.Newtheme .Cancel.active,
 html.Newtheme .uploadSuccess.active,

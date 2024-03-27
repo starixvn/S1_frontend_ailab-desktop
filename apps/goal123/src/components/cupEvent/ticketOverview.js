@@ -6,7 +6,7 @@ import { bannerImgUrl } from "../../config";
 import paths from "../../router";
 import { userInfoContext } from "../common/context";
 
-const TicketOverview = ({ tickets }) => {
+const TicketOverview = ({ tickets, onOpen }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const { t } = useTranslation();
 	return (
@@ -31,7 +31,9 @@ const TicketOverview = ({ tickets }) => {
 				</div>
 			</div>
 			<div className="ticket-btn">
-				<button>{t("lbl_CupEvent_DepositList")}</button>
+				<button onClick={onOpen}>
+					{t("lbl_CupEvent_DepositList")}
+				</button>
 				<Link to={`/${userInfo.langId}/${paths.deposit.root}`}>
 					{t("lbl_DepositNow")}
 				</Link>
@@ -41,7 +43,8 @@ const TicketOverview = ({ tickets }) => {
 };
 
 TicketOverview.propTypes = {
-	tickets: PropTypes.objectOf(PropTypes.any).isRequired
+	tickets: PropTypes.objectOf(PropTypes.any).isRequired,
+	onOpen: PropTypes.func.isRequired
 };
 
 export default TicketOverview;

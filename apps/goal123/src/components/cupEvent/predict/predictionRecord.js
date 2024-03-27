@@ -1,13 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
-import { bannerImgUrl, sportsImgUrl } from "../../config";
+import { bannerImgUrl, sportsImgUrl } from "../../../config";
 
 const PredictionRecord = ({ usedTickets, isShowMore, onShowMoreToggle }) => {
 	const { t } = useTranslation();
 	return (
 		<div className="record active">
-			<div className={`record-wrapper ${isShowMore ? "" : "active"}`}>
+			<div className={`record-wrapper ${isShowMore ? "active" : ""}`}>
 				<div className="title">
 					{t("lbl_CupEvent_PredictionRecord")}
 				</div>
@@ -43,7 +43,7 @@ const PredictionRecord = ({ usedTickets, isShowMore, onShowMoreToggle }) => {
 					))}
 				</div>
 				<div
-					className={`more-btn ${isShowMore ? "" : "active"}`}
+					className={`more-btn ${isShowMore ? "active" : ""}`}
 					onClick={onShowMoreToggle}>
 					{t("lbl_CupEvent_ShowMore")}
 				</div>

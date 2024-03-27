@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { sportsImgUrl } from "../../config";
+import { sportsImgUrl } from "../../../config";
 
 const PredictItem = ({
 	countryId,
