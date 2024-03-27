@@ -1192,7 +1192,7 @@ header .logo {
 }
 header .logo img {
   width: auto;
-  height: 60px;
+  height: 70px;
 }
 header .header-content {
   display: -webkit-box;
@@ -4146,6 +4146,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
 .promotionpop-info-item div:first-child {
   border-bottom: 2px solid #F38C00;
   font-weight: 700;
+  white-space: nowrap;
 }
 .promotionpop-content {
   font-size: 16px;
