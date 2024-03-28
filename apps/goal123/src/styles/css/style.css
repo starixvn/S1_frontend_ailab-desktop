@@ -15862,8 +15862,6 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   width: 30px;
   height: 30px !important;
   right: 4px;
-  -webkit-box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.25);
 }
 .ambassador-gallery .gallery2 .swiper-button-next::after {
   font-family: unset;
@@ -15876,8 +15874,6 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   right: 4px;
   -webkit-transform: scale(-1);
           transform: scale(-1);
-  -webkit-box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.25);
 }
 .ambassador-gallery .gallery2 .swiper-button-prev::after {
   font-family: unset;
