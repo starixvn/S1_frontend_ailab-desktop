@@ -1,6 +1,6 @@
 import productList, { defCasinoProviders } from "../../datas/productList";
 import path from "../../router";
-import { siteInfo, bannerImgUrl } from "../../config";
+import { bannerImgUrl } from "../../config";
 import {
 	defEventIcon,
 	defEventPeriod,
@@ -1282,11 +1282,15 @@ export const defMenuLinks = langId => ({
 		]
 	},
 
-	affiliate: {
-		path: siteInfo({ langId }).affiliateLink,
-		displayKey: "lbl_Affiliates",
-		target: "_blank",
-		isFullPath: true
+	// affiliate: {
+	// 	path: siteInfo({ langId }).affiliateLink,
+	// 	displayKey: "lbl_Affiliates",
+	// 	target: "_blank",
+	// 	isFullPath: true
+	// },
+	ambassador: {
+		path: path.ambassador.root,
+		displayKey: "lbl_Ambassador"
 	}
 	// leaderBoard: {
 	// 	path: path.leaderBoard.root,
