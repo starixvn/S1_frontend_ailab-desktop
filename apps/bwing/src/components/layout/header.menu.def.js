@@ -84,6 +84,7 @@ export const defMenuLinks = {
 						period: defEventPeriod.IM
 					})
 				],
+				afterLogin: true,
 				img: "sports/im.png"
 			},
 			{
