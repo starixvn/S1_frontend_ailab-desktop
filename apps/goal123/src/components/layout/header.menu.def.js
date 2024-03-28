@@ -1272,7 +1272,7 @@ export const defMenuLinks = langId => ({
 	},
 	ambassador: {
 		path: path.ambassador.root,
-		displayKey: "lbl_Ambassador_Sponsor"
+		displayKey: "lbl_Ambassador"
 	}
 	// leaderBoard: {
 	// 	path: path.leaderBoard.root,
