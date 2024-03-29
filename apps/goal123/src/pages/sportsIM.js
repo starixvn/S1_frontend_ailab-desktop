@@ -6,7 +6,7 @@ import { GET_ENTER_PAGE_URL } from "../service/enterPage";
 import productList from "../datas/productList";
 
 export default () => (
-	<Wrapper>
+	<Wrapper afterLogin={true}>
 		<Layout>
 			<Content />
 		</Layout>
