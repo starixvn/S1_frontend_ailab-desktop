@@ -91,7 +91,8 @@ export const defMenuLinks = langId => ({
 						icon: defEventIcon.new,
 						period: defEventPeriod.IM
 					})
-				]
+				],
+				afterLogin: true
 			},
 			{
 				...productList.virtualSports,
