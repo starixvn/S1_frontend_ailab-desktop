@@ -131,7 +131,8 @@ export const SPORT_LIST = {
 					icon: defEventIcon.new,
 					period: defEventPeriod.IM
 				})
-			]
+			],
+			afterLogin: true
 		}
 	],
 	vn: [
@@ -205,7 +206,8 @@ export const SPORT_LIST = {
 					icon: defEventIcon.new,
 					period: defEventPeriod.IM
 				})
-			]
+			],
+			afterLogin: true
 		}
 	]
 };
