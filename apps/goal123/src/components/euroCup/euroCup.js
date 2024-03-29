@@ -103,7 +103,7 @@ const EuroCup = () => {
 
 	const combineGroups = data => [].concat(...Object.values(data ?? {}));
 
-	const options = combineGroups(tickets?.selectOptions);
+	const options = combineGroups(predictionSetting?.selectOptions);
 
 	const usedTickets = tickets.userTicketResult?.groupCountryTicket
 		.filter(({ countryId }) => countryId !== null)
@@ -267,12 +267,23 @@ const EuroCup = () => {
 		});
 	};
 
+	const handlePredictionExpire = () => {
+		// 目標時間為6月14日的23點59分59秒（GMT+8）,故utc時間減8小時做判斷
+		const targetTimeUtc = moment.utc("2024-06-14 15:59:59");
+		const nowUtc = moment.utc();
+		return nowUtc.isAfter(targetTimeUtc);
+	};
+
+	const isPredictionExpire = handlePredictionExpire();
+
 	useEffect(() => {
+		if (userInfo.isLogin) {
+			getCupEventTicket();
+			getMemberDeposit();
+		}
 		getCupEventPredictionSetting({ langId: userInfo.langId });
-		getCupEventTicket();
-		getMemberDeposit();
 		getTicketsSummary();
-	}, []);
+	}, [userInfo.isLogin]);
 
 	return (
 		<>
@@ -285,11 +296,19 @@ const EuroCup = () => {
 				<div className="prediction-left">
 					<div>{t("lbl_CupEvent_PredictionOfParticipant")}</div>
 					<div>{t("lbl_CupEvent_PredictionOfParticipant_desc")}</div>
-					<a className="deposit-btn-a">
-						<span
-							onClick={() => navigate(`/${paths.deposit.root}`)}>
-							{t("lbl_DepositNow")}
-						</span>
+					<a
+						className="deposit-btn-a"
+						onClick={() => {
+							userInfo.isLogin
+								? navigate(
+										`/${userInfo.langId}/${paths.deposit.root}`
+								  )
+								: setPopBox({
+										isOpen: true,
+										popBoxType: defPopBoxType.Login
+								  });
+						}}>
+						<span>{t("lbl_DepositNow")}</span>
 						<img
 							src={`${bannerImgUrl}/desktop/img/event/eurocup/arrow-right.png`}
 							alt=""
@@ -307,6 +326,7 @@ const EuroCup = () => {
 					options={options}
 					selectedTeamId={selectedTeamId}
 					ticketsNumber={ticketsNumber}
+					isPredictionExpire={isPredictionExpire}
 					setTicketsNumber={setTicketsNumber}
 					onChange={setSelectedTeamId}
 					onSubmit={handleSubmitConfirmModalOpen}

@@ -7,13 +7,14 @@ const TeamSelector = ({
 	options,
 	selectedTeamId,
 	ticketsNumber,
+	isPredictionExpire,
 	setTicketsNumber,
 	onChange,
 	onSubmit
 }) => {
 	const { t } = useTranslation();
 	return (
-		<div className="ticket-filter">
+		<div className={`ticket-filter ${isPredictionExpire ? "close" : ""}`}>
 			<div>
 				<div className="title">{t("lbl_CupEvent_SelectYourTeam")}</div>
 				<div className="filter-country">
@@ -76,6 +77,7 @@ TeamSelector.propTypes = {
 	options: PropTypes.objectOf(PropTypes.any).isRequired,
 	selectedTeamId: PropTypes.objectOf(PropTypes.any).isRequired,
 	ticketsNumber: PropTypes.string.isRequired,
+	isPredictionExpire: PropTypes.bool.isRequired,
 	setTicketsNumber: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired
