@@ -18,7 +18,7 @@ const CupEventLink = () => {
 			/>
 			<button
 				onClick={() =>
-					navigate(`/${userInfo.langId}/${path.cupEvent.root}`)
+					navigate(`/${userInfo.langId}/${path.euroCup.root}`)
 				}>
 				<img
 					src={`${bannerImgUrl}/desktop/img/event/eurocup/eurocup-icon.webp`}

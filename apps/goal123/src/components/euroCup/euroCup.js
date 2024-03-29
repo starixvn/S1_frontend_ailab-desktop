@@ -9,7 +9,7 @@ import {
 	api_cupEvent_GetCupEventTicketSummary,
 	api_cupEvent_GetMemberDeposit,
 	api_cupEvent_MultiUserPollTickets
-} from "../../service/api/cupEvent";
+} from "../../service/api/euroCup";
 import { popBoxContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
 import PredictList from "./predict/predictLIst";
@@ -24,7 +24,7 @@ import defPopBoxType from "../common/defPopBoxType";
 import { numFormatToDigits } from "../common/common";
 import RewardItemWinner from "./reward/RewardItemWinner";
 
-const CupEvent = () => {
+const EuroCup = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -166,7 +166,7 @@ const CupEvent = () => {
 										</span>
 										<div>
 											<img
-												src={`${sportsImgUrl}/Country%20Team/${selectedTeam.countryName}.png`}
+												src={`${sportsImgUrl}/Country%20Team/${selectedTeam.imageName}`}
 												alt=""
 											/>
 											<span>
@@ -175,14 +175,20 @@ const CupEvent = () => {
 										</div>
 									</div>
 									<div className="record-item-number">
-										<span>Number of votes</span>
-										<span>{count} Tickets</span>
+										<span>
+											{t("lbl_CupEvent_NumberOfTickets")}
+										</span>
+										<span>
+											{count} {t("lbl_CupEvent_Tickets")}
+										</span>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div className="submitpop-tip">Sent cannot be modified</div>
+					<div className="submitpop-tip">
+						{t("lbl_CupEvent_ConfirmMsg")}
+					</div>
 					<div className="submitpop-btn">
 						<button onClick={onSubmit}>{t("lbl_OK")}</button>
 						<button onClick={() => setPopBox({ isOpen: false })}>
@@ -332,4 +338,4 @@ const CupEvent = () => {
 	);
 };
 
-export default CupEvent;
+export default EuroCup;

@@ -42,7 +42,7 @@ import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { defMenuLinks } from "../layout/header.menu.def";
 import RecentlyViewedGameList from "./components/recentlyViewedGameList";
 import { defDeviceType } from "../../service/api/base";
-import { cupEventPeriod, eventPerios } from "../../datas/eventDef";
+import { euroCupPeriod, eventPerios } from "../../datas/eventDef";
 import DragonEgg from "../dragonEgg/homeLink";
 import LiveStreamingLink from "./liveStreaming";
 import CupEventLink from "./cupEventLink";
@@ -398,7 +398,7 @@ const Home = ({ productTpIds }) => {
 			{displayVgaming &&
 				!displayLiveStreaming &&
 				!isLoading &&
-				!isDateRange(cupEventPeriod) && (
+				!isDateRange(euroCupPeriod) && (
 					<div className="eventLink vgaming">
 						<button
 							className="icon icon-close"
@@ -431,7 +431,7 @@ const Home = ({ productTpIds }) => {
 			{isDateRange(eventPerios.dragonEgg) && <DragonEgg />}
 
 			{/* 歐冠杯期間顯示 */}
-			{isDateRange(cupEventPeriod) && <CupEventLink />}
+			{isDateRange(euroCupPeriod) && <CupEventLink />}
 
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}

@@ -80,12 +80,12 @@ const Directions = ({ directionsType, setDirectionsType }) => {
 							<div>{t("lbl_CupEvent_Rollover")}</div>
 						</div>
 						<div>
-							<div>3-8%</div>
-							<div>FT.[HDP / FT.[O/U] / 1H.[HDP] / 1H.[O/U]</div>
-							<div>VND 8,888</div>
-							<div>VND 8,888,888</div>
-							<div>Saba Sports only</div>
-							<div>8x</div>
+							<div>{t("lbl_CupEvent_Matches_Sheet1")}</div>
+							<div>{t("lbl_CupEvent_Matches_Sheet2")}</div>
+							<div>{t("lbl_CupEvent_Matches_Sheet3")}</div>
+							<div>{t("lbl_CupEvent_Matches_Sheet4")}</div>
+							<div>{t("lbl_CupEvent_Matches_Sheet5")}</div>
+							<div>{t("lbl_CupEvent_Matches_Sheet6")}</div>
 						</div>
 					</div>
 					<div className="matches-info">

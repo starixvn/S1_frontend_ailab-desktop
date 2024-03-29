@@ -48,7 +48,7 @@ const RewardItemWinner = () => {
 									</div>
 								</div>
 								<div>
-									<span>Winners</span>
+									<span>{t("lbl_CupEvent_Winners")}</span>
 									<span>{winners.join("、")}</span>
 								</div>
 							</div>
@@ -72,7 +72,7 @@ const RewardItemWinner = () => {
 						</div>
 					</div>
 					<div>
-						<span>Winners</span>
+						<span>{t("lbl_CupEvent_Winners")}</span>
 						<span>{semiFinalsData.winners.join("、")}</span>
 					</div>
 				</div>

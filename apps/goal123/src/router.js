@@ -172,7 +172,7 @@ export default {
 	dragonEgg: {
 		root: "dragonEgg"
 	},
-	cupEvent: {
-		root: "cupEvent"
+	euroCup: {
+		root: "euro-cup"
 	}
 };

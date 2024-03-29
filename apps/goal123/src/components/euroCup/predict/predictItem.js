@@ -15,12 +15,12 @@ const PredictItem = ({
 			<div className="country-flag">
 				<div>
 					<img
-						src={`${sportsImgUrl}/Country%20Team/${countryName}.png`}
+						src={`${sportsImgUrl}/Country%20Team/${imageName}`}
 						alt=""
 					/>
 					<div>{countryName}</div>
 				</div>
-				<div>{percentage}%</div>
+				<div>{Math.round(percentage)}%</div>
 			</div>
 		</div>
 	);

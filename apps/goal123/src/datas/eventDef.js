@@ -14,7 +14,7 @@ export const eventPerios = {
 	}
 };
 
-export const cupEventPeriod = {
+export const euroCupPeriod = {
 	startDate: "2024-03-15 00:00:00",
 	endDate: "2024-07-20 23:59:59"
 };

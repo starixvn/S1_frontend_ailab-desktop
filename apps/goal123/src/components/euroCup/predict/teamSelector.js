@@ -17,7 +17,7 @@ const TeamSelector = ({
 			<div>
 				<div className="title">{t("lbl_CupEvent_SelectYourTeam")}</div>
 				<div className="filter-country">
-					{options.map(({ countryId, countryName }) => (
+					{options.map(({ countryId, countryName, imageName }) => (
 						<button
 							onClick={() => onChange(countryId)}
 							className={
@@ -25,7 +25,7 @@ const TeamSelector = ({
 							}
 							key={countryId}>
 							<img
-								src={`${sportsImgUrl}/Country%20Team/${countryName}.png`}
+								src={`${sportsImgUrl}/Country%20Team/${imageName}`}
 								alt=""
 							/>
 							<span>{countryName}</span>
