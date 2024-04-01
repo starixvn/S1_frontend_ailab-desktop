@@ -23,7 +23,7 @@ const PredictList = ({ ticketSummary }) => {
 };
 
 PredictList.propTypes = {
-	ticketSummary: PropTypes.objectOf(PropTypes.any).isRequired
+	ticketSummary: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
 export default PredictList;

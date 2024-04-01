@@ -13,7 +13,7 @@ const RewardItemWinner = () => {
 			<div className="bottom-title">
 				<img
 					src={`${bannerImgUrl}/desktop/img/event/eurocup/title-item.png`}
-					alt=""
+					alt="title-item"
 				/>
 				<span>{t("lbl_CupEvent_RewardItem")}</span>
 			</div>
@@ -27,7 +27,7 @@ const RewardItemWinner = () => {
 									{key === 1 && (
 										<img
 											src={`${bannerImgUrl}/desktop/img/event/eurocup/crown.png`}
-											alt=""
+											alt="crown"
 										/>
 									)}
 								</div>

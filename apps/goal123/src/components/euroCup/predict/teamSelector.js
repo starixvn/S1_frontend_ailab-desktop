@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { bannerImgUrl, sportsImgUrl } from "../../../config";
 
@@ -14,7 +15,10 @@ const TeamSelector = ({
 }) => {
 	const { t } = useTranslation();
 	return (
-		<div className={`ticket-filter ${isPredictionExpire ? "close" : ""}`}>
+		<div
+			className={classNames("ticket-filter", {
+				close: isPredictionExpire
+			})}>
 			<div>
 				<div className="title">{t("lbl_CupEvent_SelectYourTeam")}</div>
 				<div className="filter-country">
@@ -27,7 +31,7 @@ const TeamSelector = ({
 							key={countryId}>
 							<img
 								src={`${sportsImgUrl}/Country%20Team/${imageName}`}
-								alt=""
+								alt={imageName}
 							/>
 							<span>{countryName}</span>
 						</button>
@@ -48,7 +52,7 @@ const TeamSelector = ({
 						<button className="close-btn">
 							<img
 								src={`${bannerImgUrl}/desktop/img/event/eurocup/close.png`}
-								alt=""
+								alt="close"
 								onClick={() => setTicketsNumber("")}
 							/>
 						</button>
@@ -74,7 +78,7 @@ const TeamSelector = ({
 };
 
 TeamSelector.propTypes = {
-	options: PropTypes.objectOf(PropTypes.any).isRequired,
+	options: PropTypes.arrayOf(PropTypes.any).isRequired,
 	selectedTeamId: PropTypes.objectOf(PropTypes.any).isRequired,
 	ticketsNumber: PropTypes.string.isRequired,
 	isPredictionExpire: PropTypes.bool.isRequired,

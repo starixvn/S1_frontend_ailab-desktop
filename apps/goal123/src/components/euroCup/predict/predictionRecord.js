@@ -1,13 +1,17 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { bannerImgUrl, sportsImgUrl } from "../../../config";
 
 const PredictionRecord = ({ usedTickets, isShowMore, onShowMoreToggle }) => {
 	const { t } = useTranslation();
 	return (
 		<div className="record active">
-			<div className={`record-wrapper ${isShowMore ? "active" : ""}`}>
+			<div
+				className={classNames("record-wrapper", {
+					active: isShowMore
+				})}>
 				<div className="title">
 					{t("lbl_CupEvent_PredictionRecord")}
 				</div>
@@ -19,7 +23,7 @@ const PredictionRecord = ({ usedTickets, isShowMore, onShowMoreToggle }) => {
 									<img
 										className="euro-logo"
 										src={`${bannerImgUrl}/desktop/img/event/eurocup/euro-logo.png`}
-										alt=""
+										alt="euro-logo"
 									/>
 									<div>
 										<div className="record-item-team">
@@ -31,7 +35,7 @@ const PredictionRecord = ({ usedTickets, isShowMore, onShowMoreToggle }) => {
 											<div>
 												<img
 													src={`${sportsImgUrl}/Country%20Team/${imageName}`}
-													alt=""
+													alt={imageName}
 												/>
 												<span>{countryName}</span>
 											</div>
@@ -54,7 +58,7 @@ const PredictionRecord = ({ usedTickets, isShowMore, onShowMoreToggle }) => {
 					)}
 				</div>
 				<div
-					className={`more-btn ${isShowMore ? "active" : ""}`}
+					className={classNames("more-btn", { active: isShowMore })}
 					onClick={onShowMoreToggle}>
 					{t("lbl_CupEvent_ShowMore")}
 				</div>

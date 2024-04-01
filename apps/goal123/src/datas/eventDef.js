@@ -7,14 +7,13 @@ export const eventPeriodIdpd = {
 	// endDate: "2021/09/10 12:00:00"
 };
 
-export const eventPerios = {
+export const eventPeriods = {
 	dragonEgg: {
 		startDate: "2024/02/01 00:00:00",
 		endDate: "2024/02/29 23:59:59"
+	},
+	euroCup: {
+		startDate: "2024/03/15 00:00:00",
+		endDate: "2024/07/20 23:59:59"
 	}
-};
-
-export const euroCupPeriod = {
-	startDate: "2024-03-15 00:00:00",
-	endDate: "2024-07-20 23:59:59"
 };

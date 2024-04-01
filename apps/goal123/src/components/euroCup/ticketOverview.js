@@ -16,7 +16,7 @@ const TicketOverview = ({ tickets, onOpen }) => {
 			<img
 				className="ticket-img"
 				src={`${bannerImgUrl}/desktop/img/event/eurocup/ticket.png`}
-				alt=""
+				alt="ticket"
 			/>
 			<div className="ticket-number">
 				<div>

@@ -17,7 +17,7 @@ import path from "../../router";
 
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { angPaoEventPeriod } from "../../pages/angpao";
-import { euroCupPeriod } from "../../datas/eventDef";
+import { eventPeriods } from "../../datas/eventDef";
 
 export const eventPeriod = {
 	startDate: "2024-02-01 00:00:00",
@@ -42,12 +42,12 @@ export default () => {
 			<div className="header">
 				<div
 					className={classNames("logo", {
-						"eurocup-logo": isDateRange(euroCupPeriod)
+						"eurocup-logo": isDateRange(eventPeriods.euroCup)
 					})}>
 					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
 							src={`${bannerImgUrl}/desktop/img/${
-								isDateRange(euroCupPeriod)
+								isDateRange(eventPeriods.euroCup)
 									? "event/eurocup/goal123-logo"
 									: "logo"
 							}.png`}
@@ -64,7 +64,7 @@ export default () => {
 					)}
 
 					{/* 歐冠杯期間顯示 */}
-					{isDateRange(euroCupPeriod) && (
+					{isDateRange(eventPeriods.euroCup) && (
 						<div
 							onClick={() =>
 								navigate(

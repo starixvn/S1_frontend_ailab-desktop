@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { DIRECTIONS_TYPE } from "./def";
 import { bannerImgUrl } from "../../config";
 
@@ -8,27 +9,25 @@ const Directions = ({ directionsType, setDirectionsType }) => {
 	const { t } = useTranslation();
 	return (
 		<div
-			className={
-				directionsType === DIRECTIONS_TYPE.TERMS_AND_CONDITIONS
-					? "terms"
-					: "matches"
-			}>
+			className={classNames({
+				terms: directionsType === DIRECTIONS_TYPE.TERMS_AND_CONDITIONS,
+				matches: directionsType === DIRECTIONS_TYPE.MATCHES
+			})}>
 			<div className="bottom-title">
 				<div>
 					<img
 						src={`${bannerImgUrl}/desktop/img/event/eurocup/title-item.png`}
-						alt=""
+						alt="title-item"
 					/>
 					<span>{t("lbl_TermsConditions")}</span>
 				</div>
 				<div className="terms-btn">
 					<button
-						className={
-							directionsType ===
-							DIRECTIONS_TYPE.TERMS_AND_CONDITIONS
-								? "active"
-								: ""
-						}
+						className={classNames({
+							active:
+								directionsType ===
+								DIRECTIONS_TYPE.TERMS_AND_CONDITIONS
+						})}
 						onClick={() =>
 							setDirectionsType(
 								DIRECTIONS_TYPE.TERMS_AND_CONDITIONS
@@ -37,11 +36,9 @@ const Directions = ({ directionsType, setDirectionsType }) => {
 						{t("lbl_CupEvent_T&C")}
 					</button>
 					<button
-						className={
-							directionsType === DIRECTIONS_TYPE.MATCHES
-								? "active"
-								: ""
-						}
+						className={classNames({
+							active: directionsType === DIRECTIONS_TYPE.MATCHES
+						})}
 						onClick={() =>
 							setDirectionsType(DIRECTIONS_TYPE.MATCHES)
 						}>
@@ -51,18 +48,24 @@ const Directions = ({ directionsType, setDirectionsType }) => {
 			</div>
 			{directionsType === DIRECTIONS_TYPE.TERMS_AND_CONDITIONS && (
 				<ul className="info">
-					<li>{t("lbl_CupEvent_Terms_And_Conditions_1")}</li>
-					<li>{t("lbl_CupEvent_Terms_And_Conditions_2")}</li>
-					<li>{t("lbl_CupEvent_Terms_And_Conditions_3")}</li>
-					<li>{t("lbl_CupEvent_Terms_And_Conditions_4")}</li>
-					<li>{t("lbl_CupEvent_Terms_And_Conditions_5")}</li>
-					<li>{t("lbl_CupEvent_Terms_And_Conditions_6")}</li>
-					<li>{t("lbl_CupEvent_Terms_And_Conditions_7")}</li>
-					<li>{t("lbl_CupEvent_Terms_And_Conditions_8")}</li>
-					<li>{t("lbl_CupEvent_Terms_And_Conditions_9")}</li>
-					<li>{t("lbl_CupEvent_Terms_And_Conditions_10")}</li>
-					<li>{t("lbl_CupEvent_Terms_And_Conditions_11")}</li>
-					<li>{t("lbl_CupEvent_Terms_And_Conditions_12")}</li>
+					<li key={1}>{t("lbl_CupEvent_Terms_And_Conditions_1")}</li>
+					<li key={2}>{t("lbl_CupEvent_Terms_And_Conditions_2")}</li>
+					<li key={3}>{t("lbl_CupEvent_Terms_And_Conditions_3")}</li>
+					<li key={4}>{t("lbl_CupEvent_Terms_And_Conditions_4")}</li>
+					<li key={5}>{t("lbl_CupEvent_Terms_And_Conditions_5")}</li>
+					<li key={6}>{t("lbl_CupEvent_Terms_And_Conditions_6")}</li>
+					<li key={7}>{t("lbl_CupEvent_Terms_And_Conditions_7")}</li>
+					<li key={8}>{t("lbl_CupEvent_Terms_And_Conditions_8")}</li>
+					<li key={9}>{t("lbl_CupEvent_Terms_And_Conditions_9")}</li>
+					<li key={10}>
+						{t("lbl_CupEvent_Terms_And_Conditions_10")}
+					</li>
+					<li key={11}>
+						{t("lbl_CupEvent_Terms_And_Conditions_11")}
+					</li>
+					<li key={12}>
+						{t("lbl_CupEvent_Terms_And_Conditions_12")}
+					</li>
 				</ul>
 			)}
 			{directionsType === DIRECTIONS_TYPE.MATCHES && (
