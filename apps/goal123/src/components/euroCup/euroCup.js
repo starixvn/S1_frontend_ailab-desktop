@@ -46,11 +46,10 @@ const EuroCup = () => {
 					(a, b) => b.percentage - a.percentage
 				);
 				return {
-					data: sortedData
+					data: { data: sortedData }
 				};
 			}
 		});
-
 	const { data: { data: tickets = {} } = {} } = useGetCupEventTicketQuery(
 		null,
 		{
