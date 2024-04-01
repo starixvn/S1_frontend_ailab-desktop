@@ -92,7 +92,7 @@ const EuroCup = () => {
 		)
 			return;
 		const selectedTeam = options.find(
-			({ countryId }) => countryId === selectedTeamId
+			({ countryId }) => countryId === Number(selectedTeamId)
 		);
 		const onSubmit = async () => {
 			if (!userInfo.isLogin) return;
@@ -101,7 +101,7 @@ const EuroCup = () => {
 					userPollTicket,
 					count
 				}).unwrap();
-				const { errorCode, message } = res.data;
+				const { errorCode, message } = res;
 				if (errorCode === 0) {
 					setTicketsNumber("");
 					setPopBox({ isOpen: false });

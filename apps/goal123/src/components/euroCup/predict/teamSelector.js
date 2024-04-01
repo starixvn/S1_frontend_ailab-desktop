@@ -24,9 +24,11 @@ const TeamSelector = ({
 				<div className="filter-country">
 					{options.map(({ countryId, countryName, imageName }) => (
 						<button
-							onClick={() => onChange(countryId)}
+							onClick={() => onChange(countryId.toString())}
 							className={
-								countryId === selectedTeamId ? "active" : ""
+								countryId === Number(selectedTeamId)
+									? "active"
+									: ""
 							}
 							key={countryId}>
 							<img
@@ -64,7 +66,7 @@ const TeamSelector = ({
 								userPollTicket: {
 									// goal不分type,type固定帶0
 									TicketType: 0,
-									CountryId: selectedTeamId
+									CountryId: Number(selectedTeamId)
 								},
 								count: Number(ticketsNumber)
 							});
@@ -79,7 +81,7 @@ const TeamSelector = ({
 
 TeamSelector.propTypes = {
 	options: PropTypes.arrayOf(PropTypes.any).isRequired,
-	selectedTeamId: PropTypes.objectOf(PropTypes.any).isRequired,
+	selectedTeamId: PropTypes.string.isRequired,
 	ticketsNumber: PropTypes.string.isRequired,
 	isPredictionExpire: PropTypes.bool.isRequired,
 	setTicketsNumber: PropTypes.func.isRequired,
