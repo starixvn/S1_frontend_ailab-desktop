@@ -86,7 +86,12 @@ const EuroCup = () => {
 	};
 
 	const handleSubmitConfirmModalOpen = async ({ userPollTicket, count }) => {
-		if (!selectedTeamId || !ticketsNumber) return;
+		if (
+			!selectedTeamId ||
+			!ticketsNumber ||
+			tickets.unUsedTickets < ticketsNumber
+		)
+			return;
 		const selectedTeam = options.find(
 			({ countryId }) => countryId === selectedTeamId
 		);
