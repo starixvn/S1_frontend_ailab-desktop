@@ -2,13 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
+import { isDateRange } from "@ailab-desktop/common";
 import { bannerImgUrl, sportsImgUrl } from "../../../config";
+import { eventPeriods } from "../../../datas/eventDef";
 
 const TeamSelector = ({
 	options,
 	selectedTeamId,
 	ticketsNumber,
-	isPredictionExpire,
 	setTicketsNumber,
 	onChange,
 	onSubmit
@@ -17,7 +18,7 @@ const TeamSelector = ({
 	return (
 		<div
 			className={classNames("ticket-filter", {
-				close: isPredictionExpire
+				close: !isDateRange(eventPeriods.prediction)
 			})}>
 			<div>
 				<div className="title">{t("lbl_CupEvent_SelectYourTeam")}</div>
@@ -83,7 +84,6 @@ TeamSelector.propTypes = {
 	options: PropTypes.arrayOf(PropTypes.any).isRequired,
 	selectedTeamId: PropTypes.string.isRequired,
 	ticketsNumber: PropTypes.string.isRequired,
-	isPredictionExpire: PropTypes.bool.isRequired,
 	setTicketsNumber: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired

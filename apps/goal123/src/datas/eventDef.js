@@ -15,5 +15,8 @@ export const eventPeriods = {
 	euroCup: {
 		startDate: "2024/03/15 00:00:00",
 		endDate: "2024/07/20 23:59:59"
+	},
+	prediction: {
+		endDate: "2024/06/14 23:59:59"
 	}
 };
