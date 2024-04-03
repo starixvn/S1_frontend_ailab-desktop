@@ -69,9 +69,9 @@ const EuroCup = () => {
 	const options = combineGroups(predictionSettingData?.selectOptions);
 
 	const usedTickets = tickets.userTicketResult?.groupCountryTicket
-		.filter(({ countryId }) => countryId !== null)
-		.map(ticketObj => {
-			const matchOption = options.find(
+		?.filter(({ countryId }) => countryId !== null)
+		?.map(ticketObj => {
+			const matchOption = options?.find(
 				option => option.countryId === ticketObj.countryId
 			);
 			return {
@@ -91,7 +91,7 @@ const EuroCup = () => {
 			tickets.unUsedTickets < ticketsNumber
 		)
 			return;
-		const selectedTeam = options.find(
+		const selectedTeam = options?.find(
 			({ countryId }) => countryId === Number(selectedTeamId)
 		);
 		const onSubmit = async () => {

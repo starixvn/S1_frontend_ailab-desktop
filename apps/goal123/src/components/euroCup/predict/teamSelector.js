@@ -23,7 +23,7 @@ const TeamSelector = ({
 			<div>
 				<div className="title">{t("lbl_CupEvent_SelectYourTeam")}</div>
 				<div className="filter-country">
-					{options.map(({ countryId, countryName, imageName }) => (
+					{options?.map(({ countryId, countryName, imageName }) => (
 						<button
 							onClick={() => onChange(countryId.toString())}
 							className={
