@@ -8,6 +8,7 @@
   "Currency_4": "THB",
   "Currency_51": "VND",
   "GPI_VNLottery": "Số Đề",
+  "Label_CupEvent_Verify_Email_Phone": "Thông tin tài khoản chưa được điền đầy đủ, vui lòng xác minh thông tin tài khoản",
   "Label_Deposit_AdditionalInfo": "(000') thêm thông tin ở đây",
   "Label_Deposit_RemarkHint": "Vui lòng ghi chú tại phần thông tin người nhận khi chuyển tiền",
   "Label_Remark": "Ghi chú",

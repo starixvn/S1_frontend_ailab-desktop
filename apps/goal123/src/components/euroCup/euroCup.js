@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { navigate } from "gatsby";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
@@ -233,6 +233,26 @@ const EuroCup = () => {
 			)
 		});
 	};
+
+	useEffect(() => {
+		// 身份驗證未完成狀態
+		if (userInfo.isLogin && tickets?.errorCode === 104) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: t("Label_CupEvent_Verify_Email_Phone"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+		}
+	}, [tickets.errorCode]);
 
 	return (
 		<>
