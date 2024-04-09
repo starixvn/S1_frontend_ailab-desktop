@@ -58,7 +58,8 @@ export const defEventPeriod = {
 	slot_NoLimitCity: { end: "2024/01/11 23:59:59" },
 	slot_amigo: { end: "2023/12/31 23:59:59" },
 	GA_CockFighting: { end: "2024/05/01 23:59:59" },
-	game_93Connect: { end: "2024/04/21 23:59:59" }
+	game_93Connect: { end: "2024/04/21 23:59:59" },
+	liveCasino_won: { end: "2024/07/09 23:59:59" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

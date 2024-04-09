@@ -753,6 +753,23 @@ export const defMenuLinks = langId => ({
 				lobbyImg: "pp"
 			},
 			{
+				...productList.liveCasino_Won,
+				className: "liveWoncasino",
+				icon: "icon icon-Woncasino",
+				listNpcImgUrl: "woncasino.png",
+				displayText: "Won Casino",
+				menuType: defMenuType.entPage,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/woncasino.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/woncasino-icon.png`,
+				lobbyImg: "woncasino",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_won
+					})
+				]
+			},
+			{
 				...productList.liveCasino_BG,
 				className: "liveBG",
 				icon: "icon icon-BG",
