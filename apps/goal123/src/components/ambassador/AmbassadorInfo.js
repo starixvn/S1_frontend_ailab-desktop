@@ -35,10 +35,6 @@ const topSlideData = [
 	{
 		type: "image",
 		src: `${bannerImgUrl}/desktop/img/ambassador/06.jpg`
-	},
-	{
-		type: "image",
-		src: `${bannerImgUrl}/desktop/img/ambassador/07.jpg`
 	}
 ];
 
@@ -49,8 +45,7 @@ const bottomSlideData = [
 	`${bannerImgUrl}/desktop/img/ambassador/03.jpg`,
 	`${bannerImgUrl}/desktop/img/ambassador/04.jpg`,
 	`${bannerImgUrl}/desktop/img/ambassador/05.jpg`,
-	`${bannerImgUrl}/desktop/img/ambassador/06.jpg`,
-	`${bannerImgUrl}/desktop/img/ambassador/07.jpg`
+	`${bannerImgUrl}/desktop/img/ambassador/06.jpg`
 ];
 
 const AmbassadorInfo = () => {

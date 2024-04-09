@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { bannerImgUrl } from "../../config";
+import { userInfoContext } from "../common/context";
 
 const AmbassadorBanner = () => {
+	const { userInfo } = useContext(userInfoContext);
 	return (
 		<div className="banner">
 			<img
-				src={`${bannerImgUrl}/desktop/img/ambassador/banner.jpg`}
+				src={
+					userInfo.langId === "en"
+						? `${bannerImgUrl}/desktop/img/ambassador/banner.jpg`
+						: `${bannerImgUrl}/desktop/img/ambassador/banner-vn.jpg`
+				}
 				alt="ambassador-banner"
 			/>
 		</div>
