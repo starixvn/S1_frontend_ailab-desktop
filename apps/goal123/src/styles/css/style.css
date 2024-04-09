@@ -16043,7 +16043,6 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   z-index: 2;
   font-size: 22px;
   font-weight: 700;
-  width: 300px;
   left: calc(50% - 105px);
   top: calc(50% - 15px);
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.3607843137);
@@ -16066,7 +16065,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   width: 50px;
   position: absolute;
   z-index: 3;
-  right: 42px;
+  right: 35px;
   bottom: 13px;
 }
 .euro .prediction-left .deposit-btn-a:hover::after {
@@ -16225,22 +16224,33 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 }
 .euro .ticket-btn button {
   border: 2px solid #143CDB;
-  padding: 18px 40px;
   border-radius: 50px;
   font-size: 25px;
   font-weight: 700;
   color: #143CDB;
   margin-bottom: 15px;
+  height: 80px;
+  width: 300px;
 }
 .euro .ticket-btn button:hover {
   border: 2px solid #3259F3;
   color: #3259F3;
 }
 .euro .ticket-btn a {
+  height: 80px;
+  width: 300px;
   background: #143CDB;
   border-radius: 50px;
-  padding: 18px 40px;
   margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .euro .ticket-btn a:hover {
   background: #3259F3;
@@ -16423,6 +16433,8 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   font-size: 30px;
   font-weight: 700;
   text-shadow: 0 0 10px #000;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
 }
 .euro .record {
   background: #F9BF4B;
@@ -16729,12 +16741,14 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   margin-top: 10px;
 }
 .euro .bottom-wrapper .terms-btn {
-  min-width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .euro .bottom-wrapper .terms-btn button {
   background: #092EC1;
   color: #1D47EF;
-  width: 250px;
+  width: 300px;
   padding: 15px;
   font-size: 30px;
   font-weight: 700;

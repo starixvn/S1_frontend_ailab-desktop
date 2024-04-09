@@ -42,7 +42,7 @@ export const cupEventApi = rootApi.injectEndpoints({
 		}),
 		GetCupEventTicketSummary: builder.query<
 			IAxiosResponse<ICupEventTicketSummaryData[]>,
-			null
+			{ langId: string }
 		>({
 			query: data => ({
 				url: "CupEvent/GetCupEventTicketSummary",
