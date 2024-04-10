@@ -187,6 +187,7 @@
   "lbl_CupEvent_Champions": "Champions",
   "lbl_CupEvent_ConfirmMsg": "Sent cannot be modified",
   "lbl_CupEvent_DateLineTip": "The prediction has ended and the winner will be drawn after EURO 2024 end.",
+  "lbl_CupEvent_DepositID": "Deposit ID",
   "lbl_CupEvent_DepositList": "Deposit List",
   "lbl_CupEvent_DrawnOutOn": "Drawn out on",
   "lbl_CupEvent_EnterTheNumberOfTickets": "Enter the number of tickets",
