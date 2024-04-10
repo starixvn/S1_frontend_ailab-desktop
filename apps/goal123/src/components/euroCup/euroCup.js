@@ -9,6 +9,7 @@ import {
 	useGetMemberDepositQuery,
 	useMultiUserPollTicketsMutation
 } from "@ailab-desktop/service";
+import { isDateRange } from "@ailab-desktop/common";
 import paths from "../../router";
 import { popBoxContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
@@ -23,6 +24,7 @@ import { bannerImgUrl, sportsImgUrl } from "../../config";
 import defPopBoxType from "../common/defPopBoxType";
 import { numFormatToDigits } from "../common/common";
 import RewardItemWinner from "./reward/RewardItemWinner";
+import { eventPeriods } from "../../datas/eventDef";
 
 const EuroCup = () => {
 	const { t } = useTranslation();
@@ -184,44 +186,47 @@ const EuroCup = () => {
 							{t("lbl_CupEvent_DepositList")}
 						</div>
 						<div className="depositlist-item">
-							<div>
+							<div className="first-text">
 								<div>
-									<div className="first-text">
-										{t("lbl_Date")} (
-										{memberDepositList[0].statementTime.slice(
-											-6
-										)}
+									{t("lbl_Date")} (
+									{memberDepositList[0].statementTime.slice(
+										-6
+									)}
+									)
+								</div>
+								<div>{t("lbl_CupEvent_DepositID")}</div>
+								<div> {t("lbl_DepositAmount")}</div>
+							</div>
+							<div>
+								<div className="date">
+									{memberDepositList.map(
+										({ statementTime }) => (
+											<div>
+												{moment(statementTime).format(
+													"YYYY/MM/DD HH:mm:ss"
+												)}
+											</div>
 										)
-									</div>
+									)}
 								</div>
-								{memberDepositList.map(({ statementTime }) => (
-									<div>
-										{moment(statementTime).format(
-											"YYYY/MM/DD HH:mm:ss"
-										)}
-									</div>
-								))}
-							</div>
-							<div>
-								<div>
-									<div className="first-text">Deposit ID</div>
+								<div className="user">
+									{memberDepositList.map(({ transId }) => (
+										<div>{transId}</div>
+									))}
 								</div>
-								{memberDepositList.map(({ transId }) => (
-									<div>{transId}</div>
-								))}
-							</div>
-							<div>
-								<div>
-									<div className="first-text">
-										{t("lbl_DepositAmount")}
-									</div>
+								<div className="money">
+									{memberDepositList.map(
+										({ depositAmount }) => (
+											<div>
+												{numFormatToDigits(
+													depositAmount,
+													0
+												)}
+												<div>VND</div>
+											</div>
+										)
+									)}
 								</div>
-								{memberDepositList.map(({ depositAmount }) => (
-									<div>
-										{numFormatToDigits(depositAmount, 0)}
-										<div>VND</div>
-									</div>
-								))}
 							</div>
 						</div>
 
@@ -259,6 +264,12 @@ const EuroCup = () => {
 		}
 	}, [tickets.errorCode]);
 
+	useEffect(() => {
+		if (!isDateRange(eventPeriods.euroCup)) {
+			navigate("/");
+		}
+	}, []);
+
 	return (
 		<>
 			<img
@@ -267,29 +278,33 @@ const EuroCup = () => {
 				alt={`top-bn-${userInfo.langId}`}
 			/>
 			<div className="prediction-wrapper">
-				<div className="prediction-left">
-					<div>{t("lbl_CupEvent_PredictionOfParticipant")}</div>
-					<div>{t("lbl_CupEvent_PredictionOfParticipant_desc")}</div>
-					<a
-						className="deposit-btn-a"
-						onClick={() => {
-							userInfo.isLogin
-								? navigate(
-										`/${userInfo.langId}/${paths.deposit.root}`
-								  )
-								: setPopBox({
-										isOpen: true,
-										popBoxType: defPopBoxType.Login
-								  });
-						}}>
-						<span>{t("lbl_DepositNow")}</span>
-						<img
-							src={`${bannerImgUrl}/desktop/img/event/eurocup/arrow-right.png`}
-							alt="arrow-right"
-						/>
-					</a>
+				<div className="prediction-content">
+					<div className="prediction-left">
+						<div>{t("lbl_CupEvent_PredictionOfParticipant")}</div>
+						<div>
+							{t("lbl_CupEvent_PredictionOfParticipant_desc")}
+						</div>
+						<a
+							className="deposit-btn-a"
+							onClick={() => {
+								userInfo.isLogin
+									? navigate(
+											`/${userInfo.langId}/${paths.deposit.root}`
+									  )
+									: setPopBox({
+											isOpen: true,
+											popBoxType: defPopBoxType.Login
+									  });
+							}}>
+							<span>{t("lbl_DepositNow")}</span>
+							<img
+								src={`${bannerImgUrl}/desktop/img/event/eurocup/arrow-right.png`}
+								alt="arrow-right"
+							/>
+						</a>
+					</div>
+					<PredictList ticketSummary={ticketSummary} />
 				</div>
-				<PredictList ticketSummary={ticketSummary} />
 			</div>
 			<div className="ticket-wrapper">
 				<TicketOverview

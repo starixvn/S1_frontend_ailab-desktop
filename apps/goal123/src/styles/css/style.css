@@ -4541,7 +4541,7 @@ html.Newtheme #popup .livesportspop.en {
   background: url(https://banner.goal123.org/desktop/img/livesports-bg-en.png) no-repeat center/100% !important;
 }
 html.Newtheme #popup .depositlist {
-  background: #FAFAFA;
+  background: white;
   width: 1300px;
   position: relative;
 }
@@ -4561,49 +4561,77 @@ html.Newtheme #popup .depositlist-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-bottom: 50px;
-}
-html.Newtheme #popup .depositlist-item > div > div {
   color: #989898;
-  padding: 20px 0 20px 30px;
-  border-radius: 20px;
-  width: 360px;
-  margin: 0 5px 10px;
   font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  padding: 0 20px;
+}
+html.Newtheme #popup .depositlist-item .first-text {
   font-size: 16px;
-  background: white;
-}
-html.Newtheme #popup .depositlist-item > div > div:first-child {
-  background: #FAFAFA !important;
-  position: fixed;
-  border-radius: 0;
-  padding: 0;
-  width: 390px;
-  height: 61px;
-}
-html.Newtheme #popup .depositlist-item > div > div:first-child > div {
-  background: #F9BF4B !important;
-  color: #143CDB;
-  width: 390px;
-  height: 61px;
-  border-radius: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-left: 30px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  color: #143CDB;
+  background: white;
+  position: fixed;
+  padding-bottom: 10px;
 }
-html.Newtheme #popup .depositlist-item > div > div:nth-child(n) {
+html.Newtheme #popup .depositlist-item .first-text > div {
+  border-radius: 20px;
+  background: #F9BF4B;
+  margin-left: 13px;
+  padding: 20px 0 20px 30px;
+}
+html.Newtheme #popup .depositlist-item .first-text > div:first-child {
+  width: 345px;
+  margin: 0;
+}
+html.Newtheme #popup .depositlist-item .first-text > div:nth-child(2) {
+  width: 345px;
+}
+html.Newtheme #popup .depositlist-item .first-text > div:last-child {
+  width: 399px;
+}
+html.Newtheme #popup .depositlist-item > div:last-child {
+  padding-top: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html.Newtheme #popup .depositlist-item .date, html.Newtheme #popup .depositlist-item .user, html.Newtheme #popup .depositlist-item .money {
+  font-size: 16px;
+}
+html.Newtheme #popup .depositlist-item .date > div, html.Newtheme #popup .depositlist-item .user > div, html.Newtheme #popup .depositlist-item .money > div {
+  border-radius: 20px;
+  padding: 20px 0 20px 30px;
+  margin-top: 10px;
+}
+html.Newtheme #popup .depositlist-item .date > div:nth-child(n), html.Newtheme #popup .depositlist-item .user > div:nth-child(n), html.Newtheme #popup .depositlist-item .money > div:nth-child(n) {
   background: #DEDEDE;
 }
-html.Newtheme #popup .depositlist-item > div > div:nth-child(odd) {
+html.Newtheme #popup .depositlist-item .date > div:nth-child(odd), html.Newtheme #popup .depositlist-item .user > div:nth-child(odd), html.Newtheme #popup .depositlist-item .money > div:nth-child(odd) {
   background: #F2F2F2;
 }
-html.Newtheme #popup .depositlist-item > div:last-child > div {
+html.Newtheme #popup .depositlist-item .date {
+  margin: 0;
+}
+html.Newtheme #popup .depositlist-item .date > div {
+  width: 345px;
+}
+html.Newtheme #popup .depositlist-item .user {
+  margin-left: 13px;
+}
+html.Newtheme #popup .depositlist-item .user > div {
+  width: 345px;
+}
+html.Newtheme #popup .depositlist-item .money > div {
+  margin-left: 13px;
+  width: 398px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4611,8 +4639,14 @@ html.Newtheme #popup .depositlist-item > div:last-child > div {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-html.Newtheme #popup .depositlist-item > div:last-child > div > div {
-  padding-right: 20px;
+html.Newtheme #popup .depositlist-item .money > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  margin-right: 13px;
 }
 html.Newtheme #popup .depositlist-item::-webkit-scrollbar {
   width: 5px;
@@ -15988,8 +16022,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   background: #143CDB !important;
   font-family: "Montserrat", sans-serif;
   position: relative;
-  overflow: hidden;
-  min-width: 1400px;
+  min-width: 1920px !important;
 }
 .euro a, .euro button {
   font-family: "Montserrat", sans-serif;
@@ -15998,14 +16031,22 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 100px auto 0;
   background: url(https://banner.goal123.org/desktop/img/event/eurocup/top-bg.jpg) no-repeat center/cover;
   padding-bottom: 1000px;
   position: relative;
   z-index: 1;
 }
+.euro .prediction-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .euro .prediction-left {
-  margin-left: 70px;
+  margin-right: 100px;
 }
 .euro .prediction-left > div:first-child {
   font-weight: 700;
@@ -16013,10 +16054,10 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   font-size: 22px;
 }
 .euro .prediction-left > div:nth-child(2) {
+  width: 500px;
   color: white;
   font-weight: 800;
   font-size: 50px;
-  width: 540px;
   text-transform: uppercase;
   margin-top: 15px;
 }
@@ -16076,12 +16117,10 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  margin-left: 80px;
 }
 .euro .prediction-right-item {
   color: #143CDB;
-  width: 570px;
+  width: 580px;
 }
 .euro .prediction-right-item .country {
   display: -webkit-box;
@@ -16124,7 +16163,6 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
-  padding: 0 10px;
 }
 .euro .prediction-right-item .country-flag > div {
   display: -webkit-box;
@@ -16167,6 +16205,9 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -16175,13 +16216,12 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 }
 .euro .ticket-img {
   width: 400px;
-  margin-left: 200px;
+  margin-right: 30px;
 }
 .euro .ticket-number {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 900px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -16208,8 +16248,12 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 .euro .ticket-number > div > span:last-child {
   font-size: 109px;
 }
+.euro .ticket-number > div:first-child {
+  padding-left: 0;
+}
 .euro .ticket-number > div:last-child {
   border: none;
+  padding-right: 0;
 }
 .euro .ticket-btn {
   font-size: 25px;
@@ -16221,16 +16265,17 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-left: 45px;
 }
 .euro .ticket-btn button {
   border: 2px solid #143CDB;
+  padding: 0 30px;
   border-radius: 50px;
   font-size: 25px;
   font-weight: 700;
   color: #143CDB;
   margin-bottom: 15px;
   height: 80px;
-  width: 300px;
 }
 .euro .ticket-btn button:hover {
   border: 2px solid #3259F3;
@@ -16238,7 +16283,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 }
 .euro .ticket-btn a {
   height: 80px;
-  width: 300px;
+  padding: 0 30px;
   background: #143CDB;
   border-radius: 50px;
   margin-bottom: 25px;
@@ -16258,13 +16303,18 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 .euro .ticket-filter {
   background: #F9BF4B;
   padding-bottom: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .euro .ticket-filter > div {
   background: #FAFAFA;
   margin: 0 auto;
   border-radius: 55px;
   padding: 50px 40px;
-  width: 1700px;
   margin: 0 70px;
 }
 .euro .ticket-filter .title {
@@ -16289,9 +16339,9 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
           align-items: center;
   background: #E5E5E5;
   border-radius: 50px;
-  width: 186px;
+  width: 222px;
   padding: 5px;
-  margin: 0 10px 20px;
+  margin: 0 9px 20px;
 }
 .euro .ticket-filter .filter-country button img {
   width: 45px;
@@ -16325,6 +16375,9 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .euro .ticket-filter .filter-bottom .number-bar {
   position: relative;
@@ -16334,15 +16387,17 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 1250px;
+  background: #E5E5E5;
+  border-radius: 50px;
+  margin-left: 12px;
+  width: 930px;
 }
 .euro .ticket-filter .filter-bottom .number-bar .input-number {
   border: none;
   background: #E5E5E5;
-  width: 1250px;
   height: 60px;
   border-radius: 50px;
-  padding-left: 30px;
+  padding: 0 0 0 30px;
   outline: none;
   caret-color: #B5B5B5;
   font-size: 22px;
@@ -16396,12 +16451,12 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 }
 .euro .ticket-filter .filter-bottom .submit-btn {
   background: #143CDB;
-  width: 393px;
+  width: 350px;
   height: 60px;
   border-radius: 50px;
   font-size: 20px;
   font-weight: 700;
-  margin-left: 20px;
+  margin-right: 20px;
 }
 .euro .ticket-filter .filter-bottom .submit-btn:hover {
   background: #3259F3;
@@ -16409,20 +16464,21 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 .euro .ticket-filter.close > div {
   position: relative;
 }
-.euro .ticket-filter.close > div::before {
-  position: absolute;
-  display: block;
-  content: "The prediction has endedand the winner will be drawn after EURO 2024 end";
+.euro .ticket-filter.close > div .close-text {
   background: rgba(0, 0, 0, 0.8196078431);
-  width: 1780px;
+  width: 1773px;
   height: 516px;
-  border-radius: 55px;
+  position: absolute;
   z-index: 3;
-  top: 0;
-  left: 0;
   color: white;
+  font-weight: 700;
+  font-size: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
+  display: flex;
+  top: 0;
+  left: 0;
+  border-radius: 55px;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -16430,17 +16486,18 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-size: 30px;
-  font-weight: 700;
-  text-shadow: 0 0 10px #000;
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
+}
+.euro .ticket-filter .close-text {
+  display: none;
 }
 .euro .record {
   background: #F9BF4B;
   padding: 0 0 500px;
   display: none;
   height: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .euro .record-wrapper {
   background: #FAFAFA;
@@ -16453,7 +16510,6 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 1786px;
   margin: 50px 70px 0;
 }
 .euro .record-wrapper .title {
@@ -16477,7 +16533,6 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 .euro .record-wrapper .more-btn {
   background: #ECECEC;
   padding: 20px 0;
-  width: 1786px;
   border-radius: 0 0 55px 55px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16609,7 +16664,9 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   margin-top: 18px;
 }
 .euro .record.active {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin-top: -500px;
 }
 .euro .bottom-wrapper {
@@ -16782,12 +16839,6 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.euro .bottom-wrapper .matches .subtitle {
-  font-size: 30px;
-  margin-left: 190px;
-  font-weight: 600;
-  color: white;
-}
 .euro .bottom-wrapper .matches-item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16840,6 +16891,12 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 .euro .bottom-wrapper .matches-info > div {
   margin-bottom: 10px;
 }
+.euro .bottom-wrapper .matches-info .subtitle {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #F9BF4B;
+}
 .euro .bottom-title {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16852,7 +16909,6 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   font-size: 50px;
   margin: 0 0 70px 85px;
   padding-top: 180px;
-  min-width: 1400px;
 }
 .euro .bottom-title img {
   width: 70px;

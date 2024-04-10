@@ -70,9 +70,6 @@ const Directions = ({ directionsType, setDirectionsType }) => {
 			)}
 			{directionsType === DIRECTIONS_TYPE.MATCHES && (
 				<>
-					<div className="subtitle">
-						{t("lbl_CupEvent_Matches_Subtitle")}
-					</div>
 					<div className="matches-item">
 						<div>
 							<div>{t("lbl_Bonus")}</div>
@@ -92,6 +89,10 @@ const Directions = ({ directionsType, setDirectionsType }) => {
 						</div>
 					</div>
 					<div className="matches-info">
+						<div className="subtitle">
+							<div>{t("lbl_CupEvent_Matches_Subtitle1")}</div>
+							<div>{t("lbl_CupEvent_Matches_Subtitle2")}</div>
+						</div>
 						<div>{t("lbl_CupEvent_Matches_desc1")}</div>
 						<div>{t("lbl_CupEvent_Matches_desc2")}</div>
 						<div>{t("lbl_CupEvent_Matches_desc3")}</div>

@@ -22,6 +22,9 @@ const TeamSelector = ({
 			})}>
 			<div>
 				<div className="title">{t("lbl_CupEvent_SelectYourTeam")}</div>
+				<div className="close-text">
+					{t("lbl_CupEvent_DateLineTip")}
+				</div>
 				<div className="filter-country">
 					{options?.map(({ countryId, countryName, imageName }) => (
 						<button
