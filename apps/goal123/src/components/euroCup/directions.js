@@ -12,7 +12,8 @@ const Directions = ({ directionsType, setDirectionsType }) => {
 			className={classNames({
 				terms: directionsType === DIRECTIONS_TYPE.TERMS_AND_CONDITIONS,
 				matches: directionsType === DIRECTIONS_TYPE.MATCHES
-			})}>
+			})}
+		>
 			<div className="bottom-title">
 				<div>
 					<img
@@ -32,7 +33,8 @@ const Directions = ({ directionsType, setDirectionsType }) => {
 							setDirectionsType(
 								DIRECTIONS_TYPE.TERMS_AND_CONDITIONS
 							)
-						}>
+						}
+					>
 						{t("lbl_CupEvent_T&C")}
 					</button>
 					<button
@@ -41,7 +43,8 @@ const Directions = ({ directionsType, setDirectionsType }) => {
 						})}
 						onClick={() =>
 							setDirectionsType(DIRECTIONS_TYPE.MATCHES)
-						}>
+						}
+					>
 						{t("lbl_CupEvent_Matches")}
 					</button>
 				</div>
@@ -94,9 +97,9 @@ const Directions = ({ directionsType, setDirectionsType }) => {
 							<div>{t("lbl_CupEvent_Matches_Subtitle2")}</div>
 						</div>
 						<div>{t("lbl_CupEvent_Matches_desc1")}</div>
-						<div>{t("lbl_CupEvent_Matches_desc2")}</div>
-						<div>{t("lbl_CupEvent_Matches_desc3")}</div>
-						<div>{t("lbl_CupEvent_Matches_desc4")}</div>
+						<div>{t("lbl_CupEvent_Matches_desc2")} 3%</div>
+						<div>{t("lbl_CupEvent_Matches_desc3")} 5%</div>
+						<div>{t("lbl_CupEvent_Matches_desc4")} 8%</div>
 					</div>
 				</>
 			)}
