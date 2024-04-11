@@ -20,7 +20,13 @@ const Directions = ({ directionsType, setDirectionsType }) => {
 						src={`${bannerImgUrl}/desktop/img/event/eurocup/title-item.png`}
 						alt="title-item"
 					/>
-					<span>{t("lbl_TermsConditions")}</span>
+					{directionsType ===
+						DIRECTIONS_TYPE.TERMS_AND_CONDITIONS && (
+						<span>{t("lbl_TermsConditions")}</span>
+					)}
+					{directionsType === DIRECTIONS_TYPE.MATCHES && (
+						<span>{t("lbl_CupEvent_Matches_Title")}</span>
+					)}
 				</div>
 				<div className="terms-btn">
 					<button
