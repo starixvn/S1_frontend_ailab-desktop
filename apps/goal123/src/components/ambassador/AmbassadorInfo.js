@@ -1,56 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper";
+import { userInfoContext } from "../common/context";
 import { bannerImgUrl } from "../../config";
 
 // swiper 版本問題 需額外引入css
 import "swiper/css";
 
-const topSlideData = [
-	{
-		type: "video",
-		src: "https://streamable.com/e/vmq4q3?nocontrols=1"
-	},
-	{
-		type: "image",
-		src: `${bannerImgUrl}/desktop/img/ambassador/01.jpg`
-	},
-	{
-		type: "image",
-		src: `${bannerImgUrl}/desktop/img/ambassador/02.jpg`
-	},
-	{
-		type: "image",
-		src: `${bannerImgUrl}/desktop/img/ambassador/03.jpg`
-	},
-	{
-		type: "image",
-		src: `${bannerImgUrl}/desktop/img/ambassador/04.jpg`
-	},
-	{
-		type: "image",
-		src: `${bannerImgUrl}/desktop/img/ambassador/05.jpg`
-	},
-	{
-		type: "image",
-		src: `${bannerImgUrl}/desktop/img/ambassador/06.jpg`
-	}
-];
-
-const bottomSlideData = [
-	`${bannerImgUrl}/h5/img/ambassador/video-preview.jpg`,
-	`${bannerImgUrl}/desktop/img/ambassador/01.jpg`,
-	`${bannerImgUrl}/desktop/img/ambassador/02.jpg`,
-	`${bannerImgUrl}/desktop/img/ambassador/03.jpg`,
-	`${bannerImgUrl}/desktop/img/ambassador/04.jpg`,
-	`${bannerImgUrl}/desktop/img/ambassador/05.jpg`,
-	`${bannerImgUrl}/desktop/img/ambassador/06.jpg`
-];
-
 const AmbassadorInfo = () => {
 	const { t } = useTranslation();
 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
+	const { userInfo } = useContext(userInfoContext);
+
+	const topSlideData = [
+		{
+			type: "video",
+			src:
+				userInfo.langId === "en"
+					? `https://streamable.com/e/vmq4q3?nocontrols=1`
+					: "https://streamable.com/e/cixhb8?nocontrols=1"
+		},
+		{
+			type: "image",
+			src: `${bannerImgUrl}/desktop/img/ambassador/01.jpg`
+		},
+		{
+			type: "image",
+			src: `${bannerImgUrl}/desktop/img/ambassador/02.jpg`
+		},
+		{
+			type: "image",
+			src: `${bannerImgUrl}/desktop/img/ambassador/03.jpg`
+		},
+		{
+			type: "image",
+			src: `${bannerImgUrl}/desktop/img/ambassador/04.jpg`
+		},
+		{
+			type: "image",
+			src: `${bannerImgUrl}/desktop/img/ambassador/05.jpg`
+		},
+		{
+			type: "image",
+			src: `${bannerImgUrl}/desktop/img/ambassador/06.jpg`
+		}
+	];
+
+	const bottomSlideData = [
+		`${bannerImgUrl}/h5/img/ambassador/video-preview.jpg`,
+		`${bannerImgUrl}/desktop/img/ambassador/01.jpg`,
+		`${bannerImgUrl}/desktop/img/ambassador/02.jpg`,
+		`${bannerImgUrl}/desktop/img/ambassador/03.jpg`,
+		`${bannerImgUrl}/desktop/img/ambassador/04.jpg`,
+		`${bannerImgUrl}/desktop/img/ambassador/05.jpg`,
+		`${bannerImgUrl}/desktop/img/ambassador/06.jpg`
+	];
 
 	const swiperConfigTop = {
 		spaceBetween: 10,
