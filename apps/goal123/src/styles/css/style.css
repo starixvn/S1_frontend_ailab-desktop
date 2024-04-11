@@ -4,6 +4,8 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Niconne&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Oswald:wght@600;700&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
@@ -67,6 +69,7 @@ img {
 a,
 button {
   color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 .transition, html.Newtheme .personal .list .listBody, html.Newtheme .tip, html.Newtheme .inputBox .dropdown > .dropdown-container, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .dropdown-container, html.Newtheme header .header > div.menu .subMenu-Wrapper {
@@ -141,7 +144,7 @@ html.Newtheme {
   width: 100%;
   background: #f3f3f3;
   font-size: 14px;
-  font-family: "Microsoft YaHei", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #1f3258;
   height: 100%;
   @import url("https://fonts.googleapis.com/css2?family=Geologica:wght@700;800;900&display=swap");
@@ -155,7 +158,7 @@ html.Newtheme header {
   position: fixed;
   background: #141f33;
   width: 100%;
-  height: 65px;
+  height: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -177,6 +180,12 @@ html.Newtheme header .logo img:nth-child(1) {
   max-width: 175px;
   height: auto;
 }
+html.Newtheme header .logo.eurocup-logo > div:last-child {
+  margin: 5px 0 0 6px;
+}
+html.Newtheme header .logo.eurocup-logo > div:last-child img {
+  max-width: 120px;
+}
 html.Newtheme header .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -195,72 +204,102 @@ html.Newtheme header .header > div {
           flex: 0 0 auto;
 }
 html.Newtheme header .header > div.menu {
+  font-family: "Montserrat", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   letter-spacing: 1px;
-  width: calc(100% - (100% - 1010px));
+  width: 100%;
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
   background: #284985;
   position: fixed;
   left: 0;
-  top: 65px;
-  padding: 0 calc((100% - 1010px) / 2);
-  height: 50px;
+  top: 80px;
+  padding: 0 calc(50% - 700px);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 60px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
-html.Newtheme header .header > div.menu .newicon:before, html.Newtheme header .header > div.menu .liveicon:before, html.Newtheme header .header > div.menu .hoticon:before {
+html.Newtheme header .header > div.menu .newicon,
+html.Newtheme header .header > div.menu .liveicon,
+html.Newtheme header .header > div.menu .hoticon {
+  position: relative;
+  display: block;
+}
+html.Newtheme header .header > div.menu .newicon::before,
+html.Newtheme header .header > div.menu .liveicon::before,
+html.Newtheme header .header > div.menu .hoticon::before {
   content: "";
   position: absolute;
-  top: -15px;
-  right: 0;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   display: block;
-  width: 48px;
-  height: 35px;
+  width: 45px;
+  height: 20px;
   -webkit-animation: flash3 linear infinite alternate 0.3s;
           animation: flash3 linear infinite alternate 0.3s;
 }
 html.Newtheme header .header > div.menu .newicon::before {
-  background: url(https://banner.goal123.org/desktop/img/dropdown/new.svg) no-repeat center/contain;
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/tag-new.svg) no-repeat center/contain;
 }
 html.Newtheme header .header > div.menu .liveicon::before {
-  background: url(https://banner.goal123.org/desktop/img/dropdown/live.svg) no-repeat center/contain;
+  width: 55px;
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/tag-live.svg) no-repeat center/contain;
 }
 html.Newtheme header .header > div.menu .hoticon::before {
-  background: url(https://banner.goal123.org/desktop/img/dropdown/hot.svg) no-repeat center/contain;
+  width: 55px;
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/tag-hot.svg) no-repeat center/contain;
 }
 html.Newtheme header .header > div.menu > a,
 html.Newtheme header .header > div.menu > button {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   border-bottom: 3px solid transparent;
-  padding: 0 10px;
-  font-size: 14px;
-  font-family: "Microsoft YaHei", sans-serif;
+  font-size: 16px;
   position: relative;
+  font-weight: 700;
+  margin: 0 16px;
 }
 html.Newtheme header .header > div.menu > a:hover, html.Newtheme header .header > div.menu > a.active,
 html.Newtheme header .header > div.menu > button:hover,
 html.Newtheme header .header > div.menu > button.active {
   color: #fbb514;
-  border-bottom: 3px solid #fbb514;
   cursor: pointer;
+  position: relative;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+html.Newtheme header .header > div.menu > a:hover::after, html.Newtheme header .header > div.menu > a.active::after,
+html.Newtheme header .header > div.menu > button:hover::after,
+html.Newtheme header .header > div.menu > button.active::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 3px;
+  background: #fab617;
+  border-radius: 10px;
+  position: absolute;
+  bottom: calc(50% - 31px);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 html.Newtheme header .header > div.menu > a:hover.icon-new::before, html.Newtheme header .header > div.menu > a:hover.icon-live::before,
 html.Newtheme header .header > div.menu > button:hover.icon-new::before,
 html.Newtheme header .header > div.menu > button:hover.icon-live::before {
-  color: #ffffff;
+  color: #fff;
 }
 html.Newtheme header .header > div.menu > a:first-child,
 html.Newtheme header .header > div.menu > button:first-child {
@@ -292,7 +331,7 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper {
   position: fixed;
   width: 100%;
   left: 0;
-  top: 115px;
+  top: 140px;
   background: url(https://banner.goal123.org/desktop/img/dropdown/dropbg.jpg) no-repeat center/cover;
 }
 html.Newtheme header .header > div.menu .subMenu-Wrapper.active {
@@ -338,6 +377,46 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .cockList but
   width: 100px;
   left: 62px;
   top: 5px;
+}
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .gameList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .esportList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .casinoList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .livecasinoList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .fishList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .lotteryList .newicon::before,
+html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .cockList .newicon::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 20px;
+  -webkit-transform: unset;
+          transform: unset;
+  display: block;
+  width: 36px;
+  height: 36px;
+  -webkit-animation: flash4 linear infinite alternate 0.4s;
+          animation: flash4 linear infinite alternate 0.4s;
+}
+@-webkit-keyframes flash4 {
+  0% {
+    -webkit-filter: brightness(0.95);
+    filter: brightness(0.95);
+  }
+  100% {
+    -webkit-filter: brightness(1.15);
+    filter: brightness(1.15);
+  }
+}
+@keyframes flash4 {
+  0% {
+    -webkit-filter: brightness(0.95);
+    filter: brightness(0.95);
+  }
+  100% {
+    -webkit-filter: brightness(1.15);
+    filter: brightness(1.15);
+  }
 }
 html.Newtheme header .header > div.menu .sportList,
 html.Newtheme header .header > div.menu .gameList,
@@ -662,68 +741,6 @@ html.Newtheme header .header > div.menu .cockList a .maintenance,
 html.Newtheme header .header > div.menu .cockList button .maintenance {
   display: none;
 }
-html.Newtheme header .header > div.menu .sportList .newicon:before, html.Newtheme header .header > div.menu .sportList .liveicon:before, html.Newtheme header .header > div.menu .sportList .hoticon:before,
-html.Newtheme header .header > div.menu .gameList .newicon:before,
-html.Newtheme header .header > div.menu .gameList .liveicon:before,
-html.Newtheme header .header > div.menu .gameList .hoticon:before,
-html.Newtheme header .header > div.menu .esportList .newicon:before,
-html.Newtheme header .header > div.menu .esportList .liveicon:before,
-html.Newtheme header .header > div.menu .esportList .hoticon:before,
-html.Newtheme header .header > div.menu .casinoList .newicon:before,
-html.Newtheme header .header > div.menu .casinoList .liveicon:before,
-html.Newtheme header .header > div.menu .casinoList .hoticon:before,
-html.Newtheme header .header > div.menu .livecasinoList .newicon:before,
-html.Newtheme header .header > div.menu .livecasinoList .liveicon:before,
-html.Newtheme header .header > div.menu .livecasinoList .hoticon:before,
-html.Newtheme header .header > div.menu .fishList .newicon:before,
-html.Newtheme header .header > div.menu .fishList .liveicon:before,
-html.Newtheme header .header > div.menu .fishList .hoticon:before,
-html.Newtheme header .header > div.menu .lotteryList .newicon:before,
-html.Newtheme header .header > div.menu .lotteryList .liveicon:before,
-html.Newtheme header .header > div.menu .lotteryList .hoticon:before,
-html.Newtheme header .header > div.menu .cockList .newicon:before,
-html.Newtheme header .header > div.menu .cockList .liveicon:before,
-html.Newtheme header .header > div.menu .cockList .hoticon:before {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 30px;
-  display: block;
-  width: 48px;
-  height: 35px;
-  -webkit-animation: flash3 linear infinite alternate 0.3s;
-          animation: flash3 linear infinite alternate 0.3s;
-}
-html.Newtheme header .header > div.menu .sportList .newicon::before,
-html.Newtheme header .header > div.menu .gameList .newicon::before,
-html.Newtheme header .header > div.menu .esportList .newicon::before,
-html.Newtheme header .header > div.menu .casinoList .newicon::before,
-html.Newtheme header .header > div.menu .livecasinoList .newicon::before,
-html.Newtheme header .header > div.menu .fishList .newicon::before,
-html.Newtheme header .header > div.menu .lotteryList .newicon::before,
-html.Newtheme header .header > div.menu .cockList .newicon::before {
-  background: url(https://banner.goal123.org/desktop/img/dropdown/new.svg) no-repeat center/contain;
-}
-html.Newtheme header .header > div.menu .sportList .liveicon::before,
-html.Newtheme header .header > div.menu .gameList .liveicon::before,
-html.Newtheme header .header > div.menu .esportList .liveicon::before,
-html.Newtheme header .header > div.menu .casinoList .liveicon::before,
-html.Newtheme header .header > div.menu .livecasinoList .liveicon::before,
-html.Newtheme header .header > div.menu .fishList .liveicon::before,
-html.Newtheme header .header > div.menu .lotteryList .liveicon::before,
-html.Newtheme header .header > div.menu .cockList .liveicon::before {
-  background: url(https://banner.goal123.org/desktop/img/dropdown/live.svg) no-repeat center/contain;
-}
-html.Newtheme header .header > div.menu .sportList .hoticon::before,
-html.Newtheme header .header > div.menu .gameList .hoticon::before,
-html.Newtheme header .header > div.menu .esportList .hoticon::before,
-html.Newtheme header .header > div.menu .casinoList .hoticon::before,
-html.Newtheme header .header > div.menu .livecasinoList .hoticon::before,
-html.Newtheme header .header > div.menu .fishList .hoticon::before,
-html.Newtheme header .header > div.menu .lotteryList .hoticon::before,
-html.Newtheme header .header > div.menu .cockList .hoticon::before {
-  background: url(https://banner.goal123.org/desktop/img/dropdown/hot.svg) no-repeat center/contain;
-}
 html.Newtheme header .header > div.menu .livecasinoList a:hover .item-img,
 html.Newtheme header .header > div.menu .livecasinoList button:hover .item-img {
   -webkit-transition: 0.7s;
@@ -814,17 +831,71 @@ html.Newtheme header .header > div.function {
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
+html.Newtheme header .header > div.function a,
+html.Newtheme header .header > div.function button {
+  font-weight: 700;
+}
 html.Newtheme header .header > div.function .join,
 html.Newtheme header .header > div.function .login {
   background: #d83b35;
-  border-radius: 5px;
-  padding: 8px 2px;
+  border-radius: 20px;
+  padding: 8px 18px;
   color: white;
   min-width: 80px;
   text-transform: uppercase;
+  font-weight: 700;
+}
+html.Newtheme header .header > div.function .join:hover,
+html.Newtheme header .header > div.function .login:hover {
+  -webkit-filter: brightness(1.15);
+          filter: brightness(1.15);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 html.Newtheme header .header > div.function .login {
   background: #fab617;
+}
+html.Newtheme header .header > div.function .join {
+  -webkit-box-shadow: 1px 1px 11px 0px #EA2329;
+          box-shadow: 1px 1px 11px 0px #EA2329;
+  -webkit-animation: join 3s ease-in-out infinite;
+          animation: join 3s ease-in-out infinite;
+}
+@-webkit-keyframes join {
+  0% {
+    -webkit-box-shadow: 1px 1px 11px 0px #EA2329;
+            box-shadow: 1px 1px 11px 0px #EA2329;
+  }
+  25% {
+    -webkit-box-shadow: 0px 0px 25px 2px #EA2329;
+            box-shadow: 0px 0px 25px 2px #EA2329;
+  }
+  50% {
+    -webkit-box-shadow: 1px 1px 11px 0px #EA2329;
+            box-shadow: 1px 1px 11px 0px #EA2329;
+  }
+  75% {
+    -webkit-box-shadow: 0px 0px 25px 2px #EA2329;
+            box-shadow: 0px 0px 25px 2px #EA2329;
+  }
+}
+@keyframes join {
+  0% {
+    -webkit-box-shadow: 1px 1px 11px 0px #EA2329;
+            box-shadow: 1px 1px 11px 0px #EA2329;
+  }
+  25% {
+    -webkit-box-shadow: 0px 0px 25px 2px #EA2329;
+            box-shadow: 0px 0px 25px 2px #EA2329;
+  }
+  50% {
+    -webkit-box-shadow: 1px 1px 11px 0px #EA2329;
+            box-shadow: 1px 1px 11px 0px #EA2329;
+  }
+  75% {
+    -webkit-box-shadow: 0px 0px 25px 2px #EA2329;
+            box-shadow: 0px 0px 25px 2px #EA2329;
+  }
 }
 html.Newtheme header .header > div.function > div:before {
   margin-right: 5px;
@@ -843,7 +914,7 @@ html.Newtheme header .header > div.function > button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-right: 3%;
+  margin-right: 10px;
 }
 html.Newtheme header .header > div.function > div:hover,
 html.Newtheme header .header > div.function > button:hover {
@@ -863,11 +934,11 @@ html.Newtheme header .header > div.function > div .flag:before,
 html.Newtheme header .header > div.function > button .flag:before {
   content: "";
   display: block;
-  width: 22px;
-  height: 22px;
-  margin-right: 5px;
+  width: 28px;
+  height: 28px;
   border-radius: 100%;
   cursor: pointer;
+  border: 1px solid #fff;
 }
 html.Newtheme header .header > div.function > div .flag.ch:before,
 html.Newtheme header .header > div.function > button .flag.ch:before {
@@ -879,7 +950,7 @@ html.Newtheme header .header > div.function > button .flag.cs:before {
 }
 html.Newtheme header .header > div.function > div .flag.en:before,
 html.Newtheme header .header > div.function > button .flag.en:before {
-  background: url(https://banner.goal123.org/desktop/img/flag/en.png) no-repeat top center/cover;
+  background: url(https://banner.goal123.org/desktop/img/flag/en.jpg) no-repeat top center/cover;
 }
 html.Newtheme header .header > div.function > div .flag.th:before,
 html.Newtheme header .header > div.function > button .flag.th:before {
@@ -891,32 +962,44 @@ html.Newtheme header .header > div.function > button .flag.id:before {
 }
 html.Newtheme header .header > div.function > div .flag.vn:before,
 html.Newtheme header .header > div.function > button .flag.vn:before {
-  background: url(https://banner.goal123.org/desktop/img/flag/vn.png) no-repeat top center/cover;
+  background: url(https://banner.goal123.org/desktop/img/flag/vn.jpg) no-repeat top center/cover;
 }
 html.Newtheme header .header > div.function .icon-email {
   font-size: 24px;
   position: relative;
 }
-html.Newtheme header .header > div.function .icon-email.active:after {
-  content: "●";
+html.Newtheme header .header > div.function .icon-email::before {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-message.svg) no-repeat center/contain;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+html.Newtheme header .header > div.function .icon-email.active::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #FF0000;
+  border-radius: 50%;
   position: absolute;
-  font-size: 14px;
-  color: #fab617;
-  right: 0;
+  right: -8px;
   top: -2px;
+  border: 3px solid #141f33;
 }
 html.Newtheme header .header > div.function .icon-email .info {
   position: absolute;
-  top: 34px;
-  right: 0;
-  width: 160px;
+  top: 33px;
+  right: -8px;
+  width: 138px;
   height: auto;
+  text-transform: capitalize;
   background: #fab617;
-  -webkit-box-shadow: rgba(250, 182, 23, 0.6) 4px 4px;
-          box-shadow: rgba(250, 182, 23, 0.6) 4px 4px;
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
   color: #1f3258;
-  padding: 10px 30px 10px 15px;
-  border-radius: 3px 0 3px 3px;
+  padding: 12px 30px 12px 10px;
+  border-radius: 10px;
   font-weight: bold;
   font-size: 12px;
   z-index: 1;
@@ -929,22 +1012,11 @@ html.Newtheme header .header > div.function .icon-email .info > div {
 html.Newtheme header .header > div.function .icon-email .info::before {
   content: "";
   position: absolute;
-  top: -9px;
-  right: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-bottom: 9px solid #fab617;
-}
-html.Newtheme header .header > div.function .icon-email .info::after {
-  content: "";
-  position: absolute;
   top: -10px;
-  left: -8px;
-  width: 24px;
-  height: 24px;
-  background: url(https://banner.goal123.org/desktop/img/bell.png) center/cover;
-  -webkit-animation: routate2 linear infinite alternate 0.8s;
-          animation: routate2 linear infinite alternate 0.8s;
+  right: 5px;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 14px solid #fab617;
 }
 html.Newtheme header .header > div.function .icon-email .info .icon-close {
   position: absolute;
@@ -985,11 +1057,11 @@ html.Newtheme header .header > div.function .country .icon-keyboard_arrow_right 
 html.Newtheme header .header > div.function .country .countryList {
   display: none;
   position: absolute;
-  margin-top: 39px;
+  margin-top: 40px;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
-  padding: 0 10px;
-  width: 105px;
+  padding: 0 18px;
+  width: 120px;
   margin-left: -5px;
   right: 0;
   z-index: 1;
@@ -1001,8 +1073,59 @@ html.Newtheme header .header > div.function .country .countryList a {
   display: -ms-flexbox;
   display: flex;
 }
+html.Newtheme header .header > div.function .country .countryList button::before,
+html.Newtheme header .header > div.function .country .countryList a::before {
+  margin-right: 8px;
+}
 html.Newtheme header .header > div.function .country.active .countryList {
   display: block;
+}
+html.Newtheme header .header > div.function .username {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+html.Newtheme header .header > div.function .username input {
+  border-radius: 20px;
+  background: #141f33;
+  outline: 1px solid #d9d9d9;
+  color: #d9d9d9;
+  border: unset;
+  padding: 8px 15px;
+  margin-right: 12px;
+  max-width: 150px;
+  font-weight: 600;
+}
+html.Newtheme header .header > div.function .username input::-webkit-input-placeholder {
+  font-family: "Montserrat", sans-serif;
+}
+html.Newtheme header .header > div.function .username input::-moz-placeholder {
+  font-family: "Montserrat", sans-serif;
+}
+html.Newtheme header .header > div.function .username input:-ms-input-placeholder {
+  font-family: "Montserrat", sans-serif;
+}
+html.Newtheme header .header > div.function .username input::-ms-input-placeholder {
+  font-family: "Montserrat", sans-serif;
+}
+html.Newtheme header .header > div.function .username input::placeholder {
+  font-family: "Montserrat", sans-serif;
+}
+html.Newtheme header .header > div.function .username input:focus {
+  background: #fab617;
+}
+html.Newtheme header .header > div.function .username input:focus-within {
+  color: #141f33;
+}
+html.Newtheme header .header > div.function .username .forgot {
+  position: absolute;
+  left: 5px;
+  top: 35px;
+  font-size: 12px;
+}
+html.Newtheme header .header > div.function .username .forgot:hover {
+  color: #F5B116;
 }
 html.Newtheme header .header > div.function .cashier,
 html.Newtheme header .header > div.function .wallet,
@@ -1014,8 +1137,16 @@ html.Newtheme header .header > div.function .memberfile {
   color: white;
   cursor: pointer;
 }
+html.Newtheme header .header > div.function .cashier .user-id,
+html.Newtheme header .header > div.function .wallet .user-id,
+html.Newtheme header .header > div.function .memberfile .user-id {
+  margin-left: 6px;
+}
+html.Newtheme header .header > div.function .cashier a,
 html.Newtheme header .header > div.function .cashier button,
+html.Newtheme header .header > div.function .wallet a,
 html.Newtheme header .header > div.function .wallet button,
+html.Newtheme header .header > div.function .memberfile a,
 html.Newtheme header .header > div.function .memberfile button {
   color: white;
   font-size: 14px;
@@ -1156,61 +1287,97 @@ html.Newtheme header .header > div.function .memberfile > img:first-child {
   width: 30px;
   margin: 0 10px;
 }
-html.Newtheme header .header > div.function .profileicon {
-  position: relative;
+html.Newtheme header .header > div.function .wallet {
+  margin-left: 40px;
 }
-html.Newtheme header .header > div.function .profileicon::before, html.Newtheme header .header > div.function .profileicon::after {
+html.Newtheme header .header > div.function .wallet-balance {
+  margin-left: 5px;
+  font-weight: 600;
+}
+html.Newtheme header .header > div.function .wallet-balance span {
+  color: #FAB617;
+  margin-left: 2px;
+}
+html.Newtheme header .header > div.function .wallet .icon-eye::before {
   content: "";
-  position: absolute;
-  top: -5px;
-  left: 10px;
-  width: 38px;
-  height: 38px;
-  background: url(https://banner.goal123.org/desktop/img/profileicon.png) no-repeat center/contain;
-  -webkit-animation: ripple linear 2s infinite;
-          animation: ripple linear 2s infinite;
-  opacity: 0;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-eye-open.svg) no-repeat center/contain;
 }
-html.Newtheme header .header > div.function .profileicon::before {
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+html.Newtheme header .header > div.function .wallet .icon-eye-blocked::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-eyes-close.svg) no-repeat center/contain;
 }
-html.Newtheme header .header > div.function .profileicon::after {
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
+html.Newtheme header .header > div.function .home-deposit {
+  background: #d83b35;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-right: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-@-webkit-keyframes ripple {
-  0% {
-    opacity: 0.6;
-    -webkit-transform: scale3d(0.55, 0.55, 0.8);
-            transform: scale3d(0.55, 0.55, 0.8);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: scale3d(1.2, 1.2, 0.8);
-            transform: scale3d(1.2, 1.2, 0.8);
-  }
-}
-@keyframes ripple {
-  0% {
-    opacity: 0.6;
-    -webkit-transform: scale3d(0.55, 0.55, 0.8);
-            transform: scale3d(0.55, 0.55, 0.8);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: scale3d(1.2, 1.2, 0.8);
-            transform: scale3d(1.2, 1.2, 0.8);
-  }
-}
-html.Newtheme header .header > div.function .profileicon img {
-  width: 36px;
-  margin: 0 10px;
+html.Newtheme header .header > div.function .home-deposit .icon-header-deposit::before {
+  content: "";
   display: block;
-  -webkit-animation: flash3 linear infinite alternate 0.3s, routate 2s linear infinite alternate;
-          animation: flash3 linear infinite alternate 0.3s, routate 2s linear infinite alternate;
+  width: 20px;
+  height: 20px;
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-header-deposit.svg) no-repeat center/contain;
+  margin-right: 5px;
 }
-html.Newtheme header .header > div.function .profileicon .icon-money {
+html.Newtheme header .header > div.function .home-deposit:hover {
+  -webkit-filter: brightness(1.15);
+          filter: brightness(1.15);
+  -webkit-box-shadow: 0 0 16px 1px rgba(216, 59, 53, 0.8);
+          box-shadow: 0 0 16px 1px rgba(216, 59, 53, 0.8);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+html.Newtheme header .header > div.function .profile-icon {
+  position: relative;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme header .header > div.function .profile-icon.bronze {
+  outline: 2px solid #F3A05F;
+}
+html.Newtheme header .header > div.function .profile-icon.silver {
+  outline: 2px solid #D7D7D7;
+}
+html.Newtheme header .header > div.function .profile-icon.gold {
+  outline: 2px solid #EDA536;
+}
+html.Newtheme header .header > div.function .profile-icon.titanium {
+  outline: 2px solid #746776;
+}
+html.Newtheme header .header > div.function .profile-icon.diamond {
+  outline: 2px solid #71BFF4;
+}
+html.Newtheme header .header > div.function .profile-icon.goal123 {
+  outline: 2px solid #FF4A52;
+}
+html.Newtheme header .header > div.function .profile-icon:hover {
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
+}
+html.Newtheme header .header > div.function .profile-icon img {
+  width: 36px;
+  margin: 0 auto;
+  display: block;
+}
+html.Newtheme header .header > div.function .profile-icon .icon-money {
   position: absolute;
   bottom: 0;
   right: 10px;
@@ -1231,44 +1398,328 @@ html.Newtheme header .header > div.function .profileicon .icon-money {
   padding: 1px;
   opacity: 0;
 }
-html.Newtheme header .header > div.function .profileicon:hover {
+html.Newtheme header .header > div.function .profile-icon:hover {
   -webkit-transition: 0.7s;
   transition: 0.7s;
-}
-html.Newtheme header .header > div.function .profileicon:hover .icon-money {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  opacity: 1;
-  -webkit-animation: flipHeads 1.5s ease-out forwards;
-          animation: flipHeads 1.5s ease-out forwards;
 }
 html.Newtheme header .header > div.function .memberfile {
   position: relative;
 }
-html.Newtheme header .header > div.function .memberfile > img {
-  -webkit-animation: flash3 linear infinite alternate 0.3s;
-          animation: flash3 linear infinite alternate 0.3s;
-}
-html.Newtheme header .header > div.function .memberfile .icon-money {
+html.Newtheme header .header > div.function .memberfile .home-profile {
+  -webkit-box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.25);
+  margin-top: 30px;
+  background: #fff;
+  border-radius: 15px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: absolute;
-  bottom: -5px;
-  left: 30px;
-  width: 14px;
-  height: 14px;
+  right: 8px;
+  text-align: right;
+  line-height: 30px;
+  white-space: nowrap;
+  z-index: 1;
+  min-width: 300px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: none;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile::before {
+  content: "";
+  display: inline-block;
+  background: #F4F4F4;
+  position: absolute;
+  top: -8px;
+  right: 25px;
+  width: 50px;
+  height: 25px;
+  -webkit-clip-path: polygon(100% 100%, 0 100%, 52% 0);
+          clip-path: polygon(100% 100%, 0 100%, 52% 0);
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top {
+  padding: 15px 15px 10px;
+  background: #F4F4F4;
+  border-radius: 15px 15px 0 0;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top div {
+  color: #878686;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top div span {
+  display: inline-block;
+  margin-left: 5px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top div:first-child, html.Newtheme header .header > div.function .memberfile .home-profile-top div.progress-number {
+  text-align: left;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .user-current {
+  text-transform: capitalize;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .user-current span {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .user-current::after {
+  content: "";
+  display: block;
+  margin-top: 6px;
+  width: 100%;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(13%, rgba(151, 151, 151, 0.5)), color-stop(52%, rgba(205, 205, 205, 0.35)), color-stop(95%, rgba(205, 205, 205, 0.1)));
+  background: linear-gradient(90deg, rgba(151, 151, 151, 0.5) 13%, rgba(205, 205, 205, 0.35) 52%, rgba(205, 205, 205, 0.1) 95%);
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .user-current.bronze span {
+  color: #fff;
+  border-radius: 4px;
+  padding: 0 8px;
+  background: #F3A05F;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .user-current.silver span {
+  color: #fff;
+  border-radius: 4px;
+  padding: 0 8px;
+  background: #D7D7D7;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .user-current.gold span {
+  color: #fff;
+  border-radius: 4px;
+  padding: 0 8px;
+  background: #EDA536;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .user-current.titanium span {
+  color: #fff;
+  border-radius: 4px;
+  padding: 0 8px;
+  background: #746776;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .user-current.diamond span {
+  color: #fff;
+  border-radius: 4px;
+  padding: 0 8px;
+  background: #71BFF4;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .user-current.goal123 span {
+  color: #fff;
+  border-radius: 4px;
+  padding: 0 8px;
+  background: #FF4A52;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .user-next {
+  text-transform: capitalize;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .user-next span {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top a {
+  color: #284985;
+  font-weight: 500;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top a .icon-dropdown::after {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-dropdown-blue.svg) no-repeat center/contain;
+  width: 11px;
+  height: 11px;
+  color: #284985;
+  display: inline-block;
+  font-size: 12px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top a.milestone.goal123 {
+  color: #FFF;
+  font-size: 13px;
+  border-radius: 20px;
+  background: #fab617;
+  padding: 6px 14px;
+  margin: 0 28px;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-radius: 9px;
-  color: #fff;
-  font-size: 7px;
-  background: #fab617;
-  padding: 1px;
-  opacity: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 8px;
+  letter-spacing: 0.85px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top a.milestone.goal123 .icon-dropdown::after {
+  -webkit-filter: brightness(12);
+          filter: brightness(12);
+  margin-left: 5px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top a.milestone.goal123:hover {
+  background: #d83b35;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .profile-extra {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .profile-extra img {
+  width: 90px;
+  margin-top: 12px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .profile-extra p {
+  font-weight: 600;
+  font-size: 13px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .profile-vip {
+  margin-top: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .profile-vip img {
+  display: block;
+  width: 62px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .profile-vip .progress {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+  background: #fff;
+  width: 100%;
+  height: 9px;
+  border-radius: 20px;
+  position: relative;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .profile-vip .progress-bar {
+  background: #d83b35;
+  height: 9px;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .progress-number {
+  font-size: 13px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-top .progress-number span {
+  color: #d83b35;
+  margin-right: 2px;
+  font-weight: 500;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom {
+  padding: 10px 15px 15px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom a,
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #284985;
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom:hover {
+  -webkit-filter: unset;
+          filter: unset;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom .icon-profile::before {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-profile.svg) no-repeat center/contain;
+  width: 28px;
+  margin-right: 6px;
+  height: 28px;
+  display: block;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom .icon-bank::before {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-bank.svg) no-repeat center/contain;
+  width: 28px;
+  height: 28px;
+  margin-right: 6px;
+  display: block;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom .icon-crypto::before {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-crypto.svg) no-repeat center/contain;
+  width: 28px;
+  height: 28px;
+  margin-right: 6px;
+  display: block;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom .icon-referral::before {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-referral.svg) no-repeat center/contain;
+  width: 28px;
+  height: 28px;
+  margin-right: 6px;
+  display: block;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom .icon-change-pwd::before {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-change-pwd.svg) no-repeat center/contain;
+  width: 28px;
+  height: 28px;
+  display: block;
+  margin-right: 6px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom .icon-logout::before {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-logout.svg) no-repeat center/contain;
+  width: 28px;
+  height: 28px;
+  margin-right: 6px;
+  display: block;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom .countryList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom .countryList .flag::before {
+  margin-right: 8px;
+  border: 2px solid #284985;
+  width: 22px;
+  height: 22px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom .countryList .flag:first-child {
+  margin-right: 8px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile-bottom .countryList .flag:first-child::after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 22px;
+  border-radius: 10px;
+  background: rgba(170, 170, 170, 0.6666666667);
+  margin-left: 8px;
+}
+html.Newtheme header .header > div.function .memberfile .home-profile.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: default;
 }
 html.Newtheme header .header > div.function .memberfile:hover {
   -webkit-transition: 0.7s;
@@ -1282,11 +1733,8 @@ html.Newtheme header .header > div.function .memberfile:hover .icon-money {
   -webkit-animation: flipHeads 1.5s ease-out forwards;
           animation: flipHeads 1.5s ease-out forwards;
 }
-html.Newtheme header .header > div.function .cashier {
-  color: #fab617;
-}
-html.Newtheme header .header > div.function .cashier button, html.Newtheme header .header > div.function .cashier:after {
-  color: #fab617;
+html.Newtheme header .header > div.function .wallet {
+  position: relative;
 }
 html.Newtheme header .header > div.function .wallet button.icon-eye-blocked,
 html.Newtheme header .header > div.function .wallet button.icon-eye,
@@ -1301,8 +1749,8 @@ html.Newtheme header .header > div.function .wallet button.icon-spinner11 {
   padding: 0 2px;
 }
 html.Newtheme header .header > div.function .wallet button.icon-spinner11 {
-  color: #fab617;
-  font-size: 11px;
+  color: white;
+  font-size: 12px;
 }
 html.Newtheme header .header > div.function .wallet button.icon-spinner11:hover {
   -webkit-filter: brightness(0.7);
@@ -1372,17 +1820,248 @@ html.Newtheme header .header > div.function .wallet .submenu div.loginLog, html.
 html.Newtheme header .header > div.function .wallet .submenu div.loginLog {
   margin-top: 10px;
 }
+html.Newtheme header .header > div.function .wallet .home-wallet {
+  -webkit-box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 18px 15px 15px;
+  margin-top: 32px;
+  background: #fff;
+  border-radius: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  left: 0;
+  text-align: right;
+  line-height: 1.6;
+  white-space: nowrap;
+  z-index: 1;
+  min-width: 320px;
+  display: none;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .balance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  color: #141f33;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  position: relative;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .balance span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .balance::before {
+  content: "";
+  display: inline-block;
+  background: #fff;
+  position: absolute;
+  top: -26px;
+  left: 70px;
+  width: 50px;
+  height: 25px;
+  -webkit-clip-path: polygon(100% 100%, 0 100%, 52% 0);
+          clip-path: polygon(100% 100%, 0 100%, 52% 0);
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .balance-bouns {
+  margin: 0 0 12px;
+  padding: 10px;
+  background: #F4F4F4;
+  border-radius: 12px;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .balance-bouns .bouns-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .balance-bouns .bouns-data span {
+  color: #284985;
+  display: inline-block;
+  font-size: 13px;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .balance-bouns .bouns-data span.title {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 195px;
+  text-align: left;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .balance-bouns .bouns-data span.bounscash {
+  color: #d83b35;
+  font-weight: 600;
+  text-align: right;
+  font-size: 14px;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .balance-bouns .progress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .balance-bouns .progress-bar {
+  background: #fff;
+  border: 1px solid #284985;
+  border-radius: 20px;
+  color: #284985;
+  width: 100%;
+  height: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .balance-bouns .progress-bar .bar {
+  height: 8px;
+  background: #284985;
+  border-radius: 20px;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .balance-bouns .progress .percentage {
+  width: 100px;
+  color: #284985;
+  font-weight: 600;
+  text-align: right;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet a,
+html.Newtheme header .header > div.function .wallet .home-wallet button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px 18px;
+  border-radius: 30px;
+  background: #284985;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet a:hover,
+html.Newtheme header .header > div.function .wallet .home-wallet button:hover {
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .icon-spinner11 {
+  background: unset;
+  width: unset;
+  padding: unset;
+  border-radius: unset;
+  color: #141f33;
+  margin: 0 0 0 4px;
+  font-weight: bold;
+  font-size: 12px;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .icon-header-withdraw::before {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-header-withdraw.svg) no-repeat center/contain;
+  width: 24px;
+  height: 20px;
+  margin-right: 4px;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .icon-header-financial::before {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-header-financial.svg) no-repeat center/contain;
+  width: 18px;
+  height: 20px;
+  margin-right: 4px;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .log-login, html.Newtheme header .header > div.function .wallet .home-wallet .log-transaction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: rgba(170, 170, 170, 0.6666666667);
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 20px;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet .log-login:last-child, html.Newtheme header .header > div.function .wallet .home-wallet .log-transaction:last-child {
+  margin-top: unset;
+}
+html.Newtheme header .header > div.function .wallet .home-wallet.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 html.Newtheme header .header .appDownload {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #fff92c;
+  color: #FAB617;
   white-space: nowrap;
-  margin-right: 3%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 5px;
+}
+html.Newtheme header .header .appDownload:hover {
+  -webkit-filter: brightness(1.15);
+          filter: brightness(1.15);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 html.Newtheme header .header .appDownload .icon-mobile::before {
-  font-size: 15px;
-  margin-right: 5px;
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-appdownload.svg) no-repeat center/contain;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
 }
 html.Newtheme header.newyear::before, html.Newtheme header.newyear::after {
   content: "";
@@ -1482,12 +2161,12 @@ html.Newtheme.index .inside {
   width: 1400px;
 }
 html.Newtheme.index header .header > div.menu {
-  width: calc(100% - (100% - 1010px));
-  padding: 0 calc((100% - 1010px) / 2);
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 html.Newtheme.index main {
   height: auto;
-  background: url(https://banner.goal123.org/desktop/img/bgPoint.png);
   min-width: 1400px;
 }
 html.Newtheme.index main.newyear {
@@ -1521,14 +2200,9 @@ html.Newtheme.index main.newyear::after {
 html.Newtheme.index main section {
   padding-top: 0;
 }
-html.Newtheme.index main section > div,
-html.Newtheme.index footer .copyright {
-  max-width: 1400px;
-  padding: 25px 0;
-}
 html.Newtheme.index footer {
   width: 100%;
-  min-width: 1400px;
+  min-width: 1920px;
 }
 html.Newtheme.index footer .webmap {
   padding: 0 calc((100% - 1010px) / 2);
@@ -1543,10 +2217,14 @@ html.Newtheme.index .livecasinoList {
   max-width: 1010px;
 }
 html.Newtheme main {
-  padding-top: 115px;
+  padding-top: 140px;
   min-width: 1010px;
   min-height: 100%;
   background: url(https://banner.goal123.org/desktop/img/bgPoint.png) repeat center/1.5%;
+}
+html.Newtheme main.home {
+  background-image: unset;
+  background: #fff;
 }
 html.Newtheme main.joinlogin, html.Newtheme main .small {
   min-height: calc(100% - 335px);
@@ -1805,17 +2483,6 @@ html.Newtheme .platform > div {
   align-items: center;
   margin: 0 auto;
 }
-html.Newtheme .powered {
-  color: #fff;
-  text-align: center;
-  padding: 1px 0 20px 0 !important;
-  text-align: center;
-  max-width: inherit !important;
-}
-html.Newtheme .powered div {
-  margin-bottom: 10px;
-  font-weight: bold;
-}
 html.Newtheme .powered img {
   width: auto;
 }
@@ -1837,9 +2504,15 @@ html.Newtheme .payment > div img {
   height: 70px;
 }
 html.Newtheme footer {
-  width: 100%;
-  min-width: 1400px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background: #141f33;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 html.Newtheme footer.newyear {
   background: #141f33 url(https://banner.goal123.org/desktop/img/cny/footerbg.png);
@@ -1906,18 +2579,6 @@ html.Newtheme footer .webmap > div:nth-child(-n+5) button {
 html.Newtheme footer .webmap > div:nth-child(-n+5) a:hover,
 html.Newtheme footer .webmap > div:nth-child(-n+5) button:hover {
   color: #f77900;
-}
-html.Newtheme footer .copyright {
-  width: 100%;
-  max-width: inherit !important;
-  background: #202A3D;
-  margin: auto;
-  margin-top: 50px;
-  text-align: center;
-  font-size: 12px;
-  padding: 10px 0 !important;
-  color: #c6c6c6;
-  border: 0;
 }
 html.Newtheme .joinpop,
 html.Newtheme .loginpop {
@@ -2220,7 +2881,7 @@ html.Newtheme .inputBox .dropdown > .btn, html.Newtheme .worldcupEvent .ticket__
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: "Microsoft YaHei", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #666;
   margin-left: 5px;
 }
@@ -2551,15 +3212,16 @@ html.Newtheme #Marquee {
   overflow: hidden;
   padding-top: 10px;
 }
-html.Newtheme #Marquee .marquee-box {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), to(rgb(230, 234, 242)));
-  background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(230, 234, 242) 100%);
-  border: 1px solid #4264a6;
+html.Newtheme #Marquee .home-marquee {
+  background: #fff;
+  border: 1px solid #DDDDDD;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2) inset;
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2) inset;
   overflow: hidden;
   max-width: 1400px;
   height: 35px;
   margin: auto;
-  padding: 5px 10px 5px 0;
+  padding: 0;
   border-radius: 35px;
   position: relative;
   display: -webkit-box;
@@ -2571,14 +3233,14 @@ html.Newtheme #Marquee .marquee-box {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-html.Newtheme #Marquee .marquee-box img {
+html.Newtheme #Marquee .home-marquee img {
   width: 35px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 255, 255)), to(rgb(230, 234, 242)));
   background: linear-gradient(to bottom, rgb(255, 255, 255) 0%, rgb(230, 234, 242) 100%);
   padding: 0 15px;
   z-index: 1;
 }
-html.Newtheme #Marquee .marquee-box.icon:before {
+html.Newtheme #Marquee .home-marquee.icon:before {
   width: 20px;
   color: #1e85ec;
   background: #212121;
@@ -2592,7 +3254,40 @@ html.Newtheme #Marquee .marquee-box.icon:before {
           align-items: center;
   font-size: 18px;
 }
-html.Newtheme #Marquee .marquee-box .marquee-run {
+html.Newtheme #Marquee .home-marquee .icon-speaker {
+  width: 54px;
+  background: #fff;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 20px;
+}
+html.Newtheme #Marquee .home-marquee .icon-speaker::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-speaker.svg) no-repeat center/contain;
+}
+html.Newtheme #Marquee .home-marquee .btn-info {
+  background: #284985;
+  padding: 6px 18px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  position: absolute;
+  right: 4px;
+  outline: 4px solid #fff;
+}
+html.Newtheme #Marquee .home-marquee .btn-info:hover {
+  background: #d83b35;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+html.Newtheme #Marquee .home-marquee .marquee-run {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2601,17 +3296,19 @@ html.Newtheme #Marquee .marquee-box .marquee-run {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-left: 55px;
+  margin-left: 35px;
 }
-html.Newtheme #Marquee .marquee-box .marquee-run a,
-html.Newtheme #Marquee .marquee-box .marquee-run button {
+html.Newtheme #Marquee .home-marquee .marquee-run a,
+html.Newtheme #Marquee .home-marquee .marquee-run button {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   color: #1f2e4d;
   text-align: left;
-  font-size: 12px;
-  font: inherit;
+  font-size: 14px;
+  margin-right: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
 }
 html.Newtheme .quickLink {
   position: fixed;
@@ -4532,6 +5229,257 @@ html.Newtheme #popup .livesportspop.vn {
 }
 html.Newtheme #popup .livesportspop.en {
   background: url(https://banner.goal123.org/desktop/img/livesports-bg-en.png) no-repeat center/100% !important;
+}
+html.Newtheme #popup .depositlist {
+  background: white;
+  width: 1300px;
+  position: relative;
+}
+html.Newtheme #popup .depositlist-wrapper {
+  margin: 0 auto;
+}
+html.Newtheme #popup .depositlist-title {
+  font-size: 22px;
+  color: #143CDB;
+  width: 1235px;
+  margin: 30px 0 40px 90px;
+  font-weight: 700;
+}
+html.Newtheme #popup .depositlist-item {
+  max-height: 487px;
+  overflow-y: overlay;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 50px;
+  color: #989898;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  padding: 0 20px;
+}
+html.Newtheme #popup .depositlist-item .first-text {
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #143CDB;
+  background: white;
+  position: fixed;
+  padding-bottom: 10px;
+}
+html.Newtheme #popup .depositlist-item .first-text > div {
+  border-radius: 20px;
+  background: #F9BF4B;
+  margin-left: 13px;
+  padding: 20px 0 20px 30px;
+}
+html.Newtheme #popup .depositlist-item .first-text > div:first-child {
+  width: 345px;
+  margin: 0;
+}
+html.Newtheme #popup .depositlist-item .first-text > div:nth-child(2) {
+  width: 345px;
+}
+html.Newtheme #popup .depositlist-item .first-text > div:last-child {
+  width: 399px;
+}
+html.Newtheme #popup .depositlist-item > div:last-child {
+  padding-top: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html.Newtheme #popup .depositlist-item .date, html.Newtheme #popup .depositlist-item .user, html.Newtheme #popup .depositlist-item .money {
+  font-size: 16px;
+}
+html.Newtheme #popup .depositlist-item .date > div, html.Newtheme #popup .depositlist-item .user > div, html.Newtheme #popup .depositlist-item .money > div {
+  border-radius: 20px;
+  padding: 20px 0 20px 30px;
+  margin-top: 10px;
+}
+html.Newtheme #popup .depositlist-item .date > div:nth-child(n), html.Newtheme #popup .depositlist-item .user > div:nth-child(n), html.Newtheme #popup .depositlist-item .money > div:nth-child(n) {
+  background: #DEDEDE;
+}
+html.Newtheme #popup .depositlist-item .date > div:nth-child(odd), html.Newtheme #popup .depositlist-item .user > div:nth-child(odd), html.Newtheme #popup .depositlist-item .money > div:nth-child(odd) {
+  background: #F2F2F2;
+}
+html.Newtheme #popup .depositlist-item .date {
+  margin: 0;
+}
+html.Newtheme #popup .depositlist-item .date > div {
+  width: 345px;
+}
+html.Newtheme #popup .depositlist-item .user {
+  margin-left: 13px;
+}
+html.Newtheme #popup .depositlist-item .user > div {
+  width: 345px;
+}
+html.Newtheme #popup .depositlist-item .money > div {
+  margin-left: 13px;
+  width: 398px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html.Newtheme #popup .depositlist-item .money > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  margin-right: 13px;
+}
+html.Newtheme #popup .depositlist-item::-webkit-scrollbar {
+  width: 5px;
+}
+html.Newtheme #popup .depositlist-item::-webkit-scrollbar-button {
+  background: #d3d3d3;
+}
+html.Newtheme #popup .depositlist-item::-webkit-scrollbar-track-piece {
+  background: #ECECEC;
+}
+html.Newtheme #popup .depositlist-item::-webkit-scrollbar-thumb {
+  background: #989898;
+  height: 10px;
+}
+html.Newtheme #popup .depositlist .close-btn {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  right: -300px;
+}
+html.Newtheme #popup .depositlist .close-btn img {
+  width: 40px;
+}
+html.Newtheme #popup .submitpop {
+  background: #F2F3F4;
+  padding: 0;
+}
+html.Newtheme #popup .submitpop-wrapper {
+  font-family: "Montserrat", sans-serif;
+}
+html.Newtheme #popup .submitpop-wrapper > div:first-child {
+  background: white;
+  border-radius: 0 0 20px 20px;
+  padding: 30px 25px 20px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item {
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/ticket-item.png) no-repeat center/100%;
+  width: 530px;
+  height: 163px;
+  margin-right: 20px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 530px;
+  height: 163px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box .euro-logo {
+  width: 80px;
+  margin-left: 29px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div {
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team {
+  border-right: 1px solid white;
+  width: 185px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team .team-title {
+  color: #F9BF4B;
+  font-size: 14px;
+  font-weight: 600;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team > div img {
+  width: 40px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team > div span {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 25px;
+  width: 125px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-number span:first-child {
+  color: #F9BF4B;
+  font-size: 14px;
+  font-weight: 600;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-number span:last-child {
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 18px;
+}
+html.Newtheme #popup .submitpop-tip {
+  color: #143CDB;
+  font-weight: 700;
+  font-size: 20px;
+  background: #F2F3F4;
+  padding: 20px 50px;
+  margin-top: 10px;
+}
+html.Newtheme #popup .submitpop-btn button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 10px 0;
+  width: 180px;
+  border-radius: 50px;
+  margin: 10px 0 45px;
+}
+html.Newtheme #popup .submitpop-btn button:first-child {
+  border: 2px solid #143CDB;
+  color: #143CDB;
+  margin-right: 10px;
+}
+html.Newtheme #popup .submitpop-btn button:first-child:hover {
+  border: 2px solid #4268ff;
+  color: #4268ff;
+}
+html.Newtheme #popup .submitpop-btn button:last-child {
+  border: 2px solid #989898;
+  color: #989898;
+}
+html.Newtheme #popup .submitpop-btn button:last-child:hover {
+  border: 2px solid #6e6e6e;
+  color: #6e6e6e;
 }
 html.Newtheme .Submit.active,
 html.Newtheme .Cancel.active,
@@ -7522,9 +8470,15 @@ html.Newtheme input:-webkit-autofill,
 html.Newtheme input:-webkit-autofill:hover,
 html.Newtheme input:-webkit-autofill:focus,
 html.Newtheme input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
-          box-shadow: 0 0 0px 1000px white inset;
-  -webkit-text-fill-color: black;
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+          box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-text-fill-color: #141f33;
+}
+html.Newtheme header .username input:-webkit-autofill,
+html.Newtheme header .username input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #141f33 inset !important;
+          box-shadow: 0 0 0px 1000px #141f33 inset !important;
+  -webkit-text-fill-color: #fff !important;
 }
 html.Newtheme .buttonBox {
   -ms-flex-wrap: wrap;
@@ -7955,7 +8909,7 @@ html.Newtheme .Sitemap > div > div {
 html.Newtheme .Sitemap > div > div a,
 html.Newtheme .Sitemap > div > div button {
   color: #1f3258;
-  font-family: "Microsoft YaHei", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 14px;
   line-height: 30px;
 }
@@ -8213,18 +9167,18 @@ html.Newtheme .eventLink--top:hover {
   transition: 0.5s;
 }
 html.Newtheme .eventLink .icon-close {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   color: #fbd68d;
   position: absolute;
   left: 10px;
-  top: -20px;
-  font-size: 14px;
+  top: -15px;
+  font-size: 13px;
   font-weight: bold;
   z-index: 4;
   background: rgba(144, 0, 0, 0.8);
   border-radius: 100%;
-  line-height: 32px;
+  line-height: 27px;
 }
 html.Newtheme .eventLink img {
   width: 190px;
@@ -8235,13 +9189,13 @@ html.Newtheme .eventLink.active {
   display: none;
 }
 html.Newtheme .eventLink.wheel {
-  bottom: 190px;
+  bottom: 165px;
 }
 html.Newtheme .eventLink.wheel a img {
-  width: 170px;
+  width: 150px;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 10px;
 }
 html.Newtheme .eventLink.wheel a img.spin {
   z-index: 2;
@@ -8509,14 +9463,14 @@ html.Newtheme .eventLink.vgaming .vgimg {
 }
 html.Newtheme .eventLink.livesports {
   position: fixed;
-  bottom: 190px;
+  bottom: 345px;
   z-index: 1;
 }
 html.Newtheme .eventLink.livesports img {
   -webkit-animation: livesports 4s ease-in-out infinite;
           animation: livesports 4s ease-in-out infinite;
   z-index: 2;
-  width: 200px;
+  width: 180px;
 }
 html.Newtheme .eventLink.livesports .icon-close {
   top: 10px;
@@ -8558,6 +9512,20 @@ html.Newtheme .eventLink.livesports .icon-close {
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
   }
+}
+html.Newtheme .eventLink.eurocup {
+  bottom: 180px;
+  z-index: 1;
+}
+html.Newtheme .eventLink.eurocup img {
+  -webkit-animation: livesports 3s ease-in-out infinite;
+          animation: livesports 3s ease-in-out infinite;
+  width: 180px;
+}
+html.Newtheme .eventLink.eurocup .icon-close {
+  top: -15px;
+  background: #cecece;
+  color: rgb(92, 92, 92);
 }
 html.Newtheme .time {
   position: absolute;
@@ -9594,9 +10562,183 @@ html.Newtheme .vip {
   max-width: 1200px;
   min-height: 2050px;
 }
+html.Newtheme .vip > img {
+  border-radius: 12px;
+}
 html.Newtheme .vip .swiper-container {
   width: 100% !important;
   margin-bottom: 25px;
+}
+html.Newtheme .vip .swiper-slide {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  line-height: 1.2;
+}
+html.Newtheme .vip .swiper-slide > img {
+  border-radius: 15px;
+  -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+html.Newtheme .vip .swiper-slide .text {
+  position: absolute;
+  top: 95px;
+  left: 135px;
+  font-size: 21px;
+  font-weight: 400;
+  width: 700px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  line-height: 1.2;
+}
+html.Newtheme .vip .swiper-slide .text span {
+  font-weight: 900;
+  margin-left: 10px;
+}
+html.Newtheme .vip .swiper-slide .text.vintage {
+  width: 500px;
+  color: #4e1000;
+}
+html.Newtheme .vip .swiper-slide .text.vintage > span {
+  font-size: 21px;
+  margin-left: unset;
+  line-height: 1.65;
+}
+html.Newtheme .vip .swiper-slide .text.silver {
+  color: #4e4e4e;
+}
+html.Newtheme .vip .swiper-slide .text.gold {
+  color: #e59c2c;
+}
+html.Newtheme .vip .swiper-slide .text.titanium {
+  color: #533d58;
+}
+html.Newtheme .vip .swiper-slide .text.diamond {
+  color: #40aff4;
+}
+html.Newtheme .vip .swiper-slide .text.goal {
+  color: #ff2831;
+}
+html.Newtheme .vip .swiper-slide .awardtext {
+  position: absolute;
+  top: 122px;
+  left: 135px;
+  font-size: 21px;
+  line-height: 1;
+  padding: 5px 0;
+  border-radius: 4px;
+  font-weight: 800;
+}
+html.Newtheme .vip .swiper-slide .awardtext > span {
+  padding: 0 10px;
+  border-radius: 15px;
+}
+html.Newtheme .vip .swiper-slide .awardtext.silver {
+  color: #4e4e4e;
+}
+html.Newtheme .vip .swiper-slide .awardtext.silver > span {
+  background-color: #4e4e4e;
+  color: white;
+}
+html.Newtheme .vip .swiper-slide .awardtext.gold {
+  color: #e09623;
+}
+html.Newtheme .vip .swiper-slide .awardtext.gold > span {
+  background-color: #e09623;
+  color: white;
+}
+html.Newtheme .vip .swiper-slide .awardtext.titanium {
+  color: #533d58;
+}
+html.Newtheme .vip .swiper-slide .awardtext.titanium > span {
+  background-color: #533d58;
+  color: white;
+}
+html.Newtheme .vip .swiper-slide .awardtext.diamond {
+  color: #40aff4;
+}
+html.Newtheme .vip .swiper-slide .awardtext.diamond > span {
+  background-color: #40aff4;
+  color: white;
+}
+html.Newtheme .vip .swiper-slide .awardtext.goal {
+  color: #ff2831;
+}
+html.Newtheme .vip .swiper-slide .awardtext.goal > span {
+  background-color: #ff2831;
+  color: white;
+}
+html.Newtheme .vip .swiper-slide .bntext {
+  position: absolute;
+  bottom: 42px;
+  left: 135px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 660px;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+}
+html.Newtheme .vip .swiper-slide .bntext > div {
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  line-height: 1.3;
+  letter-spacing: 0.6px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+}
+html.Newtheme .vip .swiper-slide .bntext > div:nth-child(2) {
+  padding-left: 1.25vw;
+}
+html.Newtheme .vip .swiper-slide .bntext span {
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 6px;
+  letter-spacing: unset;
+}
+html.Newtheme .vip .swiper-slide .bntext.vintage {
+  color: #853605;
+}
+html.Newtheme .vip .swiper-slide .bntext.silver {
+  color: white;
+}
+html.Newtheme .vip .swiper-slide .bntext.gold > div {
+  color: #623212;
+}
+html.Newtheme .vip .swiper-slide .bntext.titanium {
+  color: white;
+}
+html.Newtheme .vip .swiper-slide .bntext.diamond {
+  color: #0d4971;
+}
+html.Newtheme .vip .swiper-slide .bntext.goal {
+  color: #464646;
 }
 html.Newtheme .vip .vipPage {
   width: 100%;
@@ -11715,6 +12857,1604 @@ html.Newtheme .rightModule .refer-moreinfo:hover {
   background: #F5B116;
   -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+html.Newtheme main .home {
+  background: #fff;
+}
+html.Newtheme main .home .btn-more {
+  background: #d83b35;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+html.Newtheme main .home .btn-more-text {
+  background: unset;
+  color: #284985;
+}
+html.Newtheme main .home .icon-dropdown::after {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-dropdown-blue.svg) no-repeat center/contain;
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+}
+html.Newtheme main .home-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html.Newtheme main .home-title {
+  font-size: 46px;
+  font-weight: 900;
+  color: #141f33;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 60px 0 30px;
+}
+html.Newtheme main .home-join {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 1400px;
+  margin-bottom: 80px;
+}
+html.Newtheme main .home-join .item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-right: 26px;
+  width: 330px;
+}
+html.Newtheme main .home-join .item:last-child {
+  margin-right: unset;
+}
+html.Newtheme main .home-join .item img {
+  width: 260px;
+}
+html.Newtheme main .home-join .item .title,
+html.Newtheme main .home-join .item .text {
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  color: #141f33;
+}
+html.Newtheme main .home-join .item .title {
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+html.Newtheme main .home-join .item .text {
+  text-transform: capitalize;
+  margin-bottom: 2px;
+  font-size: 13px;
+}
+html.Newtheme main .home-join .item .bottom {
+  width: 330px;
+  height: 60px;
+  background: url(https://banner.goal123.org/desktop/img/home-page/join-item-bottom.svg) no-repeat center/contain;
+  position: relative;
+}
+html.Newtheme main .home-join .item .bottom a,
+html.Newtheme main .home-join .item .bottom button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  padding: 12px 20px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(6%, rgb(251, 181, 19)), color-stop(82%, rgb(216, 59, 53)));
+  background: linear-gradient(180deg, rgb(251, 181, 19) 6%, rgb(216, 59, 53) 82%);
+}
+html.Newtheme main .home-join .item .bottom a:hover,
+html.Newtheme main .home-join .item .bottom button:hover {
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(10%, rgb(251, 181, 19)), color-stop(76%, rgb(216, 59, 53)));
+  background: linear-gradient(0deg, rgb(251, 181, 19) 10%, rgb(216, 59, 53) 76%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+html.Newtheme main .home-join .item .bottom a.btn-more,
+html.Newtheme main .home-join .item .bottom button.btn-more {
+  position: absolute;
+  top: 52%;
+  right: 10px;
+  -webkit-transform: translateY(-48%);
+          transform: translateY(-48%);
+}
+html.Newtheme main .home-sports {
+  width: 1400px;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 50px;
+}
+html.Newtheme main .home-sports > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 60px 0 0;
+  padding-bottom: 30px;
+  position: relative;
+}
+html.Newtheme main .home-sports > div:first-child::after {
+  content: "";
+  width: 660px;
+  height: 6px;
+  border-radius: 5px;
+  display: block;
+  margin-left: 50px;
+  background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.37)), color-stop(50%, rgba(251, 181, 19, 0.5)), color-stop(86%, rgb(251, 181, 19)));
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.37) 0%, rgba(251, 181, 19, 0.5) 50%, rgb(251, 181, 19) 86%);
+}
+html.Newtheme main .home-sports .home-title {
+  font-size: 60px;
+  margin: unset;
+  white-space: nowrap;
+}
+html.Newtheme main .home-sports .sports-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 30px;
+}
+html.Newtheme main .home-sports .sports-menu a,
+html.Newtheme main .home-sports .sports-menu button {
+  background: #fff;
+  border: 2px solid #d83b35;
+  border-radius: 30px;
+  padding: 10px 28px;
+  font-weight: 800;
+  font-size: 18px;
+  color: #d83b35;
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+}
+html.Newtheme main .home-sports .sports-menu a:last-child,
+html.Newtheme main .home-sports .sports-menu button:last-child {
+  margin-right: unset;
+}
+html.Newtheme main .home-sports .sports-menu a.active,
+html.Newtheme main .home-sports .sports-menu button.active {
+  background: #d83b35;
+  color: #fff;
+}
+html.Newtheme main .home-sports .sports-menu a.active:hover,
+html.Newtheme main .home-sports .sports-menu button.active:hover {
+  color: #fff;
+  cursor: inherit;
+}
+html.Newtheme main .home-sports .sports-menu a:hover,
+html.Newtheme main .home-sports .sports-menu button:hover {
+  background: #d83b35;
+  color: #fab617;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+html.Newtheme main .home-sports .sports-hotmatches {
+  width: 1400px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 5px;
+  position: relative;
+  margin-top: -125px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html.Newtheme main .home-sports .sports-hotmatches .swiper-wrapper {
+  border-radius: 15px;
+}
+html.Newtheme main .home-sports .sports-hotmatches .swiper-button-next, html.Newtheme main .home-sports .sports-hotmatches .swiper-button-prev {
+  font-size: 12px;
+}
+html.Newtheme main .home-sports .sports-hotmatches .swiper-button-next {
+  background-image: url(https://banner.goal123.org/desktop/img/home-page/icon/swiper-next-prev.svg);
+  width: 26px;
+  height: 26px !important;
+  right: 4px;
+  -webkit-box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.25);
+}
+html.Newtheme main .home-sports .sports-hotmatches .swiper-button-prev {
+  background-image: url(https://banner.goal123.org/desktop/img/home-page/icon/swiper-next-prev.svg);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  width: 26px;
+  height: 26px !important;
+  left: 0px;
+  -webkit-box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.25);
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item {
+  padding-bottom: 10px;
+  border-radius: 15px;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 330px;
+  -webkit-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item .title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #141f33;
+  background: rgba(238, 238, 238, 0.9333333333);
+  border-radius: 15px 15px 0 0;
+  padding: 8px 15px;
+  text-transform: capitalize;
+  font-family: "Noto Sans", sans-serif;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item .date {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 6px 15px 8px;
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item .date span {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: "Noto Sans", sans-serif;
+  letter-spacing: 1.05px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  color: #141f33;
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item .date span:last-child {
+  margin-left: 12px;
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item a.btn-bet,
+html.Newtheme main .home-sports .sports-hotmatches .sports-item button.btn-bet {
+  margin: 0 15px;
+  color: #fff;
+  background: -webkit-gradient(linear, left top, right top, color-stop(10%, rgb(216, 59, 53)), color-stop(85%, rgb(250, 182, 23)));
+  background: linear-gradient(90deg, rgb(216, 59, 53) 10%, rgb(250, 182, 23) 85%);
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  padding: 10px;
+  text-transform: uppercase;
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item a.btn-bet:hover,
+html.Newtheme main .home-sports .sports-hotmatches .sports-item button.btn-bet:hover {
+  -webkit-filter: brightness(1.15);
+          filter: brightness(1.15);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item .team-content {
+  padding: 0 15px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item .team-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 12px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item .team-item:last-child {
+  margin-bottom: 0;
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item .team-item img {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 45px;
+  height: 45px;
+  padding: 4px;
+  border: 2px solid #B4B4B4;
+  border-radius: 50%;
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item .team-item .odds {
+  width: 124px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #F5F5F5;
+  padding: 10px;
+  border-radius: 6px;
+  color: #FF4D00;
+  font-size: 14px;
+  font-weight: 600;
+  -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item .team-item .odds .handicap {
+  color: #284985;
+  font-size: 13px;
+  font-weight: 500;
+}
+html.Newtheme main .home-sports .sports-hotmatches .sports-item .team-name {
+  width: 122px;
+  font-size: 12px;
+  margin: 0 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.2;
+  height: 2.4;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+html.Newtheme main .home-sports .ambassador {
+  width: 600px;
+  height: 600px;
+  position: relative;
+  bottom: 5px;
+  left: 190px;
+  top: 0;
+}
+html.Newtheme main .home-sports .ambassador::after {
+  content: "matches";
+  display: block;
+  text-transform: uppercase;
+  font-size: 120px;
+  color: rgba(0, 0, 0, 0.03);
+  font-weight: 900;
+  position: absolute;
+  right: -570px;
+  bottom: 10px;
+  margin-bottom: 30px;
+}
+html.Newtheme main .home-sports .ambassador::before {
+  content: "hot";
+  display: block;
+  text-transform: uppercase;
+  font-size: 120px;
+  color: rgba(0, 0, 0, 0.03);
+  font-weight: 900;
+  position: absolute;
+  left: -190px;
+  bottom: 10px;
+  margin-bottom: 30px;
+}
+html.Newtheme main .home-sports .ambassador span {
+  display: block;
+  font-weight: 500;
+  position: absolute;
+  left: -190px;
+  top: 0;
+}
+html.Newtheme main .home-sports .ambassador span:last-child {
+  font-family: "Niconne", cursive;
+  font-size: 36px;
+  top: 14px;
+}
+html.Newtheme main .home-sports .video-content {
+  width: 450px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 20px;
+  position: absolute;
+  right: 50px;
+  top: 175px;
+}
+html.Newtheme main .home-sports .video-content iframe {
+  min-height: unset;
+}
+html.Newtheme main .home-hotgame {
+  width: 100%;
+  padding: 0 0 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(30%, rgba(236, 177, 178, 0.33)), color-stop(60%, rgba(213, 85, 88, 0.73)), color-stop(88%, rgb(198, 24, 29)));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(236, 177, 178, 0.33) 30%, rgba(213, 85, 88, 0.73) 60%, rgb(198, 24, 29) 88%);
+}
+html.Newtheme main .home-hotgame .hotgame-wrapper {
+  width: 1400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 28px;
+  position: relative;
+  width: 100%;
+}
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner a,
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner button {
+  display: block;
+}
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner a.item,
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner button.item {
+  margin: 0 8px;
+  width: 100%;
+  position: relative;
+}
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner a.item::after,
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner button.item::after {
+  content: "";
+  width: 100%;
+  height: 150px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 5px 8px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 8px 0px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  position: absolute;
+  bottom: 3.5px;
+  left: 0;
+  z-index: 0;
+  background: unset;
+}
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner a.item:first-child,
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner button.item:first-child {
+  margin-left: unset;
+}
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner a.item:last-child,
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner button.item:last-child {
+  margin-right: unset;
+}
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner a.item span,
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner button.item span {
+  text-transform: uppercase;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px 20px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  position: absolute;
+  top: 45%;
+  right: 22px;
+  -webkit-transform: translateY(-55%);
+          transform: translateY(-55%);
+}
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner a.item.brand span,
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner button.item.brand span {
+  left: 16px;
+  right: unset;
+  top: 35px;
+  -webkit-transform: unset;
+          transform: unset;
+}
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner a.item.brand.big span,
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner button.item.brand.big span {
+  top: 50px;
+  font-size: 22px;
+}
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner a:hover,
+html.Newtheme main .home-hotgame .hotgame-wrapper .inner button:hover {
+  -webkit-filter: brightness(1.12);
+          filter: brightness(1.12);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+html.Newtheme main .home-popularslots {
+  width: 1400px;
+  margin-bottom: 80px;
+}
+html.Newtheme main .home-popularslots .home-title {
+  text-align: left;
+}
+html.Newtheme main .home-popularslots .popularslots-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme main .home-popularslots .popularslots-content a,
+html.Newtheme main .home-popularslots .popularslots-content button {
+  display: block;
+  margin: 0 4px;
+  position: relative;
+}
+html.Newtheme main .home-popularslots .popularslots-content a::after,
+html.Newtheme main .home-popularslots .popularslots-content button::after {
+  content: "";
+  width: 100%;
+  height: 40px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 5px 8px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 8px 0px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  position: absolute;
+  bottom: 4.5px;
+  left: 0;
+  z-index: 0;
+  background: unset;
+}
+html.Newtheme main .home-popularslots .popularslots-content a > img,
+html.Newtheme main .home-popularslots .popularslots-content button > img {
+  position: relative;
+  z-index: 1;
+}
+html.Newtheme main .home-popularslots .popularslots-content a:hover,
+html.Newtheme main .home-popularslots .popularslots-content button:hover {
+  -webkit-filter: brightness(1.12);
+          filter: brightness(1.12);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+html.Newtheme main .home-popularslots .popularslots-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 6px;
+}
+html.Newtheme main .home-popularslots .popularslots-inner .variation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+html.Newtheme main .home-popularslots .popularslots-inner .variation .item {
+  height: 240px;
+}
+html.Newtheme main .home-popularslots .popularslots-inner .variation .item > img {
+  border-radius: 20px 20px 0 0;
+}
+html.Newtheme main .home-popularslots .popularslots-inner .variation .item > div {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 1;
+  width: 101%;
+}
+html.Newtheme main .home-leaderboard {
+  margin: 30px 0 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  width: 100%;
+  padding-bottom: 70px;
+}
+html.Newtheme main .home-leaderboard::after {
+  content: "";
+  display: block;
+  width: 100%;
+  background: #C6181D;
+  height: 386px;
+  border-radius: 60px 60px 0 0;
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+}
+html.Newtheme main .home-leaderboard-wrapper {
+  width: 1400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding: 0 18px 30px;
+  border-radius: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+}
+html.Newtheme main .home-leaderboard-wrapper .home-title {
+  text-align: left;
+  margin: 0 0 34px;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 495px;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item {
+  margin: 0 6px;
+  position: relative;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item:first-child {
+  margin-left: unset;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item:last-child {
+  margin-right: unset;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item .title {
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 5px 0 0 5px;
+  background: #284985;
+  color: #fff;
+  position: absolute;
+  right: 0;
+  top: 52px;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item.sports .title {
+  background: #175DAA;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item.casino .title {
+  background: #8E009A;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item.slots .title {
+  background: #850000;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item .user-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item .user-data span {
+  display: inline-block;
+  font-weight: 700;
+  color: #fff;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item .user-data span:first-child {
+  font-style: italic;
+  font-size: 17px;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item .user-data span:last-child {
+  letter-spacing: 1.02px;
+  font-size: 22px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+}
+html.Newtheme main .home-leaderboard-wrapper .win-total {
+  width: 48%;
+  margin-left: 28px;
+  height: 495px;
+  overflow: hidden;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-total .user-ranking {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-total .user-list {
+  background: rgba(40, 73, 133, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin-bottom: 6px;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-total .user-list.top {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(207, 0, 0)), to(rgb(251, 181, 19)));
+  background: linear-gradient(90deg, rgb(207, 0, 0) 0%, rgb(251, 181, 19) 100%);
+}
+html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .left .order {
+  width: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.4);
+}
+html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .left .order > img {
+  width: 70px;
+  height: 45px;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .right .icon-cash::after {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: url(https://banner.goal123.org/desktop/img/home-page/money.png) no-repeat center/contain;
+  margin-right: 6px;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .right span {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+html.Newtheme main .home-leaderboard-wrapper .win-total .user-id {
+  color: #fff;
+  font-weight: 400;
+  font-size: 15px;
+  margin-left: 6px;
+}
+html.Newtheme main .home-informaticon {
+  width: 1400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html.Newtheme main .home-informaticon .icon-faq::before {
+  content: "";
+}
+html.Newtheme main .home-informaticon .icon-faq::after {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-faq.svg) no-repeat center/contain;
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  margin-right: 12px;
+}
+html.Newtheme main .home-informaticon .icon-deposit::before {
+  content: "";
+}
+html.Newtheme main .home-informaticon .icon-deposit::after {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-info-deposit.svg) no-repeat center/contain;
+  width: 36px;
+  height: 28px;
+  display: inline-block;
+  margin-right: 12px;
+}
+html.Newtheme main .home-informaticon .icon-withdraw::before {
+  content: "";
+}
+html.Newtheme main .home-informaticon .icon-withdraw::after {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-info-withdraw.svg) no-repeat center/contain;
+  width: 36px;
+  height: 28px;
+  display: inline-block;
+  margin-right: 12px;
+}
+html.Newtheme main .home-informaticon .home-title {
+  text-align: left;
+  margin: 30px 0;
+}
+html.Newtheme main .home-info {
+  width: 38%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 45px;
+}
+html.Newtheme main .home-info a,
+html.Newtheme main .home-info button {
+  color: #141f33;
+  text-transform: capitalize;
+  font-size: 23px;
+  font-weight: 600;
+  background: #F3F3F3;
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
+  padding: 30px 36px;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 16px;
+}
+html.Newtheme main .home-info a.list,
+html.Newtheme main .home-info button.list {
+  float: unset;
+  text-align: unset;
+}
+html.Newtheme main .home-info a.list:hover,
+html.Newtheme main .home-info button.list:hover {
+  -webkit-filter: brightness(1.15);
+          filter: brightness(1.15);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+html.Newtheme main .home-news {
+  width: 66%;
+}
+html.Newtheme main .home-news a, html.Newtheme main .home-news button {
+  color: #284985;
+}
+html.Newtheme main .home-news div:first-child {
+  position: relative;
+}
+html.Newtheme main .home-news div:first-child .btn-more-text {
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+}
+html.Newtheme main .home-news div:first-child .btn-more-text::after {
+  content: "";
+  display: block;
+  width: 0%;
+  background: #284985;
+  height: 1.8px;
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+}
+html.Newtheme main .home-news div:first-child .btn-more-text:hover::after {
+  width: 100%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+html.Newtheme main .home-news div:first-child .btn-more-text .icon-dropdown::after {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-dropdown-blue.svg) no-repeat center/contain;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+}
+html.Newtheme main .home-news .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html.Newtheme main .home-news .inner .item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 15px;
+  background: #fff;
+  -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  margin: 0 18px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+}
+html.Newtheme main .home-news .inner .item:first-child {
+  margin-left: unset;
+}
+html.Newtheme main .home-news .inner .item:last-child {
+  margin-right: unset;
+}
+html.Newtheme main .home-news .inner .item .news-img {
+  overflow: hidden;
+  height: 245px;
+}
+html.Newtheme main .home-news .inner .item .news-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+html.Newtheme main .home-news .inner .item .title {
+  padding: 22px;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  height: 20px;
+  border-top: 2px solid #f3f3f3;
+}
+html.Newtheme main .home-news .inner .item .title p {
+  font-size: 18px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+html.Newtheme main .home-news .inner .item:hover .news-img img {
+  -webkit-transform: scale(1.25, 1.25);
+          transform: scale(1.25, 1.25);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+html.Newtheme main .home-news .inner .item:hover .title p {
+  color: #d83b35;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+html.Newtheme main .home-recently {
+  margin: 30px 0 80px;
+}
+html.Newtheme main .home-app {
+  background: url(https://banner.goal123.org/desktop/img/home-page/app-download-banner.png) no-repeat center/contain;
+  width: 1400px;
+  height: 600px;
+  margin: 80px 0 100px;
+}
+html.Newtheme main .home-app .app-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 534px;
+}
+html.Newtheme main .home-app .app-content > span {
+  display: block;
+  color: #505050;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+  width: 535px;
+  margin-top: 14px;
+}
+html.Newtheme main .home-app .app-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme main .home-app .app-title-icon {
+  width: 75px;
+  margin-right: 14px;
+}
+html.Newtheme main .home-app .app-title-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html.Newtheme main .home-app .app-title-text .brand {
+  width: 180px;
+  margin: 0 18px 0 2px;
+}
+html.Newtheme main .home-app .app-title-text span {
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #141f33;
+}
+html.Newtheme main .home-app .app-title-text .text:first-child span:first-child {
+  color: #d83b35;
+  margin-right: 5px;
+}
+html.Newtheme main .home-app .app-title-text .text:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme main .home-app .app-title-text .text:last-child span {
+  font-weight: 800;
+  font-size: 45px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+html.Newtheme main .home-app .app-qrcode {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 50px 30px 0;
+}
+html.Newtheme main .home-app .app-item {
+  margin: 0 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 180px;
+}
+html.Newtheme main .home-app .app-item .qr {
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid rgba(187, 187, 187, 0.7333333333);
+  border-radius: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html.Newtheme main .home-app .app-item a,
+html.Newtheme main .home-app .app-item button {
+  background: #284985;
+  padding: 12px 38px 12px 31px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme main .home-app .app-item a.btn-app,
+html.Newtheme main .home-app .app-item button.btn-app {
+  margin-top: 18px;
+  width: 100%;
+  cursor: text;
+}
+html.Newtheme main .home-app .app-item a.instructions,
+html.Newtheme main .home-app .app-item button.instructions {
+  background: unset;
+  padding: unset;
+  border-radius: unset;
+  color: #141f33;
+  font-weight: 700;
+  margin-top: 6px;
+  text-align: center;
+}
+html.Newtheme main .home-app .app-item a.instructions:hover,
+html.Newtheme main .home-app .app-item button.instructions:hover {
+  color: #d83b35;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+html.Newtheme main .home-app .app-item a .icon-android::before,
+html.Newtheme main .home-app .app-item button .icon-android::before {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-android.svg) no-repeat center/contain;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  margin-right: 4px;
+}
+html.Newtheme main .home-app .app-item a .icon-apple,
+html.Newtheme main .home-app .app-item button .icon-apple {
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-apple.svg) no-repeat center/contain;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.footer-content {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 1400px;
+}
+.footer-content .powered {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.footer-content .powered .brand-item {
+  width: 100%;
+  margin-top: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 30px;
+  position: relative;
+}
+.footer-content .powered .brand-item::after {
+  content: "";
+  display: block;
+  background: #fff;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.footer-content .powered .brand-item span {
+  display: inline-block;
+  color: #fff;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+.footer-content .powered .brand-item img {
+  width: 95px;
+}
+.footer-content .copyright {
+  width: 100%;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  max-width: unset;
+  font-weight: 500;
+  margin: 15px 0 20px;
+}
+.footer-content .copyright span {
+  color: #d83b35;
+  font-size: 15px;
+}
+.footer-top {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 55px 0 0;
+  padding-bottom: 45px;
+  position: relative;
+}
+.footer-top::after {
+  content: "";
+  display: block;
+  background: #fff;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.footer-top .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer-top .social-media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer-top .social-media-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.footer-top .social-media-item:first-child {
+  margin-right: 60px;
+}
+.footer-top .social-media-item .title {
+  color: #fab617;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.footer-top .social-media-item .media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 15px;
+}
+.footer-top .social-media-item .media img {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+.footer-top .social-media-item .media img:last-child {
+  margin-right: unset;
+}
+.footer-top .social-media-item .media a:first-child {
+  margin-right: 10px;
+}
+.footer-top a,
+.footer-top button {
+  color: #fab617;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-right: 30px;
+}
+.footer-top a:last-child,
+.footer-top button:last-child {
+  margin-right: unset;
+}
+.footer-top a:hover,
+.footer-top button:hover {
+  color: #d83b35;
+}
+.footer-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 45px;
+}
+.footer-bottom .game-collection,
+.footer-bottom .payment-content,
+.footer-bottom .provider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.footer-bottom .game-collection .title,
+.footer-bottom .payment-content .title,
+.footer-bottom .provider .title {
+  color: #fab617;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+}
+.footer-bottom .game-collection {
+  margin-right: 60px;
+}
+.footer-bottom .game-collection a,
+.footer-bottom .game-collection button {
+  display: inline-block;
+  color: #fff;
+  font-size: 15px;
+  text-transform: capitalize;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.footer-bottom .game-collection a:hover,
+.footer-bottom .game-collection button:hover {
+  color: #d83b35;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.footer-bottom .payment-content,
+.footer-bottom .provider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.footer-bottom .payment-content a,
+.footer-bottom .provider a {
+  display: inline-block;
+  margin: 0 12px 10px 0;
+}
+.footer-bottom .payment-content {
+  width: 320px;
+  margin-right: 60px;
+}
+.footer-bottom .payment-content img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+.footer-bottom .provider {
+  width: 810px;
+}
+.footer-bottom .provider img {
+  width: 100px;
+  height: auto;
+}
+.footer-bottom .provider a:hover {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -16252,4 +18992,907 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   font-weight: 700;
   -webkit-transition: 0.2s;
   transition: 0.2s;
+}
+
+.euro {
+  background: #143CDB !important;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  min-width: 1920px !important;
+}
+.euro a, .euro button {
+  font-family: "Montserrat", sans-serif;
+}
+.euro .prediction-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 100px auto 0;
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/top-bg.jpg) no-repeat center/cover;
+  padding-bottom: 1000px;
+  position: relative;
+  z-index: 1;
+}
+.euro .prediction-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro .prediction-left {
+  margin-right: 100px;
+}
+.euro .prediction-left > div:first-child {
+  font-weight: 700;
+  color: #D6D6D6;
+  font-size: 22px;
+}
+.euro .prediction-left > div:nth-child(2) {
+  width: 500px;
+  color: white;
+  font-weight: 800;
+  font-size: 50px;
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+.euro .prediction-left .deposit-btn-a {
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/deposit-btn-bg.jpg) no-repeat center/cover;
+  width: 300px;
+  height: 75px;
+  border-radius: 50px;
+  position: relative;
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.euro .prediction-left .deposit-btn-a span {
+  position: absolute;
+  z-index: 2;
+  font-size: 22px;
+  font-weight: 700;
+  left: calc(50% - 105px);
+  top: calc(50% - 15px);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.3607843137);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro .prediction-left .deposit-btn-a::after {
+  display: block;
+  content: "";
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(rgb(5, 143, 74)));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb(5, 143, 74) 100%);
+  width: 300px;
+  height: 75px;
+  z-index: 1;
+  border-radius: 50px;
+  border: 2px solid white;
+}
+.euro .prediction-left .deposit-btn-a img {
+  width: 50px;
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  bottom: 13px;
+}
+.euro .prediction-left .deposit-btn-a:hover::after {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(rgb(14, 201, 108)));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb(14, 201, 108) 100%);
+}
+.euro .prediction-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro .prediction-right-item {
+  color: #143CDB;
+  width: 580px;
+}
+.euro .prediction-right-item .country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 27px;
+  font-weight: 700;
+  border-radius: 22px;
+  background: #F2F3F4;
+  height: 100px;
+  margin-bottom: 15px;
+}
+.euro .prediction-right-item .country > div:first-child {
+  background: #D9D9D9;
+  width: 80px;
+  height: 100px;
+  border-radius: 22px 0 0 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 35px;
+}
+.euro .prediction-right-item .country-flag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+.euro .prediction-right-item .country-flag > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.euro .prediction-right-item .country-flag > div:first-child {
+  margin-left: 10px;
+}
+.euro .prediction-right-item .country-flag > div:first-child img {
+  width: 78px;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3411764706);
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.3411764706);
+  border-radius: 100px;
+}
+.euro .prediction-right-item .country-flag > div:first-child div {
+  margin-left: 15px;
+}
+.euro .prediction-right-item .country-flag > div:last-child {
+  margin-right: 35px;
+}
+.euro .prediction-right-item .country.one {
+  background: #F9BF4B;
+}
+.euro .prediction-right-item .country.one > div:first-child {
+  background: #EF9F00;
+}
+.euro .prediction-right-item:last-child {
+  margin-left: 20px;
+}
+.euro .ticket-wrapper {
+  position: relative;
+  z-index: 3;
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/center-bg.png) no-repeat center/cover;
+}
+.euro .ticket-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: -180px;
+  padding-top: 90px;
+}
+.euro .ticket-img {
+  width: 400px;
+  margin-right: 30px;
+}
+.euro .ticket-number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro .ticket-number > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  border-right: 2px solid #143CDB;
+  padding: 0 45px;
+}
+.euro .ticket-number > div > span {
+  font-weight: 800;
+  color: #143CDB;
+}
+.euro .ticket-number > div > span:first-child {
+  font-size: 30px;
+}
+.euro .ticket-number > div > span:last-child {
+  font-size: 109px;
+}
+.euro .ticket-number > div:first-child {
+  padding-left: 0;
+}
+.euro .ticket-number > div:last-child {
+  border: none;
+  padding-right: 0;
+}
+.euro .ticket-btn {
+  font-size: 25px;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 45px;
+}
+.euro .ticket-btn button {
+  border: 2px solid #143CDB;
+  padding: 0 30px;
+  border-radius: 50px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #143CDB;
+  margin-bottom: 15px;
+  height: 80px;
+}
+.euro .ticket-btn button:hover {
+  border: 2px solid #3259F3;
+  color: #3259F3;
+}
+.euro .ticket-btn a {
+  height: 80px;
+  padding: 0 30px;
+  background: #143CDB;
+  border-radius: 50px;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.euro .ticket-btn a:hover {
+  background: #3259F3;
+}
+.euro .ticket-filter {
+  background: #F9BF4B;
+  padding-bottom: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro .ticket-filter > div {
+  background: #FAFAFA;
+  margin: 0 auto;
+  border-radius: 55px;
+  padding: 50px 40px;
+  margin: 0 70px;
+}
+.euro .ticket-filter .title {
+  color: #989898;
+  font-size: 25px;
+  margin: 0 0 20px 20px;
+}
+.euro .ticket-filter .filter-country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 0 30px;
+}
+.euro .ticket-filter .filter-country button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #E5E5E5;
+  border-radius: 50px;
+  width: 222px;
+  padding: 5px;
+  margin: 0 9px 20px;
+}
+.euro .ticket-filter .filter-country button img {
+  width: 45px;
+  margin-left: 3px;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3411764706);
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.3411764706);
+  border-radius: 100px;
+}
+.euro .ticket-filter .filter-country button span {
+  font-size: 16px;
+  color: #989898;
+  font-weight: 700;
+  margin-left: 10px;
+}
+.euro .ticket-filter .filter-country button.active {
+  background: #143CDB;
+}
+.euro .ticket-filter .filter-country button.active span {
+  color: white;
+}
+.euro .ticket-filter .filter-country button:hover {
+  background: #143CDB;
+}
+.euro .ticket-filter .filter-country button:hover span {
+  color: white;
+}
+.euro .ticket-filter .filter-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.euro .ticket-filter .filter-bottom .number-bar {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #E5E5E5;
+  border-radius: 50px;
+  margin-left: 12px;
+  width: 930px;
+}
+.euro .ticket-filter .filter-bottom .number-bar .input-number {
+  border: none;
+  background: #E5E5E5;
+  height: 60px;
+  border-radius: 50px;
+  padding: 0 0 0 30px;
+  outline: none;
+  caret-color: #B5B5B5;
+  font-size: 22px;
+  color: #143CDB;
+}
+.euro .ticket-filter .filter-bottom .number-bar ::-webkit-input-placeholder {
+  border: none;
+  color: #B5B5B5;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+.euro .ticket-filter .filter-bottom .number-bar ::-moz-placeholder {
+  border: none;
+  color: #B5B5B5;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+.euro .ticket-filter .filter-bottom .number-bar :-ms-input-placeholder {
+  border: none;
+  color: #B5B5B5;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+.euro .ticket-filter .filter-bottom .number-bar ::-ms-input-placeholder {
+  border: none;
+  color: #B5B5B5;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+.euro .ticket-filter .filter-bottom .number-bar ::placeholder {
+  border: none;
+  color: #B5B5B5;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+.euro .ticket-filter .filter-bottom .number-bar ::-webkit-outer-spin-button,
+.euro .ticket-filter .filter-bottom .number-bar ::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.euro .ticket-filter .filter-bottom .number-bar .close-btn {
+  position: absolute;
+  right: 25px;
+}
+.euro .ticket-filter .filter-bottom .number-bar .close-btn img {
+  width: 18px;
+}
+.euro .ticket-filter .filter-bottom .submit-btn {
+  background: #143CDB;
+  width: 350px;
+  height: 60px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+.euro .ticket-filter .filter-bottom .submit-btn:hover {
+  background: #3259F3;
+}
+.euro .ticket-filter.close > div {
+  position: relative;
+}
+.euro .ticket-filter.close > div .close-text {
+  background: rgba(0, 0, 0, 0.8196078431);
+  width: 1780px;
+  height: 590px;
+  position: absolute;
+  z-index: 3;
+  color: white;
+  font-weight: 700;
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 0;
+  left: 0;
+  border-radius: 55px;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro .ticket-filter .close-text {
+  display: none;
+}
+.euro .record {
+  background: #F9BF4B;
+  padding: 0 0 500px;
+  display: none;
+  height: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro .record-wrapper {
+  background: #FAFAFA;
+  border-radius: 55px;
+  margin: 50px 60px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 50px 70px 0;
+}
+.euro .record-wrapper .title {
+  background: #ECECEC;
+  width: 500px;
+  height: 74px;
+  font-size: 25px;
+  border-radius: 0 0 48px 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #143CDB;
+  margin: 0 auto 25px;
+}
+.euro .record-wrapper .more-btn {
+  background: #ECECEC;
+  padding: 20px 0;
+  border-radius: 0 0 55px 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 25px;
+  font-weight: 700;
+  color: #C2C2C2;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 15px;
+}
+.euro .record-wrapper .more-btn::after {
+  display: block;
+  content: "";
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/arrow-down.png) no-repeat center/cover;
+  width: 25px;
+  height: 25px;
+  margin: 5px 0 0 10px;
+}
+.euro .record-wrapper .more-btn.active::after {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+.euro .record-wrapper .more-btn:hover {
+  color: #989898;
+}
+.euro .record-wrapper .more-btn:hover::after {
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/arrow-down-dark.png) no-repeat center/cover;
+}
+.euro .record-wrapper.active .record-content {
+  height: auto;
+  overflow: visible;
+}
+.euro .record-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-left: 80px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  position: relative;
+  padding-bottom: 40px;
+  height: 300px;
+  overflow: hidden;
+}
+.euro .record-content .record-item {
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/ticket-item.png) no-repeat center/100%;
+  width: 530px;
+  height: 163px;
+  margin-right: 20px;
+}
+.euro .record-content .record-item .record-item-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 530px;
+  height: 163px;
+}
+.euro .record-content .record-item .record-item-box .euro-logo {
+  width: 80px;
+  margin-left: 29px;
+}
+.euro .record-content .record-item .record-item-box > div {
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro .record-content .record-item .record-item-box > div .record-item-team {
+  border-right: 1px solid white;
+  width: 185px;
+}
+.euro .record-content .record-item .record-item-box > div .record-item-team .team-title {
+  color: #F9BF4B;
+  font-size: 14px;
+  font-weight: 600;
+}
+.euro .record-content .record-item .record-item-box > div .record-item-team > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+.euro .record-content .record-item .record-item-box > div .record-item-team > div img {
+  width: 40px;
+}
+.euro .record-content .record-item .record-item-box > div .record-item-team > div span {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+.euro .record-content .record-item .record-item-box > div .record-item-number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 25px;
+  width: 125px;
+}
+.euro .record-content .record-item .record-item-box > div .record-item-number span:first-child {
+  color: #F9BF4B;
+  font-size: 14px;
+  font-weight: 600;
+}
+.euro .record-content .record-item .record-item-box > div .record-item-number span:last-child {
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 18px;
+}
+.euro .record.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: -500px;
+}
+.euro .bottom-wrapper {
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/bottom-bg.png) no-repeat center/cover;
+  position: relative;
+  z-index: 3;
+  margin-top: -300px;
+}
+.euro .bottom-wrapper .reward {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro .bottom-wrapper .reward-item {
+  background: white;
+  width: 470px;
+  border-radius: 40px 40px 20px 20px;
+  margin-right: 50px;
+}
+.euro .bottom-wrapper .reward-item:first-child .title {
+  position: relative;
+}
+.euro .bottom-wrapper .reward-item:first-child .title img {
+  position: absolute;
+  width: 167px;
+  height: 167px;
+  top: -70px;
+  right: -12px;
+}
+.euro .bottom-wrapper .reward-item:nth-child(2) .title {
+  background: #00BA5D;
+}
+.euro .bottom-wrapper .reward-item:last-child {
+  margin: 0;
+}
+.euro .bottom-wrapper .reward-item:last-child .title {
+  background: #5375FF;
+}
+.euro .bottom-wrapper .reward-item .title {
+  background: red;
+  padding: 20px 0 20px 40px;
+  font-size: 35px;
+  color: white;
+  font-weight: 700;
+  border-radius: 40px 40px 0 0;
+}
+.euro .bottom-wrapper .reward-item > div {
+  padding: 20px 40px 20px;
+}
+.euro .bottom-wrapper .reward-item > div:last-child {
+  background: #C2C2C2;
+  border-radius: 40px 40px 18px 18px;
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.euro .bottom-wrapper .reward-item-text:first-child {
+  margin-bottom: 20px;
+}
+.euro .bottom-wrapper .reward-item-text span {
+  font-size: 20px;
+  font-weight: 600;
+  color: #C2C2C2;
+}
+.euro .bottom-wrapper .reward-item-text div {
+  font-size: 30px;
+  color: #143CDB;
+  font-weight: 700;
+}
+.euro .bottom-wrapper .reward-winner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.euro .bottom-wrapper .reward-winner > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro .bottom-wrapper .reward-winner > div .reward-item {
+  width: 730px;
+}
+.euro .bottom-wrapper .reward-winner > div .reward-item > div:last-child {
+  background: #F9BF4B;
+  color: #143CDB;
+}
+.euro .bottom-wrapper .reward-winner .semi {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 1520px;
+  margin-top: 50px;
+}
+.euro .bottom-wrapper .reward-winner .semi > div:last-child {
+  background: #F9BF4B;
+  color: #143CDB;
+}
+.euro .bottom-wrapper .reward-winner .semi > div:last-child span:last-child {
+  font-size: 22px;
+  text-align: center;
+  line-height: 30px;
+  margin-top: 10px;
+}
+.euro .bottom-wrapper .terms-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro .bottom-wrapper .terms-btn button {
+  background: #092EC1;
+  color: #1D47EF;
+  width: 300px;
+  padding: 15px;
+  font-size: 30px;
+  font-weight: 700;
+  border-radius: 50px;
+  margin-right: 20px;
+}
+.euro .bottom-wrapper .terms-btn button.active {
+  background: white;
+  color: #143CDB;
+}
+.euro .bottom-wrapper .terms .bottom-title {
+  margin: 0 180px 20px 85px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.euro .bottom-wrapper .terms .info {
+  color: white;
+  margin: 40px 0 0 190px;
+  font-size: 25px;
+  font-weight: 600;
+}
+.euro .bottom-wrapper .terms .info li {
+  margin-bottom: 30px;
+  width: 1500px;
+  line-height: 35px;
+}
+.euro .bottom-wrapper .matches .bottom-title {
+  margin: 0 180px 20px 85px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.euro .bottom-wrapper .matches-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 50px;
+}
+.euro .bottom-wrapper .matches-item > div {
+  border-left: 2px solid white;
+}
+.euro .bottom-wrapper .matches-item > div > div {
+  color: #143CDB;
+  padding: 15px 0 15px 30px;
+  font-weight: 700;
+  font-size: 30px;
+}
+.euro .bottom-wrapper .matches-item > div > div:nth-child(n) {
+  background: #F9BF4B;
+}
+.euro .bottom-wrapper .matches-item > div > div:nth-child(odd) {
+  background: #F8F8F8;
+}
+.euro .bottom-wrapper .matches-item > div:first-child {
+  border: 0;
+  width: 430px;
+}
+.euro .bottom-wrapper .matches-item > div:first-child > div:first-child {
+  border-radius: 20px 0 0 0;
+}
+.euro .bottom-wrapper .matches-item > div:first-child > div:last-child {
+  border-radius: 0 0 0 20px;
+}
+.euro .bottom-wrapper .matches-item > div:last-child {
+  width: 1100px;
+}
+.euro .bottom-wrapper .matches-item > div:last-child > div:first-child {
+  border-radius: 0 20px 0 0;
+}
+.euro .bottom-wrapper .matches-item > div:last-child > div:last-child {
+  border-radius: 0 0 20px 0;
+}
+.euro .bottom-wrapper .matches-info {
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  margin: 50px 0 0 190px;
+}
+.euro .bottom-wrapper .matches-info > div {
+  margin-bottom: 10px;
+}
+.euro .bottom-wrapper .matches-info .subtitle {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #F9BF4B;
+}
+.euro .bottom-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 700;
+  font-size: 50px;
+  margin: 0 0 70px 85px;
+  padding-top: 180px;
+}
+.euro .bottom-title img {
+  width: 70px;
+  margin-right: 20px;
+}
+.euro .footer-bg {
+  bottom: -6px;
+  position: relative;
+  z-index: 3;
+  margin-top: -180px;
 }/*# sourceMappingURL=style.css.map */
