@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { isDateRange } from "@ailab-desktop/common";
 import classNames from "classnames";
@@ -17,6 +17,7 @@ import path from "../../router";
 
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { angPaoEventPeriod } from "../../pages/angpao";
+import { eventPeriods } from "../../datas/eventDef";
 
 export const eventPeriod = {
 	startDate: "2024-02-01 00:00:00",
@@ -39,12 +40,15 @@ export default () => {
 	return (
 		<header>
 			<div className="header">
-				<div className={classNames("logo")}>
+				<div
+					className={classNames("logo", {
+						"eurocup-logo": isDateRange(eventPeriods.euroCup)
+					})}>
 					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
 							src={`${bannerImgUrl}/desktop/img/${
-								isDateRange(eventPeriod)
-									? "newyear-logo"
+								isDateRange(eventPeriods.euroCup)
+									? "event/eurocup/goal123-logo"
 									: "logo"
 							}.png`}
 							alt={config.siteName}
@@ -58,6 +62,21 @@ export default () => {
 							type="header"
 						/>
 					)}
+
+					{/* 歐冠杯期間顯示 */}
+					{isDateRange(eventPeriods.euroCup) && (
+						<div
+							onClick={() =>
+								navigate(
+									`/${userInfo.langId}/${path.euroCup.root}`
+								)
+							}>
+							<img
+								src={`${bannerImgUrl}/desktop/img/event/eurocup/euro-logo-gif.webp`}
+								alt=""
+							/>
+						</div>
+					)}
 				</div>
 				<Menu
 					productTpIds={productTpIds}
@@ -66,8 +85,7 @@ export default () => {
 				<div className="function">
 					<Link
 						className="appDownload"
-						to={`/${userInfo.langId}/${path.appDownload.root}`}
-					>
+						to={`/${userInfo.langId}/${path.appDownload.root}`}>
 						<i className="icon icon-mobile" />
 						{t("lbl_APPDownload")}
 					</Link>

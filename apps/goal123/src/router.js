@@ -174,5 +174,8 @@ export default {
 	},
 	ambassador: {
 		root: "ambassador"
+	},
+	euroCup: {
+		root: "euro-cup"
 	}
 };
