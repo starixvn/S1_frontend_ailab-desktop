@@ -97,3 +97,8 @@ export const liveStreamingRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/LiveStreaming`
 });
+
+export const cupEventRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/CupEvent`
+});
