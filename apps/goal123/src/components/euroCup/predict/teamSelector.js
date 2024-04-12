@@ -19,7 +19,8 @@ const TeamSelector = ({
 		<div
 			className={classNames("ticket-filter", {
 				close: !isDateRange(eventPeriods.prediction)
-			})}>
+			})}
+		>
 			<div>
 				<div className="title">{t("lbl_CupEvent_SelectYourTeam")}</div>
 				<div className="close-text">
@@ -34,7 +35,8 @@ const TeamSelector = ({
 									? "active"
 									: ""
 							}
-							key={countryId}>
+							key={countryId}
+						>
 							<img
 								src={`${sportsImgUrl}/Country%20Team/${imageName}`}
 								alt={imageName}
@@ -74,7 +76,8 @@ const TeamSelector = ({
 								},
 								count: Number(ticketsNumber)
 							});
-						}}>
+						}}
+					>
 						{t("lbl_Submit")}
 					</button>
 				</div>

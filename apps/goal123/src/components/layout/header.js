@@ -43,7 +43,8 @@ export default () => {
 				<div
 					className={classNames("logo", {
 						"eurocup-logo": isDateRange(eventPeriods.euroCup)
-					})}>
+					})}
+				>
 					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
 							src={`${bannerImgUrl}/desktop/img/${
@@ -70,7 +71,8 @@ export default () => {
 								navigate(
 									`/${userInfo.langId}/${path.euroCup.root}`
 								)
-							}>
+							}
+						>
 							<img
 								src={`${bannerImgUrl}/desktop/img/event/eurocup/euro-logo-gif.webp`}
 								alt=""
@@ -85,7 +87,8 @@ export default () => {
 				<div className="function">
 					<Link
 						className="appDownload"
-						to={`/${userInfo.langId}/${path.appDownload.root}`}>
+						to={`/${userInfo.langId}/${path.appDownload.root}`}
+					>
 						<i className="icon icon-mobile" />
 						{t("lbl_APPDownload")}
 					</Link>

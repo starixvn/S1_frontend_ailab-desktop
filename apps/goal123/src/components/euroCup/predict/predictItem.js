@@ -13,7 +13,8 @@ const PredictItem = ({
 	return (
 		<div
 			className={classNames("country", { one: rank === 1 })}
-			key={countryId}>
+			key={countryId}
+		>
 			<div>{rank}</div>
 			<div className="country-flag">
 				<div>

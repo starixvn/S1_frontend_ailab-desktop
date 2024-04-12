@@ -11,7 +11,8 @@ const PredictionRecord = ({ usedTickets, isShowMore, onShowMoreToggle }) => {
 			<div
 				className={classNames("record-wrapper", {
 					active: isShowMore
-				})}>
+				})}
+			>
 				<div className="title">
 					{t("lbl_CupEvent_PredictionRecord")}
 				</div>
@@ -59,7 +60,8 @@ const PredictionRecord = ({ usedTickets, isShowMore, onShowMoreToggle }) => {
 				</div>
 				<div
 					className={classNames("more-btn", { active: isShowMore })}
-					onClick={onShowMoreToggle}>
+					onClick={onShowMoreToggle}
+				>
 					{t("lbl_CupEvent_ShowMore")}
 				</div>
 			</div>

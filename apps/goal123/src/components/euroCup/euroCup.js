@@ -23,7 +23,6 @@ import RewardItem from "./reward/RewardItem";
 import { bannerImgUrl, sportsImgUrl } from "../../config";
 import defPopBoxType from "../common/defPopBoxType";
 import { numFormatToDigits } from "../common/common";
-import RewardItemWinner from "./reward/RewardItemWinner";
 import { eventPeriods } from "../../datas/eventDef";
 
 const EuroCup = () => {
@@ -232,7 +231,8 @@ const EuroCup = () => {
 
 						<div
 							className="close-btn"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							<img
 								src={`${bannerImgUrl}/desktop/img/event/eurocup/close-circle.png`}
 								alt="close-circle"
@@ -255,7 +255,8 @@ const EuroCup = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -295,7 +296,8 @@ const EuroCup = () => {
 											isOpen: true,
 											popBoxType: defPopBoxType.Login
 									  });
-							}}>
+							}}
+						>
 							<span>{t("lbl_DepositNow")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/event/eurocup/arrow-right.png`}

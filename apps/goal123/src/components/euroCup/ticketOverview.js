@@ -46,7 +46,8 @@ const TicketOverview = ({ tickets, onOpen }) => {
 									isOpen: true,
 									popBoxType: defPopBoxType.Login
 							  });
-					}}>
+					}}
+				>
 					{t("lbl_DepositNow")}
 				</a>
 			</div>
