@@ -172,6 +172,9 @@ export default {
 	dragonEgg: {
 		root: "dragonEgg"
 	},
+	euroCup: {
+		root: "euro-cup"
+	},
 	ambassador: {
 		root: "ambassador"
 	}

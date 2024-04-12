@@ -4,6 +4,7 @@
    License: none (public domain)
 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Oswald:wght@600;700&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap");
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
@@ -176,6 +177,12 @@ html.Newtheme header .logo {
 html.Newtheme header .logo img:nth-child(1) {
   max-width: 175px;
   height: auto;
+}
+html.Newtheme header .logo.eurocup-logo > div:last-child {
+  margin: 5px 0 0 6px;
+}
+html.Newtheme header .logo.eurocup-logo > div:last-child img {
+  max-width: 120px;
 }
 html.Newtheme header .header {
   display: -webkit-box;
@@ -4533,6 +4540,257 @@ html.Newtheme #popup .livesportspop.vn {
 html.Newtheme #popup .livesportspop.en {
   background: url(https://banner.goal123.org/desktop/img/livesports-bg-en.png) no-repeat center/100% !important;
 }
+html.Newtheme #popup .depositlist {
+  background: white;
+  width: 1300px;
+  position: relative;
+}
+html.Newtheme #popup .depositlist-wrapper {
+  margin: 0 auto;
+}
+html.Newtheme #popup .depositlist-title {
+  font-size: 22px;
+  color: #143CDB;
+  width: 1235px;
+  margin: 30px 0 40px 90px;
+  font-weight: 700;
+}
+html.Newtheme #popup .depositlist-item {
+  max-height: 487px;
+  overflow-y: overlay;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 50px;
+  color: #989898;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  padding: 0 20px;
+}
+html.Newtheme #popup .depositlist-item .first-text {
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #143CDB;
+  background: white;
+  position: fixed;
+  padding-bottom: 10px;
+}
+html.Newtheme #popup .depositlist-item .first-text > div {
+  border-radius: 20px;
+  background: #F9BF4B;
+  margin-left: 13px;
+  padding: 20px 0 20px 30px;
+}
+html.Newtheme #popup .depositlist-item .first-text > div:first-child {
+  width: 345px;
+  margin: 0;
+}
+html.Newtheme #popup .depositlist-item .first-text > div:nth-child(2) {
+  width: 345px;
+}
+html.Newtheme #popup .depositlist-item .first-text > div:last-child {
+  width: 399px;
+}
+html.Newtheme #popup .depositlist-item > div:last-child {
+  padding-top: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html.Newtheme #popup .depositlist-item .date, html.Newtheme #popup .depositlist-item .user, html.Newtheme #popup .depositlist-item .money {
+  font-size: 16px;
+}
+html.Newtheme #popup .depositlist-item .date > div, html.Newtheme #popup .depositlist-item .user > div, html.Newtheme #popup .depositlist-item .money > div {
+  border-radius: 20px;
+  padding: 20px 0 20px 30px;
+  margin-top: 10px;
+}
+html.Newtheme #popup .depositlist-item .date > div:nth-child(n), html.Newtheme #popup .depositlist-item .user > div:nth-child(n), html.Newtheme #popup .depositlist-item .money > div:nth-child(n) {
+  background: #DEDEDE;
+}
+html.Newtheme #popup .depositlist-item .date > div:nth-child(odd), html.Newtheme #popup .depositlist-item .user > div:nth-child(odd), html.Newtheme #popup .depositlist-item .money > div:nth-child(odd) {
+  background: #F2F2F2;
+}
+html.Newtheme #popup .depositlist-item .date {
+  margin: 0;
+}
+html.Newtheme #popup .depositlist-item .date > div {
+  width: 345px;
+}
+html.Newtheme #popup .depositlist-item .user {
+  margin-left: 13px;
+}
+html.Newtheme #popup .depositlist-item .user > div {
+  width: 345px;
+}
+html.Newtheme #popup .depositlist-item .money > div {
+  margin-left: 13px;
+  width: 398px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+html.Newtheme #popup .depositlist-item .money > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  margin-right: 13px;
+}
+html.Newtheme #popup .depositlist-item::-webkit-scrollbar {
+  width: 5px;
+}
+html.Newtheme #popup .depositlist-item::-webkit-scrollbar-button {
+  background: #d3d3d3;
+}
+html.Newtheme #popup .depositlist-item::-webkit-scrollbar-track-piece {
+  background: #ECECEC;
+}
+html.Newtheme #popup .depositlist-item::-webkit-scrollbar-thumb {
+  background: #989898;
+  height: 10px;
+}
+html.Newtheme #popup .depositlist .close-btn {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  right: -300px;
+}
+html.Newtheme #popup .depositlist .close-btn img {
+  width: 40px;
+}
+html.Newtheme #popup .submitpop {
+  background: #F2F3F4;
+  padding: 0;
+}
+html.Newtheme #popup .submitpop-wrapper {
+  font-family: "Montserrat", sans-serif;
+}
+html.Newtheme #popup .submitpop-wrapper > div:first-child {
+  background: white;
+  border-radius: 0 0 20px 20px;
+  padding: 30px 25px 20px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item {
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/ticket-item.png) no-repeat center/100%;
+  width: 530px;
+  height: 163px;
+  margin-right: 20px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 530px;
+  height: 163px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box .euro-logo {
+  width: 80px;
+  margin-left: 29px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div {
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team {
+  border-right: 1px solid white;
+  width: 185px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team .team-title {
+  color: #F9BF4B;
+  font-size: 14px;
+  font-weight: 600;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team > div img {
+  width: 40px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-team > div span {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 25px;
+  width: 125px;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-number span:first-child {
+  color: #F9BF4B;
+  font-size: 14px;
+  font-weight: 600;
+}
+html.Newtheme #popup .submitpop-wrapper .record-item .record-item-box > div .record-item-number span:last-child {
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 18px;
+}
+html.Newtheme #popup .submitpop-tip {
+  color: #143CDB;
+  font-weight: 700;
+  font-size: 20px;
+  background: #F2F3F4;
+  padding: 20px 50px;
+  margin-top: 10px;
+}
+html.Newtheme #popup .submitpop-btn button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 10px 0;
+  width: 180px;
+  border-radius: 50px;
+  margin: 10px 0 45px;
+}
+html.Newtheme #popup .submitpop-btn button:first-child {
+  border: 2px solid #143CDB;
+  color: #143CDB;
+  margin-right: 10px;
+}
+html.Newtheme #popup .submitpop-btn button:first-child:hover {
+  border: 2px solid #4268ff;
+  color: #4268ff;
+}
+html.Newtheme #popup .submitpop-btn button:last-child {
+  border: 2px solid #989898;
+  color: #989898;
+}
+html.Newtheme #popup .submitpop-btn button:last-child:hover {
+  border: 2px solid #6e6e6e;
+  color: #6e6e6e;
+}
 html.Newtheme .Submit.active,
 html.Newtheme .Cancel.active,
 html.Newtheme .uploadSuccess.active,
@@ -8213,18 +8471,18 @@ html.Newtheme .eventLink--top:hover {
   transition: 0.5s;
 }
 html.Newtheme .eventLink .icon-close {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   color: #fbd68d;
   position: absolute;
   left: 10px;
-  top: -20px;
-  font-size: 14px;
+  top: -15px;
+  font-size: 13px;
   font-weight: bold;
   z-index: 4;
   background: rgba(144, 0, 0, 0.8);
   border-radius: 100%;
-  line-height: 32px;
+  line-height: 27px;
 }
 html.Newtheme .eventLink img {
   width: 190px;
@@ -8235,13 +8493,13 @@ html.Newtheme .eventLink.active {
   display: none;
 }
 html.Newtheme .eventLink.wheel {
-  bottom: 190px;
+  bottom: 165px;
 }
 html.Newtheme .eventLink.wheel a img {
-  width: 170px;
+  width: 150px;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 10px;
 }
 html.Newtheme .eventLink.wheel a img.spin {
   z-index: 2;
@@ -8509,14 +8767,14 @@ html.Newtheme .eventLink.vgaming .vgimg {
 }
 html.Newtheme .eventLink.livesports {
   position: fixed;
-  bottom: 190px;
+  bottom: 345px;
   z-index: 1;
 }
 html.Newtheme .eventLink.livesports img {
   -webkit-animation: livesports 4s ease-in-out infinite;
           animation: livesports 4s ease-in-out infinite;
   z-index: 2;
-  width: 200px;
+  width: 180px;
 }
 html.Newtheme .eventLink.livesports .icon-close {
   top: 10px;
@@ -8558,6 +8816,20 @@ html.Newtheme .eventLink.livesports .icon-close {
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
   }
+}
+html.Newtheme .eventLink.eurocup {
+  bottom: 180px;
+  z-index: 1;
+}
+html.Newtheme .eventLink.eurocup img {
+  -webkit-animation: livesports 3s ease-in-out infinite;
+          animation: livesports 3s ease-in-out infinite;
+  width: 180px;
+}
+html.Newtheme .eventLink.eurocup .icon-close {
+  top: -15px;
+  background: #cecece;
+  color: rgb(92, 92, 92);
 }
 html.Newtheme .time {
   position: absolute;
@@ -15746,31 +16018,129 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
             transform: scale(1);
   }
 }
-.ambassador .banner img {
-  display: block;
+.euro {
+  background: #143CDB !important;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  min-width: 1920px !important;
 }
-.ambassador .title {
-  background: url(https://banner.goal123.org/desktop/img/ambassador/title-bg.svg) no-repeat center/cover;
-  width: 500px;
-  height: 55px;
-  margin-bottom: 20px;
-  color: #fff;
+.euro a, .euro button {
+  font-family: "Montserrat", sans-serif;
+}
+.euro .prediction-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-bottom: 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  margin: 100px auto 0;
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/top-bg.jpg) no-repeat center/cover;
+  padding-bottom: 1000px;
+  position: relative;
+  z-index: 1;
+}
+.euro .prediction-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro .prediction-left {
+  margin-right: 100px;
+}
+.euro .prediction-left > div:first-child {
+  font-weight: 700;
+  color: #D6D6D6;
   font-size: 22px;
-  font-weight: 800 !important;
 }
-.ambassador-intro {
+.euro .prediction-left > div:nth-child(2) {
+  width: 500px;
+  color: white;
+  font-weight: 800;
+  font-size: 50px;
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+.euro .prediction-left .deposit-btn-a {
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/deposit-btn-bg.jpg) no-repeat center/cover;
+  width: 300px;
+  height: 75px;
+  border-radius: 50px;
+  position: relative;
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.euro .prediction-left .deposit-btn-a span {
+  position: absolute;
+  z-index: 2;
+  font-size: 22px;
+  font-weight: 700;
+  left: calc(50% - 105px);
+  top: calc(50% - 15px);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.3607843137);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro .prediction-left .deposit-btn-a::after {
+  display: block;
+  content: "";
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(rgb(5, 143, 74)));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb(5, 143, 74) 100%);
+  width: 300px;
+  height: 75px;
+  z-index: 1;
+  border-radius: 50px;
+  border: 2px solid white;
+}
+.euro .prediction-left .deposit-btn-a img {
+  width: 50px;
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  bottom: 13px;
+}
+.euro .prediction-left .deposit-btn-a:hover::after {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(rgb(14, 201, 108)));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb(14, 201, 108) 100%);
+}
+.euro .prediction-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro .prediction-right-item {
+  color: #143CDB;
+  width: 580px;
+}
+.euro .prediction-right-item .country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 27px;
+  font-weight: 700;
+  border-radius: 22px;
+  background: #F2F3F4;
+  height: 100px;
+  margin-bottom: 15px;
+}
+.euro .prediction-right-item .country > div:first-child {
+  background: #D9D9D9;
+  width: 80px;
+  height: 100px;
+  border-radius: 22px 0 0 22px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15780,10 +16150,83 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: url(https://banner.goal123.org/desktop/img/ambassador/bg.jpg) no-repeat top/cover;
-  padding: 80px calc((100% - 1400px) / 2);
+  font-size: 35px;
 }
-.ambassador-intro-item {
+.euro .prediction-right-item .country-flag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+.euro .prediction-right-item .country-flag > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.euro .prediction-right-item .country-flag > div:first-child {
+  margin-left: 10px;
+}
+.euro .prediction-right-item .country-flag > div:first-child img {
+  width: 78px;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3411764706);
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.3411764706);
+  border-radius: 100px;
+}
+.euro .prediction-right-item .country-flag > div:first-child div {
+  margin-left: 15px;
+}
+.euro .prediction-right-item .country-flag > div:last-child {
+  margin-right: 35px;
+}
+.euro .prediction-right-item .country.one {
+  background: #F9BF4B;
+}
+.euro .prediction-right-item .country.one > div:first-child {
+  background: #EF9F00;
+}
+.euro .prediction-right-item:last-child {
+  margin-left: 20px;
+}
+.euro .ticket-wrapper {
+  position: relative;
+  z-index: 3;
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/center-bg.png) no-repeat center/cover;
+}
+.euro .ticket-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: -180px;
+  padding-top: 90px;
+}
+.euro .ticket-img {
+  width: 400px;
+  margin-right: 30px;
+}
+.euro .ticket-number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro .ticket-number > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15791,304 +16234,414 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  text-align: center;
+  border-right: 2px solid #143CDB;
+  padding: 0 45px;
 }
-.ambassador-intro .content {
-  width: 400px;
-  padding-left: 10px;
+.euro .ticket-number > div > span {
+  font-weight: 800;
+  color: #143CDB;
 }
-.ambassador-intro .content p {
-  font-size: 14px;
-  line-height: 1.4;
+.euro .ticket-number > div > span:first-child {
+  font-size: 30px;
+}
+.euro .ticket-number > div > span:last-child {
+  font-size: 109px;
+}
+.euro .ticket-number > div:first-child {
+  padding-left: 0;
+}
+.euro .ticket-number > div:last-child {
+  border: none;
+  padding-right: 0;
+}
+.euro .ticket-btn {
+  font-size: 25px;
+  font-weight: 700;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 45px;
+}
+.euro .ticket-btn button {
+  border: 2px solid #143CDB;
+  padding: 0 30px;
+  border-radius: 50px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #143CDB;
   margin-bottom: 15px;
-  font-weight: 500;
-  color: #141F33;
+  height: 80px;
 }
-.ambassador-intro .title {
-  background: url(https://banner.goal123.org/desktop/img/ambassador/title-bg-2.svg) no-repeat center/cover;
-  width: 400px;
-  height: 55px;
-  color: #fff;
+.euro .ticket-btn button:hover {
+  border: 2px solid #3259F3;
+  color: #3259F3;
+}
+.euro .ticket-btn a {
+  height: 80px;
+  padding: 0 30px;
+  background: #143CDB;
+  border-radius: 50px;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.euro .ticket-btn a:hover {
+  background: #3259F3;
+}
+.euro .ticket-filter {
+  background: #F9BF4B;
+  padding-bottom: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro .ticket-filter > div {
+  background: #FAFAFA;
+  margin: 0 auto;
+  border-radius: 55px;
+  padding: 50px 40px;
+  margin: 0 70px;
+}
+.euro .ticket-filter .title {
+  color: #989898;
+  font-size: 25px;
+  margin: 0 0 20px 20px;
+}
+.euro .ticket-filter .filter-country {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 0 30px;
+}
+.euro .ticket-filter .filter-country button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-bottom: 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  background: #E5E5E5;
+  border-radius: 50px;
+  width: 222px;
+  padding: 5px;
+  margin: 0 9px 20px;
+}
+.euro .ticket-filter .filter-country button img {
+  width: 45px;
+  margin-left: 3px;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3411764706);
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.3411764706);
+  border-radius: 100px;
+}
+.euro .ticket-filter .filter-country button span {
+  font-size: 16px;
+  color: #989898;
+  font-weight: 700;
+  margin-left: 10px;
+}
+.euro .ticket-filter .filter-country button.active {
+  background: #143CDB;
+}
+.euro .ticket-filter .filter-country button.active span {
+  color: white;
+}
+.euro .ticket-filter .filter-country button:hover {
+  background: #143CDB;
+}
+.euro .ticket-filter .filter-country button:hover span {
+  color: white;
+}
+.euro .ticket-filter .filter-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.euro .ticket-filter .filter-bottom .number-bar {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #E5E5E5;
+  border-radius: 50px;
+  margin-left: 12px;
+  width: 930px;
+}
+.euro .ticket-filter .filter-bottom .number-bar .input-number {
+  border: none;
+  background: #E5E5E5;
+  height: 60px;
+  border-radius: 50px;
+  padding: 0 0 0 30px;
+  outline: none;
+  caret-color: #B5B5B5;
   font-size: 22px;
-  font-weight: 800 !important;
+  color: #143CDB;
 }
-.ambassador-gallery {
-  width: 660px;
-  height: 450px;
-  margin-right: 50px;
-  padding: 15px;
-  background: #fff;
-  border-radius: 10px;
+.euro .ticket-filter .filter-bottom .number-bar ::-webkit-input-placeholder {
+  border: none;
+  color: #B5B5B5;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
-.ambassador-gallery .swiper {
-  width: 100%;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
+.euro .ticket-filter .filter-bottom .number-bar ::-moz-placeholder {
+  border: none;
+  color: #B5B5B5;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
-.ambassador-gallery .swiper-slide {
-  background-size: cover;
-  background-position: center;
+.euro .ticket-filter .filter-bottom .number-bar :-ms-input-placeholder {
+  border: none;
+  color: #B5B5B5;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
-.ambassador-gallery .swiper-slide iframe {
-  min-height: unset;
-  border-radius: 10px;
+.euro .ticket-filter .filter-bottom .number-bar ::-ms-input-placeholder {
+  border: none;
+  color: #B5B5B5;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
-.ambassador-gallery .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 10px;
+.euro .ticket-filter .filter-bottom .number-bar ::placeholder {
+  border: none;
+  color: #B5B5B5;
+  font-size: 22px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
-.ambassador-gallery .gallery2 {
-  height: 80%;
-  width: 100%;
+.euro .ticket-filter .filter-bottom .number-bar ::-webkit-outer-spin-button,
+.euro .ticket-filter .filter-bottom .number-bar ::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
-.ambassador-gallery .gallery2 .swiper-button-next {
-  background: url(https://banner.goal123.org/desktop/img/home-page/icon/swiper-next-prev.svg) no-repeat center/cover;
-  width: 30px;
-  height: 30px !important;
-  right: 4px;
-  -webkit-box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.25);
+.euro .ticket-filter .filter-bottom .number-bar .close-btn {
+  position: absolute;
+  right: 25px;
 }
-.ambassador-gallery .gallery2 .swiper-button-next::after {
-  font-family: unset;
-  content: "" !important;
+.euro .ticket-filter .filter-bottom .number-bar .close-btn img {
+  width: 18px;
 }
-.ambassador-gallery .gallery2 .swiper-button-prev {
-  background: url(https://banner.goal123.org/desktop/img/home-page/icon/swiper-next-prev.svg) no-repeat center/cover;
-  width: 30px;
-  height: 30px !important;
-  right: 4px;
-  -webkit-transform: scale(-1);
-          transform: scale(-1);
-  -webkit-box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.25);
+.euro .ticket-filter .filter-bottom .submit-btn {
+  background: #143CDB;
+  width: 350px;
+  height: 60px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 20px;
 }
-.ambassador-gallery .gallery2 .swiper-button-prev::after {
-  font-family: unset;
-  content: "" !important;
+.euro .ticket-filter .filter-bottom .submit-btn:hover {
+  background: #3259F3;
 }
-.ambassador-gallery .gallery {
-  height: 20%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px 0 0;
-}
-.ambassador-gallery .gallery .swiper-slide {
-  cursor: pointer;
+.euro .ticket-filter.close > div {
   position: relative;
 }
-.ambassador-gallery .gallery .swiper-slide::after {
+.euro .ticket-filter.close > div .close-text {
+  background: rgba(0, 0, 0, 0.8196078431);
+  width: 1773px;
+  height: 516px;
   position: absolute;
+  z-index: 3;
+  color: white;
+  font-weight: 700;
+  font-size: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   top: 0;
   left: 0;
+  border-radius: 55px;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro .ticket-filter .close-text {
+  display: none;
+}
+.euro .record {
+  background: #F9BF4B;
+  padding: 0 0 500px;
+  display: none;
+  height: auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro .record-wrapper {
+  background: #FAFAFA;
+  border-radius: 55px;
+  margin: 50px 60px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 50px 70px 0;
+}
+.euro .record-wrapper .title {
+  background: #ECECEC;
+  width: 500px;
+  height: 74px;
+  font-size: 25px;
+  border-radius: 0 0 48px 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #143CDB;
+  margin: 0 auto 25px;
+}
+.euro .record-wrapper .more-btn {
+  background: #ECECEC;
+  padding: 20px 0;
+  border-radius: 0 0 55px 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 25px;
+  font-weight: 700;
+  color: #C2C2C2;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 15px;
+}
+.euro .record-wrapper .more-btn::after {
+  display: block;
   content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  opacity: 1;
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/arrow-down.png) no-repeat center/cover;
+  width: 25px;
+  height: 25px;
+  margin: 5px 0 0 10px;
 }
-.ambassador-gallery .gallery .swiper-slide:hover::after {
-  opacity: 0;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+.euro .record-wrapper .more-btn.active::after {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
 }
-.ambassador-gallery .gallery .swiper-slide-thumb-active::after {
-  opacity: 0;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+.euro .record-wrapper .more-btn:hover {
+  color: #989898;
 }
-.ambassador-career {
-  background: #284985;
-  padding: 80px calc((100% - 1400px) / 2) 30px;
-  position: relative;
+.euro .record-wrapper .more-btn:hover::after {
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/arrow-down-dark.png) no-repeat center/cover;
 }
-.ambassador-career .title {
-  position: absolute;
-  top: -19px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+.euro .record-wrapper.active .record-content {
+  height: auto;
+  overflow: visible;
 }
-.ambassador-career-block {
+.euro .record-content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 15px 20px;
-  border-bottom: 1px solid #fab617;
-}
-.ambassador-career-block.bottom {
-  padding-top: 50px;
-  border: 0;
-}
-.ambassador-career-block.bottom .ambassador-career-item {
-  text-align: center;
-}
-.ambassador-career-block.bottom .ambassador-career-item div {
-  font-weight: 700;
-  color: #fab617;
-  font-size: 16px;
-  margin-left: 10px;
-}
-.ambassador-career-block.bottom .ambassador-career-item div span {
-  display: block;
-  font-size: 40px;
-  font-weight: 800;
-  margin-top: 5px;
-}
-.ambassador-career-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 25%;
-          flex: 0 0 25%;
-  margin-bottom: 50px;
-}
-.ambassador-career-item img {
-  width: 70px;
-}
-.ambassador-career-item div {
-  font-weight: 600;
-  color: #fff;
-  font-size: 20px;
-  margin-left: 10px;
-}
-.ambassador-career-item div span {
-  display: block;
-  font-size: 14px;
-}
-.ambassador-reward {
-  padding: 80px calc((100% - 1400px) / 2) 30px;
+  padding-left: 80px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   position: relative;
-  background: url(https://banner.goal123.org/desktop/img/ambassador/bg.jpg) no-repeat bottom/cover;
+  padding-bottom: 40px;
+  height: 300px;
+  overflow: hidden;
 }
-.ambassador-reward .title {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+.euro .record-content .record-item {
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/ticket-item.png) no-repeat center/100%;
+  width: 530px;
+  height: 163px;
+  margin-right: 20px;
 }
-.ambassador-reward-block {
+.euro .record-content .record-item .record-item-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding: 15px 20px;
-  border-bottom: 1px solid #878686;
+  width: 530px;
+  height: 163px;
 }
-.ambassador-reward-block.bottom {
-  padding-top: 50px;
-  border: 0;
+.euro .record-content .record-item .record-item-box .euro-logo {
+  width: 80px;
+  margin-left: 29px;
 }
-.ambassador-reward-block.bottom .ambassador-reward-item {
-  text-align: center;
+.euro .record-content .record-item .record-item-box > div {
+  margin-left: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
-.ambassador-reward-block.bottom .ambassador-reward-item div {
-  font-weight: 700;
-  color: #fab617;
+.euro .record-content .record-item .record-item-box > div .record-item-team {
+  border-right: 1px solid white;
+  width: 185px;
+}
+.euro .record-content .record-item .record-item-box > div .record-item-team .team-title {
+  color: #F9BF4B;
+  font-size: 14px;
+  font-weight: 600;
+}
+.euro .record-content .record-item .record-item-box > div .record-item-team > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+.euro .record-content .record-item .record-item-box > div .record-item-team > div img {
+  width: 40px;
+}
+.euro .record-content .record-item .record-item-box > div .record-item-team > div span {
+  color: white;
   font-size: 16px;
+  font-weight: 700;
   margin-left: 10px;
 }
-.ambassador-reward-block.bottom .ambassador-reward-item div span {
-  display: block;
-  font-size: 40px;
-  font-weight: 800;
-  margin-top: 5px;
-}
-.ambassador-reward-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 25%;
-          flex: 0 0 25%;
-  margin-bottom: 50px;
-}
-.ambassador-reward-item img {
-  width: 70px;
-  margin-bottom: 10px;
-}
-.ambassador-reward-item div {
-  font-weight: 600;
-  color: #141F33;
-  font-size: 20px;
-  margin: 0 0 10px 10px;
-  text-align: center;
-}
-.ambassador-reward-item div span {
-  display: block;
-  font-size: 14px;
-}
-.ambassador-reward-item div + img {
-  width: 50px;
-  margin-bottom: 0;
-}
-.ambassador-app {
-  background: #fab617;
-  padding: 80px calc((100% - 1400px) / 2) 30px;
-  position: relative;
-  border-radius: 80px 80px 0 0;
-  margin-top: -70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.ambassador-app-cover {
+.euro .record-content .record-item .record-item-box > div .record-item-number {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -16096,88 +16649,110 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-right: 10px;
+  margin-left: 25px;
+  width: 125px;
 }
-.ambassador-app-cover img {
-  width: 380px;
+.euro .record-content .record-item .record-item-box > div .record-item-number span:first-child {
+  color: #F9BF4B;
+  font-size: 14px;
+  font-weight: 600;
 }
-.ambassador-app-cover .subtitle {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.ambassador-app-cover .subtitle img {
-  width: 52px;
-  height: 52px;
-  margin-right: 10px;
-}
-.ambassador-app-cover .subtitle div {
-  color: #141F33;
-  font-weight: 800;
-  font-size: 30px;
-  text-transform: uppercase;
-}
-.ambassador-app-cover .subtitle div > div {
-  text-transform: capitalize;
+.euro .record-content .record-item .record-item-box > div .record-item-number span:last-child {
+  color: white;
   font-weight: 700;
   font-size: 18px;
+  margin-top: 18px;
 }
-.ambassador-app-cover .subtitle div > div span {
-  color: #D83B35;
-}
-.ambassador-app-info {
+.euro .record.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-right: 10px;
-  width: 800px;
+  margin-top: -500px;
 }
-.ambassador-app-info-item {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(50% - 15px);
-          flex: 0 0 calc(50% - 15px);
-  margin: 0 15px 15px 0;
-  background: #fff;
-  border-radius: 20px;
+.euro .bottom-wrapper {
+  background: url(https://banner.goal123.org/desktop/img/event/eurocup/bottom-bg.png) no-repeat center/cover;
+  position: relative;
+  z-index: 3;
+  margin-top: -300px;
+}
+.euro .bottom-wrapper .reward {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.euro .bottom-wrapper .reward-item {
+  background: white;
+  width: 470px;
+  border-radius: 40px 40px 20px 20px;
+  margin-right: 50px;
+}
+.euro .bottom-wrapper .reward-item:first-child .title {
+  position: relative;
+}
+.euro .bottom-wrapper .reward-item:first-child .title img {
+  position: absolute;
+  width: 167px;
+  height: 167px;
+  top: -70px;
+  right: -12px;
+}
+.euro .bottom-wrapper .reward-item:nth-child(2) .title {
+  background: #00BA5D;
+}
+.euro .bottom-wrapper .reward-item:last-child {
+  margin: 0;
+}
+.euro .bottom-wrapper .reward-item:last-child .title {
+  background: #5375FF;
+}
+.euro .bottom-wrapper .reward-item .title {
+  background: red;
+  padding: 20px 0 20px 40px;
+  font-size: 35px;
+  color: white;
+  font-weight: 700;
+  border-radius: 40px 40px 0 0;
+}
+.euro .bottom-wrapper .reward-item > div {
+  padding: 20px 40px 20px;
+}
+.euro .bottom-wrapper .reward-item > div:last-child {
+  background: #C2C2C2;
+  border-radius: 40px 40px 18px 18px;
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
 }
-.ambassador-app-info-item img {
-  width: 80px;
+.euro .bottom-wrapper .reward-item-text:first-child {
+  margin-bottom: 20px;
 }
-.ambassador-app-info-item div {
-  width: 300px;
+.euro .bottom-wrapper .reward-item-text span {
   font-size: 20px;
+  font-weight: 600;
+  color: #C2C2C2;
+}
+.euro .bottom-wrapper .reward-item-text div {
+  font-size: 30px;
+  color: #143CDB;
   font-weight: 700;
-  text-transform: uppercase;
 }
-.ambassador-app-info-item div span {
-  text-transform: capitalize;
-  font-size: 12px;
-  font-weight: 500;
-  display: block;
-}
-.ambassador-app-qrcode {
+.euro .bottom-wrapper .reward-winner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -16188,11 +16763,20 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
-.ambassador-app-qrcode-item {
+.euro .bottom-wrapper .reward-winner > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.euro .bottom-wrapper .reward-winner > div .reward-item {
+  width: 730px;
+}
+.euro .bottom-wrapper .reward-winner > div .reward-item > div:last-child {
+  background: #F9BF4B;
+  color: #143CDB;
+}
+.euro .bottom-wrapper .reward-winner .semi {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -16200,60 +16784,139 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 10px;
+  width: 1520px;
+  margin-top: 50px;
 }
-.ambassador-app-qrcode-item .qr {
-  background: #fff;
+.euro .bottom-wrapper .reward-winner .semi > div:last-child {
+  background: #F9BF4B;
+  color: #143CDB;
+}
+.euro .bottom-wrapper .reward-winner .semi > div:last-child span:last-child {
+  font-size: 22px;
+  text-align: center;
+  line-height: 30px;
+  margin-top: 10px;
+}
+.euro .bottom-wrapper .terms-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 15px;
-  overflow: hidden;
-  margin-bottom: 10px;
 }
-.ambassador-app-qrcode-item .qr-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: #284985;
-  border-radius: 8px;
-  min-width: 140px;
-  padding: 10px;
-  font-weight: 500;
-  margin-bottom: 5px;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  color: #fff;
-}
-.ambassador-app-qrcode-item .qr-button img {
-  width: 15px;
-  margin-right: 5px;
-}
-.ambassador-app-qrcode-item .qr-button + a {
-  font-weight: 500;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-.ambassador-app-qrcode-item .qr-button + a:hover {
+.euro .bottom-wrapper .terms-btn button {
+  background: #092EC1;
+  color: #1D47EF;
+  width: 300px;
+  padding: 15px;
+  font-size: 30px;
   font-weight: 700;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  border-radius: 50px;
+  margin-right: 20px;
+}
+.euro .bottom-wrapper .terms-btn button.active {
+  background: white;
+  color: #143CDB;
+}
+.euro .bottom-wrapper .terms .bottom-title {
+  margin: 0 180px 20px 85px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.euro .bottom-wrapper .terms .info {
+  color: white;
+  margin: 40px 0 0 190px;
+  font-size: 25px;
+  font-weight: 600;
+}
+.euro .bottom-wrapper .terms .info li {
+  margin-bottom: 30px;
+  width: 1500px;
+  line-height: 35px;
+}
+.euro .bottom-wrapper .matches .bottom-title {
+  margin: 0 180px 20px 85px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.euro .bottom-wrapper .matches-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 50px;
+}
+.euro .bottom-wrapper .matches-item > div {
+  border-left: 2px solid white;
+}
+.euro .bottom-wrapper .matches-item > div > div {
+  color: #143CDB;
+  padding: 15px 0 15px 30px;
+  font-weight: 700;
+  font-size: 30px;
+}
+.euro .bottom-wrapper .matches-item > div > div:nth-child(n) {
+  background: #F9BF4B;
+}
+.euro .bottom-wrapper .matches-item > div > div:nth-child(odd) {
+  background: #F8F8F8;
+}
+.euro .bottom-wrapper .matches-item > div:first-child {
+  border: 0;
+  width: 430px;
+}
+.euro .bottom-wrapper .matches-item > div:first-child > div:first-child {
+  border-radius: 20px 0 0 0;
+}
+.euro .bottom-wrapper .matches-item > div:first-child > div:last-child {
+  border-radius: 0 0 0 20px;
+}
+.euro .bottom-wrapper .matches-item > div:last-child {
+  width: 1100px;
+}
+.euro .bottom-wrapper .matches-item > div:last-child > div:first-child {
+  border-radius: 0 20px 0 0;
+}
+.euro .bottom-wrapper .matches-item > div:last-child > div:last-child {
+  border-radius: 0 0 20px 0;
+}
+.euro .bottom-wrapper .matches-info {
+  color: white;
+  font-weight: 700;
+  font-size: 30px;
+  margin: 50px 0 0 190px;
+}
+.euro .bottom-wrapper .matches-info > div {
+  margin-bottom: 10px;
+}
+.euro .bottom-wrapper .matches-info .subtitle {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #F9BF4B;
+}
+.euro .bottom-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 700;
+  font-size: 50px;
+  margin: 0 0 70px 85px;
+  padding-top: 180px;
+}
+.euro .bottom-title img {
+  width: 70px;
+  margin-right: 20px;
+}
+.euro .footer-bg {
+  bottom: -6px;
+  position: relative;
+  z-index: 3;
+  margin-top: -180px;
 }/*# sourceMappingURL=style.css.map */
