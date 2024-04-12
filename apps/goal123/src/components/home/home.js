@@ -42,9 +42,10 @@ import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { defMenuLinks } from "../layout/header.menu.def";
 import RecentlyViewedGameList from "./components/recentlyViewedGameList";
 import { defDeviceType } from "../../service/api/base";
-import { eventPerios } from "../../datas/eventDef";
+import { eventPeriods } from "../../datas/eventDef";
 import DragonEgg from "../dragonEgg/homeLink";
 import LiveStreamingLink from "./liveStreaming";
+import CupEventLink from "./cupEventLink";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -396,37 +397,43 @@ const Home = ({ productTpIds }) => {
 				/> */}
 			</section>
 			{/* vgaming Home 點擊入口 */}
-			{displayVgaming && !displayLiveStreaming && !isLoading && (
-				<div className="eventLink vgaming">
-					<button
-						className="icon icon-close"
-						onClick={() => setDisplayVgaming(false)}
-					/>
+			{displayVgaming &&
+				!displayLiveStreaming &&
+				!isLoading &&
+				!isDateRange(eventPeriods.euroCup) && (
+					<div className="eventLink vgaming">
+						<button
+							className="icon icon-close"
+							onClick={() => setDisplayVgaming(false)}
+						/>
 
-					<img
-						onClick={() =>
-							clickItem(
-								// vgaming
-								defMenuLinks(
-									userInfo.langId
-								)?.games?.subMenu.find(
-									game => game.gameId === 171
-								).parameter
-							)
-						}
-						alt="vgaming-link"
-						src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/vgaming.gif`}
-					/>
-				</div>
-			)}
+						<img
+							onClick={() =>
+								clickItem(
+									// vgaming
+									defMenuLinks(
+										userInfo.langId
+									)?.games?.subMenu.find(
+										game => game.gameId === 171
+									).parameter
+								)
+							}
+							alt="vgaming-link"
+							src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/vgaming.gif`}
+						/>
+					</div>
+				)}
 
 			{/* 僅限過年期間不顯示 */}
-			{!isDateRange(eventPerios.dragonEgg) && (
+			{!isDateRange(eventPeriods.dragonEgg) && (
 				<LuckyWheelLink langId={userInfo.langId} />
 			)}
 
 			{/* 僅限過年期間顯示 */}
-			{isDateRange(eventPerios.dragonEgg) && <DragonEgg />}
+			{isDateRange(eventPeriods.dragonEgg) && <DragonEgg />}
+
+			{/* 歐冠杯期間顯示 */}
+			{isDateRange(eventPeriods.euroCup) && <CupEventLink />}
 
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
