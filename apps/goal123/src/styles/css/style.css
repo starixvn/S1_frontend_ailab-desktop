@@ -1535,7 +1535,7 @@ html.Newtheme.index footer .copyright {
 }
 html.Newtheme.index footer {
   width: 100%;
-  min-width: 1920px;
+  min-width: 1400px;
 }
 html.Newtheme.index footer .webmap {
   padding: 0 calc((100% - 1010px) / 2);
@@ -1845,7 +1845,7 @@ html.Newtheme .payment > div img {
 }
 html.Newtheme footer {
   width: 100%;
-  min-width: 1400px;
+  min-width: 1920px;
   background: #141f33;
 }
 html.Newtheme footer.newyear {
@@ -8765,6 +8765,9 @@ html.Newtheme .eventLink.vgaming .vgimg {
   width: 185px;
   height: 185px;
 }
+html.Newtheme .eventLink.vgaming.eurocup {
+  bottom: 180px;
+}
 html.Newtheme .eventLink.livesports {
   position: fixed;
   bottom: 180px;
@@ -8816,6 +8819,9 @@ html.Newtheme .eventLink.livesports .icon-close {
     -webkit-transform: scale(1.1);
             transform: scale(1.1);
   }
+}
+html.Newtheme .eventLink.livesports.eurocup {
+  bottom: 345px;
 }
 html.Newtheme .eventLink.eurocup {
   bottom: 180px;
