@@ -2,12 +2,15 @@ import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { navigate } from "gatsby";
+import { isDateRange } from "@ailab-desktop/common";
 import { bannerImgUrl } from "../../config";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import path from "../../router";
 import { SetPathParameter } from "../common/customSwipper";
+import { eventPeriods } from "../../datas/eventDef";
 
 const LiveStreamingLink = ({
 	liveStreamingList,
@@ -137,7 +140,11 @@ const LiveStreamingLink = ({
 	};
 
 	return displayLiveStreaming ? (
-		<div className="eventLink livesports">
+		<div
+			className={classNames("eventLink livesports", {
+				eurocup: isDateRange(eventPeriods.euroCup)
+			})}
+		>
 			<button
 				className="icon icon-close"
 				onClick={() => setDisplayLiveStreaming(false)}
