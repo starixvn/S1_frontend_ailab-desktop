@@ -51,7 +51,7 @@ const Directions = ({ directionsType, setDirectionsType }) => {
 							setDirectionsType(DIRECTIONS_TYPE.MATCHES)
 						}
 					>
-						{t("lbl_CupEvent_Matches")}
+						{t("lbl_CupEvent_ExtraWin")}
 					</button>
 				</div>
 			</div>
