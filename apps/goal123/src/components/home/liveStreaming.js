@@ -144,6 +144,7 @@ const LiveStreamingLink = ({
 			className={classNames("eventLink livesports", {
 				eurocup: isDateRange(eventPeriods.euroCup)
 			})}
+			style={{ zIndex: 10 }}
 		>
 			<button
 				className="icon icon-close"
