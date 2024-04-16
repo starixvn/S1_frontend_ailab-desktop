@@ -23,12 +23,15 @@ const QuickdownloadLink = () => {
 
 	return (
 		<div
-			onFocus={() => 0}
-			onMouseOver={() => setActive(true)}
-			onMouseLeave={() => setActive(false)}
 			className={`quickdownload${active ? " active" : ""}`}
-			style={{ zIndex: active ? higherToTheAngpowZIndex : orignZIndex }}>
-			<div onClick={async () => setActive(false)}>
+			style={{ zIndex: active ? higherToTheAngpowZIndex : orignZIndex }}
+		>
+			<div
+				onFocus={() => 0}
+				onMouseOver={() => setActive(true)}
+				onMouseLeave={() => setActive(false)}
+				onClick={async () => setActive(false)}
+			>
 				<button
 					className="icon icon-mobile"
 					onClick={() =>
@@ -41,7 +44,8 @@ const QuickdownloadLink = () => {
 						active
 							? "icon icon-cancel-circle"
 							: "icon icon-circle-right"
-					}>
+					}
+				>
 					{t("lbl_Download").toUpperCase()}
 				</i>
 			</div>
@@ -49,14 +53,16 @@ const QuickdownloadLink = () => {
 			<div
 				onFocus={() => 0}
 				onMouseOver={() => setActive(true)}
-				onMouseLeave={() => setActive(false)}>
+				onMouseLeave={() => setActive(false)}
+			>
 				<ul>
 					{andriodDownLoadUrl && (
 						<li>
 							<a
 								href={andriodDownLoadUrl}
 								target="_blank"
-								rel="noreferrer">
+								rel="noreferrer"
+							>
 								<img
 									src={`${bannerImgUrl}/desktop/img/android.svg`}
 									alt=""
@@ -76,7 +82,8 @@ const QuickdownloadLink = () => {
 							<a
 								href={IOSDownloadUrl}
 								target="_blank"
-								rel="noreferrer">
+								rel="noreferrer"
+							>
 								<img
 									src={`${bannerImgUrl}/desktop/img/ios.svg`}
 									alt="iosIcon"
