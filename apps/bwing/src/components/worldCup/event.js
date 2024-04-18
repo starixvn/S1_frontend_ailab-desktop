@@ -51,7 +51,7 @@ const Event = () => {
 		<>
 			{userInfo.isLogin && (
 				<>
-					<div className="title">{t("worldCup.prediction")}</div>
+					<div className="title">{t("worldCup.predict")}</div>
 					<div className="predict">
 						<Info
 							depositAmount={info?.DepositAmount}

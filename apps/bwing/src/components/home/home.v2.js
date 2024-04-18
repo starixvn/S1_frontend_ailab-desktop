@@ -44,6 +44,7 @@ import News from "./news";
 import { api_news_GetNews } from "../../service/api/news";
 import { eventPerios } from "../../datas/eventDef";
 import DragonEgg from "../dragonEgg/homeLink";
+import CupEventLink from "../cupEventLink/cupEventLink";
 
 const Home = () => {
 	const { t } = useTranslation();
@@ -514,7 +515,7 @@ const Home = () => {
 				</div>
 			</main>
 			{/* vgaming Home 點擊入口 */}
-			{displayVgaming && (
+			{displayVgaming && !isDateRange(eventPerios.euroCup) && (
 				<div className="eventLink vgaming">
 					<button
 						style={{ zIndex: 50 }}
@@ -543,6 +544,9 @@ const Home = () => {
 
 			{/* 僅限過年期間顯示 */}
 			{isDateRange(eventPerios.dragonEgg) && <DragonEgg />}
+
+			{/* 歐冠杯期間顯示 */}
+			{isDateRange(eventPerios.euroCup) && <CupEventLink />}
 
 			<SideBarContactUs />
 

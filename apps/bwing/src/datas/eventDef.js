@@ -11,5 +11,17 @@ export const eventPerios = {
 	dragonEgg: {
 		startDate: "2024/02/01 00:00:00",
 		endDate: "2024/02/29 23:59:59"
+	},
+	euroCup: {
+		// startDate: "2024/05/15 00:00:00",
+		startDate: "2024/04/15 00:00:00",
+		endDate: "2024/07/20 23:59:59"
+	},
+	prediction: {
+		endDate: "2024/07/05 23:59:59"
+	},
+	predictScore: {
+		startDate: "2024/07/11 00:00:00",
+		endDate: "2024/07/14 23:59:59"
 	}
 };
