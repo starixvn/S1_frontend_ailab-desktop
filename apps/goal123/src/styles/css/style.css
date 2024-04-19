@@ -8826,8 +8826,11 @@ html.Newtheme .eventLink.livesports .icon-close {
 html.Newtheme .eventLink.livesports.eurocup {
   bottom: 475px;
 }
+html.Newtheme .eventLink.livesports.eurocup button:last-child img {
+  width: 170px;
+}
 html.Newtheme .eventLink.livesports.eurocup .icon-close {
-  top: 38px;
+  top: -32px;
 }
 html.Newtheme .eventLink.eurocup {
   bottom: 180px;
@@ -8839,7 +8842,7 @@ html.Newtheme .eventLink.eurocup img {
   width: 180px;
 }
 html.Newtheme .eventLink.eurocup .icon-close {
-  top: -15px;
+  top: -6px;
   background: #cecece;
   color: rgb(92, 92, 92);
 }
@@ -16560,6 +16563,42 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   position: relative;
   z-index: 1;
 }
+.euro .prediction-tap {
+  position: absolute;
+  top: -90px;
+  right: 80px;
+}
+.euro .prediction-tap button {
+  font-size: 23px;
+  font-weight: 700;
+  width: 155px;
+  color: #3D63FB;
+}
+.euro .prediction-tap button::after {
+  display: block;
+  content: "";
+  height: 4px;
+  background: white;
+  border-radius: 10px;
+  position: absolute;
+  width: 155px;
+  display: none;
+  margin-top: 10px;
+}
+.euro .prediction-tap button.active {
+  color: white;
+}
+.euro .prediction-tap button.active::after {
+  display: block;
+}
+.euro .prediction-tap::after {
+  display: block;
+  content: "";
+  height: 4px;
+  background: #3D63FB;
+  border-radius: 10px;
+  margin-top: 10px;
+}
 .euro .prediction-content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -17331,6 +17370,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   font-weight: 700;
   border-radius: 50px;
   margin-right: 20px;
+  text-transform: uppercase;
 }
 .euro .bottom-wrapper .terms-btn button.active {
   background: white;
