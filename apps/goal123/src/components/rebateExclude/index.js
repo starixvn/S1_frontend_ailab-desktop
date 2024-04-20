@@ -81,6 +81,12 @@ const RebateExclude = () => {
 						</div>
 					</div>
 				))}
+				<div className="exclude__table__item">
+					<div>EVO L.Casino</div>
+					<div>
+						<span>Stock Market</span>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
