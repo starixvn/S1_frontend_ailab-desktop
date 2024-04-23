@@ -15,9 +15,23 @@ const Mission = ({ tickets }) => {
 	const [activeTab, setActiveTab] = useState(1);
 	const numbers = Array.from({ length: 5 }, (_, index) => index + 1);
 	const { promotionMission, cupEventPromotionMissionProgress } = tickets;
-	const getProgressWidth = (cur, target) => {
+	const getDepositProgressWidth = (cur, target) => {
+		if (!cur && !target) {
+			return "0%";
+		}
 		const percentage = (cur / target) * 100;
 		return percentage > 100 ? "100%" : `${percentage}%`;
+	};
+
+	const getVerifyProgressWidth = () => {
+		if (promotionMission?.[0]?.isCompleted) {
+			return "100%";
+		}
+		if (userInfo.isLogin) {
+			return "50%";
+		}
+
+		return "0%";
 	};
 
 	return (
@@ -47,34 +61,34 @@ const Mission = ({ tickets }) => {
 						close: activeTab !== 1
 					})}
 				>
-					<div className="ticket-title">Get 1 ticket</div>
+					<div className="ticket-title">
+						{" "}
+						{t("lbl_CupEvent_GetTickets", { count: 1 })}
+					</div>
 					<div className="subtitle">
 						{t("lbl_CupEvent_Mission_Subtitle")}
 					</div>
 					<div className="progress">
-						{promotionMission?.[0]?.isCompleted ? (
-							<img
-								src={`${bannerImgUrl}/desktop/img/event/eurocup/done-yellow.png`}
-								alt="done-yellow"
-							/>
-						) : (
-							<img
-								src={`${bannerImgUrl}/desktop/img/event/eurocup/done-grey.png`}
-								alt="done-grey"
-							/>
-						)}
+						<img
+							src={`${bannerImgUrl}/desktop/img/event/eurocup/${
+								userInfo.isLogin ? "done-yellow" : "done-grey"
+							}.png`}
+							alt={userInfo.isLogin ? "done-yellow" : "done-grey"}
+						/>
 
 						<div className="progress-bar">
 							<div
 								className="item"
 								style={{
-									width: promotionMission?.[0]?.isCompleted
-										? "100%"
-										: "50%"
+									width: getVerifyProgressWidth()
 								}}
 							/>
 							{/* 完成Register達到50% round加上active */}
-							<div className="round active" />
+							<div
+								className={classNames("round", {
+									active: userInfo.isLogin
+								})}
+							/>
 						</div>
 						<img
 							src={`${bannerImgUrl}/desktop/img/event/eurocup/${
@@ -119,7 +133,10 @@ const Mission = ({ tickets }) => {
 						close: activeTab !== 2
 					})}
 				>
-					<div className="ticket-title">Get 1 ticket</div>
+					<div className="ticket-title">
+						{" "}
+						{t("lbl_CupEvent_GetTickets", { count: 1 })}
+					</div>
 					<div className="amount-item">
 						<div className="money">
 							<img
@@ -127,7 +144,7 @@ const Mission = ({ tickets }) => {
 								alt="money-icon"
 							/>
 							<div>
-								<span>Make at least </span>
+								<span>{t("lbl_CupEvent_MakeAtLeast")}</span>
 								<span>
 									{numFormatToDigits(
 										promotionMission?.[1]?.depositAmount,
@@ -135,7 +152,9 @@ const Mission = ({ tickets }) => {
 									)}{" "}
 									VND
 								</span>
-								<span>accumulated deposit</span>
+								<span>
+									{t("lbl_CupEvent_AccumulatedDeposit")}
+								</span>
 							</div>
 							<button
 								onClick={() =>
@@ -151,7 +170,7 @@ const Mission = ({ tickets }) => {
 							<div
 								className="progress-bar"
 								style={{
-									width: getProgressWidth(
+									width: getDepositProgressWidth(
 										cupEventPromotionMissionProgress?.depositAmount,
 										promotionMission?.[1]?.depositAmount
 									)
@@ -159,7 +178,7 @@ const Mission = ({ tickets }) => {
 							/>
 						</div>
 						<div className="number">
-							<div>Currently accumulated</div>
+							<div>{t("lbl_CupEvent_CurrentlyAccumulated")}</div>
 							<div>
 								<span>
 									{numFormatToDigits(
@@ -182,7 +201,10 @@ const Mission = ({ tickets }) => {
 						close: activeTab !== 3
 					})}
 				>
-					<div className="ticket-title">Get 1 ticket</div>
+					<div className="ticket-title">
+						{" "}
+						{t("lbl_CupEvent_GetTickets", { count: 1 })}
+					</div>
 					<div className="amount-item">
 						<div className="money">
 							<img
@@ -190,9 +212,17 @@ const Mission = ({ tickets }) => {
 								alt="money-icon"
 							/>
 							<div>
-								<span>Make at least </span>
-								<span>10,000,000 VND</span>
-								<span>accumulated deposit</span>
+								<span>{t("lbl_CupEvent_MakeAtLeast")} </span>
+								<span>
+									{numFormatToDigits(
+										promotionMission?.[2]?.depositAmount,
+										0
+									)}{" "}
+									VND
+								</span>
+								<span>
+									{t("lbl_CupEvent_AccumulatedDeposit")}
+								</span>
 							</div>
 							<button
 								onClick={() =>
@@ -208,7 +238,7 @@ const Mission = ({ tickets }) => {
 							<div
 								className="progress-bar"
 								style={{
-									width: getProgressWidth(
+									width: getDepositProgressWidth(
 										cupEventPromotionMissionProgress?.depositAmount,
 										promotionMission?.[2]?.depositAmount
 									)
@@ -216,7 +246,7 @@ const Mission = ({ tickets }) => {
 							/>
 						</div>
 						<div className="number">
-							<div>Currently accumulated</div>
+							<div>{t("lbl_CupEvent_CurrentlyAccumulated")}</div>
 							<div>
 								<span>
 									{numFormatToDigits(
@@ -239,58 +269,67 @@ const Mission = ({ tickets }) => {
 						close: activeTab !== 4
 					})}
 				>
-					<div className="ticket-title">Get 2 ticket</div>
+					<div className="ticket-title">
+						{" "}
+						{t("lbl_CupEvent_GetTickets", { count: 2 })}
+					</div>
 					<div className="subtitle">
-						Recommend 3 new friends and at least one of the newly
-						recommended friends must complete Task 1 and Task 2
+						{t("lbl_CupEvent_Mission4_Subtitle")}
 					</div>
-					<div className="sheet">
-						<div className="sheet-title">
-							<div>{t("lbl_ID")}</div>
-							<div>{t("lbl_CupEvent_Mission")} 01</div>
-							<div>{t("lbl_CupEvent_Mission")} 02</div>
-						</div>
-						<div>
-							{cupEventPromotionMissionProgress?.affList?.map(
-								({ accountName, mission1, mission2 }) => (
-									<div className="sheet-item">
-										<div className="user">
-											{accountName}
+					{cupEventPromotionMissionProgress?.affList?.length > 0 && (
+						<div className="sheet">
+							<div className="sheet-title">
+								<div>{t("lbl_ID")}</div>
+								<div>{t("lbl_CupEvent_Mission")} 01</div>
+								<div>{t("lbl_CupEvent_Mission")} 02</div>
+							</div>
+							<div>
+								{cupEventPromotionMissionProgress?.affList?.map(
+									({ accountName, mission1, mission2 }) => (
+										<div className="sheet-item">
+											<div className="user">
+												{accountName}
+											</div>
+											<div
+												className={classNames(
+													"check-box",
+													{
+														yellow: mission1
+													}
+												)}
+											/>
+											<div
+												className={classNames(
+													"check-box",
+													{
+														green: mission2
+													}
+												)}
+											/>
 										</div>
-										<div
-											className={classNames("check-box", {
-												yellow: mission1
-											})}
-										/>
-										<div
-											className={classNames("check-box", {
-												green: mission2
-											})}
-										/>
-									</div>
-								)
-							)}
+									)
+								)}
+							</div>
 						</div>
-					</div>
+					)}
 				</div>
 				<div
 					className={classNames("mission-five", {
 						close: activeTab !== 5
 					})}
 				>
-					<div className="ticket-title">Get 5 ticket</div>
+					<div className="ticket-title">
+						{t("lbl_CupEvent_GetTickets", { count: 5 })}
+					</div>
 					<div>
 						<div className="subtitle">
-							Complete 20 Euro 2024 bets settled at Saba Sport
-							<span>
-								Completed 20 EURO2024 settled bets with minimum
-								1,000,000 VND per bet at Saba Sport before
-								EURO2024 Quarter-finals
-							</span>
+							{t("lbl_CupEvent_Mission5_Subtitle")}
+							<span>{t("lbl_CupEvent_Mission5_Tip")}</span>
 						</div>
 						<ProgressBar
 							cur={
-								cupEventPromotionMissionProgress?.completedBetCount
+								cupEventPromotionMissionProgress?.completedBetCount ??
+								0
 							}
 							target={20}
 						/>
