@@ -2,12 +2,14 @@ import React from "react";
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 const ProgressBar = ({ cur, target }) => {
+	const { t } = useTranslation();
 	return (
 		<div style={{ width: "360px", height: "360px" }}>
 			<CircularProgressbarWithChildren
-				value={(2 / target) * 100}
+				value={(cur / target) * 100}
 				counterClockwise
 				strokeWidth={5}
 				styles={{
@@ -34,7 +36,7 @@ const ProgressBar = ({ cur, target }) => {
 						color: "#fff"
 					}}
 				>
-					Currently accumulated
+					{t("lbl_CupEvent_CurrentlyAccumulated")}
 				</div>
 				<div
 					style={{

@@ -10,7 +10,7 @@ const TeamSelector = ({
 	options,
 	selectedTeamId,
 	ticketsNumber,
-	tickets,
+	unUsedTickets,
 	setTicketsNumber,
 	onChange,
 	onSubmit
@@ -69,7 +69,7 @@ const TeamSelector = ({
 				</div>
 				<div className="votes">
 					{t("lbl_CupEvent_RemainingVotes")} :{" "}
-					<span>{tickets?.unUsedTickets ?? 0}</span>
+					<span>{unUsedTickets}</span>
 				</div>
 				<button
 					className={classNames("submit-btn", {
@@ -97,7 +97,7 @@ TeamSelector.propTypes = {
 	options: PropTypes.arrayOf(PropTypes.any).isRequired,
 	selectedTeamId: PropTypes.string.isRequired,
 	ticketsNumber: PropTypes.string.isRequired,
-	tickets: PropTypes.objectOf(PropTypes.any).isRequired,
+	unUsedTickets: PropTypes.number.isRequired,
 	setTicketsNumber: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired

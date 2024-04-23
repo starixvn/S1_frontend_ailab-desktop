@@ -1,21 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import PropTypes from "prop-types";
 import { isDateRange } from "@ailab-desktop/common";
 import { bannerImgUrl, sportsImgUrl } from "../../../config";
 import { eventPerios } from "../../../datas/eventDef";
+import { predictTabs } from "../def";
+import Schedule from "../schedule/schedule";
 
 const TopTwoPredictions = ({
 	predictScoreList,
 	isPredict,
-	homeTeamScore,
-	awayTeamScore,
-	setHomeTeamScore,
-	setAwayTeamScore,
+	teamScore,
+	top24Team,
+	roundOf16,
+	quarterFinals,
+	semiFinals,
+	final,
+	setTeamScore,
 	onSubmit
 }) => {
 	const { t } = useTranslation();
+	const [activeTab, setActiveTab] = useState(predictTabs.prediction);
 
 	let homeTeam;
 	let awayTeam;
@@ -32,13 +38,32 @@ const TopTwoPredictions = ({
 		<div
 			className={classNames("center-wrapper", {
 				submit: isDateRange(eventPerios.predictScore)
-			})}
-		>
-			<div className="center-content">
-				<img
-					src={`${bannerImgUrl}/desktop/img/event/eurocup/cup.png`}
-					alt="cup"
-				/>
+			})}>
+			<div className="center-btn">
+				<button
+					className={classNames({
+						active: activeTab === predictTabs.prediction
+					})}
+					onClick={() => setActiveTab(predictTabs.prediction)}>
+					{t("lbl_CupEvent_Prediction")}
+				</button>
+				<button
+					className={classNames({
+						active: activeTab === predictTabs.schedule
+					})}
+					onClick={() => setActiveTab(predictTabs.schedule)}>
+					{t("lbl_CupEvent_Schedule")}
+				</button>
+			</div>
+			<img
+				className="cup"
+				src={`${bannerImgUrl}/desktop/img/event/eurocup/cup.png`}
+				alt="cup"
+			/>
+			<div
+				className={classNames("center-content", {
+					active: activeTab === predictTabs.prediction
+				})}>
 				<div className="center-text">
 					<span>{t("lbl_CupEvent_Prediction_Banner_Desc1")}</span>
 					<span>{t("lbl_CupEvent_Prediction_Banner_Desc2")}</span>
@@ -54,8 +79,7 @@ const TopTwoPredictions = ({
 									unknown: !isDateRange(
 										eventPerios.predictScore
 									)
-								})}
-							>
+								})}>
 								<img
 									src={`${sportsImgUrl}/Country%20Team/${homeTeam?.teamDetail.imageName}`}
 									alt={homeTeam?.teamDetail.countryName}
@@ -67,17 +91,19 @@ const TopTwoPredictions = ({
 								<div
 									className={classNames("score-input", {
 										check: isPredict
-									})}
-								>
+									})}>
 									<input
 										type="number"
 										name="score"
 										placeholder={t(
 											"lbl_CupEvent_PleaseFillOut"
 										)}
-										value={homeTeamScore}
+										value={teamScore.homeTeamScore}
 										onChange={e =>
-											setHomeTeamScore(e.target.value)
+											setTeamScore(prev => ({
+												...prev,
+												homeTeamScore: e.target.value
+											}))
 										}
 									/>
 								</div>
@@ -100,8 +126,7 @@ const TopTwoPredictions = ({
 									unknown: !isDateRange(
 										eventPerios.predictScore
 									)
-								})}
-							>
+								})}>
 								<img
 									src={`${sportsImgUrl}/Country%20Team/${awayTeam?.teamDetail.imageName}`}
 									alt={awayTeam?.teamDetail.countryName}
@@ -111,17 +136,19 @@ const TopTwoPredictions = ({
 								<div
 									className={classNames("score-input", {
 										check: isPredict
-									})}
-								>
+									})}>
 									<input
 										type="number"
 										name="score"
 										placeholder={t(
 											"lbl_CupEvent_PleaseFillOut"
 										)}
-										value={awayTeamScore}
+										value={teamScore.awayTeamScore}
 										onChange={e =>
-											setAwayTeamScore(e.target.value)
+											setTeamScore(prev => ({
+												...prev,
+												awayTeamScore: e.target.value
+											}))
 										}
 									/>
 								</div>
@@ -138,8 +165,7 @@ const TopTwoPredictions = ({
 						onClick={() => onSubmit()}
 						className={classNames("submit-btn", {
 							check: isPredict
-						})}
-					>
+						})}>
 						{t("lbl_Submit")}
 					</button>
 				)}
@@ -148,6 +174,14 @@ const TopTwoPredictions = ({
 					{t("lbl_CupEvent_Prediction_desc")}
 				</div>
 			</div>
+			<Schedule
+				activeTab={activeTab}
+				top24Team={top24Team}
+				roundOf16={roundOf16}
+				quarterFinals={quarterFinals}
+				semiFinals={semiFinals}
+				final={final}
+			/>
 		</div>
 	);
 };
@@ -155,12 +189,13 @@ const TopTwoPredictions = ({
 TopTwoPredictions.propTypes = {
 	predictScoreList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	isPredict: PropTypes.bool.isRequired,
-	homeTeamScore: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-		.isRequired,
-	awayTeamScore: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-		.isRequired,
-	setHomeTeamScore: PropTypes.func.isRequired,
-	setAwayTeamScore: PropTypes.func.isRequired,
+	teamScore: PropTypes.objectOf(PropTypes.any).isRequired,
+	top24Team: PropTypes.arrayOf(PropTypes.any).isRequired,
+	roundOf16: PropTypes.arrayOf(PropTypes.any).isRequired,
+	quarterFinals: PropTypes.arrayOf(PropTypes.any).isRequired,
+	semiFinals: PropTypes.arrayOf(PropTypes.any).isRequired,
+	final: PropTypes.arrayOf(PropTypes.any).isRequired,
+	setTeamScore: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired
 };
 
