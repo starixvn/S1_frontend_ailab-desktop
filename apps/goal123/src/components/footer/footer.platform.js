@@ -226,6 +226,10 @@ const defPlatform = [
 	{
 		...productList["93Connect"],
 		imgName: "93connect"
+	},
+	{
+		...productList.liveCasino_Won,
+		imgName: "woncasino"
 	}
 ];
 
