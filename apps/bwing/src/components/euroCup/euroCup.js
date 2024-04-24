@@ -27,6 +27,7 @@ const EuroCup = () => {
 	const { errorPopBox } = usePopBox();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const [activeTab, setActiveTab] = useState(1);
 	const [selectedTeamId, setSelectedTeamId] = useState(null);
 	const [ticketsNumber, setTicketsNumber] = useState("");
 	const [teamScore, setTeamScore] = useState({
@@ -230,6 +231,16 @@ const EuroCup = () => {
 		}
 	}, []);
 
+	useEffect(() => {
+		if (userInfo.isLogin) {
+			const targetIndex =
+				promotionMission.findIndex(
+					({ isCompleted }) => isCompleted === false
+				) + 1;
+			setActiveTab(targetIndex ?? 1);
+		}
+	}, [promotionMission.length]);
+
 	return (
 		<>
 			<TopContent />
@@ -253,6 +264,8 @@ const EuroCup = () => {
 						{t("lbl_CupEvent_Mission_Date")}
 					</div>
 					<Mission
+						activeTab={activeTab}
+						setActiveTab={setActiveTab}
 						promotionMission={promotionMission}
 						cupEventPromotionMissionProgress={
 							cupEventPromotionMissionProgress
