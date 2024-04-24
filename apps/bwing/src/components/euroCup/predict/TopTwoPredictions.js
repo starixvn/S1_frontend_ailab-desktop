@@ -9,10 +9,8 @@ import { eventPerios } from "../../../datas/eventDef";
 const TopTwoPredictions = ({
 	predictScoreList,
 	isPredict,
-	homeTeamScore,
-	awayTeamScore,
-	setHomeTeamScore,
-	setAwayTeamScore,
+	teamScore,
+	setTeamScore,
 	onSubmit
 }) => {
 	const { t } = useTranslation();
@@ -82,9 +80,12 @@ const TopTwoPredictions = ({
 										placeholder={t(
 											"lbl_CupEvent_PleaseFillOut"
 										)}
-										value={homeTeamScore}
+										value={teamScore.homeTeamScore}
 										onChange={e =>
-											setHomeTeamScore(e.target.value)
+											setTeamScore(prev => ({
+												...prev,
+												homeTeamScore: e.target.value
+											}))
 										}
 									/>
 								</div>
@@ -126,9 +127,12 @@ const TopTwoPredictions = ({
 										placeholder={t(
 											"lbl_CupEvent_PleaseFillOut"
 										)}
-										value={awayTeamScore}
+										value={teamScore.awayTeamScore}
 										onChange={e =>
-											setAwayTeamScore(e.target.value)
+											setTeamScore(prev => ({
+												...prev,
+												awayTeamScore: e.target.value
+											}))
 										}
 									/>
 								</div>
@@ -162,12 +166,8 @@ const TopTwoPredictions = ({
 TopTwoPredictions.propTypes = {
 	predictScoreList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	isPredict: PropTypes.bool.isRequired,
-	homeTeamScore: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-		.isRequired,
-	awayTeamScore: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-		.isRequired,
-	setHomeTeamScore: PropTypes.func.isRequired,
-	setAwayTeamScore: PropTypes.func.isRequired,
+	teamScore: PropTypes.objectOf(PropTypes.any).isRequired,
+	setTeamScore: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired
 };
 

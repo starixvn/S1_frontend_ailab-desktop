@@ -9,12 +9,11 @@ import { numFormatToDigits } from "../common/common";
 import { userInfoContext } from "../common/context";
 import ProgressBar from "./components/ProgressBar";
 
-const Mission = ({ tickets }) => {
+const Mission = ({ promotionMission, cupEventPromotionMissionProgress }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const { t } = useTranslation();
 	const [activeTab, setActiveTab] = useState(1);
 	const numbers = Array.from({ length: 5 }, (_, index) => index + 1);
-	const { promotionMission, cupEventPromotionMissionProgress } = tickets;
 	const getDepositProgressWidth = (cur, target) => {
 		if (!cur && !target) {
 			return "0%";
@@ -340,7 +339,9 @@ const Mission = ({ tickets }) => {
 	);
 };
 Mission.propTypes = {
-	tickets: PropTypes.objectOf(PropTypes.any).isRequired
+	promotionMission: PropTypes.arrayOf(PropTypes.any).isRequired,
+	cupEventPromotionMissionProgress: PropTypes.objectOf(PropTypes.any)
+		.isRequired
 };
 
 export default Mission;

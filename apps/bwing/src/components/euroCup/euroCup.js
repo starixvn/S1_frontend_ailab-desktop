@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
+import { navigate } from "gatsby";
+import { isDateRange } from "@ailab-desktop/common";
 import {
 	useGetCupEventPredictionSettingQuery,
 	useGetCupEventPredictScoreQuery,
@@ -8,19 +10,17 @@ import {
 	useMultiUserPollTicketsMutation,
 	usePredictCupEventScoreMutation
 } from "@ailab-desktop/service";
-import { navigate } from "gatsby";
-import { isDateRange } from "@ailab-desktop/common";
 import { bannerImgUrl, sportsImgUrl } from "../../config";
-import TopContent from "./topContent";
-import TopTwoPredictions from "./predict/TopTwoPredictions";
-import Mission from "./mission";
-import PredictionRecord from "./predict/predictionRecord";
 import { popBoxContext, userInfoContext } from "../common/context";
-import TeamSelector from "./predict/teamSelector";
-import usePopBox from "../hook/usePopBox";
-import Directions from "./directions";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { eventPerios } from "../../datas/eventDef";
+import usePopBox from "../hook/usePopBox";
+import TopTwoPredictions from "./predict/TopTwoPredictions";
+import PredictionRecord from "./predict/predictionRecord";
+import TeamSelector from "./predict/teamSelector";
+import TopContent from "./topContent";
+import Mission from "./mission";
+import Directions from "./directions";
 
 const EuroCup = () => {
 	const { t } = useTranslation();
@@ -29,23 +29,31 @@ const EuroCup = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const [selectedTeamId, setSelectedTeamId] = useState(null);
 	const [ticketsNumber, setTicketsNumber] = useState("");
-	const [homeTeamScore, setHomeTeamScore] = useState("");
-	const [awayTeamScore, setAwayTeamScore] = useState("");
+	const [teamScore, setTeamScore] = useState({
+		homeTeamScore: "",
+		awayTeamScore: ""
+	});
 
 	const { data: { data: predictionSettingData = {} } = {} } =
 		useGetCupEventPredictionSettingQuery({ langId: userInfo.langId });
 
-	const { data: { data: tickets = {} } = {} } = useGetCupEventTicketQuery(
-		null,
-		{
-			skip: !userInfo.isLogin,
-			refetchOnMountOrArgChange: true
-		}
-	);
+	const {
+		data: {
+			data: {
+				cupEventPromotionMissionProgress = {},
+				promotionMission = [],
+				unUsedTickets = 0,
+				userTicketResult = {}
+			} = {}
+		} = {}
+	} = useGetCupEventTicketQuery(null, {
+		skip: !userInfo.isLogin,
+		refetchOnMountOrArgChange: true
+	});
 
 	const {
 		data: { data: { data: predictScoreList = [], isPredict } = {} } = {}
-	} = useGetCupEventPredictScoreQuery(null);
+	} = useGetCupEventPredictScoreQuery(null, { skip: !userInfo.isLogin });
 
 	const [pollTicketsMutation] = useMultiUserPollTicketsMutation();
 
@@ -55,7 +63,7 @@ const EuroCup = () => {
 
 	const options = combineGroups(predictionSettingData?.selectOptions);
 
-	const usedTickets = tickets.userTicketResult?.groupCountryTicket
+	const usedTickets = userTicketResult?.groupCountryTicket
 		?.filter(({ countryId }) => countryId !== null)
 		?.map(ticketObj => {
 			const matchOption = options?.find(
@@ -68,21 +76,20 @@ const EuroCup = () => {
 		});
 
 	const handlePredictScore = async () => {
-		const target = tickets?.promotionMission?.find(
+		const target = promotionMission?.find(
 			({ isCompleted }) => isCompleted === false
 		);
 
 		const onSubmitPredictionScore = async () => {
 			try {
 				const res = await predictCupEventScoreMutation({
-					homeTeamScore,
-					awayTeamScore
+					homeTeamScore: teamScore.homeTeamScore,
+					awayTeamScore: teamScore.awayTeamScore
 				}).unwrap();
 				const { errorCode, message } = res;
 				if (errorCode === 0) {
 					setPopBox({ isOpen: false });
-					setHomeTeamScore("");
-					setAwayTeamScore("");
+					setTeamScore({ homeTeamScore: "", awayTeamScore: "" });
 				} else {
 					errorPopBox(message || "error", errorCode);
 				}
@@ -90,7 +97,8 @@ const EuroCup = () => {
 				errorPopBox(error);
 			}
 		};
-		if (homeTeamScore === "" || awayTeamScore === "") return;
+		if (teamScore.homeTeamScore === "" || teamScore.awayTeamScore === "")
+			return;
 		if (target === -1) {
 			setPopBox({
 				isOpen: true,
@@ -143,11 +151,7 @@ const EuroCup = () => {
 		}
 	};
 	const handleSubmitConfirmModalOpen = async ({ userPollTicket, count }) => {
-		if (
-			!selectedTeamId ||
-			!ticketsNumber ||
-			tickets.unUsedTickets < ticketsNumber
-		)
+		if (!selectedTeamId || !ticketsNumber || unUsedTickets < ticketsNumber)
 			return;
 
 		const selectedTeam = options?.find(
@@ -232,10 +236,8 @@ const EuroCup = () => {
 			<TopTwoPredictions
 				predictScoreList={predictScoreList}
 				isPredict={isPredict}
-				homeTeamScore={homeTeamScore}
-				awayTeamScore={awayTeamScore}
-				setHomeTeamScore={setHomeTeamScore}
-				setAwayTeamScore={setAwayTeamScore}
+				teamScore={teamScore}
+				setTeamScore={setTeamScore}
 				onSubmit={handlePredictScore}
 			/>
 			<div
@@ -250,13 +252,18 @@ const EuroCup = () => {
 					<div className="mission-date">
 						{t("lbl_CupEvent_Mission_Date")}
 					</div>
-					<Mission tickets={tickets} />
+					<Mission
+						promotionMission={promotionMission}
+						cupEventPromotionMissionProgress={
+							cupEventPromotionMissionProgress
+						}
+					/>
 					<div className="prediction">
 						<TeamSelector
 							options={options}
 							selectedTeamId={selectedTeamId}
 							ticketsNumber={ticketsNumber}
-							tickets={tickets}
+							unUsedTickets={unUsedTickets}
 							setTicketsNumber={setTicketsNumber}
 							onChange={setSelectedTeamId}
 							onSubmit={handleSubmitConfirmModalOpen}

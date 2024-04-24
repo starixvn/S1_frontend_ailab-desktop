@@ -160,6 +160,7 @@
   "lbl_CupEvent_AccumulatedDeposit": "accumulated deposit",
   "lbl_CupEvent_CashPrize": "Cash Prize",
   "lbl_CupEvent_Champions": "Champions",
+  "lbl_CupEvent_ConfirmMsg": "Sent cannot be modified",
   "lbl_CupEvent_CorrectScore": "Correct score",
   "lbl_CupEvent_CurrentlyAccumulated": "Currently accumulated",
   "lbl_CupEvent_DrawnOutOn": "Drawn out on 07/15",
