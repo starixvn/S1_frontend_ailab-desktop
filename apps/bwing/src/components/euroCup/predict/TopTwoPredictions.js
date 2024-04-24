@@ -34,11 +34,18 @@ const TopTwoPredictions = ({
 				submit: isDateRange(eventPerios.predictScore)
 			})}
 		>
-			<div className="center-content">
-				<img
-					src={`${bannerImgUrl}/desktop/img/event/eurocup/cup.png`}
-					alt="cup"
-				/>
+			<div className="center-btn">
+				<button className="active">
+					{t("lbl_CupEvent_Prediction")}
+				</button>
+				<button className="">{t("lbl_CupEvent_Schedule")}</button>
+			</div>
+			<img
+				className="cup"
+				src={`${bannerImgUrl}/desktop/img/event/eurocup/cup.png`}
+				alt="cup"
+			/>
+			<div className="center-content active">
 				<div className="center-text">
 					<span>{t("lbl_CupEvent_Prediction_Banner_Desc1")}</span>
 					<span>{t("lbl_CupEvent_Prediction_Banner_Desc2")}</span>
