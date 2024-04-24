@@ -34,7 +34,8 @@ export default class Panel extends Component {
 		if (
 			this.wrapper.current &&
 			e.relatedTarget &&
-			!this.wrapper.current.contains(e.relatedTarget)
+			!this.wrapper.current.contains(e.relatedTarget) &&
+			this.state.menuKey !== ""
 		) {
 			this.setState({ menuKey: "" });
 		}

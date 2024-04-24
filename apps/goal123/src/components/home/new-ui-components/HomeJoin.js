@@ -58,8 +58,8 @@ const HomeJoin = () => {
 		<>
 			<div className="home-title">{t("lbl_Home_Join")} GOAL123</div>
 			<div className="home-join">
-				{JoinListItems.map((item, index) => (
-					<div className="item" key={index.title}>
+				{JoinListItems.map(item => (
+					<div className="item" key={`${item.img}-${item.title}`}>
 						<div className="title">{t(item.title)}</div>
 						<div className="text">{t(item.text)}</div>
 						<img src={getImageUrl(item.img)} alt={t(item.title)} />
@@ -67,8 +67,7 @@ const HomeJoin = () => {
 							{item.isDeposit ? (
 								<button
 									onClick={handleDepositClick}
-									className="btn-more"
-								>
+									className="btn-more">
 									{t("lbl_Promotion_MoreInfo")}
 								</button>
 							) : (
