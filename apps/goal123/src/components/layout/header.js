@@ -37,11 +37,10 @@ export default () => {
 	return (
 		<header>
 			<div className="header">
-			<div
+				<div
 					className={classNames("logo", {
 						"eurocup-logo": isDateRange(eventPeriods.euroCup)
-					})}
-				>
+					})}>
 					<Link to={`/${langId}`} onClick={reload}>
 						<img
 							src={`${bannerImgUrl}/desktop/img/${
@@ -55,15 +54,13 @@ export default () => {
 					{/* 歐冠杯期間顯示 */}
 					{isDateRange(eventPeriods.euroCup) && (
 						<div
+							style={{ cursor: "pointer" }}
 							onClick={() =>
-								navigate(
-									`/${langId}/${path.euroCup.root}`
-								)
-							}
-						>
+								navigate(`/${langId}/${path.euroCup.root}`)
+							}>
 							<img
 								src={`${bannerImgUrl}/desktop/img/event/eurocup/euro-logo-gif.webp`}
-								alt=""
+								alt="eurocup-logo"
 							/>
 						</div>
 					)}
