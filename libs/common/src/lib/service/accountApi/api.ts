@@ -90,7 +90,16 @@ export const accountApi = rootApi.injectEndpoints({
 				url: "Account/GetCustVIPProgress",
 				method: "POST"
 			})
-		})
+		}),
+		SetLanguage: builder.mutation<IAxiosResponse<void>, { langId: string }>(
+			{
+				query: ({ langId }) => ({
+					url: "Account/SetLanguage",
+					method: "POST",
+					data: { langId }
+				})
+			}
+		)
 	})
 });
 
@@ -99,5 +108,6 @@ export const {
 	useLazyGetReferralSettingDetailQuery,
 	useGetReferralSummaryV2Query,
 	useGetReferralCodeQuery,
-	useGetCustVIPProgressQuery
+	useGetCustVIPProgressQuery,
+	useSetLanguageMutation
 } = accountApi;

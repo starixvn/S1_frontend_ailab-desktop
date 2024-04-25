@@ -184,8 +184,7 @@ const Home = ({ productTpIds }) => {
 												navigate(
 													`/${path.promotion.root}?bonusCode=${bonusCode}`
 												);
-											}}
-										>
+											}}>
 											{t("lbl_Promotion_ClaimNow")}
 										</button>
 
@@ -240,8 +239,7 @@ const Home = ({ productTpIds }) => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								setPopBox({ isOpen: false });
-							}}
-						>
+							}}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -474,24 +472,21 @@ const InfoCenter = ({ t, langId }) => (
 				<a
 					href={`${config.t_and_cURL}/Static/${langId}/HowToDeposit.html`}
 					rel="noreferrer"
-					target="_blank"
-				>
+					target="_blank">
 					<i className="icon icon-deposit2" />
 					{t("lbl_HowToDepoist")}
 				</a>
 				<a
 					href={`${config.t_and_cURL}/Static/${langId}/HowToWithdrawal.html`}
 					rel="noreferrer"
-					target="_blank"
-				>
+					target="_blank">
 					<i className="icon icon-withdrawal2" />
 					{t("lbl_HowToWithdraw")}
 				</a>
 				<a
 					href={`${config.t_and_cURL}/Static/${langId}/FAQ.html`}
 					rel="noreferrer"
-					target="_blank"
-				>
+					target="_blank">
 					<i className="icon icon-support" />
 					{t("lbl_FAQ")}
 				</a>
