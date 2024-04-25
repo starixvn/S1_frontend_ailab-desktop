@@ -3,7 +3,7 @@ import React from "react";
 const LobbyBanner = ({ src }) => {
 	return (
 		<div className="lobby-top-banner">
-			<img src={src} />
+			<img src={src} alt="main-lobby-banner" />
 		</div>
 	);
 };
