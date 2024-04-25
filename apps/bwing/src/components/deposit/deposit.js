@@ -3,6 +3,7 @@ import { navigate } from "gatsby";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { useLazyGetDepositQuickTransferQuery } from "@ailab-desktop/service";
+import { yuriTrack } from "@ailab-desktop/common";
 import {
 	loadingContext,
 	userInfoContext,
@@ -287,6 +288,7 @@ const Deposit = () => {
 	};
 
 	const onSubmit = async () => {
+		yuriTrack("Purchase");
 		const resetForm = () => {
 			setFormInfo(prev => ({
 				...prev,
