@@ -21,7 +21,7 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.PG.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-pg.png`}
-								alt="slot-pg"
+								alt="home-slot-pg"
 							/>
 						</a>
 					</div>
@@ -31,12 +31,12 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.PP.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-pp.jpg`}
-								alt="pop-pp"
+								alt="home-pop-pp"
 							/>
 							<div>
 								<img
 									src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-pp.png`}
-									alt="popular-slots-pp"
+									alt="home-popular-slots-pp"
 								/>
 							</div>
 						</a>
@@ -45,12 +45,12 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.Skywind.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-sky.png`}
-								alt="pop-sky"
+								alt="home-pop-sky"
 							/>
 							<div>
 								<img
 									src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-sky.png`}
-									alt="popular-slots-sky"
+									alt="home-popular-slots-sky"
 								/>
 							</div>
 						</a>
@@ -59,12 +59,12 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.SG.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-spad.jpg`}
-								alt="pop-spad"
+								alt="home-pop-spad"
 							/>
 							<div>
 								<img
 									src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-spade.png`}
-									alt="popular-slots-spade"
+									alt="home-popular-slots-spade"
 								/>
 							</div>
 						</a>
@@ -77,7 +77,7 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.AdvantPlay.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-ap.png`}
-								alt="slot-ap"
+								alt="home-slot-ap"
 							/>
 						</a>
 					</div>
@@ -87,7 +87,7 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.JILI.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-jili.jpg`}
-								alt="pop-jili"
+								alt="home-pop-jili"
 							/>
 							<div>
 								<img
@@ -101,7 +101,7 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.MGPSW.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-micro.jpg`}
-								alt="pop-micro"
+								alt="home-pop-micro"
 							/>
 							<div>
 								<img
@@ -115,12 +115,12 @@ const HomePopularSlotGames = () => {
 							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.CQ9.name}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-cq9.jpg`}
-								alt="pop-cq9"
+								alt="home-pop-cq9"
 							/>
 							<div>
 								<img
 									src={`${config.t_and_cURL}/desktop/img/home-page/cq9.png`}
-									alt="popular-slots-cq9"
+									alt="home-popular-slots-cq9"
 								/>
 							</div>
 						</a>
