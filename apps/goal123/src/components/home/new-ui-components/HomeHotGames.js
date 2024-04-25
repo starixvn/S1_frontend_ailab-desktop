@@ -26,7 +26,7 @@ const HomeHotGames = () => {
 							<span>{t("lbl_Sports")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/sports-saba.png`}
-								alt="sports-saba"
+								alt="home-sports-saba"
 							/>
 						</a>
 						{/* Click to trigger to Vgaming */}
@@ -36,7 +36,7 @@ const HomeHotGames = () => {
 							<span>{t("lbl_Games")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/games-vgaming.png`}
-								alt="games-vgaming"
+								alt="home-games-vgaming"
 							/>
 						</a>
 					</div>
@@ -48,7 +48,7 @@ const HomeHotGames = () => {
 							<span>{t("lbl_Sports")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/sports-bti.png`}
-								alt="sports-bti"
+								alt="home-sports-bti"
 							/>
 						</a>
 						{/* Click to trigger to V8poker */}
@@ -58,7 +58,7 @@ const HomeHotGames = () => {
 							<span>{t("lbl_Games")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/games-v8power.png`}
-								alt="games-v8power"
+								alt="home-games-v8power"
 							/>
 						</a>
 						{/* Click to link to platform's Lobby-casino page */}
@@ -68,7 +68,7 @@ const HomeHotGames = () => {
 							<span>{t("lbl_Casino")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/casino.png`}
-								alt="casino"
+								alt="home-casino"
 							/>
 						</a>
 						{/* Click to link to platform's slot page */}
@@ -78,7 +78,7 @@ const HomeHotGames = () => {
 							<span>{t("lbl_Slots")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/slots.png`}
-								alt="slots"
+								alt="home-slots"
 							/>
 						</a>
 					</div>
@@ -90,7 +90,7 @@ const HomeHotGames = () => {
 							<span>{t("lbl_Lottery")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/lottery.png`}
-								alt="lottery"
+								alt="home-lottery"
 							/>
 						</a>
 						{/* Click to link to platform's Lobby-fishing page */}
@@ -100,7 +100,7 @@ const HomeHotGames = () => {
 							<span>{t("lbl_Fishing")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/fishing.png`}
-								alt="fishing"
+								alt="home-fishing"
 							/>
 						</a>
 						{/* Click to link to platform's Lobby-esports page */}
@@ -110,7 +110,7 @@ const HomeHotGames = () => {
 							<span>{t("lbl_eSports")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/esports.png`}
-								alt="esports"
+								alt="home-esports"
 							/>
 						</a>
 						{/* Click to link to platform's Lobby-cockfighting page */}
@@ -120,7 +120,7 @@ const HomeHotGames = () => {
 							<span>{t("lbl_CockFighting")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/cockfighting.png`}
-								alt="cockfighting"
+								alt="home-cockfighting"
 							/>
 						</a>
 					</div>

@@ -25,7 +25,7 @@ const HomeAppDownload = () => {
 						<img
 							className="app-title-icon"
 							src={`${bannerImgUrl}/desktop/img/home-page/goal123-appicon.png`}
-							alt="app-icon"
+							alt="home-appIcon"
 						/>
 						<div className="app-title-text">
 							<div className="text">
@@ -36,7 +36,7 @@ const HomeAppDownload = () => {
 								<img
 									className="brand"
 									src={`${bannerImgUrl}/desktop/img/home-page/goal123-brand.png`}
-									alt="brand"
+									alt="home-brand"
 								/>
 								<span>
 									{t("lbl_Home_New") + t("lbl_Home_App")}

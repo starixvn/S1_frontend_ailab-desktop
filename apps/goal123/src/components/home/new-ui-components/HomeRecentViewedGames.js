@@ -182,7 +182,7 @@ const HomeRecentViewedGames = () => {
 
 	return (
 		<div className="home-recently">
-			<div className="home-title"> Recently view </div>
+			<div className="home-title">{t("lbl_Recently_Viewed")}</div>
 			<Swiper className="recently" modules={[Navigation]} {...params}>
 				<div className="swiper-wrapper">
 					{recentlyViewedGames &&
@@ -198,22 +198,33 @@ const HomeRecentViewedGames = () => {
 								gameId
 							}) => (
 								<SwiperSlide
-									key={`recently-game-${tpId}-${tpGameType}`}>
+									key={`recently-game-${tpId}-${tpGameType}`}
+								>
 									<div
 										className="swiper-slide"
-										onClick={() =>
-											handleGoToRecentlyViewedGame({
-												selectedTpId: tpId,
-												selectedTpGameType: tpGameType,
-												selectedCategoryId: categoryId,
-												selectedGameId: gameId,
-												isMaintain
-											})
-										}>
+										onClick={() => {
+											!isMaintain &&
+												handleGoToRecentlyViewedGame({
+													selectedTpId: tpId,
+													selectedTpGameType:
+														tpGameType,
+													selectedCategoryId:
+														categoryId,
+													selectedGameId: gameId,
+													isMaintain
+												});
+										}}
+										style={{
+											pointerEvents: isMaintain
+												? "none"
+												: "auto"
+										}}
+									>
 										<div
 											className={`recently-game ${
 												isMaintain ? "active" : ""
-											}`}>
+											}`}
+										>
 											<div>
 												<img
 													className="recently-image"
