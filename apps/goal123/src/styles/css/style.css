@@ -180,6 +180,12 @@ html.Newtheme header .logo img:nth-child(1) {
   max-width: 175px;
   height: auto;
 }
+html.Newtheme header .logo.eurocup-logo > div:last-child {
+  margin: 5px 0 0 6px;
+}
+html.Newtheme header .logo.eurocup-logo > div:last-child img {
+  max-width: 120px;
+}
 html.Newtheme header .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9340,7 +9346,7 @@ html.Newtheme .eventLink.livesports img {
   width: 200px;
 }
 html.Newtheme .eventLink.livesports .icon-close {
-  top: 10px;
+  top: 15px;
   background: #cecece;
   color: rgb(92, 92, 92);
 }
