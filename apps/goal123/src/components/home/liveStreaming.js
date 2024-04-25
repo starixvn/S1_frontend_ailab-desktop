@@ -25,7 +25,7 @@ const LiveStreamingLink = () => {
 	const [displayLiveStreaming, setDisplayLiveStreaming] = useState(false);
 	const [liveStreamingList, setLiveStreamingList] = useState([]);
 	const [displayVgaming, setDisplayVgaming] = useState(true);
-	// const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const { clickHomeItem } = useClickItem();
 

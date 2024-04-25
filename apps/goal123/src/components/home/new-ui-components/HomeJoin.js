@@ -16,8 +16,7 @@ const HomeJoin = () => {
 			title: "lbl_Home_Professional_Image_Title",
 			text: "lbl_Home_Professional_Image_Text",
 			img: "professional.png",
-			// pm還沒給 連到ambassador 目前落後dev版本比較多尚未rebase 目前stage先變動
-			link: `/${userInfo.langId}/ambassador`
+			link: `/${userInfo.langId}/${path.ambassador.root}`
 		},
 		{
 			title: "lbl_Home_Exclusives_VIP_Title",
