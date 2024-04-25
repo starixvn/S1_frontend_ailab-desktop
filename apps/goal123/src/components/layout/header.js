@@ -57,7 +57,7 @@ export default () => {
 						<div
 							onClick={() =>
 								navigate(
-									`/${userInfo.langId}/${path.euroCup.root}`
+									`/${langId}/${path.euroCup.root}`
 								)
 							}
 						>

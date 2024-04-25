@@ -3,7 +3,6 @@ import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import classNames from "classnames";
-import { navigate } from "gatsby";
 import { isDateRange } from "@ailab-desktop/common";
 import { bannerImgUrl } from "../../config";
 import { popBoxContext, userInfoContext } from "../common/context";
@@ -26,7 +25,7 @@ const LiveStreamingLink = () => {
 	const [displayLiveStreaming, setDisplayLiveStreaming] = useState(false);
 	const [liveStreamingList, setLiveStreamingList] = useState([]);
 	const [displayVgaming, setDisplayVgaming] = useState(true);
-	const [isLoading, setIsLoading] = useState(false);
+	// const [isLoading, setIsLoading] = useState(false);
 
 	const { clickHomeItem } = useClickItem();
 
@@ -195,7 +194,9 @@ const LiveStreamingLink = () => {
 				</div>
 			) : null}
 
-			{!displayLiveStreaming && displayVgaming ? (
+			{!displayLiveStreaming &&
+			!isDateRange(eventPeriods.euroCup) &&
+			displayVgaming ? (
 				<div
 					className="eventLink vgaming"
 					style={{ cursor: "pointer" }}>

@@ -32,14 +32,14 @@ export default class Panel extends Component {
 
 	handleMouseLeave = e => {
 		if (
-			this.wrapper.current &&
-			e.relatedTarget &&
-			!this.wrapper.current.contains(e.relatedTarget) &&
-			this.state.menuKey !== ""
+		  this.wrapper.current &&
+		  e.relatedTarget instanceof Node &&
+		  !this.wrapper.current.contains(e.relatedTarget) &&
+		  this.state.menuKey !== ""
 		) {
-			this.setState({ menuKey: "" });
+		  this.setState({ menuKey: "" });
 		}
-	};
+	  };
 
 	showSubMenu = col => {
 		this.setState({ menuKey: col });

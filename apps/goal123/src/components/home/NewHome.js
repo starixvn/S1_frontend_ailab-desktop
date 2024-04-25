@@ -16,9 +16,10 @@ import MysteryBoxLink from "./mysteryBoxLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import DragonEgg from "../dragonEgg/homeLink";
 import path from "../../router";
-import { eventPerios } from "../../datas/eventDef";
+import { eventPeriods } from "../../datas/eventDef";
 import LiveStreamingLink from "./liveStreaming";
 import usePopupHandler from "./hooks/usePopupHandler";
+import CupEventLink from "./cupEventLink";
 
 const NewHome = () => {
 	const isMountedRef = useRef(null);
@@ -64,8 +65,9 @@ const NewHome = () => {
 				<HomeInfo />
 				<HomeRecentViewedGames />
 				<HomeAppDownload />
-				{!isDateRange(eventPerios.dragonEgg) && <LuckyWheelLink />}
-				{isDateRange(eventPerios.dragonEgg) && <DragonEgg />}
+				{!isDateRange(eventPeriods.dragonEgg) && <LuckyWheelLink />}
+				{isDateRange(eventPeriods.dragonEgg) && <DragonEgg />}
+				{isDateRange(eventPeriods.euroCup) && <CupEventLink />}
 				<MysteryBoxLink
 					to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 					langId={userInfo.langId}
