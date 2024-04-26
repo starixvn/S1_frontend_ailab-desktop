@@ -2,6 +2,7 @@ import React, { useContext, lazy, Suspense, useState } from "react";
 import { Link, navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
+import { yuriTrack } from "@ailab-desktop/common";
 import {
 	userInfoContext,
 	popBoxContext,
@@ -119,6 +120,11 @@ const AfterLogin = () => {
 		});
 	};
 
+	const handleDepositClick = () => {
+		yuriTrack("AddToCart");
+		navigate(`/${userInfo.langId}/${path.deposit.root}`);
+	};
+
 	const userLevelImgInfo = userInfo.userLevel
 		? defPageClubImg[userInfo.userLevel - 1]
 		: null;
@@ -132,9 +138,7 @@ const AfterLogin = () => {
 					{t("lbl_TransferFunds").toUpperCase()}
 				</Link> */}
 				<button
-					onClick={() =>
-						navigate(`/${userInfo.langId}/${path.deposit.root}`)
-					}
+					onClick={handleDepositClick}
 					className="orange btn-retangle">
 					{t("lbl_Deposit").toUpperCase()}
 				</button>
