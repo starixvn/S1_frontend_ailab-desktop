@@ -337,7 +337,6 @@ html.Newtheme header .header > div.menu .submenu-wrapper {
 html.Newtheme header .header > div.menu .submenu-wrapper .icon:before {
   font-size: 30px;
   display: block;
-  margin-bottom: 5px;
 }
 html.Newtheme header .header > div.menu .submenu-wrapper.active {
   height: auto;
@@ -524,6 +523,7 @@ html.Newtheme header .header > div.menu .submenu-wrapper .cockList button .newic
   display: block;
   text-align: center;
   width: 56px;
+  font-family: "Montserrat", sans-serif;
   height: unset;
   -webkit-animation: flash4 linear infinite alternate 0.4s;
           animation: flash4 linear infinite alternate 0.4s;
@@ -1278,7 +1278,7 @@ html.Newtheme header .header > div.function .memberfile .home-profile {
   line-height: 30px;
   white-space: nowrap;
   z-index: 1;
-  min-width: 300px;
+  width: 300px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: none;
@@ -1434,6 +1434,11 @@ html.Newtheme header .header > div.function .memberfile .home-profile-top .profi
 html.Newtheme header .header > div.function .memberfile .home-profile-top .profile-extra p {
   font-weight: 600;
   font-size: 13px;
+  white-space: pre-wrap;
+  line-height: 1.2;
+  text-align: center;
+  margin: 5px 0;
+  word-spacing: 0.45px;
 }
 html.Newtheme header .header > div.function .memberfile .home-profile-top .profile-vip {
   margin-top: 8px;
@@ -14522,6 +14527,7 @@ main.lobby .lobby-item .newicon::before {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 2px;
   width: 60px;
   height: 24px;
   font-size: 16px;
@@ -14533,6 +14539,7 @@ main.lobby .lobby-item .newicon::before {
   color: #fff;
   -webkit-animation: flash3 linear infinite alternate 0.4s;
           animation: flash3 linear infinite alternate 0.4s;
+  font-family: "Montserrat", sans-serif;
 }
 main.lobby .lobby-item-img {
   position: relative;

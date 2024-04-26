@@ -1,6 +1,8 @@
 import React, { useEffect, useContext, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
+import { navigate } from "gatsby";
+import path from "../../../router";
 import { setCookie, readCookie, deleteCookie } from "../../common/common";
 import { userInfoContext, popBoxContext } from "../../common/context";
 import { api_account_GetWalletInfo } from "../../../service/api/account";
@@ -31,7 +33,8 @@ const usePopupHandler = () => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -147,7 +150,8 @@ const usePopupHandler = () => {
 												navigate(
 													`/${path.promotion.root}?bonusCode=${bonusCode}`
 												);
-											}}>
+											}}
+										>
 											{t("lbl_Promotion_ClaimNow")}
 										</button>
 
