@@ -6,7 +6,6 @@ const CockFightingList = ({ subMenu }) => {
 	return (
 		<div className="lobby-list">
 			{subMenu.map(subMenuItem => {
-				if (!subMenuItem.lobbyPage) return null;
 				return (
 					<LobbyListItem
 						key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
