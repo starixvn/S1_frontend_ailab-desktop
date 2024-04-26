@@ -164,9 +164,6 @@ const Profile = () => {
 									{isVipDiamondLevel && (
 										<p>{t("lbl_WaitForInvitation")}</p>
 									)}
-									{isVipGoal123Level && (
-										<p>{t("Label_Vip_HighestMsg")}</p>
-									)}
 								</div>
 								<Link
 									to={`/${langId}/${path.vip.root}`}
