@@ -97,7 +97,17 @@ const Profile = () => {
 		});
 	};
 
+	// 這邊指的是upDeposit是否＝＝null 因為鑽石還有goal123級別都是null 所以這邊要注意
+
 	const isVipLevelHighest = custVIPProgress?.upDeposit === null;
+
+	// 鑽石等級 另外寫出來
+
+	const isVipDiamondLevel = custVIPProgress?.currentVipLevel === 5;
+
+	// goal123等級
+
+	const isVipGoal123Level = custVIPProgress?.currentVipLevel === 6;
 
 	const {
 		displayKey: currentVipDisplayKey,
@@ -125,7 +135,8 @@ const Profile = () => {
 		<div
 			ref={ref}
 			className={classNames("memberfile", { active: isActive })}
-			onClick={() => setIsActive(prev => !prev)}>
+			onClick={() => setIsActive(prev => !prev)}
+		>
 			<span>Hey,</span>
 			<button className="user-id">{userName}</button>
 			<div className={classNames("home-profile", { active: isActive })}>
@@ -138,16 +149,29 @@ const Profile = () => {
 						{isVipLevelHighest ? (
 							<>
 								<div className="profile-extra">
-									<img
-										className="goal123"
-										src={`${bannerImgUrl}/desktop/img/vip/vip6.png`}
-										alt="vip06"
-									/>
-									<p>{t("lbl_WaitForInvitation")}</p>
+									{isVipDiamondLevel && (
+										<img
+											src={`${bannerImgUrl}/desktop/img/vip/vip5.png`}
+											alt="vip05"
+										/>
+									)}
+									{isVipGoal123Level && (
+										<img
+											src={`${bannerImgUrl}/desktop/img/vip/vip6.png`}
+											alt="vip06"
+										/>
+									)}
+									{isVipDiamondLevel && (
+										<p>{t("lbl_WaitForInvitation")}</p>
+									)}
+									{isVipGoal123Level && (
+										<p>{t("Label_Vip_HighestMsg")}</p>
+									)}
 								</div>
 								<Link
 									to={`/${langId}/${path.vip.root}`}
-									className="milestone goal123">
+									className="milestone goal123"
+								>
 									{t("lbl_MilestoneInfo")}
 									<i className="icon-dropdown" />
 								</Link>
@@ -198,7 +222,8 @@ const Profile = () => {
 								</div>
 								<Link
 									to={`/${langId}/${path.vip.root}`}
-									className="milestone">
+									className="milestone"
+								>
 									{t("lbl_MilestoneInfo")}
 									<i className="icon-dropdown" />
 								</Link>
@@ -230,12 +255,14 @@ const Profile = () => {
 					<div className="countryList">
 						<button
 							className="flag en"
-							onClick={() => setLanguage({ newLangId: "en" })}>
+							onClick={() => setLanguage({ newLangId: "en" })}
+						>
 							English
 						</button>
 						<button
 							className="flag vn"
-							onClick={() => setLanguage({ newLangId: "vn" })}>
+							onClick={() => setLanguage({ newLangId: "vn" })}
+						>
 							Tiếng Việt
 						</button>
 					</div>
