@@ -1265,6 +1265,23 @@ export const defMenuLinks = langId => ({
 						period: defEventPeriod.GA_CockFighting
 					})
 				]
+			},
+			{
+				...productList.WCC_CockFighting,
+				displayKey: "WCC Cockfighting",
+				menuType: defMenuType.entPage,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting/wcc.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting/wcc-item.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/cockfighting/wcc.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/cockfighting/wcc-hover.png`
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.WCC_CockFighting
+					})
+				]
 			}
 		]
 	},

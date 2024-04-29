@@ -337,6 +337,11 @@ export default {
 		tpId: 63,
 		tpGameType: 115
 	},
+	WCC_CockFighting: {
+		tpId: 16,
+		gameId: "CMCOCKFIGHT01",
+		tpGameType: 117
+	},
 
 	/* === 6. lottery === */
 

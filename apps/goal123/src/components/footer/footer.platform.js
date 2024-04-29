@@ -220,6 +220,10 @@ const defPlatform = [
 	{
 		...productList["93Connect"],
 		imgName: "93connect"
+	},
+	{
+		...productList.WCC_CockFighting,
+		imgName: "wcc"
 	}
 ];
 
