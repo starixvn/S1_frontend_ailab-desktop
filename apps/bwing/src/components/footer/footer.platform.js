@@ -219,6 +219,10 @@ const defPlatform = [
 	{
 		...productList.liveCasino_Won,
 		imgName: "woncasino"
+	},
+	{
+		...productList.WCC_CockFighting,
+		imgName: "wcc"
 	}
 ];
 
@@ -311,8 +315,7 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 					...p,
 					urlParams: _urlParams,
 					isInMaintain
-				})}
-			>
+				})}>
 				<ImageWithHover
 					bannerImgUrl={bannerImgUrl}
 					imgName={p.imgName}
