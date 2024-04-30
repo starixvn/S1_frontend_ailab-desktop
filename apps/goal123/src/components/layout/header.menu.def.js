@@ -1113,7 +1113,7 @@ export const defMenuLinks = langId => ({
 		subMenu: [
 			{
 				...productList.GA_CockFighting,
-				displayKey: "GA Cock Fighting",
+				displayText: "GA Cock Fighting",
 				menuType: defMenuType.entPage,
 				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/GA/cockfighting/cockfighting.png`,
 				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/GA/cockfighting/cockfighting.png`,
@@ -1129,7 +1129,7 @@ export const defMenuLinks = langId => ({
 			},
 			{
 				...productList.WCC_CockFighting,
-				displayKey: "WCC Cockfighting",
+				displayText: "WCC Cockfighting",
 				menuType: defMenuType.entPage,
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting/wcc.png`,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting/wcc-item.png`,

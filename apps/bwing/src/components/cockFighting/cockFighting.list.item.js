@@ -2,11 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { defTpGameType } from "../../datas/productList";
+import { bannerImgUrl } from "../../config";
 
 const CockFightingListItem = ({ clickItem, subMenuItem, maintainList }) => {
+	const { t } = useTranslation();
 	const { displayText, displayKey, tpId, gameId, tpGameType, lobbyImg } =
 		subMenuItem;
-	const { t } = useTranslation();
 	const _displayText = displayText || t(displayKey);
 	const isInMaintain = maintainList?.some(
 		item =>
@@ -15,8 +16,7 @@ const CockFightingListItem = ({ clickItem, subMenuItem, maintainList }) => {
 				item.tpGameType === defTpGameType.All)
 	);
 	const _className = `lobby-products-items${isInMaintain ? " maintain" : ""}`;
-	const baseLobbyUrl =
-		"https://banner.bw88.io/desktop/img/4.0/lobby/cockfighting";
+	const baseLobbyUrl = `${bannerImgUrl}/desktop/img/4.0/lobby/cockfighting`;
 
 	let _iconClassName = "";
 	if (subMenuItem.eventIcons) {
