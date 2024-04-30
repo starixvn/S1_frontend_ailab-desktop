@@ -1210,6 +1210,30 @@ export const defMenuLinks = {
 			// },
 		]
 	},
+	cockFighting: {
+		displayKey: "lbl_CockFighting",
+		path: path.cockFighting.root,
+		subMenu: [
+			{
+				...productList.WCC_CockFighting,
+				className: "cockfighting",
+				lobbyImg: "wcc-cockfighting.png",
+				displayText: "WCC Cockfighting",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.WCC_CockFighting },
+				lobbyPage: {
+					bgClass: "cockfighting"
+				},
+				img: "cockfighting/wcc-cockfighting.png",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.WCC_CockFighting
+					})
+				]
+			}
+		]
+	},
 	vip: {
 		path: path.vip.root,
 		displayKey: "lbl_Vip"

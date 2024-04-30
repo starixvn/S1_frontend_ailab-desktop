@@ -219,6 +219,10 @@ const defPlatform = [
 	{
 		...productList.liveCasino_Won,
 		imgName: "woncasino"
+	},
+	{
+		...productList.WCC_CockFighting,
+		imgName: "wcc-cockfighting"
 	}
 ];
 
