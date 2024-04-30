@@ -1200,7 +1200,7 @@ export const defMenuLinks = {
 				...productList.WCC_CockFighting,
 				className: "cockfighting",
 				lobbyImg: "wcc.png",
-				displayKey: "WCC Cockfighting",
+				displayText: "WCC Cockfighting",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.WCC_CockFighting },
 				lobbyPage: {

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useTranslation } from "react-i18next";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { defMenuLinks } from "../layout/header.menu.def";
 import {
@@ -13,7 +12,6 @@ import CockFightingBanner from "./cockFighting.banner";
 import CockFightingList from "./cockFighting.list";
 
 const CockFighting = () => {
-	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
@@ -64,7 +62,6 @@ const CockFighting = () => {
 						<CockFightingList
 							subMenu={subMenu}
 							clickItem={clickItem}
-							t={t}
 							maintainList={allMaintainList}
 						/>
 					</div>
