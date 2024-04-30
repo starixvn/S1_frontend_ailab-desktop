@@ -21807,42 +21807,6 @@ input + .iconModule i.icon.icon-checkmark:before {
     padding: 2% 0;
   }
 }
-.euro-fixture .group-right .group-one::before {
-  content: "";
-  display: block;
-  height: 2px;
-  width: 10px;
-  background: #fff;
-  position: absolute;
-  left: -10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-.euro-fixture .group-right .group-one.after-top::after {
-  content: "";
-  display: block;
-  height: 130px;
-  width: 1.75px;
-  background: #fff;
-  position: absolute;
-  left: -10px;
-  top: calc(50% + 65px);
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-.euro-fixture .group-right .group-one.after-bottom::after {
-  content: "";
-  display: block;
-  height: 130px;
-  width: 1.75px;
-  background: #fff;
-  position: absolute;
-  left: -10px;
-  bottom: calc(50% + 65px);
-  -webkit-transform: translateY(50%);
-          transform: translateY(50%);
-}
 .euro-fixture .group-right .group-one .group-item {
   border-bottom: 0;
   padding: 0;
@@ -22128,42 +22092,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   padding: 10% 8%;
   background: #FAFAFA;
   position: relative;
-}
-.euro-fixture .group-one::before {
-  content: "";
-  display: block;
-  height: 2px;
-  width: 10px;
-  background: #fff;
-  position: absolute;
-  right: -10px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-.euro-fixture .group-one.after-top::after {
-  content: "";
-  display: block;
-  height: 130px;
-  width: 1.75px;
-  background: #fff;
-  position: absolute;
-  right: -10px;
-  top: calc(50% + 65px);
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-.euro-fixture .group-one.after-bottom::after {
-  content: "";
-  display: block;
-  height: 130px;
-  width: 1.75px;
-  background: #fff;
-  position: absolute;
-  right: -10px;
-  bottom: calc(50% + 65px);
-  -webkit-transform: translateY(50%);
-          transform: translateY(50%);
 }
 .euro-fixture .group-one .group-item {
   border-bottom: 0;
