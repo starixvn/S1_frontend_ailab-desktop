@@ -35,8 +35,18 @@ const EuroCup = () => {
 		awayTeamScore: ""
 	});
 
-	const { data: { data: predictionSettingData = {} } = {} } =
-		useGetCupEventPredictionSettingQuery({ langId: userInfo.langId });
+	const {
+		data: {
+			data: {
+				selectOptions = {},
+				top24Team = [],
+				roundOf16 = [],
+				quarterFinals = [],
+				semiFinals = [],
+				final = []
+			} = {}
+		} = {}
+	} = useGetCupEventPredictionSettingQuery({ langId: userInfo.langId });
 
 	const {
 		data: {
@@ -62,7 +72,7 @@ const EuroCup = () => {
 
 	const combineGroups = data => [].concat(...Object.values(data ?? {}));
 
-	const options = combineGroups(predictionSettingData?.selectOptions);
+	const options = combineGroups(selectOptions);
 
 	const usedTickets = userTicketResult?.groupCountryTicket
 		?.filter(({ countryId }) => countryId !== null)
@@ -237,7 +247,7 @@ const EuroCup = () => {
 				promotionMission.findIndex(
 					({ isCompleted }) => isCompleted === false
 				) + 1;
-			setActiveTab(targetIndex ?? 1);
+			setActiveTab(targetIndex <= 0 ? 1 : targetIndex);
 		}
 	}, [promotionMission.length]);
 
@@ -245,9 +255,14 @@ const EuroCup = () => {
 		<>
 			<TopContent />
 			<TopTwoPredictions
-				predictScoreList={predictScoreList}
+				predictScoreList={predictScoreList ?? []}
 				isPredict={isPredict}
 				teamScore={teamScore}
+				top24Team={top24Team}
+				roundOf16={roundOf16}
+				quarterFinals={quarterFinals}
+				semiFinals={semiFinals}
+				final={final}
 				setTeamScore={setTeamScore}
 				onSubmit={handlePredictScore}
 			/>
