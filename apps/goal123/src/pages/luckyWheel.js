@@ -1,7 +1,7 @@
 import React from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import Footer from "../components/footer/footer";
+import HomeFooter from "../components/footer/HomeFooter";
 import LuckyWheel from "../components/luckyWheel/luckyWheel";
 
 export default () => {
@@ -11,7 +11,7 @@ export default () => {
 				<main className="wheelEvent">
 					<LuckyWheel />
 				</main>
-				<Footer />
+				<HomeFooter />
 			</Layout>
 		</Wrapper>
 	);

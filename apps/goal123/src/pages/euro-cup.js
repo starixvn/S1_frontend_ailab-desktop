@@ -2,7 +2,7 @@ import React from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import EuroCup from "../components/euroCup/euroCup";
-import Footer from "../components/footer/footer";
+import HomeFooter from "../components/footer/HomeFooter";
 
 export default () => (
 	<Wrapper>
@@ -10,7 +10,7 @@ export default () => (
 			<main className="euro">
 				<EuroCup />
 			</main>
-			<Footer />
+			<HomeFooter />
 		</Layout>
 	</Wrapper>
 );

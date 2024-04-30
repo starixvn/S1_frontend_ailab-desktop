@@ -43,9 +43,7 @@ export const defMenuLinks = langId => ({
 				subPath: path.sports.root,
 				className: "sport",
 				displayKey: "lbl_Saba_Sport",
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/saba.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/saba-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/sabas-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SBSW/sports/soccer.png`,
 				parameter: { ...productList.sportSaba }
 			},
 			{
@@ -60,9 +58,7 @@ export const defMenuLinks = langId => ({
 					})
 				],
 				displayText: "SBOBET",
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/sbo.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/sbo-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/sbo-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SBO/sports/sbobet.png`,
 				parameter: { ...productList.sportSbo },
 				afterLogin: true
 			},
@@ -72,9 +68,7 @@ export const defMenuLinks = langId => ({
 				menuType: defMenuType.entPage,
 				className: "BTI",
 				displayKey: "lbl_Bti_Sport",
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/bti.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/bti-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/bti-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/BTI/sports/bti-sport.png`,
 				parameter: { ...productList.sportBti }
 			},
 			{
@@ -82,9 +76,7 @@ export const defMenuLinks = langId => ({
 				subPath: path.sportsIM.root,
 				menuType: defMenuType.entPage,
 				displayText: "IM Sports",
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/inplaymatrix.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/inplaymatrix-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/inplaymatrix-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/IM/sports/im-sports.png`,
 				parameter: { ...productList.sports_IM },
 				eventIcons: [
 					showEventIcon({
@@ -99,9 +91,7 @@ export const defMenuLinks = langId => ({
 				subPath: path.sports.root,
 				className: "sport",
 				displayKey: "lbl_Virtual_Sports",
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/betradar.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/betradar-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/betradar-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SBSW/sports/virtual-sports.png`,
 				parameter: { ...productList.virtualSports },
 				eventIcons: [
 					showEventIcon({
@@ -126,25 +116,15 @@ export const defMenuLinks = langId => ({
 				...productList.KingMaker,
 				displayKey: "lbl_King_Maker",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/king.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/king-item.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/king.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/king-hover.png`
-				},
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/kingmaker-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/KM/games/king-maker.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/KM/games/king-maker.png`
 			},
 			{
 				...productList["93Connect"],
 				displayText: "93Connect",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/93connect.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/93connect-item.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/93connect.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/93connect-hover.png`
-				},
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/93connect-icon.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/NTConnect/games/93connect.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/NTConnect/games/93connect.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -158,13 +138,8 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_Vgaming",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.sabaClub },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/vga.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/vga-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/vg-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/vga.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/vga-hover.png`
-				}
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SBSW/games/vgaming.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SBSW/games/vgaming.png`
 			},
 			// {
 			// 	...productList.MaxGame,
@@ -189,13 +164,8 @@ export const defMenuLinks = langId => ({
 				className: "v8",
 				displayKey: "lbl_V8Poker",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/v8.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/v8-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/v8poker-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/v8.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/v8-hover.png`
-				}
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/V8/games/v8-poker.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/V8/games/v8-poker.png`
 			},
 			{
 				...productList.tableGame,
@@ -203,26 +173,16 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_tableGame",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.tableGame },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/table.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/table-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/tablegame-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/table.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/table-hover.png`
-				}
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SBSW/games/table-game.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SBSW/games/table-game.png`
 			},
 			{
 				...productList.IM_Avaitor,
 				displayText: "Avaitor",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.IM_Avaitor },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeAviator.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeAviator-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/spribe-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/spribeAviator.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/spribeAviator-hover.png`
-				},
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SPRIBE/games/aviator.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SPRIBE/games/aviator.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -235,13 +195,9 @@ export const defMenuLinks = langId => ({
 				displayText: "Mines",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.IM_Mines },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeMines.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeMines-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/spribe-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/spribeMines.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/spribeMines-hover.png`
-				},
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SPRIBE/games/mines.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SPRIBE/games/mines.png`,
+
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -254,13 +210,8 @@ export const defMenuLinks = langId => ({
 				displayText: "Goal",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.IM_Goal },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeGoal.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeGoal-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/spribe-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/spribeGoal.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/spribeGoal-hover.png`
-				},
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SPRIBE/games/goal.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SPRIBE/games/goal.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -273,13 +224,9 @@ export const defMenuLinks = langId => ({
 				displayText: "Dice",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.IM_Dice },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeDice.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/spribeDice-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/spribe-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/spribeDice.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/spribeDice-hover.png`
-				},
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SPRIBE/games/dice.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SPRIBE/games/dice.png`,
+
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -292,39 +239,24 @@ export const defMenuLinks = langId => ({
 				displayText: "Spaceman",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.Spaceman },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/pp.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/pp-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/pp-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/pp.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/pp-hover.png`
-				}
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/PP/games/spaceman.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/PP/games/spaceman.png`
 			},
 			{
 				...productList.Crash,
 				displayText: "Crash",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.Crash },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/ap.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/ap-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/ap-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/ap.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/ap-hover.png`
-				}
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/AP/games/crash.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/AP/games/crash.png`
 			},
 			{
 				...productList.GoRush,
 				displayText: "Go Rush",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.GoRush },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/jili.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/jili-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/new-games/newicon/jili-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/new-games/jili.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/new-games/jili-hover.png`
-				}
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/JILI/games/go-rush.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/JILI/games/go-rush.png`
 			}
 			// {
 			// 	...productList.virtualGame,
@@ -359,22 +291,20 @@ export const defMenuLinks = langId => ({
 			// },
 			{
 				...productList.eSport,
-				imgSrc: `${bannerImgUrl}/desktop/img/esports/saba.png`,
+				imgSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SBSW/esports/saba.png`,
 				displayKey: "lbl_Saba",
 				displayText: "Saba",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/saba.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/saba-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/saba-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SBSW/esports/saba.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SBSW/esports/saba.png`
 			},
 			{
 				...productList.eSport_IM,
-				imgSrc: `${bannerImgUrl}/desktop/img/esports/inplaymatrix.png`,
+				imgSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/IM/esports/im-e-sports.png`,
 				displayText: "IM E-Sports",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/inplaymatrix.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/inplaymatrix-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/inplaymatrix-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/IM/esports/im-e-sports.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/IM/esports/im-e-sports.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -384,13 +314,12 @@ export const defMenuLinks = langId => ({
 			},
 			{
 				...productList.eSport_TFGaming,
-				imgSrc: `${bannerImgUrl}/desktop/img/esports/tfg.png`,
+				imgSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/TFG/esports/tfgaming.png`,
 				displayKey: "lbl_TFGaming",
 				displayText: "TFGaming",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/tfg.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/tfg-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/esport/tfg-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/TFG/esports/tfgaming.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/TFG/esports/tfgaming.png`
 			}
 			// {
 			// 	...productList.eSport_LeagueOfLegends,
@@ -418,9 +347,7 @@ export const defMenuLinks = langId => ({
 				displayText: "Pragmatic Play",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.PP.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pp.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pp-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pp-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/PP/slots/pragmatic-play.png`
 			},
 			{
 				...defCasinoProviders.SG,
@@ -429,27 +356,21 @@ export const defMenuLinks = langId => ({
 				displayText: "Spadegaming",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.SG.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sg.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sg-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/sg-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SG/slots/spadegaming.png`
 			},
 			{
 				...defCasinoProviders.AdvantPlay,
 				displayText: "AdvantPlay",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.AdvantPlay.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/apnew.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/apnew-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ap-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/AP/slots/advantplay.png`
 			},
 			{
 				...defCasinoProviders.Amigo,
 				displayText: "Amigo Gaming",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.Amigo.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/amigo.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/amigo-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/amigo-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/Amigo/slots/amigo-gaming.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -462,9 +383,7 @@ export const defMenuLinks = langId => ({
 				displayText: "ES",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.Endorphina.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/es.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/es-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/es-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/ES/slots/es.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -477,9 +396,7 @@ export const defMenuLinks = langId => ({
 				displayText: "Nextspin",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.Nextspin.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/nextspin.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/nextspin-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/nextspin-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/Nextspin/slots/nextspin.png`
 			},
 			{
 				...defCasinoProviders.PG,
@@ -488,9 +405,7 @@ export const defMenuLinks = langId => ({
 				displayText: "PG Soft",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.PG.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pg.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pg-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pg-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/PG/slots/pg-soft.png`
 			},
 			{
 				...defCasinoProviders.BNG,
@@ -499,9 +414,7 @@ export const defMenuLinks = langId => ({
 				displayText: "BNG",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.BNG.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/bng.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/bng-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/bng-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/BNG/slots/bng.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -516,9 +429,7 @@ export const defMenuLinks = langId => ({
 				displayText: "Fa Chai",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.FaChai.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/fachai.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/fachai-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/fachai-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/FaChai/slots/fachai.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -537,9 +448,7 @@ export const defMenuLinks = langId => ({
 				displayText: "Microgaming",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.MGPSW.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/mg.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/mg-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/mg-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/MG/slots/microgaming.png`
 			},
 			{
 				...defCasinoProviders.JILI,
@@ -547,18 +456,14 @@ export const defMenuLinks = langId => ({
 				displayText: "JILI",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.JILI.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/jili.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/jili-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/jili-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/JILI/slots/jili.png`
 			},
 			{
 				...defCasinoProviders.SPRIBE,
 				displayText: "SPRIBE",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.SPRIBE.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/spribe.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/spribe-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/spribe-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SPRIBE/slots/spribe.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -571,9 +476,7 @@ export const defMenuLinks = langId => ({
 				displayText: "NoLimit City",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.NoLimitCity.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/nlc.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/nlc-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/nlc-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/NLC/slots/nolimit-city.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -587,9 +490,7 @@ export const defMenuLinks = langId => ({
 				displayText: "Red Tiger",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.RedTiger.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/rt.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/rt-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/rt-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/RedTiger/slots/red-tiger.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -602,9 +503,7 @@ export const defMenuLinks = langId => ({
 				displayText: "NetEnt",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.NetEnt.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ne.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ne-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ne-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/Netent/slots/netent.png`
 			},
 			{
 				...defCasinoProviders.CQ9,
@@ -613,9 +512,7 @@ export const defMenuLinks = langId => ({
 				displayText: "CQ9",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.CQ9.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/cq9.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/cq9-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/cq9-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/CQ9/slots/cq9.png`
 			},
 			{
 				...defCasinoProviders.PNG,
@@ -624,9 +521,7 @@ export const defMenuLinks = langId => ({
 				displayText: "Play' n GO",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.PNG.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playngo.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playngo-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/playngo-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/PNG/slots/playn-go.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -641,9 +536,7 @@ export const defMenuLinks = langId => ({
 				displayText: "Game Play",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.GPI.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/gpi.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/GPI-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/gpi-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/GPI/slots/game-play.png`
 			},
 			{
 				...defCasinoProviders.YGG,
@@ -652,27 +545,21 @@ export const defMenuLinks = langId => ({
 				displayText: "YGGDrassil",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.YGG.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ygg.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ygg-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ygg-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/YGG/slots/yggdrassil.png`
 			},
 			{
 				...defCasinoProviders.Habanero,
 				displayText: "Habanero",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.Habanero.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/habanero.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/habanero-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/habanero-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/HB/slots/habanero.png`
 			},
 			{
 				...defCasinoProviders.SimplePlay,
 				displayText: "SimplePlay",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.SimplePlay.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/simpleplay.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/simpleplay-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/simpleplay-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SimplePlay/slots/simpleplay.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -685,9 +572,7 @@ export const defMenuLinks = langId => ({
 				displayText: "Skywind",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.Skywind.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/skywind.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sk-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/sk-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/Skywind/slots/skywind.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -703,9 +588,7 @@ export const defMenuLinks = langId => ({
 				displayText: "PlayTech",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.PlayTech.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playtech.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/playtech-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/playtech-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/PT/slots/playtech.png`
 			}
 			// {
 			// 	...defCasinoProviders.AstroTech,
@@ -748,9 +631,8 @@ export const defMenuLinks = langId => ({
 				listNpcImgUrl: "pp.png",
 				displayText: "Pragmatic Play",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/pp.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/pp-icon.png`,
-				lobbyImg: "pp"
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/PP/casino/pragmatic-play.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/PP/casino/pragmatic-play.png`
 			},
 			{
 				...productList.liveCasino_Won,
@@ -776,9 +658,8 @@ export const defMenuLinks = langId => ({
 				listNpcImgUrl: "bg.png",
 				displayText: "Big Gaming",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/bg.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/bg-icon.png`,
-				lobbyImg: "bg",
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/BG/casino/big-gaming.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/BG/casino/big-gaming.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -793,9 +674,9 @@ export const defMenuLinks = langId => ({
 				listNpcImgUrl: "yb.png",
 				displayText: "YEEBET",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/yb.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/yb-icon.png`,
-				lobbyImg: "yb",
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/Yeebet/casino/yeebet-casino.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/Yeebet/casino/yeebet-casino.png`,
+
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -814,9 +695,8 @@ export const defMenuLinks = langId => ({
 				],
 				displayText: "Skywind",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/sk.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/sk-icon.png`,
-				lobbyImg: "sk"
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/Skywind/casino/skywind.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/Skywind/casino/skywind.png`
 			},
 			{
 				...productList.liveCasino_MG,
@@ -825,9 +705,8 @@ export const defMenuLinks = langId => ({
 				listNpcImgUrl: "mg.png",
 				displayText: "Microgaming",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/mg.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/mg-icon.png`,
-				lobbyImg: "mg"
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/MG/casino/microgaming.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/MG/casino/microgaming.png`
 			},
 			{
 				...productList.liveCasino_EVO,
@@ -835,9 +714,8 @@ export const defMenuLinks = langId => ({
 				listNpcImgUrl: "evolution.png",
 				displayText: "Evolution Gaming",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/evolution.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/evolution-icon.png`,
-				lobbyImg: "evolution",
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/EVO/casino/evolution-gaming.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/EVO/casino/evolution-gaming.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -851,10 +729,9 @@ export const defMenuLinks = langId => ({
 				className: "PT",
 				icon: "icon icon-pt",
 				displayText: "PlayTech",
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/playtech.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/playtech-icon.png`,
 				disabledInSlider: true,
-				lobbyImg: "pt"
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/PlayTech/casino/playtech.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/PlayTech/casino/playtech.png`
 			},
 			{
 				...productList.liveCasino_WM,
@@ -865,9 +742,8 @@ export const defMenuLinks = langId => ({
 				listNpcImgUrl: "wm.png",
 				displayText: "WM Casino",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/wm.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/wm-icon.png`,
-				lobbyImg: "wm"
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/WM/casino/wm-casino.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/WM/casino/wm-casino.png`
 			},
 			{
 				...productList.liveCasino_DG,
@@ -878,9 +754,8 @@ export const defMenuLinks = langId => ({
 				listNpcImgUrl: "dg.png",
 				displayText: "Dream Gaming",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/dg.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/dg-icon.png`,
-				lobbyImg: "dg"
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/DG/casino/dream-gaming.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/DG/casino/dream-gaming.png`
 			},
 			{
 				...productList.liveCasino_Allbet,
@@ -891,9 +766,8 @@ export const defMenuLinks = langId => ({
 				listNpcImgUrl: "ab.png",
 				displayText: "Allbet",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/allbet.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/allbet-icon.png`,
-				lobbyImg: "allbet"
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/Allbet/casino/allbet.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/Allbet/casino/allbet.png`
 			},
 			{
 				...productList.liveCasino_AG,
@@ -904,9 +778,8 @@ export const defMenuLinks = langId => ({
 				listNpcImgUrl: "ag.png",
 				displayText: "Asia Gaming",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/ag.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/ag-icon.png`,
-				lobbyImg: "ag"
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/AG/casino/asia-gaming.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/AG/casino/asia-gaming.png`
 			},
 			{
 				...productList.liveCasino_SA,
@@ -917,9 +790,8 @@ export const defMenuLinks = langId => ({
 				listNpcImgUrl: "sa.png",
 				displayText: "SA Gaming",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/sa.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/sa-icon.png`,
-				lobbyImg: "sa"
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SA/casino/sa-gaming.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SA/casino/sa-gaming.png`
 			},
 			{
 				...productList.liveCasino_AE,
@@ -930,9 +802,8 @@ export const defMenuLinks = langId => ({
 				listNpcImgUrl: "ae.png",
 				displayText: "AE Sexy",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/ae.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/ae-icon.png`,
-				lobbyImg: "ae"
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/Sexy/casino/ae-sexy.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/Sexy/casino/ae-sexy.png`
 			},
 			{
 				...productList.liveCasino_eBET,
@@ -943,9 +814,8 @@ export const defMenuLinks = langId => ({
 				listNpcImgUrl: "we.png",
 				displayText: "WE",
 				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/we.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/we-icon.png`,
-				lobbyImg: "we"
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/WE/casino/we.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/WE/casino/we.png`
 			}
 		]
 	},
@@ -960,13 +830,12 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_FishingSG1",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.fishing_SG },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishinggod.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishinggod-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/sg-icon.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/fishinggod.png`,
+					bgImg: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SG/fishing/fishing-god.png`,
 					providerImg: "sp"
-				}
+				},
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SG/fishing/fishing-god.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SG/fishing/fishing-god.png`
 			},
 			{
 				...productList.fishing_SGW,
@@ -974,13 +843,12 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_FishingSG2",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.fishing_SGW },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishingwar.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/fishingwar-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/sg-icon.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/fishingwar.png`,
+					bgImg: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SG/fishing/fishing-war.png`,
 					providerImg: "sp"
-				}
+				},
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SG/fishing/fishing-war.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SG/fishing/fishing-war.png`
 			},
 			{
 				...productList.fishing_Zombie_Party,
@@ -988,13 +856,12 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_Fishing_Zombie_Party",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.fishing_Zombie_Party },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/zombieparty.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/zombieparty-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/sg-icon.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/zombieparty.png`,
+					bgImg: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SG/fishing/zombie-party.png`,
 					providerImg: "sp"
 				},
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SG/fishing/zombie-party.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SG/fishing/zombie-party.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -1008,13 +875,12 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_Fishing_Alien_Hunter",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.fishing_Alien_Hunter },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/alienhunter.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/alienhunter-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/sg-icon.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/alienhunter.png`,
+					bgImg: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SG/fishing/alien-hunter.png`,
 					providerImg: "sp"
 				},
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SG/fishing/alien-hunter.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SG/fishing/alien-hunter.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -1034,11 +900,10 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_Paradise",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.CQ9_Paradise },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/paradise.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/paradise-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/cq9-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/CQ9/fishing/paradise.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/CQ9/fishing/paradise.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/paradise.png`,
+					bgImg: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/CQ9/fishing/paradise.png`,
 					providerImg: "cq9"
 				}
 			},
@@ -1048,13 +913,12 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_Oneshot_Fishing",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.CQ9_Oneshot_Fishing },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/oneshot.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/oneshot-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/cq9-icon.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/fishing/oneshot.png`,
+					bgImg: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/CQ9/fishing/oneshot-fishing.png`,
 					providerImg: "cq9"
-				}
+				},
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/CQ9/fishing/oneshot-fishing.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/CQ9/fishing/oneshot-fishing.png`
 			}
 			// {
 			// 	...productList.CQ9_LuckyFishing,
@@ -1208,12 +1072,8 @@ export const defMenuLinks = langId => ({
 				...productList.GPI_VNLottery,
 				displayKey: "GPI_VNLottery",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/lottery/vn.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/lottery/vn-item.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/lottery/vnlottery.png`
-				},
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/lottery/newicon/vn-icon.png`,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/GPI/lottery/vn-lottery.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/GPI/lottery/vn-lottery.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -1225,12 +1085,8 @@ export const defMenuLinks = langId => ({
 				...productList.tcg,
 				displayKey: "lbl_TcGame",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/tcg.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/tcg-item.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/games/tcg.png`
-				},
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/tcg-icon.png`
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/TCG/lottery/tc-gaming.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/TCG/lottery/tc-gaming.png`
 			},
 			{
 				...productList.keno,
@@ -1238,12 +1094,8 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_Keno",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.keno },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/keno.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/keno-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/keno-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/games/keno.png`
-				}
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SBSW/lottery/keno.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SBSW/lottery/keno.png`
 			},
 			{
 				...productList.lottery,
@@ -1251,12 +1103,8 @@ export const defMenuLinks = langId => ({
 				displayKey: "lbl_Lottery",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.lottery },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/lottery.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/lottery-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/lottery-icon.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/games/lottery.png`
-				}
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/SBSW/lottery/lottery.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/SBSW/lottery/lottery.png`
 			}
 		]
 	},
@@ -1268,12 +1116,9 @@ export const defMenuLinks = langId => ({
 				...productList.GA_CockFighting,
 				displayKey: "GA Cock Fighting",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting/cockfighting.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting/cockfighting-item.png`,
-				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/cockfighting/cockfighting.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/cockfighting/cockfighting-hover.png`
-				},
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/GA/cockfighting/cockfighting.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/GA/cockfighting/cockfighting.png`,
+
 				// * 設計稿尚未提供 Logo
 				// iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting-icon.png`,
 				eventIcons: [

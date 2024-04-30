@@ -71,18 +71,9 @@ export default ({
 	const rows = showRows.map(key => {
 		const m = defMenuLinks[key];
 
-		const arrowIcon =
-			m.subMenu && m.subMenu.length > 0 ? (
-				<i className="icon icon-keyboard_arrow_right" />
-			) : null;
-
 		let _className = m.className ? m.className : "";
 
 		const _target = m.target ? m.target : "";
-
-		if (m.isHot) {
-			_className = `${_className} hot`;
-		}
 
 		const iconList = m.eventIcons?.length > 0 ? [...m.eventIcons] : [];
 
@@ -107,8 +98,6 @@ export default ({
 		if (iconList.length > 0) {
 			iconStrings = ` ${Array.from(new Set(iconList)).join(" ")}`;
 		}
-
-		_className = `${_className}${iconStrings}`;
 
 		const displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
@@ -136,8 +125,8 @@ export default ({
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						onFocus={() => 0}>
+						{iconList.length > 0 && <i className={iconStrings} />}
 						{displayText}
-						{arrowIcon}
 					</button>
 				);
 			}
@@ -153,8 +142,8 @@ export default ({
 							rule.windowKey
 						)}
 						onFocus={() => 0}>
+						{iconList.length > 0 && <i className={iconStrings} />}
 						{displayText}
-						{arrowIcon}
 					</a>
 				);
 			}
@@ -166,7 +155,6 @@ export default ({
 						onMouseOver={_showSubMenu.bind(this, key)}
 						onFocus={() => 0}>
 						{displayText}
-						{arrowIcon}
 					</button>
 				);
 			}
@@ -174,10 +162,11 @@ export default ({
 
 			_className =
 				checkMatchPage && _url === currentPage
-					? _className
-						? `${_className} active`
+					? m.className
+						? `${m.className} active`
 						: "active"
-					: _className;
+					: m.className;
+
 			return m.isFullPath || _target === "_blank" ? (
 				<a
 					href={_path}
@@ -186,8 +175,8 @@ export default ({
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}
 					onFocus={() => 0}>
+					{iconList.length > 0 && <i className={iconStrings} />}
 					{displayText}
-					{arrowIcon}
 				</a>
 			) : (
 				<Link
@@ -195,8 +184,8 @@ export default ({
 					to={_url}
 					className={_className}
 					onMouseOver={_showSubMenu.bind(this, key)}>
+					{iconList.length > 0 && <i className={iconStrings} />}
 					{displayText}
-					{arrowIcon}
 				</Link>
 			);
 		}
@@ -218,8 +207,8 @@ export default ({
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}
 					onFocus={() => 0}>
+					{iconList.length > 0 && <i className={iconStrings} />}
 					{displayText}
-					{arrowIcon}
 				</a>
 			) : (
 				<Link
@@ -227,8 +216,8 @@ export default ({
 					to={`/${langId}/${_path}${m.provider ? providerLink : ""}`}
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}>
+					{iconList.length > 0 && <i className={iconStrings} />}
 					{displayText}
-					{arrowIcon}
 				</Link>
 			);
 		}
@@ -238,8 +227,8 @@ export default ({
 				onMouseOver={_showSubMenu.bind(this, key)}
 				className={_className}
 				onFocus={() => 0}>
+				{iconList.length > 0 && <i className={iconStrings} />}
 				{displayText}
-				{arrowIcon}
 			</button>
 		);
 	});

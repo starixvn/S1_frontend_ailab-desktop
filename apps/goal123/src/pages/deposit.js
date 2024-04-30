@@ -1,8 +1,8 @@
 import React from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import Footer from "../components/footer/footer";
 import Deposit from "../components/deposit/deposit";
+import HomeFooter from "../components/footer/HomeFooter";
 import LeftMenu from "../components/common/leftMenu";
 
 export default () => {
@@ -17,7 +17,7 @@ export default () => {
 						</div>
 					</section>
 				</main>
-				<Footer />
+				<HomeFooter />
 			</Layout>
 		</Wrapper>
 	);
