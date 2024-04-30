@@ -109,7 +109,7 @@ const Menu = ({
 		}
 
 		if (isInMaintain) {
-			_iconClassName += ` active`;
+			_iconClassName += ` under`;
 		}
 
 		const _urlParams = params !== null ? `?${params.join("&")}` : "";
@@ -118,7 +118,9 @@ const Menu = ({
 				<a
 					key={key}
 					className={_iconClassName}
-					href={`/${userInfo.langId}/${mainUrl}${_urlParams}`}>
+					style={{ pointerEvents: isInMaintain ? "none" : "auto" }}
+					href={`/${userInfo.langId}/${mainUrl}${_urlParams}`}
+				>
 					{imgRender({ submenuItemSrc })}
 					<span>
 						<p>{displayText}</p>
@@ -159,7 +161,8 @@ const Menu = ({
 					isInMaintain,
 					s.tpGameType,
 					s?.afterLogin
-				)}>
+				)}
+			>
 				<div className={_iconClassName} />
 				{imgRender({ submenuItemSrc })}
 				<span className="item-title">
