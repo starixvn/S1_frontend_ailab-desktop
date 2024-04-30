@@ -9344,9 +9344,6 @@ html.Newtheme .eventLink.livesports {
   bottom: 210px;
   z-index: 1;
 }
-html.Newtheme .eventLink.livesports button:nth-child(2) {
-  height: 100px;
-}
 html.Newtheme .eventLink.livesports img {
   -webkit-animation: livesports 4s ease-in-out infinite;
           animation: livesports 4s ease-in-out infinite;
@@ -9354,7 +9351,7 @@ html.Newtheme .eventLink.livesports img {
   width: 200px;
 }
 html.Newtheme .eventLink.livesports .icon-close {
-  top: 32px;
+  top: 10px;
   background: #cecece;
   color: rgb(92, 92, 92);
 }
@@ -9407,7 +9404,7 @@ html.Newtheme .eventLink.eurocup img {
   width: 180px;
 }
 html.Newtheme .eventLink.eurocup .icon-close {
-  top: -6px;
+  top: -15px;
   background: #cecece;
   color: rgb(92, 92, 92);
 }
