@@ -45,7 +45,7 @@ export const defEventPeriod = {
 	casino_SimplePlay: { end: "2022/11/13 11:00:00" },
 	sports_cryptoSports: { end: "2023/02/04 11:00:00" },
 	GPI_Lottery: { end: "2023/02/11 11:00:00" },
-	yee_bet: { start: "2023/02/10 12:00:00" },
+	yee_bet: { end: "2023/02/10 12:00:00" },
 	ap_mini_game: { end: "2024/03/10 12:00:00" },
 	liveCasino_BG: { end: "2023/12/31 22:59:59" },
 	TFGaming: { end: "2023/06/30 12:00:00" },
