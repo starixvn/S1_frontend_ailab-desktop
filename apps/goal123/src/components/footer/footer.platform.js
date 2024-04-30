@@ -227,7 +227,7 @@ const defPlatform = [
 	},
 	{
 		...productList.WCC_CockFighting,
-		imgName: "wcc"
+		imgName: "wcc-cockfighting"
 	}
 ];
 

@@ -1131,11 +1131,11 @@ export const defMenuLinks = langId => ({
 				...productList.WCC_CockFighting,
 				displayText: "WCC Cockfighting",
 				menuType: defMenuType.entPage,
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting/wcc.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting/wcc-item.png`,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting/wcc-cockfighting.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/cockfighting/wcc-cockfighting-item.png`,
 				lobbyPage: {
-					bgImg: `${bannerImgUrl}/desktop/img/cockfighting/wcc.png`,
-					hoverImg: `${bannerImgUrl}/desktop/img/cockfighting/wcc-hover.png`
+					bgImg: `${bannerImgUrl}/desktop/img/cockfighting/wcc-cockfighting.png`,
+					hoverImg: `${bannerImgUrl}/desktop/img/cockfighting/wcc-cockfighting-hover.png`
 				},
 				eventIcons: [
 					showEventIcon({
