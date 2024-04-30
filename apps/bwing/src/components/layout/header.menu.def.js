@@ -1199,14 +1199,14 @@ export const defMenuLinks = {
 			{
 				...productList.WCC_CockFighting,
 				className: "cockfighting",
-				lobbyImg: "wcc.png",
+				lobbyImg: "wcc-cockfighting.png",
 				displayText: "WCC Cockfighting",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.WCC_CockFighting },
 				lobbyPage: {
 					bgClass: "cockfighting"
 				},
-				img: "cockfighting/wcc.png",
+				img: "cockfighting/wcc-cockfighting.png",
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
