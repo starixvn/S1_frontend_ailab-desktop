@@ -25,12 +25,7 @@ const FooterProvider = () => {
 		{ id: "spribe", base: "spribe.png", hover: "spribe-a.png" },
 		{ id: "es", base: "es.png", hover: "es-a.png" },
 		{ id: "world", base: "world.png", hover: "world-a.png" },
-		{ id: "fachai", base: "fachai.png", hover: "fachai-a.png" },
-		{
-			id: "wcc-cockFighting",
-			base: "wcc-cockfighting.png",
-			hover: "wcc-cockfighting-a.png"
-		}
+		{ id: "fachai", base: "fachai.png", hover: "fachai-a.png" }
 	];
 
 	const handleMouseEnter = id => {
