@@ -19,13 +19,13 @@ import { bannerImgUrl, sportsImgUrl } from "../../config";
 import { eventPeriods } from "../../datas/eventDef";
 import usePopBox from "../hook/usePopBox";
 import { DIRECTIONS_TYPE, predictTabs } from "./def";
-import TicketOverview from "./ticketOverview";
-import PredictList from "./predict/predictLIst";
-import TeamSelector from "./predict/teamSelector";
-import PredictionRecord from "./predict/predictionRecord";
-import Directions from "./directions";
+import TicketOverview from "./TicketOverview";
+import PredictLIst from "./predict/PredictLIst";
+import TeamSelector from "./predict/TeamSelector";
+import PredictionRecord from "./predict/PredictionRecord";
+import Directions from "./Directions";
 import RewardItem from "./reward/RewardItem";
-import Schedule from "./schedule/schedule";
+import Schedule from "./schedule/Schedule";
 
 const EuroCup = () => {
 	const { t } = useTranslation();
@@ -335,7 +335,7 @@ const EuroCup = () => {
 								/>
 							</a>
 						</div>
-						<PredictList ticketSummary={ticketSummary} />
+						<PredictLIst ticketSummary={ticketSummary} />
 					</div>
 				)}
 

@@ -11,7 +11,7 @@ import {
 	groupTeamName,
 	predictTabs
 } from "../def";
-import GroupRow from "./groupRow";
+import GroupRow from "./GroupRow";
 
 const mergeTeamsWithDefaults = (customTeams, defaultTeams) => {
 	const teamMap = new Map(defaultTeams.map(team => [team.sort, team]));
