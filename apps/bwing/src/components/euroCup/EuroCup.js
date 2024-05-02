@@ -16,11 +16,11 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import { eventPerios } from "../../datas/eventDef";
 import usePopBox from "../hook/usePopBox";
 import TopTwoPredictions from "./predict/TopTwoPredictions";
-import PredictionRecord from "./predict/predictionRecord";
-import TeamSelector from "./predict/teamSelector";
-import TopContent from "./topContent";
-import Mission from "./mission";
-import Directions from "./directions";
+import PredictionRecord from "./predict/PredictionRecord";
+import TeamSelector from "./predict/TeamSelector";
+import TopContent from "./TopContent";
+import Mission from "./Mission";
+import Directions from "./Directions";
 
 const EuroCup = () => {
 	const { t } = useTranslation();
@@ -122,8 +122,9 @@ const EuroCup = () => {
 									{t("lbl_CupEvent_PredictScore_unCompleted")}
 								</div>
 								<button
-									onClick={() => setPopBox({ isOpen: false })}
-								>
+									onClick={() =>
+										setPopBox({ isOpen: false })
+									}>
 									{t("lbl_OK")}
 								</button>
 							</div>
@@ -149,8 +150,7 @@ const EuroCup = () => {
 									<button
 										onClick={() =>
 											setPopBox({ isOpen: false })
-										}
-									>
+										}>
 										{t("lbl_CANCEL")}
 									</button>
 								</div>
@@ -223,8 +223,9 @@ const EuroCup = () => {
 									{t("lbl_OK")}
 								</button>
 								<button
-									onClick={() => setPopBox({ isOpen: false })}
-								>
+									onClick={() =>
+										setPopBox({ isOpen: false })
+									}>
 									{t("lbl_Cancel")}
 								</button>
 							</div>
@@ -269,8 +270,7 @@ const EuroCup = () => {
 			<div
 				className={classNames("mission-wrapper", {
 					submit: isDateRange(eventPerios.predictScore)
-				})}
-			>
+				})}>
 				<div className="mission-content">
 					<div className="title">
 						<span>{t("lbl_CupEvent_Mission")}</span>
