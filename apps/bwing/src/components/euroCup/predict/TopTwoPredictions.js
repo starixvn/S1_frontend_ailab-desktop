@@ -6,7 +6,7 @@ import { isDateRange } from "@ailab-desktop/common";
 import { bannerImgUrl, sportsImgUrl } from "../../../config";
 import { eventPerios } from "../../../datas/eventDef";
 import { predictTabs } from "../def";
-import Schedule from "../schedule/schedule";
+import Schedule from "../schedule/Schedule";
 
 const TopTwoPredictions = ({
 	predictScoreList,
