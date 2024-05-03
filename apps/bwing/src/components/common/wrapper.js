@@ -122,7 +122,7 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 				errorPopBox();
 			}
 		);
-	}, [userInfo.isLogin, userInfo.langId]);
+	}, [userInfo.langId]);
 
 	useEffect(() => {
 		IS_LOGGED_IN().then(isLogin => {
@@ -174,21 +174,11 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 				}
 			}
 
-			if (isLogin !== userInfo.isLogin && isMountedRef.current) {
-				setUserInfo(prevState => ({
-					...prevState,
-					isLogin
-				}));
+			if (isMountedRef.current) {
+				setUserInfo(prevState => ({ ...prevState, isLogin }));
 			}
 		});
-	}, [
-		userInfo.isLogin,
-		userInfo.kickout,
-		userInfo.willLogout,
-		setUserInfo,
-		setRedirectPath,
-		setPopBox
-	]);
+	}, [userInfo.kickout, userInfo.willLogout]);
 
 	useEffect(() => {
 		if (userInfo.isLogin) {
