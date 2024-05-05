@@ -31,7 +31,7 @@ const useTopWinnerList = () => {
 				}),
 				api_events_GetLeaderboardList({
 					...payload,
-					lBCategoryId: 10
+					lBCategoryId: leaderboardId.Sports
 				}),
 				api_events_GetLeaderboardList({
 					...payload,
