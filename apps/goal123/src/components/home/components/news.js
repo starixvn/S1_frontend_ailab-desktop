@@ -26,7 +26,7 @@ const News = () => {
 		api_news_GetNews({
 			langId: userInfo.langId,
 			PageNumber: 1,
-			PageSize: 3,
+			PageSize: 2,
 			currencyId
 		}).then(
 			res => {
@@ -53,7 +53,8 @@ const News = () => {
 				<div className="home-title">{t("lbl_News")}</div>
 				<Link
 					to={`/${userInfo.langId}/${path.news.root}`}
-					className="btn-more-text">
+					className="btn-more-text"
+				>
 					{t("lbl_Home_More")}
 					<i className="icon-dropdown" />
 				</Link>
@@ -64,7 +65,8 @@ const News = () => {
 						<a
 							className="item"
 							key={`index-news-${item.newsId}-${userInfo.langId}`}
-							href={`/${userInfo.langId}/${path.news.root}/${path.news.sub.newsInfo.root}?newsId=${item.newsId}`}>
+							href={`/${userInfo.langId}/${path.news.root}/${path.news.sub.newsInfo.root}?newsId=${item.newsId}`}
+						>
 							<div className="news-img">
 								<img
 									src={item.imageURL}
