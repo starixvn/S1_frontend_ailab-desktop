@@ -44,6 +44,7 @@ import News from "./news";
 import { api_news_GetNews } from "../../service/api/news";
 import { eventPerios } from "../../datas/eventDef";
 import DragonEgg from "../dragonEgg/homeLink";
+import useAppDownLoad from "../appDownload/useAppDownLoad";
 
 const Home = () => {
 	const { t } = useTranslation();
@@ -56,7 +57,7 @@ const Home = () => {
 
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
 	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
-
+	const { appLinkDatas } = useAppDownLoad();
 	const { videoList } = useGetVideo({
 		langId: userInfo.langId,
 		isMounted: isMountedRef.current
@@ -513,7 +514,7 @@ const Home = () => {
 							recentlyViewedGames={recentlyViewedGames}
 						/>
 					)}
-					<HomeDownLoad />
+					<HomeDownLoad appLinkDatas={appLinkDatas} />
 					<LiveSports videoList={videoList} />
 					<News news={news} />
 				</div>
@@ -551,7 +552,10 @@ const Home = () => {
 
 			<SideBarContactUs />
 
-			<SideBarDownload langId={userInfo.langId} />
+			<SideBarDownload
+				langId={userInfo.langId}
+				appLinkDatas={appLinkDatas}
+			/>
 		</>
 	);
 };
