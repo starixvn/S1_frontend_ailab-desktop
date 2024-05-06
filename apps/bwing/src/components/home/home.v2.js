@@ -261,7 +261,6 @@ const Home = () => {
 		getHotEventList();
 		getLeaderBoardList();
 		getHotGameList();
-		getRecentlyViewedGames();
 		getNews();
 
 		timeRef.current = setInterval(() => {
@@ -482,6 +481,12 @@ const Home = () => {
 			});
 		}
 	}, []);
+
+	useEffect(() => {
+		if (userInfo.isLogin) {
+			getRecentlyViewedGames();
+		}
+	}, [userInfo.isLogin]);
 
 	return (
 		<>
