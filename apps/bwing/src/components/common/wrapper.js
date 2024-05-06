@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import * as ct from "./context";
@@ -44,7 +45,7 @@ const defaultPathLang = () => {
 	return result;
 };
 
-export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
+const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 	const { t, i18n } = useTranslation();
 	const [popBox, setPopBox] = useState({
 		isOpen: false,
@@ -121,7 +122,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				errorPopBox();
 			}
 		);
-	}, [userInfo.isLogin, userInfo.langId]);
+	}, [userInfo.langId]);
 
 	useEffect(() => {
 		IS_LOGGED_IN().then(isLogin => {
@@ -148,7 +149,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -172,21 +174,11 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				}
 			}
 
-			if (isLogin !== userInfo.isLogin && isMountedRef.current) {
-				setUserInfo(prevState => ({
-					...prevState,
-					isLogin
-				}));
+			if (isMountedRef.current) {
+				setUserInfo(prevState => ({ ...prevState, isLogin }));
 			}
 		});
-	}, [
-		userInfo.isLogin,
-		userInfo.kickout,
-		userInfo.willLogout,
-		setUserInfo,
-		setRedirectPath,
-		setPopBox
-	]);
+	}, [userInfo.kickout, userInfo.willLogout]);
 
 	useEffect(() => {
 		if (userInfo.isLogin) {
@@ -341,51 +333,83 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	);
 
 	if (redirectPath === null) {
-		if (
-			(correctPath &&
-				((afterLogin === true && userInfo.isLogin) || !afterLogin)) ||
-			(afterLogin && userInfo.isLogin === false && userInfo.kickout)
-		) {
-			return (
-				<ct.popUpMsgContext.Provider value={{ setPopUp, popUp }}>
-					<ct.maintainListContext.Provider
-						value={{ allMaintainList }}>
-						<ct.productTpIdsContext.Provider
-							value={{ productTpIds }}>
-							<ct.userInfoContext.Provider
-								value={{ userInfo, setUserInfo }}>
-								<ct.walletInfoContext.Provider
-									value={{
-										...walletInfo.state,
-										dispatch: walletInfo.dispatch
-									}}>
-									<ct.msgCountContext.Provider
-										value={{ msgCount, setMsgCount }}>
-										<ct.popBoxContext.Provider
-											value={{ popBox, setPopBox }}>
-											<ct.loadingContext.Provider
-												value={{ loading, setLoading }}>
-												<ct.isRootContext.Provider
+		return (
+			<>
+				{((correctPath &&
+					((afterLogin === true && userInfo.isLogin) ||
+						!afterLogin)) ||
+					(afterLogin &&
+						userInfo.isLogin === false &&
+						userInfo.kickout)) && (
+					<ct.popUpMsgContext.Provider value={{ setPopUp, popUp }}>
+						<ct.maintainListContext.Provider
+							value={{ allMaintainList }}
+						>
+							<ct.productTpIdsContext.Provider
+								value={{ productTpIds }}
+							>
+								<ct.userInfoContext.Provider
+									value={{ userInfo, setUserInfo }}
+								>
+									<ct.walletInfoContext.Provider
+										value={{
+											...walletInfo.state,
+											dispatch: walletInfo.dispatch
+										}}
+									>
+										<ct.msgCountContext.Provider
+											value={{
+												msgCount,
+												setMsgCount
+											}}
+										>
+											<ct.popBoxContext.Provider
+												value={{
+													popBox,
+													setPopBox
+												}}
+											>
+												<ct.loadingContext.Provider
 													value={{
-														isRoot,
-														setIsRoot
-													}}>
-													<SEO />
-													<ThirdPartyJS />
-													{children}
-												</ct.isRootContext.Provider>
-											</ct.loadingContext.Provider>
-										</ct.popBoxContext.Provider>
-									</ct.msgCountContext.Provider>
-								</ct.walletInfoContext.Provider>
-							</ct.userInfoContext.Provider>
-						</ct.productTpIdsContext.Provider>
-					</ct.maintainListContext.Provider>
-				</ct.popUpMsgContext.Provider>
-			);
-		}
-		return <ThirdPartyJS />;
+														loading,
+														setLoading
+													}}
+												>
+													<ct.isRootContext.Provider
+														value={{
+															isRoot,
+															setIsRoot
+														}}
+													>
+														<SEO />
+														{children}
+													</ct.isRootContext.Provider>
+												</ct.loadingContext.Provider>
+											</ct.popBoxContext.Provider>
+										</ct.msgCountContext.Provider>
+									</ct.walletInfoContext.Provider>
+								</ct.userInfoContext.Provider>
+							</ct.productTpIdsContext.Provider>
+						</ct.maintainListContext.Provider>
+					</ct.popUpMsgContext.Provider>
+				)}
+				<ThirdPartyJS />
+			</>
+		);
 	}
 	navigate(redirectPath);
 	return [];
 };
+
+Wrapper.propTypes = {
+	children: PropTypes.node.isRequired,
+	afterLogin: PropTypes.bool,
+	onlyBeforeLogin: PropTypes.bool
+};
+
+Wrapper.defaultProps = {
+	afterLogin: false,
+	onlyBeforeLogin: false
+};
+
+export default Wrapper;
