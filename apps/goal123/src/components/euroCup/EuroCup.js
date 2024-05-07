@@ -20,7 +20,7 @@ import { eventPeriods } from "../../datas/eventDef";
 import usePopBox from "../hook/usePopBox";
 import { DIRECTIONS_TYPE, predictTabs } from "./def";
 import TicketOverview from "./TicketOverview";
-import PredictLIst from "./predict/PredictLIst";
+import PredictList from "./predict/predictList";
 import TeamSelector from "./predict/TeamSelector";
 import PredictionRecord from "./predict/PredictionRecord";
 import Directions from "./Directions";
@@ -244,7 +244,8 @@ const EuroCup = () => {
 
 						<div
 							className="close-btn"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							<img
 								src={`${bannerImgUrl}/desktop/img/event/eurocup/close-circle.png`}
 								alt="close-circle"
@@ -267,7 +268,8 @@ const EuroCup = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -295,14 +297,16 @@ const EuroCup = () => {
 						className={classNames({
 							active: activeTab === predictTabs.prediction
 						})}
-						onClick={() => setActiveTab(predictTabs.prediction)}>
+						onClick={() => setActiveTab(predictTabs.prediction)}
+					>
 						{t("lbl_CupEvent_Prediction")}
 					</button>
 					<button
 						className={classNames({
 							active: activeTab === predictTabs.schedule
 						})}
-						onClick={() => setActiveTab(predictTabs.schedule)}>
+						onClick={() => setActiveTab(predictTabs.schedule)}
+					>
 						{t("lbl_CupEvent_Schedule")}
 					</button>
 				</div>
@@ -327,7 +331,8 @@ const EuroCup = () => {
 												isOpen: true,
 												popBoxType: defPopBoxType.Login
 										  });
-								}}>
+								}}
+							>
 								<span>{t("lbl_DepositNow")}</span>
 								<img
 									src={`${bannerImgUrl}/desktop/img/event/eurocup/arrow-right.png`}
@@ -335,7 +340,7 @@ const EuroCup = () => {
 								/>
 							</a>
 						</div>
-						<PredictLIst ticketSummary={ticketSummary} />
+						<PredictList ticketSummary={ticketSummary} />
 					</div>
 				)}
 
