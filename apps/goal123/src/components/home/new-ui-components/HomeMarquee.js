@@ -7,7 +7,7 @@ import { userInfoContext, popBoxContext } from "../../common/context";
 import { GET_LANG_ID } from "../../../service/language";
 import { getCurrencyCode } from "../../common/common";
 
-// /api/Message/GetAnnouncement/{langId}
+// api use here : /api/Message/GetAnnouncement/{langId}
 
 const HomeMarquee = () => {
 	const [datas, setDatas] = useState([]);
