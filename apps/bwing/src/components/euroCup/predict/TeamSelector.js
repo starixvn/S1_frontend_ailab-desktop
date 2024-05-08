@@ -28,7 +28,7 @@ const TeamSelector = ({
 				})}
 			>
 				<div className="close-text">
-					{t("lbl_CupEvent_Prediction_DateLineTip")}
+					{t("lbl_CupEvent_DateLineTip")}
 				</div>
 
 				{options?.map(({ countryId, countryName, imageName }) => (
