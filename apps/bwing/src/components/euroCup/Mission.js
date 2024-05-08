@@ -12,9 +12,19 @@ import ProgressBar from "./components/ProgressBar";
 const Mission = ({
 	activeTab,
 	setActiveTab,
-	promotionMission,
+	promotionMission = [],
 	cupEventPromotionMissionProgress
 }) => {
+	const missionData1 =
+		promotionMission.find(mission => mission.missionNo === 1) || {};
+	const missionData2 =
+		promotionMission.find(mission => mission.missionNo === 2) || {};
+	const missionData3 =
+		promotionMission.find(mission => mission.missionNo === 3) || {};
+
+	const missionData5 =
+		promotionMission.find(mission => mission.missionNo === 5) || {};
+
 	const { userInfo } = useContext(userInfoContext);
 	const { t } = useTranslation();
 
@@ -28,7 +38,7 @@ const Mission = ({
 	};
 
 	const getVerifyProgressWidth = () => {
-		if (promotionMission?.[0]?.isCompleted) {
+		if (missionData1.isCompleted) {
 			return "100%";
 		}
 		if (userInfo.isLogin) {
@@ -47,7 +57,8 @@ const Mission = ({
 							active: activeTab === number && number !== 5,
 							five: activeTab === number && number === 5
 						})}
-						onClick={() => setActiveTab(number)}>
+						onClick={() => setActiveTab(number)}
+					>
 						{t("lbl_CupEvent_Mission")} {number}
 						{number < 5 && (
 							<img
@@ -62,7 +73,8 @@ const Mission = ({
 				<div
 					className={classNames("mission-one", {
 						close: activeTab !== 1
-					})}>
+					})}
+				>
 					<div className="ticket-title">
 						{" "}
 						{t("lbl_CupEvent_GetTickets", { count: 1 })}
@@ -94,12 +106,12 @@ const Mission = ({
 						</div>
 						<img
 							src={`${bannerImgUrl}/desktop/img/event/eurocup/${
-								promotionMission?.[0]?.isCompleted
+								missionData1?.isCompleted
 									? "done-yellow"
 									: "done-grey"
 							}.png`}
 							alt={
-								promotionMission?.[0]?.isCompleted
+								missionData1?.isCompleted
 									? "done-yellow"
 									: "done-grey"
 							}
@@ -125,7 +137,7 @@ const Mission = ({
 							/>
 							<div>
 								<span>{t("lbl_Completed")}</span>
-								<span>{t("lbl_CupEvent_Mission_Verify")}</span>
+								<span>{t("lbl_CupEvebnt_Verify")}</span>
 							</div>
 						</div>
 					</div>
@@ -133,7 +145,8 @@ const Mission = ({
 				<div
 					className={classNames("mission-two", {
 						close: activeTab !== 2
-					})}>
+					})}
+				>
 					<div className="ticket-title">
 						{" "}
 						{t("lbl_CupEvent_GetTickets", { count: 1 })}
@@ -148,7 +161,7 @@ const Mission = ({
 								<span>{t("lbl_CupEvent_MakeAtLeast")}</span>
 								<span>
 									{numFormatToDigits(
-										promotionMission?.[1]?.depositAmount,
+										missionData2?.depositAmount,
 										0
 									)}{" "}
 									VND
@@ -162,7 +175,8 @@ const Mission = ({
 									navigate(
 										`/${userInfo.langId}/${path.deposit.root}`
 									)
-								}>
+								}
+							>
 								{t("lbl_Deposit")}
 							</button>
 						</div>
@@ -170,12 +184,11 @@ const Mission = ({
 							<div
 								className="progress-bar"
 								style={{
-									width: promotionMission?.[1]?.isCompleted
+									width: missionData2?.isCompleted
 										? "100%"
 										: getDepositProgressWidth(
 												cupEventPromotionMissionProgress?.depositAmount,
-												promotionMission?.[1]
-													?.depositAmount
+												missionData2?.depositAmount
 										  )
 								}}
 							/>
@@ -184,10 +197,9 @@ const Mission = ({
 							<div>{t("lbl_CupEvent_CurrentlyAccumulated")}</div>
 							<div>
 								<span>
-									{promotionMission?.[1]?.isCompleted
+									{missionData2?.isCompleted
 										? numFormatToDigits(
-												promotionMission?.[1]
-													?.depositAmount,
+												missionData2?.depositAmount,
 												0
 										  )
 										: numFormatToDigits(
@@ -197,7 +209,7 @@ const Mission = ({
 								</span>{" "}
 								/{" "}
 								{numFormatToDigits(
-									promotionMission?.[1]?.depositAmount,
+									missionData2?.depositAmount,
 									0
 								)}{" "}
 								VND
@@ -208,7 +220,8 @@ const Mission = ({
 				<div
 					className={classNames("mission-three", {
 						close: activeTab !== 3
-					})}>
+					})}
+				>
 					<div className="ticket-title">
 						{" "}
 						{t("lbl_CupEvent_GetTickets", { count: 1 })}
@@ -223,7 +236,7 @@ const Mission = ({
 								<span>{t("lbl_CupEvent_MakeAtLeast")} </span>
 								<span>
 									{numFormatToDigits(
-										promotionMission?.[2]?.depositAmount,
+										missionData3?.depositAmount,
 										0
 									)}{" "}
 									VND
@@ -237,7 +250,8 @@ const Mission = ({
 									navigate(
 										`/${userInfo.langId}/${path.deposit.root}`
 									)
-								}>
+								}
+							>
 								{t("lbl_Deposit")}
 							</button>
 						</div>
@@ -245,12 +259,11 @@ const Mission = ({
 							<div
 								className="progress-bar"
 								style={{
-									width: promotionMission?.[2]?.isCompleted
+									width: missionData3?.isCompleted
 										? "100%"
 										: getDepositProgressWidth(
 												cupEventPromotionMissionProgress?.depositAmount,
-												promotionMission?.[2]
-													?.depositAmount
+												missionData3?.depositAmount
 										  )
 								}}
 							/>
@@ -259,10 +272,9 @@ const Mission = ({
 							<div>{t("lbl_CupEvent_CurrentlyAccumulated")}</div>
 							<div>
 								<span>
-									{promotionMission?.[2]?.isCompleted
+									{missionData3?.isCompleted
 										? numFormatToDigits(
-												promotionMission?.[2]
-													?.depositAmount,
+												missionData3?.depositAmount,
 												0
 										  )
 										: numFormatToDigits(
@@ -272,7 +284,7 @@ const Mission = ({
 								</span>{" "}
 								/{" "}
 								{numFormatToDigits(
-									promotionMission?.[2]?.depositAmount,
+									missionData3?.depositAmount,
 									0
 								)}{" "}
 								VND
@@ -283,7 +295,8 @@ const Mission = ({
 				<div
 					className={classNames("mission-four", {
 						close: activeTab !== 4
-					})}>
+					})}
+				>
 					<div className="ticket-title">
 						{" "}
 						{t("lbl_CupEvent_GetTickets", { count: 2 })}
@@ -331,7 +344,8 @@ const Mission = ({
 				<div
 					className={classNames("mission-five", {
 						close: activeTab !== 5
-					})}>
+					})}
+				>
 					<div className="ticket-title">
 						{t("lbl_CupEvent_GetTickets", { count: 5 })}
 					</div>
@@ -342,8 +356,10 @@ const Mission = ({
 						</div>
 						<ProgressBar
 							cur={
-								cupEventPromotionMissionProgress?.completedBetCount ??
-								0
+								missionData5?.isCompleted
+									? 20
+									: cupEventPromotionMissionProgress?.completedBetCount ??
+									  0
 							}
 							target={20}
 						/>
