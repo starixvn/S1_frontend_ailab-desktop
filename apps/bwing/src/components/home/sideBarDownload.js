@@ -2,12 +2,10 @@ import React from "react";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import QRCode from "qrcode.react";
-import useAppDownLoad from "../appDownload/useAppDownLoad";
 import path from "../../router";
 
-export const SideBarDownload = () => {
+export const SideBarDownload = ({ appLinkDatas }) => {
 	const { t } = useTranslation();
-	const { appLinkDatas } = useAppDownLoad();
 
 	const androidDownLoadUrl = appLinkDatas?.Andriod?.downloadLink ?? "";
 	const IOSDownloadUrl = appLinkDatas?.IOS?.downloadLink ?? "";
@@ -45,6 +43,21 @@ export const SideBarDownload = () => {
 			</div>
 		</div>
 	);
+};
+
+SideBarDownload.defaultProps = {
+	appLinkDatas: undefined
+};
+
+SideBarDownload.propTypes = {
+	appLinkDatas: {
+		Andriod: {
+			downloadLink: ""
+		},
+		IOS: {
+			downloadLink: ""
+		}
+	}
 };
 
 export default SideBarDownload;
