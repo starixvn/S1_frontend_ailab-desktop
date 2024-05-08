@@ -1,6 +1,6 @@
-import React, { useEffect, useContext, useRef } from "react";
+import React, { useContext } from "react";
 import { isDateRange } from "@ailab-desktop/common";
-import { userInfoContext, isRootContext } from "../common/context";
+import { userInfoContext } from "../common/context";
 import { BannerSwipper } from "../common/customSwipper";
 import { defBannerType } from "../../service/api/site";
 import HomeJoin from "./new-ui-components/HomeJoin";
@@ -22,21 +22,10 @@ import usePopupHandler from "./hooks/usePopupHandler";
 import CupEventLink from "./cupEventLink";
 
 const NewHome = () => {
-	const isMountedRef = useRef(null);
 	const { userInfo } = useContext(userInfoContext);
-	const { setIsRoot } = useContext(isRootContext);
 
 	// 彈窗邏輯整合至usePopupHandlerhook
 	usePopupHandler();
-
-	useEffect(() => {
-		isMountedRef.current = true;
-		setIsRoot(true);
-		return () => {
-			isMountedRef.current = false;
-			setIsRoot(false);
-		};
-	}, []);
 
 	const bannerSwipperConfig = {
 		effect: "fade",

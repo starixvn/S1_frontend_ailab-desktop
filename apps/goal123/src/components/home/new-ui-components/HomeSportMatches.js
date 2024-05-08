@@ -104,7 +104,11 @@ const HomeSportMatches = () => {
 						allowFullScreen
 						allow="fullscreen"
 						height="100%"
-						src="https://streamable.com/e/vmq4q3?nocontrols=1"
+						src={
+							userInfo.langId === "en"
+								? "https://streamable.com/e/vmq4q3?nocontrols=1"
+								: "https://streamable.com/e/cixhb8?nocontrols=1"
+						}
 						width="100%"
 						style={{
 							border: "none",

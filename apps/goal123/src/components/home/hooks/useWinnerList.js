@@ -1,6 +1,5 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { api_events_GetLeaderboardList } from "../../../service/api/events";
-import { userInfoContext } from "../../common/context";
 import { leaderboardId } from "../../../datas/leaderboardId";
 
 // api/Events/GetLeaderboardList
@@ -10,8 +9,6 @@ const useTopWinnerList = () => {
 	const [sportTopWinner, setSportTopWinner] = useState([]);
 	const [slotTopWinner, setSlotTopWinner] = useState([]);
 	const [liveCasinoTopWinner, setLiveCasinoTopWinner] = useState([]);
-
-	const { userInfo } = useContext(userInfoContext);
 
 	useEffect(() => {
 		const payload = {
@@ -66,7 +63,7 @@ const useTopWinnerList = () => {
 		};
 
 		getTopWinners();
-	}, [userInfo]);
+	}, []);
 
 	return { winnerList, sportTopWinner, slotTopWinner, liveCasinoTopWinner };
 };
