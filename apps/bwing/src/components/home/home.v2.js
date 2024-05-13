@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
+import classNames from "classnames";
 import { isDateRange } from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
@@ -45,6 +46,7 @@ import { api_news_GetNews } from "../../service/api/news";
 import { eventPerios } from "../../datas/eventDef";
 import DragonEgg from "../dragonEgg/homeLink";
 import useAppDownLoad from "../appDownload/useAppDownLoad";
+import CupEventLink from "../cupEventLink/cupEventLink";
 
 const Home = () => {
 	const { t } = useTranslation();
@@ -520,8 +522,12 @@ const Home = () => {
 				</div>
 			</main>
 			{/* vgaming Home 點擊入口 */}
-			{displayVgaming && (
-				<div className="eventLink vgaming">
+			{displayVgaming && !isDateRange(eventPerios.euroCup) && (
+				<div
+					className={classNames("eventLink vgaming", {
+						eurocup: isDateRange(eventPerios.euroCup)
+					})}
+				>
 					<button
 						style={{ zIndex: 50 }}
 						className="icon-close-primary"
@@ -549,6 +555,9 @@ const Home = () => {
 
 			{/* 僅限過年期間顯示 */}
 			{isDateRange(eventPerios.dragonEgg) && <DragonEgg />}
+
+			{/* 歐冠杯期間顯示 */}
+			{isDateRange(eventPerios.euroCup) && <CupEventLink />}
 
 			<SideBarContactUs />
 
