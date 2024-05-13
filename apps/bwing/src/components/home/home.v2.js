@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
+import classNames from "classnames";
 import { isDateRange } from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
@@ -516,7 +517,11 @@ const Home = () => {
 			</main>
 			{/* vgaming Home 點擊入口 */}
 			{displayVgaming && !isDateRange(eventPerios.euroCup) && (
-				<div className="eventLink vgaming">
+				<div
+					className={classNames("eventLink vgaming", {
+						eurocup: isDateRange(eventPerios.euroCup)
+					})}
+				>
 					<button
 						style={{ zIndex: 50 }}
 						className="icon-close-primary"
