@@ -66,6 +66,7 @@ const EuroCup = () => {
 	// const {
 	// 	data: { data: { data: predictScoreList = [], isPredict } = {} } = {}
 	// } = useGetCupEventPredictScoreQuery(null, { skip: !userInfo.isLogin });
+	// 改成未登入也能在冠軍賽期間看到預測的兩隊國旗圖片
 	const {
 		data: { data: { data: predictScoreList = [], isPredict } = {} } = {}
 	} = useGetCupEventPredictScoreQuery(null);
