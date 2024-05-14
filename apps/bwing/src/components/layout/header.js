@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "gatsby";
+import { Link, navigate } from "gatsby";
 import { isDateRange } from "@ailab-desktop/common";
 import classNames from "classnames";
 import {
@@ -8,12 +8,14 @@ import {
 	maintainListContext,
 	isRootContext
 } from "../common/context";
+import path from "../../router";
 import Menu from "./header.menu";
 import config, { bannerImgUrl } from "../../config";
 import Functions from "./header.functions";
 import { defEventPeriod } from "../common/eventIcon";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { angPaoEventPeriod } from "../../pages/angpao";
+import { eventPerios } from "../../datas/eventDef";
 
 export const eventPeriod = {
 	startDate: "2024-02-01 00:00:00",
@@ -49,7 +51,21 @@ export default () => {
 							alt={config.siteName}
 						/>
 					</Link>
-
+					{/* 歐冠杯期間顯示 */}
+					{isDateRange(eventPerios.euroCup) && (
+						<div
+							onClick={() =>
+								navigate(
+									`/${userInfo.langId}/${path.euroCup.root}`
+								)
+							}
+						>
+							<img
+								src={`${bannerImgUrl}/desktop/img/event/eurocup/euro-logo-gif.webp`}
+								alt="euro-logo-gif"
+							/>
+						</div>
+					)}
 					{/* 僅限過年期間顯示 */}
 					{isDateRange(angPaoEventPeriod) && (
 						<LuckyWheelLink
