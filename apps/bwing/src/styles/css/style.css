@@ -21173,7 +21173,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 .euro .mission-wrapper .mission-box .mission-item .mission-five .subtitle span {
   margin-top: 15px;
   font-size: 15px;
-  color: #6D83D8;
+  color: rgba(255, 255, 255, 0.9);
 }
 .euro .mission-wrapper .mission-box .mission-item .mission-five .stat-circle circle.bg {
   fill: none;
