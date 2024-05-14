@@ -82,7 +82,7 @@ const HomeFooter = () => {
 							<div className="media">
 								{/* facebook */}
 								<a
-									href="https://www.facebook.com/dangcapnhacai.goal123/"
+										href="https://www.facebook.com/goal123.official"
 									target="_blank">
 									<img
 										src={`${bannerImgUrl}/desktop/img/home-page/icon/icon-facebook.svg`}
@@ -90,7 +90,7 @@ const HomeFooter = () => {
 									/>
 								</a>
 								{/* youtube 連結尚未給 */}
-								<a href="">
+								<a href="https://www.youtube.com/@GOAL123VietNam">
 									<img
 										src={`${bannerImgUrl}/desktop/img/home-page/icon/icon-youtube.svg`}
 										alt=""
