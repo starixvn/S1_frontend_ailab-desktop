@@ -726,7 +726,7 @@ const Main = ({
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.ErrorMsg,
-								message: t("msg_ApiServerError"),
+								message: `${res.data.message}`,
 								btnBar: (
 									<div className="btnGroup">
 										<button
@@ -747,7 +747,7 @@ const Main = ({
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
+							message: `${res.data.message}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button
