@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import classNames from "classnames";
 import { string } from "prop-types";
 import { Link } from "gatsby";
 import { isDateRange } from "../common/common";
 import { eventPeriod } from "./luckyWheel.def";
 import path from "../../router";
 import { bannerImgUrl } from "../../config";
+import { eventPerios } from "../../datas/eventDef";
 
 const { startDate, endDate } = eventPeriod;
 const isInPeriod = isDateRange(startDate, endDate);
@@ -30,7 +32,11 @@ const LuckyWheelLink = ({ langId, type }) => {
 
 	return (
 		homeImgOnLoad && (
-			<div className="mywheel">
+			<div
+				className={classNames("mywheel", {
+					eurocup: isDateRange(eventPerios.euroCup)
+				})}
+			>
 				<button
 					style={{ zIndex: 50 }}
 					className="icon-close-primary"
