@@ -63,9 +63,12 @@ const EuroCup = () => {
 		refetchOnMountOrArgChange: true
 	});
 
+	// const {
+	// 	data: { data: { data: predictScoreList = [], isPredict } = {} } = {}
+	// } = useGetCupEventPredictScoreQuery(null, { skip: !userInfo.isLogin });
 	const {
 		data: { data: { data: predictScoreList = [], isPredict } = {} } = {}
-	} = useGetCupEventPredictScoreQuery(null, { skip: !userInfo.isLogin });
+	} = useGetCupEventPredictScoreQuery(null);
 
 	const [pollTicketsMutation] = useMultiUserPollTicketsMutation();
 

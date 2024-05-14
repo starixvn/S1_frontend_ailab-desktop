@@ -81,9 +81,10 @@ const TopTwoPredictions = ({
 							{/* 冠亞軍未知狀況score-flag加上unknown */}
 							<div
 								className={classNames("score-flag", {
-									unknown: !isDateRange(
-										eventPerios.predictScore
-									)
+									unknown:
+										!isDateRange(
+											eventPerios.predictScore
+										) || predictScoreList.length === 0
 								})}
 							>
 								<img
@@ -130,9 +131,10 @@ const TopTwoPredictions = ({
 									*/}
 							<div
 								className={classNames("score-flag", {
-									unknown: !isDateRange(
-										eventPerios.predictScore
-									)
+									unknown:
+										!isDateRange(
+											eventPerios.predictScore
+										) || predictScoreList.length === 0
 								})}
 							>
 								<img
