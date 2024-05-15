@@ -174,16 +174,57 @@ html.Newtheme header .logo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   z-index: 1;
 }
-html.Newtheme header .logo img:nth-child(1) {
-  max-width: 175px;
-  height: auto;
-}
 html.Newtheme header .logo.eurocup-logo > div:last-child {
-  margin: 5px 0 0 6px;
+  margin: 5px 0 0 6cqw;
 }
 html.Newtheme header .logo.eurocup-logo > div:last-child img {
+  max-width: 120px;
+}
+html.Newtheme header .logo > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-right: 17px;
+  position: relative;
+}
+html.Newtheme header .logo > div:first-child::after {
+  content: "";
+  display: inline-block;
+  width: 1.5px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+html.Newtheme header .logo > div:first-child img {
+  max-width: 170px;
+  height: auto;
+}
+html.Newtheme header .logo > div:first-child span {
+  color: #fff;
+  margin-top: 4px;
+  text-align: center;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+html.Newtheme header .logo-eurocup {
+  margin: 5px 0 0 10px;
+}
+html.Newtheme header .logo-eurocup img {
   max-width: 120px;
 }
 html.Newtheme header .header {
@@ -13275,15 +13316,12 @@ html.Newtheme main .home-popularslots .popularslots-inner .variation .item > div
 }
 html.Newtheme main .home-leaderboard {
   margin: 30px 0 80px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   position: relative;
   width: 100%;
   padding-bottom: 70px;
+}
+html.Newtheme main .home-leaderboard .home-title {
+  text-align: left;
 }
 html.Newtheme main .home-leaderboard::after {
   content: "";
@@ -13298,16 +13336,6 @@ html.Newtheme main .home-leaderboard::after {
 }
 html.Newtheme main .home-leaderboard-wrapper {
   width: 1400px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
   padding: 0 18px 30px;
   border-radius: 15px;
   -webkit-box-sizing: border-box;
@@ -13315,12 +13343,24 @@ html.Newtheme main .home-leaderboard-wrapper {
   position: relative;
   z-index: 1;
   background: #fff;
+  margin: 0 auto;
 }
 html.Newtheme main .home-leaderboard-wrapper .home-title {
   text-align: left;
   margin: 0 0 34px;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-products {
+html.Newtheme main .home-leaderboard-wrapper .winner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+html.Newtheme main .home-leaderboard-wrapper .winner-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13331,9 +13371,11 @@ html.Newtheme main .home-leaderboard-wrapper .win-products {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 495px;
+  -webkit-box-flex: 60%;
+      -ms-flex: 60%;
+          flex: 60%;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-products .inner {
+html.Newtheme main .home-leaderboard-wrapper .winner-left .inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13342,17 +13384,17 @@ html.Newtheme main .home-leaderboard-wrapper .win-products .inner {
       -ms-flex-direction: row;
           flex-direction: row;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item {
+html.Newtheme main .home-leaderboard-wrapper .winner-left .inner .item {
   margin: 0 6px;
   position: relative;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item:first-child {
+html.Newtheme main .home-leaderboard-wrapper .winner-left .inner .item:first-child {
   margin-left: unset;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item:last-child {
+html.Newtheme main .home-leaderboard-wrapper .winner-left .inner .item:last-child {
   margin-right: unset;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item .title {
+html.Newtheme main .home-leaderboard-wrapper .winner-left .inner .item .title {
   text-transform: uppercase;
   font-weight: 700;
   padding: 6px 16px;
@@ -13363,16 +13405,7 @@ html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item .title {
   right: 0;
   top: 52px;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item.sports .title {
-  background: #175DAA;
-}
-html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item.casino .title {
-  background: #8E009A;
-}
-html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item.slots .title {
-  background: #850000;
-}
-html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item .user-data {
+html.Newtheme main .home-leaderboard-wrapper .winner-left .inner .item .user-data {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13380,40 +13413,40 @@ html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item .user-da
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
-html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item .user-data span {
+html.Newtheme main .home-leaderboard-wrapper .winner-left .inner .item .user-data span {
   display: inline-block;
   font-weight: 700;
   color: #fff;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item .user-data span:first-child {
+html.Newtheme main .home-leaderboard-wrapper .winner-left .inner .item .user-data span:first-child {
   font-style: italic;
-  font-size: 17px;
+  font-size: 18px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
-html.Newtheme main .home-leaderboard-wrapper .win-products .inner .item .user-data span:last-child {
+html.Newtheme main .home-leaderboard-wrapper .winner-left .inner .item .user-data span:last-child {
   letter-spacing: 1.02px;
-  font-size: 22px;
+  font-size: 23px;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
 }
-html.Newtheme main .home-leaderboard-wrapper .win-total {
+html.Newtheme main .home-leaderboard-wrapper .winner-right {
   width: 48%;
   margin-left: 28px;
-  height: 495px;
   overflow: hidden;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-total .user-ranking {
-  max-height: 400px;
+html.Newtheme main .home-leaderboard-wrapper .winner-right .user-ranking {
+  max-height: 355px;
   overflow-y: scroll;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-total .user-list {
+html.Newtheme main .home-leaderboard-wrapper .winner-right .user-list {
   background: rgba(40, 73, 133, 0.8);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13432,11 +13465,11 @@ html.Newtheme main .home-leaderboard-wrapper .win-total .user-list {
   padding: 14px 20px;
   margin-bottom: 6px;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-total .user-list.top {
+html.Newtheme main .home-leaderboard-wrapper .winner-right .user-list.top {
   background: -webkit-gradient(linear, left top, right top, from(rgb(207, 0, 0)), to(rgb(251, 181, 19)));
   background: linear-gradient(90deg, rgb(207, 0, 0) 0%, rgb(251, 181, 19) 100%);
 }
-html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .left {
+html.Newtheme main .home-leaderboard-wrapper .winner-right .user-list .left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13448,7 +13481,7 @@ html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .left {
       -ms-flex-align: center;
           align-items: center;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .left .order {
+html.Newtheme main .home-leaderboard-wrapper .winner-right .user-list .left .order {
   width: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13461,11 +13494,11 @@ html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .left .order 
   color: #fff;
   text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.4);
 }
-html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .left .order > img {
+html.Newtheme main .home-leaderboard-wrapper .winner-right .user-list .left .order > img {
   width: 70px;
   height: 45px;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .right {
+html.Newtheme main .home-leaderboard-wrapper .winner-right .user-list .right {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13473,7 +13506,7 @@ html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .right {
       -ms-flex-align: center;
           align-items: center;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .right .icon-cash::after {
+html.Newtheme main .home-leaderboard-wrapper .winner-right .user-list .right .icon-cash::after {
   content: "";
   display: inline-block;
   width: 28px;
@@ -13481,13 +13514,13 @@ html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .right .icon-
   background: url(https://banner.goal123.org/desktop/img/home-page/money.png) no-repeat center/contain;
   margin-right: 6px;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-total .user-list .right span {
+html.Newtheme main .home-leaderboard-wrapper .winner-right .user-list .right span {
   display: inline-block;
   font-size: 18px;
   font-weight: 700;
   color: #fff;
 }
-html.Newtheme main .home-leaderboard-wrapper .win-total .user-id {
+html.Newtheme main .home-leaderboard-wrapper .winner-right .user-id {
   color: #fff;
   font-weight: 400;
   font-size: 15px;

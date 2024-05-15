@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { Link, navigate } from "gatsby";
+import { navigate } from "gatsby";
+import { useTranslation } from "react-i18next";
 import { isDateRange } from "@ailab-desktop/common";
-import classNames from "classnames";
 import {
 	userInfoContext,
 	productTpIdsContext,
@@ -27,33 +27,31 @@ export default () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { isRoot } = useContext(isRootContext);
 	const { allMaintainList } = useContext(maintainListContext);
+	const { t } = useTranslation();
 
 	const reload = () => {
 		if (isRoot) {
 			window.location.reload();
+		} else {
+			navigate(`/${langId}`);
 		}
 	};
 
 	return (
 		<header>
 			<div className="header">
-				<div
-					className={classNames("logo", {
-						"eurocup-logo": isDateRange(eventPeriods.euroCup)
-					})}>
-					<Link to={`/${langId}`} onClick={reload}>
+				<div className="logo">
+					<div onClick={reload} style={{ cursor: "pointer " }}>
 						<img
-							src={`${bannerImgUrl}/desktop/img/${
-								isDateRange(eventPeriods.euroCup)
-									? "event/eurocup/goal123-logo"
-									: "logo"
-							}.png`}
+							src={`${bannerImgUrl}/desktop/img/logo.png`}
 							alt={config.siteName}
 						/>
-					</Link>
-					{/* 歐冠杯期間顯示 */}
+						<span>{t("Label_Header_HarvestWealth")}</span>
+					</div>
+					{/* 調整結構，日後有活動logo改下面這段即可 */}
 					{isDateRange(eventPeriods.euroCup) && (
 						<div
+							className="logo-eurocup"
 							style={{ cursor: "pointer" }}
 							onClick={() =>
 								navigate(`/${langId}/${path.euroCup.root}`)
