@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { navigate } from "gatsby";
 import moment from "moment";
+import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import {
 	useGetCupEventPredictionSettingQuery,
@@ -10,20 +11,21 @@ import {
 	useMultiUserPollTicketsMutation
 } from "@ailab-desktop/service";
 import { isDateRange } from "@ailab-desktop/common";
-import paths from "../../router";
 import { popBoxContext, userInfoContext } from "../common/context";
-import usePopBox from "../hook/usePopBox";
-import PredictList from "./predict/predictLIst";
-import TicketOverview from "./ticketOverview";
-import TeamSelector from "./predict/teamSelector";
-import PredictionRecord from "./predict/predictionRecord";
-import { DIRECTIONS_TYPE } from "./def";
-import Directions from "./directions";
-import RewardItem from "./reward/RewardItem";
-import { bannerImgUrl, sportsImgUrl } from "../../config";
-import defPopBoxType from "../common/defPopBoxType";
 import { numFormatToDigits } from "../common/common";
+import defPopBoxType from "../common/defPopBoxType";
+import paths from "../../router";
+import { bannerImgUrl, sportsImgUrl } from "../../config";
 import { eventPeriods } from "../../datas/eventDef";
+import usePopBox from "../hook/usePopBox";
+import { DIRECTIONS_TYPE, predictTabs } from "./def";
+import TicketOverview from "./TicketOverview";
+import PredictList from "./predict/predictList";
+import TeamSelector from "./predict/TeamSelector";
+import PredictionRecord from "./predict/PredictionRecord";
+import Directions from "./Directions";
+import RewardItem from "./reward/RewardItem";
+import Schedule from "./schedule/Schedule";
 
 const EuroCup = () => {
 	const { t } = useTranslation();
@@ -36,9 +38,20 @@ const EuroCup = () => {
 	const [directionsType, setDirectionsType] = useState(
 		DIRECTIONS_TYPE.TERMS_AND_CONDITIONS
 	);
+	const [activeTab, setActiveTab] = useState(predictTabs.prediction);
 
-	const { data: { data: predictionSettingData = {} } = {} } =
-		useGetCupEventPredictionSettingQuery({ langId: userInfo.langId });
+	const {
+		data: {
+			data: {
+				selectOptions = {},
+				top24Team = [],
+				roundOf16 = [],
+				quarterFinals = [],
+				semiFinals = [],
+				final = []
+			} = {}
+		} = {}
+	} = useGetCupEventPredictionSettingQuery({ langId: userInfo.langId });
 
 	const { data: { data: ticketSummary = [] } = {} } =
 		useGetCupEventTicketSummaryQuery(
@@ -72,7 +85,7 @@ const EuroCup = () => {
 
 	const combineGroups = data => [].concat(...Object.values(data ?? {}));
 
-	const options = combineGroups(predictionSettingData?.selectOptions);
+	const options = combineGroups(selectOptions);
 
 	const usedTickets = tickets.userTicketResult?.groupCountryTicket
 		?.filter(({ countryId }) => countryId !== null)
@@ -279,34 +292,68 @@ const EuroCup = () => {
 				alt={`top-bn-${userInfo.langId}`}
 			/>
 			<div className="prediction-wrapper">
-				<div className="prediction-content">
-					<div className="prediction-left">
-						<div>{t("lbl_CupEvent_PredictionOfParticipant")}</div>
-						<div>
-							{t("lbl_CupEvent_PredictionOfParticipant_desc")}
-						</div>
-						<a
-							className="deposit-btn-a"
-							onClick={() => {
-								userInfo.isLogin
-									? navigate(
-											`/${userInfo.langId}/${paths.deposit.root}`
-									  )
-									: setPopBox({
-											isOpen: true,
-											popBoxType: defPopBoxType.Login
-									  });
-							}}
-						>
-							<span>{t("lbl_DepositNow")}</span>
-							<img
-								src={`${bannerImgUrl}/desktop/img/event/eurocup/arrow-right.png`}
-								alt="arrow-right"
-							/>
-						</a>
-					</div>
-					<PredictList ticketSummary={ticketSummary} />
+				<div className="prediction-tab">
+					<button
+						className={classNames({
+							active: activeTab === predictTabs.prediction
+						})}
+						onClick={() => setActiveTab(predictTabs.prediction)}
+					>
+						{t("lbl_CupEvent_Prediction")}
+					</button>
+					<button
+						className={classNames({
+							active: activeTab === predictTabs.schedule
+						})}
+						onClick={() => setActiveTab(predictTabs.schedule)}
+					>
+						{t("lbl_CupEvent_Schedule")}
+					</button>
 				</div>
+
+				{activeTab === predictTabs.prediction && (
+					<div className="prediction-content active">
+						<div className="prediction-left">
+							<div>
+								{t("lbl_CupEvent_PredictionOfParticipant")}
+							</div>
+							<div>
+								{t("lbl_CupEvent_PredictionOfParticipant_desc")}
+							</div>
+							<a
+								className="deposit-btn-a"
+								onClick={() => {
+									userInfo.isLogin
+										? navigate(
+												`/${userInfo.langId}/${paths.deposit.root}`
+										  )
+										: setPopBox({
+												isOpen: true,
+												popBoxType: defPopBoxType.Login
+										  });
+								}}
+							>
+								<span>{t("lbl_DepositNow")}</span>
+								<img
+									src={`${bannerImgUrl}/desktop/img/event/eurocup/arrow-right.png`}
+									alt="arrow-right"
+								/>
+							</a>
+						</div>
+						<PredictList ticketSummary={ticketSummary} />
+					</div>
+				)}
+
+				{activeTab === predictTabs.schedule && (
+					<Schedule
+						activeTab={activeTab}
+						top24Team={top24Team}
+						roundOf16={roundOf16}
+						quarterFinals={quarterFinals}
+						semiFinals={semiFinals}
+						final={final}
+					/>
+				)}
 			</div>
 			<div className="ticket-wrapper">
 				<TicketOverview

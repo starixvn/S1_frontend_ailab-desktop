@@ -1,7 +1,7 @@
 import React from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import EuroCup from "../components/euroCup/euroCup";
+import EuroCup from "../components/euroCup/EuroCup";
 import Footer from "../components/footer/footer";
 
 export default () => (
