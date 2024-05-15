@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import PredictItem from "./predictItem";
+import PredictItem from "./PredictItem";
 
 const PredictList = ({ ticketSummary }) => {
 	return (
