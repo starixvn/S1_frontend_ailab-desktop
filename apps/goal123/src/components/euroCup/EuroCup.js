@@ -20,7 +20,7 @@ import { eventPeriods } from "../../datas/eventDef";
 import usePopBox from "../hook/usePopBox";
 import { DIRECTIONS_TYPE, predictTabs } from "./def";
 import TicketOverview from "./TicketOverview";
-import PredictList from "./predict/predictLIst";
+import PredictList from "./predict/PredictLIst";
 import TeamSelector from "./predict/TeamSelector";
 import PredictionRecord from "./predict/PredictionRecord";
 import Directions from "./Directions";
