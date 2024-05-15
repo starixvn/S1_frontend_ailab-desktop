@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import PredictItem from "./PredictItem";
 
-const PredictList = ({ ticketSummary }) => {
+const PredictLIst = ({ ticketSummary }) => {
 	return (
 		<div className="prediction-right">
 			{[0, 4].map(start => (
@@ -22,8 +22,8 @@ const PredictList = ({ ticketSummary }) => {
 	);
 };
 
-PredictList.propTypes = {
+PredictLIst.propTypes = {
 	ticketSummary: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
-export default PredictList;
+export default PredictLIst;
