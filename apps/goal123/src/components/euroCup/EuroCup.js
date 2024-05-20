@@ -20,7 +20,7 @@ import { eventPeriods } from "../../datas/eventDef";
 import usePopBox from "../hook/usePopBox";
 import { DIRECTIONS_TYPE, predictTabs } from "./def";
 import TicketOverview from "./TicketOverview";
-import PredictLIst from "./predict/PredictLIst";
+import PredictList from "./predict/PredictLIst";
 import TeamSelector from "./predict/TeamSelector";
 import PredictionRecord from "./predict/PredictionRecord";
 import Directions from "./Directions";
@@ -340,7 +340,7 @@ const EuroCup = () => {
 								/>
 							</a>
 						</div>
-						<PredictLIst ticketSummary={ticketSummary} />
+						<PredictList ticketSummary={ticketSummary} />
 					</div>
 				)}
 

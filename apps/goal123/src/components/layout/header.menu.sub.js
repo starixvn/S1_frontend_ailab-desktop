@@ -66,24 +66,21 @@ const Menu = ({
 		}
 	};
 
-	const imgRender = ({ bgImgUrl, npcImgUrl, iconImgUrl }) => (
-		<>
-			{bgImgUrl && (
-				<img className="item-bg" src={bgImgUrl} alt={bgImgUrl} />
-			)}
-
-			{npcImgUrl && (
-				<img className="item-img" src={npcImgUrl} alt={npcImgUrl} />
-			)}
-
-			{iconImgUrl && (
-				<img className="item-icon" src={iconImgUrl} alt={iconImgUrl} />
-			)}
-		</>
-	);
+	const imgRender = ({ submenuItemSrc }) => {
+		if (!submenuItemSrc) {
+			return null;
+		}
+		return (
+			<img
+				className="item-img"
+				src={submenuItemSrc}
+				alt={submenuItemSrc}
+			/>
+		);
+	};
 
 	const rows = subItems?.map(s => {
-		const { bgImgUrl, npcImgUrl, iconImgUrl } = s;
+		const { submenuItemSrc } = s;
 		const displayText = s.displayText ? s.displayText : t(s.displayKey);
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
 
@@ -112,7 +109,7 @@ const Menu = ({
 		}
 
 		if (isInMaintain) {
-			_iconClassName += ` active`;
+			_iconClassName += ` under`;
 		}
 
 		const _urlParams = params !== null ? `?${params.join("&")}` : "";
@@ -121,10 +118,10 @@ const Menu = ({
 				<a
 					key={key}
 					className={_iconClassName}
+					style={{ pointerEvents: isInMaintain ? "none" : "auto" }}
 					href={`/${userInfo.langId}/${mainUrl}${_urlParams}`}
 				>
-					{imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
-
+					{imgRender({ submenuItemSrc })}
 					<span>
 						<p>{displayText}</p>
 					</span>
@@ -148,9 +145,13 @@ const Menu = ({
 		}
 
 		return (
-			<button
+			<a
 				key={key}
-				className={_iconClassName}
+				className={isInMaintain ? "item under" : "item "}
+				style={{
+					pointerEvents: isInMaintain ? "none" : "auto",
+					cursor: isInMaintain ? "not-allowed" : "pointer"
+				}}
 				onClick={ClickItem.bind(
 					this,
 					s.tpId,
@@ -162,8 +163,9 @@ const Menu = ({
 					s?.afterLogin
 				)}
 			>
-				{imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
-				<span>
+				<div className={_iconClassName} />
+				{imgRender({ submenuItemSrc })}
+				<span className="item-title">
 					<p>{displayText}</p>
 				</span>
 				{isInMaintain ? (
@@ -171,7 +173,7 @@ const Menu = ({
 						{t("lbl_underMaintenance")}
 					</div>
 				) : null}
-			</button>
+			</a>
 		);
 	});
 

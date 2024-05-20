@@ -5,11 +5,11 @@ import { userInfoContext, popBoxContext } from "../components/common/context";
 import { api_message_GetAnnouncement } from "../service/api/message";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import Footer from "../components/footer/footer";
 import LeftMenu from "../components/common/leftMenu";
 import Loading from "../components/common/loading";
 import { defPopBoxType } from "../components/common/popBox";
 import { getCurrencyCode } from "../components/common/common";
+import HomeFooter from "../components/footer/HomeFooter";
 
 export default () => {
 	return (
@@ -23,7 +23,7 @@ export default () => {
 						</div>
 					</section>
 				</main>
-				<Footer />
+				<HomeFooter />
 			</Layout>
 		</Wrapper>
 	);

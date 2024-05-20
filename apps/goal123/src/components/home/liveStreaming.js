@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import PropTypes from "prop-types";
 import classNames from "classnames";
-import { navigate } from "gatsby";
 import { isDateRange } from "@ailab-desktop/common";
 import { bannerImgUrl } from "../../config";
 import { popBoxContext, userInfoContext } from "../common/context";
@@ -11,17 +10,54 @@ import defPopBoxType from "../common/defPopBoxType";
 import path from "../../router";
 import { SetPathParameter } from "../common/customSwipper";
 import { eventPeriods } from "../../datas/eventDef";
+import { api_liveStreaming_GetDataList } from "../../service/api/liveStreaming";
+import useClickItem from "./hooks/useClickItem";
+import productList from "../../datas/productList";
 
-const LiveStreamingLink = ({
-	liveStreamingList,
-	displayLiveStreaming,
-	setDisplayLiveStreaming
-}) => {
+const LiveStreamingLink = () => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const {
+		userInfo,
 		userInfo: { langId }
 	} = useContext(userInfoContext);
+
+	const [displayLiveStreaming, setDisplayLiveStreaming] = useState(false);
+	const [liveStreamingList, setLiveStreamingList] = useState([]);
+	const [displayVgaming, setDisplayVgaming] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
+
+	const { clickHomeItem } = useClickItem();
+
+	useEffect(() => {
+		const getLiveStreamingList = async () => {
+			setIsLoading(true);
+			try {
+				const {
+					data: { data: resultList }
+				} = await api_liveStreaming_GetDataList({
+					langId: userInfo.langId,
+					currencyId: 51
+				});
+				if (resultList.length > 0) {
+					setDisplayLiveStreaming(true);
+					// 根據開始時間+2hr判斷是否過期,並取前3項
+					const filterList = resultList
+						.filter(({ battleTime }) =>
+							moment(battleTime).add(2, "hours").isAfter(moment())
+						)
+						.slice(0, 3);
+
+					setLiveStreamingList(filterList);
+				}
+				setIsLoading(false);
+			} catch (error) {
+				errorPopBox(error);
+				setIsLoading(false);
+			}
+		};
+		getLiveStreamingList();
+	}, [userInfo.isLogin]);
 
 	const isWithinTwoHours = startTime =>
 		moment().isBetween(
@@ -74,8 +110,7 @@ const LiveStreamingLink = ({
 												gameId,
 												matchId
 											})
-										}
-									>
+										}>
 										<div className="top">
 											<div>{sportLeaguesTitle}</div>
 											<div>
@@ -139,34 +174,45 @@ const LiveStreamingLink = ({
 		});
 	};
 
-	return displayLiveStreaming ? (
-		<div
-			className={classNames("eventLink livesports", {
-				eurocup: isDateRange(eventPeriods.euroCup)
-			})}
-			style={{ zIndex: 10 }}
-		>
-			<button
-				className="icon icon-close"
-				onClick={() => setDisplayLiveStreaming(false)}
-			/>
-			<button onClick={handleLiveSteamingModalOpen}>
-				<img
-					src={`${bannerImgUrl}/desktop/img/livesports.png`}
-					alt="livesports"
-				/>
-			</button>
-		</div>
-	) : null;
-};
-LiveStreamingLink.defaultProps = {
-	liveStreamingList: []
-};
+	return (
+		<>
+			{displayLiveStreaming ? (
+				<div
+					className={classNames("eventLink livesports", {
+						eurocup: isDateRange(eventPeriods.euroCup)
+					})}>
+					<button
+						className="icon icon-close"
+						onClick={() => setDisplayLiveStreaming(false)}
+					/>
+					<button onClick={handleLiveSteamingModalOpen}>
+						<img
+							src={`${bannerImgUrl}/desktop/img/livesports.png`}
+							alt="livesports"
+						/>
+					</button>
+				</div>
+			) : null}
 
-LiveStreamingLink.propTypes = {
-	liveStreamingList: PropTypes.arrayOf(PropTypes.any),
-	displayLiveStreaming: PropTypes.bool.isRequired,
-	setDisplayLiveStreaming: PropTypes.func.isRequired
+			{!displayLiveStreaming &&
+			!isDateRange(eventPeriods.euroCup) &&
+			displayVgaming ? (
+				<div
+					className="eventLink vgaming"
+					style={{ cursor: "pointer" }}>
+					<button
+						className="icon icon-close"
+						onClick={() => setDisplayVgaming(false)}
+					/>
+					<img
+						onClick={() => clickHomeItem(productList.sabaClub)}
+						alt="vgaming-link"
+						src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/vgaming.gif`}
+					/>
+				</div>
+			) : null}
+		</>
+	);
 };
 
 export default LiveStreamingLink;

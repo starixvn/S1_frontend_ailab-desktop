@@ -165,10 +165,11 @@ const CustomSwipper = ({
 			el: withPagination ? ".swiper-pagination" : "",
 			clickable: true
 		},
-		navigation: {
-			nextEl: ".swiper-button-next",
-			prevEl: ".swiper-button-prev"
-		},
+		// 2024新版拿掉
+		// navigation: {
+		// 	nextEl: ".swiper-button-next",
+		// 	prevEl: ".swiper-button-prev"
+		// },
 		getSwiper: obj => {
 			ref.current = obj;
 		},

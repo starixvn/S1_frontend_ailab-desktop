@@ -1,13 +1,14 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
-import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import { useTranslation } from "react-i18next";
 import { api_news_GetNews } from "../../../service/api/news";
 import usePopBox from "../../hook/usePopBox";
 import path from "../../../router";
 import { userInfoContext } from "../../common/context";
 import { getCurrencyCode } from "../../common/common";
 
-const News = ({ t, langId }) => {
+const News = () => {
+	const { t } = useTranslation();
 	const [newsDatas, setNewsDatas] = useState([]);
 	const isMountedRef = useRef(null);
 	const { userInfo } = useContext(userInfoContext);
@@ -23,9 +24,9 @@ const News = ({ t, langId }) => {
 
 	useEffect(() => {
 		api_news_GetNews({
-			langId,
+			langId: userInfo.langId,
 			PageNumber: 1,
-			PageSize: 3,
+			PageSize: 2,
 			currencyId
 		}).then(
 			res => {
@@ -44,43 +45,43 @@ const News = ({ t, langId }) => {
 				errorPopBox();
 			}
 		);
-	}, [langId]);
-
-	const row = newsDatas.map(item => {
-		return (
-			<Link
-				key={`index-news-${item.newsId}-${langId}`}
-				to={`/${langId}/${path.news.root}/${path.news.sub.newsInfo.root}?newsId=${item.newsId}`}
-			>
-				<img src={item.imageURL} alt={`news-img-${item.newsId}`} />
-				<div className="title">
-					<p>{item.title}</p>
-				</div>
-			</Link>
-		);
-	});
+	}, [userInfo.langId]);
 
 	return (
-		<div className="news">
+		<div className="home-news">
 			<div>
-				<div className="title">
-					<i className="icon icon-newspaper" />
-					{t("lbl_Goal123News")}
-				</div>
-			</div>
-			<div className="articleModule">{row}</div>
-			<div className="btnall">
-				<Link to={`/${langId}/${path.news.root}`}>
-					{t("lbl_ViewAll")}
+				<div className="home-title">{t("lbl_News")}</div>
+				<Link
+					to={`/${userInfo.langId}/${path.news.root}`}
+					className="btn-more-text"
+				>
+					{t("lbl_Home_More")}
+					<i className="icon-dropdown" />
 				</Link>
+			</div>
+			<div className="inner">
+				{newsDatas.map(item => {
+					return (
+						<a
+							className="item"
+							key={`index-news-${item.newsId}-${userInfo.langId}`}
+							href={`/${userInfo.langId}/${path.news.root}/${path.news.sub.newsInfo.root}?newsId=${item.newsId}`}
+						>
+							<div className="news-img">
+								<img
+									src={item.imageURL}
+									alt={`news-img-${item.newsId}`}
+								/>
+							</div>
+							<div className="title">
+								<p>{item.title}</p>
+							</div>
+						</a>
+					);
+				})}
 			</div>
 		</div>
 	);
-};
-
-News.propTypes = {
-	t: PropTypes.func.isRequired,
-	langId: PropTypes.string.isRequired
 };
 
 export default News;

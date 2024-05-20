@@ -1,9 +1,9 @@
 import React from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import Footer from "../components/footer/footer";
 import LeftMenu from "../components/common/leftMenu";
 import BankInfo from "../components/bankInfo/bankInfo.set";
+import HomeFooter from "../components/footer/HomeFooter";
 
 export default () => {
 	return (
@@ -17,7 +17,7 @@ export default () => {
 						</div>
 					</section>
 				</main>
-				<Footer />
+				<HomeFooter />
 			</Layout>
 		</Wrapper>
 	);
