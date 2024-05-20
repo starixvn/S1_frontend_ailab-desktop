@@ -4,11 +4,9 @@ import QRCode from "qrcode.react";
 import { navigate } from "gatsby";
 import { bannerImgUrl } from "../../config";
 import path from "../../router";
-import useAppDownLoad from "../appDownload/useAppDownLoad";
 
-const HomeDownLoad = () => {
+const HomeDownLoad = ({ appLinkDatas }) => {
 	const { t } = useTranslation();
-	const { appLinkDatas } = useAppDownLoad();
 	const andriodDownLoadUrl = appLinkDatas?.Andriod?.downloadLink ?? "";
 
 	return (
@@ -33,7 +31,8 @@ const HomeDownLoad = () => {
 						<a
 							onClick={() =>
 								navigate(`/${path.appDownload.root}`)
-							}>
+							}
+						>
 							{t("lbl_App_Download_Guide")}
 						</a>
 					</div>
@@ -52,6 +51,21 @@ const HomeDownLoad = () => {
 			</div>
 		</div>
 	);
+};
+
+HomeDownLoad.defaultProps = {
+	appLinkDatas: undefined
+};
+
+HomeDownLoad.propTypes = {
+	appLinkDatas: {
+		Andriod: {
+			downloadLink: ""
+		},
+		IOS: {
+			downloadLink: ""
+		}
+	}
 };
 
 export default HomeDownLoad;
