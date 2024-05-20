@@ -1,200 +1,205 @@
-import React, { useContext, lazy, Suspense } from "react";
-import PropTypes from "prop-types";
-import { useTranslation } from "react-i18next";
+import classNames from "classnames";
 import { Link, navigate } from "gatsby";
+import { useTranslation } from "react-i18next";
+import React, { useContext, lazy, Suspense, useState, useEffect } from "react";
 import {
 	userInfoContext,
 	popBoxContext,
 	msgCountContext
 } from "../common/context";
 import path from "../../router";
-import DropdownHeader, { defElemType } from "../common/dropdown.headerLink";
-import { LOGOUT } from "../../service/auth";
+import { LOGIN } from "../../service/auth";
 import { defPopBoxType } from "../common/popBox";
-import {
-	defEventIcon,
-	defEventPeriod,
-	showEventIcon
-} from "../common/eventIcon";
 import MsgPopup from "./msgPopup";
 import useShieldCheck from "../hook/useShieldCheck";
+import { defPageClubImg } from "../vip/vip.def";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
 
-	return userInfo.isLogin === true ? (
-		<AfterLogin />
-	) : (
-		<BeforeLogin langId={userInfo.langId} />
-	);
+	return userInfo.isLogin === true ? <AfterLogin /> : <BeforeLogin />;
 };
 
-const BeforeLogin = ({ langId }) => {
+const BeforeLogin = () => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
+	const {
+		userInfo: { langId },
+		setUserInfo
+	} = useContext(userInfoContext);
+
+	const { getShieldData, saveShieldData } = useShieldCheck();
+
+	const [userValue, setUserValue] = useState({ username: "", password: "" });
 
 	const clickJoin = () => {
 		navigate(`/${langId}/${path.join.root}`);
 	};
 
-	const clickLogin = () => {
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.Login
-		});
+	const editField = (col, e) => {
+		let val = e.target.value;
+
+		if (col === "username") val = val.replace(/[\W_]/g, "");
+		setUserValue(prev => ({ ...prev, [col]: val }));
 	};
 
-	return (
-		<>
-			<button className="join" onClick={clickJoin}>
-				{t("lbl_JoinNow")}
-			</button>
-			<button className="login" onClick={clickLogin}>
-				{t("lbl_Login")}
-			</button>
-		</>
-	);
-};
+	const checkValue = (col, val) => {
+		let checked = true;
 
-BeforeLogin.propTypes = {
-	langId: PropTypes.string.isRequired
-};
-
-const defCashierLinks = [
-	// {
-	// 	displayKey: "lbl_TransferFunds",
-	// 	href: path.transferFunds.root
-	// },
-	{
-		displayKey: "lbl_Withdrawal",
-		href: path.withdrawal.root
-	},
-	// {
-	// 	displayKey: "lbl_TransferHistory",
-	// 	href: path.transferHistory.root
-	// },
-	{
-		displayKey: "lbl_FinancialLog",
-		href: path.financial.root
-	}
-];
-
-const defSettingLinks = ({ logoutFunc }) => [
-	{
-		displayKey: "lbl_Profile",
-		href: path.profile.root
-	},
-	{
-		displayKey: "lbl_BankInfo",
-		href: path.bankInfo.root
-	},
-	{
-		displayKey: "lbl_CryptoWallet",
-		href: path.cryptoWallet.root
-	},
-	{
-		displayKey: "lbl_ReferFriends",
-		href: path.referral.root,
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.referral
-			})
-		]
-	},
-	{
-		displayKey: "lbl_ChangePassword",
-		href: path.changePassword.root
-	},
-	{
-		displayKey: "lbl_Logout",
-		href: logoutFunc,
-		elemType: defElemType.btn,
-		icon: "icon icon-exit"
-	}
-];
-
-const Wallet = lazy(() => import("./header.wallet"));
-const AfterLogin = () => {
-	const { msgCount } = useContext(msgCountContext);
-	const { userInfo, setUserInfo } = useContext(userInfoContext);
-	const { setPopBox } = useContext(popBoxContext);
-	const { t } = useTranslation();
-	const { deleteShieldData } = useShieldCheck();
-
-	const handleLogout = () => {
-		LOGOUT(() => {
-			const ClickClose = () => {
-				if (
-					window.location.pathname.includes(
-						`/${userInfo.langId}/${path.resetPassword.root}`
-					)
-				) {
-					navigate(`/${userInfo.langId}`);
-				}
-
-				setPopBox({ isOpen: false });
-				setUserInfo(prevState => ({
-					isLogin: false,
-					langId: prevState.langId,
-					kickout: true,
-					willLogout: true
-				}));
-				deleteShieldData();
-			};
+		if (val === "") {
+			checked = false;
 
 			setPopBox({
 				isOpen: true,
-				popBoxType: defPopBoxType.LogoutHint,
-				content: t("msg_loggedout"),
+				popBoxType: defPopBoxType.ErrorMsg,
+				message:
+					col === "username"
+						? t("msg_UsernameReq")
+						: t("msg_PasswordReq"),
 				btnBar: (
 					<div className="btnGroup">
-						<button className="btn-cancel" onClick={ClickClose}>
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}>
 							{t("lbl_Close")}
 						</button>
 					</div>
 				)
 			});
-		});
+		}
+
+		return checked;
 	};
+
+	const handleLogin = async e => {
+		e.preventDefault();
+
+		const checkAll =
+			checkValue("username", userValue.username) &&
+			checkValue("password", userValue.password);
+
+		if (checkAll) {
+			const { errorCode, message, userData, isLogin } = await LOGIN({
+				userName: userValue.username,
+				password: userValue.password,
+				langId
+			});
+
+			if (errorCode === 0) {
+				setUserInfo(() => ({
+					...userData,
+					isLogin
+				}));
+				setPopBox({ isOpen: false });
+				navigate(`/${langId}`);
+				saveShieldData();
+			} else if (errorCode !== 0 && isLogin === false) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.ErrorMsg,
+					errorCode,
+					message,
+					btnBar: (
+						<div className="btnGroup">
+							<button
+								className="btn-cancel"
+								onClick={() => setPopBox({ isOpen: false })}>
+								{t("lbl_Close")}
+							</button>
+						</div>
+					)
+				});
+			}
+		}
+	};
+
+	useEffect(() => {
+		getShieldData();
+	}, []);
 
 	return (
 		<>
+			<div className="username">
+				<input
+					placeholder={t("lbl_Username")}
+					value={userValue.username}
+					onChange={e => editField("username", e)}
+					onKeyPress={e => {
+						if (e.key === "Enter") handleLogin(e);
+					}}
+				/>
+				<input
+					type="password"
+					placeholder={t("lbl_Password")}
+					value={userValue.password}
+					onChange={e => editField("password", e)}
+					onKeyPress={e => {
+						if (e.key === "Enter") handleLogin(e);
+					}}
+				/>
+				<Link
+					to={`/${langId}/${path.forgetPassword.root}`}
+					className="forgot">
+					{t("lbl_ForgetPassword")}
+				</Link>
+			</div>
+			<button className="login" onClick={handleLogin}>
+				{t("lbl_Login")}
+			</button>
+			<button className="join" onClick={clickJoin}>
+				{t("lbl_JoinNow")}
+			</button>
+		</>
+	);
+};
+
+const Wallet = lazy(() => import("./header.wallet"));
+const Profile = lazy(() => import("./header.profile"));
+
+const AfterLogin = () => {
+	const { msgCount } = useContext(msgCountContext);
+	const {
+		userInfo: { langId, userLevel }
+	} = useContext(userInfoContext);
+	const { t } = useTranslation();
+
+	const {
+		img: vipImg,
+		alt: vipAlt,
+		className: vipClassName
+	} = userLevel ? defPageClubImg[userLevel - 1] : {};
+
+	return (
+		<>
+			<div className={`profile-icon ${vipClassName}`}>
+				<Link to={`/${langId}/${path.profile.root}`}>
+					<img className={vipClassName} src={vipImg} alt={vipAlt} />
+				</Link>
+			</div>
+			<Suspense fallback={null}>
+				<Profile />
+			</Suspense>
 			<Link
-				to={`/${userInfo.langId}/${path.deposit.root}`}
-				className="deposit-btn icon icon-icon32px_deposit">
+				to={`/${langId}/${path.message.root}`}
+				className={classNames("icon-email", { active: msgCount > 0 })}>
+				<MsgPopup />
+			</Link>
+
+			<Suspense fallback={null}>
+				<Wallet langId={langId} i18n={t} />
+			</Suspense>
+
+			<Link
+				to={`/${langId}/${path.deposit.root}`}
+				className="home-deposit">
+				<i className="icon-header-deposit" />
 				{t("lbl_Deposit")}
 			</Link>
-			<DropdownHeader
-				mainKey="header-cashierLink"
-				langId={userInfo.langId}
-				className="cashier icon icon-library"
-				subClassName="submenu"
-				i18n={t}
-				options={defCashierLinks}
-				placeholder={t("lbl_Cashier")}
-			/>
-
-			{/* <Wallet langId={userInfo.langId} i18n={t} /> */}
-			<Suspense fallback={null}>
-				<Wallet langId={userInfo.langId} i18n={t} />
-			</Suspense>
-			<DropdownHeader
-				mainKey="header-settingLink"
-				langId={userInfo.langId}
-				userLevel={userInfo.userLevel}
-				className={`memberfile${
-					userInfo.userLevel ? "" : " icon icon-member"
-				}`}
-				subClassName="submenu"
-				i18n={t}
-				options={defSettingLinks({ logoutFunc: handleLogout })}
-				placeholder={userInfo.userName}
-			/>
 			<Link
-				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
-				to={`/${userInfo.langId}/${path.message.root}`}>
-				<MsgPopup userInfo={userInfo} />
+				to={`/${langId}/${path.appDownload.root}`}
+				className="appDownload">
+				<i className="icon-mobile" />
+				APP
 			</Link>
 		</>
 	);

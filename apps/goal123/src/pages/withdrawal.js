@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import Footer from "../components/footer/footer";
+import HomeFooter from "../components/footer/HomeFooter";
 import LeftMenu from "../components/common/leftMenu";
 import Withdrawal from "../components/withdrawal/withdrawal.set.bank";
 import RecentHistory from "../components/withdrawal/recentHistory";
@@ -28,7 +28,7 @@ export default () => (
 					</div>
 				</section>
 			</main>
-			<Footer />
+			<HomeFooter />
 		</Layout>
 	</Wrapper>
 );
@@ -95,7 +95,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={closePopBox}>
+										onClick={closePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -114,7 +115,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}>
+									onClick={closePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -140,7 +142,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={closePopBox}>
+										onClick={closePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -159,7 +162,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}>
+									onClick={closePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -185,7 +189,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={closePopBox}>
+										onClick={closePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -204,7 +209,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}>
+									onClick={closePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -251,7 +257,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}>
+									onClick={closePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -268,7 +275,8 @@ const Content = () => {
 						<div className="btnGroup">
 							<button
 								className="btn-cancel"
-								onClick={closePopBox}>
+								onClick={closePopBox}
+							>
 								{t("lbl_Close")}
 							</button>
 						</div>
@@ -292,7 +300,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={closePopBox}>
+										onClick={closePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -311,7 +320,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}>
+									onClick={closePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>

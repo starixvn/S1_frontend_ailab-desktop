@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import Footer from "../components/footer/footer";
+import HomeFooter from "../components/footer/HomeFooter";
 import LeftMenu from "../components/common/leftMenu";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { getCurrencyCode, getUrlParameter } from "../components/common/common";
@@ -23,7 +23,7 @@ export default () => {
 						</div>
 					</section>
 				</main>
-				<Footer />
+				<HomeFooter />
 			</Layout>
 		</Wrapper>
 	);

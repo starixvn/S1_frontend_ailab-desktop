@@ -1,27 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { string } from "prop-types";
 import { Link } from "gatsby";
 import { isDateRange } from "../common/common";
 import { eventPeriod } from "./luckyWheel.def";
 import path from "../../router";
 import { bannerImgUrl } from "../../config";
+import { userInfoContext } from "../common/context";
 
 const { startDate, endDate } = eventPeriod;
 const isInPeriod = isDateRange(startDate, endDate);
 
-const LuckyWheelLink = ({ langId, type }) => {
+const LuckyWheelLink = ({ type }) => {
 	const [display, setDisplay] = useState(true);
 	const [spinImgOnLoad, setSpinImgOnLoad] = useState(false);
 	const [innerImgOnLoad, setInnerImgOnLoad] = useState(false);
+	const { userInfo } = useContext(userInfoContext);
 
 	if (!isInPeriod || !display) return null;
 
 	if (type === "header")
 		return (
 			<Link
-				to={`/${langId}/${path.luckyWheel.root}`}
-				className="eventLink--top"
-			>
+				to={`/${userInfo.langId}/${path.luckyWheel.root}`}
+				className="eventLink--top">
 				<img
 					alt="angpao-header-link"
 					src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/event/wheel/eventlink-top.png`}
@@ -38,7 +39,7 @@ const LuckyWheelLink = ({ langId, type }) => {
 				/>
 			)}
 
-			<Link to={`/${langId}/${path.luckyWheel.root}`}>
+			<Link to={`/${userInfo.langId}/${path.luckyWheel.root}`}>
 				<img
 					className="spin"
 					src={`${bannerImgUrl}/desktop/img/event/wheel/eventlink/spin.png`}
@@ -59,11 +60,9 @@ const LuckyWheelLink = ({ langId, type }) => {
 export default LuckyWheelLink;
 
 LuckyWheelLink.defaultProps = {
-	langId: "",
 	type: ""
 };
 
 LuckyWheelLink.propTypes = {
-	langId: string,
 	type: string
 };

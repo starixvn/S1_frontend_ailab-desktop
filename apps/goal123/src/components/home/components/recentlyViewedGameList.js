@@ -183,81 +183,91 @@ const RecentlyViewedGameList = () => {
 					{t("lbl_Recently_Viewed")}
 				</div>
 				<Swiper
-					className="recently"
+					className="home-recently"
 					modules={[Navigation]}
 					navigation
-					{...params}
-				>
-					<div className="swiper-wrapper">
-						{recentlyViewedGames &&
-							recentlyViewedGames.map(
-								({
-									gameLogo,
-									tpLogo,
-									gameName,
-									tpId,
-									tpGameType,
-									isMaintain,
-									categoryId,
-									gameId
-								}) => (
-									<SwiperSlide
-										key={`recently-game-${tpId}-${tpGameType}`}
-									>
-										<div
-											className="swiper-slide"
-											onClick={() =>
-												handleGoToRecentlyViewedGame({
-													selectedTpId: tpId,
-													selectedTpGameType:
-														tpGameType,
-													selectedCategoryId:
-														categoryId,
-													selectedGameId: gameId,
-													isMaintain
-												})
-											}
-										>
-											<div
-												className={`recently-game ${
-													isMaintain ? "active" : ""
-												}`}
-											>
-												<div>
-													<img
-														className="recently-image"
-														src={
-															gameLogo[
-																userInfo.langId
-															] ?? gameLogo.en
-														}
-														alt=""
-													/>
-													<div>
-														<img
-															className="recently-brand"
-															src={tpLogo}
-															alt=""
-														/>
-														<div className="recently-title">
-															{gameName[
-																userInfo.langId
-															] ?? gameName.en}
+					{...params}>
+					<div className="home-title">
+						<div className="recently">
+							<div className="swiper-wrapper">
+								{recentlyViewedGames &&
+									recentlyViewedGames.map(
+										({
+											gameLogo,
+											tpLogo,
+											gameName,
+											tpId,
+											tpGameType,
+											isMaintain,
+											categoryId,
+											gameId
+										}) => (
+											<SwiperSlide
+												key={`recently-game-${tpId}-${tpGameType}`}>
+												<div
+													className="swiper-slide"
+													onClick={() =>
+														handleGoToRecentlyViewedGame(
+															{
+																selectedTpId:
+																	tpId,
+																selectedTpGameType:
+																	tpGameType,
+																selectedCategoryId:
+																	categoryId,
+																selectedGameId:
+																	gameId,
+																isMaintain
+															}
+														)
+													}>
+													<div
+														className={`recently-game ${
+															isMaintain
+																? "active"
+																: ""
+														}`}>
+														<div>
+															<img
+																className="recently-image"
+																src={
+																	gameLogo[
+																		userInfo
+																			.langId
+																	] ??
+																	gameLogo.en
+																}
+																alt=""
+															/>
+															<div>
+																<img
+																	className="recently-brand"
+																	src={tpLogo}
+																	alt=""
+																/>
+																<div className="recently-title">
+																	{gameName[
+																		userInfo
+																			.langId
+																	] ??
+																		gameName.en}
+																</div>
+															</div>
 														</div>
-													</div>
-												</div>
-												{isMaintain && (
-													<div className="under">
-														{t(
-															"lbl_underMaintenance"
+														{isMaintain && (
+															<div className="under">
+																{t(
+																	"lbl_underMaintenance"
+																)}
+															</div>
 														)}
 													</div>
-												)}
-											</div>
-										</div>
-									</SwiperSlide>
-								)
-							)}
+												</div>
+											</SwiperSlide>
+										)
+									)}
+							</div>
+						</div>
 					</div>
 				</Swiper>
 			</div>
