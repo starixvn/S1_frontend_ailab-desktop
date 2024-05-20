@@ -20,7 +20,8 @@ const GameList = ({
 	getTpGameType,
 	activeCategory,
 	favoriteStr,
-	activeProvider
+	activeProvider,
+	newGamesArr
 }) => {
 	const { setPopBox } = usePopBox();
 	const inViewRef = useInView(() => onLoadMore());
@@ -131,14 +132,14 @@ const GameList = ({
 
 				const slotProductItemStyle = () => {
 					if (getIsInMaintain(g)) {
-						if (activeCategory === "new") {
+						if (newGamesArr.includes(g.gameId)) {
 							return "tag-new maintain";
 						}
 
 						return "maintain";
 					}
 
-					if (activeCategory === "new") {
+					if (newGamesArr.includes(g.gameId)) {
 						return "tag-new";
 					}
 					return "";
@@ -203,7 +204,8 @@ GameList.defaultProps = {
 	getIsInMaintain: () => null,
 	getTpGameType: () => null,
 	activeCategory: null,
-	activeProvider: null
+	activeProvider: null,
+	newGamesArr: null
 };
 
 GameList.propTypes = {
@@ -222,7 +224,8 @@ GameList.propTypes = {
 	getTpGameType: PropTypes.func,
 	activeCategory: PropTypes.string,
 	favoriteStr: PropTypes.string.isRequired,
-	activeProvider: PropTypes.objectOf(PropTypes.any)
+	activeProvider: PropTypes.objectOf(PropTypes.any),
+	newGamesArr: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default GameList;
