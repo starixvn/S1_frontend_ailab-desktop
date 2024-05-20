@@ -397,7 +397,6 @@ export default () => {
 							setImgUrl(item[1]);
 						}
 					});
-
 					const randomItem = tempList.filter(
 						item => item[0] === "random"
 					)[0];
@@ -430,15 +429,15 @@ export default () => {
 						navigate(window.location.pathname, { replace: true });
 					} else {
 						// 如果featured類別裡面沒有遊戲，那一進畫面就先顯示all的
-						// resultList就是categoryList陣列，1是all，4是featured
-						resultList[4].featured.length === 0
+						// resultList就是categoryList陣列，1是all，3是featured
+						resultList[3]?.featured?.length === 0
 							? setActiveCategory(
 									activeCategory ??
 										Object.keys(resultList[1])[0]
 							  )
 							: setActiveCategory(
 									activeCategory ??
-										Object.keys(resultList[4])[0]
+										Object.keys(resultList[3])[0]
 							  );
 					}
 
