@@ -1,16 +1,16 @@
 import React from "react";
 import SEO from "../components/seo";
 import Wrapper from "../components/common/wrapper";
-import Footer from "../components/footer/footer";
 import Content from "../components/appDownload/appDownload";
 import GoTopBtn from "../components/common/goTopBtn";
+import HomeFooter from "../components/footer/HomeFooter";
 
 export default () => {
 	return (
 		<Wrapper>
 			<SEO />
 			<Content />
-			<Footer />
+			<HomeFooter />
 			<GoTopBtn />
 		</Wrapper>
 	);
