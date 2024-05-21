@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
+import { products } from "@ailab-desktop/common";
 import config, { errorPageUrl } from "../config";
 import path from "../router";
-import productList from "../datas/productList";
 
 export const _ACTION_TYPE = {
 	blank: 1,
@@ -127,7 +127,7 @@ export const GET_OPEN_RULE = (
 		} else if (_gameId >= 200) {
 			result = setResult("", true, _ACTION_TYPE.blank, _tpId, _gameId);
 		}
-	} else if (_tpId === productList.cryptoSports.tpId) {
+	} else if (_tpId === products.CryptoSports.tpId) {
 		result = setResult("", false, _ACTION_TYPE.blank, _tpId);
 	} else {
 		result = setResult("", true, _ACTION_TYPE.blank, _tpId, _gameId);
@@ -167,10 +167,7 @@ export const GET_ENTER_PAGE_URL = ({
 	const _errorPageUrl = errorPageUrl(langId);
 	const _tpGameType = tpGameType ? `&tpGameType=${tpGameType}` : "";
 	let urlSpecialPattern = "";
-	if (
-		tpId === productList.sportBti.tpId ||
-		tpId === productList.sportSbo.tpId
-	) {
+	if (tpId === products.BtiSport.tpId || tpId === products.SBOBET.tpId) {
 		urlSpecialPattern = `&gameType=sports${isLogin ? "" : "&fun=1"}`;
 	}
 

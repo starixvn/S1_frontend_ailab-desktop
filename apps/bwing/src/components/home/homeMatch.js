@@ -1,25 +1,24 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { navigate } from "gatsby";
 import Swiper from "react-id-swiper";
 import PropTypes from "prop-types";
 import moment from "moment";
-import { navigate } from "gatsby";
-import { popBoxContext, userInfoContext } from "../common/context";
-import { defPopBoxType } from "../common/defPopBoxType";
+import classNames from "classnames";
+import { defTpGameType } from "@ailab-desktop/common";
+import { userInfoContext } from "../common/context";
 import { SPORT_LIST } from "./def";
-import productList, { defTpGameType } from "../../datas/productList";
-import { SET_ENTER_PAGE } from "../../service/enterPage";
-import { defMenuType } from "../layout/header.menu.def";
-import { bannerImgUrl } from "../../config";
-import { useGotoGame } from "../hook/useGotoGame";
 import { SetPathParameter } from "../common/swipperBanner";
 import path from "../../router";
+import { defMainMenuIcon, isShowEventIcon } from "../layout/header.menu.newDef";
 
-const HomeMatch = ({ hotEventList, maintainList, classNameType }) => {
+const hotMatchIcon = Object.freeze({
+	[defMainMenuIcon.newTag]: "tag-new-pop"
+});
+
+const HomeMatch = ({ hotEventList, maintainList, handleClickHomeProduct }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
-	const { setPopBox } = useContext(popBoxContext);
-	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 
 	const hotEventSwiperParams = {
 		spaceBetween: 50,
@@ -38,53 +37,13 @@ const HomeMatch = ({ hotEventList, maintainList, classNameType }) => {
 		}
 	};
 
+	const switchHotMatchIcon = iconType => {
+		return hotMatchIcon[iconType] || null;
+	};
+
 	const hdpSymbol = hdp => {
 		if (hdp === 0) return hdp;
 		return `${hdp < 0 ? "" : "+"} ${hdp}`;
-	};
-
-	const handleItemClick = ({
-		tpId,
-		gameId,
-		menuType,
-		_subPath,
-		isMaintain,
-		tpGameType,
-		afterLogin
-	}) => {
-		const loginCallback = () => {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
-			});
-		};
-		if (isMaintain) {
-			return;
-		}
-		if (menuType === defMenuType.useGoToGame) {
-			handleGoToGame({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId,
-				gameId,
-				tpGameType
-			});
-		} else if (_subPath) {
-			if (afterLogin && !userInfo.isLogin) {
-				loginCallback();
-			} else {
-				navigate(`/${userInfo.langId}/${_subPath}`);
-			}
-		} else {
-			SET_ENTER_PAGE({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId,
-				gameId,
-				loginCallback,
-				tpGameType
-			});
-		}
 	};
 
 	const handleGoToBet = ({ tpId, gameId, matchId }) => {
@@ -144,8 +103,7 @@ const HomeMatch = ({ hotEventList, maintainList, classNameType }) => {
 										gameId: item1.gameId,
 										matchId: item1.matchId
 									})
-								}
-							>
+								}>
 								<span>{t("lbl_BetNow")}</span>
 							</button>
 							<div>
@@ -194,8 +152,7 @@ const HomeMatch = ({ hotEventList, maintainList, classNameType }) => {
 										gameId: item2.gameId,
 										matchId: item2.matchId
 									})
-								}
-							>
+								}>
 								<span>{t("lbl_BetNow")}</span>
 							</button>
 							<div>
@@ -229,132 +186,60 @@ const HomeMatch = ({ hotEventList, maintainList, classNameType }) => {
 			<div className="col-8">
 				<div className="home-sports">
 					<Swiper {...sportsSwiperParams}>
-						{SPORT_LIST[userInfo.langId].map(
-							({
-								displayText,
-								img,
+						{SPORT_LIST[userInfo.langId].map(sportItem => {
+							const {
 								tpId,
-								gameId,
 								tpGameType,
-								parameter,
-								eventIcons,
-								subPath,
-								menuType,
-								afterLogin
-							}) => {
-								const isMaintain = maintainList?.some(
-									m =>
-										m.tpId === tpId &&
-										(m.tpGameType === tpGameType ||
-											m.tpGameType === defTpGameType.All)
-								);
+								tpGameIdNo,
+								displayText,
+								img
+							} = sportItem || {};
 
-								let params = null;
-								if (parameter) {
-									params = Object.keys(parameter).map(
-										_key => `${_key}=${parameter[_key]}`
-									);
-								}
+							const { iconType, iconStartTime, iconEndTime } =
+								sportItem?.icon || {};
 
-								const _urlParams =
-									params !== null
-										? `?${params.join("&")}`
-										: "";
+							// * 靜態遊戲 所以串 isMaintain
+							const isInMaintain = maintainList?.some(
+								m =>
+									m.tpId === tpId &&
+									(m.tpGameType === tpGameType ||
+										m.tpGameType === defTpGameType.All)
+							);
 
-								let _iconClassName = "";
-								if (eventIcons) {
-									let iconStrings = "";
-									for (
-										let i = 0;
-										i < eventIcons.length;
-										i++
-									) {
-										if (eventIcons[i] !== "") {
-											iconStrings += `${eventIcons[i]}`;
-										}
-									}
-									_iconClassName = `${iconStrings}`;
-								}
+							const icon =
+								(isShowEventIcon(iconStartTime, iconEndTime) &&
+									switchHotMatchIcon(iconType)) ||
+								null;
 
-								let showIcon = null;
-								if (_iconClassName.length > 0) {
-									if (_iconClassName === "tag-new") {
-										showIcon = "tag-new";
-									} else {
-										showIcon = _iconClassName;
-									}
-								}
+							return (
+								<button
+									key={`sports-${tpGameIdNo}`}
+									onClick={() => {
+										handleClickHomeProduct({
+											...sportItem,
+											isInMaintain
+										});
+									}}>
+									<div
+										className={classNames({
+											maintain: isInMaintain
+										})}>
+										<div className={icon} />
+										<img
+											key={`sport-${displayText}`}
+											src={img}
+											alt={displayText}
+										/>
 
-								let _subPath;
-								if (subPath) {
-									if (tpId === productList.sportSaba.tpId) {
-										_subPath = `${subPath}?game=${parameter?.name}`;
-									} else {
-										_subPath = `${subPath}`;
-									}
-								}
-
-								if (menuType === defMenuType.Link) {
-									return (
-										<a
-											key={`sports-${tpId}-${tpGameType}-${gameId}`}
-											className={`${showIcon ?? ""} ${
-												isMaintain ? "maintain" : ""
-											}`}
-											href={`/${userInfo.langId}/${_urlParams}`}
-										>
-											<img
-												src={`${bannerImgUrl}/desktop/img/4.0/dropdown/${img}`}
-												alt=""
-											/>
-
-											<div className="title">
-												{displayText}
+										{isInMaintain && (
+											<div className="tag-maintain">
+												{t("lbl_underMaintenance")}
 											</div>
-											{isMaintain ? (
-												<div className="tag-maintain">
-													{t("lbl_underMaintenance")}
-												</div>
-											) : null}
-										</a>
-									);
-								}
-
-								return (
-									<a
-										key={`sports-${tpId}-${tpGameType}-${gameId}`}
-										onClick={() =>
-											handleItemClick({
-												tpId,
-												gameId,
-												menuType,
-												_subPath,
-												isMaintain,
-												tpGameType,
-												afterLogin
-											})
-										}
-									>
-										<div
-											className={
-												isMaintain ? "maintain" : ""
-											}
-										>
-											<img
-												key={`${tpId}_${gameId}`}
-												src={img}
-												alt=""
-											/>
-											{isMaintain && (
-												<div className="tag-maintain">
-													{t("lbl_underMaintenance")}
-												</div>
-											)}
-										</div>
-									</a>
-								);
-							}
-						)}
+										)}
+									</div>
+								</button>
+							);
+						})}
 					</Swiper>
 				</div>
 			</div>
@@ -363,14 +248,13 @@ const HomeMatch = ({ hotEventList, maintainList, classNameType }) => {
 };
 HomeMatch.defaultProps = {
 	hotEventList: [],
-	maintainList: [],
-	classNameType: "home"
+	maintainList: []
 };
 
 HomeMatch.propTypes = {
 	hotEventList: PropTypes.arrayOf(PropTypes.any),
 	maintainList: PropTypes.arrayOf(PropTypes.any),
-	classNameType: PropTypes.string
+	handleClickHomeProduct: PropTypes.func.isRequired
 };
 
 export default HomeMatch;

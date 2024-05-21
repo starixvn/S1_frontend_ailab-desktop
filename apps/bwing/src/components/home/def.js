@@ -1,60 +1,67 @@
-import productList from "../../datas/productList";
+import { products } from "@ailab-desktop/common";
 import path from "../../router";
-import { defMenuType } from "../layout/header.menu.def";
 import { bannerImgUrl } from "../../config";
-import {
-	defEventIcon,
-	defEventPeriod,
-	showEventIcon
-} from "../common/eventIcon";
+import { defMenuType } from "../layout/header.menu.newDef";
 
 export const HOT_GAME_LIST = [
 	{
 		displayKey: "lbl_Sports",
-		category: "sports",
-		...productList.sportSaba,
-		subPath: path.sports.root,
-		parameter: { ...productList.sportSaba }
+		image: "sports",
+		menuType: defMenuType.Link,
+		parameter: { game: "Soccer" },
+		path: path.sports.root,
+		...products.Soccer
 	},
 	{
 		displayKey: "lbl_Jackpot",
-		category: "jackpot",
-		href: `${path.casino.root}?page=jackpot`
+		image: "jackpot",
+		menuType: defMenuType.Link,
+		// * 屬於Slot遊戲類別中的 category
+		slotCategory: "jackpot",
+		path: path.casino.root
 	},
 	{
 		displayKey: "lbl_LiveCasino",
-		category: "livecasino",
-		href: path.liveCasino.root
+		image: "livecasino",
+		menuType: defMenuType.Link,
+		path: path.liveCasino.root
 	},
 	{
 		displayKey: "lbl_Vgaming",
-		category: "vgaming",
-		...productList.sabaClub,
-		menuType: defMenuType.LinkOrBtn,
-		parameter: { ...productList.sabaClub }
+		image: "vgaming",
+		menuType: defMenuType.entPage,
+		...products.Vgaming
 	},
 	{
 		displayKey: "lbl_SEDIE",
-		category: "sedie",
-		...productList.liveCasino_One789,
+		image: "sedie",
+		...products["789SeDie"],
 		menuType: defMenuType.entPage,
 		icon: "tag-live"
 	},
 	{
 		displayKey: "lbl_Keno",
-		category: "keno",
-		...productList.keno,
-		menuType: defMenuType.LinkOrBtn,
-		parameter: { ...productList.keno }
+		image: "keno",
+		...products.Keno,
+		menuType: defMenuType.entPage
 	},
-	{ displayKey: "lbl_Fishing", category: "fishing", href: path.fishing.root },
-	{ displayKey: "lbl_QuickGames", category: "qgames", href: path.games.root },
+	{
+		displayKey: "lbl_Fishing",
+		image: "fishing",
+		menuType: defMenuType.Link,
+		path: path.fishing.root
+	},
+	{
+		displayKey: "lbl_QuickGames",
+		image: "qgames",
+		menuType: defMenuType.Link,
+		path: path.games.root
+	},
 	{
 		displayKey: "lbl_Lottery",
-		category: "lottery",
-		...productList.One789_lottery,
-		menuType: defMenuType.LinkOrBtn,
-		parameter: { ...productList.One789_lottery },
+		image: "lottery",
+		...products.TraditionalLottery,
+		menuType: defMenuType.entPage,
 		icon: "tag-live"
 	}
 ];
@@ -62,152 +69,88 @@ export const HOT_GAME_LIST = [
 export const SPORT_LIST = {
 	en: [
 		{
+			...products.SBOBET,
+			menuType: defMenuType.Link,
+			path: path.sports.root,
+			parameter: { game: "SBOBET" },
+			isNeedLogin: true,
 			displayText: "SBOBET",
-			img: `${bannerImgUrl}/desktop/img/4.0/sbo.png`,
-			...productList.sportSbo,
-			subPath: path.sportSbo.root,
-			className: "sbobet",
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.sportSbo
-				})
-			],
-			parameter: { ...productList.sportSbo },
-			afterLogin: true
+			img: `${bannerImgUrl}/desktop/img/4.0/sbo.png`
 		},
-		// {
-		// 	img: `${bannerImgUrl}/desktop/img/4.0/crypto.png`,
-		// 	...productList.cryptoSports,
-		// 	className: "cryptosport",
-		// 	displayKey: "lbl_cryptoSports",
-		// 	parameter: { ...productList.cryptoSports },
-		// 	eventIcons: [
-		// 		showEventIcon({
-		// 			icon: defEventIcon.new,
-		// 			period: defEventPeriod.sports_cryptoSports
-		// 		})
-		// 	]
-		// },
 		{
-			displayKey: "lbl_SabaSport",
+			...products.Soccer,
+			menuType: defMenuType.Link,
+			parameter: { game: "Soccer" },
+			path: path.sports.root,
 			img: `${bannerImgUrl}/desktop/img/4.0/saba.png`,
-			...productList.sportSaba,
-			subPath: path.sports.root,
-			className: "sabaSport",
-			parameter: { ...productList.sportSaba }
+			displayKey: "lbl_SabaSport"
 		},
 		{
+			...products.BtiSport,
+			menuType: defMenuType.Link,
+			path: path.sports.root,
+			parameter: { game: "BtiSport" },
 			displayKey: "lbl_BTISport",
-			img: `${bannerImgUrl}/desktop/img/4.0/bti.png`,
-			...productList.sportBti,
-			subPath: path.sportBti.root,
-			className: "btiSport",
-			parameter: { ...productList.sportBti }
+			img: `${bannerImgUrl}/desktop/img/4.0/bti.png`
 		},
 		{
+			...products.VirtualSports,
+			menuType: defMenuType.Link,
+			path: path.sports.root,
+			parameter: { game: "VirtualSports" },
 			displayKey: "lbl_VirtualSports",
-			img: `${bannerImgUrl}/desktop/img/4.0/virtual.png`,
-			...productList.virtualSports,
-			subPath: path.sports.root,
-			className: "virtual",
-			parameter: { ...productList.virtualSports },
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.sports_virtualSports
-				})
-			]
+			img: `${bannerImgUrl}/desktop/img/4.0/virtual.png`
 		},
 		{
+			...products.IMSports,
+			menuType: defMenuType.Link,
+			path: path.sports.root,
+			parameter: { game: "IMSports" },
 			displayText: "IM Sports",
-			img: `${bannerImgUrl}/desktop/img/4.0/im.png`,
-			...productList.sports_IM,
-			subPath: path.sportsIM.root,
-			className: "InplayMatrix",
-			parameter: { ...productList.sports_IM },
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.IM
-				})
-			],
-			afterLogin: true
+			img: `${bannerImgUrl}/desktop/img/4.0/im.png`
 		}
 	],
 	vn: [
 		{
+			...products.SBOBET,
+			menuType: defMenuType.Link,
+			path: path.sports.root,
+			parameter: { game: "SBOBET" },
+			isNeedLogin: true,
 			displayText: "SBOBET",
-			img: `${bannerImgUrl}/desktop/img/4.0/sbo-vn.png`,
-			...productList.sportSbo,
-			subPath: path.sportSbo.root,
-			className: "sbobet",
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.sportSbo
-				})
-			],
-			parameter: { ...productList.sportSbo },
-			afterLogin: true
+			img: `${bannerImgUrl}/desktop/img/4.0/sbo-vn.png`
 		},
-		// {
-		// 	img: `${bannerImgUrl}/desktop/img/4.0/crypto-vn.png`,
-		// 	...productList.cryptoSports,
-		// 	className: "cryptosport",
-		// 	displayKey: "lbl_cryptoSports",
-		// 	parameter: { ...productList.cryptoSports },
-		// 	eventIcons: [
-		// 		showEventIcon({
-		// 			icon: defEventIcon.new,
-		// 			period: defEventPeriod.sports_cryptoSports
-		// 		})
-		// 	]
-		// },
 		{
+			...products.Soccer,
+			menuType: defMenuType.Link,
+			path: path.sports.root,
+			parameter: { game: "Soccer" },
 			displayKey: "lbl_SabaSport",
-			img: `${bannerImgUrl}/desktop/img/4.0/saba-vn.png`,
-			...productList.sportSaba,
-			subPath: path.sports.root,
-			className: "sabaSport",
-			parameter: { ...productList.sportSaba }
+			img: `${bannerImgUrl}/desktop/img/4.0/saba-vn.png`
 		},
 		{
+			...products.BtiSport,
+			menuType: defMenuType.Link,
+			path: path.sports.root,
+			parameter: { game: "BtiSport" },
 			displayKey: "lbl_BTISport",
-			img: `${bannerImgUrl}/desktop/img/4.0/bti-vn.png`,
-			...productList.sportBti,
-			subPath: path.sportBti.root,
-			className: "btiSport",
-			parameter: { ...productList.sportBti }
+			img: `${bannerImgUrl}/desktop/img/4.0/bti-vn.png`
 		},
 		{
+			...products.VirtualSports,
+			menuType: defMenuType.Link,
+			path: path.sports.root,
+			parameter: { game: "VirtualSports" },
 			displayKey: "lbl_VirtualSports",
-			img: `${bannerImgUrl}/desktop/img/4.0/virtual-vn.png`,
-			...productList.virtualSports,
-			subPath: path.sports.root,
-			className: "virtual",
-			parameter: { ...productList.virtualSports },
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.sports_virtualSports
-				})
-			]
+			img: `${bannerImgUrl}/desktop/img/4.0/virtual-vn.png`
 		},
 		{
+			...products.IMSports,
+			menuType: defMenuType.Link,
+			path: path.sports.root,
+			parameter: { game: "IMSports" },
 			displayText: "IM Sports",
-			img: `${bannerImgUrl}/desktop/img/4.0/im-vn.png`,
-			...productList.sports_IM,
-			subPath: path.sportsIM.root,
-			className: "InplayMatrix",
-			parameter: { ...productList.sports_IM },
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.IM
-				})
-			],
-			afterLogin: true
+			img: `${bannerImgUrl}/desktop/img/4.0/im-vn.png`
 		}
 	]
 };

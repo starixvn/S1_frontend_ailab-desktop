@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
+import { products } from "@ailab-desktop/common";
 import { userInfoContext } from "../components/common/context";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import { getUrlParameter } from "../components/common/common";
 import { GET_ENTER_PAGE_URL } from "../service/enterPage";
-import productList from "../datas/productList";
 
 export default () => (
 	<Wrapper>
@@ -17,10 +17,13 @@ export default () => (
 const Content = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const game = getUrlParameter("game");
-	const tpId = productList[game]?.tpId ?? getUrlParameter("tpId");
-	const gameId = productList[game]?.gameId ?? getUrlParameter("gameId");
-	const matchid = getUrlParameter("matchid");
-	const tpGameType = productList[game]?.tpGameType;
+
+	const tpId = products[game]?.tpId;
+	const tpGameType = products[game]?.tpGameType;
+	const gameId = products[game]?.gameId || null;
+	// * matchId 從 hotEvent api 取得
+	const matchid = getUrlParameter("matchid") || null;
+	const betType = products[game]?.betType || null;
 
 	return (
 		<main className="sports">
@@ -29,11 +32,13 @@ const Content = () => {
 					title="sport"
 					target="sport_iframe"
 					src={GET_ENTER_PAGE_URL({
-						langId: userInfo.langId,
 						tpId,
+						tpGameType,
 						gameId,
 						matchid,
-						tpGameType
+						betType,
+						langId: userInfo.langId,
+						isLogin: userInfo.isLogin
 					})}
 				/>
 			</section>
