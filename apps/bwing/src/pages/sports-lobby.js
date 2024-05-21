@@ -14,6 +14,8 @@ import { api_promotion_GetPromotionListV2 } from "../service/api/promotion";
 import usePopBox from "../components/hook/usePopBox";
 import PromotionWrapper from "../components/promotion/promotion.wrapper";
 import { defCategoryId } from "../components/promotion/promotion.def";
+import { defPopBoxType } from "../components/common/defPopBoxType";
+import useMenu from "../components/hook/useMenu";
 
 export default () => (
 	<Wrapper>
@@ -42,6 +44,8 @@ const Content = () => {
 				isLogin: userInfo.isLogin
 			})
 	);
+
+	const { onClickProductItem } = useMenu();
 
 	const getHotEventList = async () => {
 		try {
@@ -75,6 +79,32 @@ const Content = () => {
 		}
 	};
 
+	const handleClickHomeProduct = product => {
+		const { isInMaintain } = product || {};
+		if (isInMaintain) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.UnderMaintain,
+				clickClose: () => setPopBox({ isOpen: false }),
+				content: t("lbl_underMaintenance"),
+				hasBtn: true,
+				btnBar: (
+					<div className="btn-group">
+						<button
+							className="btn-gray"
+							onClick={() => {
+								setPopBox({ isOpen: false });
+							}}>
+							OK
+						</button>
+					</div>
+				)
+			});
+		} else {
+			onClickProductItem(product);
+		}
+	};
+
 	useEffect(() => {
 		getHotEventList();
 		getPromotionList();
@@ -94,6 +124,7 @@ const Content = () => {
 				<HomeMatch
 					hotEventList={hotEventList}
 					maintainList={allMaintainList}
+					handleClickHomeProduct={handleClickHomeProduct}
 				/>
 				<HotPromotion promotionList={filterPromotionList} />
 			</div>

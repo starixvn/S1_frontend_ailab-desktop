@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { bannerImgUrl } from "../../config";
 import { userInfoContext } from "../common/context";
-import { defSlotTpGameType } from "../../datas/productList";
 
 SwiperCore.use([Navigation]);
 
@@ -34,11 +33,7 @@ const TopQuickLink = ({
 				to={
 					_item?.openPath
 						? `/${userInfo.langId}/${_item?.openPath}`
-						: `/${userInfo.langId}/casino?tpId=${
-								_item.tpId
-						  }&tpGameType=${
-								defSlotTpGameType[_item?.tpName]?.tpGameType
-						  }`
+						: `/${userInfo.langId}/casino?tpId=${_item.tpId}&tpGameType=${_item.tpGameType}`
 				}>
 				<img
 					src={`${bannerImgUrl}/desktop/img/partnerlogo/${_srcImg}.png`}

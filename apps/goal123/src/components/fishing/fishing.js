@@ -4,12 +4,9 @@ import { userInfoContext } from "../common/context";
 import FishingList from "./fishing.list";
 import LobbyBottomBanner from "../common-lobby/LobbyBottomBanner";
 import LobbyBanner from "../common-lobby/LobbyBanner";
-import useGetSubMenu from "../common-lobby/hooks/useGetSubmenu";
 
 const Fishing = () => {
 	const { userInfo } = useContext(userInfoContext);
-
-	const subMenu = useGetSubMenu("fishing");
 
 	const bannerUrl = {
 		en: `${bannerImgUrl}/desktop/img/home-page/lobbybanner/lobbybanner-fishing-en.jpg`,
@@ -22,7 +19,7 @@ const Fishing = () => {
 				src={userInfo.langId === "en" ? bannerUrl.en : bannerUrl.vn}
 			/>
 			<div className="lobby-wrapper">
-				<FishingList subMenu={subMenu} />
+				<FishingList />
 				<LobbyBottomBanner />
 			</div>
 		</>

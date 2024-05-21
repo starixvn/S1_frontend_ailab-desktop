@@ -1,62 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { useTranslation } from "react-i18next";
-import { defTpGameType } from "../../datas/productList";
+import { isShowEventIcon, switchLobbyIcon } from "../layout/header.menu.newDef";
 
-const LiveCasinoListItem = ({ clickItem, subMenuItem, maintainList }) => {
-	const { tpId, gameId, menuType, lobbyImg, tpGameType } = subMenuItem;
+const LiveCasinoListItem = ({ onclickCasinoItem, subMenuItem }) => {
 	const { t } = useTranslation();
 
-	const isInMaintain = maintainList?.some(
-		item =>
-			item.tpId === tpId &&
-			(item.tpGameType === tpGameType ||
-				item.tpGameType === defTpGameType.All)
-	);
+	// * 後端這裡是字串格式 需做處理
+	const suBMenuLobbyImage =
+		subMenuItem?.pcLobbyPicUrl && JSON.parse(subMenuItem?.pcLobbyPicUrl)[0];
 
-	const _className = `lobby-products-items${isInMaintain ? " maintain" : ""}`;
-	const baseLobbyUrl =
-		"https://banner.bw88.io/desktop/img/4.0/lobby/livecasino";
+	const { iconType, iconStartTime, iconEndTime } = subMenuItem || {};
 
-	let _iconClassName = "";
-	if (subMenuItem.eventIcons) {
-		let iconStrings = "";
-		for (let i = 0; i < subMenuItem.eventIcons.length; i++) {
-			if (subMenuItem.eventIcons[i] !== "") {
-				iconStrings += `${subMenuItem.eventIcons[i]}`;
-			}
-		}
-		_iconClassName = `${iconStrings}`;
-	}
-
-	let showIcon = null;
-	if (_iconClassName.length > 0) {
-		if (_iconClassName === "tag-new") {
-			showIcon = "tag-new-pop";
-		} else {
-			showIcon = _iconClassName;
-		}
-	}
+	const liveCasinoLobbyIcon =
+		isShowEventIcon(iconStartTime, iconEndTime) &&
+		switchLobbyIcon(iconType);
 
 	return (
 		<a
-			className={_className}
-			onClick={() =>
-				clickItem({
-					tpId,
-					gameId,
-					menuType,
-					isInMaintain,
-					tpGameType
-				})
-			}
-		>
-			{isInMaintain && (
+			className={classNames("lobby-products-items", {
+				maintain: subMenuItem?.isInMaintain
+			})}
+			onClick={() => onclickCasinoItem(subMenuItem)}>
+			{subMenuItem?.isInMaintain && (
 				<div className="tag-maintain">{t("lbl_underMaintenance")}</div>
 			)}
-			{showIcon && <div className={showIcon} />}
-			<img src={`${baseLobbyUrl}/${lobbyImg}`} alt="" />
-			{/* <div className="name">{_displayText}</div> */}
+			{liveCasinoLobbyIcon && <div className={liveCasinoLobbyIcon} />}
+
+			<img src={suBMenuLobbyImage} alt={subMenuItem?.productName} />
 		</a>
 	);
 };
@@ -64,7 +36,6 @@ const LiveCasinoListItem = ({ clickItem, subMenuItem, maintainList }) => {
 export default LiveCasinoListItem;
 
 LiveCasinoListItem.propTypes = {
-	clickItem: PropTypes.func.isRequired,
-	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
+	onclickCasinoItem: PropTypes.func.isRequired,
+	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired
 };

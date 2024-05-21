@@ -14,7 +14,7 @@ const HomeStreaming = ({ league, home, away, homeScore, awayScore }) => {
 			<div className="home-livesports-league">{league}</div>
 			<div className="home-livesports-content">
 				<div className="home-livesports-team left">
-					<div>{t("lbl_Streaming_Home").toUpperCase()}</div>
+					<div>{t("LBL_STREAMING_HOME").toUpperCase()}</div>
 					<div className="name">{home}</div>
 				</div>
 				<div className="home-livesports-score">
@@ -22,7 +22,7 @@ const HomeStreaming = ({ league, home, away, homeScore, awayScore }) => {
 					<span> {awayScore ?? 0} </span>
 				</div>
 				<div className="home-livesports-team right">
-					<div>{t("lbl_Streaming_Away").toUpperCase()}</div>
+					<div>{t("LBL_STREAMING_AWAY").toUpperCase()}</div>
 					<div className="name">{away}</div>
 				</div>
 			</div>

@@ -1,14 +1,9 @@
 import { useEffect, useState, useCallback, useRef, useContext } from "react";
-import { defCasinoProviders } from "../../datas/productList";
+import { products } from "@ailab-desktop/common";
 import { api_tp_GotoGame } from "../../service/api/tp";
 import usePopBox from "./usePopBox";
 import { popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
-
-export const defSpecialSetting = {
-	playTech: defCasinoProviders.PlayTech.tpId,
-	PG: defCasinoProviders.PG.tpId
-};
 
 export const defLoginGameType = {
 	returlGameUrl: 1,
@@ -105,13 +100,13 @@ export const useGotoGame = ({
 					gameId: _gameId,
 					fun: _isFun ? "1" : "0",
 					gameType:
-						_tpId === defSpecialSetting.playTech ? "slots" : "",
+						_tpId === products.NewPlayTechSlot.tpId ? "slots" : "",
 					tpGameType: String(tpGameType),
 					loginGameType: String(loginGameType)
 				}).then(async res => {
 					if (res.data.errorCode === 0 && res.data.message) {
 						const result = res.data.message;
-						if (_tpId === defSpecialSetting.playTech) {
+						if (_tpId === products.NewPlayTechSlot.tpId) {
 							const {
 								account: username,
 								password,
@@ -144,7 +139,7 @@ export const useGotoGame = ({
 							} else {
 								launchGameWithFunMode({ ...result });
 							}
-						} else if (_tpId === defSpecialSetting.PG) {
+						} else if (_tpId === products.PGSoft.tpId) {
 							if (loginGameType === defLoginGameType.returnHtml) {
 								const newWindow = window.open();
 								newWindow.document.write(res.data.message);
