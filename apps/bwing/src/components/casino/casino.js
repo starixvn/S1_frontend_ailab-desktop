@@ -420,14 +420,17 @@ export default () => {
 					} else {
 						// 如果featured類別裡面沒有遊戲，那一進畫面就先顯示all的
 						// resultList就是categoryList陣列，1是all，3是featured
-						resultList[3]?.featured?.length === 0
+						const featuredIdx = resultList.findIndex(value => {
+							return Object.keys(value)[0] === "featured";
+						});
+						resultList[featuredIdx]?.featured?.length === 0
 							? setActiveCategory(
 									activeCategory ??
 										Object.keys(resultList[1])[0]
 							  )
 							: setActiveCategory(
 									activeCategory ??
-										Object.keys(resultList[3])[0]
+										Object.keys(resultList[featuredIdx])[0]
 							  );
 					}
 
