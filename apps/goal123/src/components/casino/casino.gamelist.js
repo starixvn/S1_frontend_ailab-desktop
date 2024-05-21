@@ -18,7 +18,8 @@ const GameList = ({
 	getTpGameType,
 	activeCategory,
 	favoriteStr,
-	activeProvider
+	activeProvider,
+	newGamesArr
 }) => {
 	const inViewRef = useInView(() => onLoadMore());
 	let _imgUrl = "";
@@ -76,7 +77,9 @@ const GameList = ({
 
 						<div
 							className={`icon ${
-								activeCategory === "new" ? "icon-new" : ""
+								newGamesArr?.includes(g.gameId)
+									? "icon-new"
+									: ""
 							}`}
 						/>
 
@@ -161,7 +164,8 @@ GameList.defaultProps = {
 	getIsInMaintain: () => null,
 	getTpGameType: () => null,
 	activeCategory: null,
-	activeProvider: null
+	activeProvider: null,
+	newGamesArr: null
 };
 
 GameList.propTypes = {
@@ -180,7 +184,8 @@ GameList.propTypes = {
 	getTpGameType: PropTypes.func,
 	activeCategory: PropTypes.string,
 	favoriteStr: PropTypes.string.isRequired,
-	activeProvider: PropTypes.objectOf(PropTypes.any)
+	activeProvider: PropTypes.objectOf(PropTypes.any),
+	newGamesArr: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default GameList;

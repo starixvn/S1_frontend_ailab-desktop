@@ -47,6 +47,7 @@ export default () => {
 	const [favoriteStr, setFavoriteStr] = useState(
 		localStorage.getItem("favorite")
 	);
+	const [newGamesArr, setNewGamesArr] = useState([]);
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -162,6 +163,16 @@ export default () => {
 			setInitialSlide(newInitialSlide);
 		}
 	}, [activeProvider]);
+
+	// 一進畫面就先把新遊戲的gameId存在陣列
+	useEffect(() => {
+		categoryList.forEach(items => {
+			if (Object.keys(items)[0] === "new") {
+				const _gameIdArr = items.new.map(item => item.gameId);
+				setNewGamesArr(_gameIdArr);
+			}
+		});
+	}, [categoryList]);
 
 	const loadMore = () => {
 		if (allGames && pageInfo.totalPages > pageInfo.currentPage) {
@@ -418,9 +429,20 @@ export default () => {
 						setActiveCategory("jackpot");
 						navigate(window.location.pathname, { replace: true });
 					} else {
-						setActiveCategory(
-							activeCategory ?? Object.keys(resultList[1])[0]
-						);
+						// 如果featured類別裡面沒有遊戲，那一進畫面就先顯示all的
+						// resultList就是categoryList陣列，1是all，3是featured
+						const featuredIdx = resultList.findIndex(value => {
+							return Object.keys(value)[0] === "featured";
+						});
+						resultList[featuredIdx]?.featured?.length === 0
+							? setActiveCategory(
+									activeCategory ??
+										Object.keys(resultList[1])[0]
+							  )
+							: setActiveCategory(
+									activeCategory ??
+										Object.keys(resultList[featuredIdx])[0]
+							  );
 					}
 
 					setIsProcessing(false);
@@ -620,6 +642,7 @@ export default () => {
 							getTpGameType={getTpGameType}
 							activeCategory={activeCategory}
 							favoriteStr={favoriteStr ?? ""}
+							newGamesArr={newGamesArr}
 						/>
 					</div>
 				</div>
