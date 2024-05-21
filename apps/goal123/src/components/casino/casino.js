@@ -51,6 +51,7 @@ export default () => {
 	const [favoriteStr, setFavoriteStr] = useState(
 		localStorage.getItem("favorite")
 	);
+	const [newGamesArr, setNewGamesArr] = useState([]);
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -167,6 +168,16 @@ export default () => {
 		}
 	}, [activeProvider]);
 
+	// 一進畫面就先把新遊戲的gameId存在陣列
+	useEffect(() => {
+		categoryList.forEach(items => {
+			if (Object.keys(items)[0] === "new") {
+				const _gameIdArr = items.new.map(item => item.gameId);
+				setNewGamesArr(_gameIdArr);
+			}
+		});
+	}, [categoryList]);
+
 	const loadMore = () => {
 		if (allGames && pageInfo.totalPages > pageInfo.currentPage) {
 			setPageInfo(prev => ({
@@ -262,7 +273,8 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}>
+											onClick={clickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -282,7 +294,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}>
+										onClick={clickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -416,9 +429,22 @@ export default () => {
 						resultList.push({ [item[0]]: item[1] })
 					);
 					setCategoryList(resultList);
-					setActiveCategory(
-						activeCategory ?? Object.keys(resultList[1])[0]
-					);
+					// 如果featured類別裡面沒有遊戲，那一進畫面就先顯示all的
+					// resultList就是categoryList陣列，1是all，3是featured
+					const featuredIdx = resultList.findIndex(value => {
+						return Object.keys(value)[0] === "featured";
+					});
+					resultList[featuredIdx]?.featured?.length === 0
+						? setActiveCategory(
+								activeCategory ?? Object.keys(resultList[1])[0]
+						  )
+						: setActiveCategory(
+								activeCategory ??
+									Object.keys(resultList[featuredIdx])[0]
+						  );
+					// setActiveCategory(
+					// 	activeCategory ?? Object.keys(resultList[1])[0]
+					// );
 					setIsProcessing(false);
 				} else {
 					setPopBox({
@@ -429,7 +455,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -448,7 +475,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -614,6 +642,7 @@ export default () => {
 							getTpGameType={getTpGameType}
 							activeCategory={activeCategory}
 							favoriteStr={favoriteStr ?? ""}
+							newGamesArr={newGamesArr}
 						/>
 					</div>
 				</div>
