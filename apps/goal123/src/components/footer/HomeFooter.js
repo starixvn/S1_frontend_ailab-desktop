@@ -82,7 +82,7 @@ const HomeFooter = () => {
 							<div className="media">
 								{/* facebook */}
 								<a
-										href="https://www.facebook.com/goal123.official"
+									href="https://www.facebook.com/goal123.official"
 									target="_blank">
 									<img
 										src={`${bannerImgUrl}/desktop/img/home-page/icon/icon-facebook.svg`}

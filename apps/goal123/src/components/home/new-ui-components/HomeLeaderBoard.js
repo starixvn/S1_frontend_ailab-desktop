@@ -9,7 +9,6 @@ const HomeLeaderBoard = () => {
 	const { t } = useTranslation();
 
 	// 左側api之共用元件
-
 	const TopThreeWinner = ({ winner, src }) => {
 		return (
 			<div className="item">
@@ -25,7 +24,6 @@ const HomeLeaderBoard = () => {
 			</div>
 		);
 	};
-
 
 	// 目前api只有前三名 這邊測試用 之後刪除
 

@@ -33,8 +33,7 @@ const usePopupHandler = () => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								setPopBox({ isOpen: false });
-							}}
-						>
+							}}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -150,8 +149,7 @@ const usePopupHandler = () => {
 												navigate(
 													`/${path.promotion.root}?bonusCode=${bonusCode}`
 												);
-											}}
-										>
+											}}>
 											{t("lbl_Promotion_ClaimNow")}
 										</button>
 

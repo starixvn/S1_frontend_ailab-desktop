@@ -23,7 +23,6 @@ import CupEventLink from "./cupEventLink";
 
 const NewHome = () => {
 	const { userInfo } = useContext(userInfoContext);
-
 	// 彈窗邏輯整合至usePopupHandlerhook
 	usePopupHandler();
 
