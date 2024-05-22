@@ -29,13 +29,19 @@ const GameList = ({
 			?.filter(g => filterJudge(g))
 			// If have sort in game object then sort when in active provider
 			.sort((a, b) => {
-				if (
-					activeProvider.tpId === a.tpId &&
-					activeProvider.tpId === b.tpId
-				) {
-					return a?.sort > b?.sort ? 1 : -1;
-				}
-				return true;
+				// 照新增遊戲的時間排序
+				return (
+					new Date(b.launchDate).getTime() -
+					new Date(a.launchDate).getTime()
+				);
+				// 原始的排序方式（先保留以防ＰＭ需改回）
+				// if (
+				// 	activeProvider.tpId === a.tpId &&
+				// 	activeProvider.tpId === b.tpId
+				// ) {
+				// 	return a?.sort > b?.sort ? 1 : -1;
+				// }
+				// return true;
 			})
 			?.slice(startIdx, endIdx)
 			?.map(g => {
