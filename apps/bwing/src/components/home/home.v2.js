@@ -58,7 +58,7 @@ const Home = () => {
 
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
 	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
-
+	const { appLinkDatas } = useAppDownLoad();
 	const { videoList } = useGetVideo({
 		langId: userInfo.langId,
 		isMounted: isMountedRef.current
@@ -112,8 +112,7 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}
-						>
+							onClick={() => setPopBox({ isOpen: false })}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -169,8 +168,7 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}
-						>
+							onClick={() => setPopBox({ isOpen: false })}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -192,8 +190,7 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}
-						>
+							onClick={() => setPopBox({ isOpen: false })}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -220,8 +217,7 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}
-						>
+							onClick={() => setPopBox({ isOpen: false })}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -248,8 +244,7 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}
-						>
+							onClick={() => setPopBox({ isOpen: false })}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -263,7 +258,6 @@ const Home = () => {
 		getHotEventList();
 		getLeaderBoardList();
 		getHotGameList();
-		getRecentlyViewedGames();
 		getNews();
 
 		timeRef.current = setInterval(() => {
@@ -417,8 +411,7 @@ const Home = () => {
 													navigate(
 														`/${path.promotion.root}?bonusCode=${bonusCode}`
 													);
-												}}
-											>
+												}}>
 												{t("lbl_Promotion_ClaimNow")}
 											</button>
 
@@ -475,8 +468,7 @@ const Home = () => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								closePopBox();
-							}}
-						>
+							}}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -484,6 +476,12 @@ const Home = () => {
 			});
 		}
 	}, []);
+
+	useEffect(() => {
+		if (userInfo.isLogin) {
+			getRecentlyViewedGames();
+		}
+	}, [userInfo.isLogin]);
 
 	return (
 		<>
@@ -510,7 +508,7 @@ const Home = () => {
 							recentlyViewedGames={recentlyViewedGames}
 						/>
 					)}
-					<HomeDownLoad />
+					<HomeDownLoad appLinkDatas={appLinkDatas} />
 					<LiveSports videoList={videoList} />
 					<News news={news} />
 				</div>
@@ -520,8 +518,7 @@ const Home = () => {
 				<div
 					className={classNames("eventLink vgaming", {
 						eurocup: isDateRange(eventPerios.euroCup)
-					})}
-				>
+					})}>
 					<button
 						style={{ zIndex: 50 }}
 						className="icon-close-primary"
@@ -555,7 +552,10 @@ const Home = () => {
 
 			<SideBarContactUs />
 
-			<SideBarDownload langId={userInfo.langId} />
+			<SideBarDownload
+				langId={userInfo.langId}
+				appLinkDatas={appLinkDatas}
+			/>
 		</>
 	);
 };

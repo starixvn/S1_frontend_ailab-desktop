@@ -20,7 +20,7 @@ const TopContent = () => {
 						src={`${bannerImgUrl}/desktop/img/event/eurocup/text-round.png`}
 						alt="text-round"
 					/>
-					<span>HOW TO PARTICIPATE</span>
+					<span>{t("lbl_CupEvent_Participate")}</span>
 					<img
 						src={`${bannerImgUrl}/desktop/img/event/eurocup/text-round.png`}
 						alt="text-round"

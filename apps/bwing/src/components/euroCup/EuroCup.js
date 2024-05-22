@@ -127,8 +127,9 @@ const EuroCup = () => {
 									{t("lbl_CupEvent_PredictScore_unCompleted")}
 								</div>
 								<button
-									onClick={() => setPopBox({ isOpen: false })}
-								>
+									onClick={() =>
+										setPopBox({ isOpen: false })
+									}>
 									{t("lbl_OK")}
 								</button>
 							</div>
@@ -154,8 +155,7 @@ const EuroCup = () => {
 									<button
 										onClick={() =>
 											setPopBox({ isOpen: false })
-										}
-									>
+										}>
 										{t("lbl_CANCEL")}
 									</button>
 								</div>
@@ -228,8 +228,9 @@ const EuroCup = () => {
 									{t("lbl_OK")}
 								</button>
 								<button
-									onClick={() => setPopBox({ isOpen: false })}
-								>
+									onClick={() =>
+										setPopBox({ isOpen: false })
+									}>
 									{t("lbl_Cancel")}
 								</button>
 							</div>
@@ -275,8 +276,7 @@ const EuroCup = () => {
 			<div
 				className={classNames("mission-wrapper", {
 					submit: isDateRange(eventPerios.predictScore)
-				})}
-			>
+				})}>
 				<div className="mission-content">
 					<div className="title">
 						<span>{t("lbl_CupEvent_Mission")}</span>

@@ -43,8 +43,7 @@ const FooterProvider = () => {
 					<a
 						key={provider.id}
 						onClick={e => e.preventDefault}
-						style={{ cursor: "default" }}
-					>
+						style={{ cursor: "default" }}>
 						<img
 							src={`${bannerImgUrl}/desktop/img/home-page/provider/${
 								isHovered[provider.id]
