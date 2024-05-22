@@ -25,8 +25,7 @@ const Nav = ({ categoryList, activeCategory, onChange, t, isProcessing }) => {
 				}`}
 				onClick={() => {
 					!isProcessing && onChange(Object.keys(item)[0]);
-				}}
-			>
+				}}>
 				{t(_nav.displayKey)}
 			</div>
 		);
