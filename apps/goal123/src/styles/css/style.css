@@ -14101,8 +14101,11 @@ html.Newtheme main .home-app .app-item button .icon-apple {
 .footer-top .social-media-item .media img:last-child {
   margin-right: unset;
 }
-.footer-top .social-media-item .media a:first-child {
+.footer-top .social-media-item .media a, .footer-top .social-media-item .media button {
   margin-right: 10px;
+}
+.footer-top .social-media-item .media a:last-child, .footer-top .social-media-item .media button:last-child {
+  margin-right: unset;
 }
 .footer-top a,
 .footer-top button {
