@@ -4,12 +4,9 @@ import { userInfoContext } from "../common/context";
 import LivecasinoList from "./livecasino.list";
 import LobbyBanner from "../common-lobby/LobbyBanner";
 import LobbyBottomBanner from "../common-lobby/LobbyBottomBanner";
-import useGetSubMenu from "../common-lobby/hooks/useGetSubmenu";
 
 const Livecasino = () => {
 	const { userInfo } = useContext(userInfoContext);
-
-	const subMenu = useGetSubMenu("liveCasino");
 
 	const bannerUrl = {
 		en: `${bannerImgUrl}/desktop/img/home-page/lobbybanner/lobbybanner-casino-en.jpg`,
@@ -22,7 +19,7 @@ const Livecasino = () => {
 				src={userInfo.langId === "en" ? bannerUrl.en : bannerUrl.vn}
 			/>
 			<div className="lobby-wrapper">
-				<LivecasinoList subMenu={subMenu} />
+				<LivecasinoList />
 				<LobbyBottomBanner />
 			</div>
 		</>

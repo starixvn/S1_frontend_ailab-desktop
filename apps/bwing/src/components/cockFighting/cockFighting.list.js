@@ -2,17 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import CockFightingListItem from "./cockFighting.list.item";
 
-const CockFightingList = ({ subMenu, clickItem, maintainList }) => {
+const CockFightingList = ({
+	cockFightingSubMenus = [],
+	onclickCockFightingItem
+}) => {
+	if (cockFightingSubMenus.length === 0) return null;
 	return (
 		<>
-			{subMenu.map(subMenuItem => {
-				if (!subMenuItem.lobbyPage) return null;
+			{cockFightingSubMenus.map(subMenuItem => {
 				return (
 					<CockFightingListItem
-						key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
-						clickItem={clickItem}
+						key={subMenuItem?.tpGameIdNo}
+						onclickCockFightingItem={onclickCockFightingItem}
 						subMenuItem={subMenuItem}
-						maintainList={maintainList}
 					/>
 				);
 			})}
@@ -23,7 +25,6 @@ const CockFightingList = ({ subMenu, clickItem, maintainList }) => {
 export default CockFightingList;
 
 CockFightingList.propTypes = {
-	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
-	clickItem: PropTypes.func.isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
+	cockFightingSubMenus: PropTypes.arrayOf(PropTypes.any).isRequired,
+	onclickCockFightingItem: PropTypes.func.isRequired
 };

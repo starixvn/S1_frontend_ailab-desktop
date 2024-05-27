@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { products, defTpGameType } from "@ailab-desktop/common";
 import Nav from "./casino.nav";
 import SearchBox from "./casino.searchBox";
 import GameList from "./casino.gamelist";
@@ -18,17 +19,8 @@ import CasinoJackpot from "./casino.jackpot";
 import { BannerSwipper } from "../common/customSwipper";
 import { api_game_GetSlotGamePage } from "../../service/api/game";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
-import {
-	defSpecialSetting,
-	defLoginGameType,
-	useGotoGame
-} from "../hook/useGotoGame";
+import { defLoginGameType, useGotoGame } from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
-import {
-	defCasinoProviders,
-	defSlotTpGameType,
-	defTpGameType
-} from "../../datas/productList";
 import { getUrlParameter, langAndCurrMapping } from "../common/common";
 
 export default () => {
@@ -62,9 +54,8 @@ export default () => {
 	const { throttle } = useDelayFunc();
 	const urlTpId = getUrlParameter("tpId");
 	const urlProvider = getUrlParameter("provider");
-	const urlProviderTpId = Object.values(defCasinoProviders).find(
-		el => el.name.toUpperCase() === urlProvider.toUpperCase()
-	)?.tpId;
+	const urlProviderTpId = urlProvider ? Number(urlProvider) : undefined;
+
 	const slidesPerViewNum = 9;
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -273,8 +264,7 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}
-										>
+											onClick={clickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -294,8 +284,7 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}
-									>
+										onClick={clickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -393,9 +382,9 @@ export default () => {
 									});
 									setActiveProvider(_activeProvider);
 								}
-								setProviderList(tempPList);
+								setProviderList(tempPList || []);
 							} else {
-								setProviderList(tempPList);
+								setProviderList(tempPList || []);
 							}
 						} else if (item[0] === "imgUrl") {
 							setImgUrl(item[1]);
@@ -455,8 +444,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}
-								>
+									onClick={clickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -475,8 +463,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}
-								>
+									onClick={clickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -513,7 +500,7 @@ export default () => {
 						isFree,
 						langId: userInfo.langId,
 						execFunction:
-							tpId === defSpecialSetting.PG
+							tpId === products.PGSoft.tpId
 								? handleGoToGame.bind(this, {
 										langId: userInfo.langId,
 										tpId,
@@ -548,15 +535,15 @@ export default () => {
 		);
 	};
 	const getTpGameType = g =>
-		Object.values(defSlotTpGameType).find(obj => obj.tpId === g.tpId) ?? {};
+		Object.values(providerList)?.find(obj => obj.tpId === g.tpId) ?? {};
 	const getIsInMaintain = g =>
 		allMaintainList?.some(
 			item =>
 				item.tpId === g.tpId &&
 				(item.tpGameType ===
-					Object.values(defSlotTpGameType).find(
+					Object.values(providerList)?.find(
 						obj => obj.tpId === g.tpId
-					).tpGameType ||
+					)?.tpGameType ||
 					item.tpGameType === defTpGameType.All)
 		);
 

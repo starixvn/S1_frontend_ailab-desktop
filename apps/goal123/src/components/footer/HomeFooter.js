@@ -10,10 +10,12 @@ import TandC from "../../service/t_and_c";
 import useGetSocialChannel, {
 	defDisplayPage
 } from "../hook/useGetSocialChannel";
+import useMenu from "../hook/useMenu";
 
 const HomeFooter = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { t } = useTranslation();
+	const { menuList } = useMenu();
 
 	const { socialChannel } = useGetSocialChannel({
 		langId: userInfo.langId,
@@ -37,24 +39,21 @@ const HomeFooter = () => {
 						<a
 							href={TandC(userInfo.langId).AboutUs}
 							target="_blank"
-							rel="noreferrer"
-						>
+							rel="noreferrer">
 							{t("lbl_AboutUs")}
 						</a>
 
 						<a
 							href={TandC(userInfo.langId).Terms}
 							target="_blank"
-							rel="noreferrer"
-						>
+							rel="noreferrer">
 							{t("lbl_Terms")}
 						</a>
 
 						<a
 							href={TandC(userInfo.langId).ResposibleGaming}
 							target="_blank"
-							rel="noreferrer"
-						>
+							rel="noreferrer">
 							{t("lbl_ResposibleGaming")}
 						</a>
 
@@ -64,8 +63,7 @@ const HomeFooter = () => {
 									.affiliateLink
 							}
 							target="_blank"
-							rel="noreferrer"
-						>
+							rel="noreferrer">
 							{t("lbl_Affiliates")}
 						</a>
 					</div>
@@ -81,8 +79,7 @@ const HomeFooter = () => {
 								<a
 									href="https://www.facebook.com/goal123.official"
 									target="_blank"
-									rel="noreferrer"
-								>
+									rel="noreferrer">
 									<img
 										src={`${bannerImgUrl}/desktop/img/home-page/icon/icon-facebook.svg`}
 										alt=""
@@ -105,8 +102,7 @@ const HomeFooter = () => {
 										key={`channel-${item.channelName}`}
 										href={item.link}
 										target="_blank"
-										rel="noreferrer"
-									>
+										rel="noreferrer">
 										<img
 											src={`${bannerImgUrl}/desktop/img/home-page/icon/${
 												channelNameToImg[
@@ -146,13 +142,12 @@ const HomeFooter = () => {
 							{t("lbl_LiveCasino")}
 						</a>
 						<a
-							href={`/${userInfo.langId}/${path.cockFighting.root}`}
-						>
+							href={`/${userInfo.langId}/${path.cockFighting.root}`}>
 							{t("lbl_CockFighting")}
 						</a>
 					</div>
 					<FooterPayment />
-					<FooterProvider />
+					<FooterProvider menuList={menuList} />
 				</div>
 				<div className="powered">
 					<div className="brand-item">

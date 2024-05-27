@@ -3,7 +3,7 @@ import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import classNames from "classnames";
-import { isDateRange } from "@ailab-desktop/common";
+import { isDateRange, products } from "@ailab-desktop/common";
 import { bannerImgUrl } from "../../config";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
@@ -12,7 +12,6 @@ import { SetPathParameter } from "../common/customSwipper";
 import { eventPeriods } from "../../datas/eventDef";
 import { api_liveStreaming_GetDataList } from "../../service/api/liveStreaming";
 import useClickItem from "./hooks/useClickItem";
-import productList from "../../datas/productList";
 
 const LiveStreamingLink = () => {
 	const { t } = useTranslation();
@@ -27,7 +26,7 @@ const LiveStreamingLink = () => {
 	const [displayVgaming, setDisplayVgaming] = useState(true);
 	const [isLoading, setIsLoading] = useState(false);
 
-	const { clickHomeItem } = useClickItem();
+	const { onclickHomeProduct } = useClickItem();
 
 	useEffect(() => {
 		const getLiveStreamingList = async () => {
@@ -205,7 +204,7 @@ const LiveStreamingLink = () => {
 						onClick={() => setDisplayVgaming(false)}
 					/>
 					<img
-						onClick={() => clickHomeItem(productList.sabaClub)}
+						onClick={() => onclickHomeProduct(products.Vgaming)}
 						alt="vgaming-link"
 						src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/vgaming.gif`}
 					/>

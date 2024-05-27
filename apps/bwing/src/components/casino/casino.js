@@ -1,3 +1,4 @@
+import { products, defTpGameType } from "@ailab-desktop/common";
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
@@ -18,17 +19,8 @@ import TopQuickLink from "./casino.topQuickLink";
 import SwipperBanner from "../common/swipperBanner";
 import { api_game_GetSlotGamePage } from "../../service/api/game";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
-import {
-	defLoginGameType,
-	defSpecialSetting,
-	useGotoGame
-} from "../hook/useGotoGame";
+import { defLoginGameType, useGotoGame } from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
-import {
-	defCasinoProviders,
-	defSlotTpGameType,
-	defTpGameType
-} from "../../datas/productList";
 import { getUrlParameter, langAndCurrMapping } from "../common/common";
 
 export default () => {
@@ -63,9 +55,7 @@ export default () => {
 	const urlTpId = getUrlParameter("tpId");
 	const urlProvider = getUrlParameter("provider");
 	const urlJackpotPage = getUrlParameter("page");
-	const urlProviderTpId = Object.values(defCasinoProviders).find(
-		el => el.name.toUpperCase() === urlProvider.toUpperCase()
-	)?.tpId;
+	const urlProviderTpId = urlProvider ? Number(urlProvider) : undefined;
 
 	const slidesPerViewNum = 7.2;
 
@@ -389,9 +379,9 @@ export default () => {
 									});
 									setActiveProvider(_activeProvider);
 								}
-								setProviderList(tempPList);
+								setProviderList(tempPList || []);
 							} else {
-								setProviderList(tempPList);
+								setProviderList(tempPList || []);
 							}
 						} else if (item[0] === "imgUrl") {
 							setImgUrl(item[1]);
@@ -512,7 +502,7 @@ export default () => {
 						isFree,
 						langId: userInfo.langId,
 						execFunction:
-							tpId === defSpecialSetting.PG
+							tpId === products.PGSoft.tpId
 								? handleGoToGame.bind(this, {
 										langId: userInfo.langId,
 										tpId,
@@ -547,15 +537,15 @@ export default () => {
 		);
 	};
 	const getTpGameType = g =>
-		Object.values(defSlotTpGameType).find(obj => obj.tpId === g.tpId) ?? {};
+		Object.values(providerList)?.find(obj => obj.tpId === g.tpId) ?? {};
 	const getIsInMaintain = g =>
 		allMaintainList?.some(
 			item =>
 				item.tpId === g.tpId &&
 				(item.tpGameType ===
-					Object.values(defSlotTpGameType).find(
+					Object.values(providerList)?.find(
 						obj => obj.tpId === g.tpId
-					).tpGameType ||
+					)?.tpGameType ||
 					item.tpGameType === defTpGameType.All)
 		);
 

@@ -1,40 +1,40 @@
-import productList from "../../datas/productList";
-import path from "../../router";
+import { products } from "@ailab-desktop/common";
+import { defMenuType } from "../layout/header.menu.newDef";
 
-export const defSportsBetting = {
-	soccer: {
-		productInfo: productList.soccer,
-		path: path.sports.root,
-		displayKey: "lbl_SoccerBetting"
+export const defSportsBetting = [
+	{
+		...products.Soccer,
+		footerDisplayKey: "lbl_SoccerBetting",
+		menuType: defMenuType.entPage
 	},
-	basketball: {
-		productInfo: productList.basketball,
-		path: path.sports.root,
-		displayKey: "lbl_BasketballBetting"
+	{
+		...products.Basketball,
+		footerDisplayKey: "lbl_BasketballBetting",
+		menuType: defMenuType.entPage
 	},
-	baseball: {
-		productInfo: productList.baseball,
-		path: path.sports.root,
-		displayKey: "lbl_BaseballBetting"
+	{
+		...products.BaseBall,
+		footerDisplayKey: "lbl_BaseballBetting",
+		menuType: defMenuType.entPage
 	},
-	football: {
-		productInfo: productList.football,
-		path: path.sports.root,
-		displayKey: "lbl_FootballBetting"
+	{
+		...products.Football,
+		footerDisplayKey: "lbl_FootballBetting",
+		menuType: defMenuType.entPage
 	},
-	tennis: {
-		productInfo: productList.tennis,
-		path: path.sports.root,
-		displayKey: "lbl_TennisBetting"
+	{
+		...products.Tennis,
+		footerDisplayKey: "lbl_TennisBetting",
+		menuType: defMenuType.entPage
 	},
-	hockey: {
-		productInfo: productList.hockey,
-		path: path.sports.root,
-		displayKey: "lbl_HockeyBetting"
+	{
+		...products.Hockey,
+		footerDisplayKey: "lbl_HockeyBetting",
+		menuType: defMenuType.entPage
 	},
-	eSport: {
-		productInfo: productList.eSport,
-		path: path.sports.root,
-		displayKey: "lbl_eSportsBetting"
+	{
+		...products.ESportALL,
+		footerDisplayKey: "lbl_eSportsBetting",
+		menuType: defMenuType.entPage
 	}
-};
+];
