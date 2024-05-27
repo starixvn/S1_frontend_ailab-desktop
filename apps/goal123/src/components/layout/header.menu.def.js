@@ -1113,7 +1113,7 @@ export const defMenuLinks = langId => ({
 		subMenu: [
 			{
 				...productList.GA_CockFighting,
-				displayKey: "GA Cock Fighting",
+				displayText: "GA Cock Fighting",
 				menuType: defMenuType.entPage,
 				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/GA/cockfighting/cockfighting.png`,
 				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/GA/cockfighting/cockfighting.png`,
@@ -1124,6 +1124,19 @@ export const defMenuLinks = langId => ({
 					showEventIcon({
 						icon: defEventIcon.new,
 						period: defEventPeriod.GA_CockFighting
+					})
+				]
+			},
+			{
+				...productList.WCC_CockFighting,
+				displayText: "WCC Cockfighting",
+				menuType: defMenuType.entPage,
+				submenuItemSrc: `${bannerImgUrl}/desktop/img/home-page/Header/CQ9/cockfighting/wcc-cockfighting.png`,
+				lobbyItemSrc: `${bannerImgUrl}/desktop/img/home-page/LobbyHeader/CQ9/cockfighting/wcc-cockfighting.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.WCC_CockFighting
 					})
 				]
 			}

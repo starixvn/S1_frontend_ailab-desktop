@@ -2888,6 +2888,11 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   margin-right: unset;
   margin-left: 40px;
 }
+.lobby.cockfighting .name {
+  max-width: 206px;
+  text-align: center;
+  margin: 5px auto 0;
+}
 .lobby.fishing .name {
   max-width: 206px;
   text-align: center;

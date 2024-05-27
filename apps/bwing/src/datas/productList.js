@@ -353,6 +353,11 @@ export default {
 		name: "cockFighting",
 		tpGameType: 27
 	},
+	WCC_CockFighting: {
+		tpId: 16,
+		gameId: "CMCOCKFIGHT01",
+		tpGameType: 117
+	},
 
 	/* === 6. lottery === */
 
