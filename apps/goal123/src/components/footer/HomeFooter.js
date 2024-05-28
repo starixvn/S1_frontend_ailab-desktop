@@ -10,12 +10,10 @@ import TandC from "../../service/t_and_c";
 import useGetSocialChannel, {
 	defDisplayPage
 } from "../hook/useGetSocialChannel";
-import useMenu from "../hook/useMenu";
 
 const HomeFooter = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { t } = useTranslation();
-	const { menuList } = useMenu();
 
 	const { socialChannel } = useGetSocialChannel({
 		langId: userInfo.langId,
@@ -147,7 +145,7 @@ const HomeFooter = () => {
 						</a>
 					</div>
 					<FooterPayment />
-					<FooterProvider menuList={menuList} />
+					<FooterProvider />
 				</div>
 				<div className="powered">
 					<div className="brand-item">

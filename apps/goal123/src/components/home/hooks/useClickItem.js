@@ -9,7 +9,7 @@ const useClickItem = () => {
 	const { allMaintainList } = useContext(maintainListContext);
 	const { onClickProductItem } = useMenu();
 
-	const onclickHomeProduct = product => {
+	const onclickStaticProduct = product => {
 		// * 為靜態遊戲檢查的 isInMaintain (雖然有些串接 lobby api 的遊戲也有 isInMaintain 參數)
 		const isInMaintain = allMaintainList?.some(
 			mt =>
@@ -29,7 +29,7 @@ const useClickItem = () => {
 		}
 	};
 
-	return { onclickHomeProduct };
+	return { onclickStaticProduct };
 };
 
 export default useClickItem;

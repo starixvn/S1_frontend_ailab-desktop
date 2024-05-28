@@ -26,7 +26,7 @@ const LiveStreamingLink = () => {
 	const [displayVgaming, setDisplayVgaming] = useState(true);
 	const [isLoading, setIsLoading] = useState(false);
 
-	const { onclickHomeProduct } = useClickItem();
+	const { onclickStaticProduct } = useClickItem();
 
 	useEffect(() => {
 		const getLiveStreamingList = async () => {
@@ -204,7 +204,7 @@ const LiveStreamingLink = () => {
 						onClick={() => setDisplayVgaming(false)}
 					/>
 					<img
-						onClick={() => onclickHomeProduct(products.Vgaming)}
+						onClick={() => onclickStaticProduct(products.Vgaming)}
 						alt="vgaming-link"
 						src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/vgaming.gif`}
 					/>

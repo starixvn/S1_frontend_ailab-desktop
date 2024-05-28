@@ -1,9 +1,14 @@
 import { products } from "@ailab-desktop/common";
+import path from "../../router";
+import { defMenuType } from "../layout/header.menu.newDef";
 
 export const defPartnerProduct = [
 	{
 		...products.Soccer,
-		imgName: "saba"
+		path: path.sports.root,
+		parameter: { game: "Soccer" },
+		imgName: "saba",
+		menuType: defMenuType.Link
 	},
 	{
 		...products.TFGaming,
@@ -11,11 +16,17 @@ export const defPartnerProduct = [
 	},
 	{
 		...products.SBOBET,
-		imgName: "sbo"
+		path: path.sports.root,
+		parameter: { game: "SBOBET" },
+		imgName: "sbo",
+		menuType: defMenuType.Link
 	},
 	{
 		...products.BtiSport,
-		imgName: "bti"
+		path: path.sports.root,
+		parameter: { game: "BtiSport" },
+		imgName: "bti",
+		menuType: defMenuType.Link
 	},
 	{
 		...products.AsiaGaming,
@@ -31,54 +42,87 @@ export const defPartnerProduct = [
 	},
 	{
 		...products.YGGDrassil,
-		imgName: "ygg"
-	},
-	{
-		...products.YeebetCasino,
-		imgName: "cq9"
-	},
-	{
-		...products.MicrogamingSlot,
-		imgName: "jili"
-	},
-	{
-		...products.NewPlayTechSlot,
-		imgName: "v8power"
-	},
-	{
-		...products.PGSoft,
-		imgName: "km"
-	},
-	{
-		...products.Spadegaming,
-		imgName: "tc"
-	},
-	{
-		...products.YGGDrassil,
-		imgName: "next"
+		path: path.casino.root,
+		parameter: { provider: products.YGGDrassil.tpId },
+		imgName: "ygg",
+		menuType: defMenuType.Link
 	},
 	{
 		...products.CQ9,
-		imgName: "im"
+		path: path.casino.root,
+		parameter: { provider: products.CQ9.tpId },
+		imgName: "cq9",
+		menuType: defMenuType.Link
 	},
 	{
 		...products.PlaynGO,
-		imgName: "im-esports"
+		path: path.casino.root,
+		parameter: { provider: products.PlaynGO },
+		imgName: "png",
+		menuType: defMenuType.Link
 	},
 	{
 		...products.JILI,
-		imgName: "spribe"
-	},
-	{
-		...products.FishingWorld,
-		imgName: "es"
+		path: path.casino.root,
+		parameter: { provider: products.JILI.tpId },
+		imgName: "jili",
+		menuType: defMenuType.Link
 	},
 	{
 		...products.V8Poker,
-		imgName: "world"
+		imgName: "v8power"
 	},
 	{
 		...products.KingMaker,
-		imgName: "fachai"
+		imgName: "km"
+	},
+	{
+		...products.TCG,
+		imgName: "tc"
+	},
+	{
+		...products.Nextspin,
+		path: path.casino.root,
+		parameter: { provider: products.Nextspin.tpId },
+		imgName: "next",
+		menuType: defMenuType.Link
+	},
+	{
+		...products.IMSports,
+		path: path.sports.root,
+		parameter: { game: "IMSports" },
+		imgName: "im",
+		menuType: defMenuType.Link
+	},
+	{
+		...products.IMESports,
+		path: path.sportsIM.root,
+		imgName: "im-esports"
+	},
+	{
+		...products.SPRIBE,
+		path: path.casino.root,
+		parameter: { provider: products.SPRIBE.tpId },
+		imgName: "spribe",
+		menuType: defMenuType.Link
+	},
+	{
+		...products.ES,
+		path: path.casino.root,
+		parameter: { provider: products.ES.tpId },
+		imgName: "es",
+		menuType: defMenuType.Link
+	},
+	{
+		...products.WE,
+		path: path.casino.root,
+		imgName: "world"
+	},
+	{
+		...products.FaChai,
+		path: path.casino.root,
+		parameter: { provider: products.FaChai.tpId },
+		imgName: "fachai",
+		menuType: defMenuType.Link
 	}
 ];

@@ -9,7 +9,7 @@ import useClickItem from "../hooks/useClickItem";
 
 const HomeHotGames = () => {
 	const { userInfo } = useContext(userInfoContext);
-	const { onclickHomeProduct } = useClickItem();
+	const { onclickStaticProduct } = useClickItem();
 	const { t } = useTranslation();
 
 	return (
@@ -22,7 +22,7 @@ const HomeHotGames = () => {
 						<button
 							className="item brand big"
 							onClick={() =>
-								onclickHomeProduct(products.SabaSoccer)
+								onclickStaticProduct(products.SabaSoccer)
 							}>
 							<span>{t("lbl_Sports")}</span>
 							<img
@@ -34,7 +34,7 @@ const HomeHotGames = () => {
 						<button
 							className="item brand big"
 							onClick={() =>
-								onclickHomeProduct(products.Vgaming)
+								onclickStaticProduct(products.Vgaming)
 							}>
 							<span>{t("lbl_Games")}</span>
 							<img
@@ -48,7 +48,7 @@ const HomeHotGames = () => {
 						<button
 							className="item brand"
 							onClick={() =>
-								onclickHomeProduct(products.BtiSport)
+								onclickStaticProduct(products.BtiSport)
 							}>
 							<span>{t("lbl_Sports")}</span>
 							<img
@@ -60,7 +60,7 @@ const HomeHotGames = () => {
 						<button
 							className="item brand"
 							onClick={() =>
-								onclickHomeProduct(products.V8Poker)
+								onclickStaticProduct(products.V8Poker)
 							}>
 							<span>{t("lbl_Games")}</span>
 							<img
