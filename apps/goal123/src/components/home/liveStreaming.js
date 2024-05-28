@@ -3,7 +3,7 @@ import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import classNames from "classnames";
-import { isDateRange, products } from "@ailab-desktop/common";
+import { isDateRange } from "@ailab-desktop/common";
 import { bannerImgUrl } from "../../config";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
@@ -11,7 +11,6 @@ import path from "../../router";
 import { SetPathParameter } from "../common/customSwipper";
 import { eventPeriods } from "../../datas/eventDef";
 import { api_liveStreaming_GetDataList } from "../../service/api/liveStreaming";
-import useClickItem from "./hooks/useClickItem";
 
 const LiveStreamingLink = () => {
 	const { t } = useTranslation();
@@ -23,14 +22,9 @@ const LiveStreamingLink = () => {
 
 	const [displayLiveStreaming, setDisplayLiveStreaming] = useState(false);
 	const [liveStreamingList, setLiveStreamingList] = useState([]);
-	const [displayVgaming, setDisplayVgaming] = useState(true);
-	const [isLoading, setIsLoading] = useState(false);
-
-	const { onclickHomeProduct } = useClickItem();
 
 	useEffect(() => {
 		const getLiveStreamingList = async () => {
-			setIsLoading(true);
 			try {
 				const {
 					data: { data: resultList }
@@ -49,10 +43,8 @@ const LiveStreamingLink = () => {
 
 					setLiveStreamingList(filterList);
 				}
-				setIsLoading(false);
 			} catch (error) {
 				errorPopBox(error);
-				setIsLoading(false);
 			}
 		};
 		getLiveStreamingList();
@@ -109,7 +101,8 @@ const LiveStreamingLink = () => {
 												gameId,
 												matchId
 											})
-										}>
+										}
+									>
 										<div className="top">
 											<div>{sportLeaguesTitle}</div>
 											<div>
@@ -173,44 +166,27 @@ const LiveStreamingLink = () => {
 		});
 	};
 
-	return (
-		<>
-			{displayLiveStreaming ? (
-				<div
-					className={classNames("eventLink livesports", {
-						eurocup: isDateRange(eventPeriods.euroCup)
-					})}>
-					<button
-						className="icon icon-close"
-						onClick={() => setDisplayLiveStreaming(false)}
-					/>
-					<button onClick={handleLiveSteamingModalOpen}>
-						<img
-							src={`${bannerImgUrl}/desktop/img/livesports.png`}
-							alt="livesports"
-						/>
-					</button>
-				</div>
-			) : null}
+	if (!displayLiveStreaming) {
+		return null;
+	}
 
-			{!displayLiveStreaming &&
-			!isDateRange(eventPeriods.euroCup) &&
-			displayVgaming ? (
-				<div
-					className="eventLink vgaming"
-					style={{ cursor: "pointer" }}>
-					<button
-						className="icon icon-close"
-						onClick={() => setDisplayVgaming(false)}
-					/>
-					<img
-						onClick={() => onclickHomeProduct(products.Vgaming)}
-						alt="vgaming-link"
-						src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/vgaming.gif`}
-					/>
-				</div>
-			) : null}
-		</>
+	return (
+		<div
+			className={classNames("eventLink livesports", {
+				eurocup: isDateRange(eventPeriods.euroCup)
+			})}
+		>
+			<button
+				className="icon icon-close"
+				onClick={() => setDisplayLiveStreaming(false)}
+			/>
+			<button onClick={handleLiveSteamingModalOpen}>
+				<img
+					src={`${bannerImgUrl}/desktop/img/livesports.png`}
+					alt="livesports"
+				/>
+			</button>
+		</div>
 	);
 };
 
