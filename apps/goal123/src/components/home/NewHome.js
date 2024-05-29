@@ -14,6 +14,7 @@ import HomeMarquee from "./new-ui-components/HomeMarquee";
 import HomeRecentViewedGames from "./new-ui-components/HomeRecentViewedGames";
 import MysteryBoxLink from "./mysteryBoxLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
+import VgamingLink from "./vgaming";
 import DragonEgg from "../dragonEgg/homeLink";
 import path from "../../router";
 import { eventPeriods } from "../../datas/eventDef";
@@ -53,9 +54,10 @@ const NewHome = () => {
 				<HomeInfo />
 				<HomeRecentViewedGames />
 				<HomeAppDownload />
-				{!isDateRange(eventPeriods.dragonEgg) && <LuckyWheelLink />}
+				{!isDateRange(eventPeriods.euroCup) && <LuckyWheelLink />}
 				{isDateRange(eventPeriods.dragonEgg) && <DragonEgg />}
 				{isDateRange(eventPeriods.euroCup) && <CupEventLink />}
+				{isDateRange(eventPeriods.euroCup) && <VgamingLink />}
 				<MysteryBoxLink
 					to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 					langId={userInfo.langId}
