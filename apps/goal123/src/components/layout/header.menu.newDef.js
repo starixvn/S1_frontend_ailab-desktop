@@ -390,11 +390,6 @@ export const defMenuObj = Object.freeze({
 			{
 				menuType: defMenuType.entPage,
 				path: path.liveCasino.root,
-				...products.n2LIVE
-			},
-			{
-				menuType: defMenuType.entPage,
-				path: path.liveCasino.root,
 				...products.WMCasino
 			},
 			{
