@@ -9367,7 +9367,7 @@ html.Newtheme .eventLink .angpaoLink img.eventlinkimg {
   }
 }
 html.Newtheme .eventLink.vgaming {
-  bottom: 200px;
+  bottom: 0px;
 }
 html.Newtheme .eventLink.vgaming .icon-close {
   top: 10px;
@@ -9379,7 +9379,7 @@ html.Newtheme .eventLink.vgaming .vgimg {
   height: 185px;
 }
 html.Newtheme .eventLink.vgaming.eurocup {
-  bottom: 210px;
+  bottom: 0px;
 }
 html.Newtheme .eventLink.livesports {
   position: fixed;
