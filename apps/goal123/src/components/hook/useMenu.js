@@ -56,7 +56,6 @@ const useMenu = () => {
 	/** @Param product -- 該遊戲所有資訊 (包含已塞入的前台資訊 ex:menuType parameter)
 	 */
 	const onClickProductItem = async product => {
-		console.log(product);
 		if (!product || product?.isInMaintain) return;
 
 		const {

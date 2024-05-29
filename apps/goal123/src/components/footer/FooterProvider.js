@@ -1,39 +1,24 @@
-import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { bannerImgUrl } from "../../config";
 import { defPartnerProduct } from "./defHorablePartner";
+import useClickItem from "../home/hooks/useClickItem";
 
-const FooterProvider = ({ menuList }) => {
+const FooterProvider = () => {
 	const [hoverName, setHoverName] = useState(null);
-	const platformProducts = menuList.flatMap(mainMenuItem => {
-		const { data } = mainMenuItem || {};
+	const { onclickStaticProduct } = useClickItem();
 
-		// * 並非所有的產品都有在 platform
-		return data?.flatMap(subMenuItem => {
-			const defProduct = defPartnerProduct.find(
-				product => product.tpGameIdNo === subMenuItem.tpGameIdNo
-			);
-			if (defProduct) {
-				return {
-					...subMenuItem,
-					...defProduct
-				};
-			}
-
-			return [];
-		});
-	});
-
+	// Goal 的遊戲跟 PM 討論後為顯示固定的遊戲，不會因為 api 變動
 	return (
 		<div className="provider">
 			<div>
-				{platformProducts.map(productItem => {
+				{defPartnerProduct.map(productItem => {
 					const { imgName } = productItem || {};
 					return (
 						<a
 							key={imgName}
-							onClick={e => e.preventDefault}
-							style={{ cursor: "default" }}>
+							onClick={() => onclickStaticProduct(productItem)}
+							style={{ cursor: "default" }}
+						>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/provider/${imgName}${
 									hoverName === imgName ? "-a" : ""
@@ -50,10 +35,6 @@ const FooterProvider = ({ menuList }) => {
 			</div>
 		</div>
 	);
-};
-
-FooterProvider.propTypes = {
-	menuList: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
 export default FooterProvider;
