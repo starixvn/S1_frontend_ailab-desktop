@@ -5,7 +5,7 @@ import useClickItem from "./hooks/useClickItem";
 const VgamingLink = () => {
 	const [displayVgaming, setDisplayVgaming] = useState(true);
 
-	const { onclickHomeProduct } = useClickItem();
+	const { onclickStaticProduct } = useClickItem();
 
 	if (!displayVgaming) {
 		return null;
@@ -18,7 +18,7 @@ const VgamingLink = () => {
 				onClick={() => setDisplayVgaming(false)}
 			/>
 			<img
-				onClick={() => onclickHomeProduct(products.Vgaming)}
+				onClick={() => onclickStaticProduct(products.Vgaming)}
 				alt="vgaming-link"
 				src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/vgaming.gif`}
 			/>
