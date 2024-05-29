@@ -8,8 +8,7 @@ import FooterProvider from "./FooterProvider";
 import TandC from "../../service/t_and_c";
 
 import useGetSocialChannel, {
-	defDisplayPage,
-	defChannelName
+	defDisplayPage
 } from "../hook/useGetSocialChannel";
 
 const HomeFooter = () => {
@@ -18,21 +17,15 @@ const HomeFooter = () => {
 
 	const { socialChannel } = useGetSocialChannel({
 		langId: userInfo.langId,
-		displayPage: defDisplayPage.Home
+		displayPage: defDisplayPage.Footer
 	});
 
-	const livechatData = socialChannel?.find(
-		channel => channel.channelName === defChannelName.LiveChat
-	);
-
-	const zaloData = socialChannel?.find(
-		channel => channel.channelName === defChannelName.Zalo
-	);
-
-	const openLiveChat = () => {
-		if (livechatData) {
-			window.LiveChatWidget.call("maximize");
-		}
+	const channelNameToImg = {
+		Facebook: "icon-facebook",
+		Zalo: "icon-zalo",
+		Telegram: "icon-telegram",
+		Skype: "icon-skype",
+		Livechat: "icon-livechat"
 	};
 
 	return (
@@ -80,10 +73,11 @@ const HomeFooter = () => {
 								{t("lbl_Home_Follow_Us")}
 							</div>
 							<div className="media">
-								{/* facebook */}
+								{/* facebook 5/22/24 這邊保留寫死 pm說另外一個區塊會把prd的關閉 */}
 								<a
 									href="https://www.facebook.com/goal123.official"
-									target="_blank">
+									target="_blank"
+									rel="noreferrer">
 									<img
 										src={`${bannerImgUrl}/desktop/img/home-page/icon/icon-facebook.svg`}
 										alt=""
@@ -101,22 +95,22 @@ const HomeFooter = () => {
 						<div className="social-media-item">
 							<div className="title">{t("lbl_ContactUs")}</div>
 							<div className="media">
-								{/* zalo */}
-								<a
-									href={zaloData ? zaloData.link : "#"}
-									target="_blank">
-									<img
-										src={`${bannerImgUrl}/desktop/img/home-page/icon/icon-zalo.svg`}
-										alt=""
-									/>
-								</a>
-								{/* live chat */}
-								<a onClick={openLiveChat}>
-									<img
-										src={`${bannerImgUrl}/desktop/img/home-page/icon/icon-livechat.svg`}
-										alt=""
-									/>
-								</a>
+								{socialChannel?.map(item => (
+									<a
+										key={`channel-${item.channelName}`}
+										href={item.link}
+										target="_blank"
+										rel="noreferrer">
+										<img
+											src={`${bannerImgUrl}/desktop/img/home-page/icon/${
+												channelNameToImg[
+													item.channelName
+												]
+											}.svg`}
+											alt={item.channelName}
+										/>
+									</a>
+								))}
 							</div>
 						</div>
 					</div>

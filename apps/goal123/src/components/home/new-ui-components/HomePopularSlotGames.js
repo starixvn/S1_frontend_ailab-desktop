@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
+import { Link } from "gatsby";
+import { products } from "@ailab-desktop/common";
 import { useTranslation } from "react-i18next";
-import { defCasinoProviders } from "../../../datas/productList";
 import config from "../../../config";
 import { userInfoContext } from "../../common/context";
 
@@ -16,19 +17,19 @@ const HomePopularSlotGames = () => {
 			<div className="popularslots-content">
 				<div className="popularslots-inner">
 					<div className="regular">
-						<a
+						<Link
 							className="item"
-							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.PG.name}`}>
+							to={`/${userInfo.langId}/casino?provider=${products.PGSoft.tpId}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-pg.png`}
 								alt="home-slot-pg"
 							/>
-						</a>
+						</Link>
 					</div>
 					<div className="variation">
-						<a
+						<Link
 							className="item"
-							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.PP.name}`}>
+							to={`/${userInfo.langId}/casino?provider=${products.PragmaticPlaySlot.tpId}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-pp.jpg`}
 								alt="home-pop-pp"
@@ -39,10 +40,10 @@ const HomePopularSlotGames = () => {
 									alt="home-popular-slots-pp"
 								/>
 							</div>
-						</a>
-						<a
+						</Link>
+						<Link
 							className="item"
-							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.Skywind.name}`}>
+							to={`/${userInfo.langId}/casino?provider=${products.SkywindSlot.tpId}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-sky.png`}
 								alt="home-pop-sky"
@@ -53,10 +54,10 @@ const HomePopularSlotGames = () => {
 									alt="home-popular-slots-sky"
 								/>
 							</div>
-						</a>
-						<a
+						</Link>
+						<Link
 							className="item"
-							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.SG.name}`}>
+							to={`/${userInfo.langId}/casino?provider=${products.Spadegaming.tpId}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-spad.jpg`}
 								alt="home-pop-spad"
@@ -67,24 +68,24 @@ const HomePopularSlotGames = () => {
 									alt="home-popular-slots-spade"
 								/>
 							</div>
-						</a>
+						</Link>
 					</div>
 				</div>
 				<div className="popularslots-inner">
 					<div className="regular">
-						<a
+						<Link
 							className="item"
-							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.AdvantPlay.name}`}>
+							to={`/${userInfo.langId}/casino?provider=${products.AdvantPlay.tpId}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/popular-slots-ap.png`}
 								alt="home-slot-ap"
 							/>
-						</a>
+						</Link>
 					</div>
 					<div className="variation">
-						<a
+						<Link
 							className="item"
-							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.JILI.name}`}>
+							to={`/${userInfo.langId}/casino?provider=${products.JILI.tpId}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-jili.jpg`}
 								alt="home-pop-jili"
@@ -95,10 +96,10 @@ const HomePopularSlotGames = () => {
 									alt="popular-slots-jili"
 								/>
 							</div>
-						</a>
-						<a
+						</Link>
+						<Link
 							className="item"
-							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.MGPSW.name}`}>
+							to={`/${userInfo.langId}/casino?provider=${products.MicrogamingSlot.tpId}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-micro.jpg`}
 								alt="home-pop-micro"
@@ -109,10 +110,10 @@ const HomePopularSlotGames = () => {
 									alt="popular-slots-micro"
 								/>
 							</div>
-						</a>
-						<a
+						</Link>
+						<Link
 							className="item"
-							href={`/${userInfo.langId}/casino?provider=${defCasinoProviders.CQ9.name}`}>
+							to={`/${userInfo.langId}/casino?provider=${products.CQ9.tpId}`}>
 							<img
 								src={`${config.t_and_cURL}/desktop/img/home-page/pop-cq9.jpg`}
 								alt="home-pop-cq9"
@@ -123,7 +124,7 @@ const HomePopularSlotGames = () => {
 									alt="home-popular-slots-cq9"
 								/>
 							</div>
-						</a>
+						</Link>
 					</div>
 				</div>
 			</div>

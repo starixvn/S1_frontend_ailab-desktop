@@ -1,56 +1,35 @@
 import { useContext } from "react";
-import { defTpGameType } from "../../../datas/productList.js";
-import { SET_ENTER_PAGE } from "../../../service/enterPage.js";
+import { defTpGameType } from "@ailab-desktop/common";
 import { defPopBoxType } from "../../common/popBox";
-import {
-	popBoxContext,
-	userInfoContext,
-	maintainListContext
-} from "../../common/context";
+import { popBoxContext, maintainListContext } from "../../common/context";
+import useMenu from "../../hook/useMenu";
 
 const useClickItem = () => {
 	const { setPopBox } = useContext(popBoxContext);
-	const { userInfo } = useContext(userInfoContext);
 	const { allMaintainList } = useContext(maintainListContext);
+	const { onClickProductItem } = useMenu();
 
-	const isInMaintain = (tpId, tpGameType) => {
-		allMaintainList?.some(
+	const onclickStaticProduct = product => {
+		// * 為靜態遊戲檢查的 isInMaintain (雖然有些串接 lobby api 的遊戲也有 isInMaintain 參數)
+		const isInMaintain = allMaintainList?.some(
 			mt =>
-				mt.tpId === tpId &&
-				(mt.tpGameType === tpGameType ||
+				mt.tpId === product?.tpId &&
+				(mt.tpGameType === product?.tpGameType ||
 					mt.tpGameType === defTpGameType.All)
 		);
-	};
 
-	const clickHomeItem = ({ tpId, gameId, tpGameType }) => {
-		const loginCallback = () => {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
-			});
-		};
-
-		if (isInMaintain()) {
+		if (isInMaintain || product?.isInMaintain) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.UnderMaintain,
 				clickClose: () => setPopBox({ isOpen: false })
 			});
 		} else {
-			// 注意: SET_ENTER_PAGE 需要被定义或从外部导入
-			SET_ENTER_PAGE({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId,
-				gameId,
-				loginCallback,
-				openInBlank: true,
-				tpGameType
-			});
+			onClickProductItem(product);
 		}
 	};
 
-	return { clickHomeItem, isInMaintain };
+	return { onclickStaticProduct };
 };
 
 export default useClickItem;

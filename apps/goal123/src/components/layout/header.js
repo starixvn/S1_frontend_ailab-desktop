@@ -2,13 +2,9 @@ import React, { useContext } from "react";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { isDateRange } from "@ailab-desktop/common";
-import {
-	userInfoContext,
-	productTpIdsContext,
-	maintainListContext,
-	isRootContext
-} from "../common/context";
-import Menu from "./header.menu";
+import useMenu from "../hook/useMenu";
+import { userInfoContext, isRootContext } from "../common/context";
+import HeaderNewMenu from "./header.menu";
 import config, { bannerImgUrl } from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
@@ -24,10 +20,9 @@ export default () => {
 	const {
 		userInfo: { langId, isLogin }
 	} = useContext(userInfoContext);
-	const { productTpIds } = useContext(productTpIdsContext);
 	const { isRoot } = useContext(isRootContext);
-	const { allMaintainList } = useContext(maintainListContext);
 	const { t } = useTranslation();
+	const { menuList = [], onClickProductItem } = useMenu();
 
 	const reload = () => {
 		if (isRoot) {
@@ -67,9 +62,9 @@ export default () => {
 					<Functions />
 					{!isLogin && <LanguageDropDown />}
 				</div>
-				<Menu
-					productTpIds={productTpIds}
-					allMaintainList={allMaintainList}
+				<HeaderNewMenu
+					menuList={menuList}
+					onClickProductItem={onClickProductItem}
 				/>
 			</div>
 		</header>
