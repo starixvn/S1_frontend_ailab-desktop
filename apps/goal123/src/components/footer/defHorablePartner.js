@@ -37,10 +37,6 @@ export const defPartnerProduct = [
 		imgName: "ae"
 	},
 	{
-		...products.n2LIVE,
-		imgName: "n2live"
-	},
-	{
 		...products.YGGDrassil,
 		path: path.casino.root,
 		parameter: { provider: products.YGGDrassil.tpId },
