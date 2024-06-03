@@ -1,24 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { useTranslation } from "react-i18next";
-import { defTpGameType } from "../../datas/productList";
+import { userInfoContext } from "../common/context";
+import { isShowEventIcon, switchLobbyIcon } from "../layout/header.menu.newDef";
 
-const LotteryList = ({ subMenu, allMaintainList, clickItem }) => {
-	if (subMenu.length <= 0) return null;
+const LotteryList = ({ lotterySubMenus = [], onclickLotteryItem }) => {
+	if (lotterySubMenus.length === 0) return null;
 
-	return subMenu.map(subMenuItem => {
-		const isInMaintain = allMaintainList?.some(
-			item =>
-				item.tpId === subMenuItem.tpId &&
-				(item.tpGameType === subMenuItem.tpGameType ||
-					item.tpGameType === defTpGameType.All)
-		);
-
+	return lotterySubMenus.map(subMenuItem => {
 		return (
 			<LotteryListItem
-				key={subMenuItem.displayKey}
-				isInMaintain={isInMaintain}
-				clickItem={clickItem}
+				key={subMenuItem?.tpGameIdNo}
+				onclickLotteryItem={onclickLotteryItem}
 				subMenuItem={subMenuItem}
 			/>
 		);
@@ -26,67 +20,51 @@ const LotteryList = ({ subMenu, allMaintainList, clickItem }) => {
 };
 
 LotteryList.propTypes = {
-	allMaintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
-	clickItem: PropTypes.func.isRequired
+	lotterySubMenus: PropTypes.arrayOf(PropTypes.any).isRequired,
+	onclickLotteryItem: PropTypes.func.isRequired
 };
 
 export default LotteryList;
 
-const LotteryListItem = ({ subMenuItem, isInMaintain, clickItem }) => {
-	const { displayText, displayKey, tpId, gameId, lobbyImg, tpGameType } =
-		subMenuItem;
-
+const LotteryListItem = ({ subMenuItem, onclickLotteryItem }) => {
 	const { t } = useTranslation();
-	const _displayText = displayText || t(displayKey);
-	const _className = `lobby-products-items${isInMaintain ? " maintain" : ""}`;
-	const baseLobbyUrl = "https://banner.bw88.io/desktop/img/4.0/lobby/lottery";
+	const { userInfo } = useContext(userInfoContext);
 
-	let _iconClassName = "";
-	if (subMenuItem.eventIcons) {
-		let iconStrings = "";
-		for (let i = 0; i < subMenuItem.eventIcons.length; i++) {
-			if (subMenuItem.eventIcons[i] !== "") {
-				iconStrings += `${subMenuItem.eventIcons[i]}`;
-			}
-		}
-		_iconClassName = `${iconStrings}`;
-	}
+	const displayName =
+		subMenuItem?.currencyGameName &&
+		subMenuItem?.currencyGameName[userInfo?.langId] &&
+		subMenuItem?.currencyGameName[userInfo?.langId];
 
-	let showIcon = null;
-	if (_iconClassName.length > 0) {
-		if (_iconClassName === "tag-new") {
-			showIcon = "tag-new-pop";
-		} else {
-			showIcon = _iconClassName;
-		}
-	}
+	// * 後端這裡是字串格式 需做處理
+	const suBMenuLobbyImage =
+		subMenuItem?.pcLobbyPicUrl && JSON.parse(subMenuItem?.pcLobbyPicUrl)[0];
+
+	const { iconType, iconStartTime, iconEndTime } = subMenuItem || {};
+
+	const lotteryLobbyIcon =
+		isShowEventIcon(iconStartTime, iconEndTime) &&
+		switchLobbyIcon(iconType);
 
 	return (
 		<a
-			className={_className}
-			onClick={() =>
-				clickItem({
-					tpId,
-					gameId,
-					tpGameType,
-					isInMaintain
-				})
-			}
-		>
-			{isInMaintain && (
+			className={classNames("lobby-products-items", {
+				maintain: subMenuItem?.isInMaintain
+			})}
+			onClick={() => onclickLotteryItem(subMenuItem)}>
+			{subMenuItem?.isInMaintain && (
 				<div className="tag-maintain">{t("lbl_underMaintenance")}</div>
 			)}
-			{showIcon && <div className={showIcon} />}
+			{lotteryLobbyIcon && <div className={lotteryLobbyIcon} />}
 
-			<img src={`${baseLobbyUrl}/${lobbyImg}`} alt="" />
-			<div className="name">{_displayText}</div>
+			<img src={suBMenuLobbyImage} alt={subMenuItem?.productName} />
+			<div className="name">
+				{displayName || subMenuItem?.productName}
+			</div>
 		</a>
 	);
 };
 
 LotteryListItem.propTypes = {
-	isInMaintain: PropTypes.bool.isRequired,
-	clickItem: PropTypes.func.isRequired,
+	onclickLotteryItem: PropTypes.func.isRequired,
 	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired
 };

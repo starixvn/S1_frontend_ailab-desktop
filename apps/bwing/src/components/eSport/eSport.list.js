@@ -1,101 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useTranslation } from "react-i18next";
-import { defTpGameType } from "../../datas/productList";
+import { menuIconTypeEnum } from "@ailab-desktop/common";
+import ESportListItem from "./eSportListItem";
 
-const EsportList = ({ subMenu, allMaintainList, clickItem }) => {
-	if (subMenu.length <= 0) return null;
+export const eSportLobbyIconEnum = Object.freeze({
+	[menuIconTypeEnum.Null]: null,
+	[menuIconTypeEnum.New]: <div className="tag-new-pop" />
+});
 
-	return subMenu.map(subMenuItem => {
-		const isInMaintain = allMaintainList?.some(
-			item =>
-				item.tpId === subMenuItem.tpId &&
-				(item.tpGameType === subMenuItem.tpGameType ||
-					item.tpGameType === defTpGameType.All)
-		);
+const ESportList = ({ eSportSubMenus = [], onclickESportItem }) => {
+	if (eSportSubMenus.length === 0) return null;
 
+	return eSportSubMenus.map(subMenuItem => {
 		return (
-			<EsportListItem
-				key={subMenuItem.displayKey}
-				isInMaintain={isInMaintain}
-				clickItem={clickItem}
+			<ESportListItem
+				key={subMenuItem?.tpGameIdNo}
+				onclickESportItem={onclickESportItem}
 				subMenuItem={subMenuItem}
-				img={subMenuItem.img}
 			/>
 		);
 	});
 };
 
-EsportList.propTypes = {
-	allMaintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
-	clickItem: PropTypes.func.isRequired
+ESportList.propTypes = {
+	eSportSubMenus: PropTypes.arrayOf(PropTypes.any).isRequired,
+	onclickESportItem: PropTypes.func.isRequired
 };
 
-export default EsportList;
-
-const EsportListItem = ({ subMenuItem, isInMaintain, clickItem }) => {
-	const {
-		displayText,
-		displayKey,
-		tpId,
-		gameId,
-		tpGameType,
-		betType,
-		lobbyImg
-	} = subMenuItem;
-
-	const { t } = useTranslation();
-	const _displayText = displayText || t(displayKey);
-	const baseLobbyUrl = "https://banner.bw88.io/desktop/img/4.0/lobby/esports";
-	const _className = `lobby-products-items${isInMaintain ? " maintain" : ""}`;
-
-	let _iconClassName = "";
-	if (subMenuItem.eventIcons) {
-		let iconStrings = "";
-		for (let i = 0; i < subMenuItem.eventIcons.length; i++) {
-			if (subMenuItem.eventIcons[i] !== "") {
-				iconStrings += `${subMenuItem.eventIcons[i]}`;
-			}
-		}
-		_iconClassName = `${iconStrings}`;
-	}
-
-	let showIcon = null;
-	if (_iconClassName.length > 0) {
-		if (_iconClassName === "tag-new") {
-			showIcon = "tag-new-pop";
-		} else {
-			showIcon = _iconClassName;
-		}
-	}
-
-	return (
-		<a
-			className={_className}
-			onClick={() =>
-				clickItem({
-					tpId,
-					gameId,
-					isInMaintain,
-					tpGameType,
-					betType
-				})
-			}
-		>
-			{isInMaintain && (
-				<div className="tag-maintain">{t("lbl_underMaintenance")}</div>
-			)}
-			{showIcon && <div className={showIcon} />}
-
-			<img src={`${baseLobbyUrl}/${lobbyImg}`} alt="" />
-			<div className="name">{_displayText}</div>
-		</a>
-	);
-};
-
-EsportListItem.propTypes = {
-	isInMaintain: PropTypes.bool.isRequired,
-	clickItem: PropTypes.func.isRequired,
-	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired
-};
+export default ESportList;

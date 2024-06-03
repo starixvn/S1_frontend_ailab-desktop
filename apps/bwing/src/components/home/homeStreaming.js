@@ -10,12 +10,11 @@ const HomeStreaming = ({ league, home, away, homeScore, awayScore }) => {
 	return (
 		<div
 			className="home-livesports-item"
-			onClick={() => navigate(`/${path.streaming.root}`)}
-		>
+			onClick={() => navigate(`/${path.streaming.root}`)}>
 			<div className="home-livesports-league">{league}</div>
 			<div className="home-livesports-content">
 				<div className="home-livesports-team left">
-					<div>{t("LBL_STREAMING_HOME")}</div>
+					<div>{t("LBL_STREAMING_HOME").toUpperCase()}</div>
 					<div className="name">{home}</div>
 				</div>
 				<div className="home-livesports-score">
@@ -23,7 +22,7 @@ const HomeStreaming = ({ league, home, away, homeScore, awayScore }) => {
 					<span> {awayScore ?? 0} </span>
 				</div>
 				<div className="home-livesports-team right">
-					<div>{t("LBL_STREAMING_AWAY")}</div>
+					<div>{t("LBL_STREAMING_AWAY").toUpperCase()}</div>
 					<div className="name">{away}</div>
 				</div>
 			</div>

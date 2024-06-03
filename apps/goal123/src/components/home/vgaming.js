@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { products } from "@ailab-desktop/common";
 import useClickItem from "./hooks/useClickItem";
-import productList from "../../datas/productList";
 
 const VgamingLink = () => {
 	const [displayVgaming, setDisplayVgaming] = useState(true);
 
-	const { clickHomeItem } = useClickItem();
+	const { onclickStaticProduct } = useClickItem();
 
 	if (!displayVgaming) {
 		return null;
@@ -17,7 +17,7 @@ const VgamingLink = () => {
 				onClick={() => setDisplayVgaming(false)}
 			/>
 			<img
-				onClick={() => clickHomeItem(productList.sabaClub)}
+				onClick={() => onclickStaticProduct(products.Vgaming)}
 				alt="vgaming-link"
 				src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/vgaming.gif`}
 			/>

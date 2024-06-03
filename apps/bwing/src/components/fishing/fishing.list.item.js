@@ -1,68 +1,51 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 import { useTranslation } from "react-i18next";
-import { defTpGameType } from "../../datas/productList";
+import { userInfoContext } from "../common/context";
+import { isShowEventIcon, switchLobbyIcon } from "../layout/header.menu.newDef";
 
-const FishingListItem = ({ clickItem, subMenuItem, maintainList }) => {
-	const { displayText, displayKey, tpId, gameId, tpGameType, lobbyImg } =
-		subMenuItem;
+const FishingListItem = ({ onclickFishingItem, subMenuItem }) => {
 	const { t } = useTranslation();
-	const _displayText = displayText || t(displayKey);
-	const isInMaintain = maintainList?.some(
-		item =>
-			item.tpId === tpId &&
-			(item.tpGameType === subMenuItem.tpGameType ||
-				item.tpGameType === defTpGameType.All)
-	);
-	const _className = `lobby-products-items${isInMaintain ? " maintain" : ""}`;
-	const baseLobbyUrl = "https://banner.bw88.io/desktop/img/4.0/lobby/fishing";
+	const { userInfo } = useContext(userInfoContext);
 
-	let _iconClassName = "";
-	if (subMenuItem.eventIcons) {
-		let iconStrings = "";
-		for (let i = 0; i < subMenuItem.eventIcons.length; i++) {
-			if (subMenuItem.eventIcons[i] !== "") {
-				iconStrings += `${subMenuItem.eventIcons[i]}`;
-			}
-		}
-		_iconClassName = `${iconStrings}`;
-	}
+	const displayName =
+		userInfo?.langId &&
+		subMenuItem?.currencyGameName !== null &&
+		typeof subMenuItem?.currencyGameName === "object" &&
+		subMenuItem?.currencyGameName[userInfo?.langId];
 
-	let showIcon = null;
-	if (_iconClassName.length > 0) {
-		if (_iconClassName === "tag-new") {
-			showIcon = "tag-new-pop";
-		} else {
-			showIcon = _iconClassName;
-		}
-	}
+	// * 後端這裡是字串格式 需做處理
+	const suBMenuLobbyImage =
+		subMenuItem?.pcLobbyPicUrl && JSON.parse(subMenuItem?.pcLobbyPicUrl)[0];
+
+	const { iconType, iconStartTime, iconEndTime } = subMenuItem || {};
+
+	const fishingLobbyIcon =
+		isShowEventIcon(iconStartTime, iconEndTime) &&
+		switchLobbyIcon(iconType);
 
 	return (
-		<a
-			className={_className}
-			onClick={() =>
-				clickItem({
-					tpId,
-					gameId,
-					tpGameType,
-					isInMaintain
-				})
-			}
-		>
-			{isInMaintain && (
+		<button
+			className={classNames("lobby-products-items", {
+				maintain: subMenuItem?.isInMaintain
+			})}
+			onClick={() => onclickFishingItem(subMenuItem)}>
+			{subMenuItem?.isInMaintain && (
 				<div className="tag-maintain">{t("lbl_underMaintenance")}</div>
 			)}
-			{showIcon && <div className={showIcon} />}
+			{fishingLobbyIcon && <div className={fishingLobbyIcon} />}
 
-			<img src={`${baseLobbyUrl}/${lobbyImg}`} alt={_displayText} />
-			<div className="name">{_displayText}</div>
-		</a>
+			<img src={suBMenuLobbyImage} alt={subMenuItem?.productName} />
+			<div className="name">
+				{displayName || subMenuItem?.productName}
+			</div>
+		</button>
 	);
 };
 export default FishingListItem;
 
 FishingListItem.propTypes = {
-	clickItem: PropTypes.func.isRequired,
-	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
+	onclickFishingItem: PropTypes.func.isRequired,
+	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired
 };

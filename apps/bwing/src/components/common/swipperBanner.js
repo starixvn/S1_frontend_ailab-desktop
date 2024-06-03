@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState, useContext, useRef } from "react";
+import { products } from "@ailab-desktop/common";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
 import SwiperCore, {
@@ -15,7 +16,6 @@ import {
 import { userInfoContext, popBoxContext } from "./context";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
-import productList from "../../datas/productList";
 import { defPopBoxType } from "./defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 
@@ -82,10 +82,11 @@ export const SetPathParameter = ({
 		}`;
 	} else if (urlRouter === path.sports.root) {
 		const gameName =
-			Object.values(productList).find(
-				// eslint-disable-next-line eqeqeq
-				x => x.tpId == tpId && x.gameId == gameId
-			)?.name ?? productList.soccer.name;
+			Object.keys(products).find(
+				key =>
+					products[key]?.tpId === tpId &&
+					products[key]?.gameId === gameId
+			) || "Soccer";
 
 		result = gameName
 			? `?game=${gameName}${matchId ? `&matchId=${matchId}` : ""}`
@@ -189,8 +190,7 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 			return (
 				<Link
 					key={`${userInfo.langId}-${bIdx}`}
-					to={`/${userInfo.langId}${redirectLink}`}
-				>
+					to={`/${userInfo.langId}${redirectLink}`}>
 					<img
 						src={b.bannerPCUrl}
 						className="banner"
@@ -203,8 +203,7 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 		return (
 			<button
 				key={`${userInfo.langId}-${bIdx}`}
-				onClick={() => handleClick(b)}
-			>
+				onClick={() => handleClick(b)}>
 				<img
 					src={b.bannerPCUrl}
 					className="banner"
