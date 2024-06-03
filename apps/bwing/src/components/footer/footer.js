@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
+import { defTpGameType } from "@ailab-desktop/common";
 import {
 	userInfoContext,
-	productTpIdsContext,
+	popBoxContext,
 	maintainListContext
 } from "../common/context";
-import Bettings from "./footer.bettings";
+import FooterBetting from "./footer.bettings";
 import OurPolicies from "./footer.ourPolicies";
 import HelpSupport from "./footer.helpSupport";
 import Promotions from "./footer.promotions";
@@ -19,12 +20,15 @@ import useGetSocialChannel, {
 } from "../hook/useGetSocialChannel";
 import path from "../../router";
 import TandC from "../../service/t_and_c";
+import useMenu from "../hook/useMenu";
+import { defPopBoxType } from "../common/defPopBoxType";
 
 export default () => {
 	const { t } = useTranslation();
-	const { userInfo } = useContext(userInfoContext);
-	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
+	const { setPopBox } = useContext(popBoxContext);
+	const { userInfo } = useContext(userInfoContext);
+	const { menuList = [], onClickProductItem } = useMenu();
 
 	const { socialChannel } = useGetSocialChannel({
 		langId: userInfo.langId,
@@ -37,11 +41,43 @@ export default () => {
 			href={el.link}
 			className={channelIcon[el.channelName]}
 			target="_blank"
-			rel="noreferrer"
-		>
+			rel="noreferrer">
 			{el.channelName}
 		</a>
 	));
+
+	const handleClickFooterProduct = product => {
+		// * 為靜態遊戲檢查的 isInMaintain
+		const isInMaintain = allMaintainList?.some(
+			mt =>
+				mt.tpId === product?.tpId &&
+				(mt.tpGameType === product?.tpGameType ||
+					mt.tpGameType === defTpGameType.All)
+		);
+
+		if (isInMaintain || product?.isInMaintain) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.UnderMaintain,
+				clickClose: () => setPopBox({ isOpen: false }),
+				content: t("lbl_underMaintenance"),
+				hasBtn: true,
+				btnBar: (
+					<div className="btn-group">
+						<button
+							className="btn-gray"
+							onClick={() => {
+								setPopBox({ isOpen: false });
+							}}>
+							OK
+						</button>
+					</div>
+				)
+			});
+		} else {
+			onClickProductItem(product);
+		}
+	};
 
 	return (
 		<footer>
@@ -51,8 +87,7 @@ export default () => {
 						<Link
 							className="footer-information-item"
 							to={`${bannerImgUrl}/Static/images/How_To_Deposit.mp4`}
-							target="_blank"
-						>
+							target="_blank">
 							<img
 								src={`${bannerImgUrl}/desktop/img/4.0/footer/how-deposit.png`}
 								alt=""
@@ -61,8 +96,7 @@ export default () => {
 						</Link>
 						<Link
 							className="footer-information-item"
-							to={`/${userInfo.langId}/${path.howToWithdraw.root}`}
-						>
+							to={`/${userInfo.langId}/${path.howToWithdraw.root}`}>
 							<img
 								src={`${bannerImgUrl}/desktop/img/4.0/footer/how-withdraw.png`}
 								alt=""
@@ -71,8 +105,7 @@ export default () => {
 						</Link>
 						<Link
 							className="footer-information-item"
-							to={`/${userInfo.langId}/${path.howToPlay.root}`}
-						>
+							to={`/${userInfo.langId}/${path.howToPlay.root}`}>
 							<img
 								src={`${bannerImgUrl}/desktop/img/4.0/footer/how-play.png`}
 								alt=""
@@ -83,8 +116,7 @@ export default () => {
 							href={TandC(userInfo.langId).FAQ}
 							target="_blank"
 							rel="noreferrer"
-							className="footer-information-item"
-						>
+							className="footer-information-item">
 							<img
 								src={`${bannerImgUrl}/desktop/img/4.0/footer/how-faqs.png`}
 								alt=""
@@ -149,11 +181,8 @@ export default () => {
 
 				<div className="footer-sitemap">
 					<div>
-						<Bettings
-							t={t}
-							langId={userInfo.langId}
-							isLogin={userInfo.isLogin}
-							productTpIds={productTpIds}
+						<FooterBetting
+							onClickFooterProduct={handleClickFooterProduct}
 						/>
 						<OurPolicies langId={userInfo.langId} t={t} />
 						<div className="footer-sitemap-item">
@@ -174,11 +203,8 @@ export default () => {
 
 				<div className="footer-venderlogo">
 					<PlatformSection
-						t={t}
-						langId={userInfo.langId}
-						isLogin={userInfo.isLogin}
-						productTpIds={productTpIds}
-						maintainList={allMaintainList}
+						menuList={menuList}
+						onClickFooterProduct={handleClickFooterProduct}
 					/>
 				</div>
 				<div className="footer-copyright">

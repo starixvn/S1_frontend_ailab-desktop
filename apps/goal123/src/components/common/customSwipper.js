@@ -6,6 +6,7 @@ import React, {
 	useRef,
 	Children
 } from "react";
+import { products } from "@ailab-desktop/common";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
 import SwiperCore, {
@@ -21,7 +22,6 @@ import {
 import { userInfoContext, popBoxContext } from "./context";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
-import productList from "../../datas/productList";
 import { defPopBoxType } from "./popBox";
 import usePopBox from "../hook/usePopBox";
 
@@ -88,10 +88,11 @@ export const SetPathParameter = ({
 		}`;
 	} else if (urlRouter === path.sports.root) {
 		const gameName =
-			Object.values(productList).find(
-				// eslint-disable-next-line eqeqeq
-				x => x.tpId == tpId && x.gameId == gameId
-			)?.name ?? productList.soccer.name;
+			Object.keys(products).find(
+				key =>
+					products[key]?.tpId === tpId &&
+					products[key]?.gameId === gameId
+			) || "Soccer";
 
 		result = gameName
 			? `?game=${gameName}${matchId ? `&matchId=${matchId}` : ""}`
@@ -211,8 +212,7 @@ const CustomSwipper = ({
 			className="swiper-container"
 			onMouseOver={() => onMouseOverHandlar()}
 			onMouseLeave={() => onMouseLeaveHandlar()}
-			onFocus={() => 0}
-		>
+			onFocus={() => 0}>
 			<div className="swiper-wrapper">
 				{/* eslint-disable-next-line react/jsx-props-no-spreading */}
 				<Swiper {...params}>{children}</Swiper>
@@ -298,8 +298,7 @@ export const BannerSwipper = ({
 			return (
 				<Link
 					key={`${userInfo.langId}-${bIdx}`}
-					to={`/${userInfo.langId}${redirectLink}`}
-				>
+					to={`/${userInfo.langId}${redirectLink}`}>
 					<img
 						src={b.bannerPCUrl}
 						className="banner"
@@ -312,8 +311,7 @@ export const BannerSwipper = ({
 		return (
 			<button
 				key={`${userInfo.langId}-${bIdx}`}
-				onClick={() => handleClick(b)}
-			>
+				onClick={() => handleClick(b)}>
 				<img
 					src={b.bannerPCUrl}
 					className="banner"
@@ -327,8 +325,7 @@ export const BannerSwipper = ({
 		<CustomSwipper
 			withBtn={withBtn}
 			withPagination={withPagination}
-			config={config}
-		>
+			config={config}>
 			{rows}
 		</CustomSwipper>
 	);

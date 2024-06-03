@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
-import classNames from "classnames";
-import { isDateRange } from "@ailab-desktop/common";
+import { defTpGameType, isDateRange, products } from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
+import useMenu from "../hook/useMenu";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
 import path from "../../router";
 import {
@@ -25,8 +25,6 @@ import { defBannerType } from "../../service/api/site";
 import useGetVideo from "../streaming/hook";
 import { bannerImgUrl } from "../../config";
 import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
-import { SET_ENTER_PAGE } from "../../service/enterPage";
-import { defMenuLinks } from "../layout/header.menu.def";
 import { defDeviceType } from "../../service/api/base";
 import HotGames from "./hotGame";
 import HotPromotion from "./hotPromotion";
@@ -38,7 +36,6 @@ import TopWinner from "./topWinner";
 import FavoriteSlots from "./favoriteSlots";
 import { api_HotGame_GetDataList } from "../../service/api/hotGame";
 import RecentlyViewed from "./recentlyViewed";
-import { api_game_GetRecentlyViewed } from "../../service/api/game";
 import HomeDownLoad from "./homeDownLoad";
 import LiveSports from "./liveSports";
 import News from "./news";
@@ -60,11 +57,12 @@ const Home = () => {
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
 	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
 	const { appLinkDatas } = useAppDownLoad();
+
 	const { videoList } = useGetVideo({
 		langId: userInfo.langId,
 		isMounted: isMountedRef.current
 	});
-	const [displayVgaming, setDisplayVgaming] = useState(true);
+	const [displayVGaming, setDisplayVGaming] = useState(true);
 	const [promotionList, setPromotionList] = useState([]);
 	const filterPromotionList = promotionList.filter(
 		item =>
@@ -76,24 +74,44 @@ const Home = () => {
 	const [hotEventList, setHotEventList] = useState([]);
 	const [leaderBoardList, setLeaderBoardList] = useState([]);
 	const [hotGameList, setHotGameList] = useState([]);
-	const [recentlyViewedGames, setRecentlyViewedGames] = useState([]);
 	const [news, setNews] = useState([]);
 
-	const mainGameNavigate = ({ tpId, gameId, isInMaintain }) => {
-		if (isInMaintain) return;
+	const { onClickProductItem } = useMenu();
 
-		SET_ENTER_PAGE({
-			isLogin: userInfo.isLogin,
-			langId: userInfo.langId,
-			tpId,
-			gameId,
-			loginCallback: () =>
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.Login,
-					customLayout: true
-				})
-		});
+	const vGamingItem = products.Vgaming;
+
+	const handleClickHomeProduct = product => {
+		console.log(product);
+		// * 為靜態遊戲檢查的 isInMaintain
+		const isInMaintain = allMaintainList?.some(
+			mt =>
+				mt.tpId === product?.tpId &&
+				(mt.tpGameType === product?.tpGameType ||
+					mt.tpGameType === defTpGameType.All)
+		);
+
+		if (isInMaintain || product?.isInMaintain) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.UnderMaintain,
+				clickClose: () => setPopBox({ isOpen: false }),
+				content: t("lbl_underMaintenance"),
+				hasBtn: true,
+				btnBar: (
+					<div className="btn-group">
+						<button
+							className="btn-gray"
+							onClick={() => {
+								setPopBox({ isOpen: false });
+							}}>
+							OK
+						</button>
+					</div>
+				)
+			});
+		} else {
+			onClickProductItem(product);
+		}
 	};
 
 	const getPromotionList = async () => {
@@ -182,33 +200,6 @@ const Home = () => {
 		try {
 			const res = await api_HotGame_GetDataList(userInfo.langId);
 			setHotGameList(res.data.data.HotGame ?? []);
-		} catch (error) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.ErrorMsg,
-				message: t("msg_ApiServerError"),
-				btnBar: (
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
-							{t("lbl_Close")}
-						</button>
-					</div>
-				)
-			});
-		}
-	};
-
-	const getRecentlyViewedGames = async () => {
-		try {
-			const res = await api_game_GetRecentlyViewed({
-				currencyId: userInfo.currencyId
-			});
-			if (res.data.errorCode === 0) {
-				const { recentlyViewedList } = res.data.data;
-				setRecentlyViewedGames(recentlyViewedList ?? []);
-			}
 		} catch (error) {
 			setPopBox({
 				isOpen: true,
@@ -478,12 +469,6 @@ const Home = () => {
 		}
 	}, []);
 
-	useEffect(() => {
-		if (userInfo.isLogin) {
-			getRecentlyViewedGames();
-		}
-	}, [userInfo.isLogin]);
-
 	return (
 		<>
 			<main className="home">
@@ -492,30 +477,32 @@ const Home = () => {
 				</div>
 				<Marquee />
 				<div className="wrapper">
-					<HotGames maintainList={allMaintainList} />
+					<HotGames
+						maintainList={allMaintainList}
+						handleClickHomeProduct={handleClickHomeProduct}
+					/>
 					<HotPromotion promotionList={filterPromotionList} />
 					<HomeMatch
 						hotEventList={hotEventList}
 						maintainList={allMaintainList}
+						handleClickHomeProduct={handleClickHomeProduct}
 					/>
 					<TopWinner leaderBoardList={leaderBoardList} />
 					<Jackpot t={t} userInfo={userInfo} />
-					<FavoriteSlots
-						hotGameList={hotGameList}
-						maintainList={allMaintainList}
-					/>
-					{userInfo.isLogin && (
-						<RecentlyViewed
-							recentlyViewedGames={recentlyViewedGames}
+					{hotGameList?.length > 0 && (
+						<FavoriteSlots
+							hotGameList={hotGameList}
+							maintainList={allMaintainList}
 						/>
 					)}
+					{userInfo.isLogin && <RecentlyViewed />}
 					<HomeDownLoad appLinkDatas={appLinkDatas} />
 					<LiveSports videoList={videoList} />
 					<News news={news} />
 				</div>
 			</main>
-			{/* vgaming Home 點擊入口 */}
-			{displayVgaming && !isDateRange(eventPerios.euroCup) && (
+			{/* vGaming Home 點擊入口 */}
+			{displayVGaming && !isDateRange(eventPerios.euroCup) && (
 				<div
 					className={classNames("eventLink vgaming", {
 						eurocup: isDateRange(eventPerios.euroCup)
@@ -523,19 +510,12 @@ const Home = () => {
 					<button
 						style={{ zIndex: 50 }}
 						className="icon-close-primary"
-						onClick={() => setDisplayVgaming(false)}
+						onClick={() => setDisplayVGaming(false)}
 					/>
 					<img
 						src={`${bannerImgUrl}/desktop/img/4.0/vgaming.gif`}
 						alt="vgaming-link"
-						onClick={() =>
-							mainGameNavigate(
-								// vgaming
-								defMenuLinks.games.subMenu.find(
-									game => game.gameId === 171
-								).parameter
-							)
-						}
+						onClick={() => handleClickHomeProduct(vGamingItem)}
 					/>
 				</div>
 			)}
