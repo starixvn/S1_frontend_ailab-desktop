@@ -1,63 +1,28 @@
 import React, { useContext } from "react";
-import { SET_ENTER_PAGE } from "../../service/enterPage";
-import { defMenuLinks } from "../layout/header.menu.def";
-import {
-	userInfoContext,
-	popBoxContext,
-	productTpIdsContext,
-	maintainListContext
-} from "../common/context";
-import { defPopBoxType } from "../common/defPopBoxType";
-import EsportBanner from "./eSport.banner";
-import EsportList from "./eSport.list";
+import { lobbyCategoryEnum } from "@ailab-desktop/common";
+import useMenu from "../hook/useMenu";
+import { userInfoContext } from "../common/context";
+import ESportBanner from "./eSport.banner";
+import ESportList from "./eSport.list";
 
-const Esport = () => {
+const ESport = () => {
 	const { userInfo } = useContext(userInfoContext);
-	const { setPopBox } = useContext(popBoxContext);
-	const { productTpIds } = useContext(productTpIdsContext);
-	const { allMaintainList } = useContext(maintainListContext);
+	const { menuList = [], onClickProductItem } = useMenu();
 
-	const clickItem = ({ tpId, gameId, isInMaintain, tpGameType, betType }) => {
-		const loginCallback = () => {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
-			});
-		};
-		if (isInMaintain) {
-			return;
-		}
-		SET_ENTER_PAGE({
-			isLogin: userInfo.isLogin,
-			langId: userInfo.langId,
-			tpId,
-			gameId,
-			loginCallback,
-			tpGameType,
-			betType
-		});
-	};
-
-	const getSubMenu = () => {
-		let { subMenu } = defMenuLinks.eSport;
-		if (subMenu && productTpIds?.length > 0) {
-			subMenu = subMenu.filter(s => productTpIds.includes(s.tpId));
-		}
-		return subMenu;
-	};
-
-	const subMenu = getSubMenu();
+	const eSportSubMenus = menuList.find(
+		mainMenuItem =>
+			mainMenuItem.lobbyCategoryId === lobbyCategoryEnum.ESPORTS
+	)?.data;
 
 	return (
 		<>
-			<EsportBanner langId={userInfo.langId} />
+			<ESportBanner langId={userInfo.langId} />
 			<div className="wrapper mt-5">
 				<div className="col-12">
 					<div className="lobby-products">
-						<EsportList
-							subMenu={subMenu}
-							allMaintainList={allMaintainList}
-							clickItem={clickItem}
+						<ESportList
+							eSportSubMenus={eSportSubMenus}
+							onclickESportItem={onClickProductItem}
 						/>
 					</div>
 				</div>
@@ -66,4 +31,4 @@ const Esport = () => {
 	);
 };
 
-export default Esport;
+export default ESport;

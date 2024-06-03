@@ -1,96 +1,67 @@
-import React, { createRef, Component } from "react";
-import SubMenu from "./header.menu.sub";
-import { defMenuLinks, defSubListClassName } from "./header.menu.def";
-import MainMenu from "./header.menu.main";
+import React, { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import HeaderMainMenu from "./header.menu.main";
+import HeaderSubMenu from "./header.menu.sub";
 
-export default class Panel extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { menuKey: "" };
-		this.wrapper = createRef(null);
-	}
+const HeaderNewMenu = ({ menuList = [], onClickProductItem }) => {
+	const [menuKey, setMenuKey] = useState("");
+	const subMenuRef = useRef(null);
 
-	UNSAFE_componentWillMount() {
-		if (typeof document !== `undefined`) {
+	const handleMoveToOutside = event => {
+		if (
+			event.relatedTarget instanceof Node &&
+			!subMenuRef?.current?.contains(event.relatedTarget) &&
+			menuKey !== ""
+		) {
+			setMenuKey("");
+		}
+	};
+
+	useEffect(() => {
+		document.addEventListener("mouseover", handleMoveToOutside, true);
+
+		return () => {
 			document.removeEventListener(
 				"mouseover",
-				this.handleMoveToOutside,
+				handleMoveToOutside,
 				false
 			);
-		}
-	}
+		};
+	}, []);
 
-	componentDidMount() {
-		if (typeof document !== `undefined`) {
-			document.addEventListener(
-				"mouseover",
-				this.handleMoveToOutside,
-				true
-			);
-		}
-	}
-
-	handleMouseLeave = e => {
-		if (
-		  this.wrapper.current &&
-		  e.relatedTarget instanceof Node &&
-		  !this.wrapper.current.contains(e.relatedTarget) &&
-		  this.state.menuKey !== ""
-		) {
-		  this.setState({ menuKey: "" });
-		}
-	  };
-
-	showSubMenu = col => {
-		this.setState({ menuKey: col });
-	};
-
-	closeSubMenu = () => {
-		this.setState({ menuKey: "" });
-	};
-
-	render() {
-		let subItems = null;
-		let mainUrl = "";
-		if (typeof defMenuLinks()[this.state.menuKey]?.subMenu !== undefined) {
-			subItems = defMenuLinks()[this.state.menuKey]?.subMenu;
-			mainUrl = defMenuLinks()[this.state.menuKey]?.path;
-			if (
-				// this.state.menuKey === "casino" &&
-				subItems &&
-				this.props.productTpIds?.length > 0
-			) {
-				subItems = subItems.filter(s =>
-					this.props.productTpIds.includes(s.tpId)
-				);
-			}
-		}
-
-		return (
-			<div className="menu">
-				<MainMenu
-					showSubMenu={this.showSubMenu}
-					productTpIds={this.props.productTpIds}
+	return (
+		<div
+			className="menu"
+			onMouseLeave={() => {
+				setMenuKey("");
+			}}>
+			<HeaderMainMenu
+				setMenuKey={setMenuKey}
+				currentMenuKey={menuKey}
+				menuList={menuList}
+				onClickProductItem={onClickProductItem}
+			/>
+			<div
+				className={classNames("submenu-wrapper", {
+					active: true
+				})}
+				onMouseLeave={handleMoveToOutside}
+				ref={subMenuRef}
+				onClick={() => setMenuKey("")}>
+				<HeaderSubMenu
+					currentMenuKey={menuKey}
+					menuList={menuList}
+					onClickProductItem={onClickProductItem}
 				/>
-				<div
-					className={`submenu-wrapper ${subItems ? " active" : ""}`}
-					ref={this.wrapper}
-					onClick={this.closeSubMenu}
-					onMouseLeave={this.handleMouseLeave}>
-					{subItems ? (
-						<SubMenu
-							menuKey={this.state.menuKey}
-							listClassName={
-								defSubListClassName[this.state.menuKey]
-							}
-							mainUrl={mainUrl}
-							subItems={subItems}
-							productTpIds={this.props.productTpIds}
-							allMaintainList={this.props.allMaintainList}
-						/>
-					) : null}
-				</div>
 			</div>
-		);
-	}
-}
+		</div>
+	);
+};
+
+HeaderNewMenu.propTypes = {
+	menuList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	onClickProductItem: PropTypes.func.isRequired
+};
+
+export default HeaderNewMenu;

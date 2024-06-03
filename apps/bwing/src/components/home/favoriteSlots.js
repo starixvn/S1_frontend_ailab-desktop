@@ -2,17 +2,13 @@ import React, { useContext } from "react";
 import Swiper from "react-id-swiper";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
-import { defTpGameType } from "../../datas/productList";
+import { defTpGameType, products } from "@ailab-desktop/common";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { defCategory } from "../promotion/promotion.def";
 import { SET_CASINO_ENTER_PAGE, SET_ENTER_PAGE } from "../../service/enterPage";
 import useDelayFunc from "../hook/useDelayFunc";
-import {
-	defLoginGameType,
-	defSpecialSetting,
-	useGotoGame
-} from "../hook/useGotoGame";
+import { defLoginGameType, useGotoGame } from "../hook/useGotoGame";
 
 const FavoriteSlots = ({ hotGameList, maintainList }) => {
 	const { t } = useTranslation();
@@ -32,7 +28,7 @@ const FavoriteSlots = ({ hotGameList, maintainList }) => {
 						langId: userInfo.langId,
 						tpGameType,
 						execFunction:
-							tpId === defSpecialSetting.PG
+							tpId === products.PGSoft.tpId
 								? handleGoToGame.bind(this, {
 										langId: userInfo.langId,
 										tpId,
@@ -68,8 +64,7 @@ const FavoriteSlots = ({ hotGameList, maintainList }) => {
 							className="btn-gray"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}
-						>
+							}}>
 							OK
 						</button>
 					</div>
@@ -138,8 +133,7 @@ const FavoriteSlots = ({ hotGameList, maintainList }) => {
 											tpCategory,
 											tpGameType
 										})
-									}
-								>
+									}>
 									<div
 										className="home-fav-img"
 										style={{

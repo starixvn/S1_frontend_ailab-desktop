@@ -2,17 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import FishingListItem from "./fishing.list.item";
 
-const FishingList = ({ subMenu, clickItem, maintainList }) => {
+const FishingList = ({ fishingSubMenus = [], onclickFishingItem }) => {
+	if (fishingSubMenus.length === 0) return null;
+
 	return (
 		<>
-			{subMenu.map(subMenuItem => {
-				if (!subMenuItem.lobbyPage) return null;
+			{fishingSubMenus.map(subMenuItem => {
 				return (
 					<FishingListItem
-						key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
-						clickItem={clickItem}
+						key={subMenuItem?.tpGameIdNo}
+						onclickFishingItem={onclickFishingItem}
 						subMenuItem={subMenuItem}
-						maintainList={maintainList}
 					/>
 				);
 			})}
@@ -23,7 +23,6 @@ const FishingList = ({ subMenu, clickItem, maintainList }) => {
 export default FishingList;
 
 FishingList.propTypes = {
-	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
-	clickItem: PropTypes.func.isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
+	fishingSubMenus: PropTypes.arrayOf(PropTypes.any).isRequired,
+	onclickFishingItem: PropTypes.func.isRequired
 };

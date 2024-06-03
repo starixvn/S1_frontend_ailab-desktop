@@ -4,11 +4,9 @@ import LotteryList from "./lottery.list";
 import { bannerImgUrl } from "../../config";
 import LobbyBanner from "../common-lobby/LobbyBanner";
 import LobbyBottomBanner from "../common-lobby/LobbyBottomBanner";
-import useGetSubMenu from "../common-lobby/hooks/useGetSubmenu";
 
 const LotteryLobby = () => {
 	const { userInfo } = useContext(userInfoContext);
-	const subMenu = useGetSubMenu("lottery");
 
 	const bannerUrl = {
 		en: `${bannerImgUrl}/desktop/img/home-page/lobbybanner/lobbybanner-lottery-en.jpg`,
@@ -21,7 +19,7 @@ const LotteryLobby = () => {
 				src={userInfo.langId === "en" ? bannerUrl.en : bannerUrl.vn}
 			/>
 			<div className="lobby-wrapper">
-				<LotteryList subMenu={subMenu} />
+				<LotteryList />
 				<LobbyBottomBanner />
 			</div>
 		</>

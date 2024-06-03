@@ -11,7 +11,6 @@ import { bannerImgUrl } from "../../../config";
 const HomeSportMatches = () => {
 	const [activeTab, setActiveTab] = useState("1"); // 1: football, 2: basketball
 	const [apiData, setApiData] = useState([]);
-	const [filteredData, setFilteredData] = useState([]);
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const langId = userInfo?.langId;
@@ -27,12 +26,6 @@ const HomeSportMatches = () => {
 		};
 		getHotEventDataList();
 	}, []);
-
-	useEffect(() => {
-		// 根據activeTab從apiData中過濾賽事數據
-		const filtered = apiData.filter(item => item.gameId === activeTab);
-		setFilteredData(filtered);
-	}, [apiData, activeTab]);
 
 	const handleTabClick = (event, tab) => {
 		event.preventDefault();

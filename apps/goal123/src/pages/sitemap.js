@@ -60,11 +60,7 @@ const Content = () => {
 					<span>{t("lbl_SiteMap")}</span>
 				</div>
 				<div className="Sitemap">
-					<Bettings
-						t={t}
-						langId={userInfo.langId}
-						isLogin={userInfo.isLogin}
-					/>
+					<Bettings />
 					<OurPolicies langId={userInfo.langId} t={t} />
 					<HelpSupport langId={userInfo.langId} t={t} />
 

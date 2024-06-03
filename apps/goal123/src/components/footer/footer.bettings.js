@@ -1,21 +1,28 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { defSportsBetting } from "./footer.def";
-import LinkItems from "../common/linkItems";
 
-export default ({ t, langId, isLogin, productTpIds }) => {
+const FooterBetting = () => {
+	const { t } = useTranslation();
+
 	return (
 		<div>
 			<span className="title">{t("lbl_SportsBetting")}</span>
+
 			<div>
-				<LinkItems
-					defMenuLinks={defSportsBetting}
-					t={t}
-					langId={langId}
-					isLogin={isLogin}
-					checkMatchPage={false}
-					productTpIds={productTpIds}
-				/>
+				{defSportsBetting?.map(prodictItem => {
+					const { footerDisplayKey, tpGameIdNo } = prodictItem || {};
+
+					return (
+						footerDisplayKey && (
+							<button key={tpGameIdNo}>
+								{t(footerDisplayKey)}
+							</button>
+						)
+					);
+				})}
 			</div>
 		</div>
 	);
 };
+export default FooterBetting;

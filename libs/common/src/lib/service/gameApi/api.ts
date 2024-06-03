@@ -6,7 +6,9 @@ export enum SlotGameCategoryEnum {
 }
 
 export const gameApiUrl = {
-	getSlotGamePage: "Game/GetSlotGamePage"
+	getSlotGamePage: "Game/GetSlotGamePage",
+	getLobbyHeader: "Game/GetLobbyHeader",
+	getRecentlyViewed: "Game/GetRecentlyViewed"
 };
 
 interface ISlotGameData {
@@ -30,6 +32,50 @@ interface ISlotGameData {
 	};
 	sort: number;
 	top: number;
+}
+
+type ILangType = "en" | "cs" | "my" | "th" | "id" | "hi" | "bd" | "kh" | "vn";
+
+interface ISubMenuData {
+	lobbyCategory: string;
+	tpId: number;
+	tpName: string;
+	productName: string;
+	tpGameIdNo: number;
+	gameId: string;
+	tpGameType: number;
+	currencyGameName: Record<ILangType, string> | null;
+	pcHeaderPicUrl: string;
+	pcLobbyPicUrl: string;
+	mobileHeaderPicUrl: string;
+	mobileLobbyPicUrl: string;
+	sort: number;
+	iconEndTime: string;
+	iconStartTime: string;
+	iconType: number;
+}
+
+interface ILobbyHeaderData {
+	lobbyCategoryId: number;
+	data: ISubMenuData[];
+}
+
+interface IRecentlyViewData {
+	bannerUrl: string;
+	imgUrl: string;
+	recentlyViewedList: {
+		tpId: number;
+		tpGameType: number;
+		categoryId: number;
+		gameId: string | number;
+		betType: string;
+		tpName: string;
+		gameName: Record<ILangType, string> | null;
+		gameLogo: Record<ILangType, string> | null;
+		tpLogo: string;
+		tpGameIdNo: number;
+		isMaintain: boolean;
+	}[];
 }
 
 export const gameApi = rootApi.injectEndpoints({
@@ -60,8 +106,38 @@ export const gameApi = rootApi.injectEndpoints({
 				method: "POST",
 				data
 			})
+		}),
+		getLobbyHeader: builder.query<
+			IAxiosResponse<ILobbyHeaderData[]>,
+			{
+				siteId: number;
+				currencyId: number;
+			}
+		>({
+			query: data => ({
+				url: gameApiUrl.getLobbyHeader,
+				method: "POST",
+				data
+			})
+		}),
+		getRecentlyViewed: builder.query<
+			IAxiosResponse<IRecentlyViewData[]>,
+			{
+				deviceType: number;
+				currencyId: number;
+			}
+		>({
+			query: data => ({
+				url: gameApiUrl.getRecentlyViewed,
+				method: "POST",
+				data
+			})
 		})
 	})
 });
 
-export const { useGetSlotGamePageQuery } = gameApi;
+export const {
+	useGetSlotGamePageQuery,
+	useGetLobbyHeaderQuery,
+	useGetRecentlyViewedQuery
+} = gameApi;

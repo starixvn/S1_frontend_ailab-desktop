@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../config";
 
-const EsportBanner = ({ langId }) => {
+const ESportBanner = ({ langId }) => {
 	return (
 		<div className="lobby-banner">
 			<img
@@ -13,12 +13,12 @@ const EsportBanner = ({ langId }) => {
 	);
 };
 
-EsportBanner.defaultProps = {
+ESportBanner.defaultProps = {
 	langId: "en"
 };
 
-EsportBanner.propTypes = {
+ESportBanner.propTypes = {
 	langId: PropTypes.string
 };
 
-export default EsportBanner;
+export default ESportBanner;

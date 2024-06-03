@@ -99,7 +99,24 @@ export const accountApi = rootApi.injectEndpoints({
 					data: { langId }
 				})
 			}
-		)
+		),
+		getCustTpGameTypeSetting: builder.query<
+			IAxiosResponse<
+				{
+					categoryId: number;
+					tpId: number;
+					gameType: number;
+					noShow: boolean;
+					noPlay: boolean;
+				}[]
+			>,
+			null
+		>({
+			query: () => ({
+				url: "Account/GetCustTpGameTypeSetting",
+				method: "POST"
+			})
+		})
 	})
 });
 
@@ -109,5 +126,6 @@ export const {
 	useGetReferralSummaryV2Query,
 	useGetReferralCodeQuery,
 	useGetCustVIPProgressQuery,
-	useSetLanguageMutation
+	useSetLanguageMutation,
+	useGetCustTpGameTypeSettingQuery
 } = accountApi;

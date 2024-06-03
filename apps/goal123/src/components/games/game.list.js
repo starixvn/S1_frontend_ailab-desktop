@@ -1,15 +1,24 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { lobbyCategoryEnum } from "@ailab-desktop/common";
+import useMenu from "../hook/useMenu";
 import LobbyListItem from "../common-lobby/LobbyListItem";
 
-const GameList = ({ subMenu }) => {
+const GameList = () => {
+	const { menuList, onClickProductItem } = useMenu();
+	const gameSubMenus =
+		menuList.find(
+			mainMenuItem =>
+				mainMenuItem.lobbyCategoryId === lobbyCategoryEnum.GAMES
+		)?.data || [];
+
 	return (
 		<div className="lobby-list">
-			{subMenu.map(subMenuItem => {
+			{gameSubMenus.map(subMenuItem => {
 				return (
 					<LobbyListItem
-						key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
+						key={subMenuItem?.tpGameIdNo}
 						subMenuItem={subMenuItem}
+						onClickProductItem={onClickProductItem}
 					/>
 				);
 			})}
@@ -18,7 +27,3 @@ const GameList = ({ subMenu }) => {
 };
 
 export default GameList;
-
-GameList.propTypes = {
-	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired
-};

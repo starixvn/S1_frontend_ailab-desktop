@@ -2,8 +2,22 @@ import { IAxiosResponse } from "../axiosBaseQuery";
 import { rootApi } from "../rootApi/api";
 
 export const authApiUrl = {
-	checkSignIn: "Site/CheckSignIn"
+	checkSignIn: "Site/CheckSignIn",
+	getMaintenance: "Site/GetTpMaintainList"
 };
+
+export interface ITpMaintainData {
+	siteId: number;
+	tpId: number;
+	tpGameType: number;
+	tpCategoryId: number;
+	beginDate: null | string;
+	endDate: null | string;
+	maintainType: number;
+	typeValue: number;
+	beginTime: null | string;
+	endTime: null | string;
+}
 
 export const authApi = rootApi.injectEndpoints({
 	endpoints: builder => ({
@@ -14,8 +28,15 @@ export const authApi = rootApi.injectEndpoints({
 				method: "POST",
 				data
 			})
+		}),
+		getMaintenance: builder.query<IAxiosResponse<ITpMaintainData[]>, null>({
+			query: data => ({
+				url: authApiUrl.getMaintenance,
+				method: "POST",
+				data
+			})
 		})
 	})
 });
 
-export const { useCheckSignInQuery } = authApi;
+export const { useCheckSignInQuery, useGetMaintenanceQuery } = authApi;
