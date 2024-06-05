@@ -164,6 +164,18 @@ export default () => {
 		});
 	}, [categoryList]);
 
+	// 找到featured分類的位置，如果根本就沒有featured，就統一顯示all的遊戲
+	const featuredIndex = categoryList.findIndex(value => {
+		return Object.keys(value)[0] === "featured";
+	});
+	useEffect(() => {
+		if (featuredIndex !== -1) {
+			setActiveCategory("featured");
+		} else {
+			setActiveCategory("all");
+		}
+	}, [featuredIndex]);
+
 	const loadMore = () => {
 		if (allGames && pageInfo.totalPages > pageInfo.currentPage) {
 			setPageInfo(prev => ({
@@ -176,7 +188,9 @@ export default () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const randomArray = array => array.sort(() => Math.random() - 0.5);
+	const randomArray = array => {
+		return array?.sort(() => Math.random() - 0.5);
+	};
 
 	const onChangeCategory = categoryName => {
 		let _displayGames = categoryList.filter(
@@ -417,21 +431,6 @@ export default () => {
 					if (urlJackpotPage && urlJackpotPage === "jackpot") {
 						setActiveCategory("jackpot");
 						navigate(window.location.pathname, { replace: true });
-					} else {
-						// 如果featured類別裡面沒有遊戲，那一進畫面就先顯示all的
-						// resultList就是categoryList陣列，1是all，3是featured
-						const featuredIdx = resultList.findIndex(value => {
-							return Object.keys(value)[0] === "featured";
-						});
-						resultList[featuredIdx]?.featured?.length === 0
-							? setActiveCategory(
-									activeCategory ??
-										Object.keys(resultList[1])[0]
-							  )
-							: setActiveCategory(
-									activeCategory ??
-										Object.keys(resultList[featuredIdx])[0]
-							  );
 					}
 
 					setIsProcessing(false);
