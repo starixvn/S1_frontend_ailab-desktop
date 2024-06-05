@@ -23,8 +23,7 @@ const HomeHotGames = () => {
 							className="item brand big"
 							onClick={() =>
 								onclickStaticProduct(products.SabaSoccer)
-							}
-						>
+							}>
 							<span>{t("lbl_Sports")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/sports-saba.png`}
@@ -36,8 +35,7 @@ const HomeHotGames = () => {
 							className="item brand big"
 							onClick={() =>
 								onclickStaticProduct(products.Vgaming)
-							}
-						>
+							}>
 							<span>{t("lbl_Games")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/games-vgaming.png`}
@@ -51,8 +49,7 @@ const HomeHotGames = () => {
 							className="item brand"
 							onClick={() =>
 								onclickStaticProduct(products.BtiSport)
-							}
-						>
+							}>
 							<span>{t("lbl_Sports")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/sports-bti.png`}
@@ -64,8 +61,7 @@ const HomeHotGames = () => {
 							className="item brand"
 							onClick={() =>
 								onclickStaticProduct(products.V8Poker)
-							}
-						>
+							}>
 							<span>{t("lbl_Games")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/games-v8power.png`}
@@ -75,8 +71,7 @@ const HomeHotGames = () => {
 						{/* Click to link to platform's Lobby-casino page */}
 						<Link
 							className="item"
-							to={`/${userInfo.langId}/${path.liveCasino.root}`}
-						>
+							to={`/${userInfo.langId}/${path.liveCasino.root}`}>
 							<span>{t("lbl_Casino")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/casino.png`}
@@ -86,8 +81,7 @@ const HomeHotGames = () => {
 						{/* Click to link to platform's slot page */}
 						<Link
 							className="item"
-							to={`/${userInfo.langId}/${path.casino.root}`}
-						>
+							to={`/${userInfo.langId}/${path.casino.root}`}>
 							<span>{t("lbl_Slots")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/slots.png`}
@@ -99,8 +93,7 @@ const HomeHotGames = () => {
 						{/* Click to link to platform's Lobby-Lottery page */}
 						<Link
 							className="item"
-							to={`/${userInfo.langId}/${path.lottery.root}`}
-						>
+							to={`/${userInfo.langId}/${path.lottery.root}`}>
 							<span>{t("lbl_Lottery")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/lottery.png`}
@@ -110,8 +103,7 @@ const HomeHotGames = () => {
 						{/* Click to link to platform's Lobby-fishing page */}
 						<Link
 							className="item"
-							to={`/${userInfo.langId}/${path.fishing.root}`}
-						>
+							to={`/${userInfo.langId}/${path.fishing.root}`}>
 							<span>{t("lbl_Fishing")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/fishing.png`}
@@ -121,8 +113,7 @@ const HomeHotGames = () => {
 						{/* Click to link to platform's Lobby-esports page */}
 						<Link
 							className="item"
-							to={`/${userInfo.langId}/${path.eSport.root}`}
-						>
+							to={`/${userInfo.langId}/${path.eSport.root}`}>
 							<span>{t("lbl_eSports")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/esports.png`}
@@ -132,8 +123,7 @@ const HomeHotGames = () => {
 						{/* Click to link to platform's Lobby-cockfighting page */}
 						<Link
 							className="item"
-							to={`/${userInfo.langId}/${path.cockFighting.root}`}
-						>
+							to={`/${userInfo.langId}/${path.cockFighting.root}`}>
 							<span>{t("lbl_CockFighting")}</span>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/hotgame/cockfighting.png`}

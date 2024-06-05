@@ -17,8 +17,7 @@ const FooterProvider = () => {
 						<a
 							key={imgName}
 							onClick={() => onclickStaticProduct(productItem)}
-							style={{ cursor: "default" }}
-						>
+							style={{ cursor: "default" }}>
 							<img
 								src={`${bannerImgUrl}/desktop/img/home-page/provider/${imgName}${
 									hoverName === imgName ? "-a" : ""

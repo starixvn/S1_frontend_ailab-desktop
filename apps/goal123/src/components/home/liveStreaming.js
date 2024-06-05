@@ -3,7 +3,7 @@ import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import classNames from "classnames";
-import { isDateRange } from "@ailab-desktop/common";
+import { isDateRange, products } from "@ailab-desktop/common";
 import { bannerImgUrl } from "../../config";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";

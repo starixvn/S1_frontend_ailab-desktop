@@ -10,7 +10,6 @@ const VgamingLink = () => {
 	if (!displayVgaming) {
 		return null;
 	}
-
 	return (
 		<div className="eventLink vgaming" style={{ cursor: "pointer" }}>
 			<button
