@@ -77,10 +77,10 @@ const AppDownload = () => {
 							)}
 						</div>
 						<div className="btn-group">
-							{andriodDownLoadUrl && (
+							{androidDownLoadUrl && (
 								<a
 									className="download"
-									href={andriodDownLoadUrl}
+									href={androidDownLoadUrl}
 									target="_blank"
 									rel="noreferrer">
 									{t("lbl_Download")} (Android)
