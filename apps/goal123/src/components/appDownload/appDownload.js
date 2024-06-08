@@ -12,7 +12,7 @@ const AppDownload = () => {
 
 	const { userInfo } = useContext(userInfoContext);
 
-	const andriodDownLoadUrl = appLinkDatas?.Andriod?.downloadLink ?? "";
+	const androidDownLoadUrl = appLinkDatas?.Android?.downloadLink ?? "";
 	const IOSDownloadUrl = appLinkDatas?.IOS?.downloadLink ?? "";
 
 	return (
@@ -39,10 +39,10 @@ const AppDownload = () => {
 							{t("lbl_Scan_to_Download")}
 						</div>
 						<div className="container">
-							{andriodDownLoadUrl && (
+							{androidDownLoadUrl && (
 								<div className="qrcode-item">
 									<QRCode
-										value={andriodDownLoadUrl}
+										value={androidDownLoadUrl}
 										renderAs="svg"
 										size={135}
 										includeMargin={true}
@@ -82,8 +82,7 @@ const AppDownload = () => {
 									className="download"
 									href={andriodDownLoadUrl}
 									target="_blank"
-									rel="noreferrer"
-								>
+									rel="noreferrer">
 									{t("lbl_Download")} (Android)
 								</a>
 							)}
@@ -93,8 +92,7 @@ const AppDownload = () => {
 									className="download"
 									href={IOSDownloadUrl}
 									target="_blank"
-									rel="noreferrer"
-								>
+									rel="noreferrer">
 									{t("lbl_Download")} (iOS)
 								</a>
 							)}

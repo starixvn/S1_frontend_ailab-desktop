@@ -15,7 +15,7 @@ const AppDownload = () => {
 		return typeof window !== undefined ? window.open(e.target.value) : null;
 	};
 
-	const andriodDownLoadUrl = appLinkDatas?.Andriod?.downloadLink ?? "";
+	const androidDownLoadUrl = appLinkDatas?.Android?.downloadLink ?? "";
 	const IOSDownloadUrl = appLinkDatas?.IOS?.downloadLink ?? "";
 
 	return (
@@ -32,7 +32,7 @@ const AppDownload = () => {
 				<div className="downloadFrame">
 					<p>{t("lbl_Scan_to_Download")}</p>
 
-					{andriodDownLoadUrl && (
+					{androidDownLoadUrl && (
 						<div>
 							<div>
 								<img
@@ -41,13 +41,13 @@ const AppDownload = () => {
 								/>
 								<button
 									onClick={onClickToDownload}
-									value={andriodDownLoadUrl}>
+									value={androidDownLoadUrl}>
 									{t("lbl_Android")}
 								</button>
 							</div>
 
 							<QRCode
-								value={andriodDownLoadUrl}
+								value={androidDownLoadUrl}
 								renderAs="svg"
 								size={152}
 								includeMargin={true}
