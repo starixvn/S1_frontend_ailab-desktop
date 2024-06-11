@@ -14,7 +14,7 @@ const getAffiliate = ({ langId }) => {
 		: `https://aff.${arr.join(".")}/?lang=${langId}`;
 };
 export const bannerImgUrl = "https://banner.goal123.org";
-export const sportsImgUrl = "http://sportsimgs.goal123.org";
+export const sportsImgUrl = "https://sportsimgs.goal123.org";
 export const cloudImgUrl = "https://payment.goal123.org";
 export const paymentImgUrl = "https://payment.0814media.net";
 
