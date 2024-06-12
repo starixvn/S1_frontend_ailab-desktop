@@ -1,6 +1,10 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { products, defTpGameType } from "@ailab-desktop/common";
+import {
+	products,
+	defTpGameType,
+	defLoginGameType
+} from "@ailab-desktop/common";
 import Nav from "./casino.nav";
 import SearchBox from "./casino.searchBox";
 import GameList from "./casino.gamelist";
@@ -19,7 +23,7 @@ import CasinoJackpot from "./casino.jackpot";
 import { BannerSwipper } from "../common/customSwipper";
 import { api_game_GetSlotGamePage } from "../../service/api/game";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
-import { defLoginGameType, useGotoGame } from "../hook/useGotoGame";
+import { useGotoGame } from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
 import { getUrlParameter, langAndCurrMapping } from "../common/common";
 
