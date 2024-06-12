@@ -272,7 +272,8 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}>
+											onClick={clickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -292,7 +293,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}>
+										onClick={clickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -441,7 +443,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -460,7 +463,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
