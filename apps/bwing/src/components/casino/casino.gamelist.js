@@ -29,22 +29,23 @@ const GameList = ({
 		displayGames &&
 		displayGames
 			?.filter(g => filterJudge(g))
-			// If have sort in game object then sort when in active provider
-			.sort((a, b) => {
-				// 照新增遊戲的時間排序
-				return (
-					new Date(b.launchDate).getTime() -
-					new Date(a.launchDate).getTime()
-				);
-				// 原始的排序方式（先保留以防ＰＭ需改回）
-				// if (
-				// 	activeProvider.tpId === a.tpId &&
-				// 	activeProvider.tpId === b.tpId
-				// ) {
-				// 	return a?.sort > b?.sort ? 1 : -1;
-				// }
-				// return true;
-			})
+			.sort(() => Math.random() - 0.5) // 隨機排列遊戲列表
+			// 次早：原先為按照發佈時間順序排列：
+			// .sort((a, b) => {
+			// 	return (
+			// 		new Date(b.launchDate).getTime() -
+			// 		new Date(a.launchDate).getTime()
+			// 	);
+
+			// 最早：原始的排序方式（先保留以防ＰＭ需改回）
+			// if (
+			// 	activeProvider.tpId === a.tpId &&
+			// 	activeProvider.tpId === b.tpId
+			// ) {
+			// 	return a?.sort > b?.sort ? 1 : -1;
+			// }
+			// return true;
+			// })
 			?.slice(startIdx, endIdx)
 			?.map(g => {
 				const imgName = g.imgName[langId]
@@ -100,8 +101,7 @@ const GameList = ({
 															getTpGameType(g)
 																.tpGameType
 													})
-												}
-											>
+												}>
 												{t("lbl_Play")}
 											</button>
 											{g.playFree ? (
@@ -120,8 +120,7 @@ const GameList = ({
 																getTpGameType(g)
 																	.tpGameType
 														})
-													}
-												>
+													}>
 													{t("lbl_Demo")}
 												</button>
 											) : null}
@@ -156,8 +155,7 @@ const GameList = ({
 						className={`slots-products-item ${slotProductItemStyle()}`}
 						style={_style}
 						key={`casino-game-${g.tpId}-${g.gameId}`}
-						onClick={openSlotProductPopBox}
-					>
+						onClick={openSlotProductPopBox}>
 						<button
 							className={`${
 								isFavorite
