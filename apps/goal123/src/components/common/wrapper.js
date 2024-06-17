@@ -344,7 +344,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				}
 			});
 		},
-		userInfo.isLogin ? 10000 : null
+		userInfo.isLogin ? 30000 : null
 	);
 
 	if (redirectPath === null) {
