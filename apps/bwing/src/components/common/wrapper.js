@@ -149,8 +149,7 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}
-								>
+									onClick={ClickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -329,7 +328,7 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 				}
 			});
 		},
-		userInfo.isLogin ? 10000 : null
+		userInfo.isLogin ? 30000 : null
 	);
 
 	if (redirectPath === null) {
@@ -343,44 +342,36 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 						userInfo.kickout)) && (
 					<ct.popUpMsgContext.Provider value={{ setPopUp, popUp }}>
 						<ct.maintainListContext.Provider
-							value={{ allMaintainList }}
-						>
+							value={{ allMaintainList }}>
 							<ct.productTpIdsContext.Provider
-								value={{ productTpIds }}
-							>
+								value={{ productTpIds }}>
 								<ct.userInfoContext.Provider
-									value={{ userInfo, setUserInfo }}
-								>
+									value={{ userInfo, setUserInfo }}>
 									<ct.walletInfoContext.Provider
 										value={{
 											...walletInfo.state,
 											dispatch: walletInfo.dispatch
-										}}
-									>
+										}}>
 										<ct.msgCountContext.Provider
 											value={{
 												msgCount,
 												setMsgCount
-											}}
-										>
+											}}>
 											<ct.popBoxContext.Provider
 												value={{
 													popBox,
 													setPopBox
-												}}
-											>
+												}}>
 												<ct.loadingContext.Provider
 													value={{
 														loading,
 														setLoading
-													}}
-												>
+													}}>
 													<ct.isRootContext.Provider
 														value={{
 															isRoot,
 															setIsRoot
-														}}
-													>
+														}}>
 														<SEO />
 														{children}
 													</ct.isRootContext.Provider>
