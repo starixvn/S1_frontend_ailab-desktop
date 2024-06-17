@@ -328,7 +328,7 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 				}
 			});
 		},
-		userInfo.isLogin ? 30000 : null
+		userInfo.isLogin ? 600000 : null
 	);
 
 	if (redirectPath === null) {
