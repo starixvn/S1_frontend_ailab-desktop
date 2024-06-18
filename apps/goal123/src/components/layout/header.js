@@ -44,16 +44,11 @@ export default () => {
 						<span>{t("Label_Header_HarvestWealth")}</span>
 					</div>
 					{/* 調整結構，日後有活動logo改下面這段即可 */}
-					{isDateRange(eventPeriods.euroCup) && (
-						<div
-							className="logo-eurocup"
-							style={{ cursor: "pointer" }}
-							onClick={() =>
-								navigate(`/${langId}/${path.euroCup.root}`)
-							}>
+					{isDateRange(eventPeriods.olympic) && (
+						<div className="logo-olympic">
 							<img
-								src={`${bannerImgUrl}/desktop/img/event/eurocup/euro-logo-gif.webp`}
-								alt="eurocup-logo"
+								src={`${bannerImgUrl}/desktop/img/event/olympic/logo-goal123-desktop.webp`}
+								alt="olympic-logo"
 							/>
 						</div>
 					)}
