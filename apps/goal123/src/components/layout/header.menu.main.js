@@ -45,9 +45,9 @@ const HeaderMainMenu = ({
 		return mainMenuIcon[iconType] || null;
 	};
 
-	// 改動設計那邊的樣式 因為目前設計那邊的選單在下滑時會有一個選單的樣式 滑鼠移開時會消失
-	// 使用絕對定位的方式來處理 並且在上層設定寬高 讓他底部的選單整個黏在父層的底部 這樣div之間就不會有空隙機率性觸發false狀態
-	// 為了達到這效果 所以要在上層設定 position: relative 並且在下層設定 position: absolute 並且 top: 100% （absolute的top是相對於最近的有定位的父層）
+	// 改動設計那邊的樣式 因為目前設計那邊的選單在hover時雖然可以看到dropdown 但滑鼠移開時會消失，主要是他們有在dropdown下了一個top元素希望他是能在header的下緣才展開 導致div之間有空隙
+	// 先在上層設定relative+寬高 讓div範圍可以包含整個header
+	// 子層設定 position: absolute 並且 top: 100% （absolute的top是相對於最近的有定位的父層）
 	// 已經把這段給設計，請他們之後補上這些參數  補完後下面這段就能移除
 
 	const menuStyle = {
@@ -56,7 +56,7 @@ const HeaderMainMenu = ({
 		marginLeft: "16px",
 		width: "100px",
 		height: "60px",
-		border: "1px solid red",
+		// border: "1px solid red", 可註解取消測試
 		alignItems: "center"
 	};
 
