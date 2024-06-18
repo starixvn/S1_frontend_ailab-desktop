@@ -160,9 +160,6 @@ const HeaderMainMenu = ({
 				<i className="icon icon-home" />
 			</Link>
 			{menus}
-			<Link to={`/${userInfo?.langId}/${path.vip.root}`}>
-				{t("lbl_Vip").toUpperCase()}
-			</Link>
 			<Link to={`/${userInfo?.langId}/${path.promotion.root}`}>
 				<i
 					className={classNames({
@@ -185,18 +182,24 @@ const HeaderMainMenu = ({
 				</div>
 				<div className="select-dropdown" style={dropdownStyle}>
 					<Link
+						to={`/${userInfo?.langId}/${path.vip.root}`}
+						onClick={() => setHover(false)} // Optional: Close dropdown on link click
+					>
+						{t("lbl_Vip").toUpperCase()}
+					</Link>
+					<Link
 						to={`/${userInfo?.langId}/${path.ambassador.root}`}
 						onClick={() => setHover(false)} // Optional: Close dropdown on link click
 					>
 						{t("lbl_Ambassador")}
 					</Link>
-					{/* 這邊leaderboard寫完的話就取消註解然後改一改參數 */}
-					{/* <Link
-						to={`/${userInfo?.langId}/${path.leaderboard.root}`}
+
+					<Link
+						to={`/${userInfo?.langId}/${path.leaderBoard.root}`}
 						onClick={() => setHover(false)} // Optional: Close dropdown on link click
 					>
-						Leaderboard 
-					</Link> */}
+						{t("lbl_LeaderBoard")}
+					</Link>
 				</div>
 			</div>
 		</>
