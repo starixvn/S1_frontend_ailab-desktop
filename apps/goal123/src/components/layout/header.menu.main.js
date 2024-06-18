@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import {
@@ -28,6 +28,8 @@ const HeaderMainMenu = ({
 	menuList,
 	onClickProductItem
 }) => {
+	const [hover, setHover] = useState(false);
+
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -41,6 +43,35 @@ const HeaderMainMenu = ({
 
 	const switchMainMenuIcon = iconType => {
 		return mainMenuIcon[iconType] || null;
+	};
+
+	// 改動設計那邊的樣式 因為目前設計那邊的選單在下滑時會有一個選單的樣式 滑鼠移開時會消失
+	// 使用絕對定位的方式來處理 並且在上層設定寬高 讓他底部的選單整個黏在父層的底部 這樣div之間就不會有空隙機率性觸發false狀態
+	// 為了達到這效果 所以要在上層設定 position: relative 並且在下層設定 position: absolute 並且 top: 100% （absolute的top是相對於最近的有定位的父層）
+	// 已經把這段給設計，請他們之後補上這些參數  補完後下面這段就能移除
+
+	const menuStyle = {
+		position: "relative",
+		display: "flex",
+		marginLeft: "16px",
+		width: "100px",
+		height: "60px",
+		border: "1px solid red",
+		alignItems: "center"
+	};
+
+	const dropdownStyle = {
+		display: hover ? "flex" : "none",
+		position: "absolute",
+		top: "100%",
+		left: 0,
+		background: "white",
+		boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+		zIndex: 1
+	};
+
+	const btnStyle = {
+		cursor: "pointer"
 	};
 
 	// * 動態的 menus
@@ -96,7 +127,8 @@ const HeaderMainMenu = ({
 										})
 						}
 						onMouseOver={() => setMenuKey(lobbyCategoryId)}
-						onFocus={() => 0}>
+						onFocus={() => 0}
+					>
 						<i className={icon} />
 						{t(mainMenuItem?.displayKey).toUpperCase()}
 					</button>
@@ -109,7 +141,8 @@ const HeaderMainMenu = ({
 				className={classNames({ active })}
 				key={lobbyCategoryId}
 				to={`/${userInfo?.langId}/${mainMenuItem?.path}`}
-				onMouseOver={() => setMenuKey(lobbyCategoryId)}>
+				onMouseOver={() => setMenuKey(lobbyCategoryId)}
+			>
 				<i className={icon} />
 				{t(mainMenuItem?.displayKey).toUpperCase()}
 			</Link>
@@ -119,8 +152,11 @@ const HeaderMainMenu = ({
 	return (
 		<>
 			<Link
-				className={classNames({ active: currentMenuKey === "home" })}
-				to={`/${userInfo.langId}`}>
+				className={classNames({
+					active: currentMenuKey === "home"
+				})}
+				to={`/${userInfo.langId}`}
+			>
 				<i className="icon icon-home" />
 			</Link>
 			{menus}
@@ -138,9 +174,31 @@ const HeaderMainMenu = ({
 				/>
 				{t("lbl_Promotions").toUpperCase()}
 			</Link>
-			<Link to={`/${userInfo?.langId}/${path.ambassador.root}`}>
-				{t("lbl_Ambassador")}
-			</Link>
+			<div
+				style={menuStyle}
+				className={hover ? "select-menu active" : "select-menu"}
+				onMouseEnter={() => setHover(true)}
+				onMouseLeave={() => setHover(false)}
+			>
+				<div className="select-btn" style={btnStyle}>
+					<i className="icon-select-btn" />
+				</div>
+				<div className="select-dropdown" style={dropdownStyle}>
+					<Link
+						to={`/${userInfo?.langId}/${path.ambassador.root}`}
+						onClick={() => setHover(false)} // Optional: Close dropdown on link click
+					>
+						{t("lbl_Ambassador")}
+					</Link>
+					{/* 這邊leaderboard寫完的話就取消註解然後改一改參數 */}
+					{/* <Link
+						to={`/${userInfo?.langId}/${path.leaderboard.root}`}
+						onClick={() => setHover(false)} // Optional: Close dropdown on link click
+					>
+						Leaderboard 
+					</Link> */}
+				</div>
+			</div>
 		</>
 	);
 };
