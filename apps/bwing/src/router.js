@@ -191,7 +191,7 @@ export default {
 	euroCup: {
 		root: "euro-cup"
 	},
-	cockFighting: {
-		root: "cockFighting"
+	retention: {
+		root: "retention"
 	}
 };
