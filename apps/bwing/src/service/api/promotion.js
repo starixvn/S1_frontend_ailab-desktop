@@ -67,3 +67,8 @@ export const api_promotion_GetRebateExcludeGameList = ({
 	promotionRequest.post(`GetRebateExcludeGameList/${langId}`, {
 		CurrencyId: currencyId
 	});
+
+export const api_promotion_GetRetentionPromotion = ({ langId }) =>
+	promotionRequest.post(`/GetRetentionPromotion/${langId}`, {
+		DeviceType: defDeviceType.Desktop
+	});

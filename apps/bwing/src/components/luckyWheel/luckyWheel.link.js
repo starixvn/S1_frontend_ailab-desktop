@@ -33,7 +33,7 @@ const LuckyWheelLink = ({ langId, type }) => {
 	return (
 		homeImgOnLoad && (
 			<div
-				className={classNames("mywheel", {
+				className={classNames("luckywheel", {
 					eurocup: isDateRange(eventPerios.euroCup)
 				})}
 			>
@@ -44,8 +44,8 @@ const LuckyWheelLink = ({ langId, type }) => {
 				/>
 				<Link to={`/${langId}/${path.luckyWheel.root}`}>
 					<img
-						className="mywheelImg"
-						src={`${bannerImgUrl}/desktop/img/4.0/luckywheel.gif`}
+						className="luckywheelImg"
+						src={`${bannerImgUrl}/desktop/img/event/retention/entrance.webp`}
 						onLoad={() => setHomeImgOnLoad(true)}
 						alt="home-wheel-img"
 					/>
