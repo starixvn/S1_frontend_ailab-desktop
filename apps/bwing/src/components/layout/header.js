@@ -41,6 +41,22 @@ export default () => {
 							alt={config.siteName}
 						/>
 					</Link>
+					{/* TODO: 歐洲盃期間LOGO => 結束後可刪 */}
+					{isDateRange(eventPerios.euroCup) && (
+						<div
+							onClick={() =>
+								navigate(
+									`/${userInfo.langId}/${path.euroCup.root}`
+								)
+							}
+						>
+							<img
+								src={`${bannerImgUrl}/desktop/img/event/eurocup/euro-logo-gif.webp`}
+								alt="euro-logo-gif"
+							/>
+						</div>
+					)}
+
 					{/* 巴黎奧運期間顯示 */}
 					{isDateRange(eventPerios.olympic) && (
 						<div>
