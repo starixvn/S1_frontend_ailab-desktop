@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import QRCode from "qrcode.react";
@@ -50,14 +51,14 @@ SideBarDownload.defaultProps = {
 };
 
 SideBarDownload.propTypes = {
-	appLinkDatas: {
-		Andriod: {
-			downloadLink: ""
-		},
-		IOS: {
-			downloadLink: ""
-		}
-	}
+	appLinkDatas: PropTypes.shape({
+		Andriod: PropTypes.shape({
+			downloadLink: PropTypes.string
+		}),
+		IOS: PropTypes.shape({
+			downloadLink: PropTypes.string
+		})
+	})
 };
 
 export default SideBarDownload;

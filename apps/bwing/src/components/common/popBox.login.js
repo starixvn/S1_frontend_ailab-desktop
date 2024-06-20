@@ -38,7 +38,7 @@ const LoginPanel = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const [showPsw, setShowPsw] = useState(false);
 	const [inputStatus, setInputStatus] = useState(initStatus);
-	const [activeInfo, setActiveInfo] = useState(null);
+	const [activeInfo, setActiveInfo] = useState("");
 
 	const isMountedRef = useRef(null);
 	const isInPeriodEvent = isDateRange(
@@ -125,7 +125,7 @@ const LoginPanel = () => {
 						navigate(`/${userInfo.langId}`);
 						saveShieldData();
 						setInputStatus(initStatus);
-						setActiveInfo(null);
+						setActiveInfo("");
 					}
 				} else if (
 					res.errorCode === 1101 ||
@@ -141,7 +141,7 @@ const LoginPanel = () => {
 								hint: "lbl_UsernameTooltip"
 							}
 						}));
-						setActiveInfo(null);
+						setActiveInfo("");
 					}
 				} else if (res.errorCode === 1001) {
 					if (isMountedRef.current) {
@@ -153,7 +153,7 @@ const LoginPanel = () => {
 								hint: "lbl_PasswordTooltip"
 							}
 						}));
-						setActiveInfo(null);
+						setActiveInfo("");
 					}
 				}
 			});
@@ -274,7 +274,8 @@ export const LoginForm = ({
 				/>
 				<Link
 					className="login-forget"
-					to={`/${userInfo.langId}/${path.forgetPassword.root}`}>
+					to={`/${userInfo.langId}/${path.forgetPassword.root}`}
+				>
 					{t("lbl_ForgetPassword")}
 				</Link>
 				<div className="btn-group">
