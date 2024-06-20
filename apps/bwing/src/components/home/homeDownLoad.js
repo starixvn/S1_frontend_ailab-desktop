@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import QRCode from "qrcode.react";
 import { navigate } from "gatsby";
@@ -58,14 +59,14 @@ HomeDownLoad.defaultProps = {
 };
 
 HomeDownLoad.propTypes = {
-	appLinkDatas: {
-		Andriod: {
-			downloadLink: ""
-		},
-		IOS: {
-			downloadLink: ""
-		}
-	}
+	appLinkDatas: PropTypes.shape({
+		Andriod: PropTypes.shape({
+			downloadLink: PropTypes.string
+		}),
+		IOS: PropTypes.shape({
+			downloadLink: PropTypes.string
+		})
+	})
 };
 
 export default HomeDownLoad;

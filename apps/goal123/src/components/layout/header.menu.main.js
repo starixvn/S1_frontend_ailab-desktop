@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import {
@@ -77,7 +77,7 @@ const HeaderMainMenu = ({
 			);
 
 			return (
-				<>
+				<Fragment key={lobbyCategoryId}>
 					{cryptoSportItem && (
 						<button
 							className={classNames("cryptobtn", {
@@ -87,7 +87,6 @@ const HeaderMainMenu = ({
 					)}
 					<button
 						className={classNames({ active })}
-						key={lobbyCategoryId}
 						onClick={
 							!userInfo?.isLogin
 								? showLogin
@@ -103,7 +102,7 @@ const HeaderMainMenu = ({
 						<i className={icon} />
 						{t(mainMenuItem?.displayKey).toUpperCase()}
 					</button>
-				</>
+				</Fragment>
 			);
 		}
 

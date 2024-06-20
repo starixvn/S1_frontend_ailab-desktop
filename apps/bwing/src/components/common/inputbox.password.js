@@ -99,7 +99,7 @@ const InputBox = props => {
 							onClick={props.showPswHandler}
 						/>
 						{props.checked !== undefined ? checkIcon : null}
-						{props.activeInfo === props.hint && (
+						{props.hint && props.activeInfo === props.hint && (
 							<div className="inputbox-tip-popup" ref={ref}>
 								{t(props.hint)}
 							</div>
