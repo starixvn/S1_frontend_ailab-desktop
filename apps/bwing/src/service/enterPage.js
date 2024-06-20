@@ -24,7 +24,7 @@ export const SET_CASINO_ENTER_PAGE = ({
 			const homeUrl = `${appUrl}`;
 			const signupUrl = `${appUrl}/${path.join.root}`;
 			const LoginUrl = `${appUrl}/${path.login.root}`;
-			const lobbyUrl = `${appUrl}/${path.casino.root}?tpId=${tpId}&tpGameType=${tpGameType}`;
+			const lobbyUrl = `${appUrl}/${path.casino.root}?tpId=${tpId}`;
 			const _errorPageUrl = errorPageUrl(langId);
 			const _tpGameType = tpGameType ? `&tpGameType=${tpGameType}` : "";
 			const entPageUrl = `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&errorUrl=${_errorPageUrl}${_tpGameType}`;
