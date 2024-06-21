@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLeaderBoard } from "../Leaderboard-context";
 
+/** 月份 i18n */
 const LEADER_BOARD_MONTHS = Object.freeze({
 	1: "Label_General_Jan",
 	2: "Label_General_Feb",

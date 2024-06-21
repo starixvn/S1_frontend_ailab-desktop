@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { bannerImgUrl } from "../../../config";
 
 /** 排名列表Item */
 const LeaderboardItem = ({ t, rankList }) => {
@@ -14,7 +15,7 @@ const LeaderboardItem = ({ t, rankList }) => {
 				<div className="left">
 					<div className="order">
 						<img
-							src={`https://banner.bw88.io/desktop/img/leaderboard/winner-${rank}.png`}
+							src={`${bannerImgUrl}/desktop/img/leaderboard/winner-${rank}.png`}
 							alt=""
 						/>
 					</div>

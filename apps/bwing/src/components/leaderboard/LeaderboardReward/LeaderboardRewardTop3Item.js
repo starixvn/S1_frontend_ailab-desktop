@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { bannerImgUrl } from "../../../config";
 
 /** 前三名獎勵項目 */
 const LeaderboardRewardTop3Item = ({
@@ -12,7 +13,7 @@ const LeaderboardRewardTop3Item = ({
 	return (
 		<div className="item">
 			<img
-				src={`https://banner.bw88.io/desktop/img/leaderboard/${RANK[ranking]}.png`}
+				src={`${bannerImgUrl}/desktop/img/leaderboard/${RANK[ranking]}.png`}
 				alt={`${RANK[ranking]}`}
 			/>
 			<div className="text">

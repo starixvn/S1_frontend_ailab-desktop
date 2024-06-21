@@ -18,7 +18,7 @@ const LeaderboardRankingList = () => {
 				<div className="winner-total">
 					<LeaderboardItem rankList={rankList} t={t} />
 					{/* 確認登入並且有 userRank 資料才顯示使用者排名 */}
-					{isLogin && userRank ? (
+					{isLogin ? (
 						<LeaderboardUserRanking userRank={userRank} />
 					) : null}
 				</div>

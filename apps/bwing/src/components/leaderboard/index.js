@@ -4,20 +4,28 @@ import LeaderboardRewards from "./LeaderboardReward/LeaderboardRewards";
 import LeaderboardRankingList from "./LeaderboardRankingList/LeaderboardRankingList";
 import LeaderboardPointConversion from "./LeaderboardPointConversion";
 import LeaderboardTerm from "./LeaderboardTerm";
+import { useLeaderBoard } from "./Leaderboard-context";
+import Loading from "../common/loading";
 
 /** leaderboard 主組件 */
 const Leaderboard = () => {
+	const { loading } = useLeaderBoard();
 	return (
 		<div className="leaderboard">
 			<LeaderboardBanner />
-			<div className="leaderboard-wrapper">
-				<LeaderboardRewards />
-				<LeaderboardRankingList />
-				<div className="leaderboard-info">
-					<LeaderboardPointConversion />
-					<LeaderboardTerm />
+			{loading ? (
+				<Loading />
+			) : (
+				<div className="leaderboard-wrapper">
+					<LeaderboardRewards />
+					<LeaderboardRankingList />
+
+					<div className="leaderboard-info">
+						<LeaderboardPointConversion />
+						<LeaderboardTerm />
+					</div>
 				</div>
-			</div>
+			)}
 		</div>
 	);
 };

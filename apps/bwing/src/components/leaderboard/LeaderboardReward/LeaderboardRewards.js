@@ -3,6 +3,7 @@ import LeaderboardRewardItem from "./LeaderboardRewardItem";
 import LeaderboardRewardTop3Item from "./LeaderboardRewardTop3Item";
 import { useLeaderBoard } from "../Leaderboard-context";
 
+/** 名次物件 */
 const RANK = Object.freeze({
 	1: "top-1",
 	2: "top-2",
@@ -69,7 +70,6 @@ const LeaderboardRewards = () => {
 							key={ranking}
 							ranking={ranking}
 							bonus={bonus}
-							RANK={RANK}
 							convertToMillion={convertToMillion}
 							t={t}
 						/>

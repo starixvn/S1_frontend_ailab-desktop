@@ -10,9 +10,7 @@ import {
 	useLazyGetLeaderBoardListMonthQuery,
 	useLazyGetCustRankMonthQuery
 } from "@ailab-desktop/service";
-
 import { siteId } from "../../../config";
-
 import { userInfoContext } from "../../common/context";
 
 /** 創建上下文 */
@@ -114,6 +112,18 @@ const pastYears = (() => {
  *  日期計算的邏輯,
  *  獲取排行榜列表的 API 呼叫 */
 const LeaderboardProvider = ({ children }) => {
+	// =================== api ===================
+
+	const [
+		getLeaderBoardListMonth,
+		{ isFetching: isGetLeaderBoardListMonthFetching }
+	] = useLazyGetLeaderBoardListMonthQuery();
+
+	const [getCustRankMonthData, { isFetching: isGetCustRankFetching }] =
+		useLazyGetCustRankMonthQuery();
+
+	// =================== 常數 ===================
+
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { userName, isLogin, currencyId, langId } = userInfo;
@@ -124,6 +134,10 @@ const LeaderboardProvider = ({ children }) => {
 			siteId,
 			currencyId
 		});
+
+	/** 加載狀態 */
+	const loading = isGetLeaderBoardListMonthFetching || isGetCustRankFetching;
+
 	// =================== 狀態 ===================
 
 	/** 本月倒數時間 */
@@ -142,12 +156,6 @@ const LeaderboardProvider = ({ children }) => {
 
 	/** 使用者排名資料 */
 	const [userRank, setUserRank] = useState({});
-
-	// =================== api ===================
-
-	const [getLeaderBoardListMonth] = useLazyGetLeaderBoardListMonthQuery();
-
-	const [getCustRankMonthData] = useLazyGetCustRankMonthQuery();
 
 	// =================== 對外函數 ===================
 
@@ -239,6 +247,7 @@ const LeaderboardProvider = ({ children }) => {
 		isLogin,
 		rankList,
 		userRank,
+		loading,
 		langId,
 		currentYear,
 		timeLeft,

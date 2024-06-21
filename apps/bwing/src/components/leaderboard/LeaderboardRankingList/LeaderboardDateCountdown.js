@@ -1,9 +1,11 @@
 import React from "react";
+import { navigate } from "gatsby";
 import { useLeaderBoard } from "../Leaderboard-context";
+import path from "../../../router";
 
 /** 本月倒數 */
 const LeaderboardDateCountdown = () => {
-	const { t, timeLeft } = useLeaderBoard();
+	const { t, timeLeft, langId } = useLeaderBoard();
 	const { days, hours, minutes, seconds } = timeLeft;
 
 	return (
@@ -29,7 +31,14 @@ const LeaderboardDateCountdown = () => {
 					</div>
 				</div>
 			</div>
-			<button className="btn-bet">{t("leaderboard_betNow")}</button>
+			<button
+				onClick={() =>
+					navigate(`/${langId}/${path.sports.root}/?game=Soccer`)
+				}
+				className="btn-bet"
+			>
+				{t("leaderboard_betNow")}
+			</button>
 		</div>
 	);
 };
