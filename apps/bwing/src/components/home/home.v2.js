@@ -1,10 +1,14 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
-import { defTpGameType, isDateRange, products } from "@ailab-desktop/common";
+import {
+	defTpGameType,
+	isDateRange,
+	products,
+	LeaderboardProvider
+} from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
 import useMenu from "../hook/useMenu";
-import { api_events_GetLeaderboardList } from "../../service/api/events";
 import path from "../../router";
 import {
 	userInfoContext,
@@ -23,7 +27,7 @@ import SideBarContactUs from "./sideBarContactUs";
 import SideBarDownload from "./sideBarDownload";
 import { defBannerType } from "../../service/api/site";
 import useGetVideo from "../streaming/hook";
-import { bannerImgUrl } from "../../config";
+import { bannerImgUrl, siteId } from "../../config";
 import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
 import { defDeviceType } from "../../service/api/base";
 import HotGames from "./hotGame";
@@ -72,7 +76,6 @@ const Home = () => {
 			})
 	);
 	const [hotEventList, setHotEventList] = useState([]);
-	const [leaderBoardList, setLeaderBoardList] = useState([]);
 	const [hotGameList, setHotGameList] = useState([]);
 	const [news, setNews] = useState([]);
 
@@ -81,7 +84,6 @@ const Home = () => {
 	const vGamingItem = products.Vgaming;
 
 	const handleClickHomeProduct = product => {
-		console.log(product);
 		// * 為靜態遊戲檢查的 isInMaintain
 		const isInMaintain = allMaintainList?.some(
 			mt =>
@@ -103,7 +105,8 @@ const Home = () => {
 							className="btn-gray"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							OK
 						</button>
 					</div>
@@ -131,7 +134,8 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -169,33 +173,6 @@ const Home = () => {
 		}
 	};
 
-	const getLeaderBoardList = async () => {
-		try {
-			const res = await api_events_GetLeaderboardList({
-				lBCategoryId: 0,
-				TopNum: 10,
-				BeforeDays: 0,
-				EventCode: "202104"
-			});
-			setLeaderBoardList(res.data.data ?? []);
-		} catch (error) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.ErrorMsg,
-				message: t("msg_ApiServerError"),
-				btnBar: (
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
-							{t("lbl_Close")}
-						</button>
-					</div>
-				)
-			});
-		}
-	};
-
 	const getHotGameList = async () => {
 		try {
 			const res = await api_HotGame_GetDataList(userInfo.langId);
@@ -209,7 +186,8 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -236,7 +214,8 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -248,10 +227,8 @@ const Home = () => {
 	useEffect(() => {
 		getPromotionList();
 		getHotEventList();
-		getLeaderBoardList();
 		getHotGameList();
 		getNews();
-
 		timeRef.current = setInterval(() => {
 			getHotEventList();
 		}, 60000);
@@ -403,7 +380,8 @@ const Home = () => {
 													navigate(
 														`/${path.promotion.root}?bonusCode=${bonusCode}`
 													);
-												}}>
+												}}
+											>
 												{t("lbl_Promotion_ClaimNow")}
 											</button>
 
@@ -460,7 +438,8 @@ const Home = () => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								closePopBox();
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -487,7 +466,12 @@ const Home = () => {
 						maintainList={allMaintainList}
 						handleClickHomeProduct={handleClickHomeProduct}
 					/>
-					<TopWinner leaderBoardList={leaderBoardList} />
+					{/* 首頁的 TopWinner 比 leaderboard 頁面更早開發（但功能相同），由於 PM 希望內頁與首頁的資料顯示一致，
+                        為了避免相同邏輯分散在兩個頁面，所以將後期開發的 LeaderboardProvider 包裹 TopWinner，共享相同的資料與 API。 */}
+					<LeaderboardProvider siteId={siteId} userInfo={userInfo}>
+						<TopWinner />
+					</LeaderboardProvider>
+
 					<Jackpot t={t} userInfo={userInfo} />
 					{hotGameList?.length > 0 && (
 						<FavoriteSlots
@@ -506,7 +490,8 @@ const Home = () => {
 				<div
 					className={classNames("eventLink vgaming", {
 						eurocup: isDateRange(eventPerios.euroCup)
-					})}>
+					})}
+				>
 					<button
 						style={{ zIndex: 50 }}
 						className="icon-close-primary"

@@ -60,6 +60,7 @@
 		"gulp-css-url-versioner": "^1.1.1",
 		"http-proxy-middleware": "^2.0.6",
 		"i18next": "^21.4.0",
+		"lodash-es": "^4.17.21",
 		"moment": "^2.29.1",
 		"multicoin-address-validator": "^0.4.16",
 		"prop-types": "^15.7.2",

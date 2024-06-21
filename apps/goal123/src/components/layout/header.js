@@ -35,33 +35,38 @@ export default () => {
 	return (
 		<header>
 			<div className="header">
-				<div className="logo">
-					<div onClick={reload} style={{ cursor: "pointer " }}>
-						<img
-							src={`${bannerImgUrl}/desktop/img/logo.png`}
-							alt={config.siteName}
-						/>
-						<span>{t("Label_Header_HarvestWealth")}</span>
-					</div>
-					{/* 調整結構，日後有活動logo改下面這段即可 */}
-					{isDateRange(eventPeriods.euroCup) && (
-						<div
-							className="logo-eurocup"
-							style={{ cursor: "pointer" }}
-							onClick={() =>
-								navigate(`/${langId}/${path.euroCup.root}`)
-							}>
+				<div className="top">
+					<div className="logo">
+						<div onClick={reload} style={{ cursor: "pointer " }}>
 							<img
-								src={`${bannerImgUrl}/desktop/img/event/eurocup/euro-logo-gif.webp`}
-								alt="eurocup-logo"
+								src={`${bannerImgUrl}/desktop/img/logo.png`}
+								alt={config.siteName}
 							/>
+							<span>{t("Label_Header_HarvestWealth")}</span>
 						</div>
-					)}
+						{/* 調整結構，日後有活動logo改下面這段即可 */}
+						{isDateRange(eventPeriods.euroCup) && (
+							<div
+								className="logo-eurocup"
+								style={{ cursor: "pointer" }}
+								onClick={() =>
+									navigate(`/${langId}/${path.euroCup.root}`)
+								}
+							>
+								<img
+									src={`${bannerImgUrl}/desktop/img/event/eurocup/euro-logo-gif.webp`}
+									alt="eurocup-logo"
+								/>
+							</div>
+						)}
+					</div>
+
+					<div className="function">
+						<Functions />
+						{!isLogin && <LanguageDropDown />}
+					</div>
 				</div>
-				<div className="function">
-					<Functions />
-					{!isLogin && <LanguageDropDown />}
-				</div>
+
 				<HeaderNewMenu
 					menuList={menuList}
 					onClickProductItem={onClickProductItem}

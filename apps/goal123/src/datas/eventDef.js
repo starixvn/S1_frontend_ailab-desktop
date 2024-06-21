@@ -18,5 +18,9 @@ export const eventPeriods = {
 	},
 	prediction: {
 		endDate: "2024/06/14 23:59:59"
+	},
+	olympic: {
+		startDate: "2024/07/16 00:00:00",
+		endDate: "2024/08/15 23:59:59"
 	}
 };
