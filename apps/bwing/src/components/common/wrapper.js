@@ -318,7 +318,7 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 	useInterval(
 		() => {
 			api_account_onlineCheck().then(res => {
-				if (res.data.errorCode !== 0) {
+				if (res.data.errorCode === 1001) {
 					setUserInfo(prev => ({
 						...prev,
 						isLogin: false,
