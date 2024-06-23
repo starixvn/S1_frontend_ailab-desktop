@@ -5,14 +5,12 @@ import { useTranslation } from "react-i18next";
 
 const ErrorMsg = ({ btnBar, message, errorCode, icon }) => {
 	const { t } = useTranslation();
-	const errMsg = errorCode
-		? `${errorCode ? `[${errorCode}] ` : ""}${message}`
-		: message;
+	const errMsg = errorCode ? `${message} (${errorCode})` : message;
 
 	return (
 		<div className="Success active">
 			<div className={`icon ${icon}`} />
-			<div className="title">{t("lbl_Information")}</div>
+			<div className="title">{t("lbl_Error_Oops")}</div>
 			<div>
 				<span>{errMsg}</span>
 				<div>
