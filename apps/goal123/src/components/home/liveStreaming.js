@@ -11,10 +11,12 @@ import path from "../../router";
 import { SetPathParameter } from "../common/customSwipper";
 import { eventPeriods } from "../../datas/eventDef";
 import { api_liveStreaming_GetDataList } from "../../service/api/liveStreaming";
+import usePopBox from "../hook/usePopBox";
 
 const LiveStreamingLink = () => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const {
 		userInfo,
 		userInfo: { langId }
@@ -101,8 +103,7 @@ const LiveStreamingLink = () => {
 												gameId,
 												matchId
 											})
-										}
-									>
+										}>
 										<div className="top">
 											<div>{sportLeaguesTitle}</div>
 											<div>
@@ -174,8 +175,7 @@ const LiveStreamingLink = () => {
 		<div
 			className={classNames("eventLink livesports", {
 				eurocup: isDateRange(eventPeriods.euroCup)
-			})}
-		>
+			})}>
 			<button
 				className="icon icon-close"
 				onClick={() => setDisplayLiveStreaming(false)}
