@@ -14,7 +14,7 @@ const LeaderboardPointConversion = () => {
 	/**
 	 * 將point轉換成 i18n 顯示
 	 * @param turnover 流水 */
-	const getTPointI18nText = () => {
+	const getPointI18nText = () => {
 		const POINT = 1; // 固定積分
 		const i18nText = t("lbl_Points");
 		return `${POINT} ${i18nText}`;
@@ -43,21 +43,21 @@ const LeaderboardPointConversion = () => {
 					<div className="list">
 						{getTurnoverI18nText(liveCasinoTurnover)}
 					</div>
-					<div className="list">{getTPointI18nText()}</div>
+					<div className="list">{getPointI18nText()}</div>
 				</div>
 				<div className="table-inner">
 					<div className="list">{t("Label_General_Slots")}</div>
 					<div className="list">
 						{getTurnoverI18nText(slotTurnover)}
 					</div>
-					<div className="list">{getTPointI18nText()}</div>
+					<div className="list">{getPointI18nText()}</div>
 				</div>
 				<div className="table-inner">
 					<div className="list">{t("Label_General_Sports")}</div>
 					<div className="list">
 						{getTurnoverI18nText(sportTurnover)}
 					</div>
-					<div className="list">{getTPointI18nText()}</div>
+					<div className="list">{getPointI18nText()}</div>
 				</div>
 			</div>
 		</div>
