@@ -1,5 +1,5 @@
 import React from "react";
-import { useLeaderBoard } from "../tempLeaderboard-context/Leaderboard-context";
+import { useLeaderBoard } from "../Leaderboard-context/Leaderboard-context";
 import LeaderboardDateSelection from "./LeaderboardDateSelection";
 import LeaderboardDateCountdown from "./LeaderboardDateCountdown";
 import LeaderboardUserRanking from "./LeaderboardUserRanking";

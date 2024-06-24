@@ -1,5 +1,5 @@
 import React from "react";
-import { useLeaderBoard } from "./tempLeaderboard-context";
+import { useLeaderBoard } from "./Leaderboard-context";
 
 /** 積分表 */
 const LeaderboardPointConversion = () => {

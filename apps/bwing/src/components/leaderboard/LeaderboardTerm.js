@@ -1,5 +1,5 @@
 import React from "react";
-import { useLeaderBoard } from "./tempLeaderboard-context";
+import { useLeaderBoard } from "./Leaderboard-context";
 
 /** 規則表示 */
 const LeaderboardTerm = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { navigate } from "gatsby";
-import { useLeaderBoard } from "../tempLeaderboard-context";
+import { useLeaderBoard } from "../Leaderboard-context";
 import path from "../../../router";
 
 /** 本月倒數 */

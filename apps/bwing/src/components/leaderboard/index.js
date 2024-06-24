@@ -4,7 +4,7 @@ import LeaderboardRewards from "./LeaderboardReward/LeaderboardRewards";
 import LeaderboardRankingList from "./LeaderboardRankingList/LeaderboardRankingList";
 import LeaderboardPointConversion from "./LeaderboardPointConversion";
 import LeaderboardTerm from "./LeaderboardTerm";
-import { useLeaderBoard } from "./tempLeaderboard-context";
+import { useLeaderBoard } from "./Leaderboard-context";
 import Loading from "../common/loading";
 
 /** leaderboard 主組件 */
