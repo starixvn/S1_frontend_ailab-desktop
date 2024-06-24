@@ -12,11 +12,10 @@ const LeaderboardPointConversion = () => {
 		leaderboardPointCalculation ?? {};
 
 	/**
-	 * 將point + vnd 轉換成 i18n 顯示
+	 * 將point轉換成 i18n 顯示
 	 * @param turnover 流水 */
 	const getTPointI18nText = () => {
-		/** 固定積分 */
-		const POINT = 1;
+		const POINT = 1; // 固定積分
 		const i18nText = t("lbl_Points");
 		return `${POINT} ${i18nText}`;
 	};
