@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useLeaderBoard } from "../Leaderboard-context/Leaderboard-context";
+import { useLeaderBoard } from "../leaderboardContext/Leaderboard-context";
 import LeaderboardDateSelection from "./LeaderboardDateSelection";
 import LeaderboardDateCountdown from "./LeaderboardDateCountdown";
 import LeaderboardUserRanking from "./LeaderboardUserRanking";

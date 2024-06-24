@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useLeaderBoard } from "./Leaderboard-context";
+import { useLeaderBoard } from "./leaderboardContext";
 
 /** 積分表 */
 const LeaderboardPointConversion = () => {
@@ -13,9 +13,7 @@ const LeaderboardPointConversion = () => {
 	const { liveCasinoTurnover, slotTurnover, sportTurnover } =
 		leaderboardPointCalculation ?? {};
 
-	/**
-	 * 將point轉換成 i18n 顯示
-	 * @param turnover 流水 */
+	/** 將point轉換成 i18n 顯示 */
 	const getPointI18nText = () => {
 		const POINT = 1; // 固定積分
 		const i18nText = t("lbl_Points");

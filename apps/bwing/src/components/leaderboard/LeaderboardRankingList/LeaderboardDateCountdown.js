@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
-import { useLeaderBoard } from "../Leaderboard-context";
+import { useLeaderBoard } from "../leaderboardContext";
 import path from "../../../router";
 
 /** 本月倒數 */

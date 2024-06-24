@@ -1,7 +1,7 @@
 import React from "react";
 import LeaderboardRewardItem from "./LeaderboardRewardItem";
 import LeaderboardRewardTop3Item from "./LeaderboardRewardTop3Item";
-import { useLeaderBoard } from "../Leaderboard-context";
+import { useLeaderBoard } from "../leaderboardContext";
 import Loading from "../../common/loading";
 
 /** 名次物件 */
