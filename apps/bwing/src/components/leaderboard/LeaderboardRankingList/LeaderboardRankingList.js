@@ -22,7 +22,7 @@ const LeaderboardRankingList = () => {
 					{loading ? (
 						<Loading />
 					) : (
-						<LeaderboardItem rankList={rankList} t={t} />
+						<LeaderboardItem rankList={rankList} />
 					)}
 
 					{/* 確認登入並且有 userRank 資料才顯示使用者排名 */}
