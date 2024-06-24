@@ -1,7 +1,7 @@
 import React from "react";
 import LeaderboardBanner from "./LeaderboardBanner";
-import LeaderboardRewards from "./xleaderboardReward/LeaderboardRewards";
-import LeaderboardRankingList from "./xleaderboardRankingList/LeaderboardRankingList";
+import LeaderboardRewards from "./leaderboardReward/LeaderboardRewards";
+import LeaderboardRankingList from "./leaderboardRankingList/LeaderboardRankingList";
 import LeaderboardPointConversion from "./LeaderboardPointConversion";
 import LeaderboardTerm from "./LeaderboardTerm";
 
