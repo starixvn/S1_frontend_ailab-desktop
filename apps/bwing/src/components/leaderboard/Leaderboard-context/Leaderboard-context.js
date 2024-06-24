@@ -177,7 +177,9 @@ const LeaderboardProvider = ({ children }) => {
 			if (leaderBoardListMonth.length > 0) {
 				setRankList(leaderBoardListMonth);
 
-				if (!userName) return;
+				// 有時 userInfo 拿到資料，但 userName 為 undefined
+				// 未登入時，不打 getCustRankMonthData
+				if (!userName && !isLogin) return;
 				const {
 					data: { data: { custRank = 0, point = 0 } = {} } = {}
 				} = await getCustRankMonthData({
