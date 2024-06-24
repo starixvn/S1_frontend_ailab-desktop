@@ -3,7 +3,7 @@ import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Footer from "../components/footer/footer";
 import Leaderboard from "../components/leaderboard";
-import { LeaderboardProvider } from "../components/leaderboard/Leaderboard-context/Leaderboard-context";
+import { LeaderboardProvider } from "../components/leaderboard/tempLeaderboard-context/Leaderboard-context";
 
 export default () => {
 	return (

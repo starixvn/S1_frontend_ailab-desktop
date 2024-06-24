@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLeaderBoard } from "../Leaderboard-context";
+import { useLeaderBoard } from "../tempLeaderboard-context";
 
 /** 月份 i18n */
 const LEADER_BOARD_MONTHS = Object.freeze({

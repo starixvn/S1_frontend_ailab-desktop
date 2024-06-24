@@ -1,6 +1,6 @@
 import React from "react";
 import { bannerImgUrl } from "../../config";
-import { useLeaderBoard } from "./Leaderboard-context";
+import { useLeaderBoard } from "./tempLeaderboard-context";
 /** Leaderboard 的 Banner 组件 */
 const LeaderboardBanner = () => {
 	const { langId } = useLeaderBoard();
