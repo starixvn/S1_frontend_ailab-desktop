@@ -1,17 +1,17 @@
 import React from "react";
-import { useLeaderBoard } from "./Leaderboard-context";
+import { useTranslation } from "react-i18next";
 
 /** 規則表示 */
 const LeaderboardTerm = () => {
-	const { t } = useLeaderBoard();
+	const { t } = useTranslation();
 	return (
 		<div className="info-term">
-			<div className="title">{t("leaderbord_TermTitle")}</div>
+			<div className="title">{t("lbl_TermTitle")}</div>
 			<div className="term-content">
 				<ul>
-					<li>{t("leaderbord_Term_1")}</li>
-					<li>{t("leaderbord_Term_2")}</li>
-					<li>{t("leaderbord_Term_3")}</li>
+					<li>{t("lbl_Term_1")}</li>
+					<li>{t("lbl_Term_2")}</li>
+					<li>{t("lbl_Term_3")}</li>
 				</ul>
 			</div>
 		</div>

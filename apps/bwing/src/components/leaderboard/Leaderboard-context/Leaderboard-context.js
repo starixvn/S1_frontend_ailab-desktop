@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import dayjs from "dayjs";
+import moment from "moment";
 import { find } from "lodash-es";
 import PropTypes from "prop-types";
 import {
@@ -29,9 +28,9 @@ const formatDate = date => date.format("YYYY-MM-DD");
 /** 獲取今年已過的月份列表 */
 const getMonthDataList = () => {
 	/** 過去的資料已經不可獲取,故以現年為查詢起點 */
-	const currentYear = dayjs().year();
-	const initDate = dayjs(`${currentYear}-01-01`);
-	const currentDate = dayjs();
+	const currentYear = moment().year();
+	const initDate = moment(`${currentYear}-01-01`);
+	const currentDate = moment();
 	const months = getMonthsBetween(initDate, currentDate);
 	const monthDataList = months
 		.map(date => {
@@ -47,7 +46,7 @@ const getMonthDataList = () => {
 			};
 		})
 		.sort((a, b) =>
-			dayjs(a.startDate).isAfter(dayjs(b.startDate)) ? 1 : -1
+			moment(a.startDate).isAfter(moment(b.startDate)) ? 1 : -1
 		);
 	return monthDataList;
 };
@@ -57,18 +56,18 @@ const getMonthDataList = () => {
  * @param startDate 開始日期
  * @param endDate 結束日期 */
 const getMonthsBetween = (startDate, endDate) => {
-	const diff = endDate.diff(startDate, "month");
+	const diff = endDate.diff(startDate, "months");
 	return Array.from({ length: diff + 1 }, (_, index) =>
-		startDate.add(index, "month")
+		startDate.clone().add(index, "months")
 	);
 };
 
 /** 獲取排行榜列表更新時間（ 更新整點的前30分鐘 ）
  *  ex: 現在 2024/11/11 10:16:00 ＝> 2024/11/11 10:00:00 */
 const getFormattedUpdateTime = () => {
-	const now = dayjs();
-	const startOfHour = dayjs().startOf("hour");
-	const threshold = startOfHour.add(30, "minute");
+	const now = moment();
+	const startOfHour = moment().startOf("hour");
+	const threshold = startOfHour.clone().add(30, "minutes");
 	const displayTime = now.isAfter(threshold) ? threshold : startOfHour;
 	return displayTime.format("YYYY/MM/DD HH:mm:ss");
 };
@@ -79,10 +78,10 @@ const getFormattedUpdateTime = () => {
 const monthDataList = getMonthDataList();
 
 /** 當前年份 */
-const currentYear = dayjs().year();
+const currentYear = moment().year();
 
 /** 當前月份 */
-const currentMonth = dayjs().month() + 1;
+const currentMonth = moment().month() + 1;
 
 /** 排行榜上限值 */
 const MAX_RANK = 100;
@@ -119,12 +118,11 @@ const LeaderboardProvider = ({ children }) => {
 		{ isFetching: isGetLeaderBoardListMonthFetching }
 	] = useLazyGetLeaderBoardListMonthQuery();
 
-	const [getCustRankMonthData, { isFetching: isGetCustRankFetching }] =
+	const [getCustRankMonth, { isFetching: isGetCustRankFetching }] =
 		useLazyGetCustRankMonthQuery();
 
 	// =================== 常數 ===================
 
-	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { userName, isLogin, currencyId, langId } = userInfo;
 
@@ -177,12 +175,11 @@ const LeaderboardProvider = ({ children }) => {
 			if (leaderBoardListMonth.length > 0) {
 				setRankList(leaderBoardListMonth);
 
-				// 有時 userInfo 拿到資料，但 userName 為 undefined
-				// 未登入時，不打 getCustRankMonthData
-				if (!userName && !isLogin) return;
+				// 未登入時，不打 getCustRankMonth
+				if (!isLogin) return;
 				const {
 					data: { data: { custRank = 0, point = 0 } = {} } = {}
-				} = await getCustRankMonthData({
+				} = await getCustRankMonth({
 					LBCategoryId: args.lBCategoryId,
 					SelectDays: args.SelectDays
 				});
@@ -224,8 +221,8 @@ const LeaderboardProvider = ({ children }) => {
 	/** 計算離本月結算的倒數時間 */
 	useEffect(() => {
 		const calculateTimeLeft = () => {
-			const now = dayjs();
-			const endOfMonth = dayjs().endOf("month");
+			const now = moment();
+			const endOfMonth = moment().endOf("month");
 			const diff = endOfMonth.diff(now);
 			const seconds = Math.floor((diff / 1000) % 60);
 			const minutes = Math.floor((diff / 1000 / 60) % 60);
@@ -245,7 +242,6 @@ const LeaderboardProvider = ({ children }) => {
 
 	/** 傳遞的資料物件 */
 	const value = {
-		t,
 		isLogin,
 		rankList,
 		userRank,

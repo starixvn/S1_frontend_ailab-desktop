@@ -1,27 +1,28 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useLeaderBoard } from "../Leaderboard-context";
 
 /** 月份 i18n */
 const LEADER_BOARD_MONTHS = Object.freeze({
-	1: "Label_General_Jan",
-	2: "Label_General_Feb",
-	3: "Label_General_Mar",
-	4: "Label_General_Apr",
-	5: "Label_General_May",
-	6: "Label_General_Jun",
-	7: "Label_General_Jul",
-	8: "Label_General_Aug",
-	9: "Label_General_Sep",
-	10: "Label_General_Otc",
-	11: "Label_General_Nov",
-	12: "Label_General_Dec"
+	1: "lbl_General_Jan",
+	2: "lbl_General_Feb",
+	3: "lbl_General_Mar",
+	4: "lbl_General_Apr",
+	5: "lbl_General_May",
+	6: "lbl_General_Jun",
+	7: "lbl_General_Jul",
+	8: "lbl_General_Aug",
+	9: "lbl_General_Sep",
+	10: "lbl_General_Oct",
+	11: "lbl_General_Nov",
+	12: "lbl_General_Dec"
 });
 
 /** 日期選擇 */
 const LeaderboardDateSelection = () => {
+	const { t } = useTranslation();
 	// =================== 上下文 ===================
 	const {
-		t,
 		pastMonths,
 		pastYears,
 		onSelectedDateId,
@@ -63,7 +64,7 @@ const LeaderboardDateSelection = () => {
 
 	return (
 		<div className="board-top">
-			<div className="title">{t("Label_LeaderBoard_Ranking")}</div>
+			<div className="title">{t("lbl_Ranking")}</div>
 			<div className="select-period">
 				<div className="select-years">
 					<div

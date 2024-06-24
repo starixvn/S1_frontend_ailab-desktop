@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../../config";
 
@@ -7,9 +8,9 @@ const LeaderboardRewardTop3Item = ({
 	ranking,
 	bonus,
 	convertToMillion,
-	RANK,
-	t
+	RANK
 }) => {
+	const { t } = useTranslation();
 	return (
 		<div className="item">
 			<img
@@ -18,7 +19,7 @@ const LeaderboardRewardTop3Item = ({
 			/>
 			<div className="text">
 				<div className="data-number">{convertToMillion(bonus)}</div>
-				<div className="text-unit">{t("leaderboard_millionDong")}</div>
+				<div className="text-unit">{t("lbl_millionDong")}</div>
 			</div>
 		</div>
 	);
@@ -28,7 +29,6 @@ const LeaderboardRewardTop3Item = ({
 export default LeaderboardRewardTop3Item;
 
 LeaderboardRewardTop3Item.propTypes = {
-	t: PropTypes.func.isRequired,
 	ranking: PropTypes.string.isRequired,
 	bonus: PropTypes.number.isRequired,
 	convertToMillion: PropTypes.func.isRequired,

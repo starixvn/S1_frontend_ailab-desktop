@@ -1,14 +1,17 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useLeaderBoard } from "../Leaderboard-context/Leaderboard-context";
 import LeaderboardDateSelection from "./LeaderboardDateSelection";
 import LeaderboardDateCountdown from "./LeaderboardDateCountdown";
 import LeaderboardUserRanking from "./LeaderboardUserRanking";
 import LeaderboardItem from "./LeaderboardItem";
+import Loading from "../../common/loading";
 
 /** 排行榜單 */
 const LeaderboardRankingList = () => {
-	const { t, getFormattedUpdateTime, isLogin, userRank, rankList } =
+	const { getFormattedUpdateTime, isLogin, userRank, rankList, loading } =
 		useLeaderBoard();
+	const { t } = useTranslation();
 
 	return (
 		<div className="leaderboard-ranking">
@@ -16,7 +19,12 @@ const LeaderboardRankingList = () => {
 			<div className="board">
 				<LeaderboardDateSelection />
 				<div className="winner-total">
-					<LeaderboardItem rankList={rankList} t={t} />
+					{loading ? (
+						<Loading />
+					) : (
+						<LeaderboardItem rankList={rankList} t={t} />
+					)}
+
 					{/* 確認登入並且有 userRank 資料才顯示使用者排名 */}
 					{isLogin ? (
 						<LeaderboardUserRanking userRank={userRank} />
@@ -25,9 +33,9 @@ const LeaderboardRankingList = () => {
 
 				{/* 每 30 entries 刷新一次 */}
 				<div className="board-refresh">
-					{t("leaderboard_lastUpdateOn")}
+					{t("lbl_lastUpdateOn")}
 					<span className="data">{getFormattedUpdateTime()}</span>
-					{t("leaderboard_updateEvery30Minutes")}
+					{t("lbl_updateEvery30Minutes")}
 				</div>
 			</div>
 		</div>

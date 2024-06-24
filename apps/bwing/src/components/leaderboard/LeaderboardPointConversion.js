@@ -1,9 +1,11 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useLeaderBoard } from "./Leaderboard-context";
 
 /** 積分表 */
 const LeaderboardPointConversion = () => {
-	const { t, leaderBoardSettingResponseData } = useLeaderBoard();
+	const { leaderBoardSettingResponseData } = useLeaderBoard();
+	const { t } = useTranslation();
 
 	const { leaderboardPointCalculation = {} } =
 		leaderBoardSettingResponseData ?? {};
@@ -24,21 +26,21 @@ const LeaderboardPointConversion = () => {
 	 * 將流水 + vnd 轉換成 i18n 顯示
 	 * @param turnover 流水 */
 	const getTurnoverI18nText = turnover => {
-		return `${turnover} ${t("vnd")}`;
+		return `${turnover} ${t("lbl_vnd")}`;
 	};
 
 	return (
 		<div className="info-point">
-			<div className="title">{t("leaderboard_pointConversion")}</div>
+			<div className="title">{t("lbl_pointConversion")}</div>
 			<div className="table-content">
 				<div className="table-thead">
-					<div className="list">{t("leaderboard_category")}</div>
-					<div className="list">{t("leaderboard_validTurnover")}</div>
+					<div className="list">{t("lbl_category")}</div>
+					<div className="list">{t("lbl_validTurnover")}</div>
 					<div className="list">{t("lbl_Points")}</div>
 				</div>
 				<div className="table-inner">
 					<div className="list">
-						{t("Label_General_CasinoWithLive")}
+						{t("lbl_General_CasinoWithLive")}
 					</div>
 					<div className="list">
 						{getTurnoverI18nText(liveCasinoTurnover)}
@@ -46,14 +48,14 @@ const LeaderboardPointConversion = () => {
 					<div className="list">{getPointI18nText()}</div>
 				</div>
 				<div className="table-inner">
-					<div className="list">{t("Label_General_Slots")}</div>
+					<div className="list">{t("lbl_General_Slots")}</div>
 					<div className="list">
 						{getTurnoverI18nText(slotTurnover)}
 					</div>
 					<div className="list">{getPointI18nText()}</div>
 				</div>
 				<div className="table-inner">
-					<div className="list">{t("Label_General_Sports")}</div>
+					<div className="list">{t("lbl_General_Sports")}</div>
 					<div className="list">
 						{getTurnoverI18nText(sportTurnover)}
 					</div>

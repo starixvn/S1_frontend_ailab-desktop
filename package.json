@@ -39,7 +39,6 @@
 		"buffer": "^6.0.3",
 		"classnames": "^2.3.2",
 		"core-js": "^3.19.1",
-		"dayjs": "^1.11.11",
 		"del": "^5.1.0",
 		"document-register-element": "1.13.1",
 		"eslint": "7.10.0",

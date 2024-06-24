@@ -1,9 +1,11 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../../config";
 
 /** 排名列表Item */
-const LeaderboardItem = ({ t, rankList }) => {
+const LeaderboardItem = ({ rankList }) => {
+	const { t } = useTranslation();
 	/**
 	 * 渲染前三名 Item，樣式跟其他 Item 不一樣
 	 * @param userName 其他玩家名稱
@@ -78,7 +80,6 @@ const LeaderboardItem = ({ t, rankList }) => {
 export default LeaderboardItem;
 
 LeaderboardItem.propTypes = {
-	t: PropTypes.func.isRequired,
 	rankList: PropTypes.arrayOf(
 		PropTypes.shape({
 			userName: PropTypes.string.isRequired,

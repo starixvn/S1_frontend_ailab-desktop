@@ -1,33 +1,35 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
 import { useLeaderBoard } from "../Leaderboard-context";
 import path from "../../../router";
 
 /** 本月倒數 */
 const LeaderboardDateCountdown = () => {
-	const { t, timeLeft, langId } = useLeaderBoard();
+	const { t } = useTranslation();
+	const { timeLeft, langId } = useLeaderBoard();
 	const { days, hours, minutes, seconds } = timeLeft;
 
 	return (
 		<div className="countdown">
 			<div className="countdown-item">
-				<div className="title">{t("leaderboard_reamainingTime")}</div>
+				<div className="title">{t("lbl_reamainingTime")}</div>
 				<div className="countdown-time">
 					<div className="list">
 						<span>{days}</span>
-						{t("leaderboard_day")}
+						{t("lbl_day")}
 					</div>
 					<div className="list">
 						<span>{hours}</span>
-						{t("leaderboard_hours")}
+						{t("lbl_hours")}
 					</div>
 					<div className="list">
 						<span>{minutes}</span>
-						{t("leaderboard_minutes")}
+						{t("lbl_minutes")}
 					</div>
 					<div className="list">
 						<span>{seconds}</span>
-						{t("leaderboard_seconds")}
+						{t("lbl_seconds")}
 					</div>
 				</div>
 			</div>
@@ -37,7 +39,7 @@ const LeaderboardDateCountdown = () => {
 				}
 				className="btn-bet"
 			>
-				{t("leaderboard_betNow")}
+				{t("lbl_betNow")}
 			</button>
 		</div>
 	);

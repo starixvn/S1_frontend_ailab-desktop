@@ -2,6 +2,7 @@ import React from "react";
 import LeaderboardRewardItem from "./LeaderboardRewardItem";
 import LeaderboardRewardTop3Item from "./LeaderboardRewardTop3Item";
 import { useLeaderBoard } from "../Leaderboard-context";
+import Loading from "../../common/loading";
 
 /** 名次物件 */
 const RANK = Object.freeze({
@@ -15,7 +16,7 @@ const RANK = Object.freeze({
 
 /** 排名獎勵 */
 const LeaderboardRewards = () => {
-	const { t, leaderBoardSettingResponseData } = useLeaderBoard();
+	const { leaderBoardSettingResponseData, loading } = useLeaderBoard();
 	const { leaderboardRankingBonus = [] } =
 		leaderBoardSettingResponseData ?? [];
 
@@ -41,6 +42,10 @@ const LeaderboardRewards = () => {
 		return number / 1000000;
 	};
 
+	if (loading) {
+		return <Loading />;
+	}
+
 	return (
 		<div className="leaderboard-reward">
 			<div className="reward-left">
@@ -56,7 +61,6 @@ const LeaderboardRewards = () => {
 								bonus={bonus}
 								convertToMillion={convertToMillion}
 								RANK={RANK}
-								t={t}
 							/>
 						);
 					})}
@@ -71,7 +75,6 @@ const LeaderboardRewards = () => {
 							ranking={ranking}
 							bonus={bonus}
 							convertToMillion={convertToMillion}
-							t={t}
 						/>
 					);
 				})}
