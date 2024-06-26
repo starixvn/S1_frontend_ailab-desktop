@@ -20581,6 +20581,9 @@ html.Newtheme:not(.index, .lobby) .swiper-container + .inside-title.icon-ow-casi
   margin: 50px 0 20px;
   color: white;
 }
+#survey .survey-before fieldset button:first-child[disabled] {
+  background: gray !important;
+}
 #survey .survey-before fieldset button:first-child:hover {
   background: #ff655f;
 }
@@ -20594,6 +20597,19 @@ html.Newtheme:not(.index, .lobby) .swiper-container + .inside-title.icon-ow-casi
 }
 #survey .survey-before fieldset:nth-child(2) {
   margin-top: 25px;
+}
+#survey .survey-before fieldset .tip {
+  display: none;
+}
+#survey .survey-before fieldset .tip.active {
+  display: block;
+  color: red;
+}
+#survey .survey-before fieldset.error textarea {
+  border: 2px solid red;
+}
+#survey .survey-before fieldset.error input {
+  border: 2px solid red;
 }
 #survey .survey-before .survey-input {
   margin-top: 3px;
