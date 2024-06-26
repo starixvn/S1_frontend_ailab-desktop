@@ -19893,7 +19893,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 #goTop {
   position: fixed;
-  bottom: 160px;
+  bottom: 175px;
   right: 12px;
   width: 60px;
   height: 60px;
@@ -23331,7 +23331,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 #survey {
   position: fixed;
-  bottom: 20px;
+  bottom: 35px;
   right: 70px;
   width: 345px;
   border-radius: 10px;
