@@ -5,8 +5,8 @@ import usePopBox from "../hook/usePopBox";
 const useAppDownLoad = () => {
 	const isMountedRef = useRef(null);
 	const { errorPopBox } = usePopBox();
-
-	const [appLinkDatas, setAppLinkData] = useState([]);
+	// 初始化為array但是fetch api之後set為object，因此這邊修正
+	const [appLinkDatas, setAppLinkData] = useState({});
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -29,7 +29,6 @@ const useAppDownLoad = () => {
 						const newData = data.reduce((acc, cur) => {
 							return { ...acc, [cur.appTypeName]: cur };
 						}, {});
-
 						setAppLinkData(newData);
 					} else {
 						errorPopBox(message || `error`, errorCode);

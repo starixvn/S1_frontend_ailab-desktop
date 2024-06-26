@@ -5,7 +5,7 @@ import useClickOutside from "../hook/useClickOutSide";
 
 const InputBox = props => {
 	const ref = useClickOutside(() => {
-		props.setActiveInfo(null);
+		props.setActiveInfo("");
 	});
 	const { t } = useTranslation();
 	const checkfailed = !props.checked && props.checked !== null;
@@ -99,7 +99,7 @@ const InputBox = props => {
 							onClick={props.showPswHandler}
 						/>
 						{props.checked !== undefined ? checkIcon : null}
-						{props.activeInfo === props.hint && (
+						{props.hint && props.activeInfo === props.hint && (
 							<div className="inputbox-tip-popup" ref={ref}>
 								{t(props.hint)}
 							</div>

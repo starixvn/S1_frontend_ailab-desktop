@@ -102,3 +102,8 @@ export const shieldRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/Shield`
 });
+
+export const surveyRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/Questionnaire`
+});

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { Fragment, useContext } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import {
@@ -75,7 +75,7 @@ const HeaderMainMenu = ({
 			);
 
 			return (
-				<>
+				<Fragment key={lobbyCategoryId}>
 					{cryptoSportItem && (
 						<button
 							className={classNames("cryptobtn", {
@@ -85,7 +85,6 @@ const HeaderMainMenu = ({
 					)}
 					<button
 						className={classNames({ active })}
-						key={lobbyCategoryId}
 						onClick={
 							!userInfo?.isLogin
 								? showLogin
@@ -96,11 +95,12 @@ const HeaderMainMenu = ({
 										})
 						}
 						onMouseOver={() => setMenuKey(lobbyCategoryId)}
-						onFocus={() => 0}>
+						onFocus={() => 0}
+					>
 						<i className={icon} />
 						{t(mainMenuItem?.displayKey).toUpperCase()}
 					</button>
-				</>
+				</Fragment>
 			);
 		}
 
@@ -109,7 +109,8 @@ const HeaderMainMenu = ({
 				className={classNames({ active })}
 				key={lobbyCategoryId}
 				to={`/${userInfo?.langId}/${mainMenuItem?.path}`}
-				onMouseOver={() => setMenuKey(lobbyCategoryId)}>
+				onMouseOver={() => setMenuKey(lobbyCategoryId)}
+			>
 				<i className={icon} />
 				{t(mainMenuItem?.displayKey).toUpperCase()}
 			</Link>
@@ -120,7 +121,8 @@ const HeaderMainMenu = ({
 		<>
 			<Link
 				className={classNames({ active: currentMenuKey === "home" })}
-				to={`/${userInfo.langId}`}>
+				to={`/${userInfo.langId}`}
+			>
 				<i className="icon icon-home" />
 			</Link>
 			{menus}
