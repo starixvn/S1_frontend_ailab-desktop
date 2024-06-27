@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useLeaderBoard } from "../leaderboardContext/Leaderboard-context";
+import { useLeaderBoard } from "../leaderboardContext";
 import LeaderboardDateSelection from "./LeaderboardDateSelection";
 import LeaderboardDateCountdown from "./LeaderboardDateCountdown";
 import LeaderboardUserRanking from "./LeaderboardUserRanking";
@@ -9,8 +9,7 @@ import Loading from "../../common/loading";
 
 /** 排行榜單 */
 const LeaderboardRankingList = () => {
-	const { getFormattedUpdateTime, isLogin, userRank, rankList, loading } =
-		useLeaderBoard();
+	const { getFormattedUpdateTime, isLogin, loading } = useLeaderBoard();
 	const { t } = useTranslation();
 
 	return (
@@ -19,16 +18,10 @@ const LeaderboardRankingList = () => {
 			<div className="board">
 				<LeaderboardDateSelection />
 				<div className="winner-total">
-					{loading ? (
-						<Loading />
-					) : (
-						<LeaderboardItem rankList={rankList} />
-					)}
+					{loading ? <Loading /> : <LeaderboardItem />}
 
 					{/* 確認登入並且有 userRank 資料才顯示使用者排名 */}
-					{isLogin ? (
-						<LeaderboardUserRanking userRank={userRank} />
-					) : null}
+					{isLogin ? <LeaderboardUserRanking /> : null}
 				</div>
 
 				{/* 每 30 entries 刷新一次 */}

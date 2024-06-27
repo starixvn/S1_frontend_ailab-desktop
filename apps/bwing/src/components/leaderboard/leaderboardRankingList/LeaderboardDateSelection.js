@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useLeaderBoard } from "../leaderboardContext";
 
@@ -43,6 +43,14 @@ const LeaderboardDateSelection = () => {
 	/** 是否關閉月份選擇 */
 	const [isShowMonthSelect, setIsShowMonthSelect] = useState(false);
 
+	// =================== Ref ===================
+
+	/** yearRef */
+	const yearRef = useRef(null);
+
+	/** monthRef */
+	const monthRef = useRef(null);
+
 	// =================== 對內函數 ===================
 	/** 處理年份選擇
 	 *  @param {number} year 選擇的年份 */
@@ -62,11 +70,39 @@ const LeaderboardDateSelection = () => {
 		setIsShowMonthSelect(false);
 	};
 
+	/** 點擊外部時收合選單 */
+	const handleClickOutside = event => {
+		/**
+		 * 檢查是否點擊在 ref 外部
+		 * @param ref 需要檢查的 ref
+		 * @returns  如果點擊在 ref 外部，return true；否則 return false */
+		const isOutsideClick = ref =>
+			ref.current && !ref.current.contains(event.target);
+
+		// 如果點擊在年份選擇框外部，關閉年份選擇框
+		if (isOutsideClick(yearRef)) {
+			setIsShowYearSelect(false);
+		}
+
+		// 如果點擊在月份選擇框外部，關閉月份選擇框
+		if (isOutsideClick(monthRef)) {
+			setIsShowMonthSelect(false);
+		}
+	};
+
+	/** 監聽滑鼠點擊 */
+	useEffect(() => {
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, []);
+
 	return (
 		<div className="board-top">
 			<div className="title">{t("lbl_Ranking")}</div>
 			<div className="select-period">
-				<div className="select-years">
+				<div className="select-years" ref={yearRef}>
 					<div
 						className="select-btn"
 						onClick={() => setIsShowYearSelect(!isShowYearSelect)}
@@ -87,7 +123,7 @@ const LeaderboardDateSelection = () => {
 						</div>
 					)}
 				</div>
-				<div className="select-month">
+				<div className="select-month" ref={monthRef}>
 					<div
 						className="select-btn active"
 						onClick={() => setIsShowMonthSelect(!isShowMonthSelect)}
