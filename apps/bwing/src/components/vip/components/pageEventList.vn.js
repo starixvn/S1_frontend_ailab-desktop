@@ -198,7 +198,7 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 				</tr>
 				{/* ESports */}
 				<tr>
-					<td>{t("lbl_Vip_Virtual_Sport_Rebate")}</td>
+					<td>{t("lbl_Vip_ESport_Rebate")}</td>
 					{vipBanner?.vipBannerData?.map(item => (
 						<td key={item.level + item.levelName}>
 							{
