@@ -1,10 +1,6 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import {
-	products,
-	defTpGameType,
-	defLoginGameType
-} from "@ailab-desktop/common";
+import { products, defTpGameType } from "@ailab-desktop/common";
 import Nav from "./casino.nav";
 import SearchBox from "./casino.searchBox";
 import GameList from "./casino.gamelist";
@@ -498,8 +494,7 @@ export default () => {
 										gameId,
 										isFun: isFree,
 										tpGameType,
-										loginGameType:
-											defLoginGameType.returnHtml
+										loginGameType: 2
 								  })
 								: null,
 						tpGameType
