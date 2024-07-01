@@ -307,11 +307,15 @@ html.Newtheme header .header > div .menu {
       -ms-flex-pack: center;
           justify-content: center;
 }
-@media (max-width: 1100px) {
+@media (max-width: 1440px) {
   html.Newtheme header .header > div .menu {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+  }
+}
+@media (max-width: 1100px) {
+  html.Newtheme header .header > div .menu {
     top: 124px;
     padding-left: 18px;
   }
@@ -422,6 +426,13 @@ html.Newtheme header .header > div .menu > button .icon-home::before {
 html.Newtheme header .header > div .menu .select-menu {
   position: relative;
   margin-left: 16px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 html.Newtheme header .header > div .menu .select-menu.active .select-btn {
   background: #fab617;
@@ -440,10 +451,10 @@ html.Newtheme header .header > div .menu .select-btn {
   -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
   position: relative;
+  cursor: pointer;
 }
 html.Newtheme header .header > div .menu .select-btn:hover {
   background: #fab617;
-  cursor: pointer;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
@@ -460,7 +471,6 @@ html.Newtheme header .header > div .menu .select-btn i::before {
   background: url(https://banner.goal123.org/desktop/img/home-page/icon/icon-select-btn.svg) no-repeat center/cover;
 }
 html.Newtheme header .header > div .menu .select-dropdown {
-  display: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -478,8 +488,11 @@ html.Newtheme header .header > div .menu .select-dropdown {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: absolute;
-  top: 42px;
-  right: -136px;
+  top: 100%;
+  left: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  z-index: 1;
 }
 html.Newtheme header .header > div .menu .select-dropdown a,
 html.Newtheme header .header > div .menu .select-dropdown button {
@@ -20776,10 +20789,10 @@ main .leaderboard-ranking {
   background: #1E2F4D;
   border-radius: 50px 50px 30px 30px;
   margin: 40px 0 100px;
-  min-width: 1400px;
+  min-width: 1320px;
 }
 main .leaderboard-ranking .countdown {
-  padding: 40px 55px 25px;
+  padding: 30px 50px 24px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20839,7 +20852,7 @@ main .leaderboard-ranking .countdown a.btn-bet, main .leaderboard-ranking .count
   -webkit-box-shadow: 0 0 24px 0 #FBB513;
           box-shadow: 0 0 24px 0 #FBB513;
   background: #d83b35;
-  padding: 18px 60px;
+  padding: 16px 50px;
 }
 main .leaderboard-ranking .countdown a:hover, main .leaderboard-ranking .countdown button:hover {
   -webkit-filter: brightness(1.05);
@@ -20870,7 +20883,7 @@ main .leaderboard-ranking .board-top {
           box-sizing: border-box;
 }
 main .leaderboard-ranking .board-top .title {
-  font-size: 52px;
+  font-size: 48px;
   font-weight: 900;
   color: #fff;
   text-shadow: 0 0 30px rgba(250, 182, 23, 0.5);
@@ -20903,6 +20916,7 @@ main .leaderboard-ranking .board-top .select-years .option-menu, main .leaderboa
   padding: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  z-index: 3;
 }
 main .leaderboard-ranking .board-top .select-years .option-list, main .leaderboard-ranking .board-top .select-month .option-list {
   padding: 6px 8px;
@@ -20926,7 +20940,7 @@ main .leaderboard-ranking .board-top .select-btn {
   border-radius: 10px;
   border: 1px solid #fff;
   background: #141f33;
-  padding: 14px;
+  padding: 12px;
   position: relative;
   margin-right: 10px;
   -webkit-box-sizing: border-box;
@@ -20975,7 +20989,7 @@ main .leaderboard-ranking .board .winner-total .user-thead {
       -ms-flex-align: center;
           align-items: center;
   background: #1E2F4D;
-  padding: 20px;
+  padding: 16px;
   border-radius: 10px 10px 0 0;
   margin-bottom: 10px;
   -webkit-box-sizing: border-box;
@@ -21001,20 +21015,20 @@ main .leaderboard-ranking .board .winner-total .user-thead .left {
 }
 main .leaderboard-ranking .board .winner-total .user-thead .left span {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 180px;
-          flex: 0 0 180px;
+      -ms-flex: 0 0 170px;
+          flex: 0 0 170px;
 }
 main .leaderboard-ranking .board .winner-total .user-thead .left span:last-child {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 270px;
-          flex: 0 0 270px;
+      -ms-flex: 0 0 250px;
+          flex: 0 0 250px;
 }
 main .leaderboard-ranking .board .winner-total .user-thead .right span {
-  width: 300px;
+  width: 260px;
   text-align: left;
 }
 main .leaderboard-ranking .board .winner-total .user-ranking {
-  max-height: 800px;
+  max-height: 580px;
   overflow-y: scroll;
 }
 main .leaderboard-ranking .board .winner-total .user-list {
@@ -21033,7 +21047,7 @@ main .leaderboard-ranking .board .winner-total .user-list {
       -ms-flex-align: center;
           align-items: center;
   border-radius: 10px;
-  padding: 24px;
+  padding: 16px 50px 16px 24px;
   margin-bottom: 6px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -21041,7 +21055,7 @@ main .leaderboard-ranking .board .winner-total .user-list {
 main .leaderboard-ranking .board .winner-total .user-list.top {
   background: -webkit-gradient(linear, left top, right top, from(rgb(207, 0, 0)), to(rgb(251, 181, 19)));
   background: linear-gradient(90deg, rgb(207, 0, 0) 0%, rgb(251, 181, 19) 100%);
-  padding: 12px 24px;
+  padding: 8px 50px 8px 24px;
 }
 main .leaderboard-ranking .board .winner-total .user-list .left {
   display: -webkit-box;
@@ -21056,7 +21070,7 @@ main .leaderboard-ranking .board .winner-total .user-list .left {
           align-items: center;
 }
 main .leaderboard-ranking .board .winner-total .user-list .left .order {
-  width: 170px;
+  width: 160px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21069,7 +21083,7 @@ main .leaderboard-ranking .board .winner-total .user-list .left .order {
   text-shadow: -2px 2px 3px rgba(0, 0, 0, 0.4);
 }
 main .leaderboard-ranking .board .winner-total .user-list .left .order > img {
-  width: 138px;
+  width: 125px;
   margin-left: 10px;
 }
 main .leaderboard-ranking .board .winner-total .user-list .right {
@@ -21110,7 +21124,7 @@ main .leaderboard-ranking .board .winner-total .user-id {
   color: #fff;
   font-weight: 700;
   font-size: 20px;
-  margin-left: 80px;
+  margin-left: 70px;
 }
 main .leaderboard-ranking .board .winner-total .user-themselves {
   background: #E17641;
@@ -21123,7 +21137,7 @@ main .leaderboard-ranking .board .winner-total .user-themselves {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 24px;
+  padding: 16px 40px 16px 24px;
   margin-top: -15px;
   border-radius: 20px 20px 5px 5px;
   -webkit-box-sizing: border-box;
@@ -21156,7 +21170,7 @@ main .leaderboard-ranking .board .winner-total .user-themselves .left {
           align-items: center;
 }
 main .leaderboard-ranking .board .winner-total .user-themselves .left .user-id {
-  margin-left: 100px;
+  margin-left: 80px;
   font-style: italic;
 }
 main .leaderboard-ranking .board .winner-total .user-themselves .left .order {
@@ -21247,7 +21261,7 @@ main .leaderboard-info {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 1400px;
+  width: 1320px;
 }
 main .leaderboard-info > div {
   padding: 30px;
@@ -21277,12 +21291,12 @@ main .leaderboard-info .info-point .table-thead {
   display: flex;
 }
 main .leaderboard-info .info-point .table-thead .list {
-  width: 100%;
+  width: 220px;
   color: #fff;
   font-weight: 700;
   font-size: 20px;
   background: #d83b35;
-  padding: 15px 0;
+  padding: 15px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21293,6 +21307,9 @@ main .leaderboard-info .info-point .table-thead .list {
       -ms-flex-pack: center;
           justify-content: center;
   margin-right: 5px;
+  height: 75px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 main .leaderboard-info .info-point .table-thead .list:first-child {
   border-radius: 15px 0 0 0;
@@ -21314,11 +21331,11 @@ main .leaderboard-info .info-point .table-inner {
   margin-bottom: 5px;
 }
 main .leaderboard-info .info-point .table-inner .list {
-  width: 100%;
+  width: 220px;
   background: #fff;
   font-size: 20px;
   font-weight: 700;
-  padding: 15px 0;
+  padding: 15px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21328,8 +21345,13 @@ main .leaderboard-info .info-point .table-inner .list {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-align: center;
   margin-right: 5px;
   color: #141f33;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 75px;
+  overflow: hidden;
 }
 main .leaderboard-info .info-point .table-inner .list:last-child {
   margin-right: unset;
