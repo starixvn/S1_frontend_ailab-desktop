@@ -9,8 +9,6 @@ import {
 	useLazyGetLeaderBoardListMonthQuery,
 	useLazyGetCustRankMonthQuery
 } from "@ailab-desktop/service";
-import { siteId } from "../../../config";
-import { userInfoContext } from "../../common/context";
 
 /** 創建上下文 */
 export const LeaderboardContext = createContext(null);
@@ -110,7 +108,7 @@ const pastYears = (() => {
 /** LeaderBoard 的 context provider
  *  日期計算的邏輯,
  *  獲取排行榜列表的 API 呼叫 */
-const LeaderboardProvider = ({ children }) => {
+const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 	// =================== api ===================
 
 	const [
@@ -123,8 +121,7 @@ const LeaderboardProvider = ({ children }) => {
 
 	// =================== 常數 ===================
 
-	const { userInfo } = useContext(userInfoContext);
-	const { userName, isLogin, currencyId, langId } = userInfo;
+	const { userName, isLogin, currencyId, langId } = userInfo || {};
 
 	/** 積分資料 */
 	const { data: { data: leaderBoardSettingResponseData } = {} } =
@@ -267,5 +264,7 @@ const LeaderboardProvider = ({ children }) => {
 export { LeaderboardProvider };
 
 LeaderboardProvider.propTypes = {
+	siteId: PropTypes.number.isRequired,
+	userInfo: PropTypes.object.isRequired,
 	children: PropTypes.node.isRequired
 };

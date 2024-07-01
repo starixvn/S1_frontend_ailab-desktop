@@ -1,6 +1,6 @@
 import React from "react";
+import { useLeaderBoard } from "@ailab-desktop/common";
 import { useTranslation } from "react-i18next";
-import { useLeaderBoard } from "../leaderboardContext";
 import LeaderboardDateSelection from "./LeaderboardDateSelection";
 import LeaderboardDateCountdown from "./LeaderboardDateCountdown";
 import LeaderboardUserRanking from "./LeaderboardUserRanking";

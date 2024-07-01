@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useLeaderBoard } from "@ailab-desktop/common";
 import { useTranslation } from "react-i18next";
-import { useLeaderBoard } from "../leaderboardContext";
 
 /** 月份 i18n */
 const LEADER_BOARD_MONTHS = Object.freeze({
