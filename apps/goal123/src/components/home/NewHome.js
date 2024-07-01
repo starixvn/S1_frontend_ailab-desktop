@@ -55,6 +55,8 @@ const NewHome = () => {
 				<HomeRecentViewedGames />
 				<HomeAppDownload />
 				{!isDateRange(eventPeriods.euroCup) && <LuckyWheelLink />}
+				{/* testing for retention during euro-cup */}
+				<LuckyWheelLink />
 				{isDateRange(eventPeriods.dragonEgg) && <DragonEgg />}
 				{isDateRange(eventPeriods.euroCup) && <CupEventLink />}
 				{isDateRange(eventPeriods.euroCup) && <VgamingLink />}
