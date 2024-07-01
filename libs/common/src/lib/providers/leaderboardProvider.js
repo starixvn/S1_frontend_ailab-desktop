@@ -9,8 +9,6 @@ import {
 	useLazyGetLeaderBoardListMonthQuery,
 	useLazyGetCustRankMonthQuery
 } from "@ailab-desktop/service";
-import { siteId } from "../../../config";
-import { userInfoContext } from "../../common/context";
 
 /** 創建上下文 */
 export const LeaderboardContext = createContext(null);
@@ -89,14 +87,24 @@ const MAX_RANK = 100;
 /** bwing 的排行版種類，其他專案可能會有不同種類 */
 const LEADER_BOARD_TYPE = 0;
 
-/** 今年已過的月份的陣列，從小到大排序 */
+/** 活動初始年份 */
+const initYear = 2024;
+
+/** 今年已過的月份的陣列，從小到大排序，
+ *  活動是從 2024/7 開始，故只取 2024/7 之後的月份，
+ *  2024 年以後就回傳已過的月份陣列，從小到大排序，
+ *  ex: now 2024/9 return [7, 8, 9]
+ *  ex: now 2025/5 return [1, 2, 3, 4, 5] */
 const pastMonths = (() => {
-	return Array.from({ length: currentMonth }, (_, index) => index + 1);
+	const startMonth = currentYear === initYear ? 7 : 1;
+	return Array.from(
+		{ length: currentMonth - startMonth + 1 },
+		(_, index) => startMonth + index
+	);
 })();
 
 /** 已過的年份的陣列(從 2024 開始)，從小到大排序 */
 const pastYears = (() => {
-	const initYear = 2024;
 	const yearsCount = currentYear - initYear + 1;
 	const years = Array.from(
 		{ length: yearsCount },
@@ -110,7 +118,7 @@ const pastYears = (() => {
 /** LeaderBoard 的 context provider
  *  日期計算的邏輯,
  *  獲取排行榜列表的 API 呼叫 */
-const LeaderboardProvider = ({ children }) => {
+const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 	// =================== api ===================
 
 	const [
@@ -123,8 +131,7 @@ const LeaderboardProvider = ({ children }) => {
 
 	// =================== 常數 ===================
 
-	const { userInfo } = useContext(userInfoContext);
-	const { userName, isLogin, currencyId, langId } = userInfo;
+	const { userName, isLogin, currencyId, langId } = userInfo || {};
 
 	/** 積分資料 */
 	const { data: { data: leaderBoardSettingResponseData } = {} } =
@@ -190,6 +197,7 @@ const LeaderboardProvider = ({ children }) => {
 
 				setUserRank({ rank, userName, point });
 			} else {
+				setUserRank({});
 				setRankList([]);
 			}
 		} catch (error) {
@@ -267,5 +275,7 @@ const LeaderboardProvider = ({ children }) => {
 export { LeaderboardProvider };
 
 LeaderboardProvider.propTypes = {
+	siteId: PropTypes.number.isRequired,
+	userInfo: PropTypes.object.isRequired,
 	children: PropTypes.node.isRequired
 };

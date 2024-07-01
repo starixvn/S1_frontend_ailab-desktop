@@ -1,7 +1,6 @@
 import React from "react";
-import { isDateRange } from "@ailab-desktop/common";
+import { isDateRange, useLeaderBoard } from "@ailab-desktop/common";
 import { bannerImgUrl } from "../../config";
-import { useLeaderBoard } from "./leaderboardContext";
 import { eventPerios } from "../../datas/eventDef";
 
 /** Leaderboard 的 Banner 组件 */

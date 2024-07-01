@@ -1,7 +1,7 @@
 import React from "react";
+import { useLeaderBoard } from "@ailab-desktop/common";
 import LeaderboardRewardItem from "./LeaderboardRewardItem";
 import LeaderboardRewardTop3Item from "./LeaderboardRewardTop3Item";
-import { useLeaderBoard } from "../leaderboardContext";
 import Loading from "../../common/loading";
 import { numFormatToDigits } from "../../common/common";
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { products } from "@ailab-desktop/common";
-import { useLeaderBoard } from "../leaderboardContext";
+import { products, useLeaderBoard } from "@ailab-desktop/common";
 import useMenu from "../../hook/useMenu";
 
 /** 本月倒數 */
