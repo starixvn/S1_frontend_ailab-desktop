@@ -39,7 +39,7 @@ const useRetentionPopup = () => {
 		});
 	};
 
-	const openVerificationPopup = (langId, bonusCode) => {
+	const openVerificationPopup = () => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.UpdateProfile,
