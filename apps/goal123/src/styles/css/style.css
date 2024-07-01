@@ -166,6 +166,7 @@ html.Newtheme header {
       -ms-flex-pack: center;
           justify-content: center;
   z-index: 4;
+  top: 0;
 }
 html.Newtheme header .logo {
   display: -webkit-box;
@@ -9386,7 +9387,7 @@ html.Newtheme .eventLink .angpaoLink img.eventlinkimg {
   }
 }
 html.Newtheme .eventLink.vgaming {
-  bottom: 0px;
+  bottom: 210px;
 }
 html.Newtheme .eventLink.vgaming .icon-close {
   top: 10px;
@@ -9394,8 +9395,8 @@ html.Newtheme .eventLink.vgaming .icon-close {
   color: rgb(92, 92, 92);
 }
 html.Newtheme .eventLink.vgaming .vgimg {
-  width: 185px;
-  height: 185px;
+  width: 150px;
+  height: 150px;
 }
 html.Newtheme .eventLink.vgaming.eurocup {
   bottom: 0px;
@@ -9465,6 +9466,20 @@ html.Newtheme .eventLink.eurocup img {
   width: 180px;
 }
 html.Newtheme .eventLink.eurocup .icon-close {
+  top: -15px;
+  background: #cecece;
+  color: rgb(92, 92, 92);
+}
+html.Newtheme .eventLink.luckywheel {
+  bottom: 0px;
+  z-index: 1;
+}
+html.Newtheme .eventLink.luckywheel img {
+  -webkit-animation: livesports 3s ease-in-out infinite;
+          animation: livesports 3s ease-in-out infinite;
+  width: 160px;
+}
+html.Newtheme .eventLink.luckywheel .icon-close {
   top: -15px;
   background: #cecece;
   color: rgb(92, 92, 92);
@@ -15044,7 +15059,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   width: 374px;
   height: 108px;
   background: url(https://banner.goal123.org/desktop/img/event/wheel/title.png) no-repeat top center;
-  margin-top: -30px;
+  margin-top: 150px;
 }
 .wheelEvent .eventPage .eventTitleBg .eventTitle {
   margin-top: 30px;
@@ -15068,7 +15083,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 }
 .wheelEvent .eventPage .wheelModule {
   position: relative;
-  margin-top: 70px;
+  margin-top: 150px;
   width: 445px;
   height: 445px;
   display: -webkit-box;

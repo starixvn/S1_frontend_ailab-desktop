@@ -6,9 +6,14 @@ import path from "../../../router";
 import { setCookie, readCookie, deleteCookie } from "../../common/common";
 import { userInfoContext, popBoxContext } from "../../common/context";
 import { api_account_GetWalletInfo } from "../../../service/api/account";
+import { api_promotion_GetPromotionDetail } from "../../../service/api/promotion";
 import usePopBox from "../../hook/usePopBox";
 import { defPopBoxType } from "../../common/popBox";
 import { defDeviceType } from "../../../service/api/base";
+
+const apiResPromotionType = {
+	retentionFreebet: 9
+};
 
 const usePopupHandler = () => {
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
@@ -127,47 +132,70 @@ const usePopupHandler = () => {
 				langId: userInfo.langId
 			}).then(({ data: { data: { bonusCode } = {} } = {} }) => {
 				if (bonusCode) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.Modal,
-						content: (
-							<div className="pop promosbackpopup">
-								<div className="promosback active">
-									<div className="promosback-pop">
-										<img
-											src={`${
-												process.env.REACT_APP_BANNER_URL
-											}/desktop/img/promosBackPopup/promosPopup-${
-												userInfo?.langId || "en"
-											}.png`}
-											alt="img-promosPopup"
-										/>
+					// get promotion detail to determine the type of promotion
+					api_promotion_GetPromotionDetail({
+						langId: userInfo.langId,
+						BonusCode: bonusCode
+					}).then(
+						({
+							data: { data: { promotionType = null } = {} } = {}
+						}) => {
+							// 使用獲取到的詳細資訊顯示彈出框
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.Modal,
+								content: (
+									<div className="pop promosbackpopup">
+										<div className="promosback active">
+											<div className="promosback-pop">
+												<img
+													src={`${
+														process.env
+															.REACT_APP_BANNER_URL
+													}/desktop/img/promosBackPopup/promosPopup-${
+														userInfo?.langId || "en"
+													}.png`}
+													alt="img-promosPopup"
+												/>
+												{/*  if promotion type = retention freebet(2), then direct to retention landing page  */}
+												<button
+													className="popgo"
+													onClick={() => {
+														if (
+															promotionType ===
+															apiResPromotionType.retentionFreebet
+														) {
+															navigate(
+																`/${path.retention.root}`
+															);
+														} else {
+															navigate(
+																`/${path.promotion.root}?bonusCode=${bonusCode}`
+															);
+														}
+													}}>
+													{t(
+														"lbl_Promotion_ClaimNow"
+													)}
+												</button>
 
-										<button
-											className="popgo"
-											onClick={() => {
-												navigate(
-													`/${path.promotion.root}?bonusCode=${bonusCode}`
-												);
-											}}>
-											{t("lbl_Promotion_ClaimNow")}
-										</button>
-
-										<img
-											src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/promosBackPopup/delet.png`}
-											alt="img-delet"
-											className="closepop"
-											onClick={() => {
-												closePopBox();
-												openNextPopUp();
-											}}
-										/>
+												<img
+													src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/promosBackPopup/delet.png`}
+													alt="img-delet"
+													className="closepop"
+													onClick={() => {
+														closePopBox();
+														openNextPopUp();
+													}}
+												/>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
-						)
-					});
-					setCookie(cookieName, "1", 1);
+								)
+							});
+							setCookie(cookieName, "1", 1);
+						}
+					);
 				} else {
 					openNextPopUp();
 				}

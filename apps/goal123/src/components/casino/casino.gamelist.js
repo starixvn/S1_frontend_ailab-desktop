@@ -113,7 +113,7 @@ const GameList = ({
 										tpId: g.tpId,
 										gameId: g.gameId,
 										isFree: false,
-										delay: 5000,
+										delay: 100,
 										isInMaintain: getIsInMaintain(g),
 										tpGameType: getTpGameType(g).tpGameType
 									})
