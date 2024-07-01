@@ -24340,12 +24340,12 @@ main .leaderboard-reward .reward-right .item .text-ranking {
   color: #fff;
   background: #162868;
   border-radius: 4px;
-  padding: 18px 30px 24px;
+  padding: 18px 12px 24px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-top: -44px;
-  -webkit-clip-path: polygon(100% 0, 100% 81%, 51% 100%, 1% 83%, 0 0);
-          clip-path: polygon(100% 0, 100% 81%, 51% 100%, 1% 83%, 0 0);
+  -webkit-clip-path: polygon(100% 0, 100% 75%, 51% 100%, 1% 75%, 0 0);
+          clip-path: polygon(100% 0, 100% 75%, 51% 100%, 1% 75%, 0 0);
 }
 main .leaderboard-reward .reward-right .item .text .data-number {
   background: -webkit-gradient(linear, left bottom, left top, color-stop(10%, rgb(251, 130, 19)), color-stop(30%, rgb(251, 181, 19)), color-stop(50%, rgb(255, 255, 255)), color-stop(70%, rgb(251, 181, 19)), color-stop(90%, rgb(251, 130, 19)));
@@ -24513,6 +24513,7 @@ main .leaderboard-ranking .board-top .select-years .option-menu, main .leaderboa
   padding: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  z-index: 3;
 }
 main .leaderboard-ranking .board-top .select-years .option-list, main .leaderboard-ranking .board-top .select-month .option-list {
   padding: 6px 8px;
@@ -24897,7 +24898,7 @@ main .leaderboard-info .info-point .table-thead .list {
   font-weight: 700;
   font-size: 20px;
   background: #1C317B;
-  padding: 15px 0;
+  padding: 15px 12px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24911,6 +24912,7 @@ main .leaderboard-info .info-point .table-thead .list {
   height: 75px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  text-align: center;
 }
 main .leaderboard-info .info-point .table-thead .list:first-child {
   border-radius: 15px 0 0 0;
@@ -24941,7 +24943,7 @@ main .leaderboard-info .info-point .table-inner .list {
   width: 220px;
   font-size: 20px;
   font-weight: 700;
-  padding: 15px 0;
+  padding: 15px 12px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24957,6 +24959,7 @@ main .leaderboard-info .info-point .table-inner .list {
   overflow: hidden;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  text-align: center;
 }
 main .leaderboard-info .info-point .table-inner .list:last-child {
   margin-right: unset;
