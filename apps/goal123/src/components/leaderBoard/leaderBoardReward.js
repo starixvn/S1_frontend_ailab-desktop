@@ -1,56 +1,75 @@
 import React from "react";
+import { useLeaderBoard } from "@ailab-desktop/common";
 import { useTranslation } from "react-i18next";
-import { useGetLeaderboardSettingQuery } from "@ailab-desktop/service";
-import config, { bannerImgUrl } from "../../config";
-import { divideMillion } from "./utils/tools";
+import { bannerImgUrl } from "../../config";
+
+/** 前三名數量 */
+const TOP3_COUNT = 3;
+
+/** 名次物件 */
+const RANK = Object.freeze({
+	1: "top-1",
+	2: "top-2",
+	3: "top-3",
+	"4-11": "4-11th",
+	"12-19": "12-19th",
+	"20-200": "20-200th"
+});
 
 const LeaderBoardReward = () => {
 	const { t } = useTranslation();
-	const { data: { data: leaderboardEventData } = {} } =
-		useGetLeaderboardSettingQuery({
-			siteId: config.siteId,
-			currencyId: 51
-		});
+	const { leaderBoardSettingResponseData } = useLeaderBoard();
+	const { leaderboardRankingBonus = [] } =
+		leaderBoardSettingResponseData ?? [];
 
-	const { leaderboardRankingBonus = [] } = leaderboardEventData || {};
+	/**
+	 * 名次資料 (照名次排序)，
+	 * 後端陣列沒有照名次沒有排序，需要前端自行排序 */
+	const sortedLeaderboardRankingBonus = [...leaderboardRankingBonus].sort(
+		(a, b) => {
+			const LEADER_BOARD_REWORD_RANK_ORDER = Object.keys(RANK);
+			return (
+				LEADER_BOARD_REWORD_RANK_ORDER.indexOf(a.ranking) -
+				LEADER_BOARD_REWORD_RANK_ORDER.indexOf(b.ranking)
+			);
+		}
+	);
 
-	const sortedLeaderboardRankingBonus = leaderboardRankingBonus
-		.slice()
-		.sort((a, b) => {
-			return b.bonus - a.bonus;
-		});
+	const divideMillion = number => Math.floor(number / 1000000).toFixed(0);
 
 	return (
 		<div className="leaderboard-reward">
 			<div className="reward-top">
 				{/* 前三名 */}
-				{sortedLeaderboardRankingBonus?.slice(0, 3)?.map(item => {
-					return (
-						<div className="item">
-							<img
-								src={`${bannerImgUrl}/desktop/img/leaderboard/top-${item?.ranking}.png`}
-								alt="leaderboard-top-reward"
-							/>
-							<div className="text">
-								<div className="text-ranking">
-									{t(
-										`lbl_LeaderBoard_Reward_Ranking_${item?.ranking}`
-									)}
-								</div>
-								<div className="data-number">
-									{divideMillion(item?.bonus ?? 0)}
-								</div>
-								<div className="text-unit">
-									{t("lbl_Leaderboard_Million_Dong")}
+				{sortedLeaderboardRankingBonus
+					?.slice(0, TOP3_COUNT)
+					?.map(item => {
+						return (
+							<div className="item">
+								<img
+									src={`${bannerImgUrl}/desktop/img/leaderboard/top-${item?.ranking}.png`}
+									alt="leaderboard-top-reward"
+								/>
+								<div className="text">
+									<div className="text-ranking">
+										{t(
+											`lbl_LeaderBoard_Reward_Ranking_${item?.ranking}`
+										)}
+									</div>
+									<div className="data-number">
+										{divideMillion(item?.bonus ?? 0)}
+									</div>
+									<div className="text-unit">
+										{t("lbl_Leaderboard_Million_Dong")}
+									</div>
 								</div>
 							</div>
-						</div>
-					);
-				})}
+						);
+					})}
 			</div>
 			<div className="reward-bottom">
 				{/* 三名以後(不包含三) */}
-				{sortedLeaderboardRankingBonus?.slice(3, 6)?.map(item => {
+				{sortedLeaderboardRankingBonus?.slice(TOP3_COUNT)?.map(item => {
 					return (
 						<div className="item">
 							<div className="text">

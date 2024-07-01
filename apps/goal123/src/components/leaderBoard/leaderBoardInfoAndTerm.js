@@ -1,18 +1,17 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useGetLeaderboardSettingQuery } from "@ailab-desktop/service";
-import config from "../../config";
+import { useLeaderBoard } from "@ailab-desktop/common";
 import { numFormatToDigits } from "../common/common";
 
 const LeaderBoardInfoAndTerm = () => {
 	const { t } = useTranslation();
-	const { data: { data: leaderboardEventData } = {} } =
-		useGetLeaderboardSettingQuery({
-			siteId: config.siteId,
-			currencyId: 51
-		});
+	const { leaderBoardSettingResponseData } = useLeaderBoard();
 
-	const { leaderboardPointCalculation = [] } = leaderboardEventData || {};
+	const { leaderboardPointCalculation = {} } =
+		leaderBoardSettingResponseData ?? {};
+
+	const { liveCasinoTurnover, slotTurnover, sportTurnover } =
+		leaderboardPointCalculation ?? {};
 
 	return (
 		<div className="leaderboard-info">
@@ -33,11 +32,7 @@ const LeaderBoardInfoAndTerm = () => {
 					<div className="table-inner">
 						<div className="list">{t("lbl_LiveCasino")}</div>
 						<div className="list">
-							{numFormatToDigits(
-								leaderboardPointCalculation?.liveCasinoTurnover,
-								0
-							)}{" "}
-							VNĐ
+							{numFormatToDigits(liveCasinoTurnover, 0)} VNĐ
 						</div>
 						<div className="list">
 							1 {t("lbl_Leaderboard_Point")}
@@ -46,11 +41,7 @@ const LeaderBoardInfoAndTerm = () => {
 					<div className="table-inner">
 						<div className="list">{t("lbl_Slots")}</div>
 						<div className="list">
-							{numFormatToDigits(
-								leaderboardPointCalculation?.slotTurnover,
-								0
-							)}{" "}
-							VNĐ
+							{numFormatToDigits(slotTurnover, 0)} VNĐ
 						</div>
 						<div className="list">
 							1 {t("lbl_Leaderboard_Point")}
@@ -59,10 +50,7 @@ const LeaderBoardInfoAndTerm = () => {
 					<div className="table-inner">
 						<div className="list">{t("lbl_Leaderboard_Sport")}</div>
 						<div className="list">
-							{numFormatToDigits(
-								leaderboardPointCalculation?.sportTurnover,
-								0
-							)}
+							{numFormatToDigits(sportTurnover, 0)}
 							VNĐ
 						</div>
 						<div className="list">
