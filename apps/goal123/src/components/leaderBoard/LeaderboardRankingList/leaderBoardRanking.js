@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
-import React, { useContext } from "react";
+import moment from "moment";
+import React, { useContext, useEffect, useState } from "react";
 import { products, useLeaderBoard } from "@ailab-desktop/common";
 import useMenu from "../../hook/useMenu";
 import { bannerImgUrl } from "../../../config";
@@ -10,8 +11,15 @@ import { numFormatToDigits } from "../../common/common";
 
 const LeaderBoardRanking = () => {
 	const { t } = useTranslation();
-	const { getFormattedUpdateTime, timeLeft, userRank, rankList } =
-		useLeaderBoard();
+	const { getFormattedUpdateTime, userRank, rankList } = useLeaderBoard();
+
+	/** 本月倒數時間 */
+	const [timeLeft, setTimeLeft] = useState({
+		days: 0,
+		hours: 0,
+		minutes: 0,
+		seconds: 0
+	});
 
 	const { rank, point } = userRank || {};
 	const { days, hours, minutes, seconds } = timeLeft || {};
@@ -36,6 +44,28 @@ const LeaderBoardRanking = () => {
 			<div className="order">{rank}</div>
 		);
 	};
+
+	/** 計算離本月結算的倒數時間 */
+	useEffect(() => {
+		const calculateTimeLeft = () => {
+			const now = moment();
+			const endOfMonth = moment().endOf("month");
+			const diff = endOfMonth.diff(now);
+			const calSeconds = Math.floor((diff / 1000) % 60);
+			const calMinutes = Math.floor((diff / 1000 / 60) % 60);
+			const calHours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+			const calDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+			setTimeLeft({
+				days: calDays,
+				hours: calHours,
+				minutes: calMinutes,
+				seconds: calSeconds
+			});
+		};
+		const interval = setInterval(calculateTimeLeft, 1000);
+		return () => clearInterval(interval);
+	}, []);
 
 	return (
 		<div className="leaderboard-ranking">

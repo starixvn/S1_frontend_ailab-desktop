@@ -1,14 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import moment from "moment/moment";
 import { useTranslation } from "react-i18next";
-import { products, useLeaderBoard } from "@ailab-desktop/common";
+import { products } from "@ailab-desktop/common";
 import useMenu from "../../hook/useMenu";
 
 /** 本月倒數 */
 const LeaderboardDateCountdown = () => {
 	const { t } = useTranslation();
-	const { timeLeft } = useLeaderBoard();
-	const { days, hours, minutes, seconds } = timeLeft;
 	const { onClickProductItem } = useMenu();
+
+	/** 本月倒數時間 */
+	const [timeLeft, setTimeLeft] = useState({
+		days: 0,
+		hours: 0,
+		minutes: 0,
+		seconds: 0
+	});
+
+	const { days, hours, minutes, seconds } = timeLeft;
+
+	/** 計算離本月結算的倒數時間 */
+	useEffect(() => {
+		const calculateTimeLeft = () => {
+			const now = moment();
+			const endOfMonth = moment().endOf("month");
+			const diff = endOfMonth.diff(now);
+			const calSeconds = Math.floor((diff / 1000) % 60);
+			const calMinutes = Math.floor((diff / 1000 / 60) % 60);
+			const calHours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+			const calDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+			setTimeLeft({
+				days: calDays,
+				hours: calHours,
+				minutes: calMinutes,
+				seconds: calSeconds
+			});
+		};
+		const interval = setInterval(calculateTimeLeft, 1000);
+		return () => clearInterval(interval);
+	}, []);
 
 	return (
 		<div className="countdown">
