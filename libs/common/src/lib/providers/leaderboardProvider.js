@@ -125,7 +125,7 @@ const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 		() => monthDataList[monthDataList.length - 1]?.id
 	);
 
-	const { isLogin, langId } = userInfo || {};
+	const { isLogin, langId, userName } = userInfo || {};
 
 	const args = {
 		lBCategoryId: LEADER_BOARD_TYPE,
@@ -156,6 +156,15 @@ const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 			{ skip: !userInfo.isLogin }
 		);
 
+	const mergedUserRankWithUserName = {
+		...userRank,
+		custRank:
+			userRank?.custRank > MAX_RANK || userRank?.custRank === 0
+				? "100+"
+				: userRank?.custRank,
+		userName
+	};
+
 	// =================== 對外函數 ===================
 
 	/**
@@ -174,7 +183,7 @@ const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 	const value = {
 		isLogin,
 		rankList,
-		userRank,
+		userRank: mergedUserRankWithUserName,
 		loading,
 		langId,
 		currentYear,
