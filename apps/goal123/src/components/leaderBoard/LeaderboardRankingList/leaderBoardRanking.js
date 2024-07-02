@@ -21,7 +21,7 @@ const LeaderBoardRanking = () => {
 		seconds: 0
 	});
 
-	const { rank, point } = userRank || {};
+	const { custRank, point } = userRank || {};
 	const { days, hours, minutes, seconds } = timeLeft || {};
 
 	const hasRankList = rankList.length > 0;
@@ -31,7 +31,7 @@ const LeaderBoardRanking = () => {
 
 	/** 前三名會有獎牌，其餘名次則顯示排名 */
 	const randerRank = () => {
-		const numberRank = Number(rank);
+		const numberRank = Number(custRank);
 		const isTop3 = numberRank <= 3;
 		return isTop3 ? (
 			<div className="order">
@@ -41,7 +41,7 @@ const LeaderBoardRanking = () => {
 				/>
 			</div>
 		) : (
-			<div className="order">{rank}</div>
+			<div className="order">{custRank}</div>
 		);
 	};
 
