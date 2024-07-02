@@ -9,14 +9,16 @@ export default ({
 	icon = "icon-icon32px_notification"
 }) => {
 	const { t } = useTranslation();
-	const errMsg = `${message}${errorCode ? ` (${errorCode})` : ""}`;
+	const errMsg = message || t("msg_ApiServerError");
+	const errCode = errorCode ? ` (${errorCode})` : "";
+	const content = `${errMsg}${errCode}`;
 
 	return (
 		<div className="Error active">
 			<div className={`icon ${icon}`} />
 			<div className="title">{t("lbl_Error_Oops")}</div>
 			<div className="txt-lightgray">
-				{errMsg}
+				{content}
 
 				<div>
 					<span>
