@@ -127,7 +127,7 @@ const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 	] = useLazyGetLeaderBoardListMonthQuery();
 
 	const [getCustRankMonth, { isFetching: isGetCustRankFetching }] =
-		useLazyGetCustRankMonthQuery();
+		useLazyGetCustRankMonthQuery({ skip: !userInfo.isLogin });
 
 	// =================== 常數 ===================
 
@@ -142,16 +142,6 @@ const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 
 	/** 加載狀態 */
 	const loading = isGetLeaderBoardListMonthFetching || isGetCustRankFetching;
-
-	// =================== 狀態 ===================
-
-	/** 本月倒數時間 */
-	const [timeLeft, setTimeLeft] = useState({
-		days: 0,
-		hours: 0,
-		minutes: 0,
-		seconds: 0
-	});
 
 	/** 排行榜列表 */
 	const [rankList, setRankList] = useState([]);
@@ -182,8 +172,6 @@ const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 			if (leaderBoardListMonth.length > 0) {
 				setRankList(leaderBoardListMonth);
 
-				// 未登入時，不打 getCustRankMonth
-				if (!isLogin) return;
 				const {
 					data: { data: { custRank = 0, point = 0 } = {} } = {}
 				} = await getCustRankMonth({
@@ -226,28 +214,6 @@ const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 		initData();
 	}, [userName]);
 
-	/** 計算離本月結算的倒數時間 */
-	useEffect(() => {
-		const calculateTimeLeft = () => {
-			const now = moment();
-			const endOfMonth = moment().endOf("month");
-			const diff = endOfMonth.diff(now);
-			const seconds = Math.floor((diff / 1000) % 60);
-			const minutes = Math.floor((diff / 1000 / 60) % 60);
-			const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-			const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-			setTimeLeft({
-				days,
-				hours,
-				minutes,
-				seconds
-			});
-		};
-		const interval = setInterval(calculateTimeLeft, 1000);
-		return () => clearInterval(interval);
-	}, []);
-
 	/** 傳遞的資料物件 */
 	const value = {
 		isLogin,
@@ -256,7 +222,6 @@ const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 		loading,
 		langId,
 		currentYear,
-		timeLeft,
 		leaderBoardSettingResponseData,
 		currentMonth,
 		pastMonths,
