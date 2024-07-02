@@ -81,8 +81,8 @@ export const leaderboardApi = rootApi.injectEndpoints({
 export const {
 	/** 積分頁面 api */
 	useGetLeaderboardSettingQuery,
-	useLazyGetLeaderBoardListMonthQuery,
+	useGetLeaderBoardListMonthQuery,
 	useLazyGetLeaderBoardListQuery,
 	useLazyGetCustRankQuery,
-	useLazyGetCustRankMonthQuery
+	useGetCustRankMonthQuery
 } = leaderboardApi;

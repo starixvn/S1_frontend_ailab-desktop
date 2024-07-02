@@ -1,13 +1,12 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import moment from "moment";
 import { find } from "lodash-es";
 import PropTypes from "prop-types";
 import {
 	// RTK Query API
 	useGetLeaderboardSettingQuery,
-	useLazyGetLeaderBoardListMonthQuery,
-	useLazyGetCustRankMonthQuery
+	useGetLeaderBoardListMonthQuery,
+	useGetCustRankMonthQuery
 } from "@ailab-desktop/service";
 
 /** 創建上下文 */
@@ -119,79 +118,45 @@ const pastYears = (() => {
  *  日期計算的邏輯,
  *  獲取排行榜列表的 API 呼叫 */
 const LeaderboardProvider = ({ siteId, userInfo, children }) => {
-	// =================== api ===================
-
-	const [
-		getLeaderBoardListMonth,
-		{ isFetching: isGetLeaderBoardListMonthFetching }
-	] = useLazyGetLeaderBoardListMonthQuery();
-
-	const [getCustRankMonth, { isFetching: isGetCustRankFetching }] =
-		useLazyGetCustRankMonthQuery({ skip: !userInfo.isLogin });
-
 	// =================== 常數 ===================
 
-	const { userName, isLogin, currencyId, langId } = userInfo || {};
+	/** 當前選中月份跟日期 ID ex: 2024-4 並初始化月份 */
+	const [selectedDateId, setSelectedDateId] = useState(
+		() => monthDataList[monthDataList.length - 1]?.id
+	);
+
+	const { isLogin, langId } = userInfo || {};
+
+	const args = {
+		lBCategoryId: LEADER_BOARD_TYPE,
+		TopNum: MAX_RANK,
+		SelectDays: find(monthDataList, { id: selectedDateId })?.startDate ?? ""
+	};
+
+	// =================== api ===================
 
 	/** 積分資料 */
 	const { data: { data: leaderBoardSettingResponseData } = {} } =
 		useGetLeaderboardSettingQuery({
 			siteId,
-			currencyId
+			currencyId: 51
 		});
 
-	/** 加載狀態 */
-	const loading = isGetLeaderBoardListMonthFetching || isGetCustRankFetching;
+	const {
+		data: { data: rankList = [] } = {},
+		isFetching: isGetLeaderBoardListMonthFetching
+	} = useGetLeaderBoardListMonthQuery(args);
 
-	/** 排行榜列表 */
-	const [rankList, setRankList] = useState([]);
-
-	/** 當前選中月份跟日期 ID ex: 2024-4 */
-	const [selectedDateId, setSelectedDateId] = useState("");
-
-	/** 使用者排名資料 */
-	const [userRank, setUserRank] = useState({});
+	const { data: { data: userRank } = {}, isFetching: isGetCustRankFetching } =
+		useGetCustRankMonthQuery(
+			{
+				LBCategoryId: args.lBCategoryId,
+				SelectDays: args.SelectDays
+			},
+			{ skip: !userInfo.isLogin }
+		);
 
 	// =================== 對外函數 ===================
-
-	/**
-	 * 獲取使用者選取的日期排名資料
-	 * @param newSelectedDateId 使用者選取的日期 ex : 2024-1 */
-	const getRankMonthData = async newSelectedDateId => {
-		const args = {
-			lBCategoryId: LEADER_BOARD_TYPE,
-			TopNum: MAX_RANK,
-			SelectDays:
-				find(monthDataList, { id: newSelectedDateId })?.startDate ?? ""
-		};
-
-		try {
-			const { data: leaderBoardListMonth } =
-				await getLeaderBoardListMonth(args).unwrap();
-
-			if (leaderBoardListMonth.length > 0) {
-				setRankList(leaderBoardListMonth);
-
-				const {
-					data: { data: { custRank = 0, point = 0 } = {} } = {}
-				} = await getCustRankMonth({
-					LBCategoryId: args.lBCategoryId,
-					SelectDays: args.SelectDays
-				});
-
-				// 使用者排名位於百名內顯示名次，超過百名顯示 100+
-				const rank =
-					custRank > MAX_RANK || custRank === 0 ? "100+" : custRank;
-
-				setUserRank({ rank, userName, point });
-			} else {
-				setUserRank({});
-				setRankList([]);
-			}
-		} catch (error) {
-			setRankList([]);
-		}
-	};
 
 	/**
 	 * 處理當前選中日期變更
@@ -199,20 +164,11 @@ const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 	const onSelectedDateId = newSelectedDateId => {
 		if (newSelectedDateId !== selectedDateId) {
 			setSelectedDateId(newSelectedDateId);
-			getRankMonthData(newSelectedDateId);
 		}
 	};
 
-	// =================== useEffect ===================
-
-	/** 初始化拿月份資料 */
-	useEffect(() => {
-		const initData = async () => {
-			const initMonthId = monthDataList[monthDataList.length - 1]?.id;
-			await getRankMonthData(initMonthId);
-		};
-		initData();
-	}, [userName]);
+	/** 加載狀態 */
+	const loading = isGetLeaderBoardListMonthFetching || isGetCustRankFetching;
 
 	/** 傳遞的資料物件 */
 	const value = {
