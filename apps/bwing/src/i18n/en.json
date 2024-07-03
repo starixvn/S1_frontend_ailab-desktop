@@ -1004,5 +1004,5 @@
   "msg_UsernameReq": "Username is required.",
   "msg_changePswSuccess": "The update is successful! You can use the new password when you login in next time.",
   "msg_changePswSuccessHint": "You can use the new password when you login in next time.",
-  "msg_loggedout": "18-100th"
+  "msg_loggedout": "You have successfully logged out!!"
 }
