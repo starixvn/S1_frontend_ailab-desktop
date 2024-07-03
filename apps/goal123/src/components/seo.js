@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
 import { bannerImgUrl } from "../config";
+import path from "../router";
 
 const defHrefLang = {
 	en: "en-us",
@@ -32,21 +33,37 @@ function SEO({ description, lang, meta, title }) {
 
 	const splitPath =
 		typeof window !== undefined && window.location.pathname.split("/");
-	const htmlClass =
-		typeof window !== undefined &&
-		(window.location.pathname === "/" ||
-			((splitPath.length === 2 ||
-				(splitPath.length === 3 && splitPath[2] === "")) &&
-				site.siteMetadata.supportedLanguages.includes(splitPath[1])))
-			? "index Newtheme"
-			: "Newtheme lobby";
+
+	const htmlClassName = () => {
+		// 因該只有首頁，不確定還有沒其他頁面會符合這邏輯，是從 2020 年的邏輯搬過來的
+		if (
+			typeof window !== undefined &&
+			(window.location.pathname === "/" ||
+				((splitPath.length === 2 ||
+					(splitPath.length === 3 && splitPath[2] === "")) &&
+					site.siteMetadata.supportedLanguages.includes(
+						splitPath[1]
+					)))
+		) {
+			return "index Newtheme";
+		}
+		// leaderboard 頁面
+		if (
+			typeof window !== undefined &&
+			splitPath[2] === path.leaderBoard.root
+		) {
+			return "Newtheme leaderboard";
+		}
+
+		return "Newtheme lobby";
+	};
 
 	return (
 		<>
 			<Helmet
 				htmlAttributes={{
 					lang,
-					class: htmlClass
+					class: htmlClassName()
 				}}
 				title={site.siteMetadata.title}
 				link={[
