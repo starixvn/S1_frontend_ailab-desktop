@@ -50,8 +50,7 @@ const LeaderBoardInfoAndTerm = () => {
 					<div className="table-inner">
 						<div className="list">{t("lbl_Leaderboard_Sport")}</div>
 						<div className="list">
-							{numFormatToDigits(sportTurnover, 0)}
-							VNĐ
+							{numFormatToDigits(sportTurnover, 0)} VNĐ
 						</div>
 						<div className="list">
 							1 {t("lbl_Leaderboard_Point")}
