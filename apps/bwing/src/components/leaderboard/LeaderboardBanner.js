@@ -1,5 +1,6 @@
 import React from "react";
 // import { isDateRange, useLeaderBoard } from "@ailab-desktop/common";
+import { useLeaderBoard } from "@ailab-desktop/common";
 import { bannerImgUrl } from "../../config";
 // import { eventPerios } from "../../datas/eventDef";
 
