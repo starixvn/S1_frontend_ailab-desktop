@@ -114,8 +114,7 @@ const LeaderBoardRanking = () => {
 								</div>
 							</div>
 							<div className="right">
-								<i className="icon-cash" />
-								<span>${numFormatToDigits(point, 0)}</span>
+								<span>{numFormatToDigits(point, 0)}</span>
 							</div>
 						</div>
 					)}
