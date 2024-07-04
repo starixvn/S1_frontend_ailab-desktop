@@ -513,8 +513,6 @@ html.Newtheme header .header > div .menu .select-dropdown {
   -webkit-transition: 0.3s;
   transition: 0.3s;
   z-index: 1;
-  text-transform: uppercase;
-  white-space: nowrap;
 }
 html.Newtheme header .header > div .menu .select-dropdown a,
 html.Newtheme header .header > div .menu .select-dropdown button {
@@ -22356,7 +22354,6 @@ main .leaderboard-info .info-point .table-thead .list {
           justify-content: center;
   margin-right: 5px;
   height: 75px;
-  text-align: center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
