@@ -16,7 +16,7 @@ const LeaderboardUserRanking = () => {
 			<div className="order">
 				<img
 					src={`${bannerImgUrl}/h5/img/leaderboard/winner-${numberRank}.png`}
-					alt=""
+					alt="top-3-winner"
 				/>
 			</div>
 		) : (
@@ -32,7 +32,6 @@ const LeaderboardUserRanking = () => {
 				<div className="user-id">{userName}</div>
 			</div>
 			<div className="right">
-				<i className="icon-cash" />
 				<span>{numFormatToDigits(point)}</span>
 			</div>
 		</div>
