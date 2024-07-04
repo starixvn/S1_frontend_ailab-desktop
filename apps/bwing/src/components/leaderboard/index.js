@@ -13,7 +13,7 @@ const Leaderboard = () => {
 	const { userInfo } = useContext(userInfoContext);
 	return (
 		<LeaderboardProvider siteId={siteId} userInfo={userInfo}>
-			<div className="leaderboard">
+			<>
 				<LeaderboardBanner />
 				<div className="leaderboard-wrapper">
 					<LeaderboardRewards />
@@ -24,7 +24,7 @@ const Leaderboard = () => {
 						<LeaderboardTerm />
 					</div>
 				</div>
-			</div>
+			</>
 		</LeaderboardProvider>
 	);
 };

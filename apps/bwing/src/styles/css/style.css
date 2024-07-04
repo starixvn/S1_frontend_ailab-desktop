@@ -22412,6 +22412,7 @@ main .leaderboard-ranking .countdown-time span {
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
+  margin-right: 6px;
 }
 main .leaderboard-ranking .countdown a.btn-bet, main .leaderboard-ranking .countdown button.btn-bet {
   display: -webkit-box;
@@ -22443,7 +22444,7 @@ main .leaderboard-ranking .countdown a:hover, main .leaderboard-ranking .countdo
 main .leaderboard-ranking .board {
   background: #1C317B;
   border-radius: 40px 40px 20px 20px;
-  padding: 20px 30px 60px;
+  padding: 20px 30px 40px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -22569,7 +22570,7 @@ main .leaderboard-ranking .board .winner-total .user-thead {
       -ms-flex-align: center;
           align-items: center;
   background: #1A2C5E;
-  padding: 16px;
+  padding: 16px 58px 16px 16px;
   border-radius: 10px 10px 0 0;
   margin-bottom: 10px;
   -webkit-box-sizing: border-box;
@@ -22604,8 +22605,8 @@ main .leaderboard-ranking .board .winner-total .user-thead .left span:last-child
           flex: 0 0 250px;
 }
 main .leaderboard-ranking .board .winner-total .user-thead .right span {
-  width: 260px;
-  text-align: left;
+  width: 110px;
+  text-align: right;
 }
 main .leaderboard-ranking .board .winner-total .user-ranking {
   max-height: 580px;
@@ -22828,7 +22829,7 @@ main .leaderboard-ranking .board .winner-total .user-themselves-info .user-money
 main .leaderboard-ranking .board-refresh {
   color: #fff;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 30px;
   font-size: 16px;
 }
 main .leaderboard-ranking .board-refresh span {
