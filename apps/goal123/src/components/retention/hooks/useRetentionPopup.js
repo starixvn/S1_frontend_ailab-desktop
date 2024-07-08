@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
-import { popBoxContext } from "../../common/context";
+import { popBoxContext, userInfoContext } from "../../common/context";
 import { defPopBoxType } from "../../common/popBox";
 import path from "../../../router";
 
 const useRetentionPopup = () => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
+	const {
+		userInfo: { langId }
+	} = useContext(userInfoContext);
 
 	const handleClose = () => {
 		setPopBox({ isOpen: false });
@@ -49,7 +52,7 @@ const useRetentionPopup = () => {
 				<div className="btnGroup">
 					<Link
 						className="btn-check"
-						to={`/${langId}/${path.profile.root}?prevPage=${path.promotion.root}&BonusCode=${bonusCode}`}>
+						to={`/${langId}/${path.profile.root}`}>
 						{t("lbl_UpdatePersonalDetail")}
 					</Link>
 				</div>
