@@ -36,6 +36,8 @@ const LuckyWheelLink = ({ langId, type }) => {
 				className={classNames("luckywheel", {
 					eurocup: isDateRange(eventPerios.euroCup)
 				})}
+				// only for testing during EuroCup
+				style={{ bottom: "200px" }}
 			>
 				<button
 					style={{ zIndex: 50 }}
