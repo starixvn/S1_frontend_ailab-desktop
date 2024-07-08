@@ -65,11 +65,6 @@ const RetentionContent = () => {
 		}
 	};
 
-	if (!isLogin && !retentionBonusCode) {
-		navigate(`/${langId}`);
-		return null; // Prevent rendering any content
-	}
-
 	return (
 		<main className="retention">
 			<div className="eventpage-tap">
