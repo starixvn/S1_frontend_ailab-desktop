@@ -21,8 +21,6 @@
   "Label_LeaderBoard_Ranking_EndDate": "EVENT ENDED: {{time}}",
   "Label_Remark": "Remark",
   "Label_Retention": "Surprise Reward",
-  "Label_Retention_BonusCondition": "Bonus Play Conditions",
-  "Label_Retention_BonusTitle": "Bonus Play Conditions",
   "Label_Retention_Content": "Being active is not just an attitude, but also the beginning of rewards.",
   "Label_Retention_LuckyWheel": "Lucky Wheel",
   "Label_Retention_SurpriseReward": "Surprise Reward",
@@ -941,7 +939,7 @@
   "lbl_final": "Final",
   "lbl_history_submit": "Submit",
   "lbl_hours": "hours",
-  "lbl_lastUpdateOn": "Last Update On  ",
+  "lbl_lastUpdateOn": "Last Update On",
   "lbl_last_2_day": "Last 2 day",
   "lbl_last_3_day": "Last 3 day",
   "lbl_leaderBoard": "Leaderboard",
@@ -968,7 +966,7 @@
   "lbl_total": "Total",
   "lbl_transfer_submit": "Submit",
   "lbl_underMaintenance": "Under Maintenance",
-  "lbl_updateEvery30Minutes": "（Update Every 30 Minutes）",
+  "lbl_updateEvery30Minutes": "(Update Every 30 Minutes)",
   "lbl_validTurnover": "Valid Turnover",
   "lbl_vnd": "VND",
   "lbl_withdraw_submit": "Submit",
@@ -1006,5 +1004,5 @@
   "msg_UsernameReq": "Username is required.",
   "msg_changePswSuccess": "The update is successful! You can use the new password when you login in next time.",
   "msg_changePswSuccessHint": "You can use the new password when you login in next time.",
-  "msg_loggedout": "18-100th"
+  "msg_loggedout": "You have successfully logged out!!"
 }
