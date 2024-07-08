@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
+import PropTypes from "prop-types";
 import path from "../../../router";
 import useTopWinnerList from "../hooks/useWinnerList";
 import { numFormatToDigits } from "../../common/common";
