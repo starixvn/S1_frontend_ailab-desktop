@@ -20,7 +20,7 @@ const ERROR_CODES = {
 const RetentionContent = () => {
 	const { t } = useTranslation();
 	const {
-		userInfo: { langId, currencyId, isLogin }
+		userInfo: { langId, currencyId }
 	} = useContext(userInfoContext);
 	const { retentionBonusCode, promotionDetail, loading } =
 		useRetentionPromotion();
@@ -68,11 +68,6 @@ const RetentionContent = () => {
 		}
 	};
 
-	if (!isLogin && !retentionBonusCode) {
-		navigate(`/${langId}`);
-		return null; // Prevent rendering any content
-	}
-
 	return (
 		<main className="retention">
 			<img
@@ -83,9 +78,7 @@ const RetentionContent = () => {
 				<button onClick={handleWheel}>
 					{t("Label_Retention_LuckyWheel")}
 				</button>
-				<button className="active">
-					{t("Label_Retention_SurpriseReward")}
-				</button>
+				<button className="active">{t("Label_Retention")}</button>
 			</div>
 
 			{/* add loading state and show contents after receiving the api datas */}
@@ -159,7 +152,6 @@ const RetentionContent = () => {
 
 						<div className="bonus-list">
 							<div className="title">
-								<div>{t("Label_Retention_BonusTitle")}</div>
 								<div />
 							</div>
 							<div />

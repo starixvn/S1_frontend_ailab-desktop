@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
-import { popBoxContext } from "../../common/context";
+import { popBoxContext, userInfoContext } from "../../common/context";
 import { defPopBoxType } from "../../common/defPopBoxType";
 import path from "../../../router";
 
 const useRetentionPopup = () => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
+	const {
+		userInfo: { langId }
+	} = useContext(userInfoContext);
 
 	const handleClose = () => {
 		setPopBox({ isOpen: false });
