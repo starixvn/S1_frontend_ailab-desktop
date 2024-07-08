@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "gatsby";
+import path from "../../../router";
 import useTopWinnerList from "../hooks/useWinnerList";
-import { number_format } from "../../common/common";
+import { numFormatToDigits } from "../../common/common";
 import { bannerImgUrl } from "../../../config";
+import { userInfoContext } from "../../common/context";
 
 const HomeLeaderBoard = () => {
 	const { winnerList } = useTopWinnerList();
 	const { t } = useTranslation();
+	const { userInfo } = useContext(userInfoContext);
 
 	// 左側api之共用元件
 	const TopThreeWinner = ({ winner, src }) => {
@@ -16,13 +20,26 @@ const HomeLeaderBoard = () => {
 				<div className="user-data">
 					<span>{winner?.userName || ""}</span>
 					<span>
-						{winner
-							? `$${number_format({ number: winner.wTurnover })}`
-							: ""}
+						{winner ? `${numFormatToDigits(winner.wTurnover)}` : ""}
 					</span>
 				</div>
 			</div>
 		);
+	};
+
+	TopThreeWinner.propTypes = {
+		winner: PropTypes.shape({
+			userName: PropTypes.string,
+			wTurnover: PropTypes.number
+		}),
+		src: PropTypes.string.isRequired
+	};
+
+	TopThreeWinner.defaultProps = {
+		winner: {
+			userName: "",
+			wTurnover: 0
+		}
 	};
 
 	return (
@@ -31,46 +48,53 @@ const HomeLeaderBoard = () => {
 				<div className="home-title">
 					{t("lbl_Home_Product_Top_1st")}
 				</div>
-				<div className="winner">
-					<div className="winner-left">
-						<div className="inner">
-							<TopThreeWinner
-								src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/1st.png`}
-								winner={winnerList[0]} // 第一名
-							/>
-							<TopThreeWinner
-								src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/2nd.png`}
-								winner={winnerList[1]} // 第二名
-							/>
-							<TopThreeWinner
-								src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/3rd.png`}
-								winner={winnerList[2]} // 第三名
-							/>
+				<Link to={`/${userInfo.langId}/${path.leaderBoard.root}`}>
+					<div className="winner">
+						<div className="winner-left">
+							<div className="inner">
+								<TopThreeWinner
+									src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/1st.png`}
+									winner={winnerList[0]} // 第一名
+								/>
+								<TopThreeWinner
+									src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/2nd.png`}
+									winner={winnerList[1]} // 第二名
+								/>
+								<TopThreeWinner
+									src={`${bannerImgUrl}/desktop/img/home-page/leaderboard/3rd.png`}
+									winner={winnerList[2]} // 第三名
+								/>
+							</div>
 						</div>
-					</div>
-					<div className="winner-right">
-						<div className="user-ranking">
-							{winnerList.slice(3).map((winner, index) => (
-								<div className="user-list" key={winner.custId}>
-									<div className="left">
-										<div className="order">{index + 4}</div>
-										<div className="user-id">
-											{winner.userName}
+						<div className="winner-right">
+							<div className="user-ranking">
+								{winnerList.slice(3).map((winner, index) => (
+									<div
+										className="user-list"
+										key={winner.custId}
+									>
+										<div className="left">
+											<div className="order">
+												{index + 4}
+											</div>
+											<div className="user-id">
+												{winner.userName}
+											</div>
+										</div>
+										<div className="right">
+											<i className="icon-cash" />
+											<span>
+												{numFormatToDigits(
+													winner.wTurnover
+												)}
+											</span>
 										</div>
 									</div>
-									<div className="right">
-										<i className="icon-cash" />
-										<span>
-											{number_format({
-												number: winner.wTurnover
-											})}
-										</span>
-									</div>
-								</div>
-							))}
+								))}
+							</div>
 						</div>
 					</div>
-				</div>
+				</Link>
 			</div>
 		</div>
 	);

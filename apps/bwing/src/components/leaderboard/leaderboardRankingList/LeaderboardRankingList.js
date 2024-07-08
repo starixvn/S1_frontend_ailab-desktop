@@ -29,9 +29,9 @@ const LeaderboardRankingList = () => {
 
 				{/* 每 30 entries 刷新一次 */}
 				<div className="board-refresh">
-					{t("lbl_lastUpdateOn")}
+					{t("lbl_lastUpdateOn")}&nbsp;&nbsp;
 					<span className="data">{getFormattedUpdateTime()}</span>
-					{t("lbl_updateEvery30Minutes")}
+					&nbsp;{t("lbl_updateEvery30Minutes")}
 				</div>
 			</div>
 		</div>

@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
+import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
+import path from "../../router";
 import { rankMap } from "./def";
-import { number_format } from "../common/common";
+import { numFormatToDigits } from "../common/common";
 import { bannerImgUrl } from "../../config";
+import { userInfoContext } from "../common/context";
 
 const TopWinner = ({ leaderBoardList }) => {
 	const { t } = useTranslation();
+	const { userInfo } = useContext(userInfoContext);
 	return (
 		<>
 			<div className="col-12">
@@ -15,39 +19,36 @@ const TopWinner = ({ leaderBoardList }) => {
 				</div>
 			</div>
 			<div className="col-6 mt-4 mb-6">
-				<div className="home-topwinner">
-					<div className="title">{t("lbl_Top10winners")}</div>
-					<div className="home-topwinner-content">
-						{leaderBoardList.map(
-							({ userName, wTurnover, custId }, index) => (
-								<div
-									key={custId}
-									className="home-topwinner-item">
-									<div>
-										{index < 3 ? (
-											<img
-												src={`${bannerImgUrl}/desktop/img/4.0/topwinner/${
-													rankMap[index + 1]
-												}.png`}
-												alt=""
-											/>
-										) : (
-											<div>{index + 1}</div>
-										)}
+				<Link to={`/${userInfo.langId}/${path.leaderboard.root}`}>
+					<div className="home-topwinner">
+						<div className="title">{t("lbl_Top10winners")}</div>
+						<div className="home-topwinner-content">
+							{leaderBoardList.map(
+								({ userName, wTurnover, custId }, index) => (
+									<div
+										key={custId}
+										className="home-topwinner-item"
+									>
+										<div>
+											{index < 3 ? (
+												<img
+													src={`${bannerImgUrl}/desktop/img/4.0/topwinner/${
+														rankMap[index + 1]
+													}.png`}
+													alt=""
+												/>
+											) : (
+												<div>{index + 1}</div>
+											)}
+										</div>
+										<div>{userName}</div>
+										<div>
+											{numFormatToDigits(wTurnover)}
+										</div>
 									</div>
-									<div>{userName}</div>
-									<div>
-										{number_format({
-											number: wTurnover,
-											formatRequired: false,
-											isConvertRequired: true,
-											digits: 0
-										})}
-									</div>
-								</div>
-							)
-						)}
-						{/*
+								)
+							)}
+							{/*
 						<div class="col-6 mt-4 mb-6">
                     <div class="home-topwinner">
                         <div class="title">TOP winners</div>
@@ -126,8 +127,9 @@ const TopWinner = ({ leaderBoardList }) => {
                     </div>
                 </div>
 						*/}
+						</div>
 					</div>
-				</div>
+				</Link>
 			</div>
 		</>
 	);
