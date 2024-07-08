@@ -77,7 +77,7 @@ const RetentionContent = () => {
 					{t("Label_Retention_LuckyWheel")}
 				</button>
 				<button className="active">
-					{t("Label_Retention_SurpriseReward")}
+					{t("Label_Retention")}
 				</button>
 			</div>
 
@@ -143,8 +143,7 @@ const RetentionContent = () => {
 
 				<div className="bonus-list">
 					<div className="title">
-						<div>{t("Label_Retention_BonusTitle")}</div>
-						{/* for css need */}
+					
 						<div />
 					</div>
 					{/* for css need */}
