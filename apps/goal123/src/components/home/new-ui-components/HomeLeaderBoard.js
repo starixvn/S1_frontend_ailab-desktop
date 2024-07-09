@@ -89,7 +89,6 @@ const HomeLeaderBoard = () => {
 														</div>
 													</div>
 													<div className="right">
-														<i className="icon-cash" />
 														<span>
 															{numFormatToDigits(
 																wTurnover
