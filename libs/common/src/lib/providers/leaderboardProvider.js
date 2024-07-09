@@ -22,6 +22,14 @@ export const useLeaderBoard = () => {
 /** 定義日期格式化函數 */
 const formatDate = date => date.format("YYYY-MM-DD");
 
+/** 檢查 currentMonth 是否小於 10，如果是，則在前面加上 '0'，否則返回原數字 */
+const formatMonth = currentMonth => {
+	if (currentMonth < 10) {
+		return `0${currentMonth}`;
+	}
+	return currentMonth;
+};
+
 /** 獲取今年已過的月份列表 */
 const getMonthDataList = () => {
 	/** 過去的資料已經不可獲取,故以現年為查詢起點 */
@@ -83,6 +91,9 @@ const currentMonth = moment().month() + 1;
 /** 排行榜上限值 */
 const MAX_RANK = 100;
 
+/** 首頁的排行榜上限值 */
+const HOME_MAX_RANK = 10;
+
 /** bwing 的排行版種類，其他專案可能會有不同種類 */
 const LEADER_BOARD_TYPE = 0;
 
@@ -142,6 +153,15 @@ const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 			currencyId: 51
 		});
 
+	/** 首頁的排行榜列表 */
+	const { data: { data: homeRankList = [] } = {} } =
+		useGetLeaderBoardListMonthQuery({
+			lBCategoryId: LEADER_BOARD_TYPE,
+			TopNum: HOME_MAX_RANK,
+			SelectDays: `${currentYear}-${formatMonth(currentMonth)}-01`
+		});
+
+	/** leaderboard 頁面的排行榜列表 */
 	const {
 		data: { data: rankList = [] } = {},
 		isFetching: isGetLeaderBoardListMonthFetching
@@ -181,6 +201,7 @@ const LeaderboardProvider = ({ siteId, userInfo, children }) => {
 
 	/** 傳遞的資料物件 */
 	const value = {
+		homeRankList,
 		isLogin,
 		rankList,
 		userRank: mergedUserRankWithUserName,

@@ -20160,9 +20160,9 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .eurocup-gif {
   position: fixed;
-  bottom: 208px;
+  bottom: 260px;
   z-index: 1;
-  left: 40px;
+  left: 50px;
 }
 .eurocup-gif img {
   width: 160px;
