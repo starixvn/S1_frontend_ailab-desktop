@@ -30,7 +30,10 @@ import { defDeviceType } from "../../service/api/base";
 import HotGames from "./hotGame";
 import HotPromotion from "./hotPromotion";
 import { isExpiry } from "../promotion/promotion.common";
-import { api_promotion_GetPromotionListV2 } from "../../service/api/promotion";
+import {
+	api_promotion_GetPromotionDetail,
+	api_promotion_GetPromotionListV2
+} from "../../service/api/promotion";
 import { api_hotEvent_GetDataList } from "../../service/api/hotEvent";
 import HomeMatch from "./homeMatch";
 import TopWinner from "./topWinner";
@@ -44,6 +47,10 @@ import { api_news_GetNews } from "../../service/api/news";
 import { eventPerios } from "../../datas/eventDef";
 import DragonEgg from "../dragonEgg/homeLink";
 import useAppDownLoad from "../appDownload/useAppDownLoad";
+
+const apiResPromotionType = {
+	retentionFreebet: 9
+};
 import CupEventLink from "../cupEventLink/cupEventLink";
 
 const Home = () => {
@@ -82,6 +89,7 @@ const Home = () => {
 	const vGamingItem = products.Vgaming;
 
 	const handleClickHomeProduct = product => {
+		// console.log(product);
 		// * 為靜態遊戲檢查的 isInMaintain
 		const isInMaintain = allMaintainList?.some(
 			mt =>
@@ -379,50 +387,74 @@ const Home = () => {
 				langId: userInfo.langId
 			}).then(({ data: { data: { bonusCode } = {} } = {} }) => {
 				if (bonusCode) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.Modal,
-						content: (
-							<div id="popup" className="active">
-								<div className="pop promosbackpopup">
-									<div className="promosback active">
-										<div className="promosback-pop">
-											<img
-												src={`${
-													process.env
-														.REACT_APP_BANNER_URL
-												}/desktop/img/promosBackPopup/promosPopup-${
-													userInfo?.langId || "en"
-												}.png`}
-												alt="img-promosPopup"
-											/>
+					// getting promotion detail to determine the type of promotion
+					api_promotion_GetPromotionDetail({
+						langId: userInfo.langId,
+						BonusCode: bonusCode
+					}).then(
+						// giving default value to response data and promotionType
+						({
+							data: { data: { promotionType = null } = {} } = {}
+						}) => {
+							// 使用獲取到的詳細資訊顯示彈出框
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.Modal,
+								content: (
+									<div id="popup" className="active">
+										<div className="pop promosbackpopup">
+											<div className="promosback active">
+												<div className="promosback-pop">
+													<img
+														src={`${
+															process.env
+																.REACT_APP_BANNER_URL
+														}/desktop/img/promosBackPopup/promosPopup-${
+															userInfo?.langId ||
+															"en"
+														}.png`}
+														alt="img-promosPopup"
+													/>
+													{/*  if promotion type = retention freebet(9), then link to retention landing page  */}
+													<button
+														className="popgo"
+														onClick={() => {
+															if (
+																promotionType ===
+																apiResPromotionType.retentionFreebet
+															) {
+																navigate(
+																	`/${path.retention.root}`
+																);
+															} else {
+																navigate(
+																	`/${path.promotion.root}?bonusCode=${bonusCode}`
+																);
+															}
+														}}>
+														{t(
+															"lbl_Promotion_ClaimNow"
+														)}
+													</button>
 
-											<button
-												className="popgo"
-												onClick={() => {
-													navigate(
-														`/${path.promotion.root}?bonusCode=${bonusCode}`
-													);
-												}}>
-												{t("lbl_Promotion_ClaimNow")}
-											</button>
-
-											<img
-												src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/promosBackPopup/delet.png`}
-												alt="img-delet"
-												className="closepop"
-												onClick={() => {
-													closePopBox();
-													openNextPopUp();
-												}}
-											/>
+													<img
+														src={`${process.env.REACT_APP_BANNER_URL}/desktop/img/promosBackPopup/delet.png`}
+														alt="img-delet"
+														className="closepop"
+														onClick={() => {
+															closePopBox();
+															openNextPopUp();
+														}}
+													/>
+												</div>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-						)
-					});
-					setCookie(cookieName, "1", 1);
+								)
+							});
+							setCookie(cookieName, "1", 1);
+						}
+					);
 				} else {
 					openNextPopUp();
 				}
