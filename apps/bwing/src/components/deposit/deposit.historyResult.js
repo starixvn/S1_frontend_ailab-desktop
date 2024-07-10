@@ -30,8 +30,7 @@ export const TransactionHistory = props => {
 			<>
 				<button
 					className="orange icon icon-pencil"
-					onClick={props.SubmitProof}
-				>
+					onClick={props.SubmitProof}>
 					{t("lbl_SubmitProof")}
 				</button>
 				<button className="gray" onClick={props.ClickCancel}>

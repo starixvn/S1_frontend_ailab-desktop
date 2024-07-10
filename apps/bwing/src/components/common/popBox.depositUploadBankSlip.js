@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
+import { WithReceiptInfoType } from "@ailab-desktop/common";
 import DateTime from "react-datetime";
 import ClipboardJS from "../../lib/clipboard.min";
 import Inputbox from "./inputbox";
@@ -15,9 +16,11 @@ const PopBoxDepositUploadBankSlip = ({
 	setPopBox,
 	formInfo,
 	receiptInfo,
-	resolve
+	resolve,
+	depositType = 3
 }) => {
 	const isMountedRef = useRef(null);
+	const isShowReceiptInfo = WithReceiptInfoType.includes(depositType) ?? true;
 
 	const [depositTime, setDepositTime] = useState({
 		value: moment(),
@@ -212,75 +215,83 @@ const PopBoxDepositUploadBankSlip = ({
 						resolve({ success: false });
 					}}
 				/>
-				<div className="smallList checkBankSlip">
-					<div className="title">{t("lbl_BankAccount")}</div>
-					<div className="txt-lightgray">
-						{t("lbl_TransactionHint")}
+				{isShowReceiptInfo && (
+					<div className="smallList checkBankSlip">
+						<div className="title">{t("lbl_BankAccount")}</div>
+						<div className="txt-lightgray">
+							{t("lbl_TransactionHint")}
+						</div>
+						<ul>
+							<li>{t("lbl_BankName")}</li>
+							<li>{localBankInfo.bankName}</li>
+							<li>
+								<a
+									target="_blank"
+									rel="noreferrer"
+									href={localBankInfo.bankSite}
+									className="icon icon-new-tab"
+								/>
+							</li>
+						</ul>
+						<ul>
+							<li>{t("lbl_BankAccountName")}</li>
+							<li>{localBankInfo.accountName}</li>
+							<li>
+								<button
+									className="icon icon-files-empty copyBtn"
+									data-clipboard-text={
+										localBankInfo.accountName
+									}
+								/>
+							</li>
+						</ul>
+						<ul>
+							<li>{t("lbl_BankNumber")}</li>
+							<li>{localBankInfo.accountNo}</li>
+							<li>
+								<button
+									className="icon icon-files-empty copyBtn"
+									data-clipboard-text={
+										localBankInfo.accountNo
+									}
+								/>
+							</li>
+						</ul>
+
+						{localBankInfo.amount ? (
+							<ul>
+								<li>{t("lbl_DepositAmount")}</li>
+								<li>
+									{number_format({
+										number: localBankInfo.amount,
+										formatRequired: _isConvert
+									})}
+								</li>
+								<li>
+									<button
+										className="icon icon-files-empty copyBtn"
+										data-clipboard-text={
+											localBankInfo.amount
+										}
+									/>
+								</li>
+							</ul>
+						) : null}
+
+						{localBankInfo?.code && (
+							<ul>
+								<li>{t("Label_Remark")}</li>
+								<li>{localBankInfo.code}</li>
+								<li>
+									<button
+										className="icon icon-files-empty copyBtn"
+										data-clipboard-text={localBankInfo.code}
+									/>
+								</li>
+							</ul>
+						)}
 					</div>
-					<ul>
-						<li>{t("lbl_BankName")}</li>
-						<li>{localBankInfo.bankName}</li>
-						<li>
-							<a
-								target="_blank"
-								rel="noreferrer"
-								href={localBankInfo.bankSite}
-								className="icon icon-new-tab"
-							/>
-						</li>
-					</ul>
-					<ul>
-						<li>{t("lbl_BankAccountName")}</li>
-						<li>{localBankInfo.accountName}</li>
-						<li>
-							<button
-								className="icon icon-files-empty copyBtn"
-								data-clipboard-text={localBankInfo.accountName}
-							/>
-						</li>
-					</ul>
-					<ul>
-						<li>{t("lbl_BankNumber")}</li>
-						<li>{localBankInfo.accountNo}</li>
-						<li>
-							<button
-								className="icon icon-files-empty copyBtn"
-								data-clipboard-text={localBankInfo.accountNo}
-							/>
-						</li>
-					</ul>
-
-					{localBankInfo.amount ? (
-						<ul>
-							<li>{t("lbl_DepositAmount")}</li>
-							<li>
-								{number_format({
-									number: localBankInfo.amount,
-									formatRequired: _isConvert
-								})}
-							</li>
-							<li>
-								<button
-									className="icon icon-files-empty copyBtn"
-									data-clipboard-text={localBankInfo.amount}
-								/>
-							</li>
-						</ul>
-					) : null}
-
-					{localBankInfo?.code && (
-						<ul>
-							<li>{t("Label_Remark")}</li>
-							<li>{localBankInfo.code}</li>
-							<li>
-								<button
-									className="icon icon-files-empty copyBtn"
-									data-clipboard-text={localBankInfo.code}
-								/>
-							</li>
-						</ul>
-					)}
-				</div>
+				)}
 				<div className="smallList checkBankSlip">
 					<span className="title">{t("lbl_SubmitProof")}</span>
 					<div className="txt-lightgray">{t("lbl_AttachFile")}</div>
@@ -463,7 +474,8 @@ PopBoxDepositUploadBankSlip.propTypes = {
 	}).isRequired,
 
 	setPopBox: PropTypes.func.isRequired,
-	resolve: PropTypes.func.isRequired
+	resolve: PropTypes.func.isRequired,
+	depositType: PropTypes.number.isRequired
 };
 
 export default PopBoxDepositUploadBankSlip;
