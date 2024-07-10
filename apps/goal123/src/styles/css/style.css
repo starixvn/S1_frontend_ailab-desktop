@@ -166,6 +166,7 @@ html.Newtheme header {
       -ms-flex-pack: center;
           justify-content: center;
   z-index: 4;
+  top: 0;
 }
 html.Newtheme header .logo {
   display: -webkit-box;
@@ -179,10 +180,29 @@ html.Newtheme header .logo {
           justify-content: center;
   z-index: 1;
 }
+html.Newtheme header .logo.eurocup-logo::before {
+  content: "";
+  display: inline-block;
+  width: 1.5px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 html.Newtheme header .logo.eurocup-logo > div:last-child {
   margin: 5px 0 0 6cqw;
 }
 html.Newtheme header .logo.eurocup-logo > div:last-child img {
+  max-width: 120px;
+}
+html.Newtheme header .logo.olympic-logo > div:last-child {
+  margin: 5px 0 0 6cqw;
+}
+html.Newtheme header .logo.olympic-logo > div:last-child img {
   max-width: 120px;
 }
 html.Newtheme header .logo > div:first-child {
@@ -9367,7 +9387,7 @@ html.Newtheme .eventLink .angpaoLink img.eventlinkimg {
   }
 }
 html.Newtheme .eventLink.vgaming {
-  bottom: 0px;
+  bottom: 210px;
 }
 html.Newtheme .eventLink.vgaming .icon-close {
   top: 10px;
@@ -9375,8 +9395,8 @@ html.Newtheme .eventLink.vgaming .icon-close {
   color: rgb(92, 92, 92);
 }
 html.Newtheme .eventLink.vgaming .vgimg {
-  width: 185px;
-  height: 185px;
+  width: 150px;
+  height: 150px;
 }
 html.Newtheme .eventLink.vgaming.eurocup {
   bottom: 0px;
@@ -9446,6 +9466,20 @@ html.Newtheme .eventLink.eurocup img {
   width: 180px;
 }
 html.Newtheme .eventLink.eurocup .icon-close {
+  top: -15px;
+  background: #cecece;
+  color: rgb(92, 92, 92);
+}
+html.Newtheme .eventLink.luckywheel {
+  bottom: 0px;
+  z-index: 1;
+}
+html.Newtheme .eventLink.luckywheel img {
+  -webkit-animation: livesports 3s ease-in-out infinite;
+          animation: livesports 3s ease-in-out infinite;
+  width: 160px;
+}
+html.Newtheme .eventLink.luckywheel .icon-close {
   top: -15px;
   background: #cecece;
   color: rgb(92, 92, 92);
@@ -14851,7 +14885,7 @@ html.Newtheme:not(.index, .lobby) .swiper-container + .inside-title.icon-ow-casi
   width: 374px;
   height: 108px;
   background: url(https://banner.goal123.org/desktop/img/event/wheel/title.png) no-repeat top center;
-  margin-top: -30px;
+  margin-top: 150px;
 }
 .wheelEvent .eventPage .eventTitleBg .eventTitle {
   margin-top: 30px;
@@ -14875,7 +14909,7 @@ html.Newtheme:not(.index, .lobby) .swiper-container + .inside-title.icon-ow-casi
 }
 .wheelEvent .eventPage .wheelModule {
   position: relative;
-  margin-top: 70px;
+  margin-top: 150px;
   width: 445px;
   height: 445px;
   display: -webkit-box;
@@ -20393,4 +20427,525 @@ html.Newtheme:not(.index, .lobby) .swiper-container + .inside-title.icon-ow-casi
 .euro-fixture .group-one .group-item {
   border-bottom: 0;
   padding: 0;
+}
+
+.retention {
+  background: #0f1f3b;
+  margin-top: 140px;
+  padding: 30px 0 150px !important;
+  background: #000000 url(https://banner.goal123.org/desktop/img/event/retention/retention-banner.jpg) no-repeat top/contain !important;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #ffffff;
+}
+.retention-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 95px;
+}
+.retention-wrapper .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.retention-wrapper .top-chips {
+  position: absolute;
+  top: 0;
+}
+.retention-wrapper .top-item {
+  width: 60%;
+  -webkit-animation: baloon_1 2s infinite;
+          animation: baloon_1 2s infinite;
+  position: relative;
+  top: 0;
+  margin-bottom: 380px;
+}
+@media screen and (min-width: 2560px) {
+  .retention-wrapper .top-item {
+    width: 90%;
+    margin-bottom: 500px;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .retention-wrapper .top-item {
+    width: 50%;
+    margin-bottom: 250px;
+    margin-top: -50px;
+  }
+}
+.retention-wrapper .top-item-two {
+  position: absolute;
+  width: 800px;
+  top: 900px;
+}
+.retention-wrapper .top-btn {
+  background: url(https://banner.goal123.org/desktop/img/event/retention/buttons.png) no-repeat center/100%;
+  width: 250px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px;
+  font-size: 25px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 10px #ffce57;
+  -webkit-animation: livesports 1.5s ease-in-out infinite;
+          animation: livesports 1.5s ease-in-out infinite;
+}
+@media screen and (min-width: 2000px) {
+  .retention-wrapper .top-btn {
+    width: 320px;
+    height: 200px;
+  }
+}
+.retention-wrapper .top-btn.close {
+  display: none;
+}
+.retention-wrapper .bonus-list {
+  padding-bottom: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.retention-wrapper .bonus-list > div:last-child {
+  width: 1000px;
+  position: relative;
+  z-index: 1;
+}
+.retention-wrapper .bonus-list .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.retention-wrapper .bonus-list .title > div:first-child {
+  color: #fab617;
+  font-size: 25px;
+  letter-spacing: 1px;
+  height: 50px;
+  line-height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.retention-wrapper .bonus-list .sheet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 1200px;
+  margin-top: 20px;
+}
+.retention-wrapper .bonus-list .sheet > div {
+  border-right: 3px solid #4689FF;
+}
+.retention-wrapper .bonus-list .sheet > div > div {
+  padding: 10px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  width: 400px;
+}
+.retention-wrapper .bonus-list .sheet > div > div:first-child {
+  background: #113F90;
+  font-size: 23px;
+  font-weight: 700;
+  height: 70px;
+}
+.retention-wrapper .bonus-list .sheet > div > div:last-child {
+  background: #E9E9E9;
+  color: #112240;
+  font-size: 20px;
+  font-weight: 600;
+  height: 100px;
+}
+.retention-wrapper .bonus-list .sheet > div:first-child > div:first-child {
+  border-radius: 20px 0 0 0;
+}
+.retention-wrapper .bonus-list .sheet > div:first-child > div:last-child {
+  border-radius: 0 0 0 20px;
+}
+.retention-wrapper .bonus-list .sheet > div:last-child {
+  border-right: none;
+}
+.retention-wrapper .bonus-list .sheet > div:last-child > div:first-child {
+  border-radius: 0 20px 0 0;
+}
+.retention-wrapper .bonus-list .sheet > div:last-child > div:last-child {
+  border-radius: 0 0 20px 0;
+}
+.retention-wrapper .turnover-progress {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0 70px;
+}
+.retention-wrapper .turnover-progress .turnover-title {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(255, 109, 0)), to(rgb(255, 198, 2)));
+  background: linear-gradient(90deg, rgb(255, 109, 0) 0%, rgb(255, 198, 2) 100%);
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 25px 20px 25px 50px;
+  border-radius: 55px 55px 0 0;
+  width: 900px;
+}
+.retention-wrapper .turnover-progress .turnover-item {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(255, 236, 171)), to(rgb(255, 109, 0)));
+  background: linear-gradient(90deg, rgb(255, 236, 171) 0%, rgb(255, 109, 0) 100%);
+  width: 1050px;
+  border-radius: 55px;
+  margin-top: -10px;
+  padding: 8px;
+  height: 250px;
+}
+.retention-wrapper .turnover-progress .turnover-item > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 25px;
+  font-weight: 700;
+  border-radius: 55px;
+  height: 250px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgb(201, 0, 24)), to(rgb(71, 0, 10)));
+  background: linear-gradient(180deg, rgb(201, 0, 24) 0%, rgb(71, 0, 10) 100%);
+}
+.retention-wrapper .turnover-progress .turnover-item > div .number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 920px;
+  margin-bottom: 20px;
+}
+.retention-wrapper .turnover-progress .turnover-item > div .number > div:last-child {
+  color: #fab617;
+  margin-left: 10px;
+}
+.retention-wrapper .turnover-progress .turnover-item > div .progress {
+  height: 30px;
+  background: #000;
+  width: 920px;
+  border-radius: 50px;
+}
+.retention-wrapper .turnover-progress .turnover-item > div .progress-bar {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(255, 109, 0)), to(rgb(255, 255, 255)));
+  background: linear-gradient(90deg, rgb(255, 109, 0) 0%, rgb(255, 255, 255) 100%);
+  height: 30px;
+  border-radius: 50px;
+  -webkit-box-shadow: 0 0 9px #FFB12A;
+          box-shadow: 0 0 9px #FFB12A;
+}
+.retention-wrapper .turnover-progress .turnover-item > div .percent {
+  color: #fab617;
+  width: 920px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  margin-top: 15px;
+}
+.retention-wrapper .bottom {
+  width: 1300px;
+}
+.retention-wrapper .bottom-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+.retention-wrapper .bottom > div {
+  margin-bottom: 50px;
+}
+.retention-wrapper .bottom > div ul {
+  font-size: 20px;
+  color: #BCBCBC;
+}
+.retention-wrapper .bottom > div ul li {
+  margin-bottom: 15px;
+}
+.retention-title {
+  font-size: 70px;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 0 30px #FFD268;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 1200px;
+  text-align: center;
+  line-height: 85px;
+}
+.retention-title > div {
+  margin-bottom: 10px;
+  font-size: 22px;
+  text-shadow: none;
+  font-weight: 500;
+}
+@-webkit-keyframes baloon_1 {
+  0% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+  50% {
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
+@keyframes baloon_1 {
+  0% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+  50% {
+    -webkit-transform: translateY(30px);
+            transform: translateY(30px);
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
+
+.eventpage-tap {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7607843137);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px 10px;
+  border-radius: 50px;
+  margin-top: 15px;
+  width: 900px;
+  z-index: 2;
+}
+.eventpage-tap > button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 300px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #979797;
+}
+.eventpage-tap > button.active {
+  color: #112240;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.eventpage-tap > button.active::after {
+  position: absolute;
+  display: block;
+  content: "";
+  background: #fab617;
+  height: 5px;
+  width: 300px;
+  bottom: -20px;
+}
+
+.retention-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+}
+
+.retention-wrapper .bonus-list p strong span {
+  color: #fab617 !important;
+  font-weight: bold !important;
+  font-family: "Bai Jamjuree", sans-serif !important;
+  font-size: 25px !important;
+}
+
+/* 標題可能的結構*/
+.retention-wrapper .bonus-list p span strong {
+  color: #fab617 !important;
+  font-weight: bold !important;
+  font-size: 25px !important;
+  font-family: "Bai Jamjuree", sans-serif !important;
+}
+
+.retention-wrapper .bonus-list p,
+.retention-wrapper .bonus-list span {
+  color: white !important;
+  font-family: "Microsoft JhengHei", "微軟正黑體", "Microsoft YaHei", sans-serif !important;
+  font-size: 14px !important;
+}
+
+.retention-wrapper .bonus-list p a span {
+  color: #fab617 !important;
+  font-family: "Microsoft JhengHei", "微軟正黑體", "Microsoft YaHei", sans-serif !important;
+  font-size: 14px !important;
+}
+
+.retention-wrapper .bonus-list p span a {
+  color: #fab617 !important;
+  font-family: "Microsoft JhengHei", "微軟正黑體", "Microsoft YaHei", sans-serif !important;
+  font-size: 14px !important;
+}
+
+.retention-wrapper .bonus-list table {
+  width: 100% !important;
+}
+
+.retention-wrapper .bonus-list table tr p span {
+  color: #112240 !important;
+  font-size: 14px !important;
+  font-family: "Microsoft JhengHei", "微軟正黑體", "Microsoft YaHei", sans-serif !important;
+}
+
+.retention-wrapper .bonus-list table tr p span span {
+  color: #112240 !important;
+  font-size: 14px !important;
+  font-family: "Microsoft JhengHei", "微軟正黑體", "Microsoft YaHei", sans-serif !important;
+}
+
+.retention-wrapper .bonus-list table tr td span {
+  color: #112240 !important;
+  font-family: "Microsoft JhengHei", "微軟正黑體", "Microsoft YaHei", sans-serif !important;
+}
+
+.retention-wrapper .bonus-list table tr:first-child p span {
+  color: #ffffff !important;
+}
+
+.retention-wrapper .bonus-list table tr:first-child td {
+  background-color: #fab617 !important;
+}
+
+.retention-wrapper .bonus-list strong span {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list span strong {
+  font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list table td {
+  border: none !important;
+  border-right: 2px solid #000 !important;
+}
+
+.retention-wrapper .bonus-list tr td:last-child {
+  border-right: none !important;
+}
+
+.retention-wrapper .bonus-list tr:first-child td:first-child {
+  border-top-left-radius: 10px !important;
+}
+
+.retention-wrapper .bonus-list tr:first-child td:last-child {
+  border-top-right-radius: 10px !important;
+}
+
+.retention-wrapper .bonus-list tr:last-child td:first-child {
+  border-bottom-left-radius: 10px !important;
+}
+
+.retention-wrapper .bonus-list tr:last-child td:last-child {
+  border-bottom-right-radius: 10px !important;
 }/*# sourceMappingURL=style.css.map */

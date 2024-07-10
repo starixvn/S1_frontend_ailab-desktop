@@ -334,7 +334,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	useInterval(
 		() => {
 			api_account_onlineCheck().then(res => {
-				if (res.data.errorCode !== 0) {
+				if (res.data.errorCode === 1001) {
 					setUserInfo(prev => ({
 						...prev,
 						isLogin: false,
@@ -344,7 +344,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				}
 			});
 		},
-		userInfo.isLogin ? 600000 : null
+		userInfo.isLogin ? 60000 : null
 	);
 
 	if (redirectPath === null) {

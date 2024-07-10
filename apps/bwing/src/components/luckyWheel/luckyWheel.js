@@ -17,6 +17,8 @@ import LuckyWheelAnimation from "./luckyWheel.Animation";
 import LuckWheelEventModule from "./luckWheel.eventModule";
 
 import { api_events_GetDisplayDrawPrizeList } from "../../service/api/events";
+import useRetentionPromotion from "../retention/hooks/useRetentionPromotion";
+import router from "../../router";
 
 const { startDate, endDate } = eventPeriod;
 const isInPeriod = isDateRange({ startDate, endDate });
@@ -26,6 +28,7 @@ const LuckyWheel = () => {
 	const isMountedRef = useRef(null);
 	const { userInfo } = useContext(userInfoContext);
 	const { errorPopBox, setPopBox, closePopBox } = usePopBox();
+	const { retentionBonusCode } = useRetentionPromotion();
 
 	const { drawPrize, custDrawPrizeList, postDrawPrize, checkDrawPrize } =
 		useDrawPrizeFetcher({ defEventId, isMountedRef });
@@ -111,6 +114,10 @@ const LuckyWheel = () => {
 		return errorPopBox(message || `[${errorCode}] error`, errorCode);
 	};
 
+	const handleretention = () => {
+		navigate(`/${userInfo.langId}/${router.retention.root}`);
+	};
+
 	useEffect(() => {
 		getDisplayDrawPrizeList({ eventId: defEventId });
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -131,6 +138,18 @@ const LuckyWheel = () => {
 	return (
 		<>
 			<LuckyWheelTitle t={t} />
+			{retentionBonusCode && (
+				<div className="eventpage-tap">
+					<>
+						<button className="active">
+							{t("Label_Retention_LuckyWheel")}
+						</button>
+						<button onClick={handleretention}>
+							{t("Label_Retention_SurpriseReward")}
+						</button>
+					</>
+				</div>
+			)}
 
 			<LuckyWheelAnimation
 				displayDrawPrizeList={displayDrawPrizeList}

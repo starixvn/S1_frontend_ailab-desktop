@@ -25,32 +25,11 @@ export const defDepositOptions = ({
 		iconClass: "icon icon-library"
 	},
 	{
-		type: defDepositType.mobile,
-		isHide: !mobilePayGourpList.length,
-		depositDisplaykey: "lbl_MobileDeposit",
+		type: defDepositType.quickTransfer,
+		isHide: !quickTransferGroupList.length,
+		depositDisplaykey: "lbl_DepositType9",
 		creditTime: "lbl_Instant",
-		iconClass: "icon icon-mobile"
-	},
-	{
-		type: defDepositType.onlineBank,
-		isHide: !autoChannelBankGroupList.length,
-		depositDisplaykey: "lbl_OnlineBanking",
-		creditTime: "lbl_Instant",
-		iconClass: "icon icon-connection"
-	},
-	{
-		type: defDepositType.loadCard,
-		isHide: !loadCardPayGroupList.length,
-		depositDisplaykey: "lbl_TopUpCard",
-		creditTime: "lbl_Instant",
-		iconClass: "icon icon-topupCard"
-	},
-	{
-		type: defDepositType.cryptoPay,
-		depositDisplaykey: "lbl_CryptoPay",
-		isHide: !cryptoPayGroupList.length,
-		creditTime: "lbl_Instant",
-		iconClass: "icon icon-USDT"
+		iconClass: "icon-quick"
 	},
 	{
 		type: defDepositType.QRPay,
@@ -60,10 +39,31 @@ export const defDepositOptions = ({
 		iconClass: "icon icon-qrcode"
 	},
 	{
-		type: defDepositType.quickTransfer,
-		isHide: !quickTransferGroupList.length,
-		depositDisplaykey: "lbl_DepositType9",
+		type: defDepositType.onlineBank,
+		isHide: !autoChannelBankGroupList.length,
+		depositDisplaykey: "lbl_OnlineBanking",
 		creditTime: "lbl_Instant",
-		iconClass: "icon-quick"
+		iconClass: "icon icon-connection"
+	},
+	{
+		type: defDepositType.mobile,
+		isHide: !mobilePayGourpList.length,
+		depositDisplaykey: "lbl_MobileDeposit",
+		creditTime: "lbl_Instant",
+		iconClass: "icon icon-mobile"
+	},
+	{
+		type: defDepositType.cryptoPay,
+		depositDisplaykey: "lbl_CryptoPay",
+		isHide: !cryptoPayGroupList.length,
+		creditTime: "lbl_Instant",
+		iconClass: "icon icon-USDT"
+	},
+	{
+		type: defDepositType.loadCard,
+		isHide: !loadCardPayGroupList.length,
+		depositDisplaykey: "lbl_TopUpCard",
+		creditTime: "lbl_Instant",
+		iconClass: "icon icon-topupCard"
 	}
 ];
