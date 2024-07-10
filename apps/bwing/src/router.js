@@ -185,6 +185,9 @@ export default {
 	dragonEgg: {
 		root: "dragonEgg"
 	},
+	cockFighting: {
+		root: "cockFighting"
+	},
 	euroCup: {
 		root: "euro-cup"
 	},
