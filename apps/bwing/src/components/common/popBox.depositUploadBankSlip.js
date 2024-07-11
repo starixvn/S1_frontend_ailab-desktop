@@ -214,7 +214,7 @@ const PopBoxDepositUploadBankSlip = ({
 					}}
 				/>
 				{isShowReceiptInfo && (
-					<div className="smallList checkBankSlip">
+					<div className="smallList checkBankSlip bankaccount">
 						<div className="title">{t("lbl_BankAccount")}</div>
 						<div className="txt-lightgray">
 							{t("lbl_TransactionHint")}
