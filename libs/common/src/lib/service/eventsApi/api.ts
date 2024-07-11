@@ -1,10 +1,14 @@
 import { IAxiosResponse } from "../axiosBaseQuery";
 import { rootApi } from "../rootApi/api";
-import {
+import type {
 	ICheckPromotionMissionData,
 	IGetCustBlessingsStickerData,
 	IGetCustDrawPrizeListData,
-	IDrawPrizeData
+	IDrawPrizeData,
+	IGetLeaderBoardListMonthArgs,
+	ILeaderBoardMonthData,
+	IGetCustRankMonthArgs,
+	ICustRankMonthData
 } from "./type";
 
 const eventsApiUrl = {
@@ -13,7 +17,9 @@ const eventsApiUrl = {
 	getCustDrawPrizeList: "Events/GetCustDrawPrizeList",
 	drawPrize: "Events/DrawPrize",
 	multiDrawPrize: "Events/MultiDrawPrize",
-	claimNewYearBigPrize: "Events/ClaimNewYearBigPrize"
+	claimNewYearBigPrize: "Events/ClaimNewYearBigPrize",
+	getLeaderBoardListMonth: "Events/GetLeaderboardListMonth",
+	getCustRankMonth: "Events/GetCustRankMonth"
 };
 
 export const eventsApi = rootApi.injectEndpoints({
@@ -81,6 +87,26 @@ export const eventsApi = rootApi.injectEndpoints({
 				data: { eventId }
 			}),
 			invalidatesTags: ["DRAGONEGG_BLESSING"]
+		}),
+		getLeaderBoardListMonth: builder.query<
+			IAxiosResponse<ILeaderBoardMonthData[]>,
+			IGetLeaderBoardListMonthArgs
+		>({
+			query: data => ({
+				url: eventsApiUrl.getLeaderBoardListMonth,
+				method: "POST",
+				data
+			})
+		}),
+		getCustRankMonth: builder.query<
+			IAxiosResponse<ICustRankMonthData>,
+			IGetCustRankMonthArgs
+		>({
+			query: data => ({
+				url: eventsApiUrl.getCustRankMonth,
+				method: "POST",
+				data
+			})
 		})
 	})
 });
@@ -92,5 +118,7 @@ export const {
 	useLazyGetCustDrawPrizeListQuery,
 	useDrawPrizeMutation,
 	useMultiDrawPrizeMutation,
-	useClaimNewYearBigPrizeMutation
+	useClaimNewYearBigPrizeMutation,
+	useGetLeaderBoardListMonthQuery,
+	useGetCustRankMonthQuery
 } = eventsApi;

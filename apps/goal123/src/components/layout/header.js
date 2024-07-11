@@ -35,6 +35,7 @@ export default () => {
 	return (
 		<header>
 			<div className="header">
+				<div className='top'>
 				<div className="logo">
 					<div onClick={reload} style={{ cursor: "pointer " }}>
 						<img
@@ -75,6 +76,7 @@ export default () => {
 					<Functions />
 					{!isLogin && <LanguageDropDown />}
 				</div>
+					</div>
 				<HeaderNewMenu
 					menuList={menuList}
 					onClickProductItem={onClickProductItem}
