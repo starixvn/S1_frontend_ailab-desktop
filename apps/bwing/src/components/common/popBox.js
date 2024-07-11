@@ -63,7 +63,7 @@ export default () => {
 					localBankInfo={popBox.localBankInfo}
 					receiptInfo={popBox.receiptInfo}
 					resolve={popBox.resolve}
-					depositType={popBox.depositType}
+					isShowReceiptInfo={popBox.isShowReceiptInfo}
 				/>
 			);
 			break;

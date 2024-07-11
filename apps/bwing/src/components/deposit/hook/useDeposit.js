@@ -89,7 +89,7 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 		_isConvert,
 		langId,
 		receiptInfo = [],
-		depositType
+		isShowReceiptInfo
 	}) =>
 		new Promise(resolve => {
 			setPopBox({
@@ -103,7 +103,7 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 				localBankInfo,
 				receiptInfo,
 				resolve,
-				depositType
+				isShowReceiptInfo
 			});
 		});
 

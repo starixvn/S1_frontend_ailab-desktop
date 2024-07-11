@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
-import { WithReceiptInfoType } from "@ailab-desktop/common";
 import DateTime from "react-datetime";
 import ClipboardJS from "../../lib/clipboard.min";
 import Inputbox from "./inputbox";
@@ -17,10 +16,9 @@ const PopBoxDepositUploadBankSlip = ({
 	formInfo,
 	receiptInfo,
 	resolve,
-	depositType = 3
+	isShowReceiptInfo = true
 }) => {
 	const isMountedRef = useRef(null);
-	const isShowReceiptInfo = WithReceiptInfoType.includes(depositType) ?? true;
 
 	const [depositTime, setDepositTime] = useState({
 		value: moment(),
@@ -475,7 +473,7 @@ PopBoxDepositUploadBankSlip.propTypes = {
 
 	setPopBox: PropTypes.func.isRequired,
 	resolve: PropTypes.func.isRequired,
-	depositType: PropTypes.number.isRequired
+	isShowReceiptInfo: PropTypes.bool.isRequired
 };
 
 export default PopBoxDepositUploadBankSlip;

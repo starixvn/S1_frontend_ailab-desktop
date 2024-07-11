@@ -53,7 +53,7 @@ const DepositRecentHistory = ({
 		historyRefId,
 		historyDepositTime,
 		depositReceipt = [],
-		depositType
+		isShowReceiptInfo
 	) => {
 		const { bankName, bankSite } = bankInfo || {};
 		const { accountName, accountNo, code } = depositRep || {};
@@ -78,7 +78,7 @@ const DepositRecentHistory = ({
 			_isConvert,
 			langId: userInfo.langId,
 			receiptInfo: depositReceipt,
-			depositType
+			isShowReceiptInfo
 		});
 
 		if (uploadPopBoxResult.success) {
@@ -178,8 +178,7 @@ const DepositRecentHistory = ({
 				item.picFileName,
 				item.refId,
 				item.depositTime,
-				item.depositReceipt,
-				item.depositType
+				item.depositReceipt
 			)}
 			depositMessageDetail={item.depositMessageDetail}
 		/>
