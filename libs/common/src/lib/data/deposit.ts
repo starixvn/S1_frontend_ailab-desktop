@@ -5,8 +5,10 @@ export const DepositTypeEnum = {
 	CryptoPay: 4,
 	TopUpCard: 5,
 	QRPay: 6,
-	QuickTransfer: 7,
-	CryptoWallet: 8
+	BankAutoChannel: 7,
+	CryptoWallet: 8,
+	QuickTransfer: 9,
+	ChatTransfer: 10
 };
 
 export const AllowUploadReceiptType = [
