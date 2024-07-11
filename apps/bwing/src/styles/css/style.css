@@ -16270,7 +16270,10 @@ input + .iconModule i.icon.icon-checkmark:before {
       -ms-flex: 2;
           flex: 2;
 }
-.upload_new .checkBankSlip:nth-child(2) {
+.upload_new .checkBankSlip ul {
+  width: 100%;
+}
+.upload_new .bankaccount {
   border-right: 1px dotted #2B79F8;
   padding-right: 20px;
   -webkit-box-align: start;
@@ -16279,20 +16282,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-}
-@media (max-width: 800px) {
-  .upload_new .checkBankSlip:nth-child(2) {
-    border-right: 0;
-    border-bottom: 1px dotted #2B79F8;
-    padding-right: 0;
-    margin-bottom: 30px;
-    -webkit-box-align: center !important;
-        -ms-flex-align: center !important;
-            align-items: center !important;
-  }
-}
-.upload_new .checkBankSlip ul {
-  width: 100%;
 }
 
 .txt-red {
@@ -21173,7 +21162,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 .euro .mission-wrapper .mission-box .mission-item .mission-five .subtitle span {
   margin-top: 15px;
   font-size: 15px;
-  color: #6D83D8;
+  color: rgba(255, 255, 255, 0.9);
 }
 .euro .mission-wrapper .mission-box .mission-item .mission-five .stat-circle circle.bg {
   fill: none;
