@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { rankMap } from "./def";
-import { number_format } from "../common/common";
+import { numFormatToDigits } from "../common/common";
 import { bannerImgUrl } from "../../config";
 
 const TopWinner = ({ leaderBoardList }) => {
@@ -36,14 +36,7 @@ const TopWinner = ({ leaderBoardList }) => {
 										)}
 									</div>
 									<div>{userName}</div>
-									<div>
-										{number_format({
-											number: wTurnover,
-											formatRequired: false,
-											isConvertRequired: true,
-											digits: 0
-										})}
-									</div>
+									<div>{numFormatToDigits(wTurnover, 0)}</div>
 								</div>
 							)
 						)}
