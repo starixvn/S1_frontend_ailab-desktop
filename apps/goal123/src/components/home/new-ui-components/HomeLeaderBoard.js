@@ -20,7 +20,7 @@ const HomeLeaderBoard = () => {
 				<div className="user-data">
 					<span>{userName || ""}</span>
 					<span>
-						{wTurnover ? `${numFormatToDigits(wTurnover)}` : ""}
+						{wTurnover ? `${numFormatToDigits(wTurnover, 0)}` : ""}
 					</span>
 				</div>
 			</div>
@@ -146,7 +146,8 @@ const HomeLeaderBoard = () => {
 													<div className="right">
 														<span>
 															{numFormatToDigits(
-																wTurnover
+																wTurnover,
+																0
 															)}
 														</span>
 													</div>
