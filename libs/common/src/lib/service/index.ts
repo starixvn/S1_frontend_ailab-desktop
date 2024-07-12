@@ -8,6 +8,5 @@ export * from "./hotGameApi";
 export * from "./player";
 export * from "./gameApi";
 export * from "./paymentApi";
-export * from "./leaderboardApi";
 export * from "./eventsApi";
 export * from "./cupEventApi";
