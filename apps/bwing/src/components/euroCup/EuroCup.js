@@ -137,6 +137,7 @@ const EuroCup = () => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Modal,
+				title: t("lbl_ImportantNote"),
 				content: (
 					<div id="popup" className="active">
 						<div className="submitpop score">
