@@ -119,7 +119,8 @@ const QRPayForm = ({
 								item.groupId === groupIdForRecord
 									? "active"
 									: ""
-							}>
+							}
+						>
 							<div>
 								<img
 									alt={item.groupName}
@@ -173,7 +174,8 @@ const QRPayForm = ({
 										infoChannelIdForRecord
 											? "active"
 											: ""
-									}>
+									}
+								>
 									<div>
 										<img
 											alt={item.groupName}
@@ -186,19 +188,15 @@ const QRPayForm = ({
 
 									<div className="bank">
 										<div>{item.channelName}</div>
-
-										<div className="bank">
-											<div>{item.channelName}</div>
-											<div>{`${number_format({
-												number: item.minAmount,
-												formatRequired: false,
-												digits: 0
-											})}~${number_format({
-												number: item.maxAmount,
-												formatRequired: false,
-												digits: 0
-											})}`}</div>
-										</div>
+										<div>{`${number_format({
+											number: item.minAmount,
+											formatRequired: false,
+											digits: 0
+										})}~${number_format({
+											number: item.maxAmount,
+											formatRequired: false,
+											digits: 0
+										})}`}</div>
 									</div>
 								</button>
 							))}
