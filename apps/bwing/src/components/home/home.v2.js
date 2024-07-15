@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
 import { defTpGameType, isDateRange, products } from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
+import classNames from "classnames";
 import useMenu from "../hook/useMenu";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
 import path from "../../router";
@@ -102,7 +103,8 @@ const Home = () => {
 							className="btn-gray"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							OK
 						</button>
 					</div>
@@ -130,7 +132,8 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -186,7 +189,8 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -208,7 +212,8 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -235,7 +240,8 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -402,7 +408,8 @@ const Home = () => {
 													navigate(
 														`/${path.promotion.root}?bonusCode=${bonusCode}`
 													);
-												}}>
+												}}
+											>
 												{t("lbl_Promotion_ClaimNow")}
 											</button>
 
@@ -459,7 +466,8 @@ const Home = () => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								closePopBox();
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -505,7 +513,8 @@ const Home = () => {
 				<div
 					className={classNames("eventLink vgaming", {
 						eurocup: isDateRange(eventPerios.euroCup)
-					})}>
+					})}
+				>
 					<button
 						style={{ zIndex: 50 }}
 						className="icon-close-primary"
