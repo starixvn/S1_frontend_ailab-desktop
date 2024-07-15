@@ -65,7 +65,7 @@ const NewHome = () => {
 				<LuckyWheelLink />
 				{isDateRange(eventPeriods.dragonEgg) && <DragonEgg />}
 				{isDateRange(eventPeriods.euroCup) && <CupEventLink />}
-				{isDateRange(eventPeriods.euroCup) && <VgamingLink />}
+				<VgamingLink />
 				<MysteryBoxLink
 					to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 					langId={userInfo.langId}
