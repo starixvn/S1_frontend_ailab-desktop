@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React, { ReactNode } from "react";
 import useModal from "./useModal";
 

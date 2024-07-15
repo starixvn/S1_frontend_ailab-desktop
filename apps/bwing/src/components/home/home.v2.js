@@ -408,8 +408,7 @@ const Home = () => {
 																	`/${path.promotion.root}?bonusCode=${bonusCode}`
 																);
 															}
-														}}
-													>
+														}}>
 														{t(
 															"lbl_Promotion_ClaimNow"
 														)}

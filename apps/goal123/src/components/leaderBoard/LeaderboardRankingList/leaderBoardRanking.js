@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
+import { CountdownTimer } from "@ailab-desktop/components";
 import { products, useLeaderBoard } from "@ailab-desktop/common";
 import useMenu from "../../hook/useMenu";
 import { bannerImgUrl } from "../../../config";
@@ -12,19 +13,10 @@ import { numFormatToDigits } from "../../common/common";
 const LeaderBoardRanking = () => {
 	const { t } = useTranslation();
 	const { getFormattedUpdateTime, userRank, rankList } = useLeaderBoard();
-
-	/** 本月倒數時間 */
-	const [timeLeft, setTimeLeft] = useState({
-		days: 0,
-		hours: 0,
-		minutes: 0,
-		seconds: 0
-	});
-
 	const { custRank, point } = userRank || {};
-	const { days, hours, minutes, seconds } = timeLeft || {};
-
 	const hasRankList = rankList.length > 0;
+	/** 每月的最後一天 ISO 格式 */
+	const endOfMonthISO = moment().endOf("month").toISOString();
 
 	const { onClickProductItem } = useMenu();
 	const { userInfo } = useContext(userInfoContext);
@@ -45,61 +37,49 @@ const LeaderBoardRanking = () => {
 		);
 	};
 
-	/** 計算離本月結算的倒數時間 */
-	useEffect(() => {
-		const calculateTimeLeft = () => {
-			const now = moment();
-			const endOfMonth = moment().endOf("month");
-			const diff = endOfMonth.diff(now);
-			const calSeconds = Math.floor((diff / 1000) % 60);
-			const calMinutes = Math.floor((diff / 1000 / 60) % 60);
-			const calHours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-			const calDays = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-			setTimeLeft({
-				days: calDays,
-				hours: calHours,
-				minutes: calMinutes,
-				seconds: calSeconds
-			});
-		};
-		const interval = setInterval(calculateTimeLeft, 1000);
-		return () => clearInterval(interval);
-	}, []);
-
 	return (
 		<div className="leaderboard-ranking">
-			<div className="countdown">
-				<div className="countdown-item">
-					<div className="title">
-						{t("lbl_Leaderboard_Remaining_Time")}
-					</div>
-					<div className="countdown-time">
-						<div className="list">
-							<span>{days}</span>
-							{t("lbl_Days")}
+			<CountdownTimer
+				endTime={endOfMonthISO}
+				renderHTMLCallback={timeLeft => {
+					const { days, hours, minutes, seconds } = timeLeft;
+					return (
+						<div className="countdown">
+							<div className="countdown-item">
+								<div className="title">
+									{t("lbl_Leaderboard_Remaining_Time")}
+								</div>
+								<div className="countdown-time">
+									<div className="list">
+										<span>{days}</span>
+										{t("lbl_Days")}
+									</div>
+									<div className="list">
+										<span>{hours}</span>
+										{t("lbl_Hours")}
+									</div>
+									<div className="list">
+										<span>{minutes}</span>
+										{t("lbl_Minutes")}
+									</div>
+									<div className="list">
+										<span>{seconds}</span>
+										{t("lbl_Seconds")}
+									</div>
+								</div>
+							</div>
+							<button
+								onClick={() =>
+									onClickProductItem(products.Soccer)
+								}
+								className="btn-bet"
+							>
+								{t("lbl_BetNow")}
+							</button>
 						</div>
-						<div className="list">
-							<span>{hours}</span>
-							{t("lbl_Hours")}
-						</div>
-						<div className="list">
-							<span>{minutes}</span>
-							{t("lbl_Minutes")}
-						</div>
-						<div className="list">
-							<span>{seconds}</span>
-							{t("lbl_Seconds")}
-						</div>
-					</div>
-				</div>
-				<button
-					onClick={() => onClickProductItem(products.Soccer)}
-					className="btn-bet"
-				>
-					{t("lbl_BetNow")}
-				</button>
-			</div>
+					);
+				}}
+			/>
 			<div className="board">
 				<LeaderboardDateCountdown />
 				<div className="winner-total">
