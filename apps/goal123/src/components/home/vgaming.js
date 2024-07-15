@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { products } from "@ailab-desktop/common";
+import { products, isDateRange } from "@ailab-desktop/common";
+import classNames from "classnames";
+import { eventPeriods } from "../../datas/eventDef";
 import useClickItem from "./hooks/useClickItem";
 
 const VgamingLink = () => {
@@ -11,7 +13,11 @@ const VgamingLink = () => {
 		return null;
 	}
 	return (
-		<div className="eventLink vgaming" style={{ cursor: "pointer" }}>
+		<div
+			className={classNames("eventLink vgaming", {
+				eurocup: isDateRange(eventPeriods.euroCup)
+			})}
+			style={{ cursor: "pointer" }}>
 			<button
 				className="icon icon-close"
 				onClick={() => setDisplayVgaming(false)}
