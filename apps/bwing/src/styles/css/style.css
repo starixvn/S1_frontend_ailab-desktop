@@ -19493,6 +19493,43 @@ input + .iconModule i.icon.icon-checkmark:before {
   z-index: 1;
 }
 
+.mywheel {
+  position: fixed;
+  bottom: 240px;
+  left: 27px;
+  z-index: 2;
+}
+.mywheel .icon-close-primary {
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+.mywheel .icon-close-primary::before {
+  width: 30px;
+  height: 30px;
+}
+.mywheel img {
+  position: absolute;
+}
+@keyframes mysteryImg {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: brightness(90%);
+            filter: brightness(90%);
+  }
+  100% {
+    -webkit-transform: scale(0.92);
+            transform: scale(0.92);
+    -webkit-filter: brightness(150%);
+            filter: brightness(150%);
+  }
+}
+.mywheel .mywheelImg {
+  width: 160px;
+  z-index: 1;
+}
+
 .dragonegg img {
   -webkit-animation: dragonegg 1s ease-in-out 0s infinite normal none;
           animation: dragonegg 1s ease-in-out 0s infinite normal none;
