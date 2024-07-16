@@ -17,7 +17,10 @@ export const AllowUploadReceiptType = [
 	DepositTypeEnum.QuickTransfer,
 	DepositTypeEnum.CryptoPay,
 	DepositTypeEnum.CryptoWallet,
-	DepositTypeEnum.MobilePayment
+	DepositTypeEnum.MobilePayment,
+	DepositTypeEnum.ChatTransfer,
+	DepositTypeEnum.BankAutoChannel,
+	DepositTypeEnum.TopUpCard
 ];
 
 // 只有 BankTransfer 才有銀行相關資料需要顯示 (goal 發現目前沒有顯示，所以只有 bwing 需要)

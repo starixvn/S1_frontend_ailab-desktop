@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
+import classNames from "classnames";
 import { defTpGameType, isDateRange, products } from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
 import useMenu from "../hook/useMenu";
