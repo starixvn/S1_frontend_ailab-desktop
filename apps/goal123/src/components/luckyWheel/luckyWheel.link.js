@@ -12,8 +12,6 @@ const isInPeriod = isDateRange(startDate, endDate);
 
 const LuckyWheelLink = ({ type }) => {
 	const [display, setDisplay] = useState(true);
-	const [spinImgOnLoad, setSpinImgOnLoad] = useState(false);
-	const [innerImgOnLoad, setInnerImgOnLoad] = useState(false);
 	const { userInfo } = useContext(userInfoContext);
 
 	if (!isInPeriod || !display) return null;
@@ -31,26 +29,16 @@ const LuckyWheelLink = ({ type }) => {
 		);
 
 	return (
-		<div className="eventLink wheel">
-			{spinImgOnLoad && innerImgOnLoad && (
-				<button
-					className="icon icon-close"
-					onClick={() => setDisplay(false)}
-				/>
-			)}
-
+		<div className="eventLink luckywheel">
+			<button
+				className="icon icon-close"
+				onClick={() => setDisplay(false)}
+			/>
 			<Link to={`/${userInfo.langId}/${path.luckyWheel.root}`}>
 				<img
 					className="spin"
-					src={`${bannerImgUrl}/desktop/img/event/wheel/eventlink/spin.png`}
-					alt="spin"
-					onLoad={() => setSpinImgOnLoad(true)}
-				/>
-				<img
-					className="inner"
-					src={`${bannerImgUrl}/desktop/img/event/wheel/eventlink/inner.png`}
-					alt="inner"
-					onLoad={() => setInnerImgOnLoad(true)}
+					src={`${bannerImgUrl}/desktop/img/event/retention/entrance.gif`}
+					alt="retention-entrance"
 				/>
 			</Link>
 		</div>

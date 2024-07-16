@@ -177,5 +177,8 @@ export default {
 	},
 	ambassador: {
 		root: "ambassador"
+	},
+	retention: {
+		root: "retention"
 	}
 };
