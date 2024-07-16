@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
 import { defTpGameType, isDateRange, products } from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
+import classNames from "classnames";
 import useMenu from "../hook/useMenu";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
 import path from "../../router";
