@@ -190,5 +190,8 @@ export default {
 	},
 	euroCup: {
 		root: "euro-cup"
+	},
+	retention: {
+		root: "retention"
 	}
 };
