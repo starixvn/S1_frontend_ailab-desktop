@@ -168,8 +168,8 @@ const Content = () => {
 		picFileName,
 		depositReceipt
 	) => {
-		const { bankName } = bankInfo;
-		const { accountName, accountNo } = depositRep;
+		const { bankName } = bankInfo || {};
+		const { accountName, accountNo } = depositRep || {};
 
 		const uploadPopBoxResult = await asyncUploadBankPopBox({
 			formInfo: {
