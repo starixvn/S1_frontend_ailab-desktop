@@ -48,7 +48,8 @@ export default () => {
 								navigate(
 									`/${userInfo.langId}/${path.euroCup.root}`
 								)
-							}>
+							}
+						>
 							<img
 								src={`${bannerImgUrl}/desktop/img/event/eurocup/euro-logo-gif.webp`}
 								alt="euro-logo-gif"

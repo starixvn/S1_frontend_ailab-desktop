@@ -193,7 +193,7 @@ export default {
 	},
 	retention: {
 		root: "retention"
-		},
+	},
 	leaderboard: {
 		root: "leaderboard"
 	}

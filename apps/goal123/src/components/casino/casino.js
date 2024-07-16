@@ -43,6 +43,7 @@ export default () => {
 	const [favoriteStr, setFavoriteStr] = useState(
 		localStorage.getItem("favorite")
 	);
+	const [newGamesArr, setNewGamesArr] = useState([]);
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -57,6 +58,7 @@ export default () => {
 	const urlJackpotPage = getUrlParameter("page");
 
 	const slidesPerViewNum = 9;
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -159,6 +161,28 @@ export default () => {
 		}
 	}, [activeProvider]);
 
+	// 一進畫面就先把新遊戲的gameId存在陣列
+	useEffect(() => {
+		categoryList.forEach(items => {
+			if (Object.keys(items)[0] === "new") {
+				const _gameIdArr = items.new.map(item => item.gameId);
+				setNewGamesArr(_gameIdArr);
+			}
+		});
+	}, [categoryList]);
+
+	// 找到featured分類的位置，如果根本就沒有featured，就統一顯示all的遊戲
+	const featuredIndex = categoryList.findIndex(value => {
+		return Object.keys(value)[0] === "featured";
+	});
+	useEffect(() => {
+		if (featuredIndex !== -1) {
+			setActiveCategory("featured");
+		} else {
+			setActiveCategory("all");
+		}
+	}, [featuredIndex]);
+
 	const loadMore = () => {
 		if (allGames && pageInfo.totalPages > pageInfo.currentPage) {
 			setPageInfo(prev => ({
@@ -172,8 +196,9 @@ export default () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const randomArray = array => array.sort(() => Math.random() - 0.5);
-
+	const randomArray = array => {
+		return array?.sort(() => Math.random() - 0.5);
+	};
 	const onChangeCategory = categoryName => {
 		let _displayGames = categoryList.filter(
 			item => Object.keys(item)[0] === categoryName
@@ -413,10 +438,6 @@ export default () => {
 					if (urlJackpotPage && urlJackpotPage === "jackpot") {
 						setActiveCategory("jackpot");
 						navigate(window.location.pathname, { replace: true });
-					} else {
-						setActiveCategory(
-							activeCategory ?? Object.keys(resultList[1])[0]
-						);
 					}
 
 					setIsProcessing(false);
@@ -615,6 +636,7 @@ export default () => {
 							getTpGameType={getTpGameType}
 							activeCategory={activeCategory}
 							favoriteStr={favoriteStr ?? ""}
+							newGamesArr={newGamesArr}
 						/>
 					</div>
 				</div>
