@@ -45,7 +45,8 @@ const HeaderMainMenu = ({ setMenuKey, currentMenuKey, menuList }) => {
 				className={classNames({ active })}
 				key={lobbyCategoryId}
 				to={`/${userInfo?.langId}/${mainMenuItem?.path}`}
-				onMouseOver={() => setMenuKey(lobbyCategoryId)}>
+				onMouseOver={() => setMenuKey(lobbyCategoryId)}
+			>
 				<i className={icon} />
 				{t(mainMenuItem?.displayKey).toUpperCase()}
 				{data?.length > 0 && (
@@ -59,7 +60,8 @@ const HeaderMainMenu = ({ setMenuKey, currentMenuKey, menuList }) => {
 		<>
 			<Link
 				className={classNames({ active: currentMenuKey === "home" })}
-				to={`/${userInfo.langId}`}>
+				to={`/${userInfo.langId}`}
+			>
 				<i className="icon-home-white" />
 			</Link>
 			{menus}
@@ -78,12 +80,16 @@ const HeaderMainMenu = ({ setMenuKey, currentMenuKey, menuList }) => {
 
 				{t("lbl_Promotions").toUpperCase()}
 			</Link>
-			<a
+			<Link
 				href={siteInfo({ langId: userInfo.langId }).affiliateLink}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_Affiliates")?.toUpperCase()}
-			</a>
+			</Link>
+			<Link to={`/${userInfo?.langId}/${path.leaderboard.root}`}>
+				{t("lbl_leaderBoard")?.toUpperCase()}
+			</Link>
 		</>
 	);
 };
