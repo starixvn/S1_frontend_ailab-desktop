@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { isDateRange } from "@ailab-desktop/common";
+import { isDateRange, LeaderboardProvider } from "@ailab-desktop/common";
 import { userInfoContext } from "../common/context";
 import { BannerSwipper } from "../common/customSwipper";
 import { defBannerType } from "../../service/api/site";
 import HomeJoin from "./new-ui-components/HomeJoin";
 import HomeHotGames from "./new-ui-components/HomeHotGames";
 import HomeSportMatches from "./new-ui-components/HomeSportMatches";
+import { siteId } from "../../config";
 import HomePopularSlotGames from "./new-ui-components/HomePopularSlotGames";
 import HomeInfo from "./new-ui-components/HomeInfo";
 import HomeAppDownload from "./new-ui-components/HomeAppDownload";
@@ -50,7 +51,12 @@ const NewHome = () => {
 				<HomeSportMatches />
 				<HomeHotGames />
 				<HomePopularSlotGames />
-				<HomeLeaderBoard />
+
+				{/* 首頁的 HomeLeaderBoard 比 leaderboard 頁面更早開發（但功能相同），由於 PM 希望內頁與首頁的資料顯示一致，
+                    為了避免相同邏輯分散在兩個頁面，所以將後期開發的 LeaderboardProvider 包裹 HomeLeaderBoard，共享相同的資料與 API。 */}
+				<LeaderboardProvider siteId={siteId} userInfo={userInfo}>
+					<HomeLeaderBoard />
+				</LeaderboardProvider>
 				<HomeInfo />
 				<HomeRecentViewedGames />
 				<HomeAppDownload />

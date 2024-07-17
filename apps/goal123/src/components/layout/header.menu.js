@@ -31,29 +31,33 @@ const HeaderNewMenu = ({ menuList = [], onClickProductItem }) => {
 	}, []);
 
 	return (
-		<div
-			className="menu"
-			onMouseLeave={() => {
-				setMenuKey("");
-			}}>
-			<HeaderMainMenu
-				setMenuKey={setMenuKey}
-				currentMenuKey={menuKey}
-				menuList={menuList}
-				onClickProductItem={onClickProductItem}
-			/>
+		<div className="bottom">
 			<div
-				className={classNames("submenu-wrapper", {
-					active: true
-				})}
-				onMouseLeave={handleMoveToOutside}
-				ref={subMenuRef}
-				onClick={() => setMenuKey("")}>
-				<HeaderSubMenu
+				className="menu"
+				onMouseLeave={() => {
+					setMenuKey("");
+				}}
+			>
+				<HeaderMainMenu
+					setMenuKey={setMenuKey}
 					currentMenuKey={menuKey}
 					menuList={menuList}
 					onClickProductItem={onClickProductItem}
 				/>
+				<div
+					className={classNames("submenu-wrapper", {
+						active: true
+					})}
+					onMouseLeave={handleMoveToOutside}
+					ref={subMenuRef}
+					onClick={() => setMenuKey("")}
+				>
+					<HeaderSubMenu
+						currentMenuKey={menuKey}
+						menuList={menuList}
+						onClickProductItem={onClickProductItem}
+					/>
+				</div>
 			</div>
 		</div>
 	);

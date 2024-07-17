@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import {
@@ -28,6 +28,8 @@ const HeaderMainMenu = ({
 	menuList,
 	onClickProductItem
 }) => {
+	const [hover, setHover] = useState(false);
+
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -96,7 +98,8 @@ const HeaderMainMenu = ({
 										})
 						}
 						onMouseOver={() => setMenuKey(lobbyCategoryId)}
-						onFocus={() => 0}>
+						onFocus={() => 0}
+					>
 						<i className={icon} />
 						{t(mainMenuItem?.displayKey).toUpperCase()}
 					</button>
@@ -109,7 +112,8 @@ const HeaderMainMenu = ({
 				className={classNames({ active })}
 				key={lobbyCategoryId}
 				to={`/${userInfo?.langId}/${mainMenuItem?.path}`}
-				onMouseOver={() => setMenuKey(lobbyCategoryId)}>
+				onMouseOver={() => setMenuKey(lobbyCategoryId)}
+			>
 				<i className={icon} />
 				{t(mainMenuItem?.displayKey).toUpperCase()}
 			</Link>
@@ -119,14 +123,14 @@ const HeaderMainMenu = ({
 	return (
 		<>
 			<Link
-				className={classNames({ active: currentMenuKey === "home" })}
-				to={`/${userInfo.langId}`}>
+				className={classNames({
+					active: currentMenuKey === "home"
+				})}
+				to={`/${userInfo.langId}`}
+			>
 				<i className="icon icon-home" />
 			</Link>
 			{menus}
-			<Link to={`/${userInfo?.langId}/${path.vip.root}`}>
-				{t("lbl_Vip").toUpperCase()}
-			</Link>
 			<Link to={`/${userInfo?.langId}/${path.promotion.root}`}>
 				<i
 					className={classNames({
@@ -138,9 +142,38 @@ const HeaderMainMenu = ({
 				/>
 				{t("lbl_Promotions").toUpperCase()}
 			</Link>
-			<Link to={`/${userInfo?.langId}/${path.ambassador.root}`}>
-				{t("lbl_Ambassador")}
-			</Link>
+			<div
+				className={hover ? "select-menu active" : "select-menu"}
+				onMouseEnter={() => setHover(true)}
+				onMouseLeave={() => setHover(false)}
+			>
+				<div className="select-btn">
+					<i className="icon-select-btn" />
+				</div>
+				{hover && (
+					<div className="select-dropdown">
+						<Link
+							to={`/${userInfo?.langId}/${path.vip.root}`}
+							onClick={() => setHover(false)} // Optional: Close dropdown on link click
+						>
+							{t("lbl_Vip").toUpperCase()}
+						</Link>
+						<Link
+							to={`/${userInfo?.langId}/${path.ambassador.root}`}
+							onClick={() => setHover(false)} // Optional: Close dropdown on link click
+						>
+							{t("lbl_Ambassador")}
+						</Link>
+
+						<Link
+							to={`/${userInfo?.langId}/${path.leaderBoard.root}`}
+							onClick={() => setHover(false)} // Optional: Close dropdown on link click
+						>
+							{t("lbl_LeaderBoard")}
+						</Link>
+					</div>
+				)}
+			</div>
 		</>
 	);
 };
