@@ -143,9 +143,6 @@ export default {
 	howToPlay: {
 		root: "howToPlay"
 	},
-	leaderBoard: {
-		root: "leaderBoard"
-	},
 	referral: {
 		root: "referral"
 	},
@@ -191,10 +188,10 @@ export default {
 	euroCup: {
 		root: "euro-cup"
 	},
-	leaderboard: {
-		root: "leaderboard"
-	},
 	retention: {
 		root: "retention"
+	},
+	leaderBoard: {
+		root: "leaderBoard"
 	}
 };
