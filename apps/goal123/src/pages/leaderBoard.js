@@ -11,7 +11,6 @@ export default () => {
 				<main className="leaderboard">
 					<LeaderBoard />
 				</main>
-
 				<HomeFooter />
 			</Layout>
 		</Wrapper>
