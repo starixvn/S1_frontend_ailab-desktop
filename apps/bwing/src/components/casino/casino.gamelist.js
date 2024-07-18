@@ -20,7 +20,8 @@ const GameList = ({
 	getTpGameType,
 	activeCategory,
 	favoriteStr,
-	activeProvider
+	activeProvider,
+	newGamesArr
 }) => {
 	const { setPopBox } = usePopBox();
 	const inViewRef = useInView(() => onLoadMore());
@@ -28,16 +29,23 @@ const GameList = ({
 		displayGames &&
 		displayGames
 			?.filter(g => filterJudge(g))
-			// If have sort in game object then sort when in active provider
-			.sort((a, b) => {
-				if (
-					activeProvider.tpId === a.tpId &&
-					activeProvider.tpId === b.tpId
-				) {
-					return a?.sort > b?.sort ? 1 : -1;
-				}
-				return true;
-			})
+			.sort(() => Math.random() - 0.5) // 隨機排列遊戲列表
+			// 次早：原先為按照發佈時間順序排列：
+			// .sort((a, b) => {
+			// 	return (
+			// 		new Date(b.launchDate).getTime() -
+			// 		new Date(a.launchDate).getTime()
+			// 	);
+
+			// 最早：原始的排序方式（先保留以防ＰＭ需改回）
+			// if (
+			// 	activeProvider.tpId === a.tpId &&
+			// 	activeProvider.tpId === b.tpId
+			// ) {
+			// 	return a?.sort > b?.sort ? 1 : -1;
+			// }
+			// return true;
+			// })
 			?.slice(startIdx, endIdx)
 			?.map(g => {
 				const imgName = g.imgName[langId]
@@ -93,8 +101,7 @@ const GameList = ({
 															getTpGameType(g)
 																.tpGameType
 													})
-												}
-											>
+												}>
 												{t("lbl_Play")}
 											</button>
 											{g.playFree ? (
@@ -113,8 +120,7 @@ const GameList = ({
 																getTpGameType(g)
 																	.tpGameType
 														})
-													}
-												>
+													}>
 													{t("lbl_Demo")}
 												</button>
 											) : null}
@@ -131,14 +137,14 @@ const GameList = ({
 
 				const slotProductItemStyle = () => {
 					if (getIsInMaintain(g)) {
-						if (activeCategory === "new") {
+						if (newGamesArr.includes(g.gameId)) {
 							return "tag-new maintain";
 						}
 
 						return "maintain";
 					}
 
-					if (activeCategory === "new") {
+					if (newGamesArr.includes(g.gameId)) {
 						return "tag-new";
 					}
 					return "";
@@ -149,8 +155,7 @@ const GameList = ({
 						className={`slots-products-item ${slotProductItemStyle()}`}
 						style={_style}
 						key={`casino-game-${g.tpId}-${g.gameId}`}
-						onClick={openSlotProductPopBox}
-					>
+						onClick={openSlotProductPopBox}>
 						<button
 							className={`${
 								isFavorite
@@ -203,7 +208,8 @@ GameList.defaultProps = {
 	getIsInMaintain: () => null,
 	getTpGameType: () => null,
 	activeCategory: null,
-	activeProvider: null
+	activeProvider: null,
+	newGamesArr: null
 };
 
 GameList.propTypes = {
@@ -222,7 +228,8 @@ GameList.propTypes = {
 	getTpGameType: PropTypes.func,
 	activeCategory: PropTypes.string,
 	favoriteStr: PropTypes.string.isRequired,
-	activeProvider: PropTypes.objectOf(PropTypes.any)
+	activeProvider: PropTypes.objectOf(PropTypes.any),
+	newGamesArr: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default GameList;
