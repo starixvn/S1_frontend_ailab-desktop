@@ -87,7 +87,7 @@ const HeaderMainMenu = ({ setMenuKey, currentMenuKey, menuList }) => {
 			>
 				{t("lbl_Affiliates")?.toUpperCase()}
 			</Link>
-			<Link to={`/${userInfo?.langId}/${path.leaderboard.root}`}>
+			<Link to={`/${userInfo?.langId}/${path.leaderBoard.root}`}>
 				{t("lbl_leaderBoard")?.toUpperCase()}
 			</Link>
 		</>
