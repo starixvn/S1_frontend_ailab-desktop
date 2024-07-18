@@ -140,9 +140,6 @@ export default {
 	howToPlay: {
 		root: "howToPlay"
 	},
-	leaderBoard: {
-		root: "leaderBoard"
-	},
 	referral: {
 		root: "referral"
 	},
@@ -194,7 +191,7 @@ export default {
 	retention: {
 		root: "retention"
 	},
-	leaderboard: {
-		root: "leaderboard"
+	leaderBoard: {
+		root: "leaderBoard"
 	}
 };
