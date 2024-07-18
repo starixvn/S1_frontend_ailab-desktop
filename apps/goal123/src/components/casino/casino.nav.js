@@ -2,9 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { defNav } from "./casino.def";
+import { moveItem } from "../../../../../libs/common/src/lib/utils/tools";
 
 const Nav = ({ categoryList, activeCategory, onChange, t, isProcessing }) => {
-	const rows = categoryList.map(item => {
+	// 找出featured的位置
+	const featuredIdx = categoryList.findIndex(value => {
+		return Object.keys(value)[0] === "featured";
+	});
+	// 將featured排序往前
+	const newCategoryList =
+		categoryList && moveItem(categoryList, featuredIdx, 1);
+	const rows = newCategoryList.map(item => {
 		let _key = Object.keys(item)[0];
 		_key = _key.charAt(0).toUpperCase() + _key.slice(1);
 		const _nav = defNav[_key];

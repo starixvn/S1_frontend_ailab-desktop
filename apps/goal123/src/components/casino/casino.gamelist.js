@@ -18,7 +18,8 @@ const GameList = ({
 	getTpGameType,
 	activeCategory,
 	favoriteStr,
-	activeProvider
+	activeProvider,
+	newGamesArr
 }) => {
 	const inViewRef = useInView(() => onLoadMore());
 	let _imgUrl = "";
@@ -26,16 +27,23 @@ const GameList = ({
 		displayGames &&
 		displayGames
 			?.filter(g => filterJudge(g))
-			// If have sort in game object then sort when in active provider
-			.sort((a, b) => {
-				if (
-					activeProvider.tpId === a.tpId &&
-					activeProvider.tpId === b.tpId
-				) {
-					return a?.sort > b?.sort ? 1 : -1;
-				}
-				return true;
-			})
+			.sort(() => Math.random() - 0.5) // 隨機排列遊戲列表
+			// 次早：原先為按照發佈時間順序排列：
+			// .sort((a, b) => {
+			// 	return (
+			// 		new Date(b.launchDate).getTime() -
+			// 		new Date(a.launchDate).getTime()
+			// 	);
+
+			// 最早：原始的排序方式（先保留以防ＰＭ需改回）
+			// if (
+			// 	activeProvider.tpId === a.tpId &&
+			// 	activeProvider.tpId === b.tpId
+			// ) {
+			// 	return a?.sort > b?.sort ? 1 : -1;
+			// }
+			// return true;
+			// })
 			?.slice(startIdx, endIdx)
 			?.map(g => {
 				const imgName = g.imgName[langId]
@@ -63,8 +71,7 @@ const GameList = ({
 					<div
 						className={getIsInMaintain(g) ? "active" : ""}
 						style={_style}
-						key={`casino-game-${g.tpId}-${g.gameId}`}
-					>
+						key={`casino-game-${g.tpId}-${g.gameId}`}>
 						{getIsInMaintain(g) ? (
 							<div className="maintenance">
 								{t("lbl_underMaintenance")}
@@ -76,7 +83,9 @@ const GameList = ({
 
 						<div
 							className={`icon ${
-								activeCategory === "new" ? "icon-new" : ""
+								newGamesArr?.includes(g.gameId)
+									? "icon-new"
+									: ""
 							}`}
 						/>
 
@@ -108,8 +117,7 @@ const GameList = ({
 										isInMaintain: getIsInMaintain(g),
 										tpGameType: getTpGameType(g).tpGameType
 									})
-								}
-							>
+								}>
 								{t("lbl_Play")}
 							</button>
 
@@ -126,8 +134,7 @@ const GameList = ({
 											tpGameType:
 												getTpGameType(g).tpGameType
 										})
-									}
-								>
+									}>
 									{t("lbl_Demo")}
 								</button>
 							) : null}
@@ -161,7 +168,8 @@ GameList.defaultProps = {
 	getIsInMaintain: () => null,
 	getTpGameType: () => null,
 	activeCategory: null,
-	activeProvider: null
+	activeProvider: null,
+	newGamesArr: null
 };
 
 GameList.propTypes = {
@@ -180,7 +188,8 @@ GameList.propTypes = {
 	getTpGameType: PropTypes.func,
 	activeCategory: PropTypes.string,
 	favoriteStr: PropTypes.string.isRequired,
-	activeProvider: PropTypes.objectOf(PropTypes.any)
+	activeProvider: PropTypes.objectOf(PropTypes.any),
+	newGamesArr: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default GameList;
