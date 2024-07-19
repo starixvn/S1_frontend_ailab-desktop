@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
+import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
 import {
@@ -8,7 +9,6 @@ import {
 	LeaderboardProvider
 } from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
-import classNames from "classnames";
 import useMenu from "../hook/useMenu";
 import path from "../../router";
 import {
@@ -92,7 +92,6 @@ const Home = () => {
 	const vGamingItem = products.Vgaming;
 
 	const handleClickHomeProduct = product => {
-		// console.log(product);
 		// * 為靜態遊戲檢查的 isInMaintain
 		const isInMaintain = allMaintainList?.some(
 			mt =>

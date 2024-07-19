@@ -27,61 +27,6 @@ const HomeLeaderBoard = () => {
 		);
 	};
 
-	// 目前api只有前三名 這邊測試用 之後刪除
-
-	// const dummyData = [
-	// 	{
-	// 		custId: 1,
-	// 		userName: "test1",
-	// 		wTurnover: 100
-	// 	},
-	// 	{
-	// 		custId: 2,
-	// 		userName: "test2",
-	// 		wTurnover: 200
-	// 	},
-	// 	{
-	// 		custId: 3,
-	// 		userName: "test3",
-	// 		wTurnover: 300
-	// 	},
-	// 	{
-	// 		custId: 4,
-	// 		userName: "test4",
-	// 		wTurnover: 400
-	// 	},
-	// 	{
-	// 		custId: 5,
-	// 		userName: "test5",
-	// 		wTurnover: 500
-	// 	},
-	// 	{
-	// 		custId: 6,
-	// 		userName: "test6",
-	// 		wTurnover: 600
-	// 	},
-	// 	{
-	// 		custId: 7,
-	// 		userName: "test7",
-	// 		wTurnover: 700
-	// 	},
-	// 	{
-	// 		custId: 8,
-	// 		userName: "test8",
-	// 		wTurnover: 800
-	// 	},
-	// 	{
-	// 		custId: 9,
-	// 		userName: "test9",
-	// 		wTurnover: 900
-	// 	},
-	// 	{
-	// 		custId: 10,
-	// 		userName: "test10",
-	// 		wTurnover: 1000
-	// 	}
-	// ];
-
 	TopThreeWinner.propTypes = {
 		winner: PropTypes.shape({
 			userName: PropTypes.string,

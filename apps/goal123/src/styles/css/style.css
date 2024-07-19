@@ -193,19 +193,6 @@ html.Newtheme header .logo.eurocup-logo::before {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-html.Newtheme header .logo.eurocup-logo::before {
-  content: "";
-  display: inline-block;
-  width: 1.5px;
-  height: 40px;
-  border-radius: 10px;
-  background-color: #fff;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
 html.Newtheme header .logo.eurocup-logo > div:last-child {
   margin: 5px 0 0 6cqw;
 }
