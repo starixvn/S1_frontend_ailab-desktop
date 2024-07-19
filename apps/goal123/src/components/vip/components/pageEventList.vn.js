@@ -103,7 +103,6 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 					<td>{t("lbl_DAILY_TRANSACTIONS_COUNT")}</td>
 					{vipBanner?.vipBannerData?.map(item => (
 						<td key={item.level + item.levelName}>
-							key={item.level + item.levelName}
 							{number_format_excludeString(item?.times)}
 						</td>
 					))}

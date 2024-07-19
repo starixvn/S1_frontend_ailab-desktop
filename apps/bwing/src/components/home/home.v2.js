@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
+import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
 import {
@@ -8,7 +9,6 @@ import {
 	LeaderboardProvider
 } from "@ailab-desktop/common";
 import { useLazyGetPopUpPromotionQuery } from "@ailab-desktop/service";
-import classNames from "classnames";
 import useMenu from "../hook/useMenu";
 import path from "../../router";
 import {
@@ -408,7 +408,8 @@ const Home = () => {
 																	`/${path.promotion.root}?bonusCode=${bonusCode}`
 																);
 															}
-														}}>
+														}}
+													>
 														{t(
 															"lbl_Promotion_ClaimNow"
 														)}

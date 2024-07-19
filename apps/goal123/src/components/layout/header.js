@@ -56,9 +56,10 @@ export default () => {
 								}
 							>
 								<img
-									src={`${bannerImgUrl}/desktop/img/event/eurocup/euro-logo-gif.webp`}
-									alt="eurocup-logo"
+									src={`${bannerImgUrl}/desktop/img/logo.png`}
+									alt={config.siteName}
 								/>
+								<span>{t("Label_Header_HarvestWealth")}</span>
 							</div>
 						)}
 

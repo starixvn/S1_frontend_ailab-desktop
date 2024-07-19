@@ -122,7 +122,9 @@ const HeaderMainMenu = ({
 	return (
 		<>
 			<Link
-				className={classNames({ active: currentMenuKey === "home" })}
+				className={classNames({
+					active: currentMenuKey === "home"
+				})}
 				to={`/${userInfo.langId}`}
 			>
 				<i className="icon icon-home" />
