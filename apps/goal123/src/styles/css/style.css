@@ -9533,7 +9533,7 @@ html.Newtheme .eventLink .angpaoLink img.eventlinkimg {
   }
 }
 html.Newtheme .eventLink.vgaming {
-  bottom: 210px;
+  bottom: 190px;
 }
 html.Newtheme .eventLink.vgaming .icon-close {
   top: 10px;
@@ -9549,14 +9549,14 @@ html.Newtheme .eventLink.vgaming.eurocup {
 }
 html.Newtheme .eventLink.livesports {
   position: fixed;
-  bottom: 210px;
+  bottom: 380px;
   z-index: 1;
 }
 html.Newtheme .eventLink.livesports img {
   -webkit-animation: livesports 4s ease-in-out infinite;
           animation: livesports 4s ease-in-out infinite;
   z-index: 2;
-  width: 200px;
+  width: 180px;
 }
 html.Newtheme .eventLink.livesports .icon-close {
   top: 10px;
@@ -9617,7 +9617,7 @@ html.Newtheme .eventLink.eurocup .icon-close {
   color: rgb(92, 92, 92);
 }
 html.Newtheme .eventLink.luckywheel {
-  bottom: 0px;
+  bottom: 10px;
   z-index: 1;
 }
 html.Newtheme .eventLink.luckywheel img {
