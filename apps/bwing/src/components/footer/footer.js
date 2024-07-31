@@ -41,7 +41,8 @@ export default () => {
 			href={el.link}
 			className={channelIcon[el.channelName]}
 			target="_blank"
-			rel="noreferrer">
+			rel="noreferrer"
+		>
 			{el.channelName}
 		</a>
 	));
@@ -68,7 +69,8 @@ export default () => {
 							className="btn-gray"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							OK
 						</button>
 					</div>
@@ -87,7 +89,8 @@ export default () => {
 						<Link
 							className="footer-information-item"
 							to={`${bannerImgUrl}/Static/images/How_To_Deposit.mp4`}
-							target="_blank">
+							target="_blank"
+						>
 							<img
 								src={`${bannerImgUrl}/desktop/img/4.0/footer/how-deposit.png`}
 								alt=""
@@ -96,7 +99,8 @@ export default () => {
 						</Link>
 						<Link
 							className="footer-information-item"
-							to={`/${userInfo.langId}/${path.howToWithdraw.root}`}>
+							to={`/${userInfo.langId}/${path.howToWithdraw.root}`}
+						>
 							<img
 								src={`${bannerImgUrl}/desktop/img/4.0/footer/how-withdraw.png`}
 								alt=""
@@ -105,7 +109,8 @@ export default () => {
 						</Link>
 						<Link
 							className="footer-information-item"
-							to={`/${userInfo.langId}/${path.howToPlay.root}`}>
+							to={`/${userInfo.langId}/${path.howToPlay.root}`}
+						>
 							<img
 								src={`${bannerImgUrl}/desktop/img/4.0/footer/how-play.png`}
 								alt=""
@@ -116,7 +121,8 @@ export default () => {
 							href={TandC(userInfo.langId).FAQ}
 							target="_blank"
 							rel="noreferrer"
-							className="footer-information-item">
+							className="footer-information-item"
+						>
 							<img
 								src={`${bannerImgUrl}/desktop/img/4.0/footer/how-faqs.png`}
 								alt=""
@@ -198,6 +204,18 @@ export default () => {
 								<div>{snsArr}</div>
 							</div>
 						)}
+
+						<div className="footer-sitemap-item">
+							<span className="title">
+								{t("lbl_GamingLicense")}
+							</span>
+							<div className="game-license">
+								<img
+									src={`${bannerImgUrl}/desktop/img/home-page/gaming-license/curacao.png`}
+									alt="GamingLicense"
+								/>
+							</div>
+						</div>
 					</div>
 				</div>
 
