@@ -212,7 +212,7 @@ export default () => {
 							<div className="game-license">
 								<img
 									src={`${bannerImgUrl}/desktop/img/home-page/gaming-license/curacao.png`}
-									alt="GamingLicenseImg"
+									alt="GamingLicense"
 								/>
 							</div>
 						</div>
