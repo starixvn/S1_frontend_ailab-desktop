@@ -171,8 +171,8 @@ const Content = () => {
 		historyDepositTime,
 		depositReceipt
 	) => {
-		const { bankName, bankSite } = bankInfo;
-		const { accountName, accountNo } = depositRep;
+		const { bankName, bankSite } = bankInfo || {};
+		const { accountName, accountNo } = depositRep || {};
 
 		const uploadPopBoxResult = await asyncUploadBankPopBox({
 			formInfo: {
