@@ -2,6 +2,10 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
+import {
+	AllowUploadReceiptType,
+	WithReceiptInfoType
+} from "@ailab-desktop/common";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { number_format } from "../common/common";
 import { popBoxContext } from "../common/context";
@@ -17,15 +21,20 @@ const statusClassName = {
 export const TransactionHistory = props => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
+	const isShowReceiptInfo = WithReceiptInfoType.includes(props.depositType);
 
 	let btnGroup = null;
-	if (props.depositType === 3 && (props.status === 1 || props.status === 7)) {
+	if (
+		// 存款方式
+		AllowUploadReceiptType.includes(props.depositType) &&
+		// 存款狀態
+		(props.status === 1 || props.status === 7)
+	) {
 		btnGroup = (
 			<>
 				<button
 					className="orange icon icon-pencil"
-					onClick={props.SubmitProof}
-				>
+					onClick={() => props.SubmitProof(isShowReceiptInfo)}>
 					{t("lbl_SubmitProof")}
 				</button>
 				<button className="gray" onClick={props.ClickCancel}>
@@ -91,7 +100,6 @@ TransactionHistory.defaultProps = {
 
 TransactionHistory.propTypes = {
 	depositType: PropTypes.number.isRequired,
-	SubmitProof: PropTypes.func.isRequired,
 	ClickCancel: PropTypes.func.isRequired,
 	thirdId: PropTypes.string,
 	idx: PropTypes.number.isRequired,
@@ -100,5 +108,6 @@ TransactionHistory.propTypes = {
 	amount: PropTypes.number.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	status: PropTypes.number.isRequired,
+	SubmitProof: PropTypes.func.isRequired,
 	depositMessageDetail: PropTypes.arrayOf(PropTypes.any)
 };

@@ -52,10 +52,11 @@ const DepositRecentHistory = ({
 		picFileName,
 		historyRefId,
 		historyDepositTime,
-		depositReceipt = []
+		depositReceipt = [],
+		isShowReceiptInfo
 	) => {
-		const { bankName, bankSite } = bankInfo;
-		const { accountName, accountNo, code } = depositRep;
+		const { bankName, bankSite } = bankInfo || {};
+		const { accountName, accountNo, code } = depositRep || {};
 
 		const uploadPopBoxResult = await asyncUploadBankPopBox({
 			formInfo: {
@@ -76,7 +77,8 @@ const DepositRecentHistory = ({
 			},
 			_isConvert,
 			langId: userInfo.langId,
-			receiptInfo: depositReceipt
+			receiptInfo: depositReceipt,
+			isShowReceiptInfo
 		});
 
 		if (uploadPopBoxResult.success) {
