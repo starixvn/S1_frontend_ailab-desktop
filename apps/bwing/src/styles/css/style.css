@@ -7396,6 +7396,10 @@ footer .footer-sitemap-item > div {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+footer .footer-sitemap-item .game-license {
+  width: 170px;
+  margin-top: 5px;
+}
 footer .footer-venderlogo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -19458,7 +19462,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .luckywheel, .dragonegg {
   position: fixed;
-  bottom: 240px;
+  bottom: 180px;
   left: 27px;
   z-index: 2;
 }
@@ -20113,13 +20117,14 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 .eventLink.vgaming {
   width: 160px;
-  bottom: 260px;
+  bottom: 200px;
   left: 30px;
 }
 .eventLink.vgaming .icon-close-primary {
   position: absolute;
   top: -10px;
   left: 0;
+  z-index: 2;
 }
 .eventLink.vgaming .icon-close-primary::before {
   width: 30px;
@@ -20128,7 +20133,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .livesports {
   position: fixed;
-  bottom: 210px;
+  bottom: 400px;
   left: 30px;
   z-index: 1;
 }
@@ -20136,12 +20141,13 @@ input + .iconModule i.icon.icon-checkmark:before {
   -webkit-animation: livesports 4s ease-in-out infinite;
           animation: livesports 4s ease-in-out infinite;
   z-index: 2;
-  width: 198px;
+  width: 160px;
 }
 .livesports .icon-close-primary {
   position: absolute;
-  top: 8px;
+  top: -10px;
   left: 0;
+  z-index: 2;
 }
 .livesports .icon-close-primary::before {
   width: 30px;

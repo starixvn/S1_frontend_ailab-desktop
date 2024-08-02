@@ -9533,7 +9533,7 @@ html.Newtheme .eventLink .angpaoLink img.eventlinkimg {
   }
 }
 html.Newtheme .eventLink.vgaming {
-  bottom: 210px;
+  bottom: 190px;
 }
 html.Newtheme .eventLink.vgaming .icon-close {
   top: 10px;
@@ -9549,7 +9549,7 @@ html.Newtheme .eventLink.vgaming.eurocup {
 }
 html.Newtheme .eventLink.livesports {
   position: fixed;
-  bottom: 210px;
+  bottom: 380px;
   z-index: 1;
 }
 html.Newtheme .eventLink.livesports img {
@@ -9617,7 +9617,7 @@ html.Newtheme .eventLink.eurocup .icon-close {
   color: rgb(92, 92, 92);
 }
 html.Newtheme .eventLink.luckywheel {
-  bottom: 0px;
+  bottom: 10px;
   z-index: 1;
 }
 html.Newtheme .eventLink.luckywheel img {
@@ -14512,6 +14512,17 @@ html.Newtheme main .home-app .app-item button .icon-apple {
   font-weight: 600;
   text-transform: capitalize;
   margin-bottom: 15px;
+}
+.footer-bottom .game-collection .payment-logo,
+.footer-bottom .payment-content .payment-logo,
+.footer-bottom .provider .payment-logo {
+  margin-bottom: 30px;
+}
+.footer-bottom .game-collection .game-license img,
+.footer-bottom .payment-content .game-license img,
+.footer-bottom .provider .game-license img {
+  width: 170px;
+  height: auto;
 }
 .footer-bottom .game-collection {
   margin-right: 60px;
@@ -21570,6 +21581,121 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 }
 #survey .survey-after.close {
   display: none;
+}
+
+html.Newtheme.leaderboard .list {
+  margin-bottom: unset;
+}
+html.Newtheme.leaderboard .title {
+  font-weight: 900;
+}
+html.Newtheme main.leaderboard {
+  background: unset;
+  width: 100%;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+@media (max-width: 1100px) {
+  html.Newtheme main.leaderboard {
+    padding-top: 170px;
+  }
+}
+
+.retention-wrapper .bonus-list p strong span {
+  color: #fab617 !important;
+  font-weight: bold !important;
+}
+
+/* 標題可能的結構*/
+.retention-wrapper .bonus-list p span strong {
+  color: #fab617 !important;
+  font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list p,
+.retention-wrapper .bonus-list span {
+  color: white !important;
+}
+
+.retention-wrapper .bonus-list p a span {
+  color: #fab617 !important;
+}
+
+.retention-wrapper .bonus-list p span a {
+  color: #fab617 !important;
+}
+
+.retention-wrapper .bonus-list table {
+  width: 100% !important;
+}
+
+.retention-wrapper .bonus-list table tr p span {
+  color: #112240 !important;
+}
+
+.retention-wrapper .bonus-list table tr p span span {
+  color: #112240 !important;
+}
+
+.retention-wrapper .bonus-list table tr td span {
+  color: #112240 !important;
+}
+
+.retention-wrapper .bonus-list table tr:first-child p span {
+  color: #ffffff !important;
+}
+
+.retention-wrapper .bonus-list table tr:first-child td {
+  background-color: #fab617 !important;
+}
+
+.retention-wrapper .bonus-list strong span {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list span strong {
+  font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list table td {
+  border: none !important;
+  border-right: 2px solid #000 !important;
+}
+
+.retention-wrapper .bonus-list tr td:last-child {
+  border-right: none !important;
+}
+
+.retention-wrapper .bonus-list tr:first-child td:first-child {
+  border-top-left-radius: 10px !important;
+}
+
+.retention-wrapper .bonus-list tr:first-child td:last-child {
+  border-top-right-radius: 10px !important;
+}
+
+.retention-wrapper .bonus-list tr:last-child td:first-child {
+  border-bottom-left-radius: 10px !important;
+}
+
+.retention-wrapper .bonus-list tr:last-child td:last-child {
+  border-bottom-right-radius: 10px !important;
 }
 
 html.Newtheme.leaderboard .list {
