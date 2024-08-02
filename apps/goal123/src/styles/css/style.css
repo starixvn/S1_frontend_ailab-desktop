@@ -14518,6 +14518,11 @@ html.Newtheme main .home-app .app-item button .icon-apple {
 .footer-bottom .provider .payment-logo {
   margin-bottom: 30px;
 }
+.footer-bottom .game-collection .payment-logo img,
+.footer-bottom .payment-content .payment-logo img,
+.footer-bottom .provider .payment-logo img {
+  border-radius: 50%;
+}
 .footer-bottom .game-collection .game-license img,
 .footer-bottom .payment-content .game-license img,
 .footer-bottom .provider .game-license img {
@@ -14562,7 +14567,6 @@ html.Newtheme main .home-app .app-item button .icon-apple {
 .footer-bottom .payment-content img {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
 }
 .footer-bottom .provider {
   width: 810px;
