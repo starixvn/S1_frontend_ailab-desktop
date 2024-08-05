@@ -6173,6 +6173,10 @@ footer .footer-sitemap-item > div {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+footer .footer-sitemap-item .game-license {
+  width: 170px;
+  margin-top: 5px;
+}
 footer .footer-venderlogo {
   display: -webkit-box;
   display: -ms-flexbox;
