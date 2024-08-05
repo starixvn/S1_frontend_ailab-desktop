@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { bannerImgUrl } from "../../config";
+import FooterGamingLicense from "./FooterGamingLicense";
 
 const FooterPayment = () => {
 	const { t } = useTranslation();
@@ -29,7 +30,8 @@ const FooterPayment = () => {
 					<a
 						key={method.id}
 						onClick={e => e.preventDefault()}
-						style={{ cursor: "default" }}>
+						style={{ cursor: "default" }}
+					>
 						<img
 							src={`${bannerImgUrl}/desktop/img/home-page/payment/${method.id}.jpg`}
 							alt={method.name}
@@ -37,6 +39,7 @@ const FooterPayment = () => {
 					</a>
 				))}
 			</div>
+			<FooterGamingLicense />
 		</div>
 	);
 };
