@@ -14344,6 +14344,11 @@ html.Newtheme main .home-app .app-item button .icon-apple {
 .footer-bottom .provider .payment-logo {
   margin-bottom: 30px;
 }
+.footer-bottom .game-collection .payment-logo img,
+.footer-bottom .payment-content .payment-logo img,
+.footer-bottom .provider .payment-logo img {
+  border-radius: 50%;
+}
 .footer-bottom .game-collection .game-license img,
 .footer-bottom .payment-content .game-license img,
 .footer-bottom .provider .game-license img {
@@ -14388,7 +14393,6 @@ html.Newtheme main .home-app .app-item button .icon-apple {
 .footer-bottom .payment-content img {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
 }
 .footer-bottom .provider {
   width: 810px;
@@ -21008,6 +21012,121 @@ html.Newtheme:not(.index, .lobby) .swiper-container + .inside-title.icon-ow-casi
   position: absolute;
   bottom: 0;
   z-index: 0;
+}
+
+.retention-wrapper .bonus-list p strong span {
+  color: #fab617 !important;
+  font-weight: bold !important;
+}
+
+/* 標題可能的結構*/
+.retention-wrapper .bonus-list p span strong {
+  color: #fab617 !important;
+  font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list p,
+.retention-wrapper .bonus-list span {
+  color: white !important;
+}
+
+.retention-wrapper .bonus-list p a span {
+  color: #fab617 !important;
+}
+
+.retention-wrapper .bonus-list p span a {
+  color: #fab617 !important;
+}
+
+.retention-wrapper .bonus-list table {
+  width: 100% !important;
+}
+
+.retention-wrapper .bonus-list table tr p span {
+  color: #112240 !important;
+}
+
+.retention-wrapper .bonus-list table tr p span span {
+  color: #112240 !important;
+}
+
+.retention-wrapper .bonus-list table tr td span {
+  color: #112240 !important;
+}
+
+.retention-wrapper .bonus-list table tr:first-child p span {
+  color: #ffffff !important;
+}
+
+.retention-wrapper .bonus-list table tr:first-child td {
+  background-color: #fab617 !important;
+}
+
+.retention-wrapper .bonus-list strong span {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list span strong {
+  font-weight: bold !important;
+}
+
+.retention-wrapper .bonus-list table td {
+  border: none !important;
+  border-right: 2px solid #000 !important;
+}
+
+.retention-wrapper .bonus-list tr td:last-child {
+  border-right: none !important;
+}
+
+.retention-wrapper .bonus-list tr:first-child td:first-child {
+  border-top-left-radius: 10px !important;
+}
+
+.retention-wrapper .bonus-list tr:first-child td:last-child {
+  border-top-right-radius: 10px !important;
+}
+
+.retention-wrapper .bonus-list tr:last-child td:first-child {
+  border-bottom-left-radius: 10px !important;
+}
+
+.retention-wrapper .bonus-list tr:last-child td:last-child {
+  border-bottom-right-radius: 10px !important;
+}
+
+html.Newtheme.leaderboard .list {
+  margin-bottom: unset;
+}
+html.Newtheme.leaderboard .title {
+  font-weight: 900;
+}
+html.Newtheme main.leaderboard {
+  background: unset;
+  width: 100%;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+}
+@media (max-width: 1100px) {
+  html.Newtheme main.leaderboard {
+    padding-top: 170px;
+  }
 }
 
 .retention-wrapper .bonus-list p strong span {
