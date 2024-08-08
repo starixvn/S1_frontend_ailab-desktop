@@ -1,4 +1,5 @@
 {
+  "                                \nLabel_DepositNotification                        ": "Deposit {{orderId}} have been approved        ",
   "BankSlipHint1": "Maximum file size 4 MB each",
   "BankSlipHint2": "Maximum number of file:6",
   "BankSlipHint3": "Accepted file types: JPG, JPEG, PNG",
@@ -27,6 +28,7 @@
   "Label_Retention_Title": "Bwing LIMITED-TIME APPRECIATE BONUS",
   "Label_Retention_TurnoverTitle": "Turnover Accumlated",
   "Label_Vip_ESport_Rebate": "E-SPORT REBATE",
+  "Label_WithdrawalNotification": "Deposit {{orderId}} have been approved",
   "PromotionCategory1": "First Deposit",
   "Skywind_Cai_Shen_Da_Hai": "Cai Shen Da Hai",
   "Skywind_Ocean_Ruler": "Ocean Ruler",
@@ -387,7 +389,6 @@
   "lbl_GamingLicense": "Gaming License",
   "lbl_General_Apr": "Apr",
   "lbl_General_Aug": "August",
-  "lbl_General_CasinoWithLive": "Live Casino",
   "lbl_General_Dec": "December",
   "lbl_General_Feb": "February",
   "lbl_General_Jan": "January",

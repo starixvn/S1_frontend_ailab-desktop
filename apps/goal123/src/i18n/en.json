@@ -1,4 +1,5 @@
 {
+  "                                \nLabel_DepositNotification                        ": "Deposit {{orderId}} have been approved        ",
   "BankSlipHint1": "Maximum file size 4 MB each",
   "BankSlipHint2": "Maximum number of file:6",
   "BankSlipHint3": "Accepted file types: JPG, JPEG, PNG",
@@ -22,6 +23,7 @@
   "Label_Retention_Title": "Goal123 LIMITED-TIME APPRECIATE BONUS",
   "Label_Retention_TurnoverTitle": "Turnover Accumlated",
   "Label_Vip_HighestMsg": "You have reached the highest prestige level!",
+  "Label_WithdrawalNotification": "Deposit {{orderId}} have been approved",
   "PromotionCategory1": "First Deposit",
   "Skywind_Cai_Shen_Da_Hai": "Cai Shen Da Hai",
   "Skywind_Ocean_Ruler": "Ocean Ruler",
