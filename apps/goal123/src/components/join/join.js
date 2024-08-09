@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
+import { MetaPixelTracker } from "@ailab-desktop/common";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
@@ -522,6 +523,8 @@ export default () => {
 					if (isMountedRef.current) {
 						const { errorCode, message } = res.data;
 						if (errorCode === 0) {
+							// 註冊成功送出臉書廣告埋點給市場
+							MetaPixelTracker("registerSubmit");
 							api_accountStrict_GetCustProfile().then(
 								async res_custInfo => {
 									if (isMountedRef.current) {

@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { MetaPixelTracker } from "@ailab-desktop/common";
 import moment from "moment";
 import { userInfoContext } from "../../common/context";
 import usePopBox from "../../hook/usePopBox";
@@ -86,6 +87,8 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 				const success = errorCode === 0;
 
 				if (success) {
+					// 存款成功送出臉書廣告埋點給市場
+					MetaPixelTracker("depositSubmit");
 					return data.transId;
 				}
 
