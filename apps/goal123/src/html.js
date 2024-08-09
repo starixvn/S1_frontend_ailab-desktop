@@ -42,7 +42,7 @@ export default function HTML(props) {
 					src="https://tickers2.playtech.com/jackpots/new_jackpotjs.js"
 				/>
 
-				{/* === Facebook Pixel - 存／提款成功事件 === */}
+				{/* === Facebook－給市場的廣告埋點 fbq('init', 'xxxxxxxxxx') << 此為監測臉書廣告的帳號ID  === */}
 
 				<script
 					dangerouslySetInnerHTML={{

@@ -128,9 +128,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	useEffect(() => {
 		IS_LOGGED_IN().then(async isLogin => {
-			/** 登入時確認使用者是否有存款成功，如果有成功，觸發 MetaPixelTracker 事件（ 臉書通知 ）通知市場 */
-			await checkDepositSuccessful();
-
+			await checkDepositSuccessful()
 			if (userInfo.kickout) {
 				if (userInfo.willLogout) {
 					setUserInfo(prevS => ({

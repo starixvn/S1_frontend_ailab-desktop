@@ -523,7 +523,8 @@ export default () => {
 					if (isMountedRef.current) {
 						const { errorCode, message } = res.data;
 						if (errorCode === 0) {
-							MetaPixelTracker("registerSubmit")
+							// 註冊成功送出臉書廣告埋點給市場
+							MetaPixelTracker("registerSubmit");
 							api_accountStrict_GetCustProfile().then(
 								async res_custInfo => {
 									if (isMountedRef.current) {
