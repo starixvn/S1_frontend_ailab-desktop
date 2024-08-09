@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { MetaPixelTracker } from "@ailab-desktop/common";
 import ReCAPTCHA from "react-google-recaptcha";
 import { navigate } from "gatsby";
 import { popBoxContext, userInfoContext } from "../common/context";
@@ -549,6 +550,8 @@ const Join = () => {
 						const { errorCode } = res.data;
 						const { message } = res.data;
 						if (errorCode === 0) {
+							// 註冊成功送出臉書廣告埋點給市場
+							MetaPixelTracker("registerSubmit");
 							api_accountStrict_GetCustProfile().then(
 								async res_custInfo => {
 									if (isMountedRef.current) {
