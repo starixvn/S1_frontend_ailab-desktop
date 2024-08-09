@@ -24,6 +24,7 @@ import {
 import useGetWalletInfo from "./wrapper.walletInfo";
 import { langCookie } from "../../config";
 import usePopBox from "../hook/usePopBox";
+import useDepositWithdrawTracker from "../hook/useDepositWithdrawTracker";
 import SEO from "../seo";
 import ThirdPartyJS from "./thirdPartyJS";
 
@@ -69,6 +70,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const isMountedRef = useRef(null);
 
 	const { errorPopBox } = usePopBox(setPopBox);
+	const { checkDepositSuccessful } = useDepositWithdrawTracker();
 	const walletInfo = useGetWalletInfo({
 		langId: userInfo.langId,
 		isLogin: userInfo.isLogin,
@@ -125,7 +127,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	}, [userInfo.isLogin, userInfo.langId]);
 
 	useEffect(() => {
-		IS_LOGGED_IN().then(isLogin => {
+		IS_LOGGED_IN().then(async isLogin => {
+			await checkDepositSuccessful()
 			if (userInfo.kickout) {
 				if (userInfo.willLogout) {
 					setUserInfo(prevS => ({
@@ -332,7 +335,9 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	}, [userInfo.isLogin, productTpIds]);
 
 	useInterval(
-		() => {
+		async () => {
+			// 每分鐘確認使用者是否有儲值成功的單號，如果有就通知市場（ 臉書通知 ）
+			await checkDepositSuccessful();
 			api_account_onlineCheck().then(res => {
 				if (res.data.errorCode === 1001) {
 					setUserInfo(prev => ({

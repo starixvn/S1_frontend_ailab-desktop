@@ -15,7 +15,6 @@ import {
 	checkAmount,
 	isConvert,
 	getUrlParameter,
-	number_format
 } from "../common/common";
 
 import useDeposit from "./hook/useDeposit";

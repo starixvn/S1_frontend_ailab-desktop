@@ -57,7 +57,6 @@ const useMenu = () => {
 	});
 
 	const onClickProductItem = product => {
-		console.log(product);
 		if (!product || product?.isInMaintain) return;
 
 		const {
