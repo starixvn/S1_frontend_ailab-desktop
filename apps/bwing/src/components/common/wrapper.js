@@ -27,6 +27,7 @@ import { langCookie } from "../../config";
 import usePopBox from "../hook/usePopBox";
 import SEO from "../seo";
 import ThirdPartyJS from "./thirdPartyJS";
+import useDepositWithdrawTracker from "../hook/useDepositWithdrawTracker";
 
 const defaultPathLang = () => {
 	const urlLang =
@@ -82,6 +83,7 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 	});
 
 	const isMountedRef = useRef(null);
+	const { checkDepositSuccessful } = useDepositWithdrawTracker();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -125,7 +127,8 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 	}, [userInfo.langId]);
 
 	useEffect(() => {
-		IS_LOGGED_IN().then(isLogin => {
+		IS_LOGGED_IN().then(async isLogin => {
+			await checkDepositSuccessful()
 			if (userInfo.kickout) {
 				if (userInfo.willLogout) {
 					setUserInfo(prevS => ({
@@ -316,7 +319,9 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 	}, [userInfo.isLogin, productTpIds]);
 
 	useInterval(
-		() => {
+		async () => {
+			// 每分鐘確認使用者是否有儲值成功的單號，如果有就通知市場（ 臉書通知 ）
+			await checkDepositSuccessful();
 			api_account_onlineCheck().then(res => {
 				if (res.data.errorCode === 1001) {
 					setUserInfo(prev => ({
