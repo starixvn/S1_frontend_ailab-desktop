@@ -25,7 +25,7 @@ const FooterPayment = () => {
 	return (
 		<div className="payment-content">
 			<div className="title">{t("lbl_PaymentMethods")}</div>
-			<div>
+			<div className="payment-logo">
 				{paymentMethods.map(method => (
 					<a
 						key={method.id}
