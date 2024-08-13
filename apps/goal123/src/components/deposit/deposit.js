@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+import { MetaPixelTracker } from "@ailab-desktop/common";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { useLazyGetDepositQuickTransferQuery } from "@ailab-desktop/service";
@@ -280,6 +281,8 @@ const Deposit = () => {
 	};
 
 	const onSubmit = async () => {
+		// 存款 submit 成功，送出臉書廣告埋點給市場
+		MetaPixelTracker("depositSubmit");
 		const resetForm = () => {
 			setFormInfo(prev => ({
 				...prev,
