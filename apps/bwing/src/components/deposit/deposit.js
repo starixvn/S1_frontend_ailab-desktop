@@ -3,7 +3,7 @@ import { navigate } from "gatsby";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { useLazyGetDepositQuickTransferQuery } from "@ailab-desktop/service";
-import { yuriTrack } from "@ailab-desktop/common";
+import { yuriTrack, MetaPixelTracker } from "@ailab-desktop/common";
 import {
 	loadingContext,
 	userInfoContext,
@@ -11,11 +11,7 @@ import {
 } from "../common/context";
 import { defDepositType, defDepositOptions } from "./deposit.def";
 import { defPopBoxType } from "../common/defPopBoxType";
-import {
-	checkAmount,
-	isConvert,
-	getUrlParameter,
-} from "../common/common";
+import { checkAmount, isConvert, getUrlParameter } from "../common/common";
 
 import useDeposit from "./hook/useDeposit";
 import useDepositMobilePay from "./hook/useDepositMobilePay";
@@ -287,6 +283,8 @@ const Deposit = () => {
 	};
 
 	const onSubmit = async () => {
+		// 存款 submit 成功，送出臉書廣告埋點給市場
+		MetaPixelTracker("depositSubmit");
 		yuriTrack("Purchase");
 		const resetForm = () => {
 			setFormInfo(prev => ({
