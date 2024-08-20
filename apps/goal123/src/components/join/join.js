@@ -407,8 +407,8 @@ export default () => {
 		const _phoneCheck = phoneCheck(userValue.phone);
 		// const _emailCheck = res[1];
 		const _agreeCheck = userValue.agreeCheck;
-		// const _reCaptchaCheck =
-		// 	reCaptchaToken !== "" || recaptchaInfo.country === "CN";
+		const _reCaptchaCheck =
+			reCaptchaToken !== "" || recaptchaInfo.country === "CN";
 		const _affiliateCheck = res[1];
 
 		const checked =
@@ -419,7 +419,7 @@ export default () => {
 			_phoneCheck.checked &&
 			// _emailCheck.checked &&
 			_agreeCheck &&
-			// _reCaptchaCheck &&
+			_reCaptchaCheck &&
 			// affiliate is optional
 			(_affiliateCheck.checked === true ||
 				_affiliateCheck.checked === null);
@@ -479,8 +479,8 @@ export default () => {
 				// Email: userValue.email,
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
-				ReferralUrl: document.referrer
-				// ReCaptchaToken: reCaptchaToken
+				ReferralUrl: document.referrer,
+				ReCaptchaToken: reCaptchaToken
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
