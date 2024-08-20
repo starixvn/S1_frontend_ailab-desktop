@@ -3,7 +3,7 @@ import { navigate } from "gatsby";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { useLazyGetDepositQuickTransferQuery } from "@ailab-desktop/service";
-import { yuriTrack } from "@ailab-desktop/common";
+import { yuriTrack, MetaPixelTracker } from "@ailab-desktop/common";
 import {
 	loadingContext,
 	userInfoContext,
@@ -11,11 +11,7 @@ import {
 } from "../common/context";
 import { defDepositType, defDepositOptions } from "./deposit.def";
 import { defPopBoxType } from "../common/defPopBoxType";
-import {
-	checkAmount,
-	isConvert,
-	getUrlParameter,
-} from "../common/common";
+import { checkAmount, isConvert, getUrlParameter } from "../common/common";
 
 import useDeposit from "./hook/useDeposit";
 import useDepositMobilePay from "./hook/useDepositMobilePay";
@@ -259,7 +255,8 @@ const Deposit = () => {
 							navigate(
 								`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`
 							)
-						}>
+						}
+					>
 						{t("lbl_UpdatePersonalDetail")}
 					</button>
 				</div>
@@ -287,6 +284,8 @@ const Deposit = () => {
 	};
 
 	const onSubmit = async () => {
+		// 存款 submit 成功，送出臉書廣告埋點給市場
+		MetaPixelTracker("depositSubmit");
 		yuriTrack("Purchase");
 		const resetForm = () => {
 			setFormInfo(prev => ({
@@ -351,12 +350,14 @@ const Deposit = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={() => resolve(false)}>
+										onClick={() => resolve(false)}
+									>
 										{t("lbl_ReModify")}
 									</button>
 									<button
 										className="btn-check"
-										onClick={() => resolve(true)}>
+										onClick={() => resolve(true)}
+									>
 										{t("lbl_Confirm")}
 									</button>
 								</div>
@@ -414,7 +415,8 @@ const Deposit = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={closePopBox}>
+											onClick={closePopBox}
+										>
 											OK
 										</button>
 									</div>
@@ -815,7 +817,8 @@ const Deposit = () => {
 				onSubmit={onSubmit}
 				setDepositType={onChangeDepositType}
 				canSubmit={formInfo.canSubmit}
-				submitHandle={submitHandle}>
+				submitHandle={submitHandle}
+			>
 				{depositType === defDepositType.quickTransfer && (
 					<QuickTransferForm
 						quickTransferGroupList={quickTransferGroupList}

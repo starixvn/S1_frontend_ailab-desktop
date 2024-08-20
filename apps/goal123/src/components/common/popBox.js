@@ -417,20 +417,20 @@ export default () => {
 			break;
 	}
 
-	if (popBox.loading) return <Loading />;
-
 	const customLayout =
 		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
 		popBox.popBoxType === defPopBoxType.Modal ||
 		popBox.popBoxType === defPopBoxType.WithdrawalMsg ||
 		popBox.popBoxType === defPopBoxType.DepositMsg;
 
-	if (!popBox.isOpen) return null;
-
 	const memorizeContent = useMemo(
 		() => content,
-		[popBox.popBoxType, popBox.content]
+		[popBox.popBoxType, popBox.content, popBox.loading, popBox.isOpen]
 	);
+
+	if (popBox.loading) return <Loading />;
+
+	if (!popBox.isOpen) return null;
 
 	if (customLayout || popBox.customLayout)
 		return (
