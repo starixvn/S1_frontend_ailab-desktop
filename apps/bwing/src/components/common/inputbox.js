@@ -155,7 +155,7 @@ const InputBox = ({
 						{_isConvert ? "('000)" : null}
 						{checked !== undefined ? showCheckIcon() : null}
 
-						{activeInfo === hint && (
+						{hint && activeInfo === hint && (
 							<div ref={ref} className="inputbox-tip-popup">
 								{t(hint)}
 							</div>
@@ -171,7 +171,8 @@ const InputBox = ({
 					}}
 					onMouseLeave={() => {
 						setIsShowPasteText(false);
-					}}>
+					}}
+				>
 					{isShowPasteText ? (
 						<span onClick={handlePaste}>{t("lbl_Paste")}</span>
 					) : (

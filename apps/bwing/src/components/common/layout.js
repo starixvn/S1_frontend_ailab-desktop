@@ -8,6 +8,7 @@ import PopBox from "./popBox";
 import Loading from "./loading";
 import { loadingContext } from "./context";
 import GoTopBtn from "./goTopBtn";
+import Survey from "./survey";
 
 const Layout = ({
 	children,
@@ -33,6 +34,7 @@ const Layout = ({
 			<PopBox />
 			{loading ? <Loading /> : null}
 			{goTopBtn ? <GoTopBtn /> : null}
+			<Survey />
 		</Provider>
 	);
 };
