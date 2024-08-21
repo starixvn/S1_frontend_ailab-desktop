@@ -126,8 +126,8 @@ const JoinForm = ({
 					<div className="tip active">{tip.currency.msg}</div>
 				) : null}
 			</div>
-			{/*
-				{Object.keys(recaptchaInfo).length > 0 &&
+
+			{Object.keys(recaptchaInfo).length > 0 &&
 				recaptchaInfo.country !== "CN" && (
 					<ReCAPTCHA
 						class="g-recaptcha"
@@ -136,7 +136,6 @@ const JoinForm = ({
 						hl={reCaptchaEnum[langId]}
 					/>
 				)}
-			*/}
 
 			<div className="Terms">
 				<Checkbox
