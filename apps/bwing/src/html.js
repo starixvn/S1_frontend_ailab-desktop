@@ -39,9 +39,9 @@ export default function HTML(props) {
 					src="https://tickers2.playtech.com/jackpots/new_jackpotjs.js"
 				/>
 
-						{/* === Facebook Pixel - 存／提款成功事件 === */}
+				{/* === Facebook Pixel - 存／提款成功事件 === */}
 
-						<script
+				<script
 					dangerouslySetInnerHTML={{
 						__html: `
 						!function(f,b,e,v,n,t,s)
@@ -52,7 +52,7 @@ export default function HTML(props) {
 						t.src=v;s=b.getElementsByTagName(e)[0];
 						s.parentNode.insertBefore(t,s)}(window, document,'script',
 						'https://connect.facebook.net/en_US/fbevents.js');
-						fbq('init', '745371327638515');
+						fbq('init', '1037896624403579');
 						fbq('track', 'PageView');
 						`
 					}}
@@ -63,7 +63,7 @@ export default function HTML(props) {
 						height="1"
 						width="1"
 						style={{ display: "none" }}
-						src="https://www.facebook.com/tr?id=745371327638515&ev=PageView&noscript=1"
+						src="https://www.facebook.com/tr?id=1037896624403579&ev=PageView&noscript=1"
 					/>
 				</noscript>
 
