@@ -13,10 +13,10 @@ const HomeJoin = () => {
 
 	const JoinListItems = [
 		{
-			title: "lbl_Home_Professional_Image_Title",
-			text: "lbl_Home_Professional_Image_Text",
-			img: "professional.png",
-			link: `/${userInfo.langId}/${path.ambassador.root}`
+			title: "lbl_trusthworthy",
+			text: "lbl_trustedPartner",
+			img: "trusthworthy.png",
+			// 因應 pm trustedPartner 不用 link，按下無動作
 		},
 		{
 			title: "lbl_Home_Exclusives_VIP_Title",

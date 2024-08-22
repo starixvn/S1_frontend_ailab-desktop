@@ -278,9 +278,16 @@ html.Newtheme header .header > div {
 }
 html.Newtheme header .header > div.top {
   min-width: 1400px;
+  max-width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+@media (max-width: 1440px) {
+  html.Newtheme header .header > div.top {
+    width: 100%;
+    min-width: unset;
+  }
 }
 @media (max-width: 1100px) {
   html.Newtheme header .header > div.top {
@@ -515,6 +522,12 @@ html.Newtheme header .header > div .menu .select-dropdown {
   z-index: 1;
   text-transform: uppercase;
   white-space: nowrap;
+}
+@media (max-width: 1300px) {
+  html.Newtheme header .header > div .menu .select-dropdown {
+    left: unset;
+    right: -50px;
+  }
 }
 html.Newtheme header .header > div .menu .select-dropdown a,
 html.Newtheme header .header > div .menu .select-dropdown button {
@@ -897,6 +910,13 @@ html.Newtheme header .header > div .function {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+@media (max-width: 1100px) {
+  html.Newtheme header .header > div .function {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 html.Newtheme header .header > div .function a,
 html.Newtheme header .header > div .function button {
@@ -2226,10 +2246,6 @@ html.Newtheme header.newyear .header::before {
             filter: brightness(1.4);
   }
 }
-html.Newtheme.index .header,
-html.Newtheme.index .inside {
-  width: 1400px;
-}
 html.Newtheme.index header .header > div.menu {
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -2290,6 +2306,18 @@ html.Newtheme main.home {
   background-image: unset;
   background: #fff;
   margin: 0 auto;
+  min-width: unset;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 html.Newtheme main.joinlogin, html.Newtheme main .small {
   min-height: calc(100% - 335px);
@@ -2571,7 +2599,6 @@ html.Newtheme .payment > div img {
 html.Newtheme footer {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  min-width: 1400px;
   background: #141f33;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12820,7 +12847,6 @@ html.Newtheme main .home-wrapper {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 0 auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -12829,8 +12855,9 @@ html.Newtheme main .home-wrapper {
           align-items: center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 100%;
-  min-width: 1400px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 1400px;
+          flex: 0 1 1400px;
 }
 html.Newtheme main .home-title {
   font-size: 46px;
@@ -12852,12 +12879,13 @@ html.Newtheme main .home-join {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 80px;
-  min-width: 1400px;
+  width: 100%;
+  max-width: 1400px;
 }
 html.Newtheme main .home-join .item {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 330px;
+          flex: 1 1 330px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12872,7 +12900,6 @@ html.Newtheme main .home-join .item {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-right: 26px;
-  width: 330px;
 }
 html.Newtheme main .home-join .item:last-child {
   margin-right: unset;
@@ -12908,7 +12935,7 @@ html.Newtheme main .home-join .item .text {
   font-size: 13px;
 }
 html.Newtheme main .home-join .item .bottom {
-  width: 330px;
+  width: 100%;
   height: 60px;
   background: url(https://banner.goal123.org/desktop/img/home-page/join-item-bottom.svg) no-repeat center/contain;
   position: relative;
@@ -12946,7 +12973,8 @@ html.Newtheme main .home-join .item .bottom button.btn-more {
           transform: translateY(-48%);
 }
 html.Newtheme main .home-sports {
-  min-width: 1400px;
+  width: 100%;
+  max-width: 1400px;
   position: relative;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -12969,7 +12997,7 @@ html.Newtheme main .home-sports > div:first-child {
 }
 html.Newtheme main .home-sports > div:first-child::after {
   content: "";
-  width: 660px;
+  width: 100%;
   height: 6px;
   border-radius: 5px;
   display: block;
@@ -13035,16 +13063,22 @@ html.Newtheme main .home-sports .sports-menu button:hover {
   transition: 0.3s;
 }
 html.Newtheme main .home-sports .sports-hotmatches {
-  width: 1400px;
+  max-width: 1400px;
+  width: 100%;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 10px 5px;
   position: relative;
-  margin-top: -125px;
+  margin-top: -130px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+@media (max-width: 1300px) {
+  html.Newtheme main .home-sports .sports-hotmatches {
+    max-width: 1240px;
+  }
 }
 html.Newtheme main .home-sports .sports-hotmatches .swiper-wrapper {
   border-radius: 15px;
@@ -13081,7 +13115,9 @@ html.Newtheme main .home-sports .sports-hotmatches .sports-item {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 330px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 330px;
+          flex: 0 1 330px;
   -webkit-box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
 }
@@ -13227,19 +13263,18 @@ html.Newtheme main .home-sports .sports-hotmatches .sports-item .team-name {
   text-transform: capitalize;
   font-weight: 600;
 }
-html.Newtheme main .home-sports .ambassador {
-  width: 600px;
-  height: 600px;
+html.Newtheme main .home-sports .hotmatches-image {
+  width: 610px;
   position: relative;
   bottom: 5px;
   left: 190px;
-  top: 0;
+  padding-bottom: 30px;
 }
-html.Newtheme main .home-sports .ambassador::after {
+html.Newtheme main .home-sports .hotmatches-image::after {
   content: "matches";
   display: block;
   text-transform: uppercase;
-  font-size: 120px;
+  font-size: 110px;
   color: rgba(0, 0, 0, 0.03);
   font-weight: 900;
   position: absolute;
@@ -13247,11 +13282,11 @@ html.Newtheme main .home-sports .ambassador::after {
   bottom: 10px;
   margin-bottom: 30px;
 }
-html.Newtheme main .home-sports .ambassador::before {
+html.Newtheme main .home-sports .hotmatches-image::before {
   content: "hot";
   display: block;
   text-transform: uppercase;
-  font-size: 120px;
+  font-size: 110px;
   color: rgba(0, 0, 0, 0.03);
   font-weight: 900;
   position: absolute;
@@ -13259,17 +13294,13 @@ html.Newtheme main .home-sports .ambassador::before {
   bottom: 10px;
   margin-bottom: 30px;
 }
-html.Newtheme main .home-sports .ambassador span {
-  display: block;
-  font-weight: 500;
-  position: absolute;
-  left: -190px;
-  top: 0;
-}
-html.Newtheme main .home-sports .ambassador span:last-child {
-  font-family: "Niconne", cursive;
-  font-size: 36px;
-  top: 14px;
+@media (max-width: 1440px) {
+  html.Newtheme main .home-sports .hotmatches-image::after, html.Newtheme main .home-sports .hotmatches-image::before {
+    font-size: 90px;
+  }
+  html.Newtheme main .home-sports .hotmatches-image::after {
+    right: -450px;
+  }
 }
 html.Newtheme main .home-sports .video-content {
   width: 450px;
@@ -13296,7 +13327,6 @@ html.Newtheme main .home-hotgame {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(236, 177, 178, 0.33) 30%, rgba(213, 85, 88, 0.73) 60%, rgb(198, 24, 29) 88%);
 }
 html.Newtheme main .home-hotgame .hotgame-wrapper {
-  min-width: 1400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13404,7 +13434,6 @@ html.Newtheme main .home-hotgame .hotgame-wrapper .inner button:hover {
   transition: 0.2s;
 }
 html.Newtheme main .home-popularslots {
-  min-width: 1400px;
   margin-bottom: 80px;
 }
 html.Newtheme main .home-popularslots .home-title {
@@ -13516,7 +13545,8 @@ html.Newtheme main .home-leaderboard::after {
   z-index: 0;
 }
 html.Newtheme main .home-leaderboard-wrapper {
-  width: 1400px;
+  max-width: 1400px;
+  width: 100%;
   padding: 0 18px 30px;
   border-radius: 15px;
   -webkit-box-sizing: border-box;
@@ -13708,20 +13738,27 @@ html.Newtheme main .home-leaderboard-wrapper .winner-right .user-id {
   margin-left: 6px;
 }
 html.Newtheme main .home-informaticon {
+  max-width: 1400px;
+  width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 1400px;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+}
+@media (max-width: 1400px) {
+  html.Newtheme main .home-informaticon {
+    max-width: 1350px;
+  }
+}
+@media (max-width: 1300px) {
+  html.Newtheme main .home-informaticon {
+    gap: 15px;
+  }
 }
 html.Newtheme main .home-informaticon .icon-faq::before {
   content: "";
@@ -13761,7 +13798,6 @@ html.Newtheme main .home-informaticon .home-title {
   margin: 30px 0;
 }
 html.Newtheme main .home-info {
-  width: 38%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13769,7 +13805,6 @@ html.Newtheme main .home-info {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-right: 45px;
 }
 html.Newtheme main .home-info a,
 html.Newtheme main .home-info button {
@@ -13782,6 +13817,8 @@ html.Newtheme main .home-info button {
           box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
   padding: 30px 36px;
   border-radius: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13790,6 +13827,12 @@ html.Newtheme main .home-info button {
       -ms-flex-direction: row;
           flex-direction: row;
   margin-bottom: 16px;
+}
+@media (max-width: 1300px) {
+  html.Newtheme main .home-info a,
+  html.Newtheme main .home-info button {
+    font-size: 20px;
+  }
 }
 html.Newtheme main .home-info a.list,
 html.Newtheme main .home-info button.list {
@@ -13804,7 +13847,16 @@ html.Newtheme main .home-info button.list:hover {
   transition: 0.3s;
 }
 html.Newtheme main .home-news {
-  width: 66%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 html.Newtheme main .home-news a, html.Newtheme main .home-news button {
   color: #284985;
@@ -13817,8 +13869,8 @@ html.Newtheme main .home-news div:first-child .btn-more-text {
   text-transform: uppercase;
   font-weight: 700;
   position: absolute;
-  bottom: 0;
-  right: 20px;
+  bottom: 30px;
+  right: 0;
 }
 html.Newtheme main .home-news div:first-child .btn-more-text::after {
   content: "";
@@ -13844,21 +13896,17 @@ html.Newtheme main .home-news div:first-child .btn-more-text .icon-dropdown::aft
   display: inline-block;
 }
 html.Newtheme main .home-news .inner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(50%, 1fr));
+  gap: 10px;
+}
+@media (max-width: 1300px) {
+  html.Newtheme main .home-news .inner {
+    grid-template-columns: repeat(2, minmax(45%, 1fr));
+    gap: 6px;
+  }
 }
 html.Newtheme main .home-news .inner .item {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13874,7 +13922,6 @@ html.Newtheme main .home-news .inner .item {
   -webkit-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
           box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25);
   overflow: hidden;
-  margin: 0 18px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   position: relative;
@@ -13924,8 +13971,9 @@ html.Newtheme main .home-recently {
   margin: 30px 0 80px;
 }
 html.Newtheme main .home-app {
-  background: url(https://banner.goal123.org/desktop/img/home-page/app-download-banner.png) no-repeat center/contain;
-  min-width: 1400px;
+  background: url(https://banner.goal123.org/desktop/img/home-page/app-download-banner.png) no-repeat center/cover;
+  width: 100%;
+  max-width: 1400px;
   height: 600px;
   margin: 80px 0 100px;
 }
@@ -13937,7 +13985,9 @@ html.Newtheme main .home-app .app-content {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 534px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
 }
 html.Newtheme main .home-app .app-content > span {
   display: block;
@@ -14110,6 +14160,119 @@ html.Newtheme main .home-app .app-item button .icon-apple {
   display: inline-block;
   margin-right: 4px;
 }
+html.Newtheme main .home-previous {
+  width: 100%;
+  max-width: 1400px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html.Newtheme main .home-previous * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+html.Newtheme main .home-previous .home-title {
+  font-size: 32px;
+  text-align: center;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html.Newtheme main .home-previous .home-title::before, html.Newtheme main .home-previous .home-title::after {
+  content: "";
+  display: block;
+  height: 6px;
+  border-radius: 10px;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.37)), color-stop(50%, rgba(251, 181, 19, 0.5)), color-stop(86%, rgb(251, 181, 19)));
+  background: linear-gradient(-270deg, rgba(255, 255, 255, 0.37) 0%, rgba(251, 181, 19, 0.5) 50%, rgb(251, 181, 19) 86%);
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+html.Newtheme main .home-previous .home-title::before {
+  margin-right: 20px;
+}
+html.Newtheme main .home-previous .home-title::after {
+  margin-left: 20px;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+html.Newtheme main .home-previous .previous {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px 15px;
+}
+html.Newtheme main .home-previous .previous .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+html.Newtheme main .home-previous .previous-img {
+  width: 130px;
+  margin-bottom: 10px;
+}
+html.Newtheme main .home-previous .previous-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+html.Newtheme main .home-previous .previous-text li {
+  margin-bottom: 8px;
+}
+html.Newtheme main .home-previous .previous-name {
+  font-family: "Niconne", cursive;
+  font-size: 24px;
+}
+html.Newtheme main .home-previous .previous-designation {
+  text-transform: capitalize;
+}
 
 .footer-content {
   -webkit-box-sizing: border-box;
@@ -14124,8 +14287,10 @@ html.Newtheme main .home-app .app-item button .icon-apple {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-width: 1400px;
   margin: 0 auto;
+  max-width: 1400px;
+  width: 100%;
+  background: #141f33;
 }
 .footer-content .powered {
   display: -webkit-box;
@@ -14344,6 +14509,11 @@ html.Newtheme main .home-app .app-item button .icon-apple {
 .footer-bottom .provider .payment-logo {
   margin-bottom: 30px;
 }
+.footer-bottom .game-collection .payment-logo img,
+.footer-bottom .payment-content .payment-logo img,
+.footer-bottom .provider .payment-logo img {
+  border-radius: 50%;
+}
 .footer-bottom .game-collection .game-license img,
 .footer-bottom .payment-content .game-license img,
 .footer-bottom .provider .game-license img {
@@ -14388,7 +14558,6 @@ html.Newtheme main .home-app .app-item button .icon-apple {
 .footer-bottom .payment-content img {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
 }
 .footer-bottom .provider {
   width: 810px;
@@ -17666,7 +17835,7 @@ html.Newtheme:not(.index, .lobby) .swiper-container + .inside-title.icon-ow-casi
   display: flex;
   margin: 20px auto 0;
   overflow: hidden;
-  width: 1400px;
+  max-width: 1400px;
   position: relative;
   cursor: pointer;
 }
@@ -17674,6 +17843,11 @@ html.Newtheme:not(.index, .lobby) .swiper-container + .inside-title.icon-ow-casi
   opacity: 1;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+}
+@media (max-width: 1300px) {
+  .recently {
+    max-width: 1240px;
+  }
 }
 .recently .swiper-button-next, .recently .swiper-button-prev {
   background: rgba(250, 182, 23, 0.8);
