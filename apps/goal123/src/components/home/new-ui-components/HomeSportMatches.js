@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React, { useState, useEffect, useContext } from "react";
 import moment from "moment";
 import { navigate } from "gatsby";
@@ -77,14 +78,14 @@ const HomeSportMatches = () => {
 					</a>
 				</div>
 			</div>
-			<div className="ambassador">
+
+			<div className="hotmatches-image">
 				<img
-					src={`${bannerImgUrl}/desktop/img/home-page/hotmatches-bg.png`}
-					alt="home-ambassador"
+					src={`${bannerImgUrl}/desktop/img/home-page/hotmatches-bg-1.png`}
+					alt="hotmatches"
 				/>
-				<span>{t("lbl_Home_Ambassador")} 2023-2024</span>
-				<span>Michael Ballack</span>
 			</div>
+
 			<div className="video-content">
 				<div
 					style={{
@@ -97,11 +98,13 @@ const HomeSportMatches = () => {
 						allowFullScreen
 						allow="fullscreen"
 						height="100%"
-						src={
-							userInfo.langId === "en"
-								? "https://streamable.com/e/vmq4q3?nocontrols=1"
-								: "https://streamable.com/e/cixhb8?nocontrols=1"
-						}
+						// 影片先撤下來，待市場提供正式影片
+						// src={
+						// 	userInfo.langId === "en"
+						// 		? "https://streamable.com/e/vmq4q3?nocontrols=1"
+						// 		: "https://streamable.com/e/cixhb8?nocontrols=1"
+						// }
+						src=""
 						width="100%"
 						style={{
 							border: "none",
@@ -115,6 +118,7 @@ const HomeSportMatches = () => {
 					/>
 				</div>
 			</div>
+
 			<Swiper
 				className="sports-hotmatches"
 				modules={[Navigation]}
