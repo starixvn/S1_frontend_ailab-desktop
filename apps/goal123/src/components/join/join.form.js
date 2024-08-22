@@ -127,7 +127,16 @@ const JoinForm = ({
 				) : null}
 			</div>
 
-			{Object.keys(recaptchaInfo).length > 0 &&
+			{recaptchaInfo.country !== "CN" && (
+				<ReCAPTCHA
+					class="g-recaptcha"
+					sitekey={recaptchaInfo.siteKey}
+					onChange={reCaptchaOnChange}
+					hl={reCaptchaEnum[langId]}
+				/>
+			)}
+			{/* // TODO: Leo待後端修復好ＡＰＩ重新解開封印 */}
+			{/* {Object.keys(recaptchaInfo).length > 0 &&
 				recaptchaInfo.country !== "CN" && (
 					<ReCAPTCHA
 						class="g-recaptcha"
@@ -135,7 +144,7 @@ const JoinForm = ({
 						onChange={reCaptchaOnChange}
 						hl={reCaptchaEnum[langId]}
 					/>
-				)}
+				)} */}
 
 			<div className="Terms">
 				<Checkbox
