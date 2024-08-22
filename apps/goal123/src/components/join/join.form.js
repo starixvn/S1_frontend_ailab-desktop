@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Checkbox from "../common/checkbox";
-import { reCaptchaEnum } from "./join.def";
+// import { reCaptchaEnum } from "./join.def";
 
 const JoinForm = ({
 	t,
@@ -22,11 +22,11 @@ const JoinForm = ({
 	tandCRule,
 	clickCancel,
 	clickSubmit,
-	langId,
-	reCaptchaOnChange,
+	// langId,
+	// reCaptchaOnChange,
 	_areaCode,
-	urlAffiliate,
-	recaptchaInfo
+	urlAffiliate
+	// recaptchaInfo
 }) => {
 	return (
 		<form className="joinloginFunction" onSubmit={clickSubmit}>
@@ -127,14 +127,6 @@ const JoinForm = ({
 				) : null}
 			</div>
 
-			{recaptchaInfo.country !== "CN" && (
-				<ReCAPTCHA
-					class="g-recaptcha"
-					sitekey={recaptchaInfo.siteKey}
-					onChange={reCaptchaOnChange}
-					hl={reCaptchaEnum[langId]}
-				/>
-			)}
 			{/* // TODO: Leo待後端修復好ＡＰＩ重新解開封印 */}
 			{/* {Object.keys(recaptchaInfo).length > 0 &&
 				recaptchaInfo.country !== "CN" && (
@@ -150,7 +142,8 @@ const JoinForm = ({
 				<Checkbox
 					id="joinAgreeCheck"
 					checked={userValue.agreeCheck}
-					onChange={checkboxHandler.bind(null, "agreeCheck")}>
+					onChange={checkboxHandler.bind(null, "agreeCheck")}
+				>
 					{t("lbl_Check18TC1")}&nbsp;
 					<a target="_blank" rel="noreferrer" href={tandCTerms}>
 						{t("lbl_TermsConditions")}
@@ -173,7 +166,8 @@ const JoinForm = ({
 				<button
 					type="button"
 					className="btn-cancel"
-					onClick={clickCancel}>
+					onClick={clickCancel}
+				>
 					{t("lbl_Cancel")}
 				</button>
 				<button className="btn-check" type="submit">
@@ -185,11 +179,11 @@ const JoinForm = ({
 };
 
 JoinForm.defaultProps = {
-	langId: null,
-	reCaptchaOnChange: null,
+	// langId: null,
+	// reCaptchaOnChange: null,
 	_areaCode: null,
-	urlAffiliate: null,
-	recaptchaInfo: null
+	urlAffiliate: null
+	// recaptchaInfo: null
 };
 
 JoinForm.propTypes = {
@@ -208,11 +202,11 @@ JoinForm.propTypes = {
 	tandCRule: PropTypes.string.isRequired,
 	clickCancel: PropTypes.func.isRequired,
 	clickSubmit: PropTypes.func.isRequired,
-	langId: PropTypes.string,
-	reCaptchaOnChange: PropTypes.func,
+	// langId: PropTypes.string,
+	// reCaptchaOnChange: PropTypes.func,
 	_areaCode: PropTypes.string,
-	urlAffiliate: PropTypes.bool,
-	recaptchaInfo: PropTypes.objectOf(PropTypes.any)
+	urlAffiliate: PropTypes.bool
+	// recaptchaInfo: PropTypes.objectOf(PropTypes.any)
 };
 
 export default JoinForm;
