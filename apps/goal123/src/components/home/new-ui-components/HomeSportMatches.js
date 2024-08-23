@@ -98,13 +98,7 @@ const HomeSportMatches = () => {
 						allowFullScreen
 						allow="fullscreen"
 						height="100%"
-						// 影片先撤下來，待市場提供正式影片
-						// src={
-						// 	userInfo.langId === "en"
-						// 		? "https://streamable.com/e/vmq4q3?nocontrols=1"
-						// 		: "https://streamable.com/e/cixhb8?nocontrols=1"
-						// }
-						src=""
+						src="https://streamable.com/e/8ttonv?"
 						width="100%"
 						style={{
 							border: "none",
