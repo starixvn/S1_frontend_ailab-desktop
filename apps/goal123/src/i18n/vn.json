@@ -986,7 +986,7 @@
   "msg_API_SendVerifySMS_1004": "Bạn có nhiều yêu cầu gửi mã xác nhận trong một khoảng thời gian ngắn. Xin vui lòng thử lại sau {{time}} giây nữa",
   "msg_AccountWrongFormat": "Định dạng tài khoản không đúng.",
   "msg_AmountFormatTip": "Xin lưu ý cách thể hiện số tiền của hệ thống như sau : 15,000 = 15,000,000 VNĐ, mười lăm triệu đồng. ",
-  "msg_ApiServerError": "Bạn đang có yêu cầu đã gửi trước đó. Vui lòng đợi.",
+  "msg_ApiServerError": "goal123",
   "msg_ConfirmPwdNotMatch": "Mật khẩu không khớp",
   "msg_ConfirmPwdReq": "Vui lòng xác nhận mật khẩu",
   "msg_DepositHint": "Nạp tiền ngay để thưởng thức các trò chơi và dịch vụ của chúng tôi.",
