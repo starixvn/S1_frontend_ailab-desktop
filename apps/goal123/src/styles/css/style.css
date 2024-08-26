@@ -13171,7 +13171,7 @@ html.Newtheme main .home-sports > div:first-child {
 }
 html.Newtheme main .home-sports > div:first-child::after {
   content: "";
-  width: 100%;
+  width: 45%;
   height: 6px;
   border-radius: 5px;
   display: block;
@@ -14001,12 +14001,24 @@ html.Newtheme main .home-info button {
       -ms-flex-direction: row;
           flex-direction: row;
   margin-bottom: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 @media (max-width: 1300px) {
   html.Newtheme main .home-info a,
   html.Newtheme main .home-info button {
     font-size: 20px;
   }
+}
+html.Newtheme main .home-info a i,
+html.Newtheme main .home-info button i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 html.Newtheme main .home-info a.list,
 html.Newtheme main .home-info button.list {

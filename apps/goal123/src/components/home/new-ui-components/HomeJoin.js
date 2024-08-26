@@ -16,7 +16,7 @@ const HomeJoin = () => {
 			title: "lbl_trusthworthy",
 			text: "lbl_trustedPartner",
 			img: "trusthworthy.png",
-			link: `/${userInfo.langId}/${path.ambassador.root}`
+			// 因應 pm trustedPartner 不用 link，按下無動作
 		},
 		{
 			title: "lbl_Home_Exclusives_VIP_Title",
