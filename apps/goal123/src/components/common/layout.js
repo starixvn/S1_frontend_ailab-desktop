@@ -15,6 +15,7 @@ import Loading from "./loading";
 import { loadingContext, productTpIdsContext } from "./context";
 import GoTopBtn from "./goTopBtn";
 import HomeFooter from "../footer/HomeFooter";
+import Survey from "./survey";
 
 const Layout = ({
 	children,
@@ -49,6 +50,7 @@ const Layout = ({
 			<PopBox />
 			{loading ? <Loading /> : null}
 			{goTopBtn ? <GoTopBtn /> : null}
+			<Survey />
 		</Provider>
 	);
 };

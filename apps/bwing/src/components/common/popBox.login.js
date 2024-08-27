@@ -274,7 +274,8 @@ export const LoginForm = ({
 				/>
 				<Link
 					className="login-forget"
-					to={`/${userInfo.langId}/${path.forgetPassword.root}`}>
+					to={`/${userInfo.langId}/${path.forgetPassword.root}`}
+				>
 					{t("lbl_ForgetPassword")}
 				</Link>
 				<div className="btn-group">
