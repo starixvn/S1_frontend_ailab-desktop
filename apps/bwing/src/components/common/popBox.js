@@ -411,19 +411,19 @@ export default () => {
 			break;
 	}
 
-	if (popBox.loading) return <Loading />;
-
 	const customLayout =
 		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
 		popBox.popBoxType === defPopBoxType.DepositGuide ||
 		popBox.popBoxType === defPopBoxType.Modal;
 
-	if (!popBox.isOpen) return null;
-
 	const memorizeContent = useMemo(
 		() => content,
-		[popBox.popBoxType, popBox.content]
+		[popBox.popBoxType, popBox.content, popBox.loading, popBox.isOpen]
 	);
+
+	if (popBox.loading) return <Loading />;
+
+	if (!popBox.isOpen) return null;
 
 	if (customLayout || popBox.customLayout)
 		return <Suspense fallback={<Loading />}>{memorizeContent}</Suspense>;

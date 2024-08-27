@@ -29,7 +29,6 @@ const useAppDownLoad = () => {
 						const newData = data.reduce((acc, cur) => {
 							return { ...acc, [cur.appTypeName]: cur };
 						}, {});
-
 						setAppLinkData(newData);
 					} else {
 						errorPopBox(message || `error`, errorCode);
