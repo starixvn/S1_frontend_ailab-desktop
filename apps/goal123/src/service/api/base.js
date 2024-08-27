@@ -102,3 +102,8 @@ export const cupEventRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/CupEvent`
 });
+
+export const surveyRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/Questionnaire`
+});

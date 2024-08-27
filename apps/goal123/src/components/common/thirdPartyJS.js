@@ -37,7 +37,7 @@ const Shield = () => {
 				type="text/javascript"
 				async
 				// eslint-disable-next-line react/no-unknown-property
-				charSet="UTF-8"
+				charset="UTF-8"
 				onLoad={getShieldData}
 			/>
 			(
