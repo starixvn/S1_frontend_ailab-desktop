@@ -35,7 +35,7 @@ function SEO({ description, lang, meta, title }) {
 		typeof window !== undefined && window.location.pathname.split("/");
 
 	const htmlClassName = () => {
-		// 因該只有首頁，不確定還有沒其他頁面會符合這邏輯，是從 2020 年的邏輯搬過來的
+		// 應該只有首頁，不確定還有沒其他頁面會符合這邏輯，是從 2020 年的邏輯搬過來的
 		if (
 			typeof window !== undefined &&
 			(window.location.pathname === "/" ||

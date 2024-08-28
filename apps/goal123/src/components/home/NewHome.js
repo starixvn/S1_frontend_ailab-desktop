@@ -10,6 +10,7 @@ import { siteId } from "../../config";
 import HomePopularSlotGames from "./new-ui-components/HomePopularSlotGames";
 import HomeInfo from "./new-ui-components/HomeInfo";
 import HomeAppDownload from "./new-ui-components/HomeAppDownload";
+import HomePrevious from "./new-ui-components/HomePrevious";
 import HomeLeaderBoard from "./new-ui-components/HomeLeaderBoard";
 import HomeMarquee from "./new-ui-components/HomeMarquee";
 import HomeRecentViewedGames from "./new-ui-components/HomeRecentViewedGames";
@@ -60,6 +61,7 @@ const NewHome = () => {
 				<HomeInfo />
 				<HomeRecentViewedGames />
 				<HomeAppDownload />
+				<HomePrevious/>
 				{!isDateRange(eventPeriods.euroCup) && <LuckyWheelLink />}
 				{isDateRange(eventPeriods.dragonEgg) && <DragonEgg />}
 				{isDateRange(eventPeriods.euroCup) && <CupEventLink />}
