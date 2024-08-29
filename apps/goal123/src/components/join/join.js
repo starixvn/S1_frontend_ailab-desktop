@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { MetaPixelTracker } from "@ailab-desktop/common";
+
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
 	api_site_Signup,
 	api_site_GetAffiliateAgent,
 	api_site_ExistsEmail,
-	api_site_AffiliateCheck,
-	api_site_GetRecaptchaInfo
+	api_site_AffiliateCheck
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import {
@@ -44,8 +45,6 @@ export default () => {
 	const [tip, setTip] = useState(initTip);
 	const [showPwdState, setShowPwdState] = useState(initShowPwdState);
 	const [siteCurrency, setSiteCurrency] = useState([]);
-	const [reCaptchaToken, setReCaptchaToken] = useState("");
-	const [recaptchaInfo, setRecaptchaInfo] = useState({});
 	const isMountedRef = useRef(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const configSiteName = config.siteName;
@@ -60,32 +59,7 @@ export default () => {
 	const urlAffId = getUrlParameter("AffId") || readCookie("AffId");
 	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
 	const urlAffiliate = urlAffId || urlAffCode;
-
-	const getRecaptchaSiteKey = async () => {
-		try {
-			const res = await api_site_GetRecaptchaInfo();
-			const { country, siteKey } = res.data.data;
-			setRecaptchaInfo({
-				country,
-				siteKey
-			});
-		} catch (error) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.ErrorMsg,
-				message: t("msg_ApiServerError"),
-				btnBar: (
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
-							{t("lbl_Close")}
-						</button>
-					</div>
-				)
-			});
-		}
-	};
+	const { executeRecaptcha } = useGoogleReCaptcha();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -96,7 +70,6 @@ export default () => {
 
 	useEffect(() => {
 		getShieldData();
-		getRecaptchaSiteKey();
 		if (urlAffiliate) {
 			checkAffiliate({});
 		} else {
@@ -435,8 +408,6 @@ export default () => {
 		const _phoneCheck = phoneCheck(userValue.phone);
 		// const _emailCheck = res[1];
 		const _agreeCheck = userValue.agreeCheck;
-		const _reCaptchaCheck =
-			reCaptchaToken !== "" || recaptchaInfo.country === "CN";
 		const _affiliateCheck = res[1];
 
 		const checked =
@@ -447,7 +418,6 @@ export default () => {
 			_phoneCheck.checked &&
 			// _emailCheck.checked &&
 			_agreeCheck &&
-			_reCaptchaCheck &&
 			// affiliate is optional
 			(_affiliateCheck.checked === true ||
 				_affiliateCheck.checked === null);
@@ -495,6 +465,8 @@ export default () => {
 	const clickSubmit = async e => {
 		e.preventDefault();
 		const checked = await checkAll();
+		if (!executeRecaptcha) return;
+		const reCaptchaToken = await executeRecaptcha("signUp");
 
 		if (checked && !userInfo.isLogin) {
 			const regData = {
@@ -612,10 +584,6 @@ export default () => {
 		});
 	};
 
-	const handleReCaptchaChange = token => {
-		setReCaptchaToken(token);
-	};
-
 	return (
 		<div className="joinloginModule">
 			<img
@@ -642,11 +610,8 @@ export default () => {
 				tandCRule={tandCRule}
 				clickCancel={clickCancel}
 				clickSubmit={clickSubmit}
-				langId={userInfo.langId}
-				reCaptchaOnChange={handleReCaptchaChange}
 				_areaCode={_areaCode}
 				urlAffiliate={urlAffiliate}
-				recaptchaInfo={recaptchaInfo}
 			/>
 		</div>
 	);

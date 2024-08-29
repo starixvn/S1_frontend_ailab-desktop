@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { navigate } from "gatsby";
-import ReCAPTCHA from "react-google-recaptcha";
 import { bannerImgUrl } from "../../config";
 import { defPopBoxType } from "./defPopBoxType";
 import usePopBox from "../hook/usePopBox";
@@ -16,7 +16,6 @@ import {
 	api_site_ExistsEmail,
 	api_site_ExistsUserName,
 	api_site_GetAffiliateAgent,
-	api_site_GetRecaptchaInfo,
 	api_site_GetSiteCurrencyList,
 	api_site_Signup
 } from "../../service/api/site";
@@ -105,8 +104,6 @@ const Join = () => {
 	const [showPsw, setShowPsw] = useState(false);
 	const [showConfirmPsw, setShowConfirmPsw] = useState(false);
 	const [siteCurrency, setSiteCurrency] = useState([]);
-	const [reCaptchaToken, setReCaptchaToken] = useState("");
-	const [recaptchaInfo, setRecaptchaInfo] = useState({});
 	const [activeInfo, setActiveInfo] = useState(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const isMountedRef = useRef(null);
@@ -116,6 +113,7 @@ const Join = () => {
 	const urlAffiliate = urlAffId || urlAffCode;
 
 	const { getShieldData, saveShieldData } = useShieldCheck();
+	const { executeRecaptcha } = useGoogleReCaptcha();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -124,35 +122,8 @@ const Join = () => {
 		};
 	});
 
-	const getRecaptchaSiteKey = async () => {
-		try {
-			const res = await api_site_GetRecaptchaInfo();
-			const { country, siteKey } = res.data.data;
-			setRecaptchaInfo({
-				country,
-				siteKey
-			});
-		} catch (error) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.ErrorMsg,
-				message: t("msg_ApiServerError"),
-				btnBar: (
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
-							{t("lbl_Close")}
-						</button>
-					</div>
-				)
-			});
-		}
-	};
-
 	useEffect(() => {
 		getShieldData();
-		// getRecaptchaSiteKey();
 		if (urlAffiliate) {
 			checkAffiliate({});
 		} else {
@@ -638,10 +609,6 @@ const Join = () => {
 		}
 	};
 
-	const handleReCaptchaChange = token => {
-		setReCaptchaToken(token);
-	};
-
 	return (
 		<div className="join-module popup active">
 			<div>
@@ -798,17 +765,6 @@ const Join = () => {
 						activeInfo={activeInfo}
 						setActiveInfo={setActiveInfo}
 					/>
-					{/*
-						{Object.keys(recaptchaInfo).length > 0 &&
-						recaptchaInfo.country !== "CN" && (
-							<ReCAPTCHA
-								class="g-recaptcha"
-								sitekey={recaptchaInfo.siteKey}
-								onChange={handleReCaptchaChange}
-								hl={reCaptchaEnum[userInfo.langId]}
-							/>
-						)}
-					*/}
 
 					{inputStatus.agreeCheck.msg !== "" ? (
 						<div className="tip active">
