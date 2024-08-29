@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { MetaPixelTracker } from "@ailab-desktop/common";
 import {
 	api_site_ExistsUserName,
@@ -43,8 +44,6 @@ export default () => {
 	const [tip, setTip] = useState(initTip);
 	const [showPwdState, setShowPwdState] = useState(initShowPwdState);
 	const [siteCurrency, setSiteCurrency] = useState([]);
-	const [reCaptchaToken, setReCaptchaToken] = useState("");
-	const [recaptchaInfo, setRecaptchaInfo] = useState({});
 	const isMountedRef = useRef(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const configSiteName = config.siteName;
@@ -59,6 +58,8 @@ export default () => {
 	const urlAffId = getUrlParameter("AffId") || readCookie("AffId");
 	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
 	const urlAffiliate = urlAffId || urlAffCode;
+
+	const { executeRecaptcha } = useGoogleReCaptcha();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -407,8 +408,6 @@ export default () => {
 		const _phoneCheck = phoneCheck(userValue.phone);
 		// const _emailCheck = res[1];
 		const _agreeCheck = userValue.agreeCheck;
-		const _reCaptchaCheck =
-			reCaptchaToken !== "" || recaptchaInfo.country === "CN";
 		const _affiliateCheck = res[1];
 
 		const checked =
@@ -419,7 +418,6 @@ export default () => {
 			_phoneCheck.checked &&
 			// _emailCheck.checked &&
 			_agreeCheck &&
-			_reCaptchaCheck &&
 			// affiliate is optional
 			(_affiliateCheck.checked === true ||
 				_affiliateCheck.checked === null);
@@ -467,6 +465,8 @@ export default () => {
 	const clickSubmit = async e => {
 		e.preventDefault();
 		const checked = await checkAll();
+		if (!executeRecaptcha) return;
+		const reCaptchaToken = await executeRecaptcha("signUp");
 
 		if (checked && !userInfo.isLogin) {
 			const regData = {
@@ -584,10 +584,6 @@ export default () => {
 		});
 	};
 
-	const handleReCaptchaChange = token => {
-		setReCaptchaToken(token);
-	};
-
 	return (
 		<div className="joinloginModule">
 			<img
@@ -614,11 +610,8 @@ export default () => {
 				tandCRule={tandCRule}
 				clickCancel={clickCancel}
 				clickSubmit={clickSubmit}
-				langId={userInfo.langId}
-				reCaptchaOnChange={handleReCaptchaChange}
 				_areaCode={_areaCode}
 				urlAffiliate={urlAffiliate}
-				recaptchaInfo={recaptchaInfo}
 			/>
 		</div>
 	);
