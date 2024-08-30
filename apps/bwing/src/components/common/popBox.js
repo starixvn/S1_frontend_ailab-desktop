@@ -1,5 +1,4 @@
 import React, { useContext, lazy, Suspense, useMemo } from "react";
-import { GReCaptchaProviders } from "@ailab-desktop/common";
 import { popBoxContext } from "./context";
 import Loading from "./loading";
 import { defPopBoxType } from "./defPopBoxType";
