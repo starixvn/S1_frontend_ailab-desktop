@@ -1,3 +1,4 @@
+import { useGetRecaptchaInfoQuery } from "@ailab-desktop/service";
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
@@ -54,6 +55,8 @@ export default () => {
 		eventPeriodIdpd.endDate
 	);
 	const { getShieldData, saveShieldData } = useShieldCheck();
+	const { data: { data: recaptchaInfoData } = {} } =
+		useGetRecaptchaInfoQuery();
 
 	const urlAffId = getUrlParameter("AffId") || readCookie("AffId");
 	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
@@ -465,8 +468,15 @@ export default () => {
 	const clickSubmit = async e => {
 		e.preventDefault();
 		const checked = await checkAll();
-		if (!executeRecaptcha) return;
-		const reCaptchaToken = await executeRecaptcha("signUp");
+
+		// 目前只有 nova 需要 google recaptcha，因為 Yashbet 外面沒有包ㄧ層 GReCaptchaProviders
+		// 會找不到 executeRecaptcha 壞掉 需要在此排除
+		// 中國地區不需驗證
+		let reCaptchaToken;
+		if (recaptchaInfoData?.country !== "CN") {
+			if (!executeRecaptcha) return;
+			reCaptchaToken = await executeRecaptcha("signUp");
+		}
 
 		if (checked && !userInfo.isLogin) {
 			const regData = {

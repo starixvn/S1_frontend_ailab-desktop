@@ -1,6 +1,5 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import { Fragment, ReactNode } from "react";
 import { useGetRecaptchaInfoQuery } from "@ailab-desktop/service";
 
 const reCaptchaEnum: { [key: string]: string } = {
@@ -17,16 +16,18 @@ function GReCaptchaProviders({
 	children,
 	langId
 }: IGoogleReCaptchaProvidersProps): JSX.Element {
-	const { data: { data: recaptchaInfo } = {} } = useGetRecaptchaInfoQuery();
+	const { data: { data: recaptchaInfoData } = {} } =
+		useGetRecaptchaInfoQuery();
 
 	// 不直接 return 是確保 api 失效不會整個元件都被 block
 	// 中國地區不需驗證
-	if (!recaptchaInfo?.siteKey && recaptchaInfo?.country !== "CN")
-		return <Fragment>{children}</Fragment>;
+	if (!recaptchaInfoData?.siteKey || recaptchaInfoData?.country === "CN") {
+		return children as JSX.Element;
+	}
 
 	return (
 		<GoogleReCaptchaProvider
-			reCaptchaKey={recaptchaInfo?.siteKey}
+			reCaptchaKey={recaptchaInfoData?.siteKey}
 			language={reCaptchaEnum[langId]}
 			container={{
 				// optional to render inside custom element
