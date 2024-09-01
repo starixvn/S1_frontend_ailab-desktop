@@ -245,10 +245,6 @@ const Profile = () => {
 						<i className="icon-referral" />
 						{t("lbl_ReferFriends")}
 					</Link>
-					<Link to={`/${langId}/${path.changePassword.root}`}>
-						<i className="icon-change-pwd" />
-						{t("lbl_ChangePassword")}
-					</Link>
 					<div className="countryList">
 						<button
 							className="flag en"
