@@ -469,13 +469,12 @@ export default () => {
 		e.preventDefault();
 		const checked = await checkAll();
 
-		// 目前只有 nova 需要 google recaptcha，因為 Yashbet 外面沒有包ㄧ層 GReCaptchaProviders
-		// 會找不到 executeRecaptcha 壞掉 需要在此排除
 		// 中國地區不需驗證
+		const ReCaptchaAction = "signup";
 		let reCaptchaToken;
 		if (recaptchaInfoData?.country !== "CN") {
 			if (!executeRecaptcha) return;
-			reCaptchaToken = await executeRecaptcha("signUp");
+			reCaptchaToken = await executeRecaptcha(ReCaptchaAction);
 		}
 
 		if (checked && !userInfo.isLogin) {
@@ -490,7 +489,8 @@ export default () => {
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
 				ReferralUrl: document.referrer,
-				ReCaptchaToken: reCaptchaToken
+				ReCaptchaToken: reCaptchaToken,
+				ReCaptchaAction
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
