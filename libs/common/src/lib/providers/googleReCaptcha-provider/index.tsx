@@ -29,6 +29,7 @@ function GReCaptchaProviders({
 		<GoogleReCaptchaProvider
 			reCaptchaKey={recaptchaInfoData?.siteKey}
 			language={reCaptchaEnum[langId]}
+			useEnterprise
 			container={{
 				// optional to render inside custom element
 				element: "g-reCaptcha",
