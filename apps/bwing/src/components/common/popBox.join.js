@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useGetRecaptchaInfoQuery } from "@ailab-desktop/service";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { navigate } from "gatsby";
 import { bannerImgUrl } from "../../config";
@@ -89,11 +90,6 @@ const currencyToAreacode = {
 	96: "MY"
 };
 
-const reCaptchaEnum = {
-	en: "en",
-	vn: "vi"
-};
-
 const Join = () => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
@@ -107,6 +103,9 @@ const Join = () => {
 	const [activeInfo, setActiveInfo] = useState(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const isMountedRef = useRef(null);
+
+	const { data: { data: recaptchaInfoData } = {} } =
+		useGetRecaptchaInfoQuery();
 
 	const urlAffId = getUrlParameter("AffId") || readCookie("AffId");
 	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
@@ -420,10 +419,6 @@ const Join = () => {
 	};
 
 	const checkAll = async () => {
-		// const _reCaptchaCheck =
-		// 	reCaptchaToken !== "" || recaptchaInfo.country === "CN";
-		// // * 機器人驗證沒過直接 return 出去
-		// if (!_reCaptchaCheck) return false;
 		const res = await Promise.all([
 			usernameCheck(userValue.userName),
 			// emailCheck(userValue.email),
@@ -493,6 +488,15 @@ const Join = () => {
 	const clickSubmit = async e => {
 		e.preventDefault();
 		const checked = await checkAll();
+
+		// 中國地區不需驗證
+		const ReCaptchaAction = "signup";
+		let reCaptchaToken;
+		if (recaptchaInfoData?.country !== "CN") {
+			if (!executeRecaptcha) return;
+			reCaptchaToken = await executeRecaptcha(ReCaptchaAction);
+		}
+
 		if (checked && !userInfo.isLogin) {
 			const regData = {
 				UserName: userValue.userName,
@@ -504,8 +508,9 @@ const Join = () => {
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
-				ReferralUrl: document.referrer
-				// ReCaptchaToken: reCaptchaToken
+				ReferralUrl: document.referrer,
+				ReCaptchaToken: reCaptchaToken,
+				ReCaptchaAction
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
