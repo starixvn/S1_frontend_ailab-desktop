@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MetaPixelTracker } from "@ailab-desktop/common";
-import ReCAPTCHA from "react-google-recaptcha";
 import { navigate } from "gatsby";
 import { popBoxContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
@@ -12,7 +11,6 @@ import {
 	api_site_ExistsEmail,
 	api_site_ExistsUserName,
 	api_site_GetAffiliateAgent,
-	api_site_GetRecaptchaInfo,
 	api_site_GetSiteCurrencyList,
 	api_site_Signup
 } from "../../service/api/site";
@@ -91,11 +89,6 @@ const currencyToAreacode = {
 	96: "MY"
 };
 
-const reCaptchaEnum = {
-	en: "en",
-	vn: "vi"
-};
-
 const Join = () => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
@@ -106,8 +99,6 @@ const Join = () => {
 	const [showPsw, setShowPsw] = useState(false);
 	const [showConfirmPsw, setShowConfirmPsw] = useState(false);
 	const [siteCurrency, setSiteCurrency] = useState([]);
-	const [reCaptchaToken, setReCaptchaToken] = useState("");
-	const [recaptchaInfo, setRecaptchaInfo] = useState({});
 	const [activeInfo, setActiveInfo] = useState(null);
 	const defaultLangId = userInfo?.langId ?? GET_LANG_ID();
 	const isMountedRef = useRef(null);
@@ -127,39 +118,12 @@ const Join = () => {
 
 	useEffect(() => {
 		getShieldData();
-		getRecaptchaSiteKey();
 		if (urlAffiliate) {
 			checkAffiliate({});
 		} else {
 			getCurrencyList();
 		}
 	}, []);
-
-	const getRecaptchaSiteKey = async () => {
-		try {
-			const res = await api_site_GetRecaptchaInfo();
-			const { country, siteKey } = res.data.data;
-			setRecaptchaInfo({
-				country,
-				siteKey
-			});
-		} catch (error) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.ErrorMsg,
-				message: t("msg_ApiServerError"),
-				btnBar: (
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
-							{t("lbl_Close")}
-						</button>
-					</div>
-				)
-			});
-		}
-	};
 
 	const checkAffiliate = async ({ formAffCode }) => {
 		let checked = null;
@@ -450,9 +414,6 @@ const Join = () => {
 	};
 
 	const checkAll = async () => {
-		const _reCaptchaCheck =
-			reCaptchaToken !== "" || recaptchaInfo.country === "CN";
-		// * 機器人驗證沒過直接 return 出去
 		if (!_reCaptchaCheck) return false;
 		const res = await Promise.all([
 			usernameCheck(userValue.userName),
@@ -534,8 +495,7 @@ const Join = () => {
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
-				ReferralUrl: document.referrer,
-				ReCaptchaToken: reCaptchaToken
+				ReferralUrl: document.referrer
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
@@ -638,10 +598,6 @@ const Join = () => {
 				}
 			);
 		}
-	};
-
-	const handleReCaptchaChange = token => {
-		setReCaptchaToken(token);
 	};
 
 	return (
@@ -806,15 +762,6 @@ const Join = () => {
 							activeInfo={activeInfo}
 							setActiveInfo={setActiveInfo}
 						/>
-						{Object.keys(recaptchaInfo).length > 0 &&
-							recaptchaInfo.country !== "CN" && (
-								<ReCAPTCHA
-									class="g-recaptcha"
-									sitekey={recaptchaInfo.siteKey}
-									onChange={handleReCaptchaChange}
-									hl={reCaptchaEnum[userInfo?.langId]}
-								/>
-							)}
 
 						{inputStatus.agreeCheck.msg !== "" ? (
 							<div className="tip active">
