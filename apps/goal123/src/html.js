@@ -44,7 +44,7 @@ export default function HTML(props) {
 
 				{/* === Facebook Pixel - 存／提款成功事件 === */}
 
-				<script
+				{/* <script
 					dangerouslySetInnerHTML={{
 						__html: `
 						!function(f,b,e,v,n,t,s)
@@ -68,7 +68,7 @@ export default function HTML(props) {
 						style={{ display: "none" }}
 						src="https://www.facebook.com/tr?id=745371327638515&ev=PageView&noscript=1"
 					/>
-				</noscript>
+				</noscript> */}
 
 				{/* ==================================== */}
 
