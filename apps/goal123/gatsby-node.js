@@ -86,7 +86,6 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 };
 
 // 解決每次進到靜態檔ex: BLOCKIP/index.html 都會被導回首頁的狀況
-// eslint-disable-next-line @typescript-eslint/--no-ignore
 exports.onCreateDevServer = ({ app }) => {
 	app.use((req, res, next) => {
 		const staticPath = path.join(__dirname, "static", req.url);
