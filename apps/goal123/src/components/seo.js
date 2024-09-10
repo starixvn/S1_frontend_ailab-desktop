@@ -32,11 +32,13 @@ function SEO({ description, lang, meta, title }) {
 	const metaDescription = description || site.siteMetadata.description;
 
 	const splitPath =
+		// eslint-disable-next-line valid-typeof
 		typeof window !== undefined && window.location.pathname.split("/");
 
 	const htmlClassName = () => {
-		// 因該只有首頁，不確定還有沒其他頁面會符合這邏輯，是從 2020 年的邏輯搬過來的
+		// 應該只有首頁，不確定還有沒其他頁面會符合這邏輯，是從 2020 年的邏輯搬過來的
 		if (
+			// eslint-disable-next-line valid-typeof
 			typeof window !== undefined &&
 			(window.location.pathname === "/" ||
 				((splitPath.length === 2 ||
@@ -49,6 +51,7 @@ function SEO({ description, lang, meta, title }) {
 		}
 		// leaderboard 頁面
 		if (
+			// eslint-disable-next-line valid-typeof
 			typeof window !== undefined &&
 			splitPath[2] === path.leaderBoard.root
 		) {
@@ -151,21 +154,21 @@ const LiveChat = () => (
 	</>
 );
 
-const GATag = ({ gaCode }) => (
-	<Helmet>
-		<script
-			async
-			src={`https://www.googletagmanager.com/gtag/js?id=${gaCode}`}
-		/>
-		<script async>
-			{`window.dataLayer = window.dataLayer || [];
-					function gtag(){dataLayer.push(arguments);}
-					gtag('js', new Date());
+// const GATag = ({ gaCode }) => (
+// 	<Helmet>
+// 		<script
+// 			async
+// 			src={`https://www.googletagmanager.com/gtag/js?id=${gaCode}`}
+// 		/>
+// 		<script async>
+// 			{`window.dataLayer = window.dataLayer || [];
+// 					function gtag(){dataLayer.push(arguments);}
+// 					gtag('js', new Date());
 
-					gtag('config', '${gaCode}');`}
-		</script>
-	</Helmet>
-);
+// 					gtag('config', '${gaCode}');`}
+// 		</script>
+// 	</Helmet>
+// );
 
 const FBPixelCode = () => (
 	<Helmet>

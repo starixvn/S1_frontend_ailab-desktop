@@ -158,13 +158,6 @@ const HeaderMainMenu = ({
 							{t("lbl_Vip").toUpperCase()}
 						</Link>
 						<Link
-							to={`/${userInfo?.langId}/${path.ambassador.root}`}
-							onClick={() => setHover(false)} // Optional: Close dropdown on link click
-						>
-							{t("lbl_Ambassador")}
-						</Link>
-
-						<Link
 							to={`/${userInfo?.langId}/${path.leaderBoard.root}`}
 							onClick={() => setHover(false)} // Optional: Close dropdown on link click
 						>

@@ -56,6 +56,7 @@ exports.onCreatePage = async ({
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require("path");
+const fs = require("fs");
 const stdLibBrowser = require("node-stdlib-browser");
 const {
 	NodeProtocolUrlPlugin
@@ -76,5 +77,17 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 				Buffer: [stdLibBrowser.buffer, "Buffer"]
 			})
 		]
+	});
+};
+
+// 解決每次進到靜態檔ex: BLOCKIP/index.html 都會被導回首頁的狀況
+exports.onCreateDevServer = ({ app }) => {
+	app.use((req, res, next) => {
+		const staticPath = path.join(__dirname, "static", req.url);
+		if (fs.existsSync(staticPath) && fs.statSync(staticPath).isFile()) {
+			res.sendFile(staticPath);
+		} else {
+			next();
+		}
 	});
 };
