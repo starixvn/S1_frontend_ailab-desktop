@@ -8,13 +8,7 @@ import HeaderNewMenu from "./header.menu";
 import config, { bannerImgUrl } from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
-import path from "../../router";
 import { eventPeriods } from "../../datas/eventDef";
-
-export const eventPeriod = {
-	startDate: "2024-02-01 00:00:00",
-	endDate: "2024-02-25 23:59:59"
-};
 
 export default () => {
 	const {
@@ -32,46 +26,19 @@ export default () => {
 		}
 	};
 
+	// TODO: 因應中秋節更換ＬＯＧＯ（期間：2024.9.12~9.18）(之後若有其他活動也可以在此調整)
+	const logoUrl = isDateRange(eventPeriods.midAutumn)
+		? `${bannerImgUrl}/desktop/img/logo-mid.png`
+		: `${bannerImgUrl}/desktop/img/logo.png`;
 	return (
 		<header>
 			<div className="header">
 				<div className="top">
 					<div className="logo">
 						<div onClick={reload} style={{ cursor: "pointer " }}>
-							<img
-								src={`${bannerImgUrl}/desktop/img/logo.png`}
-								alt={config.siteName}
-							/>
+							<img src={logoUrl} alt={config.siteName} />
 							<span>{t("Label_Header_HarvestWealth")}</span>
 						</div>
-
-						{/* 調整結構，日後有活動logo改下面這段即可 */}
-						{/* TODO: 歐洲盃期間LOGO => 結束後可刪 */}
-						{isDateRange(eventPeriods.euroCup) && (
-							<div
-								className="logo-eurocup"
-								style={{ cursor: "pointer" }}
-								onClick={() =>
-									navigate(`/${langId}/${path.euroCup.root}`)
-								}
-							>
-								<img
-									src={`${bannerImgUrl}/desktop/img/logo.png`}
-									alt={config.siteName}
-								/>
-								<span>{t("Label_Header_HarvestWealth")}</span>
-							</div>
-						)}
-
-						{/* 巴黎奧運期間顯示 */}
-						{isDateRange(eventPeriods.olympic) && (
-							<div className="logo-olympic">
-								<img
-									src={`${bannerImgUrl}/desktop/img/event/olympic/logo-goal123-desktop.webp`}
-									alt="olympic-logo"
-								/>
-							</div>
-						)}
 					</div>
 					<div className="function">
 						<Functions />
