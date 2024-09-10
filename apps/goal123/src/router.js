@@ -180,5 +180,8 @@ export default {
 	},
 	retention: {
 		root: "retention"
+	},
+	BLOCKIP: {
+		root: "BLOCKIP"
 	}
 };
