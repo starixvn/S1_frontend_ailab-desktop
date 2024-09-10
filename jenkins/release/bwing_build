@@ -10,12 +10,6 @@ pipeline {
     }
     stages {
         stage('Install dependencies') {
-            when {
-                anyOf {
-                    changeset "package.json"
-                    expression { node_modules_exists == 'false' }
-                }
-            }
             steps {
                 sh 'npm i -g node-sass'
                 sh 'npm i --force'
