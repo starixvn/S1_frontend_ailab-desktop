@@ -12,7 +12,6 @@ import {
 	api_site_ExistsEmail,
 	api_site_ExistsUserName,
 	api_site_GetAffiliateAgent,
-	api_site_GetRecaptchaInfo,
 	api_site_GetSiteCurrencyList,
 	api_site_Signup
 } from "../../service/api/site";
@@ -127,39 +126,12 @@ const Join = () => {
 
 	useEffect(() => {
 		getShieldData();
-		getRecaptchaSiteKey();
 		if (urlAffiliate) {
 			checkAffiliate({});
 		} else {
 			getCurrencyList();
 		}
 	}, []);
-
-	const getRecaptchaSiteKey = async () => {
-		try {
-			const res = await api_site_GetRecaptchaInfo();
-			const { country, siteKey } = res.data.data;
-			setRecaptchaInfo({
-				country,
-				siteKey
-			});
-		} catch (error) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.ErrorMsg,
-				message: t("msg_ApiServerError"),
-				btnBar: (
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
-							{t("lbl_Close")}
-						</button>
-					</div>
-				)
-			});
-		}
-	};
 
 	const checkAffiliate = async ({ formAffCode }) => {
 		let checked = null;
