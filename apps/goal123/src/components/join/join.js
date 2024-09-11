@@ -8,8 +8,7 @@ import {
 	api_site_Signup,
 	api_site_GetAffiliateAgent,
 	api_site_ExistsEmail,
-	api_site_AffiliateCheck,
-	api_site_GetRecaptchaInfo
+	api_site_AffiliateCheck
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import {
@@ -61,32 +60,6 @@ export default () => {
 	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
 	const urlAffiliate = urlAffId || urlAffCode;
 
-	const getRecaptchaSiteKey = async () => {
-		try {
-			const res = await api_site_GetRecaptchaInfo();
-			const { country, siteKey } = res.data.data;
-			setRecaptchaInfo({
-				country,
-				siteKey
-			});
-		} catch (error) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.ErrorMsg,
-				message: t("msg_ApiServerError"),
-				btnBar: (
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
-							{t("lbl_Close")}
-						</button>
-					</div>
-				)
-			});
-		}
-	};
-
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -96,7 +69,6 @@ export default () => {
 
 	useEffect(() => {
 		getShieldData();
-		getRecaptchaSiteKey();
 		if (urlAffiliate) {
 			checkAffiliate({});
 		} else {
