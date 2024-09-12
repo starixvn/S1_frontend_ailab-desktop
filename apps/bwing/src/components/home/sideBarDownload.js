@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import QRCode from "qrcode.react";
-import path from "../../router";
+// import path from "../../router";
 
 export const SideBarDownload = ({ appLinkDatas }) => {
 	const { t } = useTranslation();
@@ -15,7 +15,9 @@ export const SideBarDownload = ({ appLinkDatas }) => {
 
 	return (
 		<div className="quickLink app">
-			<div onClick={() => navigate(`/${path.appDownload.root}`)}>
+			{/* // TODO: 2024.9.13先緊急導轉首頁 */}
+			{/* <div onClick={() => navigate(`/${path.appDownload.root}`)}> */}
+			<div onClick={() => navigate(`/`)}>
 				<i className="icon icon-download" />
 				<span>{t("lbl_Download")}</span>
 			</div>
