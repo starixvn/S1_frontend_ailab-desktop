@@ -25,7 +25,7 @@ import SwipperBanner from "../common/swipperBanner";
 import Marquee from "./marquee";
 import Jackpot from "./jackpot";
 import SideBarContactUs from "./sideBarContactUs";
-import SideBarDownload from "./sideBarDownload";
+// import SideBarDownload from "./sideBarDownload";
 import { defBannerType } from "../../service/api/site";
 import useGetVideo from "../streaming/hook";
 import { bannerImgUrl, siteId } from "../../config";
@@ -51,7 +51,7 @@ import { api_news_GetNews } from "../../service/api/news";
 import { eventPerios } from "../../datas/eventDef";
 import DragonEgg from "../dragonEgg/homeLink";
 import CupEventLink from "../cupEventLink/cupEventLink";
-import useAppDownLoad from "../appDownload/useAppDownLoad";
+// import useAppDownLoad from "../appDownload/useAppDownLoad";
 
 const apiResPromotionType = {
 	retentionFreebet: 9
@@ -68,7 +68,7 @@ const Home = () => {
 
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
 	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
-	const { appLinkDatas } = useAppDownLoad();
+	// const { appLinkDatas } = useAppDownLoad();
 
 	const { videoList } = useGetVideo({
 		langId: userInfo.langId,
@@ -550,10 +550,11 @@ const Home = () => {
 
 			<SideBarContactUs />
 
-			<SideBarDownload
+			{/* TODO: 2024.9.13先緊急導轉首頁  */}
+			{/* <SideBarDownload
 				langId={userInfo.langId}
 				appLinkDatas={appLinkDatas}
-			/>
+			/> */}
 		</>
 	);
 };
