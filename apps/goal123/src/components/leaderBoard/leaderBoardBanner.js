@@ -8,15 +8,15 @@ const LeaderBoardBanner = () => {
 
 	/** 取得 banner 路徑，根據活動期間判斷是否更換活動期間的 banner */
 	const getBannerUrl = () => {
-		/** 巴黎奧運期間 banner 巴黎奧運過後可以刪除 */
-		const parisOlympicsBannerUrl = `${bannerImgUrl}/desktop/img/leaderboard/olympic-banner-${langId}.jpg`;
+		/** 中秋期間 banner  */
+		const midAutumnBannerUrl = `${bannerImgUrl}/desktop/img/leaderboard/mid-autumn-banner-${langId}.jpg`;
 
 		/** 常態期間 banner 路徑 */
 		const generalBannerUrl = `${bannerImgUrl}/desktop/img/leaderboard/banner-${langId}.jpg`;
 
 		/**  banner 路徑，根據活動期間判斷是否更換活動期間的 banner */
-		const bannerUrl = isDateRange(eventPeriods.olympic)
-			? parisOlympicsBannerUrl
+		const bannerUrl = isDateRange(eventPeriods.leaderboardMidAutumn)
+			? midAutumnBannerUrl
 			: generalBannerUrl;
 
 		return bannerUrl;
