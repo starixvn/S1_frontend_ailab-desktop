@@ -34,6 +34,7 @@ pipeline {
                 dir("apps/${project_name}/public"){
                     script {
                         env.commitHash = sh (script: 'git rev-parse --short=7 HEAD', returnStdout: true).trim()
+                        currentBuild.displayName = env.commitHash
                     }
                     sh 'zip -r desktop-${site}-${commitHash} *'
                     // 因不是從地端機器，不須經過proxy,參考dev zip step
