@@ -44,7 +44,7 @@ import TopWinner from "./topWinner";
 import FavoriteSlots from "./favoriteSlots";
 import { api_HotGame_GetDataList } from "../../service/api/hotGame";
 import RecentlyViewed from "./recentlyViewed";
-import HomeDownLoad from "./homeDownLoad";
+// import HomeDownLoad from "./homeDownLoad";
 import LiveSports from "./liveSports";
 import News from "./news";
 import { api_news_GetNews } from "../../service/api/news";
@@ -512,7 +512,7 @@ const Home = () => {
 						/>
 					)}
 					{userInfo.isLogin && <RecentlyViewed />}
-					<HomeDownLoad appLinkDatas={appLinkDatas} />
+					{/* <HomeDownLoad appLinkDatas={appLinkDatas} /> */}
 					<LiveSports videoList={videoList} />
 					<News news={news} />
 				</div>
