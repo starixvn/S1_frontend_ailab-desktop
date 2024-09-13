@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from "react";
-import { Link, navigate } from "gatsby";
+import React, { useContext } from "react";
+import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import QRCode from "qrcode.react";
-import path from "../../router";
 import { userInfoContext } from "../common/context";
 import { useAppDownLoad } from "./useAppDownLoad";
 import { bannerImgUrl } from "../../config";
@@ -12,11 +11,6 @@ const AppDownload = () => {
 	const { appLinkDatas } = useAppDownLoad();
 
 	const { userInfo } = useContext(userInfoContext);
-
-	// TODO: 2024.9.13緊急先導回首頁
-	useEffect(() => {
-		navigate(path.home.root);
-	}, []);
 
 	const androidDownLoadUrl = appLinkDatas?.Android?.downloadLink ?? "";
 	const IOSDownloadUrl = appLinkDatas?.IOS?.downloadLink ?? "";
@@ -88,8 +82,7 @@ const AppDownload = () => {
 									className="download"
 									href={androidDownLoadUrl}
 									target="_blank"
-									rel="noreferrer"
-								>
+									rel="noreferrer">
 									{t("lbl_Download")} (Android)
 								</a>
 							)}
@@ -99,8 +92,7 @@ const AppDownload = () => {
 									className="download"
 									href={IOSDownloadUrl}
 									target="_blank"
-									rel="noreferrer"
-								>
+									rel="noreferrer">
 									{t("lbl_Download")} (iOS)
 								</a>
 							)}
