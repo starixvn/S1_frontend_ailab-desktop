@@ -290,7 +290,6 @@ export default () => {
 
 			content = (
 				<PromotionAmountConfirm
-					currencyId={popBox.currencyId}
 					langId={popBox.langId}
 					promotionInfo={popBox.promotionInfo}
 					clickClose={popBox.clickClose}
