@@ -5,7 +5,7 @@ import QRCode from "qrcode.react";
 import { userInfoContext } from "../common/context";
 import { useAppDownLoad } from "../appDownload/useAppDownLoad";
 import { bannerImgUrl } from "../../config";
-// import path from "../../router";
+import path from "../../router";
 
 const higherToTheAngpowZIndex = 3;
 const orignZIndex = 2;
@@ -35,9 +35,7 @@ const QuickdownloadLink = () => {
 				<button
 					className="icon icon-mobile"
 					onClick={() =>
-						// TODO: 2024.9.13先緊急導轉首頁
-						// navigate(`/${userInfo.langId}/${path.appDownload.root}`)
-						navigate(`/${userInfo.langId}`)
+						navigate(`/${userInfo.langId}/${path.appDownload.root}`)
 					}
 				/>
 
