@@ -50,13 +50,10 @@ const BeforeLogin = () => {
 	return (
 		<>
 			<a
+				target="_blank"
 				rel="noopener noreferrer"
 				className="downloadbtn "
-				// TODO: 2024.9.13先緊急導轉首頁
-				// target="_blank"
-				// href={`/${userInfo.langId}/${path.appDownload.root}`}>
-				href={`/${userInfo.langId}${path.home.root}`}
-			>
+				href={`/${userInfo.langId}/${path.appDownload.root}`}>
 				{t("lbl_APP_DOWNLOAD")}
 			</a>
 			<LanguageDropDown />
@@ -69,8 +66,7 @@ const BeforeLogin = () => {
 				</button>
 				<Link
 					to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-					className="forgetbtn"
-				>
+					className="forgetbtn">
 					{t("lbl_ForgetPsw")}？
 				</Link>
 			</div>
@@ -143,8 +139,7 @@ const AfterLogin = () => {
 				</Link> */}
 				<button
 					onClick={handleDepositClick}
-					className="orange btn-retangle"
-				>
+					className="orange btn-retangle">
 					{t("lbl_Deposit").toUpperCase()}
 				</button>
 			</div>
@@ -152,12 +147,10 @@ const AfterLogin = () => {
 				className="memberbtn"
 				onClick={() =>
 					navigate(`/${userInfo.langId}/${path.profile.root}`)
-				}
-			>
+				}>
 				<img src={userLevelImgInfo?.img} alt={userLevelImgInfo?.alt} />
 				<button>{userInfo.userName}</button>
 			</div>
-			{/*  eslint-disable-next-line react/jsx-no-useless-fragment */}
 			<Suspense fallback={<></>}>
 				<Wallet langId={userInfo.langId} i18n={t} />
 			</Suspense>
@@ -166,8 +159,7 @@ const AfterLogin = () => {
 				className={`messagebtn icon-message ${
 					msgCount > 0 ? "active" : ""
 				}`}
-				to={`/${userInfo.langId}/${path.message.root}`}
-			>
+				to={`/${userInfo.langId}/${path.message.root}`}>
 				{msgCount > 0 && <div className="number">{msgCount}</div>}
 				<MsgPopup userInfo={userInfo} />
 			</Link>
@@ -175,8 +167,7 @@ const AfterLogin = () => {
 				className={`sidemenubtn icon-menu ${classNames({
 					active: msgCount > 0 && !isOpenSideMenu
 				})}`}
-				onClick={() => setIsOpenSideMenu(!isOpenSideMenu)}
-			>
+				onClick={() => setIsOpenSideMenu(!isOpenSideMenu)}>
 				{isOpenSideMenu && (
 					<div className="sidemenu-content" ref={ref}>
 						<div
@@ -185,8 +176,7 @@ const AfterLogin = () => {
 								navigate(
 									`/${userInfo.langId}/${path.profile.root}`
 								)
-							}
-						>
+							}>
 							{t("lbl_Profile")}
 						</div>
 						<div
@@ -195,8 +185,7 @@ const AfterLogin = () => {
 								navigate(
 									`/${userInfo.langId}/${path.deposit.root}`
 								)
-							}
-						>
+							}>
 							{t("lbl_Deposit")}
 						</div>
 						<div
@@ -205,8 +194,7 @@ const AfterLogin = () => {
 								navigate(
 									`/${userInfo.langId}/${path.withdrawal.root}`
 								)
-							}
-						>
+							}>
 							{t("lbl_Withdrawal")}
 						</div>
 						<div
@@ -215,8 +203,7 @@ const AfterLogin = () => {
 								navigate(
 									`/${userInfo.langId}/${path.depositHistory.root}`
 								)
-							}
-						>
+							}>
 							{t("lbl_History")}
 						</div>
 						<div
@@ -227,8 +214,7 @@ const AfterLogin = () => {
 								navigate(
 									`/${userInfo.langId}/${path.message.root}`
 								)
-							}
-						>
+							}>
 							{t("lbl_Message")}
 						</div>
 						<div className="sidemenu-item" onClick={handleLogout}>

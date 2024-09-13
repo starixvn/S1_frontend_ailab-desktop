@@ -60,8 +60,7 @@ const BeforeLogin = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}
-						>
+							onClick={() => setPopBox({ isOpen: false })}>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -104,8 +103,7 @@ const BeforeLogin = () => {
 						<div className="btnGroup">
 							<button
 								className="btn-cancel"
-								onClick={() => setPopBox({ isOpen: false })}
-							>
+								onClick={() => setPopBox({ isOpen: false })}>
 								{t("lbl_Close")}
 							</button>
 						</div>
@@ -141,8 +139,7 @@ const BeforeLogin = () => {
 				/>
 				<Link
 					to={`/${langId}/${path.forgetPassword.root}`}
-					className="forgot"
-				>
+					className="forgot">
 					{t("lbl_ForgetPassword")}
 				</Link>
 			</div>
@@ -184,8 +181,7 @@ const AfterLogin = () => {
 			</Suspense>
 			<Link
 				to={`/${langId}/${path.message.root}`}
-				className={classNames("icon-email", { active: msgCount > 0 })}
-			>
+				className={classNames("icon-email", { active: msgCount > 0 })}>
 				<MsgPopup />
 			</Link>
 
@@ -195,17 +191,13 @@ const AfterLogin = () => {
 
 			<Link
 				to={`/${langId}/${path.deposit.root}`}
-				className="home-deposit"
-			>
+				className="home-deposit">
 				<i className="icon-header-deposit" />
 				{t("lbl_Deposit")}
 			</Link>
 			<Link
-				// TODO: 2024.9.13先緊急導轉首頁
-				// to={`/${langId}/${path.appDownload.root}`}
-				to={`/${langId}${path.home.root}`}
-				className="appDownload"
-			>
+				to={`/${langId}/${path.appDownload.root}`}
+				className="appDownload">
 				<i className="icon-mobile" />
 				APP
 			</Link>

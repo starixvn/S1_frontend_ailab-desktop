@@ -2,9 +2,8 @@ import React, { useContext } from "react";
 import { navigate } from "gatsby";
 import { userInfoContext } from "./context";
 import config from "../../config";
-// import path from "../../router";
+import path from "../../router";
 
-// eslint-disable-next-line react/prop-types
 export default ({ onClickClose }) => {
 	const { userInfo } = useContext(userInfoContext);
 
@@ -15,9 +14,7 @@ export default ({ onClickClose }) => {
 				src={`${config.bannerImgUrl}/desktop/img/nonlogin/768x280_goal_${userInfo.langId}.jpg`}
 				alt="Official Announce"
 				onClick={() =>
-					// TODO: 2024.9.13先緊急導轉首頁
-					// navigate(`/${userInfo.langId}/${path.appDownload.root}`)
-					navigate(`/${userInfo.langId}`)
+					navigate(`/${userInfo.langId}/${path.appDownload.root}`)
 				}
 			/>
 		</div>
