@@ -1,11 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, navigate } from "gatsby";
+import { Link } from "gatsby";
 import QRCode from "qrcode.react";
 import { userInfoContext } from "../common/context";
 import useAppDownLoad from "./useAppDownLoad";
 import { bannerImgUrl } from "../../config";
-import path from "../../router";
 
 const AppDownload = () => {
 	const { t } = useTranslation();
@@ -13,14 +12,8 @@ const AppDownload = () => {
 
 	const { userInfo } = useContext(userInfoContext);
 	const onClickToDownload = e => {
-		// eslint-disable-next-line valid-typeof
 		return typeof window !== undefined ? window.open(e.target.value) : null;
 	};
-
-	// TODO: 2024.9.13緊急先導回首頁
-	useEffect(() => {
-		navigate(path.home.root);
-	}, []);
 
 	const androidDownLoadUrl = appLinkDatas?.Android?.downloadLink ?? "";
 	const IOSDownloadUrl = appLinkDatas?.IOS?.downloadLink ?? "";
@@ -48,8 +41,7 @@ const AppDownload = () => {
 								/>
 								<button
 									onClick={onClickToDownload}
-									value={androidDownLoadUrl}
-								>
+									value={androidDownLoadUrl}>
 									{t("lbl_Android")}
 								</button>
 							</div>
@@ -71,8 +63,7 @@ const AppDownload = () => {
 								/>
 								<button
 									onClick={onClickToDownload}
-									value={IOSDownloadUrl}
-								>
+									value={IOSDownloadUrl}>
 									iOS
 								</button>
 							</div>
