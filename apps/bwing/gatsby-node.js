@@ -76,7 +76,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 				process: stdLibBrowser.process,
 				Buffer: [stdLibBrowser.buffer, "Buffer"]
 			})
-		]
+		],
+		devtool: false
 	});
 };
 
