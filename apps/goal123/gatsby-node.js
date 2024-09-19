@@ -81,7 +81,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 			{
 				jquery: "jQuery"
 			}
-		]
+		],
+		devtool: false
 	});
 };
 
