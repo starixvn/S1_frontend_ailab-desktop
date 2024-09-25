@@ -96,6 +96,7 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 								</div>
 							)
 						});
+						callBack(); // 成功claim後重新取得promotion list資料
 						if (
 							promotionInfo.promotionType ===
 							defPromotionType.missionBonus
