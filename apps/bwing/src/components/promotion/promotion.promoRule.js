@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
+
 import { promoStatus, defPromotionType, defBonusType } from "./promotion.def";
 import { number_format, langAndCurrMapping } from "../common/common";
 import { siteDefLangId } from "../../service/language";
@@ -72,46 +73,78 @@ const PromoRule = ({ promotionInfo, t, currencyId, langId }) => {
 
 	if (tierAmountList?.length > 0) {
 		const redepositList = tierAmountList.map(el => (
-			<div className="promotionpop-info" key={el.requiredAmount}>
-				<div className="promotionpop-info-item">
-					<div>{t("lbl_Promotion_Min_Deposit")}</div>
-					<div>
-						{numberWithCurrency(el.requiredAmount, currencyName)}
-					</div>
-				</div>
-				<div className="promotionpop-info-item">
-					<div>{t("lbl_Promotion_Bonus")}</div>
-					<div>
-						{isPercentage
-							? `${el.bonus}%`
-							: numberWithCurrency(el.bonus, currencyName)}
-					</div>
+			<div className="promotionpop-td" key={el.requiredAmount}>
+				<div>{numberWithCurrency(el.requiredAmount, currencyName)}</div>
+				<div>
+					{isPercentage
+						? `${el.bonus}%`
+						: numberWithCurrency(el.bonus, currencyName)}
 				</div>
 				{isPercentage && (
-					<div className="promotionpop-info-item">
-						<div>{t("lbl_MaxBonusAmount")}</div>
-						<div>
-							{numberWithCurrency(el.maxBonus, currencyName)}
-						</div>
-					</div>
+					<div>{numberWithCurrency(el.maxBonus, currencyName)}</div>
 				)}
-				<div className="promotionpop-info-item">
-					<div>{t("lbl_RollOver")}</div>
-					<div>{el.rollOver}X</div>
-				</div>
+
+				<div>{el.rollOver}X</div>
 			</div>
 		));
 
-		return (
+		return tierAmountList?.length > 1 ? (
 			<>
-				<div className="promotionpop-info">
-					<div className="promotionpop-info-item">
-						<div>{t("lbl_RemainingTime")}</div>
-						<div>{displayExpiryTime}</div>
+				<div className="promotionpop-info remaining-time">
+					<div className="promotionpop-info-inner">
+						<div className="promotionpop-remaining">
+							<div className="th">{t("lbl_RemainingTime")}</div>
+							<div className="td">{displayExpiryTime}</div>
+						</div>
 					</div>
 				</div>
-				{redepositList}
+				<div className="promotionpop-info-table multiple">
+					<div className="promotionpop-th">
+						<div>{t("lbl_Promotion_Min_Deposit")}</div>
+						<div>{t("lbl_Promotion_Bonus")}</div>
+						{isPercentage && <div>{t("lbl_MaxBonusAmount")}</div>}
+						<div>{t("lbl_RollOver")}</div>
+					</div>
+					{redepositList}
+				</div>
 			</>
+		) : (
+			// 只有一組時使用同一排顯示
+			<div className="promotionpop-info-table">
+				<div className="promotionpop-th">
+					<div>{t("lbl_Promotion_Min_Deposit")}</div>
+					<div>{t("lbl_Promotion_Bonus")}</div>
+					{isPercentage && <div>{t("lbl_MaxBonusAmount")}</div>}
+					<div>{t("lbl_RollOver")}</div>
+					<div className="th">{t("lbl_RemainingTime")}</div>
+				</div>
+				<div className="promotionpop-td">
+					<div>
+						{numberWithCurrency(
+							tierAmountList[0]?.requiredAmount,
+							currencyName
+						)}
+					</div>
+					<div>
+						{isPercentage
+							? `${tierAmountList[0]?.bonus}%`
+							: numberWithCurrency(
+									tierAmountList[0]?.bonus,
+									currencyName
+							  )}
+					</div>
+					{isPercentage && (
+						<div>
+							{numberWithCurrency(
+								tierAmountList[0]?.maxBonus,
+								currencyName
+							)}
+						</div>
+					)}
+					<div>{tierAmountList[0]?.rollOver}X</div>
+					<div>{displayExpiryTime}</div>
+				</div>
+			</div>
 		);
 	}
 
