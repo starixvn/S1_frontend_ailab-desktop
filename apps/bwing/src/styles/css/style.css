@@ -5251,7 +5251,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   position: relative;
   border-radius: 20px;
   margin-top: 140px;
-  width: 820px;
+  width: 1000px;
 }
 .promotionpop-title {
   font-size: 24px;
@@ -5443,6 +5443,7 @@ header .header-content div.menu .menu-content > div.livecasino a, header .header
   background: rgba(255, 201, 127, 0.55);
   border-bottom: unset;
   font-size: 17px;
+  text-transform: uppercase;
 }
 .promotionpop-info-table .promotionpop-th div {
   padding: 8px 0;
