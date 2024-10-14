@@ -46,7 +46,7 @@ pipeline {
                                     currentBuild.displayName = env.commitHash
                                 }
                                 sh 'zip -r desktop-${site}-${commitHash} *'
-                                sh 'curl -v -u admin:123456 --upload-file desktop-${site}-${commitHash}.zip http://13.213.82.69:8081/repository/artifacts/Frontend/desktop/${site}/${env}/desktop-${site}-${commitHash}.zip'
+                                sh 'curl -v -u admin:123456 --upload-file desktop-${site}-${commitHash}.zip http://172.31.28.169:8081/repository/artifacts/Frontend/desktop/${site}/${env}/desktop-${site}-${commitHash}.zip'
                                 sh 'echo desktop-${site}-${commitHash}'
                                 }
                             }
