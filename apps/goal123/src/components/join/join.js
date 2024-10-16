@@ -1,6 +1,8 @@
+import { useGetRecaptchaInfoQuery } from "@ailab-desktop/service";
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { MetaPixelTracker } from "@ailab-desktop/common";
 import {
 	api_site_ExistsUserName,
@@ -43,8 +45,6 @@ export default () => {
 	const [tip, setTip] = useState(initTip);
 	const [showPwdState, setShowPwdState] = useState(initShowPwdState);
 	const [siteCurrency, setSiteCurrency] = useState([]);
-	const [reCaptchaToken, setReCaptchaToken] = useState("");
-	const [recaptchaInfo, setRecaptchaInfo] = useState({});
 	const isMountedRef = useRef(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const configSiteName = config.siteName;
@@ -55,10 +55,14 @@ export default () => {
 		eventPeriodIdpd.endDate
 	);
 	const { getShieldData, saveShieldData } = useShieldCheck();
+	const { data: { data: recaptchaInfoData } = {} } =
+		useGetRecaptchaInfoQuery();
 
 	const urlAffId = getUrlParameter("AffId") || readCookie("AffId");
 	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
 	const urlAffiliate = urlAffId || urlAffCode;
+
+	const { executeRecaptcha } = useGoogleReCaptcha();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -407,8 +411,6 @@ export default () => {
 		const _phoneCheck = phoneCheck(userValue.phone);
 		// const _emailCheck = res[1];
 		const _agreeCheck = userValue.agreeCheck;
-		// const _reCaptchaCheck =
-		// 	reCaptchaToken !== "" || recaptchaInfo.country === "CN";
 		const _affiliateCheck = res[1];
 
 		const checked =
@@ -419,7 +421,6 @@ export default () => {
 			_phoneCheck.checked &&
 			// _emailCheck.checked &&
 			_agreeCheck &&
-			// _reCaptchaCheck &&
 			// affiliate is optional
 			(_affiliateCheck.checked === true ||
 				_affiliateCheck.checked === null);
@@ -468,6 +469,14 @@ export default () => {
 		e.preventDefault();
 		const checked = await checkAll();
 
+		// 中國地區不需驗證
+		const ReCaptchaAction = "signup";
+		let reCaptchaToken;
+		if (recaptchaInfoData?.country !== "CN") {
+			if (!executeRecaptcha) return;
+			reCaptchaToken = await executeRecaptcha(ReCaptchaAction);
+		}
+
 		if (checked && !userInfo.isLogin) {
 			const regData = {
 				UserName: userValue.username,
@@ -479,8 +488,9 @@ export default () => {
 				// Email: userValue.email,
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
-				ReferralUrl: document.referrer
-				// ReCaptchaToken: reCaptchaToken
+				ReferralUrl: document.referrer,
+				ReCaptchaToken: reCaptchaToken,
+				ReCaptchaAction
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
@@ -584,10 +594,6 @@ export default () => {
 		});
 	};
 
-	const handleReCaptchaChange = token => {
-		setReCaptchaToken(token);
-	};
-
 	return (
 		<div className="joinloginModule">
 			<img
@@ -614,11 +620,8 @@ export default () => {
 				tandCRule={tandCRule}
 				clickCancel={clickCancel}
 				clickSubmit={clickSubmit}
-				langId={userInfo.langId}
-				reCaptchaOnChange={handleReCaptchaChange}
 				_areaCode={_areaCode}
 				urlAffiliate={urlAffiliate}
-				recaptchaInfo={recaptchaInfo}
 			/>
 		</div>
 	);

@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MetaPixelTracker } from "@ailab-desktop/common";
-import ReCAPTCHA from "react-google-recaptcha";
 import { navigate } from "gatsby";
 import { popBoxContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
@@ -90,11 +89,6 @@ const currencyToAreacode = {
 	96: "MY"
 };
 
-const reCaptchaEnum = {
-	en: "en",
-	vn: "vi"
-};
-
 const Join = () => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
@@ -105,8 +99,6 @@ const Join = () => {
 	const [showPsw, setShowPsw] = useState(false);
 	const [showConfirmPsw, setShowConfirmPsw] = useState(false);
 	const [siteCurrency, setSiteCurrency] = useState([]);
-	const [reCaptchaToken, setReCaptchaToken] = useState("");
-	const [recaptchaInfo, setRecaptchaInfo] = useState({});
 	const [activeInfo, setActiveInfo] = useState(null);
 	const defaultLangId = userInfo?.langId ?? GET_LANG_ID();
 	const isMountedRef = useRef(null);
@@ -422,9 +414,6 @@ const Join = () => {
 	};
 
 	const checkAll = async () => {
-		const _reCaptchaCheck =
-			reCaptchaToken !== "" || recaptchaInfo.country === "CN";
-		// * 機器人驗證沒過直接 return 出去
 		if (!_reCaptchaCheck) return false;
 		const res = await Promise.all([
 			usernameCheck(userValue.userName),
@@ -506,8 +495,7 @@ const Join = () => {
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
-				ReferralUrl: document.referrer,
-				ReCaptchaToken: reCaptchaToken
+				ReferralUrl: document.referrer
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
@@ -610,10 +598,6 @@ const Join = () => {
 				}
 			);
 		}
-	};
-
-	const handleReCaptchaChange = token => {
-		setReCaptchaToken(token);
 	};
 
 	return (
@@ -778,15 +762,6 @@ const Join = () => {
 							activeInfo={activeInfo}
 							setActiveInfo={setActiveInfo}
 						/>
-						{Object.keys(recaptchaInfo).length > 0 &&
-							recaptchaInfo.country !== "CN" && (
-								<ReCAPTCHA
-									class="g-recaptcha"
-									sitekey={recaptchaInfo.siteKey}
-									onChange={handleReCaptchaChange}
-									hl={reCaptchaEnum[userInfo?.langId]}
-								/>
-							)}
 
 						{inputStatus.agreeCheck.msg !== "" ? (
 							<div className="tip active">
