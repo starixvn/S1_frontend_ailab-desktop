@@ -36,7 +36,8 @@ const BeforeLogin = () => {
 	const clickJoin = () => {
 		setPopBox({
 			isOpen: true,
-			popBoxType: defPopBoxType.Join
+			popBoxType: defPopBoxType.Join,
+			langId: userInfo?.langId
 		});
 	};
 
