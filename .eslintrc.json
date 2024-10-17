@@ -71,7 +71,7 @@
 		"no-param-reassign": ["error", { "props": false }],
 		"consistent-return": ["warn", { "treatUndefinedAsUnspecified": true }],
 		"react/no-array-index-key": ["warn"],
-		"react/prop-types": ["warn"],
+		"react/prop-types": ["off"],
 		"react/no-did-update-set-state": ["warn"],
 		"react/no-unescaped-entities": ["warn"],
 		"global-require": ["warn"],
