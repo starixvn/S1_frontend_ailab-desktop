@@ -17,24 +17,12 @@ export const LOGIN = async ({ userName, password, langId }) => {
 		let platform = "";
 		let userAgent = "";
 		let screen = "";
-		let di = "";
-		let bi = "";
-		let detecasAnalysis = "";
-		let sessionKey = "";
-		let token = "";
-		if (typeof window !== undefined) {
+
+		if (typeof window !== "undefined") {
 			url = window.location.origin;
 			platform = navigator.platform;
 			userAgent = navigator.userAgent;
 			screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`;
-
-			// * di, bi, detecasAnalysis, sessionKey, token 引用第三方 js: //*/activator.ashx
-			di = document.getElementById("__di")?.value;
-			bi = document.getElementById("__bi")?.value;
-			detecasAnalysis =
-				document.getElementById("detecas-analysis")?.value;
-			sessionKey = document.getElementById("__fdi")?.value; // * fdi = sessionKey
-			token = document.getElementById("__tk")?.value; // * 默認為 empty
 		}
 
 		const payload = {

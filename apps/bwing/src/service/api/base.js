@@ -107,3 +107,8 @@ export const surveyRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/Questionnaire`
 });
+
+export const fpsRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/FPS`
+});
