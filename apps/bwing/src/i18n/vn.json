@@ -1,5 +1,4 @@
 {
-  "                                \nLabel_DepositNotification                        ": "Lệnh rút tiền {{orderId}} đã được phê duyệt",
   "BankSlipHint1": "Kích thước tập tin tối đa 4MB cho mỗi tập tin",
   "BankSlipHint2": "Số tập tin đối đa:6",
   "BankSlipHint3": "Các kiểu được hỗ trợ: JPG, JPEG, PNG",
@@ -29,7 +28,7 @@
   "Label_Retention_Title": "Bwing Tiền thưởng Tri ân có giới hạn",
   "Label_Retention_TurnoverTitle": "Turnover Accumlated",
   "Label_Vip_ESport_Rebate": "Hoàn trả thể thao",
-  "Label_WithdrawalNotification": "Lệnh nạp tiền {{orderId}} đã được phê duyệt",
+  "Label_WithdrawSuccessful": "Lệnh rút tiền {{orderId}} đã được phê duyệt",
   "PromotionCategory1": "Nạp Lần Đầu",
   "Skywind_Cai_Shen_Da_Hai": "Cai Shen Da Hai",
   "Skywind_Ocean_Ruler": "Ocean Ruler",
