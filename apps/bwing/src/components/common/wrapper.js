@@ -28,6 +28,7 @@ import usePopBox from "../hook/usePopBox";
 import SEO from "../seo";
 import ThirdPartyJS from "./thirdPartyJS";
 import useDepositWithdrawTracker from "../hook/useDepositWithdrawTracker";
+import useFpsChecks from "../hook/useFpsChecks";
 
 const defaultPathLang = () => {
 	const urlLang =
@@ -128,7 +129,7 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 
 	useEffect(() => {
 		IS_LOGGED_IN().then(async isLogin => {
-			await checkDepositSuccessful()
+			await checkDepositSuccessful();
 			if (userInfo.kickout) {
 				if (userInfo.willLogout) {
 					setUserInfo(prevS => ({
@@ -152,7 +153,8 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -336,6 +338,8 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 		userInfo.isLogin ? 60000 : null
 	);
 
+	useFpsChecks({ isLogin: userInfo.isLogin, interval: 60000 });
+
 	if (redirectPath === null) {
 		return (
 			<>
@@ -347,36 +351,44 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 						userInfo.kickout)) && (
 					<ct.popUpMsgContext.Provider value={{ setPopUp, popUp }}>
 						<ct.maintainListContext.Provider
-							value={{ allMaintainList }}>
+							value={{ allMaintainList }}
+						>
 							<ct.productTpIdsContext.Provider
-								value={{ productTpIds }}>
+								value={{ productTpIds }}
+							>
 								<ct.userInfoContext.Provider
-									value={{ userInfo, setUserInfo }}>
+									value={{ userInfo, setUserInfo }}
+								>
 									<ct.walletInfoContext.Provider
 										value={{
 											...walletInfo.state,
 											dispatch: walletInfo.dispatch
-										}}>
+										}}
+									>
 										<ct.msgCountContext.Provider
 											value={{
 												msgCount,
 												setMsgCount
-											}}>
+											}}
+										>
 											<ct.popBoxContext.Provider
 												value={{
 													popBox,
 													setPopBox
-												}}>
+												}}
+											>
 												<ct.loadingContext.Provider
 													value={{
 														loading,
 														setLoading
-													}}>
+													}}
+												>
 													<ct.isRootContext.Provider
 														value={{
 															isRoot,
 															setIsRoot
-														}}>
+														}}
+													>
 														<SEO />
 														{children}
 													</ct.isRootContext.Provider>
