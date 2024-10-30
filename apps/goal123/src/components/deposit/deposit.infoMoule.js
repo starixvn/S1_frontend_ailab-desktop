@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Trans } from "react-i18next";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import { CurrenciesEnum } from "@ailab-desktop/common";
+import { userInfoContext } from "../common/context";
 import path from "../../router";
 
 const DepositInfoMoule = ({
@@ -21,6 +23,11 @@ const DepositInfoMoule = ({
 			await onSubmit();
 		}
 	};
+
+	const {
+		userInfo: { currencyId }
+	} = useContext(userInfoContext);
+
 	const classStyle = () => {
 		let result = "";
 		if (canSubmit && checked) {
@@ -38,7 +45,8 @@ const DepositInfoMoule = ({
 
 				<Link
 					className="icon icon-friend"
-					to={`/${langId}/${path.referral.root}`}>
+					to={`/${langId}/${path.referral.root}`}
+				>
 					<span>{t("lbl_Refer_friends_rewards")}</span>
 				</Link>
 			</div>
@@ -51,21 +59,32 @@ const DepositInfoMoule = ({
 				</div>
 				<div className="subModule">
 					<div>
-						{depositOptions.map(item => (
-							<button
-								onClick={() => setDepositType(item.type)}
-								className={
-									item.type === depositType ? "active" : ""
-								}
-								key={`${item.type}-key`}>
-								<div className={item.iconClass}>
-									<i className="icon icon-checkmark" />
-								</div>
-								<div className="bank">
-									<div>{t(item.depositDisplaykey)}</div>
-								</div>
-							</button>
-						))}
+						{depositOptions.map(item => {
+							const finalDisplayLabelKey =
+								currencyId === CurrenciesEnum.VN &&
+								item.depositDisplaykey === "lbl_DepositType9"
+									? "lbl_DepositType3"
+									: item.depositDisplaykey;
+
+							return (
+								<button
+									onClick={() => setDepositType(item.type)}
+									className={
+										item.type === depositType
+											? "active"
+											: ""
+									}
+									key={`${item.type}-key`}
+								>
+									<div className={item.iconClass}>
+										<i className="icon icon-checkmark" />
+									</div>
+									<div className="bank">
+										<div>{t(finalDisplayLabelKey)}</div>
+									</div>
+								</button>
+							);
+						})}
 					</div>
 				</div>
 
@@ -77,7 +96,8 @@ const DepositInfoMoule = ({
 							await judgeBtnStatus();
 							submitHandle();
 						}}
-						className={classStyle()}>
+						className={classStyle()}
+					>
 						{canSubmit ? t("lbl_Submit") : t("lbl_DepositStatus1")}
 					</button>
 				</div>

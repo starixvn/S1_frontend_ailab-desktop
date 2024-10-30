@@ -63,6 +63,7 @@ export default () => {
 	const urlAffiliate = urlAffId || urlAffCode;
 	const { executeRecaptcha } = useGoogleReCaptcha();
 
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
