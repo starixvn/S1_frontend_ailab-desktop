@@ -12,6 +12,7 @@ import { eventPeriodIdpd } from "../../datas/eventDef";
 import { bannerImgUrl } from "../../config";
 import useShieldCheck from "../hook/useShieldCheck";
 import { defPopBoxType } from "./defPopBoxType";
+import useDepositWithdrawTracker from "../hook/useDepositWithdrawTracker";
 
 const initValue = {
 	userName: "",
@@ -46,6 +47,7 @@ const LoginPanel = () => {
 		eventPeriodIdpd.endDate
 	);
 
+	const { handleNotification } = useDepositWithdrawTracker();
 	const { getShieldData, saveShieldData } = useShieldCheck();
 
 	useEffect(() => {
@@ -121,11 +123,17 @@ const LoginPanel = () => {
 							...res.userData,
 							isLogin: res.isLogin
 						}));
+
 						setPopBox({ isOpen: false });
 						navigate(`/${userInfo.langId}`);
 						saveShieldData();
 						setInputStatus(initStatus);
 						setActiveInfo("");
+
+						// 獲取使用者財務通知設定
+						const { financeNotification, soundEffects } =
+							res.userData ?? {};
+						handleNotification(financeNotification, soundEffects);
 					}
 				} else if (
 					res.errorCode === 1101 ||

@@ -66,13 +66,81 @@ img {
   width: 100%;
 }
 
+.casinoList .icon-GPI::before {
+  font-size: 20px !important;
+}
+.casinoList .icon-YGG::before {
+  font-size: 18px !important;
+}
+.casinoList .icon-JOKER::before {
+  font-size: 15px !important;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+.casinoList .icon-SG::before {
+  font-size: 18px !important;
+}
+.casinoList .icon-PG::before {
+  font-size: 12px !important;
+}
+.casinoList .icon-OW::before {
+  font-size: 18px !important;
+}
+.casinoList .icon-cq9:before {
+  font-size: 14px !important;
+}
+.casinoList .icon-icg:before {
+  font-size: 18px !important;
+}
+
+.livecasinoList .icon-DG:before {
+  font-size: 22px !important;
+}
+.livecasinoList .icon-AB:before {
+  font-size: 30px !important;
+}
+.livecasinoList .icon-AG:before {
+  font-size: 22px !important;
+}
+.livecasinoList .icon-PP:before {
+  font-size: 42px !important;
+}
+.livecasinoList .icon-SA:before {
+  font-size: 36px !important;
+}
+.livecasinoList .icon-EB:before {
+  font-size: 15px !important;
+}
+.livecasinoList .icon-AE:before {
+  font-size: 24px !important;
+}
+.livecasinoList .icon-SA:before {
+  font-size: 24px !important;
+}
+.livecasinoList .icon-PP:before {
+  font-size: 24px !important;
+}
+.livecasinoList .icon-WM:before {
+  font-size: 24px !important;
+}
+.livecasinoList .icon-MW:before {
+  font-size: 24px !important;
+}
+.livecasinoList .icon-N2LIVE:before {
+  font-size: 15px !important;
+}
+
+.icon-balance:before {
+  font-size: 24px !important;
+}
+
 a,
 button {
   color: white;
   font-family: "Montserrat", sans-serif;
 }
 
-.transition, html.Newtheme .personal .list .listBody, html.Newtheme .tip, html.Newtheme .inputBox .dropdown > .dropdown-container, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .dropdown-container, html.Newtheme header .header > div .menu .submenu-wrapper {
+.transition, html.Newtheme .personal .list .listBody, html.Newtheme .tip, html.Newtheme .inputBox .dropdown > .dropdown-container, html.Newtheme .setting .inputBox-blue .dropdown > .dropdown-container, .setting html.Newtheme .inputBox-blue .dropdown > .dropdown-container, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .dropdown-container, html.Newtheme header .header > div .menu .submenu-wrapper {
   visibility: hidden;
   opacity: 0;
   height: 0;
@@ -80,7 +148,7 @@ button {
   transition: 0.7s;
 }
 
-.transition-open, html.Newtheme .personal .list .listBody.active, html.Newtheme .tip.active, html.Newtheme .inputBox .dropdown > .dropdown-container.active, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container.active, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .dropdown-container.active, html.Newtheme header .header > div .menu .submenu-wrapper.active {
+.transition-open, html.Newtheme .personal .list .listBody.active, html.Newtheme .tip.active, html.Newtheme .inputBox .dropdown > .dropdown-container.active, html.Newtheme .setting .inputBox-blue .dropdown > .dropdown-container.active, .setting html.Newtheme .inputBox-blue .dropdown > .dropdown-container.active, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container.active, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .dropdown-container.active, html.Newtheme header .header > div .menu .submenu-wrapper.active {
   visibility: visible;
   opacity: 1;
   height: auto;
@@ -2745,8 +2813,10 @@ html.Newtheme .joinpop .joinloginModule .joinloginFunction .btnGroup,
 html.Newtheme .loginpop .joinloginModule .joinloginFunction .btnGroup {
   margin: 10px 0;
 }
-html.Newtheme .joinpop .joinloginModule .joinloginFunction .inputBox.active, html.Newtheme .joinpop .joinloginModule .joinloginFunction .worldcupEvent .ticket__container .active.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .joinpop .joinloginModule .joinloginFunction .active.inputBox-event,
+html.Newtheme .joinpop .joinloginModule .joinloginFunction .inputBox.active, html.Newtheme .joinpop .joinloginModule .joinloginFunction .setting .active.inputBox-blue, .setting html.Newtheme .joinpop .joinloginModule .joinloginFunction .active.inputBox-blue, html.Newtheme .joinpop .joinloginModule .joinloginFunction .worldcupEvent .ticket__container .active.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .joinpop .joinloginModule .joinloginFunction .active.inputBox-event,
 html.Newtheme .loginpop .joinloginModule .joinloginFunction .inputBox.active,
+html.Newtheme .loginpop .joinloginModule .joinloginFunction .setting .active.inputBox-blue,
+.setting html.Newtheme .loginpop .joinloginModule .joinloginFunction .active.inputBox-blue,
 html.Newtheme .loginpop .joinloginModule .joinloginFunction .worldcupEvent .ticket__container .active.inputBox-event,
 .worldcupEvent .ticket__container html.Newtheme .loginpop .joinloginModule .joinloginFunction .active.inputBox-event {
   -webkit-box-align: start;
@@ -2804,7 +2874,7 @@ html.Newtheme .joinloginModule .joinloginFunction .noAccount {
 html.Newtheme .joinloginModule .joinloginFunction .btnGroup {
   margin: 10px 0;
 }
-html.Newtheme .joinloginModule .joinloginFunction .inputBox.active, html.Newtheme .joinloginModule .joinloginFunction .worldcupEvent .ticket__container .active.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .joinloginModule .joinloginFunction .active.inputBox-event {
+html.Newtheme .joinloginModule .joinloginFunction .inputBox.active, html.Newtheme .joinloginModule .joinloginFunction .setting .active.inputBox-blue, .setting html.Newtheme .joinloginModule .joinloginFunction .active.inputBox-blue, html.Newtheme .joinloginModule .joinloginFunction .worldcupEvent .ticket__container .active.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .joinloginModule .joinloginFunction .active.inputBox-event {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -2839,7 +2909,7 @@ html.Newtheme .inputModuleRow .tip span {
 html.Newtheme .inputModuleRow input.text-right {
   text-align: right;
 }
-html.Newtheme .inputBox, html.Newtheme .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .inputBox-event {
+html.Newtheme .inputBox, html.Newtheme .setting .inputBox-blue, .setting html.Newtheme .inputBox-blue, html.Newtheme .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .inputBox-event {
   width: calc(100% - 22px);
   background: white;
   color: #1f3258;
@@ -2856,47 +2926,49 @@ html.Newtheme .inputBox, html.Newtheme .worldcupEvent .ticket__container .inputB
           align-items: center;
   padding: 4px 10px;
 }
-html.Newtheme .inputBox input[type=date]::-webkit-inner-spin-button, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input[type=date]::-webkit-inner-spin-button, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input[type=date]::-webkit-inner-spin-button,
+html.Newtheme .inputBox input[type=date]::-webkit-inner-spin-button, html.Newtheme .setting .inputBox-blue input[type=date]::-webkit-inner-spin-button, .setting html.Newtheme .inputBox-blue input[type=date]::-webkit-inner-spin-button, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input[type=date]::-webkit-inner-spin-button, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input[type=date]::-webkit-inner-spin-button,
 html.Newtheme .inputBox input[type=date]::-webkit-calendar-picker-indicator,
+html.Newtheme .setting .inputBox-blue input[type=date]::-webkit-calendar-picker-indicator,
+.setting html.Newtheme .inputBox-blue input[type=date]::-webkit-calendar-picker-indicator,
 html.Newtheme .worldcupEvent .ticket__container .inputBox-event input[type=date]::-webkit-calendar-picker-indicator,
 .worldcupEvent .ticket__container html.Newtheme .inputBox-event input[type=date]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
-html.Newtheme .inputBox input[type=date] + .iconModule, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input[type=date] + .iconModule, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input[type=date] + .iconModule {
+html.Newtheme .inputBox input[type=date] + .iconModule, html.Newtheme .setting .inputBox-blue input[type=date] + .iconModule, .setting html.Newtheme .inputBox-blue input[type=date] + .iconModule, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input[type=date] + .iconModule, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input[type=date] + .iconModule {
   position: absolute;
   right: 15px;
   pointer-events: none;
 }
-html.Newtheme .inputBox::-webkit-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event::-webkit-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event::-webkit-input-placeholder {
+html.Newtheme .inputBox::-webkit-input-placeholder, html.Newtheme .setting .inputBox-blue::-webkit-input-placeholder, .setting html.Newtheme .inputBox-blue::-webkit-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event::-webkit-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event::-webkit-input-placeholder {
   color: #c6c6c6;
 }
-html.Newtheme .inputBox::-moz-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event::-moz-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event::-moz-placeholder {
+html.Newtheme .inputBox::-moz-placeholder, html.Newtheme .setting .inputBox-blue::-moz-placeholder, .setting html.Newtheme .inputBox-blue::-moz-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event::-moz-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event::-moz-placeholder {
   color: #c6c6c6;
 }
-html.Newtheme .inputBox:-ms-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event:-ms-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event:-ms-input-placeholder {
+html.Newtheme .inputBox:-ms-input-placeholder, html.Newtheme .setting .inputBox-blue:-ms-input-placeholder, .setting html.Newtheme .inputBox-blue:-ms-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event:-ms-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event:-ms-input-placeholder {
   color: #c6c6c6;
 }
-html.Newtheme .inputBox::-ms-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event::-ms-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event::-ms-input-placeholder {
+html.Newtheme .inputBox::-ms-input-placeholder, html.Newtheme .setting .inputBox-blue::-ms-input-placeholder, .setting html.Newtheme .inputBox-blue::-ms-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event::-ms-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event::-ms-input-placeholder {
   color: #c6c6c6;
 }
-html.Newtheme .inputBox::placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event::placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event::placeholder {
+html.Newtheme .inputBox::placeholder, html.Newtheme .setting .inputBox-blue::placeholder, .setting html.Newtheme .inputBox-blue::placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event::placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event::placeholder {
   color: #c6c6c6;
 }
-html.Newtheme .inputBox.active, html.Newtheme .worldcupEvent .ticket__container .active.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .active.inputBox-event {
+html.Newtheme .inputBox.active, html.Newtheme .setting .active.inputBox-blue, .setting html.Newtheme .active.inputBox-blue, html.Newtheme .worldcupEvent .ticket__container .active.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .active.inputBox-event {
   border: 1px solid #1e85ec;
   outline: #1e85ec;
 }
-html.Newtheme .inputBox > .icon, html.Newtheme .worldcupEvent .ticket__container .inputBox-event > .icon, .worldcupEvent .ticket__container html.Newtheme .inputBox-event > .icon {
+html.Newtheme .inputBox > .icon, html.Newtheme .setting .inputBox-blue > .icon, .setting html.Newtheme .inputBox-blue > .icon, html.Newtheme .worldcupEvent .ticket__container .inputBox-event > .icon, .worldcupEvent .ticket__container html.Newtheme .inputBox-event > .icon {
   margin-right: 5px;
 }
-html.Newtheme .inputBox .countryCode, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .countryCode, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .countryCode {
+html.Newtheme .inputBox .countryCode, html.Newtheme .setting .inputBox-blue .countryCode, .setting html.Newtheme .inputBox-blue .countryCode, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .countryCode, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .countryCode {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 30px;
           flex: 0 0 30px;
   min-width: revert;
   color: #1f3258 !important;
 }
-html.Newtheme .inputBox input, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input {
+html.Newtheme .inputBox input, html.Newtheme .setting .inputBox-blue input, .setting html.Newtheme .inputBox-blue input, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input {
   background: transparent;
   border: 0;
   color: #4e6ca8;
@@ -2906,38 +2978,38 @@ html.Newtheme .inputBox input, html.Newtheme .worldcupEvent .ticket__container .
           flex: auto;
   padding: 1px 0 1px 5px;
 }
-html.Newtheme .inputBox input::-webkit-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input::-webkit-input-placeholder {
+html.Newtheme .inputBox input::-webkit-input-placeholder, html.Newtheme .setting .inputBox-blue input::-webkit-input-placeholder, .setting html.Newtheme .inputBox-blue input::-webkit-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input::-webkit-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input::-webkit-input-placeholder {
   color: #919191;
 }
-html.Newtheme .inputBox input::-moz-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input::-moz-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input::-moz-placeholder {
+html.Newtheme .inputBox input::-moz-placeholder, html.Newtheme .setting .inputBox-blue input::-moz-placeholder, .setting html.Newtheme .inputBox-blue input::-moz-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input::-moz-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input::-moz-placeholder {
   color: #919191;
 }
-html.Newtheme .inputBox input:-ms-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input:-ms-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input:-ms-input-placeholder {
+html.Newtheme .inputBox input:-ms-input-placeholder, html.Newtheme .setting .inputBox-blue input:-ms-input-placeholder, .setting html.Newtheme .inputBox-blue input:-ms-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input:-ms-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input:-ms-input-placeholder {
   color: #919191;
 }
-html.Newtheme .inputBox input::-ms-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input::-ms-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input::-ms-input-placeholder {
+html.Newtheme .inputBox input::-ms-input-placeholder, html.Newtheme .setting .inputBox-blue input::-ms-input-placeholder, .setting html.Newtheme .inputBox-blue input::-ms-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input::-ms-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input::-ms-input-placeholder {
   color: #919191;
 }
-html.Newtheme .inputBox input::placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input::placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input::placeholder {
+html.Newtheme .inputBox input::placeholder, html.Newtheme .setting .inputBox-blue input::placeholder, .setting html.Newtheme .inputBox-blue input::placeholder, html.Newtheme .worldcupEvent .ticket__container .inputBox-event input::placeholder, .worldcupEvent .ticket__container html.Newtheme .inputBox-event input::placeholder {
   color: #919191;
 }
-html.Newtheme .inputBox .iconModule, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .iconModule, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .iconModule {
+html.Newtheme .inputBox .iconModule, html.Newtheme .setting .inputBox-blue .iconModule, .setting html.Newtheme .inputBox-blue .iconModule, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .iconModule, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .iconModule {
   margin-left: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-html.Newtheme .inputBox .iconModule .icon, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .iconModule .icon, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .iconModule .icon {
+html.Newtheme .inputBox .iconModule .icon, html.Newtheme .setting .inputBox-blue .iconModule .icon, .setting html.Newtheme .inputBox-blue .iconModule .icon, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .iconModule .icon, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .iconModule .icon {
   margin-left: 5px;
   color: #c6c6c6;
 }
-html.Newtheme .inputBox .iconModule .icon.icon-checkmark, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .iconModule .icon.icon-checkmark, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .iconModule .icon.icon-checkmark {
+html.Newtheme .inputBox .iconModule .icon.icon-checkmark, html.Newtheme .setting .inputBox-blue .iconModule .icon.icon-checkmark, .setting html.Newtheme .inputBox-blue .iconModule .icon.icon-checkmark, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .iconModule .icon.icon-checkmark, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .iconModule .icon.icon-checkmark {
   margin-right: 0;
 }
-html.Newtheme .inputBox .iconModule .icon.icon-information-solid, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .iconModule .icon.icon-information-solid, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .iconModule .icon.icon-information-solid {
+html.Newtheme .inputBox .iconModule .icon.icon-information-solid, html.Newtheme .setting .inputBox-blue .iconModule .icon.icon-information-solid, .setting html.Newtheme .inputBox-blue .iconModule .icon.icon-information-solid, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .iconModule .icon.icon-information-solid, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .iconModule .icon.icon-information-solid {
   cursor: pointer;
 }
-html.Newtheme .inputBox .dropdown, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown {
+html.Newtheme .inputBox .dropdown, html.Newtheme .setting .inputBox-blue .dropdown, .setting html.Newtheme .inputBox-blue .dropdown, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2945,7 +3017,7 @@ html.Newtheme .inputBox .dropdown, html.Newtheme .worldcupEvent .ticket__contain
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-html.Newtheme .inputBox .dropdown > .dropdown-container, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .dropdown-container {
+html.Newtheme .inputBox .dropdown > .dropdown-container, html.Newtheme .setting .inputBox-blue .dropdown > .dropdown-container, .setting html.Newtheme .inputBox-blue .dropdown > .dropdown-container, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .dropdown-container {
   position: absolute;
   top: 20px;
   left: -1px;
@@ -2960,16 +3032,16 @@ html.Newtheme .inputBox .dropdown > .dropdown-container, html.Newtheme .worldcup
   border-top: 0;
   border-radius: 0 0 5px 5px;
 }
-html.Newtheme .inputBox .dropdown > .dropdown-container .dropdown-item, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container .dropdown-item, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .dropdown-container .dropdown-item {
+html.Newtheme .inputBox .dropdown > .dropdown-container .dropdown-item, html.Newtheme .setting .inputBox-blue .dropdown > .dropdown-container .dropdown-item, .setting html.Newtheme .inputBox-blue .dropdown > .dropdown-container .dropdown-item, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container .dropdown-item, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .dropdown-container .dropdown-item {
   font-size: 13px;
   padding: 5px;
   color: #666;
   cursor: pointer;
 }
-html.Newtheme .inputBox .dropdown > .dropdown-container .dropdown-item:nth-child(1), html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container .dropdown-item:nth-child(1), .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .dropdown-container .dropdown-item:nth-child(1) {
+html.Newtheme .inputBox .dropdown > .dropdown-container .dropdown-item:nth-child(1), html.Newtheme .setting .inputBox-blue .dropdown > .dropdown-container .dropdown-item:nth-child(1), .setting html.Newtheme .inputBox-blue .dropdown > .dropdown-container .dropdown-item:nth-child(1), html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container .dropdown-item:nth-child(1), .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .dropdown-container .dropdown-item:nth-child(1) {
   padding-top: 10px;
 }
-html.Newtheme .inputBox .dropdown > .btn, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .btn, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .btn {
+html.Newtheme .inputBox .dropdown > .btn, html.Newtheme .setting .inputBox-blue .dropdown > .btn, .setting html.Newtheme .inputBox-blue .dropdown > .btn, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .btn, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .btn {
   width: calc(100% - 26px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2984,7 +3056,7 @@ html.Newtheme .inputBox .dropdown > .btn, html.Newtheme .worldcupEvent .ticket__
   color: #666;
   margin-left: 5px;
 }
-html.Newtheme .inputBox .dropdown > .btn:after, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .btn:after, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .btn:after {
+html.Newtheme .inputBox .dropdown > .btn:after, html.Newtheme .setting .inputBox-blue .dropdown > .btn:after, .setting html.Newtheme .inputBox-blue .dropdown > .btn:after, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .dropdown > .btn:after, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .dropdown > .btn:after {
   content: "";
   width: 0;
   height: 0;
@@ -2994,33 +3066,33 @@ html.Newtheme .inputBox .dropdown > .btn:after, html.Newtheme .worldcupEvent .ti
   right: 10px;
   border-color: #c6c6c6 transparent transparent transparent;
 }
-html.Newtheme .inputBox ::-webkit-scrollbar, html.Newtheme .worldcupEvent .ticket__container .inputBox-event ::-webkit-scrollbar, .worldcupEvent .ticket__container html.Newtheme .inputBox-event ::-webkit-scrollbar {
+html.Newtheme .inputBox ::-webkit-scrollbar, html.Newtheme .setting .inputBox-blue ::-webkit-scrollbar, .setting html.Newtheme .inputBox-blue ::-webkit-scrollbar, html.Newtheme .worldcupEvent .ticket__container .inputBox-event ::-webkit-scrollbar, .worldcupEvent .ticket__container html.Newtheme .inputBox-event ::-webkit-scrollbar {
   width: 5px;
 }
-html.Newtheme .inputBox.disable, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event {
+html.Newtheme .inputBox.disable, html.Newtheme .setting .disable.inputBox-blue, .setting html.Newtheme .disable.inputBox-blue, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event {
   -webkit-filter: grayscale(2);
           filter: grayscale(2);
   background: #b2b2b2;
 }
-html.Newtheme .inputBox.disable .dropdown .btn::after, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event .dropdown .btn::after, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event .dropdown .btn::after {
+html.Newtheme .inputBox.disable .dropdown .btn::after, html.Newtheme .setting .disable.inputBox-blue .dropdown .btn::after, .setting html.Newtheme .disable.inputBox-blue .dropdown .btn::after, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event .dropdown .btn::after, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event .dropdown .btn::after {
   border-color: #8d8d8d transparent transparent transparent;
 }
-html.Newtheme .inputBox.disable input::-webkit-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event input::-webkit-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event input::-webkit-input-placeholder {
+html.Newtheme .inputBox.disable input::-webkit-input-placeholder, html.Newtheme .setting .disable.inputBox-blue input::-webkit-input-placeholder, .setting html.Newtheme .disable.inputBox-blue input::-webkit-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event input::-webkit-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event input::-webkit-input-placeholder {
   color: #1f3258 !important;
 }
-html.Newtheme .inputBox.disable input::-moz-placeholder, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event input::-moz-placeholder, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event input::-moz-placeholder {
+html.Newtheme .inputBox.disable input::-moz-placeholder, html.Newtheme .setting .disable.inputBox-blue input::-moz-placeholder, .setting html.Newtheme .disable.inputBox-blue input::-moz-placeholder, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event input::-moz-placeholder, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event input::-moz-placeholder {
   color: #1f3258 !important;
 }
-html.Newtheme .inputBox.disable input:-ms-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event input:-ms-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event input:-ms-input-placeholder {
+html.Newtheme .inputBox.disable input:-ms-input-placeholder, html.Newtheme .setting .disable.inputBox-blue input:-ms-input-placeholder, .setting html.Newtheme .disable.inputBox-blue input:-ms-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event input:-ms-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event input:-ms-input-placeholder {
   color: #1f3258 !important;
 }
-html.Newtheme .inputBox.disable input::-ms-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event input::-ms-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event input::-ms-input-placeholder {
+html.Newtheme .inputBox.disable input::-ms-input-placeholder, html.Newtheme .setting .disable.inputBox-blue input::-ms-input-placeholder, .setting html.Newtheme .disable.inputBox-blue input::-ms-input-placeholder, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event input::-ms-input-placeholder, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event input::-ms-input-placeholder {
   color: #1f3258 !important;
 }
-html.Newtheme .inputBox.disable input::placeholder, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event input::placeholder, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event input::placeholder {
+html.Newtheme .inputBox.disable input::placeholder, html.Newtheme .setting .disable.inputBox-blue input::placeholder, .setting html.Newtheme .disable.inputBox-blue input::placeholder, html.Newtheme .worldcupEvent .ticket__container .disable.inputBox-event input::placeholder, .worldcupEvent .ticket__container html.Newtheme .disable.inputBox-event input::placeholder {
   color: #1f3258 !important;
 }
-html.Newtheme .inputBox .countryCode, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .countryCode, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .countryCode {
+html.Newtheme .inputBox .countryCode, html.Newtheme .setting .inputBox-blue .countryCode, .setting html.Newtheme .inputBox-blue .countryCode, html.Newtheme .worldcupEvent .ticket__container .inputBox-event .countryCode, .worldcupEvent .ticket__container html.Newtheme .inputBox-event .countryCode {
   font-size: 13px;
   margin-bottom: 2px;
 }
@@ -4607,12 +4679,12 @@ html.Newtheme #popup .pop .upload_new .icon-close {
 html.Newtheme #popup .pop .loackAmount {
   padding: 20px;
 }
-html.Newtheme #popup .pop .loackAmount .inputBox, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event {
+html.Newtheme #popup .pop .loackAmount .inputBox, html.Newtheme #popup .pop .loackAmount .setting .inputBox-blue, .setting html.Newtheme #popup .pop .loackAmount .inputBox-blue, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event {
   margin: 20px 0 10px;
   width: calc(100% - 22px);
   z-index: 2;
 }
-html.Newtheme #popup .pop .loackAmount .inputBox .dropdown, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event .dropdown, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event .dropdown {
+html.Newtheme #popup .pop .loackAmount .inputBox .dropdown, html.Newtheme #popup .pop .loackAmount .setting .inputBox-blue .dropdown, .setting html.Newtheme #popup .pop .loackAmount .inputBox-blue .dropdown, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event .dropdown, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event .dropdown {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4623,7 +4695,7 @@ html.Newtheme #popup .pop .loackAmount .inputBox .dropdown, html.Newtheme #popup
       -ms-flex-align: center;
           align-items: center;
 }
-html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .btn, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event .dropdown > .btn, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event .dropdown > .btn {
+html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .btn, html.Newtheme #popup .pop .loackAmount .setting .inputBox-blue .dropdown > .btn, .setting html.Newtheme #popup .pop .loackAmount .inputBox-blue .dropdown > .btn, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event .dropdown > .btn, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event .dropdown > .btn {
   width: calc(100% - 31px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4639,7 +4711,7 @@ html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .btn, html.Newtheme
   font-size: 13px;
   margin: 0;
 }
-html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .btn::after, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event .dropdown > .btn::after, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event .dropdown > .btn::after {
+html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .btn::after, html.Newtheme #popup .pop .loackAmount .setting .inputBox-blue .dropdown > .btn::after, .setting html.Newtheme #popup .pop .loackAmount .inputBox-blue .dropdown > .btn::after, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event .dropdown > .btn::after, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event .dropdown > .btn::after {
   content: "";
   width: 0;
   height: 0;
@@ -4649,7 +4721,7 @@ html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .btn::after, html.N
   right: 10px;
   border-color: #c6c6c6 transparent transparent transparent;
 }
-html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .dropdown-container, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event .dropdown > .dropdown-container {
+html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .dropdown-container, html.Newtheme #popup .pop .loackAmount .setting .inputBox-blue .dropdown > .dropdown-container, .setting html.Newtheme #popup .pop .loackAmount .inputBox-blue .dropdown > .dropdown-container, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event .dropdown > .dropdown-container {
   width: 100%;
   visibility: hidden;
   opacity: 0;
@@ -4661,14 +4733,14 @@ html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .dropdown-container
   position: static;
   border: 0;
 }
-html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .dropdown-container.active, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container.active, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event .dropdown > .dropdown-container.active {
+html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .dropdown-container.active, html.Newtheme #popup .pop .loackAmount .setting .inputBox-blue .dropdown > .dropdown-container.active, .setting html.Newtheme #popup .pop .loackAmount .inputBox-blue .dropdown > .dropdown-container.active, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container.active, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event .dropdown > .dropdown-container.active {
   visibility: visible;
   opacity: 1;
   height: auto;
   -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .dropdown-container .dropdown-item, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container .dropdown-item, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event .dropdown > .dropdown-container .dropdown-item {
+html.Newtheme #popup .pop .loackAmount .inputBox .dropdown > .dropdown-container .dropdown-item, html.Newtheme #popup .pop .loackAmount .setting .inputBox-blue .dropdown > .dropdown-container .dropdown-item, .setting html.Newtheme #popup .pop .loackAmount .inputBox-blue .dropdown > .dropdown-container .dropdown-item, html.Newtheme #popup .pop .loackAmount .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container .dropdown-item, .worldcupEvent .ticket__container html.Newtheme #popup .pop .loackAmount .inputBox-event .dropdown > .dropdown-container .dropdown-item {
   padding: 5px 0;
   color: #1f3258;
 }
@@ -5788,14 +5860,14 @@ html.Newtheme .directions ~ form {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-html.Newtheme .directions ~ form .inputBox, html.Newtheme .directions ~ form .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .directions ~ form .inputBox-event {
+html.Newtheme .directions ~ form .inputBox, html.Newtheme .directions ~ form .setting .inputBox-blue, .setting html.Newtheme .directions ~ form .inputBox-blue, html.Newtheme .directions ~ form .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .directions ~ form .inputBox-event {
   max-width: 80%;
   min-width: 75%;
 }
-html.Newtheme .directions ~ form .inputBox .iconModule .icon:before, html.Newtheme .directions ~ form .worldcupEvent .ticket__container .inputBox-event .iconModule .icon:before, .worldcupEvent .ticket__container html.Newtheme .directions ~ form .inputBox-event .iconModule .icon:before {
+html.Newtheme .directions ~ form .inputBox .iconModule .icon:before, html.Newtheme .directions ~ form .setting .inputBox-blue .iconModule .icon:before, .setting html.Newtheme .directions ~ form .inputBox-blue .iconModule .icon:before, html.Newtheme .directions ~ form .worldcupEvent .ticket__container .inputBox-event .iconModule .icon:before, .worldcupEvent .ticket__container html.Newtheme .directions ~ form .inputBox-event .iconModule .icon:before {
   font-weight: normal;
 }
-html.Newtheme .directions ~ form .inputBox + .tip, html.Newtheme .directions ~ form .worldcupEvent .ticket__container .inputBox-event + .tip, .worldcupEvent .ticket__container html.Newtheme .directions ~ form .inputBox-event + .tip {
+html.Newtheme .directions ~ form .inputBox + .tip, html.Newtheme .directions ~ form .setting .inputBox-blue + .tip, .setting html.Newtheme .directions ~ form .inputBox-blue + .tip, html.Newtheme .directions ~ form .worldcupEvent .ticket__container .inputBox-event + .tip, .worldcupEvent .ticket__container html.Newtheme .directions ~ form .inputBox-event + .tip {
   width: calc(100% - 22px);
   max-width: 80%;
   min-width: 75%;
@@ -6585,7 +6657,7 @@ html.Newtheme .walletTransfer .walletModule .to span:nth-child(1) {
 html.Newtheme .walletTransfer .walletModule .dropdown-item.active {
   background: #1e85ec;
 }
-html.Newtheme .walletTransfer .inputBox, html.Newtheme .walletTransfer .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .walletTransfer .inputBox-event {
+html.Newtheme .walletTransfer .inputBox, html.Newtheme .walletTransfer .setting .inputBox-blue, .setting html.Newtheme .walletTransfer .inputBox-blue, html.Newtheme .walletTransfer .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .walletTransfer .inputBox-event {
   float: left;
   width: calc(50% - 26px);
   margin-right: 4px;
@@ -6945,20 +7017,20 @@ html.Newtheme .addBankpop > .txt-lightgray {
 html.Newtheme .addBankpop .icon {
   font-size: 14px;
 }
-html.Newtheme .addBankpop .inputBox, html.Newtheme .addBankpop .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .addBankpop .inputBox-event {
+html.Newtheme .addBankpop .inputBox, html.Newtheme .addBankpop .setting .inputBox-blue, .setting html.Newtheme .addBankpop .inputBox-blue, html.Newtheme .addBankpop .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .addBankpop .inputBox-event {
   padding: 2px 10px;
 }
-html.Newtheme .addBankpop .inputBox .dropdown > .btn, html.Newtheme .addBankpop .worldcupEvent .ticket__container .inputBox-event .dropdown > .btn, .worldcupEvent .ticket__container html.Newtheme .addBankpop .inputBox-event .dropdown > .btn {
+html.Newtheme .addBankpop .inputBox .dropdown > .btn, html.Newtheme .addBankpop .setting .inputBox-blue .dropdown > .btn, .setting html.Newtheme .addBankpop .inputBox-blue .dropdown > .btn, html.Newtheme .addBankpop .worldcupEvent .ticket__container .inputBox-event .dropdown > .btn, .worldcupEvent .ticket__container html.Newtheme .addBankpop .inputBox-event .dropdown > .btn {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   font-size: 13px;
 }
-html.Newtheme .addBankpop .inputBox .dropdown > .dropdown-container, html.Newtheme .addBankpop .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container, .worldcupEvent .ticket__container html.Newtheme .addBankpop .inputBox-event .dropdown > .dropdown-container {
+html.Newtheme .addBankpop .inputBox .dropdown > .dropdown-container, html.Newtheme .addBankpop .setting .inputBox-blue .dropdown > .dropdown-container, .setting html.Newtheme .addBankpop .inputBox-blue .dropdown > .dropdown-container, html.Newtheme .addBankpop .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container, .worldcupEvent .ticket__container html.Newtheme .addBankpop .inputBox-event .dropdown > .dropdown-container {
   overflow-y: scroll;
   max-height: 120px;
 }
-html.Newtheme .addBankpop .inputBox .dropdown > .dropdown-container .dropdown-item, html.Newtheme .addBankpop .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container .dropdown-item, .worldcupEvent .ticket__container html.Newtheme .addBankpop .inputBox-event .dropdown > .dropdown-container .dropdown-item {
+html.Newtheme .addBankpop .inputBox .dropdown > .dropdown-container .dropdown-item, html.Newtheme .addBankpop .setting .inputBox-blue .dropdown > .dropdown-container .dropdown-item, .setting html.Newtheme .addBankpop .inputBox-blue .dropdown > .dropdown-container .dropdown-item, html.Newtheme .addBankpop .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container .dropdown-item, .worldcupEvent .ticket__container html.Newtheme .addBankpop .inputBox-event .dropdown > .dropdown-container .dropdown-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6967,10 +7039,10 @@ html.Newtheme .addBankpop .inputBox .dropdown > .dropdown-container .dropdown-it
           align-items: center;
   padding: 7.5px 0;
 }
-html.Newtheme .addBankpop .inputBox .dropdown > .dropdown-container .dropdown-item:nth-child(1), html.Newtheme .addBankpop .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container .dropdown-item:nth-child(1), .worldcupEvent .ticket__container html.Newtheme .addBankpop .inputBox-event .dropdown > .dropdown-container .dropdown-item:nth-child(1) {
+html.Newtheme .addBankpop .inputBox .dropdown > .dropdown-container .dropdown-item:nth-child(1), html.Newtheme .addBankpop .setting .inputBox-blue .dropdown > .dropdown-container .dropdown-item:nth-child(1), .setting html.Newtheme .addBankpop .inputBox-blue .dropdown > .dropdown-container .dropdown-item:nth-child(1), html.Newtheme .addBankpop .worldcupEvent .ticket__container .inputBox-event .dropdown > .dropdown-container .dropdown-item:nth-child(1), .worldcupEvent .ticket__container html.Newtheme .addBankpop .inputBox-event .dropdown > .dropdown-container .dropdown-item:nth-child(1) {
   padding-top: 15px;
 }
-html.Newtheme .addBankpop .inputBox img, html.Newtheme .addBankpop .worldcupEvent .ticket__container .inputBox-event img, .worldcupEvent .ticket__container html.Newtheme .addBankpop .inputBox-event img {
+html.Newtheme .addBankpop .inputBox img, html.Newtheme .addBankpop .setting .inputBox-blue img, .setting html.Newtheme .addBankpop .inputBox-blue img, html.Newtheme .addBankpop .worldcupEvent .ticket__container .inputBox-event img, .worldcupEvent .ticket__container html.Newtheme .addBankpop .inputBox-event img {
   max-width: 44px;
   border-radius: 5px;
   margin-right: 10px;
@@ -7031,20 +7103,22 @@ html.Newtheme .quickSelect {
   padding: 0 50px;
   height: 50px;
 }
-html.Newtheme .quickSelect > div.inputBox, html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.inputBox-event,
+html.Newtheme .quickSelect > div.inputBox, html.Newtheme .setting .quickSelect > div.inputBox-blue, .setting html.Newtheme .quickSelect > div.inputBox-blue, html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.inputBox-event,
 html.Newtheme .quickSelect > div:first-child {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   margin-right: 5px;
 }
-html.Newtheme .quickSelect > div.inputBox.promoType, html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.promoType.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.promoType.inputBox-event,
+html.Newtheme .quickSelect > div.inputBox.promoType, html.Newtheme .setting .quickSelect > div.promoType.inputBox-blue, .setting html.Newtheme .quickSelect > div.promoType.inputBox-blue, html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.promoType.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.promoType.inputBox-event,
 html.Newtheme .quickSelect > div:first-child.promoType {
   max-width: none;
   margin-right: 0;
 }
-html.Newtheme .quickSelect > div.inputBox.promoType button.orange, html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.promoType.inputBox-event button.orange, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.promoType.inputBox-event button.orange,
+html.Newtheme .quickSelect > div.inputBox.promoType button.orange, html.Newtheme .setting .quickSelect > div.promoType.inputBox-blue button.orange, .setting html.Newtheme .quickSelect > div.promoType.inputBox-blue button.orange, html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.promoType.inputBox-event button.orange, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.promoType.inputBox-event button.orange,
 html.Newtheme .quickSelect > div.inputBox.promoType button.red,
+html.Newtheme .setting .quickSelect > div.promoType.inputBox-blue button.red,
+.setting html.Newtheme .quickSelect > div.promoType.inputBox-blue button.red,
 html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.promoType.inputBox-event button.red,
 .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.promoType.inputBox-event button.red,
 html.Newtheme .quickSelect > div:first-child.promoType button.orange,
@@ -7052,8 +7126,10 @@ html.Newtheme .quickSelect > div:first-child.promoType button.red {
   position: relative;
   margin-left: 25px;
 }
-html.Newtheme .quickSelect > div.inputBox.promoType button.orange:before, html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.promoType.inputBox-event button.orange:before, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.promoType.inputBox-event button.orange:before,
+html.Newtheme .quickSelect > div.inputBox.promoType button.orange:before, html.Newtheme .setting .quickSelect > div.promoType.inputBox-blue button.orange:before, .setting html.Newtheme .quickSelect > div.promoType.inputBox-blue button.orange:before, html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.promoType.inputBox-event button.orange:before, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.promoType.inputBox-event button.orange:before,
 html.Newtheme .quickSelect > div.inputBox.promoType button.red:before,
+html.Newtheme .setting .quickSelect > div.promoType.inputBox-blue button.red:before,
+.setting html.Newtheme .quickSelect > div.promoType.inputBox-blue button.red:before,
 html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.promoType.inputBox-event button.red:before,
 .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.promoType.inputBox-event button.red:before,
 html.Newtheme .quickSelect > div:first-child.promoType button.orange:before,
@@ -7066,7 +7142,7 @@ html.Newtheme .quickSelect > div:first-child.promoType button.red:before {
   font-weight: normal;
   font-size: 24px;
 }
-html.Newtheme .quickSelect > div.inputBox.promoType button.blueBorder, html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.promoType.inputBox-event button.blueBorder, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.promoType.inputBox-event button.blueBorder, html.Newtheme .quickSelect > div.inputBox.promoType button.btn-check, html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.promoType.inputBox-event button.btn-check, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.promoType.inputBox-event button.btn-check,
+html.Newtheme .quickSelect > div.inputBox.promoType button.blueBorder, html.Newtheme .setting .quickSelect > div.promoType.inputBox-blue button.blueBorder, .setting html.Newtheme .quickSelect > div.promoType.inputBox-blue button.blueBorder, html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.promoType.inputBox-event button.blueBorder, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.promoType.inputBox-event button.blueBorder, html.Newtheme .quickSelect > div.inputBox.promoType button.btn-check, html.Newtheme .setting .quickSelect > div.promoType.inputBox-blue button.btn-check, .setting html.Newtheme .quickSelect > div.promoType.inputBox-blue button.btn-check, html.Newtheme .worldcupEvent .ticket__container .quickSelect > div.promoType.inputBox-event button.btn-check, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div.promoType.inputBox-event button.btn-check,
 html.Newtheme .quickSelect > div:first-child.promoType button.blueBorder,
 html.Newtheme .quickSelect > div:first-child.promoType button.btn-check {
   white-space: nowrap;
@@ -7075,7 +7151,7 @@ html.Newtheme .quickSelect > div:first-child {
   position: relative;
   max-width: 322px;
 }
-html.Newtheme .quickSelect > div:first-child .inputBox, html.Newtheme .quickSelect > div:first-child .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div:first-child .inputBox-event {
+html.Newtheme .quickSelect > div:first-child .inputBox, html.Newtheme .quickSelect > div:first-child .setting .inputBox-blue, .setting html.Newtheme .quickSelect > div:first-child .inputBox-blue, html.Newtheme .quickSelect > div:first-child .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .quickSelect > div:first-child .inputBox-event {
   position: absolute;
   -webkit-box-align: start;
       -ms-flex-align: start;
@@ -7292,11 +7368,11 @@ html.Newtheme .profileEdit .editModule {
       -ms-flex: 1.5;
           flex: 1.5;
 }
-html.Newtheme .profileEdit .editModule .inputBox, html.Newtheme .profileEdit .editModule .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .profileEdit .editModule .inputBox-event {
+html.Newtheme .profileEdit .editModule .inputBox, html.Newtheme .profileEdit .editModule .setting .inputBox-blue, .setting html.Newtheme .profileEdit .editModule .inputBox-blue, html.Newtheme .profileEdit .editModule .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .profileEdit .editModule .inputBox-event {
   z-index: auto;
   width: 100%;
 }
-html.Newtheme .profileEdit .editModule .inputBox:first-child, html.Newtheme .profileEdit .editModule .worldcupEvent .ticket__container .inputBox-event:first-child, .worldcupEvent .ticket__container html.Newtheme .profileEdit .editModule .inputBox-event:first-child {
+html.Newtheme .profileEdit .editModule .inputBox:first-child, html.Newtheme .profileEdit .editModule .setting .inputBox-blue:first-child, .setting html.Newtheme .profileEdit .editModule .inputBox-blue:first-child, html.Newtheme .profileEdit .editModule .worldcupEvent .ticket__container .inputBox-event:first-child, .worldcupEvent .ticket__container html.Newtheme .profileEdit .editModule .inputBox-event:first-child {
   margin-top: 8px;
 }
 html.Newtheme .profileEdit .editModule .btnGroup {
@@ -8092,7 +8168,7 @@ html.Newtheme .casinoSelect.modifier .btnGroup button, html.Newtheme .casinoSele
 html.Newtheme .casinoSelect.modifier .btnGroup button:hover, html.Newtheme .casinoSelect.modifier .btnGroup button .active, html.Newtheme .casinoSelect.modifier .btnGroup a:hover, html.Newtheme .casinoSelect.modifier .btnGroup a .active {
   background: #284985;
 }
-html.Newtheme .casinoSelect.modifier .inputBox, html.Newtheme .casinoSelect.modifier .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .casinoSelect.modifier .inputBox-event {
+html.Newtheme .casinoSelect.modifier .inputBox, html.Newtheme .casinoSelect.modifier .setting .inputBox-blue, .setting html.Newtheme .casinoSelect.modifier .inputBox-blue, html.Newtheme .casinoSelect.modifier .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .casinoSelect.modifier .inputBox-event {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 180px;
           flex: 0 0 180px;
@@ -8347,7 +8423,7 @@ html.Newtheme .rdt + .icon-cross {
   margin-right: 0;
   color: #d83b35;
 }
-html.Newtheme .rdt .inputBox, html.Newtheme .rdt .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .rdt .inputBox-event {
+html.Newtheme .rdt .inputBox, html.Newtheme .rdt .setting .inputBox-blue, .setting html.Newtheme .rdt .inputBox-blue, html.Newtheme .rdt .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .rdt .inputBox-event {
   width: 100%;
 }
 html.Newtheme iframe {
@@ -9200,14 +9276,14 @@ html.Newtheme .transferModule {
   margin-top: 10px;
   padding: 0;
 }
-html.Newtheme .transferModule .inputBox, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event {
+html.Newtheme .transferModule .inputBox, html.Newtheme .transferModule .setting .inputBox-blue, .setting html.Newtheme .transferModule .inputBox-blue, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event {
   padding: 4px 20px;
   margin: 0;
   z-index: 2;
   display: block;
   width: calc(50% - 46px);
 }
-html.Newtheme .transferModule .inputBox .dropdown .dropdown-container, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event .dropdown .dropdown-container, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event .dropdown .dropdown-container {
+html.Newtheme .transferModule .inputBox .dropdown .dropdown-container, html.Newtheme .transferModule .setting .inputBox-blue .dropdown .dropdown-container, .setting html.Newtheme .transferModule .inputBox-blue .dropdown .dropdown-container, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event .dropdown .dropdown-container, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event .dropdown .dropdown-container {
   position: absolute;
   top: 25px;
   width: calc(100% - 20px);
@@ -9216,20 +9292,20 @@ html.Newtheme .transferModule .inputBox .dropdown .dropdown-container, html.Newt
   border-top: 0;
   margin-left: 0;
 }
-html.Newtheme .transferModule .inputBox .dropdown .dropdown-container .dropdown-item, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event .dropdown .dropdown-container .dropdown-item, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event .dropdown .dropdown-container .dropdown-item {
+html.Newtheme .transferModule .inputBox .dropdown .dropdown-container .dropdown-item, html.Newtheme .transferModule .setting .inputBox-blue .dropdown .dropdown-container .dropdown-item, .setting html.Newtheme .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event .dropdown .dropdown-container .dropdown-item, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event .dropdown .dropdown-container .dropdown-item {
   padding: 5px 33px 5px 0;
   color: #1f3258;
 }
-html.Newtheme .transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event .dropdown .dropdown-container .dropdown-item:hover, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event .dropdown .dropdown-container .dropdown-item:hover {
+html.Newtheme .transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, html.Newtheme .transferModule .setting .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover, .setting html.Newtheme .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event .dropdown .dropdown-container .dropdown-item:hover, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event .dropdown .dropdown-container .dropdown-item:hover {
   background: #1e85ec;
   color: #fff;
 }
-html.Newtheme .transferModule .inputBox .dropdown span, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event .dropdown span, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event .dropdown span {
+html.Newtheme .transferModule .inputBox .dropdown span, html.Newtheme .transferModule .setting .inputBox-blue .dropdown span, .setting html.Newtheme .transferModule .inputBox-blue .dropdown span, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event .dropdown span, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event .dropdown span {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
-html.Newtheme .transferModule .inputBox .dropdown button.btn, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event .dropdown button.btn, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event .dropdown button.btn {
+html.Newtheme .transferModule .inputBox .dropdown button.btn, html.Newtheme .transferModule .setting .inputBox-blue .dropdown button.btn, .setting html.Newtheme .transferModule .inputBox-blue .dropdown button.btn, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event .dropdown button.btn, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event .dropdown button.btn {
   color: #1f3258;
   -webkit-box-flex: 7;
       -ms-flex: 7;
@@ -9239,7 +9315,7 @@ html.Newtheme .transferModule .inputBox .dropdown button.btn, html.Newtheme .tra
           justify-content: flex-end;
   margin-right: 15px;
 }
-html.Newtheme .transferModule .inputBox .dropdown .dropdown-item, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event .dropdown .dropdown-item, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event .dropdown .dropdown-item {
+html.Newtheme .transferModule .inputBox .dropdown .dropdown-item, html.Newtheme .transferModule .setting .inputBox-blue .dropdown .dropdown-item, .setting html.Newtheme .transferModule .inputBox-blue .dropdown .dropdown-item, html.Newtheme .transferModule .worldcupEvent .ticket__container .inputBox-event .dropdown .dropdown-item, .worldcupEvent .ticket__container html.Newtheme .transferModule .inputBox-event .dropdown .dropdown-item {
   color: white;
   text-align: right;
 }
@@ -10210,10 +10286,10 @@ html.Newtheme .subModuleListColumn > .subModule > div {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-html.Newtheme .subModuleListColumn > .subModule > div.inputBox, html.Newtheme .worldcupEvent .ticket__container .subModuleListColumn > .subModule > div.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .subModuleListColumn > .subModule > div.inputBox-event {
+html.Newtheme .subModuleListColumn > .subModule > div.inputBox, html.Newtheme .setting .subModuleListColumn > .subModule > div.inputBox-blue, .setting html.Newtheme .subModuleListColumn > .subModule > div.inputBox-blue, html.Newtheme .worldcupEvent .ticket__container .subModuleListColumn > .subModule > div.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .subModuleListColumn > .subModule > div.inputBox-event {
   width: 420px;
 }
-html.Newtheme .subModuleListColumn > .subModule > div.inputBox.promocode, html.Newtheme .worldcupEvent .ticket__container .subModuleListColumn > .subModule > div.promocode.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .subModuleListColumn > .subModule > div.promocode.inputBox-event {
+html.Newtheme .subModuleListColumn > .subModule > div.inputBox.promocode, html.Newtheme .setting .subModuleListColumn > .subModule > div.promocode.inputBox-blue, .setting html.Newtheme .subModuleListColumn > .subModule > div.promocode.inputBox-blue, html.Newtheme .worldcupEvent .ticket__container .subModuleListColumn > .subModule > div.promocode.inputBox-event, .worldcupEvent .ticket__container html.Newtheme .subModuleListColumn > .subModule > div.promocode.inputBox-event {
   width: 200px;
   margin: 0 0 0 auto;
 }
@@ -10498,6 +10574,8 @@ html.Newtheme .subModuleListColumn .column > .row .tip {
 html.Newtheme .subModuleListColumn .column .inputBox-white,
 html.Newtheme .subModuleListColumn .column .inputBox-blue,
 html.Newtheme .subModuleListColumn .column .inputBox,
+html.Newtheme .subModuleListColumn .column .setting .inputBox-blue,
+.setting html.Newtheme .subModuleListColumn .column .inputBox-blue,
 html.Newtheme .subModuleListColumn .column .worldcupEvent .ticket__container .inputBox-event,
 .worldcupEvent .ticket__container html.Newtheme .subModuleListColumn .column .inputBox-event {
   width: 420px !important;
@@ -10522,6 +10600,8 @@ html.Newtheme .subModuleListColumn .column .tipImg.active {
 html.Newtheme .subModuleListColumn .inputBox-white,
 html.Newtheme .subModuleListColumn .inputBox-blue,
 html.Newtheme .subModuleListColumn .inputBox,
+html.Newtheme .subModuleListColumn .setting .inputBox-blue,
+.setting html.Newtheme .subModuleListColumn .inputBox-blue,
 html.Newtheme .subModuleListColumn .worldcupEvent .ticket__container .inputBox-event,
 .worldcupEvent .ticket__container html.Newtheme .subModuleListColumn .inputBox-event {
   margin-left: 6px;
@@ -10529,6 +10609,8 @@ html.Newtheme .subModuleListColumn .worldcupEvent .ticket__container .inputBox-e
 html.Newtheme .subModuleListColumn .inputBox-white + .tip,
 html.Newtheme .subModuleListColumn .inputBox-blue + .tip,
 html.Newtheme .subModuleListColumn .inputBox + .tip,
+html.Newtheme .subModuleListColumn .setting .inputBox-blue + .tip,
+.setting html.Newtheme .subModuleListColumn .inputBox-blue + .tip,
 html.Newtheme .subModuleListColumn .worldcupEvent .ticket__container .inputBox-event + .tip,
 .worldcupEvent .ticket__container html.Newtheme .subModuleListColumn .inputBox-event + .tip {
   margin-left: 0px;
@@ -12499,13 +12581,13 @@ html.Newtheme .profileNew .profile > div > div > button .icon {
   font-size: 14px;
   margin-right: 2px;
 }
-html.Newtheme .profileNew .profile .inputModule .inputBox, html.Newtheme .profileNew .profile .inputModule .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .profileNew .profile .inputModule .inputBox-event {
+html.Newtheme .profileNew .profile .inputModule .inputBox, html.Newtheme .profileNew .profile .inputModule .setting .inputBox-blue, .setting html.Newtheme .profileNew .profile .inputModule .inputBox-blue, html.Newtheme .profileNew .profile .inputModule .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .profileNew .profile .inputModule .inputBox-event {
   padding: 0 5px;
   margin: 5px 0 0 0;
   z-index: unset;
   width: calc(100% - 12px);
 }
-html.Newtheme .profileNew .profile .inputModule .inputBox .iconModule, html.Newtheme .profileNew .profile .inputModule .worldcupEvent .ticket__container .inputBox-event .iconModule, .worldcupEvent .ticket__container html.Newtheme .profileNew .profile .inputModule .inputBox-event .iconModule {
+html.Newtheme .profileNew .profile .inputModule .inputBox .iconModule, html.Newtheme .profileNew .profile .inputModule .setting .inputBox-blue .iconModule, .setting html.Newtheme .profileNew .profile .inputModule .inputBox-blue .iconModule, html.Newtheme .profileNew .profile .inputModule .worldcupEvent .ticket__container .inputBox-event .iconModule, .worldcupEvent .ticket__container html.Newtheme .profileNew .profile .inputModule .inputBox-event .iconModule {
   -webkit-box-flex: 0;
       -ms-flex: 0;
           flex: 0;
@@ -22715,4 +22797,821 @@ main .leaderboard-info .info-term .term-content ul li {
   margin-bottom: 20px;
   letter-spacing: 0.2px;
   color: #141f33;
+}
+
+#survey {
+  position: fixed;
+  bottom: 35px;
+  right: 70px;
+  width: 345px;
+  border-radius: 10px;
+  color: white;
+  z-index: 3;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+#survey .survey-icon-btn {
+  position: absolute;
+  bottom: 60px;
+  right: -60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #EE4F49;
+  border-radius: 100%;
+  padding: 15px;
+  width: 60px;
+  height: 60px;
+}
+#survey .survey-icon-btn img {
+  width: 35px;
+  margin-left: 3px;
+}
+#survey .survey-icon-btn:hover {
+  background: #ff655f;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+#survey .survey-box {
+  position: absolute;
+  bottom: 45px;
+  right: -60px;
+  background: #F8F8F8;
+  border-radius: 10px;
+  width: 400px;
+  opacity: 0;
+  -webkit-box-shadow: 0 0 6px rgba(128, 128, 128, 0.431372549);
+          box-shadow: 0 0 6px rgba(128, 128, 128, 0.431372549);
+  visibility: hidden;
+}
+#survey .survey-box.active {
+  opacity: 1;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  visibility: visible;
+}
+#survey .survey-before {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+  padding: 20px 30px;
+}
+#survey .survey-before > div:first-child {
+  color: #0A1B38;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+  width: 100%;
+}
+#survey .survey-before > div:nth-child(2) {
+  line-height: 20px;
+  text-align: left;
+  width: 100%;
+  color: #9C9C9C;
+  margin: 25px 0 12px;
+  font-size: 12px;
+}
+#survey .survey-before fieldset {
+  border: medium none;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#survey .survey-before fieldset input {
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px 0 10px 8px;
+  color: #0A1B38;
+  border-radius: 5px;
+}
+#survey .survey-before fieldset input::-webkit-input-placeholder {
+  font-size: 12px;
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+#survey .survey-before fieldset input::-moz-placeholder {
+  font-size: 12px;
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+#survey .survey-before fieldset input:-ms-input-placeholder {
+  font-size: 12px;
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+#survey .survey-before fieldset input::-ms-input-placeholder {
+  font-size: 12px;
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+#survey .survey-before fieldset input::placeholder {
+  font-size: 12px;
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+#survey .survey-before fieldset input:focus {
+  outline: 0;
+  border: 2px solid #5084e4;
+}
+#survey .survey-before fieldset textarea {
+  width: 100%;
+  height: 150px;
+  border: 1px solid #e5e5e5;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px 0 10px 8px;
+  max-width: 100%;
+  resize: none;
+  border-radius: 5px;
+  font-size: 12px;
+}
+#survey .survey-before fieldset textarea::-webkit-input-placeholder {
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+#survey .survey-before fieldset textarea::-moz-placeholder {
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+#survey .survey-before fieldset textarea:-ms-input-placeholder {
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+#survey .survey-before fieldset textarea::-ms-input-placeholder {
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+#survey .survey-before fieldset textarea::placeholder {
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+#survey .survey-before fieldset textarea:focus {
+  outline: 0;
+  border: 2px solid #5084e4;
+}
+#survey .survey-before fieldset button {
+  background: #EE4F49;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 10px 25px;
+  margin: 50px 0 20px;
+  color: white;
+}
+#survey .survey-before fieldset button:first-child[disabled] {
+  background: gray !important;
+}
+#survey .survey-before fieldset button:first-child:hover {
+  background: #ff655f;
+}
+#survey .survey-before fieldset button:last-child {
+  background: #DFDFDF;
+  color: #9B9B9B;
+  margin-left: 8px;
+}
+#survey .survey-before fieldset button:last-child:hover {
+  background: #d5d5d5;
+}
+#survey .survey-before fieldset:nth-child(2) {
+  margin-top: 25px;
+}
+#survey .survey-before fieldset .tip {
+  display: none;
+}
+#survey .survey-before fieldset .tip.active {
+  display: block;
+  color: red;
+}
+#survey .survey-before fieldset.error textarea {
+  border: 2px solid red;
+}
+#survey .survey-before fieldset.error input {
+  border: 2px solid red;
+}
+#survey .survey-before .survey-input {
+  margin-top: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#survey .survey-before .survey-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+#survey .survey-before.close {
+  display: none;
+}
+#survey .survey-after {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 130px 30px;
+}
+#survey .survey-after img {
+  width: 150px;
+}
+#survey .survey-after .icon-close {
+  position: absolute;
+  background: rgba(128, 128, 128, 0.5803921569);
+  color: white;
+  border-radius: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 32px;
+  width: 32px;
+  font-size: 14px;
+  right: 15px;
+  top: 15px;
+}
+#survey .survey-after .icon-close:hover {
+  background: rgba(171, 171, 171, 0.6);
+}
+#survey .survey-after > div:nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0A1B38;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+}
+#survey .survey-after > div:nth-child(2) > div {
+  margin: 30px 0;
+}
+#survey .survey-after > div:last-child {
+  color: #9C9C9C;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+}
+#survey .survey-after.close {
+  display: none;
+}
+#survey .survey .btnGroup {
+  width: 20%;
+}
+#survey .survey .btnGroup .btn-check {
+  height: 52px;
+  border-radius: 10px;
+}
+
+.setting .infoModule {
+  padding-bottom: 40px;
+}
+.setting-container {
+  margin: 30px 50px;
+  background-color: #FFF;
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+.setting-container .bottom-line {
+  border-bottom: 1px solid #C2D9FF;
+  margin: 40px 0;
+}
+.setting-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #5574A7;
+  margin-bottom: 30px;
+}
+.setting-content:last-child {
+  margin-bottom: 0px !important;
+}
+.setting-content:first-child {
+  position: relative;
+  z-index: 3;
+}
+.setting-content > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.setting-content .inputBox-blue {
+  padding: 0 20px 0 20px !important;
+  margin-right: 10px !important;
+  border-radius: 10px !important;
+  color: #5574A7;
+  height: 50px;
+  width: 300px !important;
+  border-radius: 5px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 2;
+  border: 1px solid #5574A7;
+}
+.setting-content .inputBox-blue .dropdown span + button {
+  width: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+.setting-content .inputBox-blue .dropdown .dropdown-container {
+  position: absolute;
+  top: 43px !important;
+  left: -1px;
+  border-radius: 0 0 5px 5px;
+  background: white;
+  border: 1px solid #5574A7;
+  border-top: 0;
+  margin-left: 0;
+  overflow: hidden;
+  padding: 0 !important;
+}
+.setting-content .inputBox-blue .dropdown .dropdown-container .dropdown-item {
+  margin: 0 !important;
+  padding: 10px 20px 10px 20px !important;
+}
+.setting-content .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover {
+  background-color: #f7f5f5;
+}
+.setting-content .inputBox-blue .dropdown .dropdown-container.active {
+  top: 40px !important;
+  width: 100% !important;
+}
+.setting-content .inputBox-blue .dropdown .btn {
+  padding: 0px;
+  margin-left: 0 !important;
+}
+.setting-content .inputBox-blue .dropdown .btn::after {
+  display: none;
+}
+.setting-checkbox .checkbox-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+.setting-checkbox .checkbox-content input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:disabled {
+  background: #000;
+  opacity: 1;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 8px;
+  padding: 0.5px;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:disabled + .checkbox-icon + span {
+  color: #B5C0D1;
+}
+.setting-checkbox .checkbox-content .checkbox-icon {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 1px solid #C2D9FF;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-right: 8px;
+  padding: 0.5px;
+}
+.setting-checkbox .checkbox-content .checkbox-icon::after {
+  content: "";
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  display: none;
+  margin-bottom: 4px;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:checked ~ .checkbox-icon {
+  background: #2775FF;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:checked ~ .checkbox-icon::after {
+  display: block;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:disabled ~ .checkbox-icon {
+  opacity: 0;
+}
+.setting-checkbox .checkbox-content input[type=checkbox]:disabled ~ .checkbox-icon::after {
+  opacity: 0;
+}
+.setting-checkbox label:nth-child(2) {
+  margin-left: 20px;
+}
+.setting-radiobox .radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 0 10px 10px;
+}
+.setting-radiobox .radio input[type=radio] {
+  position: absolute;
+  opacity: 0;
+}
+.setting-radiobox .radio input[type=radio] + .radio-label::before {
+  content: "";
+  background: white;
+  border-radius: 100%;
+  border: 1px solid #2775FF;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  margin-right: 5px;
+  vertical-align: top;
+  cursor: pointer;
+  text-align: center;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+}
+.setting-radiobox .radio input[type=radio]:checked + .radio-label::before {
+  background: #2775FF;
+  -webkit-box-shadow: inset 0 0 0 3px white;
+          box-shadow: inset 0 0 0 3px white;
+}
+.setting-radiobox .radio input[type=radio]:focus + .radio-label::before {
+  outline: none;
+  border-color: #2775FF;
+}
+.setting-radiobox .radio input[type=radio]:disabled + .radio-label::before {
+  -webkit-box-shadow: inset 0 0 0 3px #f4f4f4;
+          box-shadow: inset 0 0 0 3px #f4f4f4;
+  border-color: #b4b4b4;
+  background: white;
+}
+.setting-radiobox .radio input[type=radio] + .radio-label:empty::before {
+  margin-right: 0;
+}
+.setting-radiobox .radio .radio-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.setting-title {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+.setting-title::before {
+  content: "";
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+  display: block;
+  background: url(https://banner.goal123.org/desktop/img/setting-icon-w.svg) no-repeat center/cover;
+  width: 21px;
+  height: 23px;
+  margin-right: 7px;
+}
+.setting-subtitle {
+  width: 40%;
+  color: #1f3258;
+  font-weight: 700;
+  font-size: 15px;
+  margin-left: 5px;
+}
+.setting-tip {
+  color: #B5C0D1;
+  font-size: 12px;
+  font-weight: 100;
+  margin: 5px 0 15px 5px;
+}
+.setting .changepassword-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue {
+  height: 50px;
+  width: 350px;
+  padding: 0 20px 0 20px;
+  margin-right: 10px;
+  border-radius: 10px;
+  color: #5574A7;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue.error {
+  border-color: #cf0404;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input::-webkit-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input::-moz-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input:-ms-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input::-ms-input-placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input::placeholder {
+  color: #B5C0D1;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+          box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: #5574a7;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input:focus-within {
+  border: 1px solid #C2D9FF;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue input:focus {
+  outline: 0;
+  border: 2px solid #5084e4;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue textarea {
+  width: 100%;
+  height: 150px;
+  border: 1px solid #e5e5e5;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px 0 10px 8px;
+  max-width: 100%;
+  resize: none;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue textarea::-webkit-input-placeholder {
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue textarea::-moz-placeholder {
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue textarea:-ms-input-placeholder {
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue textarea::-ms-input-placeholder {
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue textarea::placeholder {
+  color: #D8D8D8;
+  font-family: "Poppins", sans-serif;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue textarea:focus {
+  outline: 0;
+  border: 2px solid #5084e4;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue button {
+  background: #EE4F49;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 10px 25px;
+  margin: 50px 0 20px;
+  color: white;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue button:first-child[disabled] {
+  background: gray !important;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue button:first-child:hover {
+  background: #ff655f;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue button:last-child {
+  background: #DFDFDF;
+  color: #9B9B9B;
+  margin-left: 8px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue button:last-child:hover {
+  background: #d5d5d5;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue:nth-child(2) {
+  margin-top: 25px;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue .tip {
+  display: none;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue .tip.active {
+  display: block;
+  color: red;
+}
+.setting .changepassword-content .resetPassWord .inputBox-blue.error textarea {
+  border: 2px solid red;
+}
+.setting .changepassword-content .resetPassWord .survey-input {
+  margin-top: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.setting .changepassword-content .resetPassWord .survey-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+.setting .changepassword-content .resetPassWord.close {
+  display: none;
+}
+.setting .changepassword-content-after {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 130px 30px;
+}
+.setting .changepassword-content-after img {
+  width: 150px;
+}
+.setting .changepassword-content-after .icon-close {
+  position: absolute;
+  background: rgba(128, 128, 128, 0.5803921569);
+  color: white;
+  border-radius: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 32px;
+  width: 32px;
+  font-size: 14px;
+  right: 15px;
+  top: 15px;
+}
+.setting .changepassword-content-after .icon-close:hover {
+  background: rgba(171, 171, 171, 0.6);
+}
+.setting .changepassword-content-after > div:nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0A1B38;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+}
+.setting .changepassword-content-after > div:nth-child(2) > div {
+  margin: 30px 0;
+}
+.setting .changepassword-content-after > div:last-child {
+  color: #9C9C9C;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+}
+.setting .changepassword-content-after.close {
+  display: none;
+}
+.setting .changepassword-content .btnGroup {
+  width: 20%;
+}
+.setting .changepassword-content .btnGroup .btn-check {
+  height: 52px;
+  border-radius: 10px;
 }/*# sourceMappingURL=style.css.map */

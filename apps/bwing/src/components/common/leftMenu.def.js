@@ -57,10 +57,6 @@ export const defLeftMenu = {
 	MyAccount: {
 		displayKey: "lbl_MyAccount",
 		subMenu: {
-			changePassword: {
-				path: path.changePassword.root,
-				displayKey: "lbl_ChangePassword"
-			},
 			profile: {
 				path: path.profile.root,
 				displayKey: "lbl_Profile"
@@ -82,6 +78,10 @@ export const defLeftMenu = {
 						period: defEventPeriod.referral
 					})
 				]
+			},
+			setting: {
+				path: path.setting.root,
+				displayKey: "lbl_Setting"
 			}
 		}
 	},

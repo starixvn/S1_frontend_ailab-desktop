@@ -13,6 +13,7 @@ import { defPopBoxType } from "../common/popBox";
 import MsgPopup from "./msgPopup";
 import useShieldCheck from "../hook/useShieldCheck";
 import { defPageClubImg } from "../vip/vip.def";
+import useDepositWithdrawTracker from "../hook/useDepositWithdrawTracker";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -27,6 +28,7 @@ const BeforeLogin = () => {
 		userInfo: { langId },
 		setUserInfo
 	} = useContext(userInfoContext);
+	const { handleNotification } = useDepositWithdrawTracker();
 
 	const { getShieldData, saveShieldData } = useShieldCheck();
 
@@ -94,6 +96,10 @@ const BeforeLogin = () => {
 				setPopBox({ isOpen: false });
 				navigate(`/${langId}`);
 				saveShieldData();
+
+				// 獲取使用者財務通知設定
+				const { financeNotification, soundEffects } = userData ?? {};
+				handleNotification(financeNotification, soundEffects);
 			} else if (errorCode !== 0 && isLogin === false) {
 				setPopBox({
 					isOpen: true,
@@ -201,9 +207,7 @@ const AfterLogin = () => {
 				{t("lbl_Deposit")}
 			</Link>
 			<Link
-				// TODO: 2024.9.13先緊急導轉首頁
-				// to={`/${langId}/${path.appDownload.root}`}
-				to={`/${langId}${path.home.root}`}
+				to={`/${langId}/${path.appDownload.root}`}
 				className="appDownload"
 			>
 				<i className="icon-mobile" />
