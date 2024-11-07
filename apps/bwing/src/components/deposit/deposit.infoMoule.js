@@ -21,6 +21,7 @@ const DepositInfoMoule = ({
 	const judgeBtnStatus = async () => {
 		if (checked && canSubmit) {
 			await onSubmit();
+			submitHandle();
 		}
 	};
 	const classStyle = () => {
@@ -92,13 +93,7 @@ const DepositInfoMoule = ({
 				{children}
 
 				<div className="btnGroup">
-					<button
-						onClick={async () => {
-							await judgeBtnStatus();
-							submitHandle();
-						}}
-						className={classStyle()}
-					>
+					<button onClick={judgeBtnStatus} className={classStyle()}>
 						{canSubmit ? t("lbl_Submit") : t("lbl_DepositStatus1")}
 					</button>
 				</div>
