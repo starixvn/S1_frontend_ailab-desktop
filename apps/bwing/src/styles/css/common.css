@@ -486,7 +486,7 @@
           justify-content: center;
 }
 .icon-error::before {
-  content: "";
+  content: "" !important;
   display: block;
   width: 18px;
   height: 18px;
