@@ -85,7 +85,8 @@ const Deposit = () => {
 			bonusCode: null,
 			requiredAmount: null,
 			specialCode: null
-		}
+		},
+		extraDataType: null
 	});
 
 	const [cardCodeInfoIconActive, setCardCodeInfoIconActive] = useState(false);
@@ -253,7 +254,8 @@ const Deposit = () => {
 							navigate(
 								`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`
 							)
-						}>
+						}
+					>
 						{t("lbl_UpdatePersonalDetail")}
 					</button>
 				</div>
@@ -314,7 +316,8 @@ const Deposit = () => {
 				cardSerial,
 				depositPromo,
 				groupId,
-				groupName
+				groupName,
+				extraDataType
 			} = formInfo;
 
 			let { bonusCode } = formInfo?.depositPromo;
@@ -345,12 +348,14 @@ const Deposit = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={() => resolve(false)}>
+										onClick={() => resolve(false)}
+									>
 										{t("lbl_ReModify")}
 									</button>
 									<button
 										className="btn-check"
-										onClick={() => resolve(true)}>
+										onClick={() => resolve(true)}
+									>
 										{t("lbl_Confirm")}
 									</button>
 								</div>
@@ -408,7 +413,8 @@ const Deposit = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={closePopBox}>
+											onClick={closePopBox}
+										>
 											OK
 										</button>
 									</div>
@@ -495,13 +501,13 @@ const Deposit = () => {
 						bonusCode
 					});
 				} else {
-					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqLoadCardPay`;
+					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReq`;
 
 					const params = [
 						`ChannelId=${channelId}`,
-						`Code=${cardCode.val}`,
-						`Serial=${cardSerial.val}`,
 						`Amount=${resultAmount}`,
+						extraDataType === 4 ? `Code=${cardCode.val}` : "",
+						extraDataType === 4 ? `Serial=${cardSerial.val}` : "",
 						bonusCode ? `BonusCode=${bonusCode}` : ""
 					]
 						.filter(Boolean)
@@ -792,7 +798,10 @@ const Deposit = () => {
 
 	let checked = formInfo?.amount?.checked;
 
-	if (depositType === defDepositType.loadCard) {
+	if (
+		depositType === defDepositType.loadCard &&
+		formInfo.extraDataType === 4
+	) {
 		checked =
 			checked &&
 			formInfo?.cardCode?.checked &&
@@ -812,7 +821,8 @@ const Deposit = () => {
 				onSubmit={onSubmit}
 				setDepositType={onChangeDepositType}
 				canSubmit={formInfo.canSubmit}
-				submitHandle={submitHandle}>
+				submitHandle={submitHandle}
+			>
 				{depositType === defDepositType.quickTransfer && (
 					<QuickTransferForm
 						quickTransferGroupList={quickTransferGroupList}
