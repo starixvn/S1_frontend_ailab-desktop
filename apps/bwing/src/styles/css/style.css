@@ -25961,9 +25961,6 @@ main .leaderboard-info .info-term .term-content ul li {
           box-shadow: 0 0 0px 1000px white inset;
   -webkit-text-fill-color: #5574a7;
 }
-.setting .changepassword-content .resetPassWord .inputBox-blue input:focus-within {
-  border: 1px solid #C2D9FF;
-}
 .setting .changepassword-content .resetPassWord .inputBox-blue input:focus {
   outline: 0;
   border: 2px solid #FFAF43;
