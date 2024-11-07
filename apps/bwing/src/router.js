@@ -103,9 +103,6 @@ export default {
 	cryptoWallet: {
 		root: "cryptoWallet"
 	},
-	changePassword: {
-		root: "changePassword"
-	},
 	forgetPassword: {
 		root: "forgetPassword"
 	},
@@ -163,6 +160,9 @@ export default {
 	},
 	eSport: {
 		root: "eSport"
+	},
+	setting: {
+		root: "setting"
 	},
 	luckyWheel: {
 		root: "luckyWheel"
