@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
+import { shuffle } from "lodash-es";
 import { useInView } from "../hook/useInView";
 import usePopBox from "../hook/usePopBox";
 import { defPopBoxType } from "../common/defPopBoxType";
@@ -25,163 +26,138 @@ const GameList = ({
 }) => {
 	const { setPopBox } = usePopBox();
 	const inViewRef = useInView(() => onLoadMore());
-	const rows =
-		displayGames &&
-		displayGames
-			?.filter(g => filterJudge(g))
-			.sort(() => Math.random() - 0.5) // 隨機排列遊戲列表
-			// 次早：原先為按照發佈時間順序排列：
-			// .sort((a, b) => {
-			// 	return (
-			// 		new Date(b.launchDate).getTime() -
-			// 		new Date(a.launchDate).getTime()
-			// 	);
+	const shuffledGames = useMemo(
+		() => (displayGames ? shuffle(displayGames) : []),
+		[displayGames]
+	);
+	const rows = shuffledGames
+		.filter(g => filterJudge(g))
+		.slice(startIdx, endIdx)
+		.map(g => {
+			const imgName = g.imgName[langId]
+				? g.imgName[langId]
+				: g.imgName.en;
+			const gameDisplayName = g.gameName[langId]
+				? g.gameName[langId]
+				: g.gameName.en;
+			const key = `${g.tpId}_${g.gameId}`;
+			const storageStr = favoriteStr ?? "";
+			const storageList = storageStr.split("&") ?? [];
+			const handleIsFavorite = () => storageList?.includes(key);
+			const isFavorite = handleIsFavorite();
+			const brandTpName = providerList.find(
+				obj => obj.tpId === g.tpId
+			).gameImgDisplayText;
 
-			// 最早：原始的排序方式（先保留以防ＰＭ需改回）
-			// if (
-			// 	activeProvider.tpId === a.tpId &&
-			// 	activeProvider.tpId === b.tpId
-			// ) {
-			// 	return a?.sort > b?.sort ? 1 : -1;
-			// }
-			// return true;
-			// })
-			?.slice(startIdx, endIdx)
-			?.map(g => {
-				const imgName = g.imgName[langId]
-					? g.imgName[langId]
-					: g.imgName.en;
-				const gameDisplayName = g.gameName[langId]
-					? g.gameName[langId]
-					: g.gameName.en;
-				const key = `${g.tpId}_${g.gameId}`;
-				const storageStr = favoriteStr ?? "";
-				const storageList = storageStr.split("&") ?? [];
-				const handleIsFavorite = () => storageList?.includes(key);
-				const isFavorite = handleIsFavorite();
-				const brandTpName = providerList.find(
-					obj => obj.tpId === g.tpId
-				).gameImgDisplayText;
+			const imageUrl = `${imgUrl}/${brandTpName}/${imgName}`;
 
-				const imageUrl = `${imgUrl}/${brandTpName}/${imgName}`;
+			const _style = {
+				pointerEvents: getIsInMaintain(g) ? "none" : "auto"
+			};
 
-				const _style = {
-					pointerEvents: getIsInMaintain(g) ? "none" : "auto"
-				};
-
-				const openSlotProductPopBox = () => {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.Modal,
-						content: (
-							<div id="popup" className="popup slotspop active">
-								<div className="slotspop-item">
-									<button
-										className="icon-close-slots"
-										onClick={() =>
-											setPopBox({ isOpen: false })
-										}
-									/>
-									<div className="slotspop-img">
-										<img
-											src={imageUrl}
-											alt="slot-game-img"
-										/>
-										<div className="slotspop-btn">
+			const openSlotProductPopBox = () => {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Modal,
+					content: (
+						<div id="popup" className="popup slotspop active">
+							<div className="slotspop-item">
+								<button
+									className="icon-close-slots"
+									onClick={() => setPopBox({ isOpen: false })}
+								/>
+								<div className="slotspop-img">
+									<img src={imageUrl} alt="slot-game-img" />
+									<div className="slotspop-btn">
+										<button
+											onClick={() =>
+												onClickPlay({
+													tpId: g.tpId,
+													gameId: g.gameId,
+													isFree: false,
+													delay: 100,
+													isInMaintain:
+														getIsInMaintain(g),
+													tpGameType:
+														getTpGameType(g)
+															.tpGameType
+												})
+											}
+										>
+											{t("lbl_Play")}
+										</button>
+										{g.playFree ? (
 											<button
 												onClick={() =>
 													onClickPlay({
 														tpId: g.tpId,
 														gameId: g.gameId,
-														isFree: false,
-														delay: 100,
+														isFree: true,
+														delay: 0,
 														isInMaintain:
 															getIsInMaintain(g),
 														tpGameType:
 															getTpGameType(g)
 																.tpGameType
 													})
-												}>
-												{t("lbl_Play")}
+												}
+											>
+												{t("lbl_Demo")}
 											</button>
-											{g.playFree ? (
-												<button
-													onClick={() =>
-														onClickPlay({
-															tpId: g.tpId,
-															gameId: g.gameId,
-															isFree: true,
-															delay: 0,
-															isInMaintain:
-																getIsInMaintain(
-																	g
-																),
-															tpGameType:
-																getTpGameType(g)
-																	.tpGameType
-														})
-													}>
-													{t("lbl_Demo")}
-												</button>
-											) : null}
-										</div>
-									</div>
-									<div className="slotspop-name">
-										<span>{gameDisplayName}</span>
+										) : null}
 									</div>
 								</div>
+								<div className="slotspop-name">
+									<span>{gameDisplayName}</span>
+								</div>
 							</div>
-						)
-					});
-				};
-
-				const slotProductItemStyle = () => {
-					if (getIsInMaintain(g)) {
-						if (newGamesArr.includes(g.gameId)) {
-							return "tag-new maintain";
-						}
-
-						return "maintain";
-					}
-
-					if (newGamesArr.includes(g.gameId)) {
-						return "tag-new";
-					}
-					return "";
-				};
-
-				return (
-					<div
-						className={`slots-products-item ${slotProductItemStyle()}`}
-						style={_style}
-						key={`casino-game-${g.tpId}-${g.gameId}`}
-						onClick={openSlotProductPopBox}>
-						<button
-							className={`${
-								isFavorite
-									? "icon-fav-solid"
-									: "icon-fav-outline"
-							}`}
-							onClick={onSetFavorite?.bind(
-								this,
-								g.tpId,
-								g.gameId
-							)}
-						/>
-
-						<img alt="Casino_tpInfo" src={imageUrl} />
-
-						<div className="name" onClick={openSlotProductPopBox}>
-							<span>{gameDisplayName}</span>
 						</div>
-						{getIsInMaintain(g) ? (
-							<div className="tag-maintain">
-								{t("lbl_underMaintenance")}
-							</div>
-						) : null}
+					)
+				});
+			};
+
+			const slotProductItemStyle = () => {
+				if (getIsInMaintain(g)) {
+					if (newGamesArr.includes(g.gameId)) {
+						return "tag-new maintain";
+					}
+
+					return "maintain";
+				}
+
+				if (newGamesArr.includes(g.gameId)) {
+					return "tag-new";
+				}
+				return "";
+			};
+
+			return (
+				<div
+					className={`slots-products-item ${slotProductItemStyle()}`}
+					style={_style}
+					key={`casino-game-${g.tpId}-${g.gameId}`}
+					onClick={openSlotProductPopBox}
+				>
+					<button
+						className={`${
+							isFavorite ? "icon-fav-solid" : "icon-fav-outline"
+						}`}
+						onClick={onSetFavorite?.bind(this, g.tpId, g.gameId)}
+					/>
+
+					<img alt="Casino_tpInfo" src={imageUrl} />
+
+					<div className="name" onClick={openSlotProductPopBox}>
+						<span>{gameDisplayName}</span>
 					</div>
-				);
-			});
+					{getIsInMaintain(g) ? (
+						<div className="tag-maintain">
+							{t("lbl_underMaintenance")}
+						</div>
+					) : null}
+				</div>
+			);
+		});
 	return rows && rows.length > 0 ? (
 		<div className="slots-products">
 			{rows}
