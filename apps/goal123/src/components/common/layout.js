@@ -7,6 +7,7 @@ import React, {
 	cloneElement
 } from "react";
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
 import { store } from "@ailab-desktop/store";
 import PropTypes from "prop-types";
 import Header from "../layout/header";
@@ -42,11 +43,10 @@ const Layout = ({
 
 	return (
 		<Provider store={store}>
+			<ToastContainer /> {/* 吐司訊息 */}
 			{showHeader ? <Header /> : null}
 			{childrenWithProps}
-
 			{showFooter ? <HomeFooter /> : null}
-
 			<PopBox />
 			{loading ? <Loading /> : null}
 			{goTopBtn ? <GoTopBtn /> : null}

@@ -1,104 +1,59 @@
 @font-face {
-  font-family: 'icomoon';
-  src: url("../fonts/icomoon.woff?v=202003") format("woff");
+  font-family: "icomoon";
+  src: url("../fonts/icomoon.eot");
+  src: url("../fonts/icomoon.eot") format("embedded-opentype"), url("../fonts/icomoon.ttf") format("truetype"), url("../fonts/icomoon.woff") format("woff"), url("../fonts/icomoon.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^=icon-], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.icon:before {
-  font-family: 'icomoon';
+.icon-toast-close:before {
+  content: "\e98a";
 }
 
-.casinoList .icon-GPI::before {
-  font-size: 20px !important;
+.icon-toast-checkmark:before {
+  content: "\e98b";
 }
 
-.casinoList .icon-YGG::before {
-  font-size: 18px !important;
+.icon-close:before {
+  content: "\e9da";
 }
 
-.casinoList .icon-JOKER::before {
-  font-size: 15px !important;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
+.icon-checkmark:before {
+  content: "\e9db";
 }
 
-.casinoList .icon-SG::before {
-  font-size: 18px !important;
+.icon-information-solid:before {
+  content: "\e951";
 }
 
-.casinoList .icon-PG::before {
-  font-size: 12px !important;
+.icon-cake1:before {
+  content: "\e95a";
 }
 
-.casinoList .icon-OW::before {
-  font-size: 18px !important;
+.icon-minus:before {
+  content: "\e94e";
 }
 
-.casinoList .icon-cq9:before {
-  font-size: 14px !important;
-}
-
-.casinoList .icon-icg:before {
-  font-size: 18px !important;
-}
-
-.livecasinoList .icon-DG:before {
-  font-size: 22px !important;
-}
-
-.livecasinoList .icon-AB:before {
-  font-size: 30px !important;
-}
-
-.livecasinoList .icon-AG:before {
-  font-size: 22px !important;
-}
-
-.livecasinoList .icon-PP:before {
-  font-size: 42px !important;
-}
-
-.livecasinoList .icon-SA:before {
-  font-size: 36px !important;
-}
-
-.livecasinoList .icon-EB:before {
-  font-size: 15px !important;
-}
-
-.livecasinoList .icon-AE:before {
-  font-size: 24px !important;
-}
-
-.livecasinoList .icon-SA:before {
-  font-size: 24px !important;
-}
-
-.livecasinoList .icon-PP:before {
-  font-size: 24px !important;
-}
-
-.livecasinoList .icon-WM:before {
-  font-size: 24px !important;
-}
-
-.livecasinoList .icon-MW:before {
-  font-size: 24px !important;
-}
-
-.livecasinoList .icon-N2LIVE:before {
-  font-size: 15px !important;
-}
-
-.icon-balance:before {
-  font-size: 24px !important;
+.icon-plus:before {
+  content: "\e94f";
 }
 
 .icon-qrcode-scan:before {
   content: "\e9d8";
-}
-
-.icon-qrcode:before {
-  content: "\e9c3";
 }
 
 .icon-money:before {
@@ -109,56 +64,315 @@
   content: "\e9d3";
 }
 
-.icon-question:before {
-  content: "\e9d0";
+.icon-alarm:before {
+  content: "\e950";
 }
 
-.icon-playtech:before {
-  content: "\e9cf";
+.icon-bell:before {
+  content: "\e950";
 }
 
-.icon-infocenter:before {
-  content: "\e9cd";
+.icon-home:before {
+  content: "\e900";
 }
 
-.icon-deposit2:before {
-  content: "\e9ca";
+.icon-newspaper:before {
+  content: "\e91a";
 }
 
-.icon-support:before {
-  content: "\e9cb";
+.icon-pencil:before {
+  content: "\e91b";
 }
 
-.icon-withdrawal2:before {
-  content: "\e9cc";
+.icon-camera:before {
+  content: "\e919";
 }
 
-.icon-gamecasino:before {
-  content: "\e9c7";
+.icon-connection:before {
+  content: "\e91c";
 }
 
-.icon-hotgame:before {
-  content: "\e9c8";
+.icon-books:before {
+  content: "\e94b";
 }
 
-.icon-N2LIVE:before {
-  content: "\e9c6";
+.icon-library:before {
+  content: "\e921";
 }
 
-.icon-topup:before {
-  content: "\e9c5";
+.icon-folder-upload:before {
+  content: "\e934";
 }
 
-.icon-whatsapp:before {
-  content: "\ea93";
+.icon-coin-dollar:before {
+  content: "\e93b";
+}
+
+.icon-credit-card:before {
+  content: "\e93f";
+}
+
+.icon-calculator:before {
+  content: "\e955";
+}
+
+.icon-phone:before {
+  content: "\e942";
+}
+
+.icon-map2:before {
+  content: "\e99d";
+}
+
+.icon-history:before {
+  content: "\e94d";
+}
+
+.icon-calendar:before {
+  content: "\e953";
+}
+
+.icon-mobile:before {
+  content: "\e958";
+}
+
+.icon-user-plus:before {
+  content: "\e973";
+}
+
+.icon-spinner11:before {
+  content: "\e984";
+}
+
+.icon-search:before {
+  content: "\e986";
+}
+
+.icon-key:before {
+  content: "\e98d";
+}
+
+.icon-key2:before {
+  content: "\e98e";
+}
+
+.icon-lock:before {
+  content: "\e98f";
+}
+
+.icon-equalizer:before {
+  content: "\e992";
+}
+
+.icon-cog:before {
+  content: "\e994";
+}
+
+.icon-cogs:before {
+  content: "\e995";
+}
+
+.icon-bin:before {
+  content: "\e9ac";
+}
+
+.icon-sphere:before {
+  content: "\e9c9";
+}
+
+.icon-eye:before {
+  content: "\e9ce";
+}
+
+.icon-eye-blocked:before {
+  content: "\e9d1";
+}
+
+.icon-sun:before {
+  content: "\e9d4";
+}
+
+.icon-contrast:before {
+  content: "\e9d5";
+}
+
+.icon-star-empty:before {
+  content: "\e9d7";
+}
+
+.icon-star-full:before {
+  content: "\e9d9";
+}
+
+.icon-warning:before {
+  content: "\ea07";
+}
+
+.icon-plus1:before {
+  content: "\ea0a";
+}
+
+.icon-cancel-circle:before {
+  content: "\ea0d";
+}
+
+.icon-cross:before {
+  content: "\ea0f";
+}
+
+.icon-checkmark1:before {
+  content: "\ea10";
+}
+
+.icon-exit:before {
+  content: "\ea14";
+}
+
+.icon-loop:before {
+  content: "\ea2d";
+}
+
+.icon-arrow-up-left2:before {
+  content: "\ea39";
+}
+
+.icon-arrow-up2:before {
+  content: "\ea3a";
+}
+
+.icon-arrow-up-right2:before {
+  content: "\ea3b";
+}
+
+.icon-arrow-right2:before {
+  content: "\ea3c";
+}
+
+.icon-arrow-down-right2:before {
+  content: "\ea3d";
+}
+
+.icon-arrow-down2:before {
+  content: "\ea3e";
+}
+
+.icon-arrow-down-left2:before {
+  content: "\ea3f";
+}
+
+.icon-arrow-left2:before {
+  content: "\ea40";
+}
+
+.icon-circle-right:before {
+  content: "\ea42";
+}
+
+.icon-checkbox-checked:before {
+  content: "\ea52";
+}
+
+.icon-checkbox-unchecked:before {
+  content: "\ea53";
+}
+
+.icon-radio-unchecked:before {
+  content: "\ea56";
+}
+
+.icon-new-tab:before {
+  content: "\ea7e";
 }
 
 .icon-facebook:before {
   content: "\ea90";
 }
 
-.icon-line1:before {
-  content: "\e9c4";
+.icon-facebook2:before {
+  content: "\ea91";
+}
+
+.icon-instagram:before {
+  content: "\ea92";
+}
+
+.icon-whatsapp:before {
+  content: "\ea93";
+}
+
+.icon-telegram:before {
+  content: "\ea95";
+}
+
+.icon-twitter:before {
+  content: "\ea96";
+}
+
+.icon-IcoMoon:before {
+  content: "\eaea";
+}
+
+.icon-files-empty:before {
+  content: "\e925";
+}
+
+.icon-download:before {
+  content: "\e9bc";
+}
+
+.icon-facebook21:before {
+  content: "\ea94";
+}
+
+.icon-whatsapp1:before {
+  content: "\ea97";
+}
+
+.icon-more:before {
+  content: "\e9d2";
+}
+
+.icon-question:before {
+  content: "\e9d0";
+}
+
+.icon-playtech:before {
+  content: "\e9cf";
+  color: #fff;
+}
+
+.icon-infocenter:before {
+  content: "\e9cd";
+  color: #fff;
+}
+
+.icon-deposit2:before {
+  content: "\e9ca";
+  color: #474747;
+}
+
+.icon-support:before {
+  content: "\e9cb";
+  color: #474747;
+}
+
+.icon-withdrawal2:before {
+  content: "\e9cc";
+  color: #474747;
+}
+
+.icon-gamecasino:before {
+  content: "\e9c7";
+  color: #fff;
+}
+
+.icon-hotgame:before {
+  content: "\e9c8";
+  color: #fff;
+}
+
+.icon-N2LIVE:before {
+  content: "\e9c6";
 }
 
 .icon-slots:before {
@@ -167,6 +381,18 @@
 
 .icon-pokers:before {
   content: "\e9c1";
+}
+
+.icon-topup:before {
+  content: "\e9c5";
+}
+
+.icon-line1:before {
+  content: "\e9c4";
+}
+
+.icon-qrcode:before {
+  content: "\e9c3";
 }
 
 .icon-friend:before {
@@ -186,8 +412,8 @@
   color: #fff;
 }
 
-.icon-download:before {
-  content: "\e9bc";
+.icon-icg:before {
+  content: "\e9b8";
 }
 
 .icon-viettel:before {
@@ -202,8 +428,24 @@
   content: "\e9bb";
 }
 
-.icon-icg:before {
-  content: "\e9b8";
+.icon-trophy:before {
+  content: "\e9b7";
+}
+
+.icon-live:before {
+  content: "\e9b6";
+}
+
+.icon-cq9:before {
+  content: "\e9b5";
+}
+
+.icon-nodata2:before {
+  content: "\e9b4";
+}
+
+.icon-new:before {
+  content: "\e9b2";
 }
 
 .icon-WM:before {
@@ -264,6 +506,10 @@
 
 .icon-icon_1_cop:before {
   content: "\e996";
+}
+
+.icon-tiktok:before {
+  content: "\e9b3";
 }
 
 .icon-ETH:before {
@@ -390,7 +636,7 @@
   content: "\e972";
 }
 
-.icon-icon32px_openmail:before {
+.icon-mail-envelope-open:before {
   content: "\e974";
 }
 
@@ -682,6 +928,46 @@
   content: "\e910";
 }
 
+.icon-like:before {
+  content: "\e936";
+}
+
+.icon-thumbs-up:before {
+  content: "\e936";
+}
+
+.icon-approve:before {
+  content: "\e936";
+}
+
+.icon-chat:before {
+  content: "\e935";
+}
+
+.icon-bubbles:before {
+  content: "\e935";
+}
+
+.icon-talk:before {
+  content: "\e935";
+}
+
+.icon-message:before {
+  content: "\e935";
+}
+
+.icon-conversation:before {
+  content: "\e935";
+}
+
+.icon-icon32px_openmail:before {
+  content: "\e999";
+}
+
+.icon-moon:before {
+  content: "\e91d";
+}
+
 .icon-cloud_upload:before {
   content: "\e9af";
 }
@@ -758,282 +1044,6 @@
   content: "\e933";
 }
 
-.icon-close:before {
-  content: "\e98a";
-}
-
-.icon-checkmark:before {
-  content: "\e98b";
-}
-
-.icon-information-solid:before {
-  content: "\e951";
-}
-
-.icon-cake1:before {
-  content: "\e95a";
-}
-
-.icon-minus:before {
-  content: "\e94e";
-}
-
-.icon-plus:before {
-  content: "\e94f";
-}
-
-.icon-alarm:before {
-  content: "\e950";
-}
-
-.icon-bell:before {
-  content: "\e950";
-}
-
-.icon-home:before {
-  content: "\e900";
-}
-
-.icon-newspaper:before {
-  content: "\e91a";
-}
-
-.icon-pencil:before {
-  content: "\e91b";
-}
-
-.icon-camera:before {
-  content: "\e919";
-}
-
-.icon-connection:before {
-  content: "\e91c";
-}
-
-.icon-books:before {
-  content: "\e94b";
-}
-
-.icon-library:before {
-  content: "\e921";
-}
-
-.icon-files-empty:before {
-  content: "\e925";
-}
-
-.icon-folder-upload:before {
-  content: "\e934";
-}
-
-.icon-coin-dollar:before {
-  content: "\e93b";
-}
-
-.icon-credit-card:before {
-  content: "\e93f";
-}
-
-.icon-calculator:before {
-  content: "\e955";
-}
-
-.icon-phone:before {
-  content: "\e942";
-}
-
-.icon-map2:before {
-  content: "\e99d";
-}
-
-.icon-history:before {
-  content: "\e94d";
-}
-
-.icon-calendar:before {
-  content: "\e953";
-}
-
-.icon-mobile:before {
-  content: "\e958";
-}
-
-.icon-user-plus:before {
-  content: "\e973";
-}
-
-.icon-spinner11:before {
-  content: "\e984";
-}
-
-.icon-search:before {
-  content: "\e986";
-}
-
-.icon-key:before {
-  content: "\e98d";
-}
-
-.icon-key2:before {
-  content: "\e98e";
-}
-
-.icon-lock:before {
-  content: "\e98f";
-}
-
-.icon-equalizer:before {
-  content: "\e992";
-}
-
-.icon-cog:before {
-  content: "\e994";
-}
-
-.icon-cogs:before {
-  content: "\e995";
-}
-
-.icon-bin:before {
-  content: "\e9ac";
-}
-
-.icon-sphere:before {
-  content: "\e9c9";
-}
-
-.icon-eye:before {
-  content: "\e9ce";
-}
-
-.icon-eye-blocked:before {
-  content: "\e9d1";
-}
-
-.icon-sun:before {
-  content: "\e9d4";
-}
-
-.icon-contrast:before {
-  content: "\e9d5";
-}
-
-.icon-star-empty:before {
-  content: "\e9d7";
-}
-
-.icon-star-full:before {
-  content: "\e9d9";
-}
-
-.icon-warning:before {
-  content: "\ea07";
-}
-
-.icon-plus1:before {
-  content: "\ea0a";
-}
-
-.icon-cancel-circle:before {
-  content: "\ea0d";
-}
-
-.icon-cross:before {
-  content: "\ea0f";
-}
-
-.icon-checkmark1:before {
-  content: "\ea10";
-}
-
-.icon-exit:before {
-  content: "\ea14";
-}
-
-.icon-loop:before {
-  content: "\ea2d";
-}
-
-.icon-arrow-up-left2:before {
-  content: "\ea39";
-}
-
-.icon-arrow-up2:before {
-  content: "\ea3a";
-}
-
-.icon-arrow-up-right2:before {
-  content: "\ea3b";
-}
-
-.icon-arrow-right2:before {
-  content: "\ea3c";
-}
-
-.icon-arrow-down-right2:before {
-  content: "\ea3d";
-}
-
-.icon-arrow-down2:before {
-  content: "\ea3e";
-}
-
-.icon-arrow-down-left2:before {
-  content: "\ea3f";
-}
-
-.icon-arrow-left2:before {
-  content: "\ea40";
-}
-
-.icon-circle-right:before {
-  content: "\ea42";
-}
-
-.icon-checkbox-checked:before {
-  content: "\ea52";
-}
-
-.icon-checkbox-unchecked:before {
-  content: "\ea53";
-}
-
-.icon-radio-unchecked:before {
-  content: "\ea56";
-}
-
-.icon-new-tab:before {
-  content: "\ea7e";
-}
-
-.icon-facebook:before {
-  content: "\ea90";
-}
-
-.icon-facebook2:before {
-  content: "\ea91";
-}
-
-.icon-instagram:before {
-  content: "\ea92";
-}
-
-.icon-whatsapp:before {
-  content: "\ea93";
-}
-
-.icon-telegram:before {
-  content: "\ea95";
-}
-
-.icon-twitter:before {
-  content: "\ea96";
-}
-
-.icon-IcoMoon:before {
-  content: "\eaea";
-}
-
 .icon-home1:before {
   content: "\e956";
 }
@@ -1044,57 +1054,4 @@
 
 .icon-gift:before {
   content: "\e939";
-}
-
-.icon-like:before {
-  content: "\e936";
-}
-
-.icon-thumbs-up:before {
-  content: "\e936";
-}
-
-.icon-approve:before {
-  content: "\e936";
-}
-
-.icon-chat:before {
-  content: "\e935";
-}
-
-.icon-bubbles:before {
-  content: "\e935";
-}
-
-.icon-talk:before {
-  content: "\e935";
-}
-
-.icon-message:before {
-  content: "\e935";
-}
-
-.icon-conversation:before {
-  content: "\e935";
-}
-
-.icon-mail-envelope-open:before {
-  content: "\e999";
-}
-
-.icon-moon:before {
-  content: "\e91d";
-}
-
-.icon-cq9:before {
-  content: "\e9b5";
-}
-
-.icon-new:before {
-  content: "\e9b2";
-}
-
-.icon-live:before {
-  content: "\e9b6";
-}
-/*# sourceMappingURL=font.css.map */
+}/*# sourceMappingURL=font.css.map */
