@@ -71,6 +71,8 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 	const [allMaintainList, setAllMaintainList] = useState([]);
 
 	const { errorPopBox } = usePopBox(setPopBox);
+	const { handleNotification } = useDepositWithdrawTracker();
+
 	const walletInfo = useGetWalletInfo({
 		langId: userInfo.langId,
 		isLogin: userInfo.isLogin,
@@ -84,7 +86,12 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 	});
 
 	const isMountedRef = useRef(null);
-	const { checkDepositSuccessful } = useDepositWithdrawTracker();
+
+	/**
+	 *  使用者資訊中，吐司訊息的設定
+	 *  @financeNotification 是否顯示吐司訊息
+	 *  @soundEffects 是否播放吐司訊息音效 */
+	const { financeNotification, soundEffects } = userInfo ?? {};
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -128,8 +135,7 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 	}, [userInfo.langId]);
 
 	useEffect(() => {
-		IS_LOGGED_IN().then(async isLogin => {
-			await checkDepositSuccessful();
+		IS_LOGGED_IN().then(isLogin => {
 			if (userInfo.kickout) {
 				if (userInfo.willLogout) {
 					setUserInfo(prevS => ({
@@ -153,8 +159,7 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}
-								>
+									onClick={ClickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -184,7 +189,7 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 		});
 	}, [userInfo.kickout, userInfo.willLogout]);
 
-	useEffect(() => {
+	useEffect(async () => {
 		if (userInfo.isLogin) {
 			if (!userInfo.regTime) {
 				api_accountStrict_GetCustProfile().then(
@@ -194,7 +199,6 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 							isMountedRef.current
 						) {
 							const { data } = res_custInfo.data;
-							// data.langId = GET_LANG_ID(data.langId);
 							setCookie(langCookie, data.langId);
 							setUserInfo(prevState => ({
 								...prevState,
@@ -322,8 +326,9 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 
 	useInterval(
 		async () => {
-			// 每分鐘確認使用者是否有儲值成功的單號，如果有就通知市場（ 臉書通知 ）
-			await checkDepositSuccessful();
+			// 當使用者登入後，每分鐘檢查存/提款通知並觸發對應的吐司訊息。
+			// 將 userInfo 取得的吐司訊息設定傳至 handleNotification 當中，並觸發對應設定的吐司訊息。
+			await handleNotification(financeNotification, soundEffects);
 			api_account_onlineCheck().then(res => {
 				if (res.data.errorCode === 1001) {
 					setUserInfo(prev => ({
@@ -351,44 +356,40 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 						userInfo.kickout)) && (
 					<ct.popUpMsgContext.Provider value={{ setPopUp, popUp }}>
 						<ct.maintainListContext.Provider
-							value={{ allMaintainList }}
-						>
+							value={{ allMaintainList }}>
 							<ct.productTpIdsContext.Provider
-								value={{ productTpIds }}
-							>
+								value={{ productTpIds }}>
 								<ct.userInfoContext.Provider
-									value={{ userInfo, setUserInfo }}
-								>
+									value={{
+										userInfo,
+										setUserInfo,
+										handleNotification
+									}}>
 									<ct.walletInfoContext.Provider
 										value={{
 											...walletInfo.state,
 											dispatch: walletInfo.dispatch
-										}}
-									>
+										}}>
 										<ct.msgCountContext.Provider
 											value={{
 												msgCount,
 												setMsgCount
-											}}
-										>
+											}}>
 											<ct.popBoxContext.Provider
 												value={{
 													popBox,
 													setPopBox
-												}}
-											>
+												}}>
 												<ct.loadingContext.Provider
 													value={{
 														loading,
 														setLoading
-													}}
-												>
+													}}>
 													<ct.isRootContext.Provider
 														value={{
 															isRoot,
 															setIsRoot
-														}}
-													>
+														}}>
 														<SEO />
 														{children}
 													</ct.isRootContext.Provider>

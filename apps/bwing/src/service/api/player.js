@@ -2,9 +2,10 @@ import { playerRequest } from "./base";
 
 export const api_player_GetAppLink = () => playerRequest.post(`/GetAppLink`);
 
-// 當存在存款或提款單號時：
-// 1. 每分鐘打一次此 api 確認是否有單號，此時若有單號，則會通知用戶
-// 2. 登入時，也會打一次此 api ，此時若有單號，則會通知用戶
+/**
+ * 當存在存款或提款單號時：
+ * 1. 每分鐘打一次此 api 確認是否有單號，此時若有單號，則會通知用戶
+ * 2. 登入時，也會打一次此 api ，此時若有單號，則會通知用戶 */
 export const api_GetCustNotification = data =>
 	playerRequest.post("/GetCustNotification", data);
 

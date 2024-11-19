@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect, useRef } from "react";
 import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
@@ -71,12 +72,19 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const isMountedRef = useRef(null);
 
 	const { errorPopBox } = usePopBox(setPopBox);
-	const { checkDepositSuccessful } = useDepositWithdrawTracker();
+	const { handleNotification } = useDepositWithdrawTracker();
+
 	const walletInfo = useGetWalletInfo({
 		langId: userInfo.langId,
 		isLogin: userInfo.isLogin,
 		errorPopBox
 	});
+
+	/**
+	 *  使用者資訊中，吐司訊息的設定
+	 *  @financeNotification 是否顯示吐司訊息
+	 *  @soundEffects 是否播放吐司訊息音效 */
+	const { financeNotification, soundEffects } = userInfo ?? {};
 
 	const [popUp, setPopUp] = useState({
 		popupMessage: "",
@@ -129,7 +137,6 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	useEffect(() => {
 		IS_LOGGED_IN().then(async isLogin => {
-			await checkDepositSuccessful();
 			if (userInfo.kickout) {
 				if (userInfo.willLogout) {
 					setUserInfo(prevS => ({
@@ -194,7 +201,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		setPopBox
 	]);
 
-	useEffect(() => {
+	useEffect(async () => {
 		if (userInfo.isLogin) {
 			if (!userInfo.regTime) {
 				api_accountStrict_GetCustProfile().then(
@@ -338,8 +345,9 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	useInterval(
 		async () => {
-			// 每分鐘確認使用者是否有儲值成功的單號，如果有就通知市場（ 臉書通知 ）
-			await checkDepositSuccessful();
+			// 當使用者登入後，每分鐘檢查存/提款通知並觸發對應的吐司訊息。
+			// 將 userInfo 取得的吐司訊息設定傳至 handleNotification 當中，並觸發對應設定的吐司訊息。
+			await handleNotification(financeNotification, soundEffects);
 			api_account_onlineCheck().then(res => {
 				if (res.data.errorCode === 1001) {
 					setUserInfo(prev => ({
@@ -373,7 +381,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 							<ct.userInfoContext.Provider
 								value={{
 									userInfo,
-									setUserInfo
+									setUserInfo,
+									handleNotification
 								}}
 							>
 								<ct.walletInfoContext.Provider

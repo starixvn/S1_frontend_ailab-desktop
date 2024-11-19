@@ -13,6 +13,7 @@ import { defPopBoxType } from "../common/popBox";
 import MsgPopup from "./msgPopup";
 import useShieldCheck from "../hook/useShieldCheck";
 import { defPageClubImg } from "../vip/vip.def";
+import useDepositWithdrawTracker from "../hook/useDepositWithdrawTracker";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -27,6 +28,7 @@ const BeforeLogin = () => {
 		userInfo: { langId },
 		setUserInfo
 	} = useContext(userInfoContext);
+	const { handleNotification } = useDepositWithdrawTracker();
 
 	const { getShieldData, saveShieldData } = useShieldCheck();
 
@@ -60,7 +62,8 @@ const BeforeLogin = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -93,6 +96,10 @@ const BeforeLogin = () => {
 				setPopBox({ isOpen: false });
 				navigate(`/${langId}`);
 				saveShieldData();
+
+				// 獲取使用者財務通知設定
+				const { financeNotification, soundEffects } = userData ?? {};
+				handleNotification(financeNotification, soundEffects);
 			} else if (errorCode !== 0 && isLogin === false) {
 				setPopBox({
 					isOpen: true,
@@ -103,7 +110,8 @@ const BeforeLogin = () => {
 						<div className="btnGroup">
 							<button
 								className="btn-cancel"
-								onClick={() => setPopBox({ isOpen: false })}>
+								onClick={() => setPopBox({ isOpen: false })}
+							>
 								{t("lbl_Close")}
 							</button>
 						</div>
@@ -139,7 +147,8 @@ const BeforeLogin = () => {
 				/>
 				<Link
 					to={`/${langId}/${path.forgetPassword.root}`}
-					className="forgot">
+					className="forgot"
+				>
 					{t("lbl_ForgetPassword")}
 				</Link>
 			</div>
@@ -181,7 +190,8 @@ const AfterLogin = () => {
 			</Suspense>
 			<Link
 				to={`/${langId}/${path.message.root}`}
-				className={classNames("icon-email", { active: msgCount > 0 })}>
+				className={classNames("icon-email", { active: msgCount > 0 })}
+			>
 				<MsgPopup />
 			</Link>
 
@@ -191,13 +201,15 @@ const AfterLogin = () => {
 
 			<Link
 				to={`/${langId}/${path.deposit.root}`}
-				className="home-deposit">
+				className="home-deposit"
+			>
 				<i className="icon-header-deposit" />
 				{t("lbl_Deposit")}
 			</Link>
 			<Link
 				to={`/${langId}/${path.appDownload.root}`}
-				className="appDownload">
+				className="appDownload"
+			>
 				<i className="icon-mobile" />
 				APP
 			</Link>
