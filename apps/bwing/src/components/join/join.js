@@ -485,6 +485,7 @@ const Join = () => {
 		e.preventDefault();
 		const checked = await checkAll();
 		if (checked && !userInfo.isLogin) {
+			MetaPixelTracker("registerSubmit");
 			const regData = {
 				UserName: userValue.userName,
 				RealName: userValue.realName,
@@ -511,7 +512,7 @@ const Join = () => {
 						const { message } = res.data;
 						if (errorCode === 0) {
 							// 註冊成功送出臉書廣告埋點給市場
-							MetaPixelTracker("registerSubmit");
+							MetaPixelTracker("CompleteRegistration");
 							api_accountStrict_GetCustProfile().then(
 								async res_custInfo => {
 									if (isMountedRef.current) {
