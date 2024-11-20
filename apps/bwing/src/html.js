@@ -39,11 +39,12 @@ export default function HTML(props) {
 					src="https://tickers2.playtech.com/jackpots/new_jackpotjs.js"
 				/>
 
-				{/* === Facebook－給市場的廣告埋點 fbq('init', 'xxxxxxxxxx') << 此為監測臉書廣告的帳號ID  === */}
-
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `
+				{/* === Facebook Pixel - 存／提款成功事件 === */}
+				{process.env.NODE_ENV === "production" && (
+					<>
+						<script
+							dangerouslySetInnerHTML={{
+								__html: `
 						!function(f,b,e,v,n,t,s)
 						{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 						n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -55,17 +56,19 @@ export default function HTML(props) {
 						fbq('init', '1037896624403579');
 						fbq('track', 'PageView');
 						`
-					}}
-				/>
-				<noscript>
-					<img
-						alt=""
-						height="1"
-						width="1"
-						style={{ display: "none" }}
-						src="https://www.facebook.com/tr?id=1037896624403579&ev=PageView&noscript=1"
-					/>
-				</noscript>
+							}}
+						/>
+						<noscript>
+							<img
+								alt=""
+								height="1"
+								width="1"
+								style={{ display: "none" }}
+								src="https://www.facebook.com/tr?id=1037896624403579&ev=PageView&noscript=1"
+							/>
+						</noscript>
+					</>
+				)}
 
 				{props.headComponents}
 			</head>

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
+import { shuffle } from "lodash-es";
 import { useInView } from "../hook/useInView";
 
 const GameList = ({
@@ -23,125 +24,110 @@ const GameList = ({
 }) => {
 	const inViewRef = useInView(() => onLoadMore());
 	let _imgUrl = "";
-	const rows =
-		displayGames &&
-		displayGames
-			?.filter(g => filterJudge(g))
-			.sort(() => Math.random() - 0.5) // 隨機排列遊戲列表
-			// 次早：原先為按照發佈時間順序排列：
-			// .sort((a, b) => {
-			// 	return (
-			// 		new Date(b.launchDate).getTime() -
-			// 		new Date(a.launchDate).getTime()
-			// 	);
+	const shuffledGames = useMemo(
+		() => (displayGames ? shuffle(displayGames) : []),
+		[displayGames]
+	);
+	const rows = shuffledGames
+		.filter(g => filterJudge(g))
+		.slice(startIdx, endIdx)
+		.map(g => {
+			const imgName = g.imgName[langId]
+				? g.imgName[langId]
+				: g.imgName.en;
+			const gameDisplayName = g.gameName[langId]
+				? g.gameName[langId]
+				: g.gameName.en;
+			const key = `${g.tpId}_${g.gameId}`;
+			const storageStr = favoriteStr ?? "";
+			const storageList = storageStr.split("&") ?? [];
+			const handleIsFavorite = () => storageList?.includes(key);
+			const isFavorite = handleIsFavorite();
+			const gameProviderName = providerList.find(
+				obj => obj.tpId === g.tpId
+			).gameImgDisplayText;
 
-			// 最早：原始的排序方式（先保留以防ＰＭ需改回）
-			// if (
-			// 	activeProvider.tpId === a.tpId &&
-			// 	activeProvider.tpId === b.tpId
-			// ) {
-			// 	return a?.sort > b?.sort ? 1 : -1;
-			// }
-			// return true;
-			// })
-			?.slice(startIdx, endIdx)
-			?.map(g => {
-				const imgName = g.imgName[langId]
-					? g.imgName[langId]
-					: g.imgName.en;
-				const gameDisplayName = g.gameName[langId]
-					? g.gameName[langId]
-					: g.gameName.en;
-				const key = `${g.tpId}_${g.gameId}`;
-				const storageStr = favoriteStr ?? "";
-				const storageList = storageStr.split("&") ?? [];
-				const handleIsFavorite = () => storageList?.includes(key);
-				const isFavorite = handleIsFavorite();
-				const gameProviderName = providerList.find(
-					obj => obj.tpId === g.tpId
-				).gameImgDisplayText;
+			_imgUrl = `${imgUrl}/${gameProviderName}/${imgName}`;
 
-				_imgUrl = `${imgUrl}/${gameProviderName}/${imgName}`;
+			const _style = {
+				pointerEvents: getIsInMaintain(g) ? "none" : "auto"
+			};
 
-				const _style = {
-					pointerEvents: getIsInMaintain(g) ? "none" : "auto"
-				};
-
-				return (
-					<div
-						className={getIsInMaintain(g) ? "active" : ""}
-						style={_style}
-						key={`casino-game-${g.tpId}-${g.gameId}`}>
-						{getIsInMaintain(g) ? (
-							<div className="maintenance">
-								{t("lbl_underMaintenance")}
-							</div>
-						) : null}
-						<div className="brand">
-							<span>{gameProviderName}</span>
+			return (
+				<div
+					className={getIsInMaintain(g) ? "active" : ""}
+					style={_style}
+					key={`casino-game-${g.tpId}-${g.gameId}`}
+				>
+					{getIsInMaintain(g) ? (
+						<div className="maintenance">
+							{t("lbl_underMaintenance")}
 						</div>
+					) : null}
+					<div className="brand">
+						<span>{gameProviderName}</span>
+					</div>
 
+					<div
+						className={`icon ${
+							newGamesArr?.includes(g.gameId) ? "icon-new" : ""
+						}`}
+					/>
+
+					<img alt="Casino_tpInfo" src={_imgUrl} />
+
+					<div className="txt-darkBlue">
+						<div>{gameDisplayName}</div>
 						<div
-							className={`icon ${
-								newGamesArr?.includes(g.gameId)
-									? "icon-new"
-									: ""
+							onClick={onSetFavorite?.bind(
+								this,
+								g.tpId,
+								g.gameId
+							)}
+							className={`icon icon-star-full${
+								isFavorite ? " active" : ""
 							}`}
 						/>
+					</div>
 
-						<img alt="Casino_tpInfo" src={_imgUrl} />
+					<div className="btnGroup">
+						<button
+							className="yellow"
+							onClick={() =>
+								onClickPlay({
+									tpId: g.tpId,
+									gameId: g.gameId,
+									isFree: false,
+									delay: 100,
+									isInMaintain: getIsInMaintain(g),
+									tpGameType: getTpGameType(g).tpGameType
+								})
+							}
+						>
+							{t("lbl_Play")}
+						</button>
 
-						<div className="txt-darkBlue">
-							<div>{gameDisplayName}</div>
-							<div
-								onClick={onSetFavorite?.bind(
-									this,
-									g.tpId,
-									g.gameId
-								)}
-								className={`icon icon-star-full${
-									isFavorite ? " active" : ""
-								}`}
-							/>
-						</div>
-
-						<div className="btnGroup">
+						{g.playFree ? (
 							<button
-								className="yellow"
+								className="blue"
 								onClick={() =>
 									onClickPlay({
 										tpId: g.tpId,
 										gameId: g.gameId,
-										isFree: false,
-										delay: 100,
+										isFree: true,
+										delay: 0,
 										isInMaintain: getIsInMaintain(g),
 										tpGameType: getTpGameType(g).tpGameType
 									})
-								}>
-								{t("lbl_Play")}
+								}
+							>
+								{t("lbl_Demo")}
 							</button>
-
-							{g.playFree ? (
-								<button
-									className="blue"
-									onClick={() =>
-										onClickPlay({
-											tpId: g.tpId,
-											gameId: g.gameId,
-											isFree: true,
-											delay: 0,
-											isInMaintain: getIsInMaintain(g),
-											tpGameType:
-												getTpGameType(g).tpGameType
-										})
-									}>
-									{t("lbl_Demo")}
-								</button>
-							) : null}
-						</div>
+						) : null}
 					</div>
-				);
-			});
+				</div>
+			);
+		});
 	return rows && rows.length > 0 ? (
 		<div className="slotList">
 			{rows}
