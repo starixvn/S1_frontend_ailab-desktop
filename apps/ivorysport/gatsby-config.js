@@ -55,7 +55,7 @@ module.exports = {
 		app.use(
 			"/api",
 			createProxyMiddleware({
-				target: "http://stag.ivorysport.com",
+				target: "https://stag.ivorysport.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
@@ -63,7 +63,7 @@ module.exports = {
 		app.use(
 			"/SiteSkin",
 			createProxyMiddleware({
-				target: "http://stag.ivorysport.com",
+				target: "https://stag.ivorysport.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
@@ -71,7 +71,7 @@ module.exports = {
 		app.use(
 			"*/Cashier",
 			createProxyMiddleware({
-				target: "http://stag.ivorysport.com",
+				target: "https://stag.ivorysport.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
@@ -79,7 +79,7 @@ module.exports = {
 		app.use(
 			"*/entPage",
 			createProxyMiddleware({
-				target: "http://stag.ivorysport.com",
+				target: "https://stag.ivorysport.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
@@ -87,7 +87,7 @@ module.exports = {
 		app.use(
 			"*/liveStreamingEntPage",
 			createProxyMiddleware({
-				target: "http://stag.ivorysport.com",
+				target: "https://stag.ivorysport.com",
 				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
