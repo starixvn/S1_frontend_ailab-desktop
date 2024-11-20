@@ -498,6 +498,7 @@ const Join = () => {
 		}
 
 		if (checked && !userInfo.isLogin) {
+			MetaPixelTracker("registerSubmit");
 			const regData = {
 				UserName: userValue.userName,
 				RealName: userValue.realName,
@@ -526,6 +527,7 @@ const Join = () => {
 						const { errorCode } = res.data;
 						const { message } = res.data;
 						if (errorCode === 0) {
+							MetaPixelTracker("CompleteRegistration");
 							api_accountStrict_GetCustProfile().then(
 								async res_custInfo => {
 									if (isMountedRef.current) {
