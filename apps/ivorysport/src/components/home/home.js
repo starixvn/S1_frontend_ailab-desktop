@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import {
 	userInfoContext,
 	popBoxContext,
@@ -104,8 +104,11 @@ const IndexPage = () => {
 		}
 		// * 如果未登入狀態及尚未勾選已年滿21歲的cookie即彈出此彈窗讓使用者驗證
 		else if (!readCookie(SiteInfo.ageVerificationCookie)) {
-			const onOK = () => {
-				setCookie(SiteInfo.ageVerificationCookie, 1, 1);
+			// const onOK = () => {
+			// 	setCookie(SiteInfo.ageVerificationCookie, 1, 1);
+			// 	closePopBox();
+			// };
+			const onClose = () => {
 				closePopBox();
 			};
 			setPopBox({
@@ -116,13 +119,33 @@ const IndexPage = () => {
 					<>
 						<div className="icon icon-icon32px_notification" />
 						<div className="title">
-							{t("Label_General_AgeVerification")}
+							{/* {t("Label_General_AgeVerification")} */}
+							{t("Label_General_Important_Notice_Close_Title")}
 						</div>
 						<div>
-							<p>{t("Label_General_Verify21Years")}</p>
+							{/* <p>{t("Label_General_Verify21Years")}</p> */}
+							<p>
+								{t(
+									"Label_General_Important_Notice_Close_Content1"
+								)}
+							</p>
+							<br />
+							<p>
+								{t(
+									"Label_General_Important_Notice_Close_Content2"
+								)}
+							</p>
+							<br />
+							<p>
+								{t(
+									"Label_General_Important_Notice_Close_Content3"
+								)}
+							</p>
+							<br />
+							<p>{t("Label_General_Thank_You")}</p>
 							<br />
 
-							<p>
+							{/* <p>
 								<Trans
 									i18nKey="Label_General_AgreeTermsCondition"
 									components={{
@@ -136,11 +159,19 @@ const IndexPage = () => {
 										)
 									}}
 								/>
-							</p>
+							</p> */}
 						</div>
 
 						<div className="btnGroup" style={{ marginTop: 10 }}>
-							<button className="btn-check" onClick={onOK}>
+							<button
+								className="btn-cancel"
+								href="/"
+								rel="noreferrer"
+								onClick={onClose}
+							>
+								{t("lbl_Close")}
+							</button>
+							{/* <button className="btn-check" onClick={onOK}>
 								{t("Label_General_Already21Years")}
 							</button>
 
@@ -149,7 +180,7 @@ const IndexPage = () => {
 								href={`${bannerImgUrl}/Static/en/TermsConditions.html`}
 								rel="noreferrer">
 								{t("Label_General_Exit")}
-							</a>
+							</a> */}
 						</div>
 
 						<div style={{ display: "flex" }}>
@@ -184,7 +215,8 @@ const IndexPage = () => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								closePopBox();
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -198,7 +230,10 @@ const IndexPage = () => {
 			<div className="swiper-container">
 				<div className="swiper-wrapper">
 					<div className="swiper-slide">
-						<img src={`${bannerImgUrl}/desktop/img/slide01.jpg`} />
+						<img
+							src={`${bannerImgUrl}/desktop/img/slide01.jpg`}
+							alt="slide"
+						/>
 					</div>
 				</div>
 			</div>

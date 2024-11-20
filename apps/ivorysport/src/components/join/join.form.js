@@ -2,13 +2,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 import classNames from "classnames";
 import DateTime from "react-datetime";
 import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Dropdown from "../common/dropdown";
-import { reCaptchaEnum } from "./join.def";
+// import { reCaptchaEnum } from "./join.def";
 import {
 	OCCUPATION_OPTIONS,
 	SOURCE_OF_INCOME_OPTIONS
@@ -131,7 +131,8 @@ const JoinForm = ({
 			<div
 				className={`inputBox-blue${
 					tip.currency.msg !== "" ? " error" : ""
-				}`}>
+				}`}
+			>
 				<Dropdown
 					defaultOption={defaultOption}
 					mainKey="join_currency"
@@ -160,7 +161,8 @@ const JoinForm = ({
 							!tip.phone.checked && tip.phone.msg !== ""
 								? " error"
 								: ""
-						}`}>
+						}`}
+					>
 						<AreaCodeDropdown
 							defaultOption={_areaCode}
 							options={areaCodeList}
@@ -270,7 +272,8 @@ const JoinForm = ({
 			<div
 				className={classNames("inputBox-blue", {
 					error: tip.nationality.checked === false
-				})}>
+				})}
+			>
 				<input
 					value={userValue.nationality}
 					placeholder={t("lbl_Nationality")}
@@ -289,7 +292,8 @@ const JoinForm = ({
 				<div
 					className={classNames("inputBox-blue", {
 						error: tip.country.checked === false
-					})}>
+					})}
+				>
 					<input
 						value={userValue.country}
 						placeholder={t("lbl_Country")}
@@ -305,7 +309,8 @@ const JoinForm = ({
 				<div
 					className={classNames("inputBox-blue", {
 						error: tip.city.checked === false
-					})}>
+					})}
+				>
 					<input
 						value={userValue.city}
 						placeholder={t("lbl_City")}
@@ -409,7 +414,8 @@ const JoinForm = ({
 				className="txt-blue"
 				target="_blank"
 				rel="noreferrer"
-				href={tandCTerms}>
+				href={tandCTerms}
+			>
 				{t("lbl_sign_up_terms_center")}
 			</a>
 
@@ -526,7 +532,8 @@ export const AreaCodeDropdown = ({
 		<div
 			key={`item-${item.displayText}`}
 			className="dropdown-item"
-			onClick={e => selectItem(e, { idx: i, item })}>
+			onClick={e => selectItem(e, { idx: i, item })}
+		>
 			{item.displayText}
 		</div>
 	));
