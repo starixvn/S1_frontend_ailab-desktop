@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useGetRecaptchaInfoQuery } from "@ailab-desktop/service";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { navigate } from "gatsby";
+import { MetaPixelTracker } from "@ailab-desktop/common";
 import { bannerImgUrl } from "../../config";
 import { defPopBoxType } from "./defPopBoxType";
 import usePopBox from "../hook/usePopBox";
