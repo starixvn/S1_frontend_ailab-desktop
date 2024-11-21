@@ -102,7 +102,8 @@ export default function LoadCardForm({
 								item.channelId === infoChannelIdForRecord
 									? "active"
 									: ""
-							}>
+							}
+						>
 							<div>
 								<img
 									alt={item.groupName}
@@ -142,65 +143,85 @@ export default function LoadCardForm({
 
 					<div className="subModule">
 						<div className="column">
-							<div className="row">
-								<Inputbox
-									className="inputBox-white"
-									value={formInfo.cardCode?.val}
-									onChange={e => {
-										onChangeForm(
-											e.target.value,
-											"cardCode"
-										);
-									}}
-									onBlur={e =>
-										onChangeForm(e.target.value, "cardCode")
-									}
-									checked={formInfo.cardCode?.checked ?? null}
-									tip={formInfo.cardCode?.tip}
-									clickInfo={() =>
-										setCardCodeInfoIconActive(prev => !prev)
-									}
-									placeholder={t("lbl_DepositCardCode")}
-									isShowPaste={true}
-									toHandlePaste={onChangeForm}
-									pasteCol="cardCode"
-									ShowTipImgAction={() =>
-										setIsShowTipImg(!isShowTipImg)
-									}
-								/>
-							</div>
-							<div className="row">
-								<Inputbox
-									className="inputBox-white"
-									value={formInfo.cardSerial?.val}
-									onChange={e => {
-										onChangeForm(
-											e.target.value,
-											"cardSerial"
-										);
-									}}
-									onBlur={e =>
-										onChangeForm(
-											e.target.value,
-											"cardSerial"
-										)
-									}
-									checked={
-										formInfo.cardSerial?.checked ?? null
-									}
-									tip={formInfo.cardSerial?.tip}
-									clickInfo={() =>
-										setCardCodeInfoIconActive(prev => !prev)
-									}
-									placeholder={t("lbl_DepositCardSerial")}
-									isShowPaste={true}
-									toHandlePaste={onChangeForm}
-									pasteCol="cardSerial"
-									ShowTipImgAction={() =>
-										setIsShowTipImg(!isShowTipImg)
-									}
-								/>
-							</div>
+							{/* 只有 extraDataType === 4 時要顯示輸入卡號的區塊，其他不顯示 */}
+							{formInfo.extraDataType === 4 && (
+								<>
+									<div className="row">
+										<Inputbox
+											className="inputBox-white"
+											value={formInfo.cardCode?.val}
+											onChange={e => {
+												onChangeForm(
+													e.target.value,
+													"cardCode"
+												);
+											}}
+											onBlur={e =>
+												onChangeForm(
+													e.target.value,
+													"cardCode"
+												)
+											}
+											checked={
+												formInfo.cardCode?.checked ??
+												null
+											}
+											tip={formInfo.cardCode?.tip}
+											clickInfo={() =>
+												setCardCodeInfoIconActive(
+													prev => !prev
+												)
+											}
+											placeholder={t(
+												"lbl_DepositCardCode"
+											)}
+											isShowPaste={true}
+											toHandlePaste={onChangeForm}
+											pasteCol="cardCode"
+											ShowTipImgAction={() =>
+												setIsShowTipImg(!isShowTipImg)
+											}
+										/>
+									</div>
+									<div className="row">
+										<Inputbox
+											className="inputBox-white"
+											value={formInfo.cardSerial?.val}
+											onChange={e => {
+												onChangeForm(
+													e.target.value,
+													"cardSerial"
+												);
+											}}
+											onBlur={e =>
+												onChangeForm(
+													e.target.value,
+													"cardSerial"
+												)
+											}
+											checked={
+												formInfo.cardSerial?.checked ??
+												null
+											}
+											tip={formInfo.cardSerial?.tip}
+											clickInfo={() =>
+												setCardCodeInfoIconActive(
+													prev => !prev
+												)
+											}
+											placeholder={t(
+												"lbl_DepositCardSerial"
+											)}
+											isShowPaste={true}
+											toHandlePaste={onChangeForm}
+											pasteCol="cardSerial"
+											ShowTipImgAction={() =>
+												setIsShowTipImg(!isShowTipImg)
+											}
+										/>
+									</div>
+								</>
+							)}
 							{isSelAmountType ? (
 								<FixedAmountList
 									minAmount={formInfo.minAmount}
