@@ -15,7 +15,7 @@ import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import Marquee from "./marquee";
 import usePopBox from "../hook/usePopBox";
-import { bannerImgUrl, SiteInfo } from "../../config";
+import { bannerImgUrl } from "../../config";
 import { HomeEntry } from "./homeEntry,js";
 
 const IndexPage = () => {
@@ -45,6 +45,94 @@ const IndexPage = () => {
 			}
 		}
 	}, [userInfo.isLogin, userInfo.langId]);
+
+	// 不管登入與否只要有回到首頁的動作就跳關站彈窗
+	useEffect(() => {
+		const onClose = () => {
+			closePopBox();
+		};
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.Modal,
+			closePopBox,
+			content: (
+				<>
+					<div className="icon icon-icon32px_notification" />
+					<div className="title">
+						{/* {t("Label_General_AgeVerification")} */}
+						{t("Label_General_Important_Notice_Close_Title")}
+					</div>
+					<div>
+						{/* <p>{t("Label_General_Verify21Years")}</p> */}
+						<p>
+							{t("Label_General_Important_Notice_Close_Content1")}
+						</p>
+						<br />
+						<p>
+							{t("Label_General_Important_Notice_Close_Content2")}
+						</p>
+						<br />
+						<p>
+							{t("Label_General_Important_Notice_Close_Content3")}
+						</p>
+						<br />
+						<p>{t("Label_General_Thank_You")}</p>
+						<br />
+
+						{/* <p>
+							<Trans
+								i18nKey="Label_General_AgreeTermsCondition"
+								components={{
+									Link: (
+										<a
+											href={`${bannerImgUrl}/Static/en/TermsConditions.html`}
+											rel="noreferrer"
+											target="_blank">
+											{t("Label_General_Exit")}
+										</a>
+									)
+								}}
+							/>
+						</p> */}
+					</div>
+
+					<div className="btnGroup" style={{ marginTop: 10 }}>
+						<button
+							className="btn-cancel"
+							href="/"
+							rel="noreferrer"
+							onClick={onClose}
+						>
+							{t("lbl_Close")}
+						</button>
+						{/* <button className="btn-check" onClick={onOK}>
+							{t("Label_General_Already21Years")}
+						</button>
+
+						<a
+							className="btn-cancel"
+							href={`${bannerImgUrl}/Static/en/TermsConditions.html`}
+							rel="noreferrer">
+							{t("Label_General_Exit")}
+						</a> */}
+					</div>
+
+					<div style={{ display: "flex" }}>
+						<img
+							style={{ height: "64px" }}
+							src="../../styles/img/homepage/pagcor.png"
+							alt="img-pagcor"
+						/>
+						<img
+							style={{ height: "64px" }}
+							src="../../styles/img/homepage/21age.png"
+							alt="img-pagcor"
+						/>
+					</div>
+				</>
+			)
+		});
+	}, [userInfo.isLogin]);
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
@@ -101,103 +189,6 @@ const IndexPage = () => {
 			if (readCookie(refeCookieName) === "1") {
 				showDepositPopBox();
 			}
-		}
-		// * 如果未登入狀態及尚未勾選已年滿21歲的cookie即彈出此彈窗讓使用者驗證
-		else if (!readCookie(SiteInfo.ageVerificationCookie)) {
-			// const onOK = () => {
-			// 	setCookie(SiteInfo.ageVerificationCookie, 1, 1);
-			// 	closePopBox();
-			// };
-			const onClose = () => {
-				closePopBox();
-			};
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Modal,
-				closePopBox,
-				content: (
-					<>
-						<div className="icon icon-icon32px_notification" />
-						<div className="title">
-							{/* {t("Label_General_AgeVerification")} */}
-							{t("Label_General_Important_Notice_Close_Title")}
-						</div>
-						<div>
-							{/* <p>{t("Label_General_Verify21Years")}</p> */}
-							<p>
-								{t(
-									"Label_General_Important_Notice_Close_Content1"
-								)}
-							</p>
-							<br />
-							<p>
-								{t(
-									"Label_General_Important_Notice_Close_Content2"
-								)}
-							</p>
-							<br />
-							<p>
-								{t(
-									"Label_General_Important_Notice_Close_Content3"
-								)}
-							</p>
-							<br />
-							<p>{t("Label_General_Thank_You")}</p>
-							<br />
-
-							{/* <p>
-								<Trans
-									i18nKey="Label_General_AgreeTermsCondition"
-									components={{
-										Link: (
-											<a
-												href={`${bannerImgUrl}/Static/en/TermsConditions.html`}
-												rel="noreferrer"
-												target="_blank">
-												{t("Label_General_Exit")}
-											</a>
-										)
-									}}
-								/>
-							</p> */}
-						</div>
-
-						<div className="btnGroup" style={{ marginTop: 10 }}>
-							<button
-								className="btn-cancel"
-								href="/"
-								rel="noreferrer"
-								onClick={onClose}
-							>
-								{t("lbl_Close")}
-							</button>
-							{/* <button className="btn-check" onClick={onOK}>
-								{t("Label_General_Already21Years")}
-							</button>
-
-							<a
-								className="btn-cancel"
-								href={`${bannerImgUrl}/Static/en/TermsConditions.html`}
-								rel="noreferrer">
-								{t("Label_General_Exit")}
-							</a> */}
-						</div>
-
-						<div style={{ display: "flex" }}>
-							<img
-								style={{ height: "64px" }}
-								src="../../styles/img/homepage/pagcor.png"
-								alt="img-pagcor"
-							/>
-							<img
-								style={{ height: "64px" }}
-								src="../../styles/img/homepage/21age.png"
-								alt="img-pagcor"
-							/>
-						</div>
-					</>
-				)
-			});
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 
