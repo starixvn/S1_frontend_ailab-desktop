@@ -15,6 +15,13 @@ pipeline {
             parallel{
                 stage("Start"){
                     stages {
+                        stage('Set Environment') {
+                            steps {
+                                script {
+                                    env.env = 'dev'
+                                }
+                            }
+                        }
                         stage('Install dependencies') {
                             when {
                                 anyOf {
