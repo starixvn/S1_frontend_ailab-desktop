@@ -40,7 +40,8 @@ export default function HTML(props) {
 				/>
 
 				{/* === Facebook Pixel - 存／提款成功事件 === */}
-				{process.env.REACT_APP_ENV === "production" && (
+				{/* Stage 手動註解 */}
+				{/* {process.env.REACT_APP_ENV === "production" && (
 					<>
 						<script
 							dangerouslySetInnerHTML={{
@@ -68,7 +69,7 @@ export default function HTML(props) {
 							/>
 						</noscript>
 					</>
-				)}
+				)} */}
 
 				{props.headComponents}
 			</head>
