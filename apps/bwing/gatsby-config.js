@@ -1,5 +1,5 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
-
+require('dotenv').config()
 module.exports = {
 	siteMetadata: {
 		defaultLanguage: "vn",
