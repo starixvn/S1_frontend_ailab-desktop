@@ -15,16 +15,6 @@ pipeline {
             parallel{
                 stage("Start"){
                     stages {
-                        stage('Set Environment') {
-                            steps {
-                                script {
-                                    env.env = 'development'
-                                    env.NODE_ENV = 'development'
-                                    env.CUSTOM_ENV = 'development'
-                                    env.REACT_APP_ENV = 'development'
-                                }
-                            }
-                        }
                         stage('Install dependencies') {
                             when {
                                 anyOf {
@@ -45,7 +35,7 @@ pipeline {
                                 sh 'npx gulp minify --gulpfile=apps/${project_name}/gulpfile.js'
                                 sh '(git rev-parse --short=7 HEAD & git rev-parse --abbrev-ref HEAD) > apps/${project_name}/static/rnt.txt'
                                 sh 'npx nx clear-cache'
-                                sh 'npx nx autoBuild ${project_name} --skip-nx-cache'
+                                sh 'NODE_ENV=development npx nx autoBuild ${project_name} --skip-nx-cache'
                             }
                         }
                         stage('Zip'){
