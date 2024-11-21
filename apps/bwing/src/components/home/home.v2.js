@@ -65,9 +65,7 @@ const Home = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setIsRoot } = useContext(isRootContext);
 	const { allMaintainList } = useContext(maintainListContext);
-	console.log("process.env.REACT_APP_ENV :>> ", process.env.REACT_APP_ENV);
-	console.log("process.env.NODE_ENV :>> ", process.env.NODE_ENV);
-	console.log("process.env.PRD :>> ", process.env.PRD);
+
 	// * 如果 popUpBonusCode 有值需彈出彈窗提醒有該優惠活動可以使用
 	const [getPopUpPromotion] = useLazyGetPopUpPromotionQuery();
 	// const { appLinkDatas } = useAppDownLoad();
@@ -115,7 +113,8 @@ const Home = () => {
 							className="btn-gray"
 							onClick={() => {
 								setPopBox({ isOpen: false });
-							}}>
+							}}
+						>
 							OK
 						</button>
 					</div>
@@ -143,7 +142,8 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -194,7 +194,8 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -221,7 +222,8 @@ const Home = () => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -406,7 +408,8 @@ const Home = () => {
 																	`/${path.promotion.root}?bonusCode=${bonusCode}`
 																);
 															}
-														}}>
+														}}
+													>
 														{t(
 															"lbl_Promotion_ClaimNow"
 														)}
@@ -467,7 +470,8 @@ const Home = () => {
 							onClick={() => {
 								deleteCookie("popBoxMsg");
 								closePopBox();
-							}}>
+							}}
+						>
 							{t("lbl_Close")}
 						</button>
 					</div>
@@ -518,7 +522,8 @@ const Home = () => {
 				<div
 					className={classNames("eventLink vgaming", {
 						eurocup: isDateRange(eventPerios.euroCup)
-					})}>
+					})}
+				>
 					<button
 						style={{ zIndex: 50 }}
 						className="icon-close-primary"
