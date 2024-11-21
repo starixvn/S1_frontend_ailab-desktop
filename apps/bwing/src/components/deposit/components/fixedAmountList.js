@@ -12,7 +12,7 @@ const FixedAmountList = ({
 }) => {
 	if (amountList?.length <= 0) return null;
 	return (
-		<div className="btnGroup buttonBox">
+		<div className="btnGroup buttonBox" style={{ marginBottom: "20px" }}>
 			{amountList?.map(a => {
 				const _afterConvertAmount = _isConvert ? a / 1000 : a;
 				const isSelected = Number(amount) === _afterConvertAmount;
