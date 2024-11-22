@@ -159,7 +159,8 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -343,7 +344,7 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 		userInfo.isLogin ? 60000 : null
 	);
 
-	useFpsChecks({ isLogin: userInfo.isLogin, interval: 60000 });
+	useFpsChecks({ isLogin: userInfo.isLogin, interval: 10000 });
 
 	if (redirectPath === null) {
 		return (
@@ -356,40 +357,48 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 						userInfo.kickout)) && (
 					<ct.popUpMsgContext.Provider value={{ setPopUp, popUp }}>
 						<ct.maintainListContext.Provider
-							value={{ allMaintainList }}>
+							value={{ allMaintainList }}
+						>
 							<ct.productTpIdsContext.Provider
-								value={{ productTpIds }}>
+								value={{ productTpIds }}
+							>
 								<ct.userInfoContext.Provider
 									value={{
 										userInfo,
 										setUserInfo,
 										handleNotification
-									}}>
+									}}
+								>
 									<ct.walletInfoContext.Provider
 										value={{
 											...walletInfo.state,
 											dispatch: walletInfo.dispatch
-										}}>
+										}}
+									>
 										<ct.msgCountContext.Provider
 											value={{
 												msgCount,
 												setMsgCount
-											}}>
+											}}
+										>
 											<ct.popBoxContext.Provider
 												value={{
 													popBox,
 													setPopBox
-												}}>
+												}}
+											>
 												<ct.loadingContext.Provider
 													value={{
 														loading,
 														setLoading
-													}}>
+													}}
+												>
 													<ct.isRootContext.Provider
 														value={{
 															isRoot,
 															setIsRoot
-														}}>
+														}}
+													>
 														<SEO />
 														{children}
 													</ct.isRootContext.Provider>
