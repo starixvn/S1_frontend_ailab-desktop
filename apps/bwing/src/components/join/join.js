@@ -1,7 +1,9 @@
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { MetaPixelTracker } from "@ailab-desktop/common";
 import { navigate } from "gatsby";
+import { useGetRecaptchaInfoQuery } from "@ailab-desktop/service";
 import { popBoxContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
 import { GET_LANG_ID } from "../../service/language";
@@ -103,11 +105,15 @@ const Join = () => {
 	const defaultLangId = userInfo?.langId ?? GET_LANG_ID();
 	const isMountedRef = useRef(null);
 
+	const { data: { data: recaptchaInfoData } = {} } =
+		useGetRecaptchaInfoQuery();
+
 	const urlAffId = getUrlParameter("AffId") || readCookie("AffId");
 	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
 	const urlAffiliate = urlAffId || urlAffCode;
 
 	const { getShieldData, saveShieldData } = useShieldCheck();
+	const { executeRecaptcha } = useGoogleReCaptcha();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -414,7 +420,6 @@ const Join = () => {
 	};
 
 	const checkAll = async () => {
-		if (!_reCaptchaCheck) return false;
 		const res = await Promise.all([
 			usernameCheck(userValue.userName),
 			emailCheck(userValue.email),
@@ -484,6 +489,15 @@ const Join = () => {
 	const clickSubmit = async e => {
 		e.preventDefault();
 		const checked = await checkAll();
+
+		// 中國地區不需驗證
+		const ReCaptchaAction = "signup";
+		let reCaptchaToken;
+		if (recaptchaInfoData?.country !== "CN") {
+			if (!executeRecaptcha) return;
+			reCaptchaToken = await executeRecaptcha(ReCaptchaAction);
+		}
+
 		if (checked && !userInfo.isLogin) {
 			MetaPixelTracker("registerSubmit");
 			const regData = {
@@ -496,7 +510,9 @@ const Join = () => {
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
-				ReferralUrl: document.referrer
+				ReferralUrl: document.referrer,
+				ReCaptchaToken: reCaptchaToken,
+				ReCaptchaAction
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");

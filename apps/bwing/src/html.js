@@ -95,10 +95,12 @@ export default function HTML(props) {
 				{props.postBodyComponents}
 			</body>
 			<footer>
+				{/* 確保畫面上有多餘的表單可以塞入FPS的值 */}
+				<form />
 				<script
 					async=""
 					defer=""
-					src="//sc.detecas.com/di/activator.ashx"
+					src="//sc.trivenzio.com/di/activator.ashx"
 				/>
 			</footer>
 		</html>

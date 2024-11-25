@@ -154,7 +154,7 @@ const GATag = ({ gaCode }) => (
 // 			<script
 // 				async=""
 // 				defer=""
-// 				src="//sc.detecas.com/di/activator.ashx"
+// 				src="//sc.trivenzio.com/di/activator.ashx"
 // 			/>
 // 		</Helmet>
 // 	);
