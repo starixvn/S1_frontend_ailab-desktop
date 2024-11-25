@@ -344,7 +344,7 @@ const Wrapper = ({ children, afterLogin, onlyBeforeLogin }) => {
 		userInfo.isLogin ? 60000 : null
 	);
 
-	useFpsChecks({ isLogin: userInfo.isLogin, interval: 10000 });
+	useFpsChecks({ isLogin: userInfo.isLogin });
 
 	if (redirectPath === null) {
 		return (
