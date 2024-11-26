@@ -1,9 +1,8 @@
-import { useGetRecaptchaInfoQuery } from "@ailab-desktop/service";
+import { CaptchaTypeEnum } from "@ailab-desktop/service";
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-import { MetaPixelTracker } from "@ailab-desktop/common";
+import { MetaPixelTracker, useCaptchaContext } from "@ailab-desktop/common";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
@@ -55,14 +54,11 @@ export default () => {
 		eventPeriodIdpd.endDate
 	);
 	const { getShieldData, saveShieldData } = useShieldCheck();
-	const { data: { data: recaptchaInfoData } = {} } =
-		useGetRecaptchaInfoQuery();
+	const { getToken, captchaType } = useCaptchaContext();
 
 	const urlAffId = getUrlParameter("AffId") || readCookie("AffId");
 	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
 	const urlAffiliate = urlAffId || urlAffCode;
-	const { executeRecaptcha } = useGoogleReCaptcha();
-
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -469,13 +465,10 @@ export default () => {
 		e.preventDefault();
 		const checked = await checkAll();
 
-		// 中國地區不需驗證
-		const ReCaptchaAction = "signup";
-		let reCaptchaToken;
-		if (recaptchaInfoData?.country !== "CN") {
-			if (!executeRecaptcha) return;
-			reCaptchaToken = await executeRecaptcha(ReCaptchaAction);
-		}
+		const reCaptchaToken =
+			captchaType === CaptchaTypeEnum.Number
+				? userValue.reCaptchaToken
+				: await getToken();
 
 		if (checked && !userInfo.isLogin) {
 			const regData = {
@@ -490,7 +483,7 @@ export default () => {
 				PromoCode: userValue.specialBonusCode,
 				ReferralUrl: document.referrer,
 				ReCaptchaToken: reCaptchaToken,
-				ReCaptchaAction
+				CaptchaType: captchaType
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");

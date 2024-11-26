@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useCaptchaContext } from "@ailab-desktop/common";
+import { CaptchaTypeEnum } from "@ailab-desktop/service";
 import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Checkbox from "../common/checkbox";
@@ -23,6 +25,7 @@ const JoinForm = ({
 	_areaCode,
 	urlAffiliate
 }) => {
+	const { Captcha, captchaType } = useCaptchaContext();
 	return (
 		<form className="joinloginFunction" onSubmit={clickSubmit}>
 			<span className="title txt-yellow">{t("lbl_JoinNow")}</span>
@@ -121,6 +124,15 @@ const JoinForm = ({
 					<div className="tip active">{tip.currency.msg}</div>
 				) : null}
 			</div>
+
+			<Captcha />
+			{captchaType === CaptchaTypeEnum.Number && (
+				<Inputbox
+					value={userValue.reCaptchaToken}
+					onChange={EditField.bind(null, "reCaptchaToken")}
+					placeholder={t("lbl_EnterCaptchaCode")}
+				/>
+			)}
 
 			<div className="Terms">
 				<Checkbox
