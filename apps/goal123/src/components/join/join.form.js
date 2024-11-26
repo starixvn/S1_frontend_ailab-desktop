@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useCaptchaContext } from "@ailab-desktop/common";
+import { CaptchaTypeEnum } from "@ailab-desktop/service";
 import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Checkbox from "../common/checkbox";
@@ -23,6 +25,7 @@ const JoinForm = ({
 	_areaCode,
 	urlAffiliate
 }) => {
+	const { Captcha, captchaType } = useCaptchaContext();
 	return (
 		<form className="joinloginFunction" onSubmit={clickSubmit}>
 			<span className="title txt-yellow">{t("lbl_JoinNow")}</span>
@@ -122,11 +125,21 @@ const JoinForm = ({
 				) : null}
 			</div>
 
+			<Captcha />
+			{captchaType === CaptchaTypeEnum.Number && (
+				<Inputbox
+					value={userValue.reCaptchaToken}
+					onChange={EditField.bind(null, "reCaptchaToken")}
+					placeholder={t("Label_General_EnterCaptchaCode")}
+				/>
+			)}
+
 			<div className="Terms">
 				<Checkbox
 					id="joinAgreeCheck"
 					checked={userValue.agreeCheck}
-					onChange={checkboxHandler.bind(null, "agreeCheck")}>
+					onChange={checkboxHandler.bind(null, "agreeCheck")}
+				>
 					{t("lbl_Check18TC1")}&nbsp;
 					<a target="_blank" rel="noreferrer" href={tandCTerms}>
 						{t("lbl_TermsConditions")}
@@ -149,7 +162,8 @@ const JoinForm = ({
 				<button
 					type="button"
 					className="btn-cancel"
-					onClick={clickCancel}>
+					onClick={clickCancel}
+				>
 					{t("lbl_Cancel")}
 				</button>
 				<button className="btn-check" type="submit">
