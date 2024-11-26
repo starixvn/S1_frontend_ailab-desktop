@@ -53,7 +53,6 @@ const VipPage = ({
 					vipBanner={vipBanner}
 				/>
 			</div>
-
 			{langId ? (
 				<img
 					onClick={showJoinPopBox}

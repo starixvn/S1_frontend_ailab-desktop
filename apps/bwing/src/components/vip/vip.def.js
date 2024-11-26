@@ -21,11 +21,11 @@ export const defbanner = {
 		{
 			img: `${bannerImgUrl}/desktop/img/4.0/vip/en/vip_5.jpg`,
 			alt: "vip_5"
-		},
-		{
-			img: `${bannerImgUrl}/desktop/img/4.0/vip/en/vip_6.jpg`,
-			alt: "vip_6"
 		}
+		// {
+		// 	img: `${bannerImgUrl}/desktop/img/4.0/vip/en/vip_6.jpg`,
+		// 	alt: "vip_6"
+		// }
 	],
 	vn: [
 		{
@@ -47,11 +47,11 @@ export const defbanner = {
 		{
 			img: `${bannerImgUrl}/desktop/img/4.0/vip/vn/vip_5.jpg`,
 			alt: "vip_5"
-		},
-		{
-			img: `${bannerImgUrl}/desktop/img/4.0/vip/vn/vip_6.jpg`,
-			alt: "vip_6"
 		}
+		// {
+		// 	img: `${bannerImgUrl}/desktop/img/4.0/vip/vn/vip_6.jpg`,
+		// 	alt: "vip_6"
+		// }
 	]
 };
 
@@ -80,10 +80,10 @@ export const defPageClubImg = [
 		img: `${bannerImgUrl}/desktop/img/4.0/vip/vip5.png`,
 		displayKey: "lbl_Diamond_Club",
 		alt: "vip05"
-	},
-	{
-		img: `${bannerImgUrl}/desktop/img/4.0/vip/vip6.png`,
-		displayKey: "lbl_Bwing_Club",
-		alt: "vip06"
 	}
+	// {
+	// 	img: `${bannerImgUrl}/desktop/img/4.0/vip/vip6.png`,
+	// 	displayKey: "lbl_Bwing_Club",
+	// 	alt: "vip06"
+	// }
 ];
