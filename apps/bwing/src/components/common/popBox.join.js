@@ -773,7 +773,7 @@ const Join = () => {
 						<Inputbox
 							value={userValue.reCaptchaToken}
 							onChange={e => EditField("reCaptchaToken", e)}
-							placeholder={t("Label_General_EnterCaptchaCode")}
+							placeholder={t("lbl_EnterCaptchaCode")}
 						/>
 					)}
 					{inputStatus.agreeCheck.msg !== "" ? (

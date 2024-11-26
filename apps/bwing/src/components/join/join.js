@@ -788,7 +788,7 @@ const Join = () => {
 								value={userValue.reCaptchaToken}
 								onChange={e => EditField("reCaptchaToken", e)}
 								placeholder={t(
-									"Label_General_EnterCaptchaCode"
+									"lbl_EnterCaptchaCode"
 								)}
 							/>
 						)}

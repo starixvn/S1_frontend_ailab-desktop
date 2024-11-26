@@ -130,7 +130,7 @@ const JoinForm = ({
 				<Inputbox
 					value={userValue.reCaptchaToken}
 					onChange={EditField.bind(null, "reCaptchaToken")}
-					placeholder={t("Label_General_EnterCaptchaCode")}
+					placeholder={t("lbl_EnterCaptchaCode")}
 				/>
 			)}
 

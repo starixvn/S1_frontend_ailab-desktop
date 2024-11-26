@@ -356,6 +356,7 @@
   "lbl_EnsureTransactionsCorrect": "Nhằm đảm bảo mọi giao dịch chính xác,",
   "lbl_EnterAccountNumber": "Nhập số tài khoản",
   "lbl_EnterAmount": "Nhập số tiền",
+  "lbl_EnterCaptchaCode": "",
   "lbl_EnterRealName": "Vui lòng điền họ tên thật của bạn, các ký tự đặc biệt không được phép",
   "lbl_Error_Oops": "Oops!",
   "lbl_Event": "SỰ KIỆN",
