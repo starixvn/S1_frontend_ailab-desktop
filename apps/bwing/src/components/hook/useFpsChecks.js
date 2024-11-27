@@ -14,6 +14,7 @@ const useFpsChecks = ({ isLogin, interval = 10000 }) => {
 				const fpsNeededToCheck =
 					localStorage.getItem("fpsNeededToCheck");
 				if (!fpsNeededToCheck) return setIsChecked(true); // 如果localStorage沒有fpsNeededToCheck，就代表不需要check，後面也就不需要執行了
+				localStorage.removeItem("fpsNeededToCheck"); // 已經發出check之後就不用再保留storage佔位置了
 
 				const di = getInputValueById("__di");
 				const bi = getInputValueById("__bi");
@@ -34,8 +35,6 @@ const useFpsChecks = ({ isLogin, interval = 10000 }) => {
 					token,
 					url
 				});
-
-				localStorage.removeItem("fpsNeededToCheck"); // 已經發出check之後就不用再保留storage佔位置了
 			} catch {
 				// 忽略
 			}
