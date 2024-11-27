@@ -15,12 +15,13 @@ const useFpsChecks = ({ isLogin, interval = 10000 }) => {
 				const fpsNeededToCheck =
 					localStorage.getItem("fpsNeededToCheck");
 				if (!fpsNeededToCheck) return setIsChecked(true); // 如果localStorage沒有fpsNeededToCheck，就代表不需要check，後面也就不需要執行了
+				localStorage.removeItem("fpsNeededToCheck"); // 已經發出check之後就不用再保留storage佔位置了
+
 				const di = getInputValueByName("__di");
 				const bi = getInputValueByName("__bi");
 				const detecasAnalysis = getInputValueByName("detecas-analysis");
 				const sessionKey = getInputValueByName("__fdi");
 				const token = getInputValueByName("__tk");
-				localStorage.removeItem("fpsNeededToCheck"); // 已經發出check之後就不用再保留storage佔位置了
 
 				// 取得這 3 個值後再送
 				// eslint-disable-next-line consistent-return
