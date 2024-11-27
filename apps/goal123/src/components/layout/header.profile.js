@@ -80,6 +80,7 @@ const Profile = () => {
 					willLogout: true
 				}));
 				deleteShieldData();
+				localStorage.removeItem("fpsNeededToCheck");
 			};
 
 			setPopBox({
