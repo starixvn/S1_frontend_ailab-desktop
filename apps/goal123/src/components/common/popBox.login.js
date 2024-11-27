@@ -125,6 +125,7 @@ const LoginPanel = () => {
 						setPopBox({ isOpen: false });
 						navigate(`/${userInfo.langId}`);
 						saveShieldData();
+						localStorage.setItem("fpsNeededToCheck", "true");
 					}
 				} else if (
 					res.errorCode === 1101 ||
@@ -250,7 +251,8 @@ export const LoginForm = ({
 
 			<Link
 				to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-				className="txt-blue2">
+				className="txt-blue2"
+			>
 				{t("lbl_ForgetPassword")}
 			</Link>
 		</div>

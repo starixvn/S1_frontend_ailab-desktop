@@ -53,10 +53,7 @@ const BeforeLogin = () => {
 			<a
 				rel="noopener noreferrer"
 				className="downloadbtn "
-				// TODO: 2024.9.13先緊急導轉首頁
-				// target="_blank"
-				// href={`/${userInfo.langId}/${path.appDownload.root}`}>
-				href={`/${userInfo.langId}${path.home.root}`}
+				href={`/${userInfo.langId}/${path.appDownload.root}`}
 			>
 				{t("lbl_APP_DOWNLOAD")}
 			</a>
@@ -108,6 +105,7 @@ const AfterLogin = () => {
 					willLogout: true
 				}));
 				deleteShieldData();
+				localStorage.removeItem("fpsNeededToCheck");
 			};
 
 			setPopBox({
@@ -158,7 +156,7 @@ const AfterLogin = () => {
 				<img src={userLevelImgInfo?.img} alt={userLevelImgInfo?.alt} />
 				<button>{userInfo.userName}</button>
 			</div>
-			{/*  eslint-disable-next-line react/jsx-no-useless-fragment */}
+			{/* eslint-disable-next-line react/jsx-no-useless-fragment */}
 			<Suspense fallback={<></>}>
 				<Wallet langId={userInfo.langId} i18n={t} />
 			</Suspense>

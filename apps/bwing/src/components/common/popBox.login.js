@@ -134,6 +134,7 @@ const LoginPanel = () => {
 						const { financeNotification, soundEffects } =
 							res.userData ?? {};
 						handleNotification(financeNotification, soundEffects);
+						localStorage.setItem("fpsNeededToCheck", "true");
 					}
 				} else if (
 					res.errorCode === 1101 ||

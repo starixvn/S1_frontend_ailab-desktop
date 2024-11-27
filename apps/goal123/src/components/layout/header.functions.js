@@ -100,6 +100,7 @@ const BeforeLogin = () => {
 				// 獲取使用者財務通知設定
 				const { financeNotification, soundEffects } = userData ?? {};
 				handleNotification(financeNotification, soundEffects);
+				localStorage.setItem("fpsNeededToCheck", "true");
 			} else if (errorCode !== 0 && isLogin === false) {
 				setPopBox({
 					isOpen: true,
