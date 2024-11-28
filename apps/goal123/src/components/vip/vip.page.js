@@ -2,20 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment/moment";
 import PageEventListVn from "./components/pageEventList.vn";
-// import { bannerImgUrl } from "../../config";
+import { bannerImgUrl } from "../../config";
 
 const VipPage = ({
 	pageClubImg,
 	currencyId,
 	t,
 	langId,
-	// showJoinPopBox,
+	showJoinPopBox,
 	vipBanner
 }) => {
-	// const programImgs = {
-	// 	en: `${bannerImgUrl}/desktop/img/vip/vip_program_en.jpg`,
-	// 	vn: `${bannerImgUrl}/desktop/img/vip/vip_program_vn.jpg`
-	// };
+	const programImgs = {
+		en: `${bannerImgUrl}/desktop/img/vip/vip_program_en-v1.jpg`,
+		vn: `${bannerImgUrl}/desktop/img/vip/vip_program_vn-v1.jpg`
+	};
 
 	return (
 		<>
@@ -53,13 +53,13 @@ const VipPage = ({
 					vipBanner={vipBanner}
 				/>
 			</div>
-			{/* {langId ? (
+			{langId ? (
 				<img
 					onClick={showJoinPopBox}
 					src={programImgs[langId]}
 					alt={`vip-program-${langId}`}
 				/>
-			) : null} */}
+			) : null}
 		</>
 	);
 };
@@ -69,7 +69,7 @@ VipPage.propTypes = {
 	currencyId: PropTypes.number.isRequired,
 	t: PropTypes.func.isRequired,
 	langId: PropTypes.string.isRequired,
-	// showJoinPopBox: PropTypes.func.isRequired,
+	showJoinPopBox: PropTypes.func.isRequired,
 	vipBanner: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
