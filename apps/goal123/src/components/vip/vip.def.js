@@ -21,11 +21,11 @@ export const defbanner = {
 		{
 			img: `${bannerImgUrl}/desktop/img/vip/en/banner_vip5.jpg`,
 			alt: "vip_5"
-		},
-		{
-			img: `${bannerImgUrl}/desktop/img/vip/en/banner_vip6.jpg`,
-			alt: "vip_6"
 		}
+		// {
+		// 	img: `${bannerImgUrl}/desktop/img/vip/en/banner_vip6.jpg`,
+		// 	alt: "vip_6"
+		// }
 	],
 	vn: [
 		{
@@ -47,11 +47,11 @@ export const defbanner = {
 		{
 			img: `${bannerImgUrl}/desktop/img/vip/vn/banner_vip5.jpg`,
 			alt: "vip_5"
-		},
-		{
-			img: `${bannerImgUrl}/desktop/img/vip/vn/banner_vip6.jpg`,
-			alt: "vip_6"
 		}
+		// {
+		// 	img: `${bannerImgUrl}/desktop/img/vip/vn/banner_vip6.jpg`,
+		// 	alt: "vip_6"
+		// }
 	]
 };
 
@@ -85,11 +85,11 @@ export const defPageClubImg = [
 		displayKey: "lbl_Diamond_Club",
 		alt: "vip05",
 		className: "diamond"
-	},
-	{
-		img: `${bannerImgUrl}/desktop/img/vip/vip6.png`,
-		displayKey: "lbl_Goal123_Club",
-		alt: "vip06",
-		className: "goal123"
 	}
+	// {
+	// 	img: `${bannerImgUrl}/desktop/img/vip/vip6.png`,
+	// 	displayKey: "lbl_Goal123_Club",
+	// 	alt: "vip06",
+	// 	className: "goal123"
+	// }
 ];
