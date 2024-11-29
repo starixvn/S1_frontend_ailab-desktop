@@ -6,8 +6,8 @@ import MysteryBoxAnimation from "./mysteryBox.animation";
 import MysteryBoxEventModule from "./mysteryBox.eventModule";
 import useDrawPrize from "./hook/useDrawPrize";
 import { eventPeriod } from "./mysteryBox.def";
-import imgTitleEn from "../../styles/img/event/box/title_en.png";
-import imgTitleVn from "../../styles/img/event/box/title_vn.png";
+// import imgTitleEn from "../../styles/img/event/box/title_en.png";
+// import imgTitleVn from "../../styles/img/event/box/title_vn.png";
 import { isDateRange } from "../common/common";
 
 const { startDate, endDate } = eventPeriod;
@@ -31,10 +31,10 @@ const MysteryBox = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { loading } = useContext(loadingContext);
 
-	const imgTitle = {
-		en: imgTitleEn,
-		vn: imgTitleVn
-	}[userInfo.langId];
+	// const imgTitle = {
+	// 	en: imgTitleEn,
+	// 	vn: imgTitleVn
+	// }[userInfo.langId];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -54,7 +54,7 @@ const MysteryBox = () => {
 
 	return (
 		<div className="event goldbox">
-			<img className="title" src={imgTitle} alt="title-img" />
+			{/* <img className="title" src={imgTitle} alt="title-img" /> */}
 
 			<MysteryBoxAnimation
 				isLogin={userInfo.isLogin}

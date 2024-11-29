@@ -5,8 +5,8 @@ import { defPopBoxType } from "../common/popBox";
 import { defDrawPrizeStatus } from "./mysteryBox.def";
 import { popBoxContext } from "../common/context";
 
-import imgBoxClose from "../../styles/img/event/box/box_close.png";
-import imgBoxOpen from "../../styles/img/event/box/box_open.png";
+// import imgBoxClose from "../../styles/img/event/box/box_close.png";
+// import imgBoxOpen from "../../styles/img/event/box/box_open.png";
 
 const getDiffTime = () => {
 	const eventTime = moment().set({ hour: 23, minute: 59, second: 59 }).unix();
@@ -28,8 +28,8 @@ const MysteryBoxAnimation = ({
 
 	const { setPopBox } = useContext(popBoxContext);
 
-	const { canJoin, isJoin, drawOut, notEligible } = defDrawPrizeStatus;
-	const _canJoin = drawPrize.errorCode === canJoin;
+	const { isJoin, drawOut, notEligible } = defDrawPrizeStatus;
+	// const _canJoin = drawPrize.errorCode === canJoin;
 	const _isJoin = drawPrize.errorCode === isJoin;
 	const _drawOut = drawPrize.errorCode === drawOut;
 	const _notEligible = drawPrize.errorCode === notEligible;
@@ -101,7 +101,7 @@ const MysteryBoxAnimation = ({
 						}`}>
 						{secondsToTime(downDiffTime)}
 					</div>
-					<img
+					{/* <img
 						className={`goldbox__item__close${
 							angpowActive ? " active" : ""
 						}`}
@@ -114,7 +114,7 @@ const MysteryBoxAnimation = ({
 						}`}
 						src={imgBoxOpen}
 						alt=""
-					/>
+					/> */}
 				</div>
 			</div>
 		</div>

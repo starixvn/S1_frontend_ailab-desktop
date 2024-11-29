@@ -20,17 +20,22 @@ export default function HTML(props) {
 				<link
 					rel="stylesheet"
 					type="text/css"
-					href={`/styles/css/style.css?v=${vkey}`}
-				/>
-				<link
-					rel="stylesheet"
-					type="text/css"
-					href={`/styles/css/font.css?v=${vkey}`}
-				/>
-				<link
-					rel="stylesheet"
-					type="text/css"
 					href={`/styles/css/datePicker.css?v=${vkey}`}
+				/>
+				<link
+					rel="stylesheet"
+					type="text/css"
+					href="/styles/css/style.css"
+				/>
+				<link
+					rel="stylesheet"
+					type="text/css"
+					href="/styles/css/font.css"
+				/>
+				<link
+					rel="stylesheet"
+					type="text/css"
+					href="/styles/css/event.css"
 				/>
 
 				<script
