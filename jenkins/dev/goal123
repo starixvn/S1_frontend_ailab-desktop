@@ -16,12 +16,12 @@ pipeline {
                 stage("Start"){
                     stages {
                         stage('Install dependencies') {
-                            when {
-                                anyOf {
-                                    changeset "package.json"
-                                    expression { node_modules_exists == 'false' }
-                                }
-                            }
+                            // when {
+                            //     anyOf {
+                            //         changeset "package.json"
+                            //         expression { node_modules_exists == 'false' }
+                            //     }
+                            // }
                             steps {
                                 sh 'rm -rf node_modules'
                                 sh 'rm package-lock.json'
