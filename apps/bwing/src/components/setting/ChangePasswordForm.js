@@ -46,14 +46,16 @@ const ChangePasswordForm = () => {
 	const _newPsw = passwordCheck(userPsw.newPsw);
 
 	const checkPswHandler = (col, e) => {
-		if (col === "oldPsw")
-			return setStatus(prev => ({
+		if (col === "oldPsw") {
+			setStatus(prev => ({
 				...prev,
 				oldPsw: {
 					checked: _oldPsw.checked,
 					msg: t(_oldPsw.message)
 				}
 			}));
+			return;
+		}
 
 		const val = e.target.value;
 		const { checked, message } = passwordCheck(val);
@@ -113,7 +115,8 @@ const ChangePasswordForm = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											OK
 										</button>
 									</div>
@@ -132,7 +135,8 @@ const ChangePasswordForm = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -151,7 +155,8 @@ const ChangePasswordForm = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -181,6 +186,7 @@ const ChangePasswordForm = () => {
 						showPswHandler={showPswHandler.bind(this, "oldPsw")}
 						clickInfo={clickInfo.bind(this, "oldPsw")}
 						tip={status.oldPsw.msg}
+						placeholder={t("lbl_OldPassword")}
 					/>
 				</div>
 				<div className="resetPassWord">
@@ -194,13 +200,15 @@ const ChangePasswordForm = () => {
 						checked={status.newPsw.checked}
 						clickInfo={clickInfo.bind(this, "newPsw")}
 						tip={status.newPsw.msg}
+						placeholder={t("lbl_NewPassword")}
 					/>
 				</div>
 				<div className="btnGroup">
 					<button
 						className="btn-check"
 						type="submit"
-						onClick={clickSubmit}>
+						onClick={clickSubmit}
+					>
 						{t("lbl_change_password_submit")}
 					</button>
 				</div>
