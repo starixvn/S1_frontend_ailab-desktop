@@ -35,9 +35,9 @@ const PageEventListVn = ({ currencyId, vipBanner }) => {
 		return input;
 	};
 
-	const filteredData = vipBanner?.vipBannerData?.filter(
-		item => item.level !== 6
-	);
+	const filteredData = Array.isArray(vipBanner?.vipBannerData)
+		? vipBanner.vipBannerData.filter(item => item.level !== 6)
+		: [];
 
 	return (
 		<table className="vip-list">
