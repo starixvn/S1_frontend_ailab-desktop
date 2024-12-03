@@ -6,7 +6,7 @@ DESIGN_PROJECT=../Design
 PROJECT=.
 
 # 目前既有品牌
-SITE_LIST=(BWING GOAL123 IVORYSPORT)
+SITE_LIST=(BWING GOAL123)
 
 # READ
 echo "選擇品牌 (中間用空白分隔、大小寫不拘。例: BWING GOAL123)"
