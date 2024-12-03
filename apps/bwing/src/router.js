@@ -128,9 +128,6 @@ export default {
 	siteMap: {
 		root: "sitemap"
 	},
-	howToDeposit: {
-		root: "howToDeposit"
-	},
 	howToWithdraw: {
 		root: "howToWithdraw"
 	},

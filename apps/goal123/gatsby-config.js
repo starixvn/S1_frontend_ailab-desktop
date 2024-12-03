@@ -46,7 +46,8 @@ module.exports = {
 			options: {
 				path: __dirname
 			}
-		}
+		},
+		`gatsby-plugin-sass`
 	],
 	developMiddleware: app => {
 		app.use(

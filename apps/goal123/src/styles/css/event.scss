@@ -1,0 +1,734 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Oswald:wght@600;700&family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap');
+
+.dragonegg-event {
+  min-width: 1400px !important;
+  padding-top: 0;
+  padding-bottom: 40px;
+  background: #AB0C21 !important;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  button, a {
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  .event {
+    &-banner{
+        width: fill-available;
+    }
+    &-main {
+        position: relative;
+        z-index: 1;
+        width: 1200px;
+        height: 629px;
+        padding-top: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        margin: -170px auto 0;
+        background: url(https://banner.goal123.org/desktop/img/event/dragonegg/daily_bg.png) no-repeat center / cover;
+    }
+    &-task {
+        &-title {
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'EB Garamond', serif;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(180deg, rgba(255,251,236,1) 0%, rgba(255,242,199,1) 100%);
+            margin-bottom: 15px;
+            border-radius: 5px;
+            padding: 5px;
+            box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.25);
+            min-height: 95px;
+            width: 500px;
+            img {
+                width: 60px;
+            }
+        }
+        &-info {
+            display: flex;
+            flex-direction: column;
+            color: #a06000;
+            width: 316px;
+            font-size: 16px;
+            margin-right: 25px;
+            .text {
+                color: #a06000;
+                font-weight: bold;
+                line-height: 1.2;
+                height: 40px;
+                display: flex;
+                align-items: center;
+            }
+        }
+        &-btn {
+            background: url(https://banner.goal123.org/desktop/img/event/dragonegg/daily_btn.png) no-repeat center / cover;
+            width: 84px;
+            height: 28px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 600;
+            filter: drop-shadow(1px 1px 1px rgba(black,.4)) brightness(1);
+            font-size: 14px;
+            transition: .3s;
+            &.active {
+                background: url(https://banner.goal123.org/desktop/img/event/dragonegg/daily_btn_f.png) no-repeat center / cover;
+                color: #8e8e8e;
+                &:hover{
+                    filter: drop-shadow(1px 1px 1px rgba(black,.4)) brightness(1);
+                }
+            }
+            &:hover{
+                filter: drop-shadow(1px 1px 1px rgba(black,.4)) brightness(1.2);
+                transition: .3s;
+            }
+        }
+    }
+    &-draw {
+        text-align: center;
+        img {
+            width: 514px;
+        }
+        &-egg {
+            position: relative;
+        }
+        &-value {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 70px;
+            font-weight: 600;
+            filter: drop-shadow(0 2px 2px rgba(black,.5));
+        }
+        &-btn {
+            display: flex;
+            margin: -2px auto 25px;
+            width: 350px;
+            padding: 0 12px;
+            justify-content: space-between;
+        }
+        .draw {
+            &-single {
+                width: 155px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                font-weight: 600;
+                background: url(https://banner.goal123.org/desktop/img/event/dragonegg/draw_btn_f.png) no-repeat center / cover;
+                color: #6b6b6b;
+                &.active {
+                    background: url(https://banner.goal123.org/desktop/img/event/dragonegg/draw_btn.png) no-repeat center / cover;
+                    color: #fff;
+                    filter: brightness(1);
+                    &:hover{
+                        filter: brightness(1.2);
+                        transition: .3s;
+                    }
+                }
+            }
+            &-ten {
+                width: 155px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                font-weight: 600;
+                background: url(https://banner.goal123.org/desktop/img/event/dragonegg/draw_btn_f.png) no-repeat center / cover;
+                color: #6b6b6b;
+                &.active {
+                    background: url(https://banner.goal123.org/desktop/img/event/dragonegg/draw_btn_ten.png) no-repeat center / cover;
+                    color: #fff;
+                    filter: brightness(1);
+                    &:hover{
+                        filter: brightness(1.2);
+                        transition: .3s;
+                    }
+                }
+            }
+        }
+    }
+    &-collection {
+        width: 1200px;
+        margin: 0 auto;
+        height: 649px;
+        margin-top: -115px;
+        margin-bottom: 25px;
+        position: relative;
+        z-index: 2;
+        padding-top: 305px;
+        box-sizing: border-box;
+        border-radius: 0 0 10px 10px;
+        filter: drop-shadow(0px 0px 2px #2c2c2c80);
+        background: url(https://banner.goal123.org/desktop/img/event/dragonegg/5fu_bg_en.png) no-repeat center / cover;
+        &.vn {
+            background: url(https://banner.goal123.org/desktop/img/event/dragonegg/5fu_bg_vn.png) no-repeat center / cover;
+        }
+        &-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #aa0804;
+            color: #fff0be;
+            padding: 0 10px ;
+            margin: 50px auto 10px;
+            width: calc(100% - 600px);
+            min-height: 95px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 30px;
+            opacity: .8;
+            img {
+                width: 90px;
+                filter: contrast(50%);
+            }
+            &.active {
+                background: linear-gradient(180deg, rgba(254,165,68,1) 0%, rgba(235,34,11,1) 100%);
+                filter: drop-shadow(0px 0px 3px #fef571);
+                opacity: 1;
+                img {
+                    width: 90px;
+                    filter: contrast(1);
+                }
+            }
+        }
+        &-text {
+            color: #fff0be;
+            text-align: center;
+            font-size: 18px;
+        }
+    }
+    &-fu{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 315px;
+        &-item  {
+            img {
+                width: 90px;
+            }
+        }
+        &.active {
+            .event-fu-item {
+                img {
+                    filter: grayscale(1) brightness(1.2) contrast(50%);
+                }
+            }
+        }
+    }
+    &-history {
+        width: 1200px;
+        margin: 0 auto;
+        background: #8f051e url(https://banner.goal123.org/desktop/img/event/dragonegg/rewards_bg.png) no-repeat center / contain;
+        height: 410px;
+        padding: 80px 350px 0;
+        box-sizing: border-box;
+        position: relative;
+        &::before{
+            display: block;
+            content: "";
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            height: 35px;
+            transform: translateX(-50%);
+            width: 1200px;
+            background: #8f051e;
+            z-index: 0;
+        }
+        &::after{
+            display: block;
+            content: "";
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            height: 35px;
+            transform: translateX(-50%);
+            width: 1200px;
+            background: #8f051e;
+            z-index: 0;
+        }
+        &-title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffed98;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        &-table {
+            width: 100%;
+            margin: 0 auto;
+            font-size: 13px;
+            .top-title{
+                width: 100%;
+                display: flex;
+                text-align: center;
+                div {
+                    background: #f6cd63;
+                    color: #7e4c02;
+                    width: 100%;
+                    border-radius: 0 10px 0 0;
+                    padding: 5px 0 ;
+                    &:first-child {
+                        flex: 0 0 150px;
+                        margin-right: 2px;
+                        border-radius: 10px 0 0 0;
+                    }
+                }
+            }
+            .content {
+                border-radius: 0 0 10px 10px;
+                height: 230px;
+                overflow: auto;
+                &::-webkit-scrollbar {
+                    width: 2px;
+                }
+                div {
+                    display: flex;
+                    div {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        background: #FFE8BB;
+                        width: 100%;
+                        color: #CA2121;
+                        border-bottom: 1px solid #7e4c02;
+                        padding: 5px 0;
+                        &:first-child {
+                            flex: 0 0 150px;
+                            margin-right: 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-info {
+        background: #8f051e;
+        width: 1200px;
+        color: #f6cd63;
+        margin: 0 auto 10px;
+        padding: 20px 20px 45px;
+        border-radius: 0 0 15px 15px;
+        box-sizing: border-box;
+        font-size: 13px;
+        position: relative;
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #f6cd63;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .text {
+            color: #f6cd63;
+            margin-bottom: 10px;
+        }
+        .sponsor {
+            display: flex;
+            text-align: center;
+            margin: 0 auto;
+            width: 600px;
+            div {
+                flex: 1 1;
+                background: rgba(0, 0, 0, 0.25);
+                margin-right: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+                padding: 10px;
+                img  {
+                    width: 150px;
+                }
+            }
+        }
+        &-btn {
+            background: url(https://banner.goal123.org/desktop/img/event/dragonegg/daily_btn.png) no-repeat center / cover;
+            width: 120px;
+            height: 40px;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            filter: brightness(1);
+            transition: .3s;
+            &:hover {
+                filter: brightness(1.2);
+                transition: .3s;
+            }
+        }
+    }
+  }
+  .progress {
+    background: linear-gradient(180deg, rgba(102,0,1,1) 0%, rgba(189,1,0,1) 100%);
+    position: relative;
+    border: 1.5px solid #fff;
+    border-radius: 2vw;
+    width: 100%;
+    height: 10px;
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.15);
+    &-bar{
+        height: 10px;
+        background: linear-gradient(180deg, rgba(255,227,133,1) 0%, rgba(255,163,19,1) 100%);
+        border-radius: 10px;
+    }
+    &-info {
+        position: absolute;
+        right: 0;
+        bottom: -25px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+  }
+}
+
+.dragonegg-pop {
+    backdrop-filter: blur(3px);
+    position: relative;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 18px;
+    height: max-content;
+    .close-btn{
+         background: url(https://banner.goal123.org/desktop/img/event/dragonegg/icon-close.svg) no-repeat center / cover;
+         width: 30px;
+         height: 30px;
+         position: absolute;
+         bottom: calc(50% - 320px);
+         left: 50%;
+         transform: translateX(-50%);
+    }
+    .pop {
+        margin-top: -95px;
+        background: unset !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        overflow: unset !important;
+        max-height: unset !important;
+        > div {
+            display: block !important;
+            min-width: unset !important;
+            max-width: unset !important;
+        }
+    }
+    .dragonegg {
+        &-frame{
+            width: 470px;
+            height: 598px;
+            padding-top: 300px;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+            background: url(https://banner.goal123.org/desktop/img/event/dragonegg/choose_bg.png) no-repeat center / cover;
+        }
+        &-draw {
+            display: flex;
+            justify-content: center;
+            margin: 10px auto 0;
+            .egg {
+                position: relative;
+                img {
+                    width: 150px;
+                }
+                &::after{
+                    content: "";
+                    background: url(https://banner.goal123.org/desktop/img/event/dragonegg/choose_egg_l.png) no-repeat center / cover;
+                    position: absolute;
+                    top: -10px;
+                    right: 5px;
+                    width: 75px;
+                    height: 60px;
+                    opacity: 0;
+                    display: none;
+                    transition: .3s;
+                }
+                &:hover {
+                    &::after{
+                        opacity: 1;
+                        display: block;
+                        transition: .3s;
+                    }
+
+                }
+            }
+        }
+        &-egg {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+            span {
+                color: #f6cd63;
+            }
+        }
+    }
+}
+
+.dragonegg-result-pop {
+    backdrop-filter: blur(3px);
+    position: relative;
+    font-family: 'Source Sans 3', sans-serif;
+    justify-content: flex-start !important;
+    // overflow-y: auto;
+    height: auto;
+    margin-top: -95px;
+    .close-btn{
+         background: url(https://banner.goal123.org/desktop/img/event/dragonegg/icon-close.svg) no-repeat center / cover;
+         width: 30px;
+         height: 30px;
+         position: absolute;
+         bottom: -55px;
+         left: 50%;
+         transform: translateX(-50%);
+    }
+    .pop {
+        background: unset !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        overflow: unset !important;
+        max-height: unset !important;
+        margin-inline: auto;
+        position: relative;
+        padding-bottom: 25px !important;
+        > div {
+            display: flex !important;
+            min-width: unset !important;
+            max-width: unset !important;
+        }
+    }
+    .single {
+        .title {
+            margin-top: 40px;
+        }
+    }
+    .next-try{
+        justify-content: center !important;
+        height: max-content;
+        .dragonegg-result-frame {
+            &::before{
+                display: none;
+            }
+            img {
+                margin-top: -40px;
+                margin-bottom: 40px;
+                animation: none;
+            }
+        }
+        .close-btn{ 
+            bottom: -70px;
+        }
+    }
+    .ten-draw {
+        .dragonegg-result-frame {
+            &::before{
+                display: none;
+            }
+            img {
+                width: 250px;
+            }
+        }
+
+    }
+    .dragonegg-result {
+        &-frame {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 550px;
+            margin: 0 auto;
+            &::before{
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 270px;
+                top: -100px;
+                left:0;
+                z-index: -1;
+                background: url(https://banner.goal123.org/desktop/img/event/dragonegg/winning_bg.png) no-repeat center / cover;
+                animation: .3s bigger cubic-bezier(.4,.94,.56,1.59);
+            }
+            .title {
+                font-size: 36px;
+                color: #fff; 
+                font-family: 'Oswald', sans-serif;
+                font-weight: bold;
+                -webkit-text-stroke-width: 1.5px; 
+                -webkit-text-stroke-color: #B1010B;
+            }
+            .rewards-title {
+                color: #f6cd63;
+                font-size: 25px;
+                font-weight: bold;
+            }
+            img {
+                width: 350px;
+                animation: .3s bigger cubic-bezier(.4,.94,.56,1.59);
+            }
+        }
+        &-list{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 5px;
+            color: #fff;
+            div {
+                margin-bottom: 10px;
+                line-height: 1.2;
+
+            }
+        }
+        &-btn {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row !important;
+            width: 400px;
+            margin: 0 auto;
+            .btn-red-outline{
+                border: 2px solid #ef4646;
+                border-radius: 5px;
+                filter: drop-shadow(1px 1px 3px #ef4646) brightness(1);
+                color: #ef4646;
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                padding: 10px;
+                height: 42px;
+                box-sizing: border-box;
+                display: block;
+                &:hover{
+                    filter: drop-shadow(1px 1px 3px #ef4646) brightness(1.2);
+                    transition: .3s;
+                }
+                &.full {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+                &.half {
+                    width: 48.5%;
+                    margin-bottom: 10px;
+                }
+            }
+            .btn-red {
+                background: linear-gradient(180deg, rgba(250,83,83,1) 0%, rgba(191,9,11,1) 100%);
+                border-radius: 5px;
+                color: #fff;
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                padding: 10px;
+                height: 42px;
+                box-sizing: border-box;
+                display: block;
+                filter: brightness(1);
+                &:hover{
+                    filter: brightness(1.2);
+                    transition: .3s;
+                }
+                &.full {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+                &.half {
+                    width: 48.5%;
+                    margin-bottom: 10px;
+                }
+            }
+            .btn-org {
+                background: linear-gradient(180deg, rgba(249,132,66,1) 0%, rgba(201,78,10,1) 100%);
+                border-radius: 5px;
+                color: #fff;
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                padding: 10px;
+                height: 42px;
+                box-sizing: border-box;
+                display: block;
+                filter: brightness(1);
+                &:hover{
+                    filter: brightness(1.2);
+                    transition: .3s;
+                }
+                &.full {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+                &.half {
+                    width: 48.5%;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        &-egg {
+            font-weight: bold;
+            text-align: center;
+            flex-direction: row !important;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: #fff;
+            span {
+                color: #f6cd63;
+                margin-left: 5px;
+            }
+        }
+        &-share {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            background: #5B0604;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            margin: 15px auto;
+            filter: brightness(1);
+            &:hover{
+                filter: brightness(1.2);
+                transition: .3s;
+            }
+            img {
+                width: 20px;
+                margin-bottom: 5px;
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+
+.mr-2 {
+    margin-right: 10px;
+}
+
+@keyframes bigger {
+    from {
+      transform: scale(0.8);
+    }
+    to {
+      transform: scale(1);
+    }
+  }

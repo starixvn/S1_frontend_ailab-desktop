@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { isDateRange } from "../common/common";
 import { eventPeriod } from "../mysteryBox/mysteryBox.def";
-import imgEventlinkEn from "../../styles/img/event/box/eventlink.png";
-import imgEventlinkVn from "../../styles/img/event/box/eventlink_vn.png";
+// import imgEventlinkEn from "../../styles/img/event/box/eventlink.png";
+// import imgEventlinkVn from "../../styles/img/event/box/eventlink_vn.png";
 
 const { startDate, endDate } = eventPeriod;
 const isInPeriod = isDateRange(startDate, endDate);
@@ -15,10 +15,10 @@ const MysteryBoxLink = ({ to, langId }) => {
 
 	if (!isInPeriod) return null;
 
-	const imgEventlink = {
-		en: imgEventlinkEn,
-		vn: imgEventlinkVn
-	}[langId];
+	// const imgEventlink = {
+	// 	en: imgEventlinkEn,
+	// 	vn: imgEventlinkVn
+	// }[langId];
 
 	if (display)
 		return (
@@ -31,7 +31,8 @@ const MysteryBoxLink = ({ to, langId }) => {
 				) : null}
 				<Link to={to}>
 					<img
-						src={imgEventlink}
+						// src={imgEventlink}
+						src=""
 						alt="eventlink"
 						onLoad={() => setButtonDisplay(true)}
 					/>
