@@ -362,7 +362,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		userInfo.isLogin ? 60000 : null
 	);
 
-	useFpsChecks({ isLogin: userInfo.isLogin, interval: 60000 });
+	useFpsChecks({ isLogin: userInfo.isLogin, interval: 10000 });
 
 	if (redirectPath === null) {
 		if (

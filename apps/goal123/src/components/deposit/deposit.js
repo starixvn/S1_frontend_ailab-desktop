@@ -85,7 +85,8 @@ const Deposit = () => {
 			bonusCode: null,
 			requiredAmount: null,
 			specialCode: null
-		}
+		},
+		extraDataType: null
 	});
 
 	const [cardCodeInfoIconActive, setCardCodeInfoIconActive] = useState(false);
@@ -315,7 +316,8 @@ const Deposit = () => {
 				cardSerial,
 				depositPromo,
 				groupId,
-				groupName
+				groupName,
+				extraDataType
 			} = formInfo;
 
 			let { bonusCode } = formInfo?.depositPromo;
@@ -499,13 +501,13 @@ const Deposit = () => {
 						bonusCode
 					});
 				} else {
-					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqLoadCardPay`;
+					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReq`;
 
 					const params = [
 						`ChannelId=${channelId}`,
-						`Code=${cardCode.val}`,
-						`Serial=${cardSerial.val}`,
 						`Amount=${resultAmount}`,
+						extraDataType === 4 ? `Code=${cardCode.val}` : "",
+						extraDataType === 4 ? `Serial=${cardSerial.val}` : "",
 						bonusCode ? `BonusCode=${bonusCode}` : ""
 					]
 						.filter(Boolean)
@@ -796,7 +798,10 @@ const Deposit = () => {
 
 	let checked = formInfo?.amount?.checked;
 
-	if (depositType === defDepositType.loadCard) {
+	if (
+		depositType === defDepositType.loadCard &&
+		formInfo.extraDataType === 4
+	) {
 		checked =
 			checked &&
 			formInfo?.cardCode?.checked &&
