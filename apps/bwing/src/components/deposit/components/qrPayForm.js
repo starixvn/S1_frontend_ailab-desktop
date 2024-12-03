@@ -119,7 +119,8 @@ const QRPayForm = ({
 								item.groupId === groupIdForRecord
 									? "active"
 									: ""
-							}>
+							}
+						>
 							<div>
 								<img
 									alt={item.groupName}
@@ -166,26 +167,27 @@ const QRPayForm = ({
 						<div>
 							{QRPayInfoList.map(item => (
 								<button
-									key={`deposit-mobilePay-info-${item.groupName}-${item.channelId}}`}
+									key={`deposit-mobilePay-info-${item.channelName}-${item.channelId}}`}
 									onClick={() => onSetInfoData(item)}
 									className={
 										item.channelId ===
 										infoChannelIdForRecord
 											? "active"
 											: ""
-									}>
+									}
+								>
 									<div>
 										<img
-											alt={item.groupName}
+											alt={item.channelName}
 											src={`${
 												config.cloudImgUrl
-											}/${item.groupName?.toLowerCase()}.png`}
+											}/${item.channelName?.toLowerCase()}.png`}
 										/>
 										<i className="icon icon-checkmark" />
 									</div>
 
 									<div className="bank">
-										<div>{item.channelName}</div>
+										<div>{item.displayChannelName}</div>
 
 										<div>{`${number_format({
 											number: item.minAmount,
