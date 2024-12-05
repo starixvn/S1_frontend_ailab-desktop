@@ -4,7 +4,7 @@ import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { isDateRange } from "../common/common";
 import useInterval from "../hook/useInterval";
-import olympicCountdownImg from "../../styles/img/countdlogo.png";
+// import olympicCountdownImg from "../../styles/img/countdlogo.png";
 
 const OLYMPIC_DURATION_TIME = {
 	startDate: "Fri, 23 Jul 2021 19:00:00 GMT+0700",
@@ -52,7 +52,7 @@ const OlympicCountdown = ({ t, diffTime }) => {
 
 	return (
 		<div className="timer">
-			<img src={olympicCountdownImg} alt="olympic_countdown_img" />
+			{/* <img src={olympicCountdownImg} alt="olympic_countdown_img" /> */}
 			<ul>
 				<li>
 					<span>{days}</span>

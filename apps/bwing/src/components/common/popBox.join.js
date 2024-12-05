@@ -223,7 +223,7 @@ const Join = () => {
 		if (col === "userName") {
 			val = val.replace(/[\W_]/g, "");
 		} else if (col === "realName") {
-			val = val.replace(/[\d\-!@#$%^&_()+";~～<>=|?\[\]\\`~{}]+/gu, "");
+			val = val.replace(/[\d\-!@#$%^&_()+";~～<>=|?[\]\\`~{}]+/gu, "");
 		} else if (col === "phone") {
 			val = val.replace(/[^0-9]+/g, "");
 		}
@@ -499,7 +499,7 @@ const Join = () => {
 		}
 
 		if (checked && !userInfo.isLogin) {
-			MetaPixelTracker("registerSubmit");
+			MetaPixelTracker("registerSubmit", userValue.userName);
 			const regData = {
 				UserName: userValue.userName,
 				RealName: userValue.realName,
@@ -528,7 +528,10 @@ const Join = () => {
 						const { errorCode } = res.data;
 						const { message } = res.data;
 						if (errorCode === 0) {
-							MetaPixelTracker("CompleteRegistration");
+							MetaPixelTracker(
+								"CompleteRegistration",
+								userValue.userName
+							);
 							api_accountStrict_GetCustProfile().then(
 								async res_custInfo => {
 									if (isMountedRef.current) {
@@ -650,7 +653,8 @@ const Join = () => {
 									popBoxType: defPopBoxType.Login,
 									customLayout: true
 								});
-							}}>
+							}}
+						>
 							{t("lbl_LoginHere")}
 						</a>
 					</div>

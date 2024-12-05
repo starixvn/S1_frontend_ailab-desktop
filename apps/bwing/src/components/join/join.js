@@ -223,7 +223,7 @@ const Join = () => {
 		if (col === "userName") {
 			val = val.replace(/[\W_]/g, "");
 		} else if (col === "realName") {
-			val = val.replace(/[\d\-!@#$%^&_()+";~～<>=|?\[\]\\`~{}]+/gu, "");
+			val = val.replace(/[\d\-!@#$%^&_()+";~～<>=|?[\]\\`~{}]+/gu, "");
 		} else if (col === "phone") {
 			val = val.replace(/[^0-9]+/g, "");
 		}
@@ -499,7 +499,7 @@ const Join = () => {
 		}
 
 		if (checked && !userInfo.isLogin) {
-			MetaPixelTracker("registerSubmit");
+			MetaPixelTracker("registerSubmit", userValue.userName);
 			const regData = {
 				UserName: userValue.userName,
 				RealName: userValue.realName,
@@ -528,7 +528,10 @@ const Join = () => {
 						const { message } = res.data;
 						if (errorCode === 0) {
 							// 註冊成功送出臉書廣告埋點給市場
-							MetaPixelTracker("CompleteRegistration");
+							MetaPixelTracker(
+								"CompleteRegistration",
+								userValue.userName
+							);
 							api_accountStrict_GetCustProfile().then(
 								async res_custInfo => {
 									if (isMountedRef.current) {
@@ -654,7 +657,8 @@ const Join = () => {
 										popBoxType: defPopBoxType.Login,
 										customLayout: true
 									});
-								}}>
+								}}
+							>
 								{t("lbl_LoginHere")}
 							</a>
 						</div>
@@ -799,7 +803,8 @@ const Join = () => {
 						<div className="btn-group">
 							<button
 								className="btn-primary"
-								onClick={clickSubmit}>
+								onClick={clickSubmit}
+							>
 								{String(t("lbl_JoinNow")).toUpperCase()}
 							</button>
 						</div>
