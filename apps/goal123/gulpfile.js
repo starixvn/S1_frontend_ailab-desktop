@@ -2,7 +2,8 @@ const gulp = require("gulp");
 const cleanCSS = require("gulp-clean-css");
 const del = require("del");
 const cssVersioner = require("gulp-css-url-versioner");
-// const exec = require("child_process").exec;
+// 新增 sass 相關套件
+const sass = require("gulp-sass")(require("sass"));
 
 gulp.task("clean-folder", async () => {
 	await del(["static/styles", "public", ".cache"]);
@@ -22,25 +23,13 @@ gulp.task("minify-css", async () => {
 		.pipe(gulp.dest("static/styles/css"));
 });
 
-// gulp.task("watch", function () {
-// 	gulp.watch(
-// 		["src/styles/**/*", "!src/styles/css/*", "!src/styles/js"],
-// 		gulp.series(
-// 			"clean-folder",
-// 			"copy-asset",
-// 			"minify-css",
-// 			"exec_all_scripts"
-// 		)
-// 	);
-// });
+// 新增編譯 scss 的任務
+gulp.task("compile-scss", async () => {
+	await gulp
+		.src("src/styles/css/**/*.scss")
+		.pipe(sass().on("error", sass.logError))
+		.pipe(gulp.dest("static/styles/css"));
+});
 
-// gulp.task("exec_all_scripts", function (cb) {
-// 	exec("nx run goal123:autoServe", function (err, stdout, stderr) {
-// 		console.log(stdout);
-// 		console.log(stderr);
-// 		cb(err);
-// 	});
-// });
-
-gulp.task("minify", gulp.series("clean-folder", "copy-asset", "minify-css"));
-gulp.task("compress", gulp.series("copy-asset", "minify-css"));
+gulp.task("minify", gulp.series("clean-folder", "copy-asset", "minify-css", "compile-scss"));
+gulp.task("compress", gulp.series("copy-asset", "minify-css", "compile-scss"));

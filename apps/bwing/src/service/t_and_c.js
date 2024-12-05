@@ -13,7 +13,7 @@ export default langId => {
 		AboutUs: `${config.bannerImgUrl}/Static/${langId}/AboutUs.html`,
 		Terms: `${config.bannerImgUrl}/Static/${langId}/Terms.html`,
 		ContactUs: `${config.bannerImgUrl}/Static/${langId}/ContactUs.html?url=${window.location.origin}`,
-		Deposit: `${config.bannerImgUrl}/Static/${langId}/HowToDeposit.html`,
+		// Deposit: `${config.bannerImgUrl}/Static/${langId}/HowToDeposit.html`,
 		Withdraw: `${config.bannerImgUrl}/Static/${langId}/HowToWithdraw.html`,
 		HowToPlay: `${config.bannerImgUrl}/Static/${langId}/HowToBet.html`
 	};
