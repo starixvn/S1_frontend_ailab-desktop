@@ -109,7 +109,8 @@ const Join = () => {
 	const urlAffiliate = urlAffId || urlAffCode;
 
 	const { getShieldData, saveShieldData } = useShieldCheck();
-	const { Captcha, getToken, captchaType } = useCaptchaContext();
+	const { Captcha, getToken, captchaType, refreshCaptcha } =
+		useCaptchaContext();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -600,6 +601,7 @@ const Join = () => {
 							errorPopBox(message || "error", errorCode);
 						}
 					}
+					refreshCaptcha();
 				},
 				() => {
 					if (isMountedRef.current) {
@@ -784,9 +786,7 @@ const Join = () => {
 							<Inputbox
 								value={userValue.reCaptchaToken}
 								onChange={e => EditField("reCaptchaToken", e)}
-								placeholder={t(
-									"lbl_EnterCaptchaCode"
-								)}
+								placeholder={t("lbl_EnterCaptchaCode")}
 							/>
 						)}
 						<div className="checkbox-group">

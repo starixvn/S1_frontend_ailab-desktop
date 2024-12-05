@@ -54,7 +54,7 @@ export default () => {
 		eventPeriodIdpd.endDate
 	);
 	const { getShieldData, saveShieldData } = useShieldCheck();
-	const { getToken, captchaType } = useCaptchaContext();
+	const { getToken, captchaType, refreshCaptcha } = useCaptchaContext();
 
 	const urlAffId = getUrlParameter("AffId") || readCookie("AffId");
 	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
@@ -570,6 +570,7 @@ export default () => {
 							errorPopBox(message || "error", errorCode);
 						}
 					}
+					refreshCaptcha();
 				},
 				() => {
 					if (isMountedRef.current) {
