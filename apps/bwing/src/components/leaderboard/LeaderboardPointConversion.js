@@ -38,9 +38,7 @@ const LeaderboardPointConversion = () => {
 					<div className="list">{t("lbl_Points")}</div>
 				</div>
 				<div className="table-inner">
-					<div className="list">
-						{t("lbl_General_CasinoWithLive")}
-					</div>
+					<div className="list">{t("lbl_LiveCasino")}</div>
 					<div className="list">
 						{getTurnoverI18nText(liveCasinoTurnover)}
 					</div>
