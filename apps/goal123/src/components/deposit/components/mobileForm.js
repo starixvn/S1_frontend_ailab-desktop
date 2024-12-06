@@ -134,7 +134,7 @@ const MobileForm = ({
 							</div>
 
 							<div className="bank">
-								<div>{item.groupName}</div>
+								<div>{item.displayGroupName}</div>
 
 								<div>{`${number_format({
 									number: item.minAmount,
