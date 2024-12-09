@@ -125,7 +125,6 @@ const JoinForm = ({
 				) : null}
 			</div>
 
-			<Captcha />
 			{captchaType === CaptchaTypeEnum.Number && (
 				<Inputbox
 					value={userValue.reCaptchaToken}
@@ -133,6 +132,7 @@ const JoinForm = ({
 					placeholder={t("lbl_EnterCaptchaCode")}
 				/>
 			)}
+			<Captcha />
 
 			<div className="Terms">
 				<Checkbox

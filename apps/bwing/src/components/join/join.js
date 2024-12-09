@@ -781,7 +781,6 @@ const Join = () => {
 								{inputStatus.agreeCheck.msg}
 							</div>
 						) : null}
-						<Captcha />
 						{captchaType === CaptchaTypeEnum.Number && (
 							<Inputbox
 								value={userValue.reCaptchaToken}
@@ -789,6 +788,7 @@ const Join = () => {
 								placeholder={t("lbl_EnterCaptchaCode")}
 							/>
 						)}
+						<Captcha />
 						<div className="checkbox-group">
 							<input
 								type="checkbox"
