@@ -124,7 +124,6 @@ const JoinForm = ({
 					<div className="tip active">{tip.currency.msg}</div>
 				) : null}
 			</div>
-
 			{captchaType === CaptchaTypeEnum.Number && (
 				<Inputbox
 					value={userValue.reCaptchaToken}
@@ -132,8 +131,9 @@ const JoinForm = ({
 					placeholder={t("lbl_EnterCaptchaCode")}
 				/>
 			)}
-			<Captcha />
-
+			<div>
+				<Captcha />
+			</div>
 			<div className="Terms">
 				<Checkbox
 					id="joinAgreeCheck"
@@ -157,7 +157,6 @@ const JoinForm = ({
 			{tip.checkbox.msg !== "" ? (
 				<div className="tip active">{tip.checkbox.msg}</div>
 			) : null}
-
 			<div className="btnGroup">
 				<button
 					type="button"
