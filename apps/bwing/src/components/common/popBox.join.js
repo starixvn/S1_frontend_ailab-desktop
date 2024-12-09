@@ -768,7 +768,6 @@ const Join = () => {
 						activeInfo={activeInfo}
 						setActiveInfo={setActiveInfo}
 					/>
-					<Captcha />
 					{captchaType === CaptchaTypeEnum.Number && (
 						<Inputbox
 							value={userValue.reCaptchaToken}
@@ -776,6 +775,7 @@ const Join = () => {
 							placeholder={t("lbl_EnterCaptchaCode")}
 						/>
 					)}
+					<Captcha />
 					{inputStatus.agreeCheck.msg !== "" ? (
 						<div className="tip active">
 							{inputStatus.agreeCheck.msg}
