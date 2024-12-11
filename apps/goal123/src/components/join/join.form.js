@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useCaptchaContext } from "@ailab-desktop/common";
+import { CaptchaTypeEnum } from "@ailab-desktop/service";
 import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Checkbox from "../common/checkbox";
@@ -23,6 +25,7 @@ const JoinForm = ({
 	_areaCode,
 	urlAffiliate
 }) => {
+	const { Captcha, captchaType } = useCaptchaContext();
 	return (
 		<form className="joinloginFunction" onSubmit={clickSubmit}>
 			<span className="title txt-yellow">{t("lbl_JoinNow")}</span>
@@ -121,12 +124,22 @@ const JoinForm = ({
 					<div className="tip active">{tip.currency.msg}</div>
 				) : null}
 			</div>
-
+			{captchaType === CaptchaTypeEnum.Number && (
+				<Inputbox
+					value={userValue.reCaptchaToken}
+					onChange={EditField.bind(null, "reCaptchaToken")}
+					placeholder={t("lbl_EnterCaptchaCode")}
+				/>
+			)}
+			<div>
+				<Captcha />
+			</div>
 			<div className="Terms">
 				<Checkbox
 					id="joinAgreeCheck"
 					checked={userValue.agreeCheck}
-					onChange={checkboxHandler.bind(null, "agreeCheck")}>
+					onChange={checkboxHandler.bind(null, "agreeCheck")}
+				>
 					{t("lbl_Check18TC1")}&nbsp;
 					<a target="_blank" rel="noreferrer" href={tandCTerms}>
 						{t("lbl_TermsConditions")}
@@ -144,12 +157,12 @@ const JoinForm = ({
 			{tip.checkbox.msg !== "" ? (
 				<div className="tip active">{tip.checkbox.msg}</div>
 			) : null}
-
 			<div className="btnGroup">
 				<button
 					type="button"
 					className="btn-cancel"
-					onClick={clickCancel}>
+					onClick={clickCancel}
+				>
 					{t("lbl_Cancel")}
 				</button>
 				<button className="btn-check" type="submit">

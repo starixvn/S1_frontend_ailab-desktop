@@ -383,6 +383,7 @@
   "lbl_EnsureTransactionsCorrect": "To ensure all transactions correct,",
   "lbl_EnterAccountNumber": "Enter Account Number",
   "lbl_EnterAmount": "Enter Amount",
+  "lbl_EnterCaptchaCode": "Enter captcha code",
   "lbl_EnterRealName": "Please enter your real name, special symbols are not allowed",
   "lbl_Error_Oops": "Oops !",
   "lbl_Event": "Event",
