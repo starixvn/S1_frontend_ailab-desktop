@@ -34,14 +34,14 @@ const Vip = () => {
 		if (userInfo.langId === "vn") {
 			return (
 				<img
-					src={`${bannerImgUrl}/desktop/img/4.0/vip/vip-banner-vn.jpg`}
+					src={`${bannerImgUrl}/desktop/img/4.0/vip/vip-banner-vn-v1.jpg`}
 					alt="top-vn-banner"
 				/>
 			);
 		}
 		return (
 			<img
-				src={`${bannerImgUrl}/desktop/img/4.0/vip/vip-banner-en.png`}
+				src={`${bannerImgUrl}/desktop/img/4.0/vip/vip-banner-en-v1.png`}
 				alt="top-en-banner"
 			/>
 		);

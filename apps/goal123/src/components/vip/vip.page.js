@@ -13,8 +13,8 @@ const VipPage = ({
 	vipBanner
 }) => {
 	const programImgs = {
-		en: `${bannerImgUrl}/desktop/img/vip/vip_program_en.jpg`,
-		vn: `${bannerImgUrl}/desktop/img/vip/vip_program_vn.jpg`
+		en: `${bannerImgUrl}/desktop/img/vip/vip_program_en-v1.jpg`,
+		vn: `${bannerImgUrl}/desktop/img/vip/vip_program_vn-v1.jpg`
 	};
 
 	return (
@@ -53,7 +53,6 @@ const VipPage = ({
 					vipBanner={vipBanner}
 				/>
 			</div>
-
 			{langId ? (
 				<img
 					onClick={showJoinPopBox}
