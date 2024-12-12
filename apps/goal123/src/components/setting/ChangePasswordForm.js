@@ -186,6 +186,7 @@ const ChangePasswordForm = () => {
 						showPswHandler={showPswHandler.bind(this, "oldPsw")}
 						clickInfo={clickInfo.bind(this, "oldPsw")}
 						tip={status.oldPsw.msg}
+						placeholder={t("lbl_OldPassword")}
 					/>
 				</div>
 				<div className="resetPassWord">
@@ -200,6 +201,7 @@ const ChangePasswordForm = () => {
 						checked={status.newPsw.checked}
 						clickInfo={clickInfo.bind(this, "newPsw")}
 						tip={status.newPsw.msg}
+						placeholder={t("lbl_NewPassword")}
 					/>
 				</div>
 				<div className="btnGroup">

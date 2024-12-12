@@ -1,9 +1,8 @@
-import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { MetaPixelTracker } from "@ailab-desktop/common";
+import { MetaPixelTracker, useCaptchaContext } from "@ailab-desktop/common";
 import { navigate } from "gatsby";
-import { useGetRecaptchaInfoQuery } from "@ailab-desktop/service";
+import { CaptchaTypeEnum } from "@ailab-desktop/service";
 import { popBoxContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
 import { GET_LANG_ID } from "../../service/language";
@@ -105,15 +104,13 @@ const Join = () => {
 	const defaultLangId = userInfo?.langId ?? GET_LANG_ID();
 	const isMountedRef = useRef(null);
 
-	const { data: { data: recaptchaInfoData } = {} } =
-		useGetRecaptchaInfoQuery();
-
 	const urlAffId = getUrlParameter("AffId") || readCookie("AffId");
 	const urlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
 	const urlAffiliate = urlAffId || urlAffCode;
 
 	const { getShieldData, saveShieldData } = useShieldCheck();
-	const { executeRecaptcha } = useGoogleReCaptcha();
+	const { Captcha, getToken, captchaType, refreshCaptcha } =
+		useCaptchaContext();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -223,7 +220,7 @@ const Join = () => {
 		if (col === "userName") {
 			val = val.replace(/[\W_]/g, "");
 		} else if (col === "realName") {
-			val = val.replace(/[\d\-!@#$%^&_()+";~～<>=|?\[\]\\`~{}]+/gu, "");
+			val = val.replace(/[\d\-!@#$%^&_()+";~～<>=|?[\]\\`~{}]+/gu, "");
 		} else if (col === "phone") {
 			val = val.replace(/[^0-9]+/g, "");
 		}
@@ -490,16 +487,13 @@ const Join = () => {
 		e.preventDefault();
 		const checked = await checkAll();
 
-		// 中國地區不需驗證
-		const ReCaptchaAction = "signup";
-		let reCaptchaToken;
-		if (recaptchaInfoData?.country !== "CN") {
-			if (!executeRecaptcha) return;
-			reCaptchaToken = await executeRecaptcha(ReCaptchaAction);
-		}
+		const reCaptchaToken =
+			captchaType === CaptchaTypeEnum.Number
+				? userValue.reCaptchaToken
+				: await getToken();
 
 		if (checked && !userInfo.isLogin) {
-			MetaPixelTracker("registerSubmit");
+			MetaPixelTracker("registerSubmit", userValue.userName);
 			const regData = {
 				UserName: userValue.userName,
 				RealName: userValue.realName,
@@ -512,7 +506,7 @@ const Join = () => {
 				AreaCode: _areaCode,
 				ReferralUrl: document.referrer,
 				ReCaptchaToken: reCaptchaToken,
-				ReCaptchaAction
+				CaptchaType: captchaType
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
@@ -528,7 +522,10 @@ const Join = () => {
 						const { message } = res.data;
 						if (errorCode === 0) {
 							// 註冊成功送出臉書廣告埋點給市場
-							MetaPixelTracker("CompleteRegistration");
+							MetaPixelTracker(
+								"CompleteRegistration",
+								userValue.userName
+							);
 							api_accountStrict_GetCustProfile().then(
 								async res_custInfo => {
 									if (isMountedRef.current) {
@@ -607,6 +604,7 @@ const Join = () => {
 							errorPopBox(message || "error", errorCode);
 						}
 					}
+					refreshCaptcha();
 				},
 				() => {
 					if (isMountedRef.current) {
@@ -654,7 +652,8 @@ const Join = () => {
 										popBoxType: defPopBoxType.Login,
 										customLayout: true
 									});
-								}}>
+								}}
+							>
 								{t("lbl_LoginHere")}
 							</a>
 						</div>
@@ -785,7 +784,14 @@ const Join = () => {
 								{inputStatus.agreeCheck.msg}
 							</div>
 						) : null}
-
+						{captchaType === CaptchaTypeEnum.Number && (
+							<Inputbox
+								value={userValue.reCaptchaToken}
+								onChange={e => EditField("reCaptchaToken", e)}
+								placeholder={t("lbl_EnterCaptchaCode")}
+							/>
+						)}
+						<Captcha />
 						<div className="checkbox-group">
 							<input
 								type="checkbox"
@@ -799,7 +805,8 @@ const Join = () => {
 						<div className="btn-group">
 							<button
 								className="btn-primary"
-								onClick={clickSubmit}>
+								onClick={clickSubmit}
+							>
 								{String(t("lbl_JoinNow")).toUpperCase()}
 							</button>
 						</div>

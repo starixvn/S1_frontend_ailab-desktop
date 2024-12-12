@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { GReCaptchaProviders } from "@ailab-desktop/common";
+import { MultiCaptchaProvider } from "@ailab-desktop/common";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Join from "../components/join/join";
@@ -12,11 +12,9 @@ export default () => {
 		<Wrapper afterLogin={false}>
 			<Layout>
 				<main>
-					<GReCaptchaProviders langId={userInfo?.langId}>
+					<MultiCaptchaProvider langId={userInfo?.langId}>
 						<Join />
-						{/* 控制位置在 GoogleReCaptchaProvider */}
-						<div id="g-reCaptcha" />
-					</GReCaptchaProviders>
+					</MultiCaptchaProvider>
 				</main>
 			</Layout>
 		</Wrapper>
