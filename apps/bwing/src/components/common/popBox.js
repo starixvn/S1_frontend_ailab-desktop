@@ -1,5 +1,5 @@
 import React, { useContext, lazy, Suspense, useMemo } from "react";
-import { GReCaptchaProviders } from "@ailab-desktop/common";
+import { MultiCaptchaProvider } from "@ailab-desktop/common";
 import { popBoxContext } from "./context";
 import Loading from "./loading";
 import { defPopBoxType } from "./defPopBoxType";
@@ -102,11 +102,9 @@ export default () => {
 			const Join = lazy(() => import("./popBox.join"));
 
 			content = (
-				<GReCaptchaProviders langId={popBox.langId}>
+				<MultiCaptchaProvider langId={popBox.langId}>
 					<Join />
-					{/* 控制位置在 GoogleReCaptchaProvider */}
-					<div id="g-reCaptcha" />
-				</GReCaptchaProviders>
+				</MultiCaptchaProvider>
 			);
 			break;
 		}
