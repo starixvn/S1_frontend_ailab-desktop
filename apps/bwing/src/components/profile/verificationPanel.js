@@ -32,8 +32,8 @@ const VerificationPanel = ({
 	return (
 		<div className="grade">
 			<div className="porfileVip">
-				<img src={vipClubImg.img} alt={vipClubImg.alt} />
-				<div>{t(vipClubImg.displayKey)}</div>
+				<img src={vipClubImg?.img} alt={vipClubImg?.alt} />
+				<div>{t(vipClubImg?.displayKey)}</div>
 			</div>
 			<div className="user">
 				<div className="txt-lightgray">
@@ -44,7 +44,8 @@ const VerificationPanel = ({
 					<button
 						className={`icon icon-member${
 							accountName ? " active" : ""
-						}`}>
+						}`}
+					>
 						<img
 							src={`${bannerImgUrl}/desktop/img/coinimg.png`}
 							alt="coin"
@@ -57,7 +58,8 @@ const VerificationPanel = ({
 					<button
 						className={`icon icon-email${
 							emailVerified ? " active" : ""
-						}`}>
+						}`}
+					>
 						<img
 							src={`${bannerImgUrl}/desktop/img/coinimg.png`}
 							alt="coin"
@@ -72,7 +74,8 @@ const VerificationPanel = ({
 					<button
 						className={`icon icon-mobile${
 							phoneVerified ? " active" : ""
-						}`}>
+						}`}
+					>
 						<img
 							src={`${bannerImgUrl}/desktop/img/coinimg.png`}
 							alt="coin"
