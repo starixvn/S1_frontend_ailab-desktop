@@ -53,9 +53,9 @@ const VerificationPanel = ({
 				<div className="vipLv">
 					<div className="vipbg">
 						<div className="circle" />
-						<img src={vipClubImg.img} alt={vipClubImg.alt} />
+						<img src={vipClubImg?.img} alt={vipClubImg?.alt} />
 					</div>
-					<div>{t(vipClubImg.displayKey)}</div>
+					<div>{t(vipClubImg?.displayKey)}</div>
 				</div>
 			) : null}
 
