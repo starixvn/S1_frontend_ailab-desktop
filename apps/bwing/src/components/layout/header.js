@@ -28,9 +28,9 @@ export default () => {
 		}
 	};
 
-	// TODO: 因應中秋節更換ＬＯＧＯ（期間：2024.9.12~9.18）(之後若有其他活動也可以在此調整)
-	const logoUrl = isDateRange(eventPerios.midAutumn)
-		? `${bannerImgUrl}/desktop/img/4.0/logo-mid.png`
+	// TODO: 因應聖誕節更換ＬＯＧＯ（期間：2024.12.17~12.26）(之後若有其他活動也可以在此調整)
+	const logoUrl = isDateRange(eventPerios.christmas)
+		? `${bannerImgUrl}/desktop/img/4.0/logo-christmas.png`
 		: `${bannerImgUrl}/desktop/img/4.0/${
 				userInfo.langId === "vn" ? "logo-vn" : "logo-en"
 		  }.png`;
