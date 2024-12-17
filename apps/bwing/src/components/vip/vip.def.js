@@ -80,10 +80,10 @@ export const defPageClubImg = [
 		img: `${bannerImgUrl}/desktop/img/4.0/vip/vip5.png`,
 		displayKey: "lbl_Diamond_Club",
 		alt: "vip05"
+	},
+	{
+		img: `${bannerImgUrl}/desktop/img/4.0/vip/vip6.png`,
+		displayKey: "lbl_Bwing_Club",
+		alt: "vip06"
 	}
-	// {
-	// 	img: `${bannerImgUrl}/desktop/img/4.0/vip/vip6.png`,
-	// 	displayKey: "lbl_Bwing_Club",
-	// 	alt: "vip06"
-	// }
 ];

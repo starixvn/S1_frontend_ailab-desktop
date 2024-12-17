@@ -17,6 +17,10 @@ const VipPage = ({
 		vn: `${bannerImgUrl}/desktop/img/vip/vip_program_vn-v1.jpg`
 	};
 
+	const filteredVipClubImg = pageClubImg.filter(
+		item => item.displayKey !== "lbl_Goal123_Club"
+	);
+
 	return (
 		<>
 			<div className="vipPage">
@@ -32,7 +36,7 @@ const VipPage = ({
 									.zone("+07:00")
 									.format("MM/DD/YYYY")}
 							</td>
-							{pageClubImg.map(item => (
+							{filteredVipClubImg.map(item => (
 								<td key={`${item.displayKey}-${item.alt}`}>
 									<img src={item.img} alt={item.alt} />
 									{langId === "cs" ? (
