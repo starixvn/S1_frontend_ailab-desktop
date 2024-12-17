@@ -4,6 +4,10 @@ import moment from "moment";
 import PageEventListVn from "./components/pageEventList.vn";
 
 const VipPage = ({ pageClubImg, currencyId, t, langId, vipBanner }) => {
+	const filteredVipClubImg = pageClubImg.filter(
+		item => item.displayKey !== "lbl_Bwing_Club"
+	);
+
 	return (
 		<div className="vip-table">
 			<table className="vip-medal">
@@ -18,7 +22,7 @@ const VipPage = ({ pageClubImg, currencyId, t, langId, vipBanner }) => {
 								.zone("+07:00")
 								.format("MM/DD/YYYY")}
 						</td>
-						{pageClubImg.map(item => (
+						{filteredVipClubImg.map(item => (
 							<td key={`${item.displayKey}-${item.alt}`}>
 								<img src={item.img} alt={item.alt} />
 								{langId === "cs" ? (

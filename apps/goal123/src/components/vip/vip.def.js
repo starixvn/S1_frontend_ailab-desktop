@@ -85,11 +85,11 @@ export const defPageClubImg = [
 		displayKey: "lbl_Diamond_Club",
 		alt: "vip05",
 		className: "diamond"
+	},
+	{
+		img: `${bannerImgUrl}/desktop/img/vip/vip6.png`,
+		displayKey: "lbl_Goal123_Club",
+		alt: "vip06",
+		className: "goal123"
 	}
-	// {
-	// 	img: `${bannerImgUrl}/desktop/img/vip/vip6.png`,
-	// 	displayKey: "lbl_Goal123_Club",
-	// 	alt: "vip06",
-	// 	className: "goal123"
-	// }
 ];
