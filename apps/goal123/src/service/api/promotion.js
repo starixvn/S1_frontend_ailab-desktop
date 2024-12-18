@@ -43,7 +43,7 @@ export const api_promotion_SetClaimPromotion = ({
 export const api_promotion_SetClaimPromotionForUploadCustList = ({
 	langId,
 	BonusCode,
-	LockedAmount = 0
+	LockedAmount
 }) =>
 	promotionRequest.post(`/SetClaimPromotionForUploadCustList/${langId}`, {
 		BonusCode,

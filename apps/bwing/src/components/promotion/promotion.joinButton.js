@@ -249,12 +249,16 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 				promotionType === defPromotionType.firstDeposit) &&
 			isPromotionUploadCustList
 		) {
-			const success = await setClaimPromotionForUploadCustList(
+			// 如果是首存or續存，且有在名單內，還是要跳出PopUp讓使用者選並帶入lockedAmount
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.PromotionAmountConfirm,
 				langId,
-				bonusCode,
-				maxAmount
-			);
-			if (success) callBack();
+				currencyId,
+				promotionInfo,
+				clickClose,
+				setClaimPromotion: setClaimPromotionForUploadCustList
+			});
 		} else {
 			const success = await setClaimPromotion(
 				langId,
@@ -301,7 +305,8 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 								const success =
 									await setClaimPromotionForUploadCustList(
 										userInfo.langId,
-										promotionInfo.bonusCode
+										promotionInfo.bonusCode,
+										promotionInfo.maxAmount
 									);
 								if (success) window.location.reload();
 							} else {

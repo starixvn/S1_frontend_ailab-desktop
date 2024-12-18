@@ -15,12 +15,7 @@ const AmountConfirmPopbox = ({
 
 	const [selectedIdx, setSelectedIdx] = useState(0);
 
-	const {
-		bonusCode,
-
-		canJoinTierAmountList,
-		promotionType
-	} = promotionInfo;
+	const { bonusCode, canJoinTierAmountList, promotionType } = promotionInfo;
 
 	const options = canJoinTierAmountList?.map((el, i) => {
 		const {
