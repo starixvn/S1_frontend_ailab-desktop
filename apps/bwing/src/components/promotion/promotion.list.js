@@ -45,7 +45,8 @@ const PromotionList = ({
 			isDisplay && (
 				<div
 					key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-					className={promoDisplayStyle}>
+					className={promoDisplayStyle}
+				>
 					<div className="lobby-promotion-img">
 						<img src={p.banner} alt={p.title} />
 					</div>
@@ -75,7 +76,8 @@ const PromotionList = ({
 						<div
 							className={`btn-group ${
 								isBeClaimed ? "btnclaimed" : ""
-							}`}>
+							}`}
+						>
 							<PromotionJoinButton
 								promotionInfo={p}
 								userInfo={userInfo}
@@ -83,13 +85,15 @@ const PromotionList = ({
 								filter={filter}
 								callBack={afterJoinCallBack}
 							/>
+
 							{p.promotionType === defPromotionType.other &&
 							!p.promotionAction ? (
 								<a
 									href={p.promotionLink}
 									target="_blank"
 									rel="noreferrer"
-									className="btn-check">
+									className="btn-check"
+								>
 									{t("lbl_Promotion_MoreInfo").toUpperCase()}
 								</a>
 							) : (
@@ -99,7 +103,8 @@ const PromotionList = ({
 										this,
 										userInfo.langId,
 										p.bonusCode
-									)}>
+									)}
+								>
 									{t("lbl_Promotion_MoreInfo")}
 								</button>
 							)}

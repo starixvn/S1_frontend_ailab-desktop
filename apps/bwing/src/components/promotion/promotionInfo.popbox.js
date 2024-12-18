@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "gatsby";
@@ -14,6 +14,7 @@ import PromoRule from "./promotion.promoRule";
 import CashBackInfo from "./cashBackInfo";
 import PromoMission from "./promotion.mission";
 import path from "../../router";
+import usePromotion from "./hook/usePromotion";
 
 export const useHandlePromotionInfo = ({ showAllPromosBtn = false }) => {
 	const { t } = useTranslation();
@@ -142,13 +143,18 @@ const PromotionInfo = ({
 	showAllPromosBtn = false,
 	closePromoPopBox
 }) => {
+	const { t } = useTranslation();
+	const { userInfo } = useContext(userInfoContext);
 	const { promoBox } = useContext(promoPopBox);
+	const isMountedRef = useRef(null);
 	const filterType = Number(getUrlParameter("FilterType"));
 	const isSpecialType = filterType === defFilterType.specialBonus;
 
-	const { t } = useTranslation();
-
-	const { userInfo } = useContext(userInfoContext);
+	const { setClaimPromotion } = usePromotion({
+		userInfo,
+		isMountedRef,
+		promotionInfo
+	});
 
 	const _currency = t(`Currency_${userInfo.currencyId}`);
 
@@ -177,13 +183,29 @@ const PromotionInfo = ({
 						</div>
 					</div>
 					<div className="btn-group">
-						{promotionInfo.promotionType ===
-						defPromotionType.other ? (
+						{!promotionInfo.isJoin &&
+						promotionInfo.promotionType ===
+							defPromotionType.other ? (
 							<button
 								className="btn-primary"
-								onClick={openLiveChat}
+								onClick={async () => {
+									if (
+										promotionInfo.canJoin &&
+										!promotionInfo.isJoin
+									) {
+										const success = await setClaimPromotion(
+											userInfo.langId,
+											promotionInfo.bonusCode
+										);
+										if (success) window.location.reload();
+									} else {
+										openLiveChat();
+									}
+								}}
 							>
-								{t("lbl_Promotion_ApplyNow")}
+								{promotionInfo.canJoin && !promotionInfo.isJoin
+									? t("lbl_Promotion_ClaimNow")
+									: t("lbl_Promotion_ApplyNow")}
 							</button>
 						) : (
 							<PromotionJoinButton

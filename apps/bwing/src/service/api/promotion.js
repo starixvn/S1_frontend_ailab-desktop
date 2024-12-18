@@ -5,6 +5,12 @@ export const api_promotion_GetPromotionListV2 = ({ langId }) =>
 		DeviceType: defDeviceType.Desktop
 	});
 
+// 2024/12/16 為了後台新功能：first deposit, redeposit, special deposit有在名單內可以直接領取的API
+export const api_promotion_GetPromotionUploadCustList = ({ langId }) =>
+	promotionRequest.post(`/GetPromotionUploadCustList/${langId}`, {
+		DeviceType: defDeviceType.Desktop
+	});
+
 export const api_promotion_GetPromotionDetail = ({ langId, BonusCode }) =>
 	promotionRequest.post(`/GetPromotionDetail/${langId}`, {
 		BonusCode,
@@ -28,6 +34,18 @@ export const api_promotion_SetClaimPromotion = ({
 	LockedAmount
 }) =>
 	promotionRequest.post(`/SetClaimPromotion/${langId}`, {
+		BonusCode,
+		LockedAmount,
+		DeviceType: defDeviceType.Desktop
+	});
+
+// 2024/12/16 為了後台新功能：first deposit, redeposit, special deposit有在名單內可以直接領取的API(直接送給後端，少一層請客服處理的流程)
+export const api_promotion_SetClaimPromotionForUploadCustList = ({
+	langId,
+	BonusCode,
+	LockedAmount = 0
+}) =>
+	promotionRequest.post(`/SetClaimPromotionForUploadCustList/${langId}`, {
 		BonusCode,
 		LockedAmount,
 		DeviceType: defDeviceType.Desktop
