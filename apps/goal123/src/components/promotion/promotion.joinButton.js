@@ -7,7 +7,10 @@ import { defPopBoxType } from "../common/popBox";
 import { defPromotionType } from "./promotion.def";
 import { popBoxContext } from "../common/context";
 import { checkPromotion } from "./promotion.common";
-import { api_promotion_SetClaimPromotion } from "../../service/api/promotion";
+import {
+	api_promotion_SetClaimPromotion,
+	api_promotion_SetClaimPromotionForUploadCustList
+} from "../../service/api/promotion";
 import path from "../../router";
 import { defFilterType } from "./promotion.nav";
 
@@ -127,9 +130,97 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 		}
 	};
 
+	const setClaimPromotionForUploadCustList = async (
+		langId,
+		bonusCode,
+		lockedAmount = 0
+	) => {
+		if (!processing) {
+			setProcessing(true);
+
+			api_promotion_SetClaimPromotionForUploadCustList({
+				langId,
+				BonusCode: bonusCode,
+				LockedAmount: Number(lockedAmount)
+			}).then(
+				({ data: { message, errorCode } }) => {
+					if (!isMountedRef.current) return;
+
+					const success = errorCode === 0;
+					const OTPNotVerify = errorCode === -5;
+
+					if (OTPNotVerify)
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.OTPHint,
+							btnBar: (
+								<div className="btnGroup">
+									<Link
+										className="btn-check"
+										to={`/${langId}/${path.profile.root}?prevPage=${path.promotion.root}&BonusCode=${bonusCode}`}
+									>
+										{t("lbl_UpdatePersonalDetail")}
+									</Link>
+								</div>
+							)
+						});
+
+					if (success) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.Success,
+							icon: "icon icon-bell",
+							description: (
+								<>
+									<div>
+										{t("lbl_JoinSuccessDescription1")}
+									</div>
+									<div>
+										{t("lbl_JoinSuccessDescription2")}
+									</div>
+								</>
+							),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={clickClose}
+									>
+										OK
+									</button>
+								</div>
+							)
+						});
+						callBack(); // 成功claim後重新取得promotion list資料
+						if (
+							promotionInfo.promotionType ===
+							defPromotionType.missionBonus
+						) {
+							callBack();
+						}
+					} else {
+						openErrorMessagePopBox(message || "error", errorCode);
+					}
+					setProcessing(false);
+				},
+				() => {
+					if (!isMountedRef.current) return;
+					setProcessing(false);
+					openErrorMessagePopBox();
+				}
+			);
+		}
+	};
+
 	const onJoinPromotion = async () => {
 		const { langId, currencyId } = userInfo;
-		const { bonusCode, canJoin, promotionType, maxAmount } = promotionInfo;
+		const {
+			bonusCode,
+			canJoin,
+			promotionType,
+			maxAmount,
+			isPromotionUploadCustList
+		} = promotionInfo;
 
 		const promotionCanJoin = checkPromotion({
 			promotionInfo,
@@ -155,6 +246,16 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 				clickClose,
 				setClaimPromotion
 			});
+		} else if (
+			(promotionType === defPromotionType.redeposit ||
+				promotionType === defPromotionType.firstDeposit) &&
+			isPromotionUploadCustList
+		) {
+			const success = await setClaimPromotionForUploadCustList(
+				langId,
+				bonusCode
+			);
+			if (success) callBack();
 		} else {
 			const success = await setClaimPromotion(
 				langId,
@@ -165,24 +266,59 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 		}
 	};
 
-	if (
+	const showBtn =
 		(promotionInfo.isJoin && isLogin) ||
 		promotionInfo.promotionType === defPromotionType.rebate ||
 		promotionInfo.promotionType === defPromotionType.other ||
 		(filter === defFilterType.specialBonus && !promotionInfo.canJoin) ||
 		promotionInfo.beenUsed ||
 		moment.unix(promotionInfo.periodFrom).diff(Date.now()) > 0 ||
-		moment.unix(promotionInfo.periodTo).diff(Date.now()) < 0
-	)
-		return null;
+		moment.unix(promotionInfo.periodTo).diff(Date.now()) < 0 ? null : (
+			<button className="yellow" onClick={onJoinPromotion}>
+				{promotionInfo.promotionType === defPromotionType.cashback ||
+				promotionInfo.promotionType ===
+					defPromotionType.retentionFreeBet
+					? t("lbl_Promotion_ClaimNow")?.toUpperCase()
+					: t("lbl_PromoJoinNow")?.toUpperCase()}
+			</button>
+		);
 
 	return (
-		<button className="yellow" onClick={onJoinPromotion}>
-			{promotionInfo.promotionType === defPromotionType.cashback ||
-			promotionInfo.promotionType === defPromotionType.retentionFreeBet
-				? t("lbl_Promotion_ClaimNow")?.toUpperCase()
-				: t("lbl_PromoJoinNow")?.toUpperCase()}
-		</button>
+		<>
+			{showBtn}
+			{(promotionInfo.promotionType === defPromotionType.other ||
+				filter === defFilterType.specialBonus) &&
+				promotionInfo.canJoin &&
+				!promotionInfo.isJoin &&
+				promotionInfo.isPromotionUploadCustList && (
+					<button
+						className={`${
+							promotionInfo.canJoin && !promotionInfo.isJoin
+								? "yellow"
+								: "red"
+						}`}
+						onClick={async () => {
+							if (
+								promotionInfo.canJoin &&
+								!promotionInfo.isJoin
+							) {
+								const success =
+									await setClaimPromotionForUploadCustList(
+										userInfo.langId,
+										promotionInfo.bonusCode
+									);
+								if (success) window.location.reload();
+							} else {
+								openLiveChat();
+							}
+						}}
+					>
+						{promotionInfo.canJoin && !promotionInfo.isJoin
+							? t("lbl_Promotion_ClaimNow")
+							: t("lbl_Promotion_ApplyNow")}
+					</button>
+				)}
+		</>
 	);
 };
 
