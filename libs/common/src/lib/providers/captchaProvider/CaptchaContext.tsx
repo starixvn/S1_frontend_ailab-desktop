@@ -68,7 +68,7 @@ const CaptchaProvider = ({
 	const getToken = () => {
 		switch (captchaType) {
 			case CaptchaTypeEnum.Google:
-				if (isGoogleRecaptcha(recaptchaInfoData)) {
+				if (!isGoogleRecaptcha(recaptchaInfoData)) {
 					return "";
 				}
 				return executeRecaptcha?.(action);

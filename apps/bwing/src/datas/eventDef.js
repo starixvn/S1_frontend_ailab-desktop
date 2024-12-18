@@ -41,5 +41,10 @@ export const eventPerios = {
 	leaderboardChristmas: {
 		startDate: "2024/12/17 00:00:00",
 		endDate: "2024/12/25 23:59:59"
+	},
+	// 2024聖誕節(LOGO)
+	christmas: {
+		startDate: "2024/12/17 00:00:00",
+		endDate: "2024/12/26 23:59:59"
 	}
 };
