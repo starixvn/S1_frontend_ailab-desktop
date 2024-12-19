@@ -20234,634 +20234,567 @@ html.Newtheme {
 	}
 }
 main {
-	.leaderboard {
-		&-banner {
-			overflow: hidden;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 100%;
-			height: 728px;
-			img {
-				margin: 0 auto;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-			}
-		}
-		&-wrapper {
-			background: linear-gradient(
-				0deg,
-				rgba(250, 182, 23, 1) 10%,
-				rgba(255, 255, 255, 1) 30%,
-				rgba(255, 255, 255, 1) 80%,
-				rgba(250, 182, 23, 1) 100%
-			);
-			border-radius: 75px 75px 0 0;
-			position: relative;
-			z-index: 1;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			margin: -73px auto 0;
-			width: 100%;
-		}
-		//排行榜獎金公告
-		&-reward {
-			display: flex;
-			flex-direction: column;
-			margin-top: -55px;
-			min-width: 1400px;
-			.reward {
-				&-top {
-					display: flex;
-					justify-content: center;
-					margin-bottom: 24px;
-					.item {
-						border-radius: 20px;
-						width: 380px;
-						height: 208px;
-						background: url(https://banner.goal123.org/desktop/img/leaderboard/reward-bg.jpg)
-							no-repeat center / cover;
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						margin: 0 20px;
-						&:first-child {
-							margin-left: unset;
-						}
-						&:last-child {
-							margin-right: unset;
-						}
-						img {
-							width: 160px;
-							margin-right: 14px;
-						}
-						.text {
-							display: flex;
-							flex-direction: column;
-							// justify-content: space-between;
-							align-items: center;
-							box-sizing: border-box;
-							> div {
-								margin-bottom: 10px;
-							}
-							&-ranking {
-								font-size: 26px;
-								font-weight: 800;
-								color: #fff;
-								background: #141f33;
-								border-radius: 4px 4px 10px 10px;
-								padding: 12px 24px;
-								margin-top: -40px;
-							}
-							.data {
-								&-number {
-									background: linear-gradient(
-										0deg,
-										rgba(251, 130, 19, 1) 10%,
-										rgba(251, 181, 19, 1) 30%,
-										rgba(255, 255, 255, 1) 50%,
-										rgba(251, 181, 19, 1) 70%,
-										rgba(251, 130, 19, 1) 90%
-									);
-									background: -wrbkit-linear-gradient(
-										0deg,
-										rgba(251, 130, 19, 1) 10%,
-										rgba(251, 181, 19, 1) 30%,
-										rgba(255, 255, 255, 1) 50%,
-										rgba(251, 181, 19, 1) 70%,
-										rgba(251, 130, 19, 1) 90%
-									);
-									background-clip: text;
-									-webkit-background-clip: text;
-									color: transparent;
-									font-size: 58px;
-									font-weight: 900;
-									// text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
-								}
-							}
-							&-unit {
-								color: #fff;
-								font-weight: 900;
-								font-size: 20px;
-							}
-						}
-					}
-				}
-				&-bottom {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					.item {
-						background: linear-gradient(
-							176deg,
-							rgba(48, 89, 164, 1) 9%,
-							rgba(20, 31, 51, 1) 87%
-						);
-						width: 210px;
-						height: 225px;
-						border-radius: 15px;
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						margin: 0 20px;
-						&:first-child {
-							margin-left: unset;
-						}
-						&:last-child {
-							margin-right: unset;
-						}
-						.text {
-							display: flex;
-							flex-direction: column;
-							align-items: center;
-							> div {
-								margin-bottom: 10px;
-							}
-							&-ranking {
-								font-size: 22px;
-								font-weight: 800;
-								color: #fff;
-								background: #141f33;
-								border-radius: 4px 4px 10px 10px;
-								padding: 16px 26px;
-								margin-top: -30px;
-							}
-							.data {
-								&-number {
-									background: linear-gradient(
-										0deg,
-										rgba(251, 130, 19, 1) 10%,
-										rgba(251, 181, 19, 1) 30%,
-										rgba(255, 255, 255, 1) 50%,
-										rgba(251, 181, 19, 1) 70%,
-										rgba(251, 130, 19, 1) 90%
-									);
-									background: -wrbkit-linear-gradient(
-										0deg,
-										rgba(251, 130, 19, 1) 10%,
-										rgba(251, 181, 19, 1) 30%,
-										rgba(255, 255, 255, 1) 50%,
-										rgba(251, 181, 19, 1) 70%,
-										rgba(251, 130, 19, 1) 90%
-									);
-									background-clip: text;
-									-webkit-background-clip: text;
-									color: transparent;
-									font-size: 55px;
-									font-weight: 900;
-									margin-top: 10px;
-								}
-							}
-							&-unit {
-								color: #fff;
-								font-weight: 900;
-								font-size: 20px;
-								margin-top: 10px;
-							}
-						}
-					}
-				}
-			}
-		}
-		//總排行榜區塊
-		&-ranking {
-			background: #1e2f4d;
-			border-radius: 50px 50px 30px 30px;
-			margin: 40px 0 100px;
-			min-width: 1320px;
-			//倒數計時
-			.countdown {
-				padding: 30px 50px 24px;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				&-item {
-					.title {
-						color: #cfcfcf;
-						font-weight: 700;
-						font-size: 16px;
-					}
-				}
-				&-time {
-					color: #cfcfcf;
-					font-weight: 700;
-					font-size: 16px;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					.list {
-						margin-right: 12px;
-					}
-					span {
-						display: inline-block;
-						font-size: 33px;
-						font-weight: 900;
-						background: linear-gradient(
-							180deg,
-							rgba(255, 229, 169, 1) 20%,
-							rgba(250, 182, 23, 1) 85%
-						);
-						background-clip: text;
-						color: transparent;
-						margin-right: 6px;
-					}
-				}
-				a,
-				button {
-					&.btn {
-						&-bet {
-							display: flex;
-							align-items: center;
-							justify-content: center;
-							font-size: 20px;
-							font-weight: 900;
-							border-radius: 50px;
-							outline: 1px solid $white;
-							box-shadow: 0 0 24px 0 #fbb513;
-							background: $red;
-							padding: 16px 50px;
-						}
-					}
-					&:hover {
-						filter: brightness(1.05);
-						transition: 0.3s;
-					}
-				}
-			}
-			//榜單
-			.board {
-				background: $bgblue;
-				border-radius: 40px 40px 20px 20px;
-				padding: 20px 30px 40px;
-				box-sizing: border-box;
-				//排行榜標題+下拉選單
-				&-top {
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-					margin-bottom: 12px;
-					padding: 0 20px;
-					box-sizing: border-box;
-					.title {
-						font-size: 48px;
-						font-weight: 900;
-						color: $white;
-						text-shadow: 0 0 30px rgba(250, 182, 23, 0.5);
-					}
-					//年份與月份的select下拉選單
-					.select {
-						&-period {
-							display: flex;
-							justify-content: center;
-							align-items: center;
-						}
-						&-years,
-						&-month {
-							color: $white;
-							font-size: 16px;
-							font-weight: 600;
-							position: relative;
-							.option {
-								&-menu {
-									width: 140px;
-									position: absolute;
-									top: 60px;
-									left: 0;
-									border-radius: 10px;
-									border: 1px solid $white;
-									background: $bgblue;
-									padding: 10px;
-									box-sizing: border-box;
-									z-index: 3;
-								}
-								&-list {
-									padding: 6px 8px;
-									box-sizing: border-box;
-									position: relative;
-									word-break: break-all;
-									&:hover {
-										cursor: pointer;
-										background: $secondary;
-										border-radius: 5px;
-										transition: 0.2s;
-									}
-								}
-							}
-						}
-						&-month {
-							.select {
-								&-btn {
-									margin-right: unset;
-								}
-							}
-						}
-						//div select寫法
-						&-btn {
-							width: 140px;
-							border-radius: 10px;
-							border: 1px solid $white;
-							background: $bgblue;
-							padding: 12px;
-							position: relative;
-							margin-right: 10px;
-							box-sizing: border-box;
-							&:hover {
-								cursor: pointer;
-							}
-							&.active {
-								&::after {
-									transform: translateY(-50%) rotate(180deg);
-									transition: 0.3s;
-								}
-							}
-							&::after {
-								content: "";
-								display: flex;
-								justify-content: center;
-								align-items: center;
-								background: url(https://banner.goal123.org/desktop/img/leaderboard/icon-select-arrow.svg)
-									no-repeat center / cover;
-								width: 30px;
-								height: 30px;
-								position: absolute;
-								right: 5px;
-								top: 50%;
-								transform: translateY(-50%);
-							}
-							//直接select寫法
-							// select {
-							//   font-size: 18px;
-							//   font-weight: 600;
-							//   font-family: "Montserrat", sans-serif;
-							//   padding: 15px 0;
-							//   width: 150px;
-							//   border-radius: 10px;
-							//   background: $bgblue;
-							//   color: $white;
-							//   &:focus-visible {
-							//     outline: unset;
-							//   }
-							//   // arrow
-							//   appearance: none;
-							//   // position: relative;
-							//   background: url(https://banner.goal123.org/desktop/img/leaderboard/icon-select-arrow.svg) no-repeat right / 30px 30px;
+  .leaderboard {
+    &-banner {
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 728px;
+      img {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &-wrapper {
+      background: linear-gradient(0deg, rgba(250,182,23,1) 10%, rgba(255,255,255,1) 30%, rgba(255,255,255,1) 80%, rgba(250,182,23,1) 100%);
+      border-radius: 75px 75px 0 0;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: -73px auto 0;
+      width: 100%;
+    }
+    //排行榜獎金公告
+    &-reward {
+      display: flex;
+      flex-direction: column;
+      margin-top: -55px;
+      min-width: 1400px;
+      .reward {
+        &-top {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 24px;
+          .item {
+            border-radius: 20px;
+            width: 380px;
+            height: 208px;
+            background: url(https://banner.goal123.org/desktop/img/leaderboard/reward-bg.jpg) no-repeat center / cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 20px;
+            &:first-child {
+              margin-left: unset;
+            }
+            &:last-child {
+              margin-right: unset;
+            }
+            img {
+              width: 160px;
+              margin-right: 14px;
 
-							//   option {
-							//     background: $bgblue;
-							//     margin-bottom: 2px;
-							//     border-radius: 10px;
-							//   }
-							// }
-						}
-					}
-				}
-				//排行榜
-				.winner {
-					&-total {
-						overflow: hidden;
-						.user {
-							//排行榜列表分類標題
-							&-thead {
-								display: flex;
-								justify-content: space-between;
-								align-items: center;
-								background: #1e2f4d;
-								padding: 16px 60px 16px 16px;
-								border-radius: 10px 10px 0 0;
-								margin-bottom: 10px;
-								box-sizing: border-box;
-								span {
-									display: inline-block;
-									text-align: center;
-									color: $white;
-									font-size: 22px;
-									font-weight: 700;
-									&:last-child {
-										margin-left: 0px;
-									}
-								}
-								.left {
-									display: flex;
-									align-items: center;
-									span {
-										flex: 0 0 170px;
-										&:last-child {
-											flex: 0 0 250px;
-										}
-									}
-								}
-								.right {
-									span {
-										width: 110px;
-										text-align: right;
-									}
-								}
-							}
-							//排行榜列表區塊
-							&-ranking {
-								max-height: 580px;
-								overflow-y: scroll;
-							}
-							&-list {
-								background: rgba($secondary, 0.8);
-								display: flex;
-								flex-direction: row;
-								justify-content: space-between;
-								align-items: center;
-								border-radius: 10px;
-								padding: 16px 50px 16px 24px;
-								margin-bottom: 6px;
-								box-sizing: border-box;
-								&.top {
-									background: linear-gradient(
-										90deg,
-										rgba(207, 0, 0, 1) 0%,
-										rgba(251, 181, 19, 1) 100%
-									);
-									padding: 8px 50px 8px 24px;
-								}
-								.left {
-									display: flex;
-									flex-direction: row;
-									align-items: center;
-									.order {
-										width: 160px;
-										display: flex;
-										justify-content: center;
-										font-size: 30px;
-										font-weight: 800;
-										color: #fff;
-										text-shadow: -2px 2px 3px
-											rgba(0, 0, 0, 0.4);
-										> img {
-											width: 125px;
-											margin-left: 10px;
-										}
-									}
-								}
-								.right {
-									display: flex;
-									align-items: center;
-									justify-content: center;
-									.icon {
-										&-cash {
-											&::after {
-												content: "";
-												display: flex;
-												align-items: center;
-												justify-content: center;
-												width: 32px;
-												height: 32px;
-												background: url(https://banner.goal123.org/desktop/img/leaderboard/money.png)
-													no-repeat center / contain;
-												margin-right: 6px;
-											}
-										}
-									}
-									span {
-										display: inline-block;
-										font-size: 22px;
-										font-weight: 700;
-										color: #fff;
-										text-shadow: 0 2px 5px
-											rgba(0, 0, 0, 0.25);
-									}
-								}
-							}
-							//用戶id
-							&-id {
-								color: #fff;
-								font-weight: 700;
-								font-size: 20px;
-								margin-left: 70px;
-							}
-							//會員登入後,用戶的資訊
-							&-themselves {
-								background: #e17641;
-								display: flex;
-								align-items: center;
-								justify-content: space-between;
-								padding: 16px 40px 16px 24px;
-								margin-top: -15px;
-								border-radius: 20px 20px 5px 5px;
-								box-sizing: border-box;
-								position: relative;
-								z-index: 1;
-								box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
-								.icon {
-									&-arrow {
-										clip-path: polygon(
-											100% 49%,
-											0 0,
-											0 100%
-										);
-										display: block;
-										width: 24px;
-										height: 38px;
-										border-radius: 3px;
-										background: linear-gradient(
-											180deg,
-											rgba(255, 229, 169, 1) 20%,
-											rgba(250, 182, 23, 1) 85%
-										);
-									}
-								}
-								.left {
-									display: flex;
-									flex-direction: row;
-									align-items: center;
-									.user {
-										&-id {
-											margin-left: 80px;
-											font-style: italic;
-										}
-									}
-									.order {
-										width: 120px;
-										display: flex;
-										justify-content: center;
-										align-items: center;
-										font-size: 30px;
-										font-weight: 800;
-										color: #fff;
-										text-shadow: -2px 2px 3px
-											rgba(0, 0, 0, 0.4);
-									}
-								}
-								.right {
-									display: flex;
-									align-items: center;
-									.icon {
-										&-cash {
-											&::after {
-												content: "";
-												display: flex;
-												align-items: center;
-												justify-content: center;
-												width: 32px;
-												height: 32px;
-												background: url(https://banner.goal123.org/desktop/img/leaderboard/money.png)
-													no-repeat center / contain;
-												margin-right: 6px;
-											}
-										}
-									}
-									span {
-										display: inline-block;
-										font-size: 22px;
-										font-weight: 700;
-										color: #fff;
-										text-shadow: 0 2px 5px
-											rgba(0, 0, 0, 0.25);
-									}
-								}
-								//如果user-moneyinfo功能有做出來的話
-								&-info {
-									display: flex;
-									flex-direction: column;
-									.user {
-										&-moneyinfo {
-											color: $white;
-											font-weight: 600;
-											font-size: 18px;
-											margin-left: 100px;
-											span {
-												display: inline-block;
-												background: linear-gradient(
-													180deg,
-													rgba(255, 229, 169, 1) 20%,
-													rgba(250, 182, 23, 1) 85%
-												);
-												background-clip: text;
-												color: transparent;
-												font-weight: 800;
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				//刷新文案區
-				&-refresh {
-					color: $white;
-					text-align: center;
-					margin-top: 30px;
-					font-size: 16px;
-					span {
-						color: rgba(250, 182, 23, 1);
-						font-weight: 600;
-					}
-				}
-			}
-		}
+            }
+            .text {
+              display: flex;
+              flex-direction: column;
+              // justify-content: space-between;
+              align-items: center;
+              box-sizing: border-box;
+              > div {
+                margin-bottom: 10px;
+              }
+              &-ranking {
+                font-size: 26px;
+                font-weight: 800;
+                color: #fff;
+                background: #141F33;
+                border-radius: 4px 4px 10px 10px;
+                padding: 12px 24px;
+                margin-top: -40px;
+              }
+              .data {
+                &-number {
+                  background: linear-gradient(0deg, rgba(251,130,19,1) 10%, rgba(251,181,19,1) 30%, rgba(255,255,255,1) 50%, rgba(251,181,19,1) 70%, rgba(251,130,19,1) 90%);
+                  background: -wrbkit-linear-gradient(0deg, rgba(251,130,19,1) 10%, rgba(251,181,19,1) 30%, rgba(255,255,255,1) 50%, rgba(251,181,19,1) 70%, rgba(251,130,19,1) 90%);
+                  background-clip: text;
+                  -webkit-background-clip: text;
+                  color: transparent;
+                  font-size: 58px;
+                  font-weight: 900;
+                  // text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+                }
+              }
+              &-unit {
+                color: #fff;
+                font-weight: 900;
+                font-size: 20px;
+              }
+            }
+          }
+        }
+        &-bottom {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .item {
+            background: linear-gradient(176deg, rgba(48,89,164,1) 9%, rgba(20,31,51,1) 87%);
+            width: 210px;
+            height: 225px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 20px;
+            &:first-child {
+              margin-left: unset;
+            }
+            &:last-child {
+              margin-right: unset;
+            }
+            .text {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              > div {
+                margin-bottom: 10px;
+              }
+              &-ranking {
+                font-size: 22px;
+                font-weight: 800;
+                color: #fff;
+                background: #141F33;
+                border-radius: 4px 4px 10px 10px;
+                padding: 16px 26px;
+                margin-top: -30px;
+              }
+              .data {
+                &-number {
+                  background: linear-gradient(0deg, rgba(251,130,19,1) 10%, rgba(251,181,19,1) 30%, rgba(255,255,255,1) 50%, rgba(251,181,19,1) 70%, rgba(251,130,19,1) 90%);
+                  background: -wrbkit-linear-gradient(0deg, rgba(251,130,19,1) 10%, rgba(251,181,19,1) 30%, rgba(255,255,255,1) 50%, rgba(251,181,19,1) 70%, rgba(251,130,19,1) 90%);
+                  background-clip: text;
+                  -webkit-background-clip: text;
+                  color: transparent;
+                  font-size: 55px;
+                  font-weight: 900;
+                  margin-top: 10px;
+                }
+              }
+              &-unit {
+                color: #fff;
+                font-weight: 900;
+                font-size: 20px;
+                margin-top: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+    //總排行榜區塊
+    &-ranking {
+      background: #1E2F4D;
+      border-radius: 50px 50px 30px 30px;
+      margin: 40px 0 100px;
+      min-width: 1320px;
+      //倒數計時
+      .countdown {
+        padding: 30px 50px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-item {
+          .title {
+            color: #CFCFCF;
+            font-weight: 700;
+            font-size: 16px;
+          }
+        }
+        &-time {
+          color: #CFCFCF;
+          font-weight: 700;
+          font-size: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .list {
+            margin-right: 12px;
+          }
+          span {
+            display: inline-block;
+            font-size: 33px;
+            font-weight: 900;
+            background: linear-gradient(180deg, rgba(255,229,169,1) 20%, rgba(250,182,23,1) 85%);
+            background-clip: text;
+            color: transparent;
+            margin-right: 6px;
+          }
+        }
+        a, button {
+          &.btn {
+            &-bet {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 20px;
+              font-weight: 900;
+              border-radius: 50px;
+              outline: 1px solid $white;
+              box-shadow: 0 0 24px 0 #FBB513;
+              background: $red;
+              padding: 16px 50px;
+            }
+          }
+          &:hover {
+            filter: brightness(1.05);
+            transition: .3s;
+          }
+        }
+      }
+      //榜單
+      .board {
+        background: $bgblue;
+        border-radius: 40px 40px 20px 20px;
+        padding: 20px 30px 40px;
+        box-sizing: border-box;
+        //排行榜標題+下拉選單
+        &-top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 12px;
+          padding: 0 20px;
+          box-sizing: border-box;
+          .title {
+            font-size: 48px;
+            font-weight: 900;
+            color: $white;
+            text-shadow: 0 0 30px rgba( 250, 182, 23, 0.5);
+          }
+          //年份與月份的select下拉選單
+          .select {
+            &-period {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            &-years, &-month {
+              color: $white;
+              font-size: 16px;
+              font-weight: 600;
+              position: relative;
+              .option {
+                &-menu {
+                  width: 140px;
+                  position: absolute;
+                  top: 60px;
+                  left: 0;
+                  border-radius: 10px;
+                  border: 1px solid $white;
+                  background: $bgblue;
+                  padding: 10px;
+                  box-sizing: border-box;
+                  z-index: 3;
+                }
+                &-list {
+                  padding: 6px 8px;
+                  box-sizing: border-box;
+                  position: relative;
+                  word-break: break-all;
+                  &:hover {
+                    cursor: pointer;
+                    background: $secondary;
+                    border-radius: 5px;
+                    transition: .2s;
+                  }
+                }
+              }
+            }
+            &-month {
+              .select {
+                &-btn {
+                  margin-right: unset;
+                }
+              }
+            }
+            //div select寫法
+            &-btn{
+              width: 140px;
+              border-radius: 10px;
+              border: 1px solid $white;
+              background: $bgblue;
+              padding: 12px;
+              position: relative;
+              margin-right: 10px;
+              box-sizing: border-box;
+              &:hover {
+                cursor: pointer;
+              }
+              &.active {
+                &::after {
+                  transform: translateY(-50%) rotate(180deg);
+                  transition: .3s;  
+                }
+              }
+              &::after {
+                content: "";
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: url(https://banner.goal123.org/desktop/img/leaderboard/icon-select-arrow.svg) no-repeat center / cover;
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                right: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+              //直接select寫法
+              // select {
+              //   font-size: 18px;
+              //   font-weight: 600;
+              //   font-family: "Montserrat", sans-serif;
+              //   padding: 15px 0;
+              //   width: 150px;
+              //   border-radius: 10px;
+              //   background: $bgblue;
+              //   color: $white;
+              //   &:focus-visible {
+              //     outline: unset;
+              //   }
+              //   // arrow 
+              //   appearance: none;
+              //   // position: relative;
+              //   background: url(https://banner.goal123.org/desktop/img/leaderboard/icon-select-arrow.svg) no-repeat right / 30px 30px;
+                
+              //   option {
+              //     background: $bgblue;
+              //     margin-bottom: 2px;
+              //     border-radius: 10px;
+              //   }
+              // }
+            }
+          }
+        }
+        //排行榜
+        .winner {
+          &-total {
+          overflow: hidden;
+          .user {
+              //排行榜列表分類標題
+              &-thead {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: #1E2F4D;
+                padding: 16px 60px 16px 16px;
+                border-radius: 10px 10px 0 0;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+                span {
+                  display: inline-block;
+                  text-align: center;
+                  color: $white;
+                  font-size: 22px;
+                  font-weight: 700;
+                  &:last-child {
+                    margin-left: 0px;
+                  }
+                }
+                .left {
+                  display: flex;
+                  align-items: center;
+                  span {
+                    flex: 0 0 170px;
+                    &:last-child {
+                      flex: 0 0 250px;
+                    }
+                  }
+                }
+                .right {
+                  span {
+                    width: 110px;
+                    text-align: right;
+                  }
+                }
+              }
+              //排行榜列表區塊
+              &-ranking {
+                max-height: 580px;
+                overflow-y: scroll;
+              }
+              &-list {
+                background: rgba($secondary, 0.8);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                border-radius: 10px;
+                padding: 16px 50px 16px 24px;
+                margin-bottom: 6px;
+                box-sizing: border-box;
+                &.top {
+                  background: linear-gradient(90deg, rgba(207,0,0,1) 0%, rgba(251,181,19,1) 100%);
+                  padding: 8px 50px 8px 24px;
+                }
+                .left {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  .order {
+                    width: 160px;
+                    display: flex;
+                    justify-content: center;
+                    font-size: 30px;
+                    font-weight: 800;
+                    color: #fff;
+                    text-shadow: -2px 2px 3px rgba( 0, 0, 0, 0.4);
+                    > img {
+                      width: 125px;
+                      margin-left: 10px;
+                    }
+                  }
+                }
+                .right {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  .icon {
+                    &-cash {
+                      &::after {
+                        content: "";
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 32px;
+                        height: 32px;
+                        background: url(https://banner.goal123.org/desktop/img/leaderboard/money.png) no-repeat center / contain;
+                        margin-right: 6px;
+                      }
+                    }
+                  }
+                  span {
+                    display: inline-block;
+                    font-size: 22px;
+                    font-weight: 700;
+                    color: #fff;
+                    text-shadow: 0 2px 5px rgba( 0, 0, 0, 0.25);
+                  }
+                }
+              }
+              //用戶id
+              &-id {
+                color: #fff;
+                font-weight: 700;
+                font-size: 20px;
+                margin-left: 70px;
+              }
+              //會員登入後,用戶的資訊
+              &-themselves {
+                background: #E17641;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px 40px 16px 24px;
+                margin-top: -15px;
+                border-radius: 20px 20px 5px 5px;
+                box-sizing: border-box;
+                position: relative;
+                z-index: 1;
+                box-shadow: 0 0 10px 0 rgba( 0, 0, 0, 0.25);
+                .icon {
+                  &-arrow {
+                    clip-path: polygon(100% 49%, 0 0, 0 100%);
+                    display: block;
+                    width: 24px;
+                    height: 38px;
+                    border-radius: 3px;
+                    background: linear-gradient(180deg, rgba(255,229,169,1) 20%, rgba(250,182,23,1) 85%);
+                  }
+                }
+                .left {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  .user {
+                    &-id {
+                      margin-left: 80px;
+                      font-style: italic;
+                    }
+                  }
+                  .order {
+                    width: 120px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 30px;
+                    font-weight: 800;
+                    color: #fff;
+                    text-shadow: -2px 2px 3px rgba( 0, 0, 0, 0.4);
+                  }
+                }
+                .right {
+                  display: flex;
+                  align-items: center;
+                  .icon {
+                    &-cash {
+                      &::after {
+                        content: "";
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 32px;
+                        height: 32px;
+                        background: url(https://banner.goal123.org/desktop/img/leaderboard/money.png) no-repeat center / contain;
+                        margin-right: 6px;
+                      }
+                    }
+                  }
+                  span {
+                    display: inline-block;
+                    font-size: 22px;
+                    font-weight: 700;
+                    color: #fff;
+                    text-shadow: 0 2px 5px rgba( 0, 0, 0, 0.25);
+                  }
+                }
+                //如果user-moneyinfo功能有做出來的話
+                &-info {
+                  display: flex;
+                  flex-direction: column;
+                  .user {
+                    &-moneyinfo {
+                      color: $white;
+                      font-weight: 600;
+                      font-size: 18px;
+                      margin-left: 100px;
+                      span {
+                        display: inline-block;
+                        background: linear-gradient(180deg, rgba(255,229,169,1) 20%, rgba(250,182,23,1) 85%);
+                        background-clip: text;
+                        color: transparent;
+                        font-weight: 800;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        //刷新文案區
+        &-refresh {
+          color: $white;
+          text-align: center;
+          margin-top: 30px;
+          font-size: 16px;
+          span {
+            color: rgba(250,182,23,1);
+            font-weight: 600;
+          }
+        }
+      }
+    }
 
 		//COVERSION + T&C 機制與規則
 		&-info {
