@@ -253,7 +253,8 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 		) {
 			const success = await setClaimPromotionForUploadCustList(
 				langId,
-				bonusCode
+				bonusCode,
+				maxAmount
 			);
 			if (success) callBack();
 		} else {
