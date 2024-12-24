@@ -33,7 +33,6 @@ export default () => {
 		isMountedRef,
 		errorPopBox
 	});
-
 	const {
 		specialCode,
 		setSpecialCode,
@@ -47,7 +46,6 @@ export default () => {
 		isMountedRef,
 		errorPopBox
 	});
-
 	const onSetPromotionType = type => {
 		if (type === defFilterType.specialBonus && userInfo.isLogin) {
 			getSpecialPromotionList();
@@ -137,7 +135,8 @@ export default () => {
 	const promotionStaticRows = staticList.map(p => {
 		return (
 			<div
-				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
+				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
+			>
 				<img
 					src={p.imgUrl?.[userInfo.langId]}
 					alt={p.title?.[userInfo.langId] ?? "static promotions"}
@@ -161,7 +160,8 @@ export default () => {
 						url: p.bannerLink?.[userInfo.langId],
 						bonusCode: p.bonusCode
 					})}
-					className="btnGroup">
+					className="btnGroup"
+				>
 					<button className="blueBorder">{t("lbl_Details")}</button>
 				</div>
 			</div>

@@ -40,7 +40,6 @@ const PromotionList = ({
 			clickMoreInfo(userInfo.langId, urlBonusCode);
 		}
 	}, []);
-
 	const rows = promoList?.map(p => {
 		const _isClaimed = isClaimed(p);
 		const _isNew = _isClaimed ? false : isNew(p);
