@@ -172,8 +172,9 @@ const PromotionInfo = ({
 						</div>
 					</div>
 					<div className="btnGroup">
-						{promotionInfo.promotionType ===
-						defPromotionType.other ? (
+						{!promotionInfo.canJoin &&
+						promotionInfo.promotionType ===
+							defPromotionType.other ? (
 							<button className="red" onClick={openLiveChat}>
 								{t("lbl_Promotion_ApplyNow")}
 							</button>
@@ -190,6 +191,7 @@ const PromotionInfo = ({
 								}
 							/>
 						)}
+
 						{showAllPromosBtn && (
 							<Link
 								className="btn-check"

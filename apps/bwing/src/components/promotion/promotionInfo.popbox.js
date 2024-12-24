@@ -142,13 +142,11 @@ const PromotionInfo = ({
 	showAllPromosBtn = false,
 	closePromoPopBox
 }) => {
+	const { t } = useTranslation();
+	const { userInfo } = useContext(userInfoContext);
 	const { promoBox } = useContext(promoPopBox);
 	const filterType = Number(getUrlParameter("FilterType"));
 	const isSpecialType = filterType === defFilterType.specialBonus;
-
-	const { t } = useTranslation();
-
-	const { userInfo } = useContext(userInfoContext);
 
 	const _currency = t(`Currency_${userInfo.currencyId}`);
 
@@ -177,8 +175,9 @@ const PromotionInfo = ({
 						</div>
 					</div>
 					<div className="btn-group">
-						{promotionInfo.promotionType ===
-						defPromotionType.other ? (
+						{!promotionInfo.canJoin &&
+						promotionInfo.promotionType ===
+							defPromotionType.other ? (
 							<button
 								className="btn-primary"
 								onClick={openLiveChat}
